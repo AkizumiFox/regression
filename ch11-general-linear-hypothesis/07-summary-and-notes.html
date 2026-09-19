@@ -1,0 +1,428 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11.7 Summary and notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch11-general-linear-hypothesis/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Testable hypotheses.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch11-general-linear-hypothesis/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch11-general-linear-hypothesis/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="11.7 Summary and notes">
+        <meta property="og:description" content="Testable hypotheses.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=80e681a81e">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch11-general-linear-hypothesis/index.html">Testing Models: The General Linear Hypothesis</a></li>
+                        <li class="breadcrumb-item"><a href="../ch11-general-linear-hypothesis/07-summary-and-notes.html"><span class="chapter-number">11.7</span>  <span class="chapter-title">Summary and notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">11.7</span>  
+                            <span class="chapter-title">Summary and
+notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">11.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A linear hypothesis says that the mean vector
+                lies in a subspace <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathcal{C}(\boldsymbol{X}_0)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><msub><mi mathvariant="bold-italic">X</mi><mn>0</mn></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> of the model
+                space. Its <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span>
+                statistic compares the extra sum of squares <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lVert (\boldsymbol{M}-\boldsymbol{M}_0)\boldsymbol{y}\rVert^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D474 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D474 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.077em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D49A TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">‖</mo><mo stretchy="false">(</mo><mi mathvariant="bold-italic">M</mi><mo>−</mo><msub><mi mathvariant="bold-italic">M</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mi mathvariant="bold-italic">y</mi><msup><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">‖</mo><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>, per
+                dimension of the test space, with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="s^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>s</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>. Under normal errors
+                it is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F(r-r_0,n-r,\gamma)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi><mo stretchy="false">(</mo><mi>r</mi><mo>−</mo><msub><mi>r</mi><mn>0</mn></msub><mo>,</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo>,</mo><mi>γ</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>,
+                central under the hypothesis, with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\gamma"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>γ</mi></math></mjx-assistive-mml></mjx-container></span> the squared
+                distance from the mean to the reduced model in units of
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch11-general-linear-hypothesis/01-reduced-models.html#def-glh-reduced-model" class="xref" data-ref="def-glh-reduced-model" data-shard="ch11-general-linear-hypothesis">Definition 11.1.1</a>,
+                <a href="../ch11-general-linear-hypothesis/01-reduced-models.html#thm-glh-f-test" class="xref" data-ref="thm-glh-f-test" data-shard="ch11-general-linear-hypothesis">Theorem 11.1.1</a>,
+                <a href="../ch11-general-linear-hypothesis/01-reduced-models.html#prp-glh-p-value" class="xref" data-ref="prp-glh-p-value" data-shard="ch11-general-linear-hypothesis">Proposition 11.1.2</a>).</p></li>
+                <li><p>Geometrically, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> is a function of the
+                angle between the reduced model’s residual vector and
+                the test space. The rejection region is a cone, the
+                statistic is invariant under shifts within the reduced
+                model, rescaling and rotations of the test and residual
+                spaces, and in canonical coordinates every hypothesis is
+                a test that a <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="q"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>q</mi></math></mjx-assistive-mml></mjx-container></span>-dimensional normal mean
+                is zero. The null distribution holds for every
+                spherically symmetric error law (<a href="../ch11-general-linear-hypothesis/02-comparing-projections.html#prp-glh-angle" class="xref" data-ref="prp-glh-angle" data-shard="ch11-general-linear-hypothesis">Proposition 11.2.1</a>,
+                <a href="../ch11-general-linear-hypothesis/02-comparing-projections.html#prp-glh-invariance" class="xref" data-ref="prp-glh-invariance" data-shard="ch11-general-linear-hypothesis">Proposition 11.2.2</a>,
+                <a href="../ch11-general-linear-hypothesis/02-comparing-projections.html#prp-glh-canonical" class="xref" data-ref="prp-glh-canonical" data-shard="ch11-general-linear-hypothesis">Proposition 11.2.3</a>,
+                <a href="../ch11-general-linear-hypothesis/02-comparing-projections.html#prp-glh-spherical" class="xref" data-ref="prp-glh-spherical" data-shard="ch11-general-linear-hypothesis">Proposition 11.2.4</a>).</p></li>
+                <li><p>A constraint <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\Lambda}^{\top}\boldsymbol{\beta}=\bm d"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="4"><mjx-c class="mjx-c1D485 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold">Λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">β</mi><mo>=</mo><mi mathvariant="bold-italic">d</mi></math></mjx-assistive-mml></mjx-container></span> is
+                a hypothesis about the data only if it is estimable and
+                consistent. Nonestimable constraints cannot be tested at
+                all. For a testable hypothesis, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(\boldsymbol{\Lambda}^{\top}\hat{\boldsymbol{\beta}}-\bm
+                d)^{\top}[\boldsymbol{\Lambda}^{\top}(\boldsymbol{X}^{\top}\boldsymbol{X})^{-}\boldsymbol{\Lambda}]^{-}(\boldsymbol{\Lambda}^{\top}\hat{\boldsymbol{\beta}}-\bm
+                d)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.426em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="3"><mjx-c class="mjx-c1D485 TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.426em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="3"><mjx-c class="mjx-c1D485 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><msup><mi mathvariant="bold">Λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold-italic">β</mi><mo stretchy="false">^</mo></mover></mrow><mo>−</mo><mi mathvariant="bold-italic">d</mi><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">[</mo><msup><mi mathvariant="bold">Λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">X</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">X</mi><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msup><mi mathvariant="bold">Λ</mi><msup><mo stretchy="false">]</mo><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msup><mo stretchy="false">(</mo><msup><mi mathvariant="bold">Λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold-italic">β</mi><mo stretchy="false">^</mo></mover></mrow><mo>−</mo><mi mathvariant="bold-italic">d</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> is the extra sum of squares of the reduced
+                model with offset <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{X}\boldsymbol{b}_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D483 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">X</mi><msub><mi mathvariant="bold-italic">b</mi><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span>, whatever the
+                rank of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{X}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">X</mi></math></mjx-assistive-mml></mjx-container></span> or <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\Lambda}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">Λ</mi></math></mjx-assistive-mml></mjx-container></span>, and restricted
+                least squares has a closed form through any generalized
+                inverse (<a href="../ch11-general-linear-hypothesis/03-testable-hypotheses.html#def-glh-testable" class="xref" data-ref="def-glh-testable" data-shard="ch11-general-linear-hypothesis">Definition 11.3.1</a>,
+                <a href="../ch11-general-linear-hypothesis/03-testable-hypotheses.html#prp-glh-nonestimable" class="xref" data-ref="prp-glh-nonestimable" data-shard="ch11-general-linear-hypothesis">Proposition 11.3.1</a>,
+                <a href="../ch11-general-linear-hypothesis/03-testable-hypotheses.html#thm-glh-general-f" class="xref" data-ref="thm-glh-general-f" data-shard="ch11-general-linear-hypothesis">Theorem 11.3.2</a>,
+                <a href="../ch11-general-linear-hypothesis/03-testable-hypotheses.html#prp-glh-restricted-ls" class="xref" data-ref="prp-glh-restricted-ls" data-shard="ch11-general-linear-hypothesis">Proposition 11.3.3</a>).</p></li>
+                <li><p>The <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test
+                is the likelihood ratio test. The Wald, likelihood ratio
+                and score statistics are <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="nu"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mi>u</mi></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n\log(1+u)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>u</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="nu/(1+u)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mi>u</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>u</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="u=qF/(n-r)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>u</mi><mo>=</mo><mi>q</mi><mi>F</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, so they
+                always satisfy Wald <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex=">"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&gt;</mo></math></mjx-assistive-mml></mjx-container></span> LR <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex=">"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>&gt;</mo></math></mjx-assistive-mml></mjx-container></span> Score. Calibrated by
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\chi^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>, they
+                disagree and have inflated sizes in small samples (<a href="../ch11-general-linear-hypothesis/04-likelihood-ratio.html#thm-glh-lrt" class="xref" data-ref="thm-glh-lrt" data-shard="ch11-general-linear-hypothesis">Theorem 11.4.1</a>,
+                <a href="../ch11-general-linear-hypothesis/04-likelihood-ratio.html#prp-glh-trinity" class="xref" data-ref="prp-glh-trinity" data-shard="ch11-general-linear-hypothesis">Proposition 11.4.2</a>).</p></li>
+                <li><p>The noncentral <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> family has monotone
+                likelihood ratio, and every test invariant under the
+                symmetries of the problem is a function of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span>. Hence the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test is uniformly most
+                powerful among invariant tests (<a href="../ch11-general-linear-hypothesis/04-likelihood-ratio.html#lem-glh-mlr" class="xref" data-ref="lem-glh-mlr" data-shard="ch11-general-linear-hypothesis">Lemma 11.4.3</a>,
+                <a href="../ch11-general-linear-hypothesis/04-likelihood-ratio.html#thm-glh-ump-invariant" class="xref" data-ref="thm-glh-ump-invariant" data-shard="ch11-general-linear-hypothesis">Theorem 11.4.4</a>).</p></li>
+                <li><p>Power depends only on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\gamma"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>γ</mi></math></mjx-assistive-mml></mjx-container></span>, increases with
+                it, and grows with replication. In the one-way layout
+                the least favourable configuration for a given range
+                puts two means at the extremes and the rest at the
+                midpoint. Observed power is a function of the p-value
+                and adds nothing to it (<a href="../ch11-general-linear-hypothesis/05-power.html#thm-glh-power" class="xref" data-ref="thm-glh-power" data-shard="ch11-general-linear-hypothesis">Theorem 11.5.1</a>,
+                <a href="../ch11-general-linear-hypothesis/05-power.html#prp-glh-least-favourable" class="xref" data-ref="prp-glh-least-favourable" data-shard="ch11-general-linear-hypothesis">Proposition 11.5.2</a>,
+                <a href="../ch11-general-linear-hypothesis/05-power.html#prp-glh-observed-power" class="xref" data-ref="prp-glh-observed-power" data-shard="ch11-general-linear-hypothesis">Proposition 11.5.3</a>).</p></li>
+                <li><p>For one estimable function the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test is the two-sided
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> test, and the
+                one-sided version has exact size for one-sided
+                hypotheses. A group statistic <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="qF"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>q</mi><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> is the largest squared
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> statistic over
+                all combinations in the group, which explains why group
+                and individual tests can disagree in both directions (<a href="../ch11-general-linear-hypothesis/06-coefficients.html#thm-glh-t-test" class="xref" data-ref="thm-glh-t-test" data-shard="ch11-general-linear-hypothesis">Theorem 11.6.1</a>,
+                <a href="../ch11-general-linear-hypothesis/06-coefficients.html#prp-glh-max-t" class="xref" data-ref="prp-glh-max-t" data-shard="ch11-general-linear-hypothesis">Proposition 11.6.2</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">11.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>Origins.</strong> The ratio of mean squares
+                as a test statistic is Fisher’s. It grew out of his
+                analysis of variance in the early 1920s, and Fisher
+                (1925) tabulated it on the logarithmic scale, as <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="z=\tfrac12\log F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mstyle space="4"><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mi class="mjx-n"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>z</mi><mo>=</mo><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>F</mi></math></mjx-assistive-mml></mjx-container></span>.
+                Snedecor (1934) introduced the letter <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> in Fisher’s honour and
+                published tables of the ratio itself. The exact <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> distribution of a
+                regression coefficient, with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n-p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>−</mo><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> degrees of freedom,
+                is also due to Fisher (1922). The geometry of <a href="02-comparing-projections.html">Section 11.2</a>
+                follows the coordinate-free tradition described in the
+                notes to <a href="../ch06-projections/index.html">Chapter 6</a>.
+                Christensen (2020, chapter 3) develops testing entirely
+                in that language, with test spaces, offsets and
+                nonestimable constraints. Rencher and Schaalje (2008,
+                chapters 8 and 12) and Seber and Lee (2003, chapter 4)
+                give the matrix treatment for full-rank and
+                rank-deficient models, including the canonical
+                elimination of <a href="../ch11-general-linear-hypothesis/03-testable-hypotheses.html#exr-glh-eliminate" class="xref" data-ref="exr-glh-eliminate" data-shard="ch11-general-linear-hypothesis">Exercise (C2)</a>.
+                Sen and Srivastava (1990, chapter 3) and Agresti (2015,
+                sections 3.1–3.2) emphasize applied examples. Note that
+                Rencher and Schaalje and Christensen define the
+                noncentrality as half of our <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\gamma"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>γ</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch04-quadratic-forms/01-noncentral.html">Section
+                4.1</a>).</p>
+                <p><strong>Testable hypotheses.</strong> The insistence
+                that only estimable functions can be tested goes back at
+                least to Searle (1971), whose treatment of “testable
+                hypotheses” in models not of full rank is the standard
+                reference; <a href="../ch11-general-linear-hypothesis/03-testable-hypotheses.html#prp-glh-nonestimable" class="xref" data-ref="prp-glh-nonestimable" data-shard="ch11-general-linear-hypothesis">Proposition 11.3.1</a>
+                is a minimal version of his argument. Christensen (2020,
+                section 3.3) shows how a nonestimable constraint reduces
+                to its estimable part, which in our treatment is <a href="../ch09-sums-of-squares/02-extra-sums.html#prp-ss-effective-df" class="xref" data-ref="prp-ss-effective-df" data-shard="ch09-sums-of-squares">Proposition 9.2.6</a>.</p>
+                <p><strong>Likelihood ratio, Wald and score.</strong>
+                Neyman and Pearson (1933) introduced the most powerful
+                test and the likelihood ratio principle for composite
+                hypotheses. The large-sample <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\chi^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> calibration of the
+                likelihood ratio is due to Wilks (1938), the Wald
+                statistic to Wald (1943), and the score statistic to Rao
+                (1948). The inequality Wald <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\ge"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2265"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≥</mo></math></mjx-assistive-mml></mjx-container></span> LR <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\ge"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2265"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>≥</mo></math></mjx-assistive-mml></mjx-container></span> score for linear
+                restrictions in normal regression, and the resulting
+                possibility of conflicting verdicts, were pointed out by
+                Berndt and Savin (1977) and discussed further by Breusch
+                (1979). The “<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="nR^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D445 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><msup><mi>R</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>”
+                form of the score test in <a href="../ch11-general-linear-hypothesis/04-likelihood-ratio.html#exr-glh-nr2" class="xref" data-ref="exr-glh-nr2" data-shard="ch11-general-linear-hypothesis">Exercise (B2)</a>
+                is widely used in econometrics.</p>
+                <p><strong>Invariance.</strong> Lehmann and Romano
+                (2005) develop the theory of invariant tests and prove
+                that the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test is
+                uniformly most powerful invariant; <a href="../ch11-general-linear-hypothesis/04-likelihood-ratio.html#thm-glh-ump-invariant" class="xref" data-ref="thm-glh-ump-invariant" data-shard="ch11-general-linear-hypothesis">Theorem 11.4.4</a>
+                follows their approach in outline. Scheffé (1959) treats
+                the power of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span>
+                tests in the analysis of variance. The robustness of the
+                null distribution to spherically symmetric errors (<a href="../ch11-general-linear-hypothesis/02-comparing-projections.html#prp-glh-spherical" class="xref" data-ref="prp-glh-spherical" data-shard="ch11-general-linear-hypothesis">Proposition 11.2.4</a>)
+                is part of the theory of spherical and elliptical
+                distributions surveyed by Fang, Kotz and Ng (1990).</p>
+                <p><strong>Power.</strong> The noncentral <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> distribution was
+                tabulated for power calculations by Tang (1938). The
+                least favourable configuration of <a href="../ch11-general-linear-hypothesis/05-power.html#prp-glh-least-favourable" class="xref" data-ref="prp-glh-least-favourable" data-shard="ch11-general-linear-hypothesis">Proposition 11.5.2</a>
+                is the basis of the classical sample-size tables for the
+                analysis of variance. Cohen (1988) popularized
+                effect-size based power analysis. Hoenig and Heisey
+                (2001) explain why “observed power” computed from the
+                data is uninformative, the point of <a href="../ch11-general-linear-hypothesis/05-power.html#prp-glh-observed-power" class="xref" data-ref="prp-glh-observed-power" data-shard="ch11-general-linear-hypothesis">Proposition 11.5.3</a>.
+                Wasserstein and Lazar (2016) discuss common misreadings
+                of p-values. Equivalence tests, which can support a
+                claim of “no important difference”, go back to
+                Schuirmann (1987).</p>
+                <p><strong>Other.</strong> The test of equality of two
+                regressions in <a href="../ch11-general-linear-hypothesis/01-reduced-models.html#exr-glh-chow" class="xref" data-ref="exr-glh-chow" data-shard="ch11-general-linear-hypothesis">Exercise (B4)</a>
+                and <a href="../ch11-general-linear-hypothesis/01-reduced-models.html#exr-glh-chow-few" class="xref" data-ref="exr-glh-chow-few" data-shard="ch11-general-linear-hypothesis">Exercise (C1)</a>
+                is due to Chow (1960). Longley (1967) assembled his data
+                to test the numerical accuracy of regression programs
+                (<a href="../ch10-computation/index.html">Chapter
+                10</a>). Monotonicity properties of the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\chi^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> distributions in their
+                degrees of freedom, of the kind behind the dilution
+                effect of <a href="../ch11-general-linear-hypothesis/06-coefficients.html#exr-glh-critical-growth" class="xref" data-ref="exr-glh-critical-growth" data-shard="ch11-general-linear-hypothesis">Exercise (B2)</a>,
+                are studied systematically by Ghosh (1973).</p>
+                <h2 id="references"><span class="header-section-number">11.7.3. </span>
+                References</h2>
+                <ul>
+                <li>Agresti, Alan (2015). <em>Foundations of Linear and
+                Generalized Linear Models</em>. Hoboken, NJ: Wiley.</li>
+                <li>Berndt, Ernst R. and Savin, N. Eugene (1977).
+                Conflict among Criteria for Testing Hypotheses in the
+                Multivariate Linear Regression Model.
+                <em>Econometrica</em> 45(5), 1263–1277.</li>
+                <li>Breusch, Trevor S. (1979). Conflict among Criteria
+                for Testing Hypotheses: Extensions and Comments.
+                <em>Econometrica</em> 47(1), 203–207.</li>
+                <li>Chow, Gregory C. (1960). Tests of Equality between
+                Sets of Coefficients in Two Linear Regressions.
+                <em>Econometrica</em> 28(3), 591–605.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Cohen, Jacob (1988). <em>Statistical Power Analysis
+                for the Behavioral Sciences</em>. 2nd edition.
+                Hillsdale, NJ: Lawrence Erlbaum.</li>
+                <li>Fang, Kai-Tai, Kotz, Samuel and Ng, Kai Wang (1990).
+                <em>Symmetric Multivariate and Related
+                Distributions</em>. London: Chapman and Hall.</li>
+                <li>Fisher, Ronald A. (1922). The Goodness of Fit of
+                Regression Formulae, and the Distribution of Regression
+                Coefficients. <em>Journal of the Royal Statistical
+                Society</em> 85(4), 597–612.</li>
+                <li>Fisher, Ronald A. (1925). <em>Statistical Methods
+                for Research Workers</em>. Edinburgh: Oliver and
+                Boyd.</li>
+                <li>Ghosh, B. K. (1973). Some Monotonicity Theorems for
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\chi^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>, F and t
+                Distributions with Applications. <em>Journal of the
+                Royal Statistical Society. Series B</em> 35(3),
+                480–492.</li>
+                <li>Hoenig, John M. and Heisey, Dennis M. (2001). The
+                Abuse of Power: The Pervasive Fallacy of Power
+                Calculations for Data Analysis. <em>The American
+                Statistician</em> 55(1), 19–24.</li>
+                <li>Lehmann, E. L. and Romano, Joseph P. (2005).
+                <em>Testing Statistical Hypotheses</em>. 3rd edition.
+                New York: Springer.</li>
+                <li>Longley, James W. (1967). An Appraisal of Least
+                Squares Programs for the Electronic Computer from the
+                Point of View of the User. <em>Journal of the American
+                Statistical Association</em> 62(319), 819–841.</li>
+                <li>Neyman, Jerzy and Pearson, Egon S. (1933). On the
+                Problem of the Most Efficient Tests of Statistical
+                Hypotheses. <em>Philosophical Transactions of the Royal
+                Society of London. Series A</em> 231, 289–337.</li>
+                <li>Rao, C. Radhakrishna (1948). Large Sample Tests of
+                Statistical Hypotheses Concerning Several Parameters
+                with Applications to Problems of Estimation.
+                <em>Mathematical Proceedings of the Cambridge
+                Philosophical Society</em> 44(1), 50–57.</li>
+                <li>Rencher, Alvin C. and Schaalje, G. Bruce (2008).
+                <em>Linear Models in Statistics</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Scheffé, Henry (1959). <em>The Analysis of
+                Variance</em>. New York: Wiley.</li>
+                <li>Schuirmann, Donald J. (1987). A Comparison of the
+                Two One-Sided Tests Procedure and the Power Approach for
+                Assessing the Equivalence of Average Bioavailability.
+                <em>Journal of Pharmacokinetics and
+                Biopharmaceutics</em> 15(6), 657–680.</li>
+                <li>Searle, Shayle R. (1971). <em>Linear Models</em>.
+                New York: Wiley.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Sen, Ashish and Srivastava, Muni (1990).
+                <em>Regression Analysis: Theory, Methods, and
+                Applications</em>. New York: Springer.</li>
+                <li>Snedecor, George W. (1934). <em>Calculation and
+                Interpretation of Analysis of Variance and
+                Covariance</em>. Ames, IA: Collegiate Press.</li>
+                <li>Tang, P. C. (1938). The Power Function of the
+                Analysis of Variance Tests with Tables and Illustrations
+                of Their Use. <em>Statistical Research Memoirs</em> 2,
+                126–149.</li>
+                <li>Wald, Abraham (1943). Tests of Statistical
+                Hypotheses Concerning Several Parameters When the Number
+                of Observations Is Large. <em>Transactions of the
+                American Mathematical Society</em> 54(3), 426–482.</li>
+                <li>Wasserstein, Ronald L. and Lazar, Nicole A. (2016).
+                The ASA’s Statement on p-Values: Context, Process, and
+                Purpose. <em>The American Statistician</em> 70(2),
+                129–133.</li>
+                <li>Wilks, Samuel S. (1938). The Large-Sample
+                Distribution of the Likelihood Ratio for Testing
+                Composite Hypotheses. <em>The Annals of Mathematical
+                Statistics</em> 9(1), 60–62.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch11-general-linear-hypothesis/06-coefficients.html" class="pagination-link" aria-label="Testing
+single coefficients and groups of coefficients">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">11.6 Testing
+single coefficients and groups of coefficients</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch12-intervals-and-bands/index.html" class="pagination-link" aria-label="Confidence
+Intervals, Regions and Prediction Bands">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Confidence
+Intervals, Regions and Prediction Bands</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2011.7%20Summary%20and%20notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch11-general-linear-hypothesis%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch11-general-linear-hypothesis/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=80e681a81e"></script>
+            </body>
+
+</html>

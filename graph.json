@@ -89,6 +89,42 @@
    "results": 70,
    "chapterNumber": 10,
    "part": ""
+  },
+  {
+   "id": "ch11-general-linear-hypothesis",
+   "name": "Chapter 11",
+   "title": "Testing Models: The General Linear Hypothesis",
+   "url": "ch11-general-linear-hypothesis/index.html",
+   "results": 67,
+   "chapterNumber": 11,
+   "part": "Part III \u00b7 Exact Inference under Normality"
+  },
+  {
+   "id": "ch12-intervals-and-bands",
+   "name": "Chapter 12",
+   "title": "Confidence Intervals, Regions and Prediction Bands",
+   "url": "ch12-intervals-and-bands/index.html",
+   "results": 69,
+   "chapterNumber": 12,
+   "part": ""
+  },
+  {
+   "id": "ch13-multiplicity",
+   "name": "Chapter 13",
+   "title": "Multiplicity: Scheff\u00e9, Tukey, Bonferroni and the False Discovery Rate",
+   "url": "ch13-multiplicity/index.html",
+   "results": 57,
+   "chapterNumber": 13,
+   "part": ""
+  },
+  {
+   "id": "ch14-correlation-lack-of-fit-prediction",
+   "name": "Chapter 14",
+   "title": "Correlation, Lack of Fit and Prediction Theory",
+   "url": "ch14-correlation-lack-of-fit-prediction/index.html",
+   "results": 78,
+   "chapterNumber": 14,
+   "part": ""
   }
  ],
  "edges": [
@@ -141,6 +177,30 @@
    "implied": false
   },
   {
+   "source": "ch01-matrix-algebra",
+   "target": "ch11-general-linear-hypothesis",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch12-intervals-and-bands",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch13-multiplicity",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch14-correlation-lack-of-fit-prediction",
+   "weight": 6,
+   "implied": false
+  },
+  {
    "source": "ch02-random-vectors",
    "target": "ch03-multivariate-normal",
    "weight": 23,
@@ -180,6 +240,18 @@
    "source": "ch02-random-vectors",
    "target": "ch10-computation",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch12-intervals-and-bands",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch14-correlation-lack-of-fit-prediction",
+   "weight": 11,
    "implied": false
   },
   {
@@ -225,6 +297,30 @@
    "implied": false
   },
   {
+   "source": "ch03-multivariate-normal",
+   "target": "ch11-general-linear-hypothesis",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch12-intervals-and-bands",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch13-multiplicity",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch14-correlation-lack-of-fit-prediction",
+   "weight": 15,
+   "implied": false
+  },
+  {
    "source": "ch04-quadratic-forms",
    "target": "ch02-random-vectors",
    "weight": 4,
@@ -261,6 +357,30 @@
    "implied": false
   },
   {
+   "source": "ch04-quadratic-forms",
+   "target": "ch11-general-linear-hypothesis",
+   "weight": 16,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch12-intervals-and-bands",
+   "weight": 12,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch13-multiplicity",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch14-correlation-lack-of-fit-prediction",
+   "weight": 20,
+   "implied": false
+  },
+  {
    "source": "ch05-model-and-least-squares",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -293,6 +413,18 @@
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch10-computation",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch12-intervals-and-bands",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 6,
    "implied": false
   },
@@ -333,6 +465,30 @@
    "implied": false
   },
   {
+   "source": "ch06-projections",
+   "target": "ch11-general-linear-hypothesis",
+   "weight": 23,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch12-intervals-and-bands",
+   "weight": 12,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch13-multiplicity",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch14-correlation-lack-of-fit-prediction",
+   "weight": 25,
+   "implied": false
+  },
+  {
    "source": "ch07-optimality",
    "target": "ch02-random-vectors",
    "weight": 1,
@@ -360,6 +516,30 @@
    "source": "ch07-optimality",
    "target": "ch10-computation",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch11-general-linear-hypothesis",
+   "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch12-intervals-and-bands",
+   "weight": 37,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch13-multiplicity",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch14-correlation-lack-of-fit-prediction",
+   "weight": 11,
    "implied": false
   },
   {
@@ -399,6 +579,24 @@
    "implied": false
   },
   {
+   "source": "ch08-estimability",
+   "target": "ch11-general-linear-hypothesis",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch12-intervals-and-bands",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch13-multiplicity",
+   "weight": 6,
+   "implied": false
+  },
+  {
    "source": "ch09-sums-of-squares",
    "target": "ch04-quadratic-forms",
    "weight": 1,
@@ -423,6 +621,30 @@
    "implied": false
   },
   {
+   "source": "ch09-sums-of-squares",
+   "target": "ch11-general-linear-hypothesis",
+   "weight": 22,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch12-intervals-and-bands",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch13-multiplicity",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch14-correlation-lack-of-fit-prediction",
+   "weight": 15,
+   "implied": false
+  },
+  {
    "source": "ch10-computation",
    "target": "ch05-model-and-least-squares",
    "weight": 2,
@@ -438,6 +660,120 @@
    "source": "ch10-computation",
    "target": "ch08-estimability",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch01-matrix-algebra",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch03-multivariate-normal",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch05-model-and-least-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch07-optimality",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch08-estimability",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch09-sums-of-squares",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch12-intervals-and-bands",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch13-multiplicity",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch14-correlation-lack-of-fit-prediction",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch03-multivariate-normal",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch05-model-and-least-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch07-optimality",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch13-multiplicity",
+   "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch14-correlation-lack-of-fit-prediction",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch13-multiplicity",
+   "target": "ch08-estimability",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch13-multiplicity",
+   "target": "ch12-intervals-and-bands",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch03-multivariate-normal",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch05-model-and-least-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch09-sums-of-squares",
+   "weight": 1,
    "implied": false
   }
  ]

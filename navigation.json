@@ -611,6 +611,216 @@
           "filename": "08-summary-and-notes.md"
         }
       ]
+    },
+    {
+      "title": "Testing Models: The General Linear Hypothesis",
+      "number": 11,
+      "part": "Part III · Exact Inference under Normality",
+      "collapsed": true,
+      "path": "ch11-general-linear-hypothesis/index.html",
+      "sections": [
+        {
+          "title": "Testing reduced models",
+          "number": "11.1",
+          "path": "ch11-general-linear-hypothesis/01-reduced-models.html",
+          "filename": "01-reduced-models.md"
+        },
+        {
+          "title": "The F statistic as a comparison of projections",
+          "number": "11.2",
+          "path": "ch11-general-linear-hypothesis/02-comparing-projections.html",
+          "filename": "02-comparing-projections.md"
+        },
+        {
+          "title": "Testable hypotheses",
+          "number": "11.3",
+          "path": "ch11-general-linear-hypothesis/03-testable-hypotheses.html",
+          "filename": "03-testable-hypotheses.md"
+        },
+        {
+          "title": "The likelihood ratio test and its relatives",
+          "number": "11.4",
+          "path": "ch11-general-linear-hypothesis/04-likelihood-ratio.html",
+          "filename": "04-likelihood-ratio.md"
+        },
+        {
+          "title": "Power and noncentrality",
+          "number": "11.5",
+          "path": "ch11-general-linear-hypothesis/05-power.html",
+          "filename": "05-power.md"
+        },
+        {
+          "title": "Testing single coefficients and groups of coefficients",
+          "number": "11.6",
+          "path": "ch11-general-linear-hypothesis/06-coefficients.html",
+          "filename": "06-coefficients.md"
+        },
+        {
+          "title": "Summary and notes",
+          "number": "11.7",
+          "path": "ch11-general-linear-hypothesis/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Confidence Intervals, Regions and Prediction Bands",
+      "number": 12,
+      "part": "",
+      "collapsed": true,
+      "path": "ch12-intervals-and-bands/index.html",
+      "sections": [
+        {
+          "title": "Intervals for estimable functions",
+          "number": "12.1",
+          "path": "ch12-intervals-and-bands/01-estimable-intervals.html",
+          "filename": "01-estimable-intervals.md"
+        },
+        {
+          "title": "Confidence ellipsoids",
+          "number": "12.2",
+          "path": "ch12-intervals-and-bands/02-ellipsoids.html",
+          "filename": "02-ellipsoids.md"
+        },
+        {
+          "title": "Prediction intervals",
+          "number": "12.3",
+          "path": "ch12-intervals-and-bands/03-prediction.html",
+          "filename": "03-prediction.md"
+        },
+        {
+          "title": "Simultaneous bands for the regression line and surface",
+          "number": "12.4",
+          "path": "ch12-intervals-and-bands/04-bands.html",
+          "filename": "04-bands.md"
+        },
+        {
+          "title": "Inverse prediction and calibration",
+          "number": "12.5",
+          "path": "ch12-intervals-and-bands/05-calibration.html",
+          "filename": "05-calibration.md"
+        },
+        {
+          "title": "Bayesian thread II: credible intervals and predictive distributions",
+          "number": "12.6",
+          "path": "ch12-intervals-and-bands/06-bayes.html",
+          "filename": "06-bayes.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "12.7",
+          "path": "ch12-intervals-and-bands/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Multiplicity: Scheffé, Tukey, Bonferroni and the False Discovery Rate",
+      "number": 13,
+      "part": "",
+      "collapsed": true,
+      "path": "ch13-multiplicity/index.html",
+      "sections": [
+        {
+          "title": "The multiple testing problem",
+          "number": "13.1",
+          "path": "ch13-multiplicity/01-multiple-testing.html",
+          "filename": "01-multiple-testing.md"
+        },
+        {
+          "title": "Scheffé's projection method",
+          "number": "13.2",
+          "path": "ch13-multiplicity/02-scheffe.html",
+          "filename": "02-scheffe.md"
+        },
+        {
+          "title": "Tukey's studentized range",
+          "number": "13.3",
+          "path": "ch13-multiplicity/03-tukey.html",
+          "filename": "03-tukey.md"
+        },
+        {
+          "title": "Bonferroni and Holm",
+          "number": "13.4",
+          "path": "ch13-multiplicity/04-bonferroni-holm.html",
+          "filename": "04-bonferroni-holm.md"
+        },
+        {
+          "title": "False discovery rate control",
+          "number": "13.5",
+          "path": "ch13-multiplicity/05-fdr.html",
+          "filename": "05-fdr.md"
+        },
+        {
+          "title": "Choosing a procedure",
+          "number": "13.6",
+          "path": "ch13-multiplicity/06-choosing.html",
+          "filename": "06-choosing.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "13.7",
+          "path": "ch13-multiplicity/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Correlation, Lack of Fit and Prediction Theory",
+      "number": 14,
+      "part": "",
+      "collapsed": true,
+      "path": "ch14-correlation-lack-of-fit-prediction/index.html",
+      "sections": [
+        {
+          "title": "Random regressors and conditional inference",
+          "number": "14.1",
+          "path": "ch14-correlation-lack-of-fit-prediction/01-random-regressors.html",
+          "filename": "01-random-regressors.md"
+        },
+        {
+          "title": "Best linear prediction",
+          "number": "14.2",
+          "path": "ch14-correlation-lack-of-fit-prediction/02-best-linear-prediction.html",
+          "filename": "02-best-linear-prediction.md"
+        },
+        {
+          "title": "Multiple correlation",
+          "number": "14.3",
+          "path": "ch14-correlation-lack-of-fit-prediction/03-multiple-correlation.html",
+          "filename": "03-multiple-correlation.md"
+        },
+        {
+          "title": "The correlation coefficient and Fisher's z",
+          "number": "14.4",
+          "path": "ch14-correlation-lack-of-fit-prediction/04-correlation-coefficient.html",
+          "filename": "04-correlation-coefficient.md"
+        },
+        {
+          "title": "Partial correlation",
+          "number": "14.5",
+          "path": "ch14-correlation-lack-of-fit-prediction/05-partial-correlation.html",
+          "filename": "05-partial-correlation.md"
+        },
+        {
+          "title": "Testing lack of fit with replicates",
+          "number": "14.6",
+          "path": "ch14-correlation-lack-of-fit-prediction/06-lack-of-fit.html",
+          "filename": "06-lack-of-fit.md"
+        },
+        {
+          "title": "Near replicates and nonparametric lack-of-fit tests",
+          "number": "14.7",
+          "path": "ch14-correlation-lack-of-fit-prediction/07-near-replicates.html",
+          "filename": "07-near-replicates.md"
+        },
+        {
+          "title": "Summary and notes",
+          "number": "14.8",
+          "path": "ch14-correlation-lack-of-fit-prediction/08-summary-and-notes.html",
+          "filename": "08-summary-and-notes.md"
+        }
+      ]
     }
   ]
 }

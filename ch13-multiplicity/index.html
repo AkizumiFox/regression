@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplicity: Scheffé, Tukey, Bonferroni and the False
+Discovery Rate – Regression: From Projection to Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch13-multiplicity/index.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+            <link rel="canonical" href="https://regression.akizumifox.com/ch13-multiplicity/index.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch13-multiplicity/index.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="Multiplicity: Scheffé, Tukey,
+Bonferroni and the False Discovery Rate">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=80e681a81e">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch13-multiplicity/index.html">Multiplicity: Scheffé, Tukey, Bonferroni and the False Discovery Rate</a></li>
+                        <li class="breadcrumb-item"><a href="../ch13-multiplicity/index.html"><span class="chapter-title">Multiplicity: Scheffé, Tukey, Bonferroni and the False Discovery Rate</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            
+                            <span class="chapter-title">Multiplicity:
+Scheffé, Tukey, Bonferroni and the False Discovery Rate</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="multiplicity-scheffé-tukey-bonferroni-and-the-false-discovery-rate">
+
+                </div>
+                <p>A test with error rate <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="0.05"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c30"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0.05</mn></math></mjx-assistive-mml></mjx-container></span> keeps that promise
+                only when it is the only inference drawn from the data.
+                A regression analysis rarely stops at one: it compares
+                every pair of groups, examines each of many
+                coefficients, and follows a significant <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test with the contrast
+                that looks most interesting. This chapter measures the
+                error of a whole family of inferences and controls it in
+                four ways. Scheffé’s method covers every estimable
+                function in a subspace, even functions chosen after
+                seeing the data, and is exactly the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test read one direction
+                at a time. Tukey’s studentized range is exact for all
+                pairwise differences of balanced means. Bonferroni’s
+                inequality, and Holm’s sharper step-down version, need
+                only the level of each test. The Benjamini–Hochberg
+                procedure controls the expected proportion of false
+                discoveries, which is what screening many hypotheses
+                needs. The chapter ends with a guide to choosing among
+                them.</p>
+                <p><strong>What you need.</strong> The normal linear
+                model and the sampling distributions of <a href="../ch07-optimality/index.html">Chapter 7</a> (<a href="../ch07-optimality/05-sampling-distributions.html#thm-opt-sampling" class="xref" data-ref="thm-opt-sampling" data-shard="ch07-optimality">Theorem 7.5.1</a>, <a href="../ch07-optimality/05-sampling-distributions.html#cor-opt-t" class="xref" data-ref="cor-opt-t" data-shard="ch07-optimality">Corollary 7.5.2</a>, <a href="../ch07-optimality/05-sampling-distributions.html#cor-opt-quadratic" class="xref" data-ref="cor-opt-quadratic" data-shard="ch07-optimality">Corollary 7.5.3</a>),
+                independence of projections from <a href="../ch04-quadratic-forms/index.html">Chapter 4</a>
+                (<a href="../ch04-quadratic-forms/04-independence.html#thm-qf-orthogonal-projections" class="xref" data-ref="thm-qf-orthogonal-projections" data-shard="ch04-quadratic-forms">Theorem 4.4.4</a>),
+                and orthogonal projections onto subspaces from <a href="../ch06-projections/index.html">Chapter 6</a> (<a href="../ch06-projections/05-nested.html#thm-proj-nested" class="xref" data-ref="thm-proj-nested" data-shard="ch06-projections">Theorem 6.5.1</a>, <a href="../ch06-projections/05-nested.html#thm-proj-constraint-space" class="xref" data-ref="thm-proj-constraint-space" data-shard="ch06-projections">Theorem 6.5.2</a>).
+                Estimable functions and contrasts in the one-way layout
+                come from <a href="../ch08-estimability/index.html">Chapter 8</a> (<a href="../ch08-estimability/07-contrasts.html#thm-est-oneway-contrasts" class="xref" data-ref="thm-est-oneway-contrasts" data-shard="ch08-estimability">Theorem 8.7.1</a>, <a href="../ch08-estimability/07-contrasts.html#prp-est-contrast-ss" class="xref" data-ref="prp-est-contrast-ss" data-shard="ch08-estimability">Proposition 8.7.2</a>),
+                and the sum of squares of a linear hypothesis from <a href="../ch09-sums-of-squares/index.html">Chapter 9</a>
+                (<a href="../ch09-sums-of-squares/02-extra-sums.html#thm-ss-hypothesis" class="xref" data-ref="thm-ss-hypothesis" data-shard="ch09-sums-of-squares">Theorem 9.2.4</a>).
+                The <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test of <a href="../ch11-general-linear-hypothesis/index.html">Chapter
+                11</a> (<a href="../ch11-general-linear-hypothesis/01-reduced-models.html#thm-glh-f-test" class="xref" data-ref="thm-glh-f-test" data-shard="ch11-general-linear-hypothesis">Theorem 11.1.1</a>,
+                <a href="../ch11-general-linear-hypothesis/03-testable-hypotheses.html#thm-glh-general-f" class="xref" data-ref="thm-glh-general-f" data-shard="ch11-general-linear-hypothesis">Theorem 11.3.2</a>)
+                and the confidence intervals and ellipsoids of <a href="../ch12-intervals-and-bands/index.html">Chapter
+                12</a> (<a href="../ch12-intervals-and-bands/01-estimable-intervals.html#thm-ci-estimable-interval" class="xref" data-ref="thm-ci-estimable-interval" data-shard="ch12-intervals-and-bands">Theorem 12.1.1</a>,
+                <a href="../ch12-intervals-and-bands/02-ellipsoids.html#thm-ci-ellipsoid" class="xref" data-ref="thm-ci-ellipsoid" data-shard="ch12-intervals-and-bands">Theorem 12.2.1</a>)
+                are the single-inference versions of what this chapter
+                does for families.</p>
+                <h2 id="roadmap">Roadmap</h2>
+                <ul>
+                <li><a href="01-multiple-testing.html">The multiple
+                testing problem</a></li>
+                <li><a href="02-scheffe.html">Scheffé’s projection
+                method</a></li>
+                <li><a href="03-tukey.html">Tukey’s studentized
+                range</a></li>
+                <li><a href="04-bonferroni-holm.html">Bonferroni and
+                Holm</a></li>
+                <li><a href="05-fdr.html">False discovery rate
+                control</a></li>
+                <li><a href="06-choosing.html">Choosing a
+                procedure</a></li>
+                <li><a href="07-summary-and-notes.html">Summary and
+                notes</a></li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch12-intervals-and-bands/07-summary-and-notes.html" class="pagination-link" aria-label="Summary
+and Notes">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">12.7 Summary and
+Notes</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch13-multiplicity/01-multiple-testing.html" class="pagination-link" aria-label="The
+multiple testing problem">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">13.1 The
+multiple testing problem</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Multiplicity%3A%20Scheff%C3%A9%2C%20Tukey%2C%20Bonferroni%20and%20the%20False%20Discovery%20Rate&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch13-multiplicity%2Findex.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch13-multiplicity/index.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=80e681a81e"></script>
+            </body>
+
+</html>

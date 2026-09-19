@@ -1,0 +1,402 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13.7 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch13-multiplicity/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Bonferroni, Šidák and Holm.
+The name commemorates Bonferroni’s (1936) work on inequalities for
+probabilities of unions.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch13-multiplicity/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch13-multiplicity/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="13.7 Summary and Notes">
+        <meta property="og:description" content="Bonferroni, Šidák and
+Holm. The name commemorates Bonferroni’s (1936) work on inequalities for
+probabilities of unions.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=80e681a81e">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch13-multiplicity/index.html">Multiplicity: Scheffé, Tukey, Bonferroni and the False Discovery Rate</a></li>
+                        <li class="breadcrumb-item"><a href="../ch13-multiplicity/07-summary-and-notes.html"><span class="chapter-number">13.7</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">13.7</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">13.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>The error rates of a family, familywise,
+                per-family and false discovery, are ordered (<a href="../ch13-multiplicity/01-multiple-testing.html#def-mc-error-rates" class="xref" data-ref="def-mc-error-rates" data-shard="ch13-multiplicity">Definition 13.1.1</a>, <a href="../ch13-multiplicity/01-multiple-testing.html#prp-mc-error-rate-order" class="xref" data-ref="prp-mc-error-rate-order" data-shard="ch13-multiplicity">Proposition 13.1.1</a>).
+                Control should be strong; a gate such as the protected
+                LSD gives only weak control (<a href="../ch13-multiplicity/01-multiple-testing.html#def-mc-strong-control" class="xref" data-ref="def-mc-strong-control" data-shard="ch13-multiplicity">Definition 13.1.2</a>, <a href="../ch13-multiplicity/01-multiple-testing.html#prp-mc-gatekeeper" class="xref" data-ref="prp-mc-gatekeeper" data-shard="ch13-multiplicity">Proposition 13.1.3</a>).
+                Simultaneous intervals give strong control, including of
+                sign errors (<a href="../ch13-multiplicity/01-multiple-testing.html#prp-mc-intervals-to-tests" class="xref" data-ref="prp-mc-intervals-to-tests" data-shard="ch13-multiplicity">Proposition 13.1.2</a>).</p></li>
+                <li><p>Scheffé: a family of estimable functions closed
+                under linear combination is a subspace of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathcal{C}(\boldsymbol{X})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><mi mathvariant="bold-italic">X</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, and its largest
+                squared <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> statistic
+                is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="q"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>q</mi></math></mjx-assistive-mml></mjx-container></span> times an <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F(q,n-r)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi><mo stretchy="false">(</mo><mi>q</mi><mo>,</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> variable. The
+                intervals with multiplier <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sqrt{qF_\alpha(q,\nu)}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msqrt><mjx-sqrt><mjx-surd><mjx-mo class="mjx-sop"><mjx-c class="mjx-c221A TEX-S1"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.107em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.106em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D6FC TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D708 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-box></mjx-sqrt></mjx-msqrt></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><mi>q</mi><msub><mi>F</mi><mi>α</mi></msub><mo stretchy="false">(</mo><mi>q</mi><mo>,</mo><mi>ν</mi><mo stretchy="false">)</mo></msqrt></math></mjx-assistive-mml></mjx-container></span>
+                are exact, even for functions chosen after seeing the
+                data (<a href="../ch13-multiplicity/02-scheffe.html#thm-mc-scheffe" class="xref" data-ref="thm-mc-scheffe" data-shard="ch13-multiplicity">Theorem 13.2.2</a>); the
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test rejects iff
+                some Scheffé interval excludes its hypothesized value
+                (<a href="../ch13-multiplicity/02-scheffe.html#cor-mc-scheffe-f" class="xref" data-ref="cor-mc-scheffe-f" data-shard="ch13-multiplicity">Corollary 13.2.3</a>);
+                smaller subspaces give shorter intervals (<a href="02-scheffe.html">Section 13.2</a>).</p></li>
+                <li><p>Tukey: in a balanced one-way layout the intervals
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\bar{y}_k-\bar{y}_l\pm
+                q_\alpha(g,\nu)s/\sqrt m"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.301em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-cAF"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.301em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-cAF"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D459 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cB1"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.014em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D6FC TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D708 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msqrt><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.281em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-box></mjx-sqrt></mjx-msqrt></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mover><mi>y</mi><mo stretchy="false">¯</mo></mover></mrow><mi>k</mi></msub><mo>−</mo><msub><mrow data-mjx-texclass="ORD"><mover><mi>y</mi><mo stretchy="false">¯</mo></mover></mrow><mi>l</mi></msub><mo>±</mo><msub><mi>q</mi><mi>α</mi></msub><mo stretchy="false">(</mo><mi>g</mi><mo>,</mo><mi>ν</mi><mo stretchy="false">)</mo><mi>s</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msqrt><mi>m</mi></msqrt></math></mjx-assistive-mml></mjx-container></span> are exact for all
+                pairs, extend to all contrasts, and are the shortest of
+                their form (<a href="../ch13-multiplicity/03-tukey.html#def-mc-studentized-range" class="xref" data-ref="def-mc-studentized-range" data-shard="ch13-multiplicity">Definition 13.3.1</a>, <a href="../ch13-multiplicity/03-tukey.html#thm-mc-tukey" class="xref" data-ref="thm-mc-tukey" data-shard="ch13-multiplicity">Theorem 13.3.2</a>, <a href="../ch13-multiplicity/03-tukey.html#prp-mc-tukey-shortest" class="xref" data-ref="prp-mc-tukey-shortest" data-shard="ch13-multiplicity">Proposition 13.3.3</a>).
+                The Tukey–Kramer intervals <a href="../ch13-multiplicity/03-tukey.html#eq-mc-tukey-kramer" class="xref" data-ref="eq-mc-tukey-kramer" data-shard="ch13-multiplicity">Eq. 13.3.3</a> are
+                conservative.</p></li>
+                <li><p>Bonferroni needs no assumption on dependence and
+                bounds the expected number of false rejections (<a href="../ch13-multiplicity/04-bonferroni-holm.html#thm-mc-bonferroni" class="xref" data-ref="thm-mc-bonferroni" data-shard="ch13-multiplicity">Theorem 13.4.1</a>);
+                Šidák’s level is valid for independent estimates, and a
+                shared <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="s"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>s</mi></math></mjx-assistive-mml></mjx-container></span> only helps
+                (<a href="../ch13-multiplicity/04-bonferroni-holm.html#prp-mc-sidak" class="xref" data-ref="prp-mc-sidak" data-shard="ch13-multiplicity">Proposition 13.4.3</a>).
+                Closed testing gives strong control (<a href="../ch13-multiplicity/04-bonferroni-holm.html#thm-mc-closed-testing" class="xref" data-ref="thm-mc-closed-testing" data-shard="ch13-multiplicity">Theorem 13.4.4</a>), and
+                Holm’s step-down procedure, its Bonferroni case, rejects
+                everything Bonferroni does and possibly more (<a href="../ch13-multiplicity/04-bonferroni-holm.html#thm-mc-holm" class="xref" data-ref="thm-mc-holm" data-shard="ch13-multiplicity">Theorem 13.4.5</a>).</p></li>
+                <li><p>The Benjamini–Hochberg procedure controls the
+                false discovery rate at <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\pi_0q"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>π</mi><mn>0</mn></msub><mi>q</mi></math></mjx-assistive-mml></mjx-container></span> for independent
+                null <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span>-values (<a href="../ch13-multiplicity/05-fdr.html#thm-mc-bh" class="xref" data-ref="thm-mc-bh" data-shard="ch13-multiplicity">Theorem 13.5.2</a>), and
+                Benjamini and Yekutieli’s results extend it to
+                positively dependent (PRDS) and arbitrarily dependent
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span>-values.</p></li>
+                <li><p>Fix the family first: planned lists call for
+                Bonferroni, Holm or exact multivariate <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> values, all pairs for
+                Tukey, data snooping for Scheffé, screening for the
+                false discovery rate (<a href="06-choosing.html">Section
+                13.6</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">13.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>Sources for this chapter.</strong>
+                Christensen (2020, chapter 5) treats multiple
+                comparisons within the projection framework used here,
+                describing Scheffé’s method through a test space and
+                showing that the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span>
+                test rejects exactly when some single-degree-of-freedom
+                hypothesis in that space does. <a href="02-scheffe.html">Section 13.2</a> follows that
+                view. His chapter also compares the least significant
+                difference, Bonferroni, Tukey, Newman–Keuls and Duncan
+                procedures and discusses the Fisherian and
+                Neyman–Pearson views of multiple testing. Agresti (2015,
+                section 3.5) gives a concise account of Bonferroni’s and
+                Tukey’s methods, the Tukey–Kramer extension and the
+                Benjamini–Hochberg procedure. The examples, simulations
+                and the treatment of error rates, Šidák’s inequality and
+                closed testing are this book’s own.</p>
+                <p><strong>Scheffé and Tukey.</strong> Scheffé (1953)
+                introduced the method for all contrasts, and his book
+                (Scheffé 1959) develops it for general linear hypotheses
+                and relates it to the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test and the confidence
+                ellipsoid. Tukey’s 1953 manuscript circulated for
+                decades before it appeared in his collected works (Tukey
+                1994). Kramer (1956) proposed the extension to unequal
+                group sizes, and Hayter (1984) proved Tukey’s conjecture
+                that these intervals are conservative. The case of
+                estimates with general correlation, where neither form
+                is exact, is handled by computing multivariate <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> probabilities; Hothorn,
+                Bretz and Westfall (2008) describe a general framework
+                and Bretz, Hothorn and Westfall (2010) a practical
+                guide. Dunnett (1955) gave the exact procedure for
+                comparisons with a control.</p>
+                <p><strong>Bonferroni, Šidák and Holm.</strong> The name
+                commemorates Bonferroni’s (1936) work on inequalities
+                for probabilities of unions. Dunn (1961) popularized its
+                use for simultaneous confidence intervals. Šidák (1967)
+                proved the inequality for rectangular regions of the
+                multivariate normal distribution that underlies <a href="../ch13-multiplicity/04-bonferroni-holm.html#prp-mc-sidak" class="xref" data-ref="prp-mc-sidak" data-shard="ch13-multiplicity">Proposition 13.4.3</a>
+                for correlated estimates. Holm (1979) introduced the
+                step-down procedure, and Marcus, Peritz and Gabriel
+                (1976) the closure principle, of which it is a case.
+                Hochberg (1988) proposed the step-up version, whose
+                validity rests on the inequality of Simes (1986).</p>
+                <p><strong>False discovery rate.</strong> Benjamini and
+                Hochberg (1995) defined the false discovery rate and
+                proved <a href="../ch13-multiplicity/05-fdr.html#thm-mc-bh" class="xref" data-ref="thm-mc-bh" data-shard="ch13-multiplicity">Theorem 13.5.2</a>. The
+                leave-one-out proof given here is a standard later
+                simplification. Benjamini and Yekutieli (2001) proved
+                control under positive regression dependence and gave
+                the version valid under arbitrary dependence. Storey
+                (2002) introduced estimation of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\pi_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>π</mi><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span> and the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="q"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>q</mi></math></mjx-assistive-mml></mjx-container></span>-value, and Benjamini,
+                Krieger and Yekutieli (2006) gave adaptive procedures
+                with proven control.</p>
+                <p><strong>Books.</strong> Miller (1981) is the classic
+                account of simultaneous inference, and Hochberg and
+                Tamhane (1987) and Hsu (1996) are comprehensive
+                monographs. All three treat the procedures of Duncan
+                (1955) and of Newman (1939) and Keuls (1952), and the
+                closed step-down procedures that improve on Tukey’s.
+                Gelman, Hill and Yajima (2012) give a Bayesian view of
+                why hierarchical models reduce the need for multiplicity
+                adjustments.</p>
+                <h2 id="references"><span class="header-section-number">13.7.3. </span>
+                References</h2>
+                <ul>
+                <li>Agresti, Alan (2015). <em>Foundations of Linear and
+                Generalized Linear Models</em>. Hoboken, NJ: Wiley.</li>
+                <li>Benjamini, Yoav and Hochberg, Yosef (1995).
+                Controlling the False Discovery Rate: A Practical and
+                Powerful Approach to Multiple Testing. <em>Journal of
+                the Royal Statistical Society, Series B</em> 57(1),
+                289–300.</li>
+                <li>Benjamini, Yoav, Krieger, Abba M. and Yekutieli,
+                Daniel (2006). Adaptive Linear Step-up Procedures That
+                Control the False Discovery Rate. <em>Biometrika</em>
+                93(3), 491–507.</li>
+                <li>Benjamini, Yoav and Yekutieli, Daniel (2001). The
+                Control of the False Discovery Rate in Multiple Testing
+                under Dependency. <em>The Annals of Statistics</em>
+                29(4), 1165–1188.</li>
+                <li>Bonferroni, Carlo E. (1936). Teoria statistica delle
+                classi e calcolo delle probabilità. <em>Pubblicazioni
+                del R. Istituto Superiore di Scienze Economiche e
+                Commerciali di Firenze</em> 8, 3–62.</li>
+                <li>Bretz, Frank, Hothorn, Torsten and Westfall, Peter
+                (2010). <em>Multiple Comparisons Using R</em>. Boca
+                Raton, FL: Chapman &amp; Hall/CRC.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Duncan, David B. (1955). Multiple Range and Multiple
+                F Tests. <em>Biometrics</em> 11(1), 1–42.</li>
+                <li>Dunn, Olive Jean (1961). Multiple Comparisons among
+                Means. <em>Journal of the American Statistical
+                Association</em> 56(293), 52–64.</li>
+                <li>Dunnett, Charles W. (1955). A Multiple Comparison
+                Procedure for Comparing Several Treatments with a
+                Control. <em>Journal of the American Statistical
+                Association</em> 50(272), 1096–1121.</li>
+                <li>Gelman, Andrew, Hill, Jennifer and Yajima, Masanao
+                (2012). Why We (Usually) Don’t Have to Worry about
+                Multiple Comparisons. <em>Journal of Research on
+                Educational Effectiveness</em> 5(2), 189–211.</li>
+                <li>Hayter, Anthony J. (1984). A Proof of the Conjecture
+                That the Tukey–Kramer Multiple Comparisons Procedure Is
+                Conservative. <em>The Annals of Statistics</em> 12(1),
+                61–75.</li>
+                <li>Hochberg, Yosef (1988). A Sharper Bonferroni
+                Procedure for Multiple Tests of Significance.
+                <em>Biometrika</em> 75(4), 800–802.</li>
+                <li>Hochberg, Yosef and Tamhane, Ajit C. (1987).
+                <em>Multiple Comparison Procedures</em>. New York:
+                Wiley.</li>
+                <li>Holm, Sture (1979). A Simple Sequentially Rejective
+                Multiple Test Procedure. <em>Scandinavian Journal of
+                Statistics</em> 6(2), 65–70.</li>
+                <li>Hothorn, Torsten, Bretz, Frank and Westfall, Peter
+                (2008). Simultaneous Inference in General Parametric
+                Models. <em>Biometrical Journal</em> 50(3),
+                346–363.</li>
+                <li>Hsu, Jason C. (1996). <em>Multiple Comparisons:
+                Theory and Methods</em>. London: Chapman &amp;
+                Hall.</li>
+                <li>Keuls, M. (1952). The Use of the “Studentized Range”
+                in Connection with an Analysis of Variance.
+                <em>Euphytica</em> 1, 112–122.</li>
+                <li>Kramer, Clyde Young (1956). Extension of Multiple
+                Range Tests to Group Means with Unequal Numbers of
+                Replications. <em>Biometrics</em> 12(3), 307–310.</li>
+                <li>Marcus, Ruth, Peritz, Eric and Gabriel, K. Ruben
+                (1976). On Closed Testing Procedures with Special
+                Reference to Ordered Analysis of Variance.
+                <em>Biometrika</em> 63(3), 655–660.</li>
+                <li>Miller, Rupert G., Jr. (1981). <em>Simultaneous
+                Statistical Inference</em>. 2nd edition. New York:
+                Springer.</li>
+                <li>Newman, D. (1939). The Distribution of Range in
+                Samples from a Normal Population, Expressed in Terms of
+                an Independent Estimate of Standard Deviation.
+                <em>Biometrika</em> 31(1/2), 20–30.</li>
+                <li>Scheffé, Henry (1953). A Method for Judging All
+                Contrasts in the Analysis of Variance.
+                <em>Biometrika</em> 40(1/2), 87–104.</li>
+                <li>Scheffé, Henry (1959). <em>The Analysis of
+                Variance</em>. New York: Wiley.</li>
+                <li>Šidák, Zbyněk (1967). Rectangular Confidence Regions
+                for the Means of Multivariate Normal Distributions.
+                <em>Journal of the American Statistical Association</em>
+                62(318), 626–633.</li>
+                <li>Simes, R. John (1986). An Improved Bonferroni
+                Procedure for Multiple Tests of Significance.
+                <em>Biometrika</em> 73(3), 751–754.</li>
+                <li>Storey, John D. (2002). A Direct Approach to False
+                Discovery Rates. <em>Journal of the Royal Statistical
+                Society, Series B</em> 64(3), 479–498.</li>
+                <li>Tukey, John W. (1994). The Problem of Multiple
+                Comparisons (1953 manuscript). In H. I. Braun (ed.),
+                <em>The Collected Works of John W. Tukey, Volume VIII:
+                Multiple Comparisons, 1948–1983</em>. New York: Chapman
+                &amp; Hall.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch13-multiplicity/06-choosing.html" class="pagination-link" aria-label="Choosing
+a procedure">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">13.6 Choosing a
+procedure</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch14-correlation-lack-of-fit-prediction/index.html" class="pagination-link" aria-label="Correlation,
+Lack of Fit and Prediction Theory">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Correlation,
+Lack of Fit and Prediction Theory</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2013.7%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch13-multiplicity%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch13-multiplicity/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=80e681a81e"></script>
+            </body>
+
+</html>

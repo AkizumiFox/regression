@@ -1,0 +1,239 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confidence Intervals, Regions and Prediction
+Bands – Regression: From Projection to Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch12-intervals-and-bands/index.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+            <link rel="canonical" href="https://regression.akizumifox.com/ch12-intervals-and-bands/index.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch12-intervals-and-bands/index.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="Confidence Intervals, Regions and
+Prediction Bands">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=80e681a81e">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch12-intervals-and-bands/index.html">Confidence Intervals, Regions and Prediction Bands</a></li>
+                        <li class="breadcrumb-item"><a href="../ch12-intervals-and-bands/index.html"><span class="chapter-title">Confidence Intervals, Regions and Prediction Bands</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            
+                            <span class="chapter-title">Confidence
+Intervals, Regions and Prediction Bands</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="confidence-intervals-regions-and-prediction-bands">
+
+                </div>
+                <p>A test asks whether one value of a parameter is
+                compatible with the data; an interval reports all such
+                values, and how precisely they are pinned down. Under
+                normal errors the answers are exact for every sample
+                size, and they come from three facts: the fitted vector
+                is normal, the residual sum of squares is an independent
+                chi-squared variable, and their ratio gives <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> pivots. One estimable
+                function gives a <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span>
+                interval; several give an ellipsoid, the dual of the
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test. A future
+                observation gives a prediction interval, whose width
+                never falls below the noise and whose validity rests on
+                the normality of a single error. The whole regression
+                surface gives the Working–Hotelling band, from the
+                Cauchy–Schwarz inequality. Inverting a prediction band
+                gives a calibration set, sometimes an interval,
+                sometimes two rays, sometimes the whole line, and no
+                honest procedure can avoid the last two. Finally, in the
+                conjugate model of <a href="../ch07-optimality/index.html">Chapter 7</a>,
+                credible and predictive intervals have the same shapes,
+                and under the flat prior they are the frequentist
+                ones.</p>
+                <p><strong>What you need.</strong> The sampling
+                distributions of the normal linear model (<a href="../ch07-optimality/index.html">Chapter 7</a>: <a href="../ch07-optimality/05-sampling-distributions.html#thm-opt-sampling" class="xref" data-ref="thm-opt-sampling" data-shard="ch07-optimality">Theorem 7.5.1</a>, <a href="../ch07-optimality/05-sampling-distributions.html#cor-opt-t" class="xref" data-ref="cor-opt-t" data-shard="ch07-optimality">Corollary 7.5.2</a> and <a href="../ch07-optimality/05-sampling-distributions.html#cor-opt-quadratic" class="xref" data-ref="cor-opt-quadratic" data-shard="ch07-optimality">Corollary 7.5.3</a>) and
+                the conjugate posterior (<a href="../ch07-optimality/06-bayes-conjugate.html#thm-opt-bayes-conjugate" class="xref" data-ref="thm-opt-bayes-conjugate" data-shard="ch07-optimality">Theorem 7.6.2</a>, <a href="../ch07-optimality/06-bayes-conjugate.html#lem-opt-nig-marginal" class="xref" data-ref="lem-opt-nig-marginal" data-shard="ch07-optimality">Lemma 7.6.1</a>, <a href="../ch07-optimality/06-bayes-conjugate.html#cor-opt-flat-prior" class="xref" data-ref="cor-opt-flat-prior" data-shard="ch07-optimality">Corollary 7.6.4</a>).
+                Projections, leverage and the Frisch–Waugh–Lovell
+                theorem (<a href="../ch06-projections/index.html">Chapter 6</a>: <a href="../ch06-projections/03-orthogonal-projection.html#thm-proj-M-formula" class="xref" data-ref="thm-proj-M-formula" data-shard="ch06-projections">Theorem 6.3.7</a>, <a href="../ch06-projections/08-leverage.html#prp-proj-leverage" class="xref" data-ref="prp-proj-leverage" data-shard="ch06-projections">Proposition 6.8.1</a>, <a href="../ch06-projections/06-fwl.html#thm-proj-fwl" class="xref" data-ref="thm-proj-fwl" data-shard="ch06-projections">Theorem 6.6.2</a>).
+                Estimability (<a href="../ch08-estimability/index.html">Chapter 8</a>: <a href="../ch08-estimability/02-estimable-functions.html#def-est-estimable" class="xref" data-ref="def-est-estimable" data-shard="ch08-estimability">Definition 8.2.1</a>, <a href="../ch08-estimability/03-characterizations.html#thm-est-characterization" class="xref" data-ref="thm-est-characterization" data-shard="ch08-estimability">Theorem 8.3.1</a>) and
+                the sum of squares of a linear hypothesis (<a href="../ch09-sums-of-squares/index.html">Chapter 9</a>:
+                <a href="../ch09-sums-of-squares/02-extra-sums.html#thm-ss-hypothesis" class="xref" data-ref="thm-ss-hypothesis" data-shard="ch09-sums-of-squares">Theorem 9.2.4</a>).
+                Chi-squared and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span>
+                distributions of quadratic forms (<a href="../ch04-quadratic-forms/index.html">Chapter 4</a>:
+                <a href="../ch04-quadratic-forms/03-chisq.html#thm-qf-chisq" class="xref" data-ref="thm-qf-chisq" data-shard="ch04-quadratic-forms">Theorem 4.3.2</a>, <a href="../ch04-quadratic-forms/01-noncentral.html#def-qf-noncentral-f" class="xref" data-ref="def-qf-noncentral-f" data-shard="ch04-quadratic-forms">Definition 4.1.2</a>,
+                <a href="../ch04-quadratic-forms/01-noncentral.html#def-qf-noncentral-t" class="xref" data-ref="def-qf-noncentral-t" data-shard="ch04-quadratic-forms">Definition 4.1.3</a>).
+                The tests of <a href="../ch11-general-linear-hypothesis/index.html">Chapter
+                11</a> are the duals of the intervals here, but the
+                proofs below do not depend on them.</p>
+                <h2 id="roadmap">Roadmap</h2>
+                <ul>
+                <li><a href="01-estimable-intervals.html">Intervals for
+                estimable functions</a></li>
+                <li><a href="02-ellipsoids.html">Confidence
+                ellipsoids</a></li>
+                <li><a href="03-prediction.html">Prediction
+                intervals</a></li>
+                <li><a href="04-bands.html">Simultaneous bands for the
+                regression line and surface</a></li>
+                <li><a href="05-calibration.html">Inverse prediction and
+                calibration</a></li>
+                <li><a href="06-bayes.html">Bayesian thread II: credible
+                intervals and predictive distributions</a></li>
+                <li><a href="07-summary-and-notes.html">Summary and
+                notes</a></li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch11-general-linear-hypothesis/07-summary-and-notes.html" class="pagination-link" aria-label="Summary
+and notes">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">11.7 Summary and
+notes</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch12-intervals-and-bands/01-estimable-intervals.html" class="pagination-link" aria-label="Intervals
+for estimable functions">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">12.1 Intervals
+for estimable functions</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Confidence%20Intervals%2C%20Regions%20and%20Prediction%20Bands&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch12-intervals-and-bands%2Findex.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch12-intervals-and-bands/index.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=80e681a81e"></script>
+            </body>
+
+</html>
