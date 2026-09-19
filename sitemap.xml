@@ -38,6 +38,16 @@
   <url><loc>https://regression.akizumifox.com/ch04-quadratic-forms/04-independence.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch04-quadratic-forms/05-cochran.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch04-quadratic-forms/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch05-model-and-least-squares/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch05-model-and-least-squares/01-what-a-model-claims.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch05-model-and-least-squares/02-simple-regression.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch05-model-and-least-squares/03-multiple-regression-model.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch05-model-and-least-squares/04-least-squares.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch05-model-and-least-squares/05-properties.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch05-model-and-least-squares/06-error-variance.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch05-model-and-least-squares/07-interpreting-coefficients.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch05-model-and-least-squares/08-panorama.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch05-model-and-least-squares/09-summary-and-notes.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch06-projections/index.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch06-projections/01-nearest-point.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch06-projections/02-subspaces.html</loc></url>
@@ -51,6 +61,40 @@
   <url><loc>https://regression.akizumifox.com/ch06-projections/10-computation.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch06-projections/11-population.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch06-projections/12-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch07-optimality/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch07-optimality/01-linear-unbiased.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch07-optimality/02-gauss-markov.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch07-optimality/03-maximum-likelihood.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch07-optimality/04-minimum-variance.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch07-optimality/05-sampling-distributions.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch07-optimality/06-bayes-conjugate.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch07-optimality/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch08-estimability/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch08-estimability/01-identifiability.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch08-estimability/02-estimable-functions.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch08-estimability/03-characterizations.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch08-estimability/04-side-conditions.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch08-estimability/05-factor-coding.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch08-estimability/06-several-factors.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch08-estimability/07-contrasts.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch08-estimability/08-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch09-sums-of-squares/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch09-sums-of-squares/01-total-decomposition.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch09-sums-of-squares/02-extra-sums.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch09-sums-of-squares/03-sequential-partial.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch09-sums-of-squares/04-orthogonal-designs.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch09-sums-of-squares/05-r-squared.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch09-sums-of-squares/06-expected-mean-squares.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch09-sums-of-squares/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch10-computation/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch10-computation/01-why-not-invert.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch10-computation/02-cholesky.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch10-computation/03-householder-givens.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch10-computation/04-svd.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch10-computation/05-conditioning.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch10-computation/06-updating.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch10-computation/07-rank-revealing.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch10-computation/08-summary-and-notes.html</loc></url>
   <url><loc>https://regression.akizumifox.com/results.html</loc></url>
   <url><loc>https://regression.akizumifox.com/graph.html</loc></url>
 </urlset>

@@ -1,0 +1,433 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.8 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch10-computation/08-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Source coverage.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch10-computation/08-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch10-computation/08-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="10.8 Summary and Notes">
+        <meta property="og:description" content="Source coverage.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=80e681a81e">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch10-computation/index.html">Computation: QR, SVD and Conditioning</a></li>
+                        <li class="breadcrumb-item"><a href="../ch10-computation/08-summary-and-notes.html"><span class="chapter-number">10.8</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">10.8</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">10.8.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>Floating-point arithmetic commits a relative
+                error of at most <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="u=2^{-53}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>u</mi><mo>=</mo><msup><mn>2</mn><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>53</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> per operation
+                (<a href="../ch10-computation/01-why-not-invert.html#def-cmp-standard-model" class="xref" data-ref="def-cmp-standard-model" data-shard="ch10-computation">Definition 10.1.1</a>).
+                Inner products are backward stable (<a href="../ch10-computation/01-why-not-invert.html#prp-cmp-inner-product" class="xref" data-ref="prp-cmp-inner-product" data-shard="ch10-computation">Proposition 10.1.2</a>),
+                but forming <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{X}^{\top}\boldsymbol{X}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">X</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">X</mi></math></mjx-assistive-mml></mjx-container></span>
+                destroys the information in singular values below about
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="u^{1/2}\sigma_1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>u</mi><mrow data-mjx-texclass="ORD"><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></mrow></msup><msub><mi>σ</mi><mn>1</mn></msub></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch10-computation/01-why-not-invert.html#prp-cmp-gram-rounding" class="xref" data-ref="prp-cmp-gram-rounding" data-shard="ch10-computation">Proposition 10.1.3</a>, <a href="../ch10-computation/01-why-not-invert.html#exm-cmp-lauchli" class="xref" data-ref="exm-cmp-lauchli" data-shard="ch10-computation">Example (A cross-product matrix that rounds to a singular one)</a>).</p></li>
+                <li><p>The Cholesky factorization of the augmented
+                cross-product matrix gives <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\boldsymbol{\beta}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.426em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold-italic">β</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span>, the SSE, the
+                sequential sums of squares, the leverages and the
+                standard errors in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="np^2+p^3/3"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><msup><mi>p</mi><mn>2</mn></msup><mo>+</mo><msup><mi>p</mi><mn>3</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>3</mn></math></mjx-assistive-mml></mjx-container></span> flops (<a href="../ch10-computation/02-cholesky.html#thm-cmp-cholesky" class="xref" data-ref="thm-cmp-cholesky" data-shard="ch10-computation">Theorem 10.2.1</a>, <a href="../ch10-computation/02-cholesky.html#prp-cmp-augmented" class="xref" data-ref="prp-cmp-augmented" data-shard="ch10-computation">Proposition 10.2.2</a>),
+                accurately enough when the column-scaled condition
+                number is modest. Sweeping fits nested models (<a href="../ch10-computation/02-cholesky.html#prp-cmp-sweep" class="xref" data-ref="prp-cmp-sweep" data-shard="ch10-computation">Proposition 10.2.3</a>);
+                centring needs two passes or updating (<a href="../ch10-computation/02-cholesky.html#prp-cmp-welford" class="xref" data-ref="prp-cmp-welford" data-shard="ch10-computation">Proposition 10.2.4</a>).</p></li>
+                <li><p>Householder QR reduces <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{X}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">X</mi></math></mjx-assistive-mml></mjx-container></span> to a triangle by
+                reflections in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="2np^2-2p^3/3"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mi>n</mi><msup><mi>p</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><msup><mi>p</mi><mn>3</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>3</mn></math></mjx-assistive-mml></mjx-container></span> flops and is
+                backward stable with columnwise errors (<a href="../ch10-computation/03-householder-givens.html#thm-cmp-householder" class="xref" data-ref="thm-cmp-householder" data-shard="ch10-computation">Theorem 10.3.2</a>, <a href="../ch10-computation/03-householder-givens.html#prp-cmp-qr-quantities" class="xref" data-ref="prp-cmp-qr-quantities" data-shard="ch10-computation">Proposition 10.3.3</a>).
+                Givens rotations work one row at a time, for streaming
+                and sparse data (<a href="../ch10-computation/03-householder-givens.html#thm-cmp-givens" class="xref" data-ref="thm-cmp-givens" data-shard="ch10-computation">Theorem 10.3.4</a>).</p></li>
+                <li><p>The SVD gives every least squares solution, the
+                minimum-norm one, and the precision <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma/\sigma_i"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>σ</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>σ</mi><mi>i</mi></msub></math></mjx-assistive-mml></mjx-container></span> of each
+                combination <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{v}_i^{\top}\boldsymbol{\beta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D497 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi mathvariant="bold-italic">v</mi><mi>i</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msubsup><mi mathvariant="bold-italic">β</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch10-computation/04-svd.html#thm-cmp-svd-ls" class="xref" data-ref="thm-cmp-svd-ls" data-shard="ch10-computation">Theorem 10.4.1</a>).
+                Singular values are perturbed by at most <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lVert \bm E\rVert_2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D46C TEX-BI"></mjx-c></mjx-mi><mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">‖</mo><mi mathvariant="bold-italic">E</mi><msub><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">‖</mo><mn>2</mn></msub></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch10-computation/04-svd.html#prp-cmp-weyl" class="xref" data-ref="prp-cmp-weyl" data-shard="ch10-computation">Proposition 10.4.2</a>),
+                so rank is meaningful only relative to a tolerance (<a href="../ch10-computation/04-svd.html#def-cmp-numerical-rank" class="xref" data-ref="def-cmp-numerical-rank" data-shard="ch10-computation">Definition 10.4.1</a>).
+                Truncated SVD trades bias for variance (<a href="../ch10-computation/04-svd.html#prp-cmp-tsvd" class="xref" data-ref="prp-cmp-tsvd" data-shard="ch10-computation">Proposition 10.4.3</a>).</p></li>
+                <li><p>The least squares solution has sensitivity <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\kappa+\kappa^2\eta"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D702 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>κ</mi><mo>+</mo><msup><mi>κ</mi><mn>2</mn></msup><mi>η</mi></math></mjx-assistive-mml></mjx-container></span>,
+                where <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\eta"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D702 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>η</mi></math></mjx-assistive-mml></mjx-container></span> measures
+                the residual relative to the fit; residuals have
+                sensitivity <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\kappa"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>κ</mi></math></mjx-assistive-mml></mjx-container></span>
+                only (<a href="../ch10-computation/05-conditioning.html#thm-cmp-perturbation" class="xref" data-ref="thm-cmp-perturbation" data-shard="ch10-computation">Theorem 10.5.1</a>). The
+                normal equations add <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\kappa^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>κ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> regardless.
+                Equilibrating the columns is nearly optimal among
+                scalings (<a href="../ch10-computation/05-conditioning.html#prp-cmp-van-der-sluis" class="xref" data-ref="prp-cmp-van-der-sluis" data-shard="ch10-computation">Proposition 10.5.2</a>, <a href="../ch10-computation/05-conditioning.html#exm-cmp-longley" class="xref" data-ref="exm-cmp-longley" data-shard="ch10-computation">Example (Longley’s data, exactly)</a>).</p></li>
+                <li><p>A triangular factor can be updated or downdated
+                by one row in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="O(p^2)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><msup><mi>p</mi><mn>2</mn></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch10-computation/06-updating.html#thm-cmp-updating" class="xref" data-ref="thm-cmp-updating" data-shard="ch10-computation">Theorem 10.6.1</a>), and
+                by one column in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="O(np)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>p</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch10-computation/06-updating.html#prp-cmp-add-column" class="xref" data-ref="prp-cmp-add-column" data-shard="ch10-computation">Proposition 10.6.3</a>).
+                All leave-one-out residuals, coefficients and sums of
+                squares follow from a single fit (<a href="../ch10-computation/06-updating.html#prp-cmp-loo" class="xref" data-ref="prp-cmp-loo" data-shard="ch10-computation">Proposition 10.6.2</a>).</p></li>
+                <li><p>QR with column pivoting orders the columns by how
+                much each adds to the others, and a small trailing pivot
+                certifies a small singular value (<a href="../ch10-computation/07-rank-revealing.html#thm-cmp-rank-revealing" class="xref" data-ref="thm-cmp-rank-revealing" data-shard="ch10-computation">Theorem 10.7.2</a>). Basic
+                and minimum-norm solutions agree on everything estimable
+                (<a href="../ch10-computation/07-rank-revealing.html#exm-cmp-grunfeld" class="xref" data-ref="exm-cmp-grunfeld" data-shard="ch10-computation">Example (Firm effects in investment data)</a>);
+                the tolerance should reflect the accuracy of the data
+                (<a href="../ch10-computation/07-rank-revealing.html#exm-cmp-tolerance" class="xref" data-ref="exm-cmp-tolerance" data-shard="ch10-computation">Example (A nearly aliased column)</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">10.8.2. </span> Notes and
+                sources</h2>
+                <p><strong>Source coverage.</strong> The chapter covers
+                Seber and Lee (2003, chapter 11) on solving the normal
+                equations, QR by Gram–Schmidt, Householder and Givens,
+                the SVD, centring and leverages (sections 11.2–11.4,
+                11.7 and 11.10), with parts of sections 11.6, 11.8 and
+                11.9 on updating, comparing methods and rank
+                deficiency.</p>
+                <p><strong>Floating point and stability.</strong> The
+                standard model and the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\gamma_n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.025em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>γ</mi><mi>n</mi></msub></math></mjx-assistive-mml></mjx-container></span> notation follow
+                Higham (2002), whose chapters 3, 10, 19 and 20 are the
+                definitive treatment of inner products, Cholesky, QR and
+                least squares. Goldberg (1991) is a readable
+                introduction to IEEE arithmetic, now specified by IEEE
+                Std 754-2019. The distinction between a problem’s
+                condition and an algorithm’s backward stability goes
+                back to Wilkinson (1963). Trefethen and Bau (1997) give
+                a short modern account. Läuchli (1961) introduced the
+                matrix of <a href="../ch10-computation/01-why-not-invert.html#exm-cmp-lauchli" class="xref" data-ref="exm-cmp-lauchli" data-shard="ch10-computation">Example (A cross-product matrix that rounds to a singular one)</a>
+                to show the loss in forming normal equations.</p>
+                <p><strong>Algorithms.</strong> Householder (1958)
+                introduced the reflections and Golub (1965) applied them
+                to least squares; Givens (1958) used plane rotations.
+                Gentleman (1973) developed square-root-free rotations
+                and the row-wise algorithm, turned into widely used
+                routines by Miller (1992). Björck (1967) analysed
+                modified Gram–Schmidt, and Björck and Paige (1992)
+                explained its good behaviour for least squares. The SVD
+                algorithm is due to Golub and Kahan (1965) and Golub and
+                Reinsch (1970), column pivoting to Businger and Golub
+                (1965), and the counterexample of <a href="../ch10-computation/07-rank-revealing.html#exm-cmp-kahan" class="xref" data-ref="exm-cmp-kahan" data-shard="ch10-computation">Example (Kahan’s matrix)</a>
+                to Kahan (1966). Chan (1987) gave the first
+                rank-revealing QR algorithm, Hong and Pan (1992) proved
+                that factorizations with polynomial bounds exist, and Gu
+                and Eisenstat (1996) showed how to compute them
+                efficiently. Goodnight (1979) describes the sweep
+                operator for statisticians. Welford (1962) gave the
+                updating recursion, and Chan, Golub and LeVeque (1983)
+                compare variance algorithms. Downdating appears in
+                LINPACK (Dongarra et al. 1979) and was analysed by
+                Stewart (1979). The standard monographs are Björck
+                (1996), Lawson and Hanson (1974) and Golub and Van Loan
+                (2013); Thisted (1988) and Kennedy and Gentle (1980)
+                take the statistician’s side.</p>
+                <p><strong>Perturbation theory.</strong> Golub and
+                Wilkinson (1966) first observed that the least squares
+                solution can be sensitive to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\kappa^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>κ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> when the
+                residual is large. Wedin (1973) gave sharp perturbation
+                bounds for pseudoinverses and least squares. The
+                equilibration result of <a href="../ch10-computation/05-conditioning.html#prp-cmp-van-der-sluis" class="xref" data-ref="prp-cmp-van-der-sluis" data-shard="ch10-computation">Proposition 10.5.2</a> is
+                from van der Sluis (1969). The inequality of <a href="../ch10-computation/04-svd.html#prp-cmp-weyl" class="xref" data-ref="prp-cmp-weyl" data-shard="ch10-computation">Proposition 10.4.2</a> is
+                the singular-value form of Weyl’s (1912) inequality for
+                eigenvalues. Beaton, Rubin and Barone (1976) argued that
+                errors from rounding the data should be the yardstick
+                for computational accuracy, the point made at the end of
+                <a href="05-conditioning.html">Section 10.5</a>.</p>
+                <p><strong>Statistics.</strong> Recursive least squares
+                via the Sherman–Morrison formula goes back to Plackett
+                (1950). The PRESS statistic is due to Allen (1974). The
+                recursive residuals of <a href="../ch10-computation/06-updating.html#exr-cmp-recursive-residuals" class="xref" data-ref="exr-cmp-recursive-residuals" data-shard="ch10-computation">Exercise (C1)</a> are
+                those of Brown, Durbin and Evans (1975). Deletion
+                diagnostics are developed in Chapter 20, collinearity in
+                Chapter 26, and ridge and principal components
+                regression in Chapter 27.</p>
+                <h2 id="references"><span class="header-section-number">10.8.3. </span>
+                References</h2>
+                <ul>
+                <li>Allen, David M. (1974). The Relationship Between
+                Variable Selection and Data Augmentation and a Method
+                for Prediction. <em>Technometrics</em> 16(1),
+                125–127.</li>
+                <li>Beaton, Albert E., Rubin, Donald B. and Barone, John
+                L. (1976). The Acceptability of Regression Solutions:
+                Another Look at Computational Accuracy. <em>Journal of
+                the American Statistical Association</em> 71(353),
+                158–168.</li>
+                <li>Björck, Åke (1967). Solving Linear Least Squares
+                Problems by Gram–Schmidt Orthogonalization. <em>BIT</em>
+                7(1), 1–21.</li>
+                <li>Björck, Åke (1996). <em>Numerical Methods for Least
+                Squares Problems</em>. Philadelphia: SIAM.</li>
+                <li>Björck, Åke and Paige, Christopher C. (1992). Loss
+                and Recapture of Orthogonality in the Modified
+                Gram–Schmidt Algorithm. <em>SIAM Journal on Matrix
+                Analysis and Applications</em> 13(1), 176–190.</li>
+                <li>Brown, R. L., Durbin, J. and Evans, J. M. (1975).
+                Techniques for Testing the Constancy of Regression
+                Relationships over Time. <em>Journal of the Royal
+                Statistical Society, Series B</em> 37(2), 149–192.</li>
+                <li>Businger, Peter and Golub, Gene H. (1965). Linear
+                Least Squares Solutions by Householder Transformations.
+                <em>Numerische Mathematik</em> 7(3), 269–276.</li>
+                <li>Chan, Tony F. (1987). Rank Revealing QR
+                Factorizations. <em>Linear Algebra and Its
+                Applications</em> 88/89, 67–82.</li>
+                <li>Chan, Tony F., Golub, Gene H. and LeVeque, Randall
+                J. (1983). Algorithms for Computing the Sample Variance:
+                Analysis and Recommendations. <em>The American
+                Statistician</em> 37(3), 242–247.</li>
+                <li>Dongarra, J. J., Bunch, J. R., Moler, C. B. and
+                Stewart, G. W. (1979). <em>LINPACK Users’ Guide</em>.
+                Philadelphia: SIAM.</li>
+                <li>Gentleman, W. Morven (1973). Least Squares
+                Computations by Givens Transformations Without Square
+                Roots. <em>Journal of the Institute of Mathematics and
+                Its Applications</em> 12(3), 329–336.</li>
+                <li>Givens, Wallace (1958). Computation of Plane Unitary
+                Rotations Transforming a General Matrix to Triangular
+                Form. <em>Journal of the Society for Industrial and
+                Applied Mathematics</em> 6(1), 26–50.</li>
+                <li>Goldberg, David (1991). What Every Computer
+                Scientist Should Know About Floating-Point Arithmetic.
+                <em>ACM Computing Surveys</em> 23(1), 5–48.</li>
+                <li>Golub, Gene H. (1965). Numerical Methods for Solving
+                Linear Least Squares Problems. <em>Numerische
+                Mathematik</em> 7(3), 206–216.</li>
+                <li>Golub, Gene H. and Kahan, William (1965).
+                Calculating the Singular Values and Pseudo-Inverse of a
+                Matrix. <em>Journal of the Society for Industrial and
+                Applied Mathematics, Series B: Numerical Analysis</em>
+                2(2), 205–224.</li>
+                <li>Golub, Gene H. and Reinsch, Christian (1970).
+                Singular Value Decomposition and Least Squares
+                Solutions. <em>Numerische Mathematik</em> 14(5),
+                403–420.</li>
+                <li>Golub, Gene H. and Van Loan, Charles F. (2013).
+                <em>Matrix Computations</em>. 4th edition. Baltimore:
+                Johns Hopkins University Press.</li>
+                <li>Golub, Gene H. and Wilkinson, James H. (1966). Note
+                on the Iterative Refinement of Least Squares Solution.
+                <em>Numerische Mathematik</em> 9(2), 139–148.</li>
+                <li>Goodnight, James H. (1979). A Tutorial on the SWEEP
+                Operator. <em>The American Statistician</em> 33(3),
+                149–158.</li>
+                <li>Gu, Ming and Eisenstat, Stanley C. (1996). Efficient
+                Algorithms for Computing a Strong Rank-Revealing QR
+                Factorization. <em>SIAM Journal on Scientific
+                Computing</em> 17(4), 848–869.</li>
+                <li>Higham, Nicholas J. (2002). <em>Accuracy and
+                Stability of Numerical Algorithms</em>. 2nd edition.
+                Philadelphia: SIAM.</li>
+                <li>Hong, Yoo Pyo and Pan, Ching-Tsuan (1992).
+                Rank-Revealing QR Factorizations and the Singular Value
+                Decomposition. <em>Mathematics of Computation</em>
+                58(197), 213–232.</li>
+                <li>Householder, Alston S. (1958). Unitary
+                Triangularization of a Nonsymmetric Matrix. <em>Journal
+                of the ACM</em> 5(4), 339–342.</li>
+                <li>IEEE (2019). <em>IEEE Standard for Floating-Point
+                Arithmetic</em> (IEEE Std 754-2019). New York:
+                IEEE.</li>
+                <li>Kahan, William (1966). Numerical Linear Algebra.
+                <em>Canadian Mathematical Bulletin</em> 9(5),
+                757–801.</li>
+                <li>Kennedy, William J. and Gentle, James E. (1980).
+                <em>Statistical Computing</em>. New York: Marcel
+                Dekker.</li>
+                <li>Läuchli, Peter (1961). Jordan-Elimination und
+                Ausgleichung nach kleinsten Quadraten. <em>Numerische
+                Mathematik</em> 3(1), 226–240.</li>
+                <li>Lawson, Charles L. and Hanson, Richard J. (1974).
+                <em>Solving Least Squares Problems</em>. Englewood
+                Cliffs, NJ: Prentice-Hall. Reprinted Philadelphia: SIAM,
+                1995.</li>
+                <li>Longley, James W. (1967). An Appraisal of Least
+                Squares Programs for the Electronic Computer from the
+                Point of View of the User. <em>Journal of the American
+                Statistical Association</em> 62(319), 819–841.</li>
+                <li>Miller, Alan J. (1992). Algorithm AS 274: Least
+                Squares Routines to Supplement Those of Gentleman.
+                <em>Journal of the Royal Statistical Society, Series C
+                (Applied Statistics)</em> 41(2), 458–478.</li>
+                <li>Plackett, R. L. (1950). Some Theorems in Least
+                Squares. <em>Biometrika</em> 37(1/2), 149–157.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Stewart, G. W. (1979). The Effects of Rounding Error
+                on an Algorithm for Downdating a Cholesky Factorization.
+                <em>Journal of the Institute of Mathematics and Its
+                Applications</em> 23(2), 203–213.</li>
+                <li>Thisted, Ronald A. (1988). <em>Elements of
+                Statistical Computing: Numerical Computation</em>. New
+                York: Chapman and Hall.</li>
+                <li>Trefethen, Lloyd N. and Bau, David (1997).
+                <em>Numerical Linear Algebra</em>. Philadelphia:
+                SIAM.</li>
+                <li>van der Sluis, A. (1969). Condition Numbers and
+                Equilibration of Matrices. <em>Numerische
+                Mathematik</em> 14(1), 14–23.</li>
+                <li>Wedin, Per-Åke (1973). Perturbation Theory for
+                Pseudo-Inverses. <em>BIT</em> 13(2), 217–232.</li>
+                <li>Welford, B. P. (1962). Note on a Method for
+                Calculating Corrected Sums of Squares and Products.
+                <em>Technometrics</em> 4(3), 419–420.</li>
+                <li>Weyl, Hermann (1912). Das asymptotische
+                Verteilungsgesetz der Eigenwerte linearer partieller
+                Differentialgleichungen. <em>Mathematische Annalen</em>
+                71(4), 441–479.</li>
+                <li>Wilkinson, James H. (1963). <em>Rounding Errors in
+                Algebraic Processes</em>. London: Her Majesty’s
+                Stationery Office.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch10-computation/07-rank-revealing.html" class="pagination-link" aria-label="Rank-revealing
+factorizations">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">10.7 Rank-revealing
+factorizations</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2010.8%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch10-computation%2F08-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch10-computation/08-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=80e681a81e"></script>
+            </body>
+
+</html>

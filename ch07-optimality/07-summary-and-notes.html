@@ -1,0 +1,463 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7.7 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch07-optimality/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="What Gauss–Markov does not
+cover.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch07-optimality/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch07-optimality/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="7.7 Summary and Notes">
+        <meta property="og:description" content="What Gauss–Markov does
+not cover.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=80e681a81e">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch07-optimality/index.html">Optimality: Gauss–Markov, Maximum Likelihood and Minimum Variance</a></li>
+                        <li class="breadcrumb-item"><a href="../ch07-optimality/07-summary-and-notes.html"><span class="chapter-number">7.7</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">7.7</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">7.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A linear estimator <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\bm a^{\top}\boldsymbol{Y}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D482 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">a</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">Y</mi></math></mjx-assistive-mml></mjx-container></span> is unbiased for
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\lambda}^{\top}\boldsymbol{\beta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D740 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">β</mi></math></mjx-assistive-mml></mjx-container></span>
+                iff <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{X}^{\top}\bm
+                a=\boldsymbol{\lambda}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D482 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="4"><mjx-c class="mjx-c1D740 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">X</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">a</mi><mo>=</mo><mi mathvariant="bold-italic">λ</mi></math></mjx-assistive-mml></mjx-container></span>. Such estimators exist iff <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\lambda}\in\mathcal{C}(\boldsymbol{X}^{\top})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D740 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">λ</mi><mo>∈</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">X</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, the
+                same condition under which least squares estimates <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\lambda}^{\top}\boldsymbol{\beta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D740 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">β</mi></math></mjx-assistive-mml></mjx-container></span>
+                uniquely. Their coefficient vectors form the flat <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{M}\bm\rho+\mathcal{C}(\boldsymbol{X})^{\perp}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D474 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D746 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c22A5"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">M</mi><mi mathvariant="bold-italic">ρ</mi><mo>+</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><mi mathvariant="bold-italic">X</mi><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>⊥</mo></mrow></msup></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch07-optimality/01-linear-unbiased.html#prp-opt-lue" class="xref" data-ref="prp-opt-lue" data-shard="ch07-optimality">Proposition 7.1.1</a> and
+                <a href="../ch07-optimality/01-linear-unbiased.html#prp-opt-lue-set" class="xref" data-ref="prp-opt-lue-set" data-shard="ch07-optimality">Proposition 7.1.2</a>).</p></li>
+                <li><p><strong>Gauss–Markov.</strong> Under <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{E}(\boldsymbol{\varepsilon})=\boldsymbol{0}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D73A TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-b" space="4"><mjx-c class="mjx-c1D7CE TEX-B"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mo stretchy="false">(</mo><mi mathvariant="bold-italic">ε</mi><mo stretchy="false">)</mo><mo>=</mo><mn mathvariant="bold">0</mn></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{Cov}(\boldsymbol{\varepsilon})=\sigma^2\boldsymbol{I}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c43"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c76"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D73A TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D470 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Cov</mi><mo stretchy="false">(</mo><mi mathvariant="bold-italic">ε</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mi mathvariant="bold-italic">I</mi></math></mjx-assistive-mml></mjx-container></span>, in
+                any rank, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\lambda}^{\top}\hat{\boldsymbol{\beta}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D740 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.426em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold-italic">β</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span> is the
+                unique BLUE of every estimable <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\lambda}^{\top}\boldsymbol{\beta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D740 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">β</mi></math></mjx-assistive-mml></mjx-container></span>. For any
+                LUE, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{Var}(\bm
+                a^{\top}\boldsymbol{Y})=\operatorname{Var}(\boldsymbol{\lambda}^{\top}\hat{\boldsymbol{\beta}})+\sigma^2\lVert (\boldsymbol{I}-\boldsymbol{M})\bm
+                a\rVert^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c56"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D482 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="4"><mjx-c class="mjx-c56"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D740 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.426em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D470 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="3"><mjx-c class="mjx-c1D474 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D482 TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Var</mi><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">a</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">Y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>Var</mi><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold-italic">β</mi><mo stretchy="false">^</mo></mover></mrow><mo stretchy="false">)</mo><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">‖</mo><mo stretchy="false">(</mo><mi mathvariant="bold-italic">I</mi><mo>−</mo><mi mathvariant="bold-italic">M</mi><mo stretchy="false">)</mo><mi mathvariant="bold-italic">a</mi><msup><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">‖</mo><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>. In matrix form, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{Cov}(\boldsymbol{A}\boldsymbol{Y})-\operatorname{Cov}(\boldsymbol{\Lambda}^{\top}\hat{\boldsymbol{\beta}})=\sigma^2\boldsymbol{A}(\boldsymbol{I}-\boldsymbol{M})\boldsymbol{A}^{\top}\succeq\bm0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c43"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c76"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="3"><mjx-c class="mjx-c43"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c76"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.426em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D470 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="3"><mjx-c class="mjx-c1D474 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2AB0"></mjx-c></mjx-mo><mjx-mn class="mjx-b" space="4"><mjx-c class="mjx-c1D7CE TEX-B"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Cov</mi><mo stretchy="false">(</mo><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold-italic">Y</mi><mo stretchy="false">)</mo><mo>−</mo><mi>Cov</mi><mo stretchy="false">(</mo><msup><mi mathvariant="bold">Λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold-italic">β</mi><mo stretchy="false">^</mo></mover></mrow><mo stretchy="false">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mi mathvariant="bold-italic">A</mi><mo stretchy="false">(</mo><mi mathvariant="bold-italic">I</mi><mo>−</mo><mi mathvariant="bold-italic">M</mi><mo stretchy="false">)</mo><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo>⪰</mo><mn mathvariant="bold">0</mn></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch07-optimality/02-gauss-markov.html#thm-opt-gauss-markov" class="xref" data-ref="thm-opt-gauss-markov" data-shard="ch07-optimality">Theorem 7.2.1</a> and <a href="../ch07-optimality/02-gauss-markov.html#cor-opt-gm-consequences" class="xref" data-ref="cor-opt-gm-consequences" data-shard="ch07-optimality">Corollary 7.2.2</a>). With
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{Cov}(\boldsymbol{\varepsilon})=\sigma^2\boldsymbol{V}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c43"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c76"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D73A TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47D TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Cov</mi><mo stretchy="false">(</mo><mi mathvariant="bold-italic">ε</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mi mathvariant="bold-italic">V</mi></math></mjx-assistive-mml></mjx-container></span>,
+                generalized least squares is the BLUE (<a href="../ch07-optimality/02-gauss-markov.html#cor-opt-aitken" class="xref" data-ref="cor-opt-aitken" data-shard="ch07-optimality">Corollary 7.2.3</a>).</p></li>
+                <li><p>The theorem does not cover nonlinear estimators
+                (the midrange beats the mean under uniform errors, <a href="../ch07-optimality/02-gauss-markov.html#exm-opt-midrange" class="xref" data-ref="exm-opt-midrange" data-shard="ch07-optimality">Example (Uniform errors and the midrange)</a>)
+                or biased ones (ridge, <a href="../ch07-optimality/02-gauss-markov.html#exr-opt-ridge" class="xref" data-ref="exr-opt-ridge" data-shard="ch07-optimality">Exercise (B1)</a>).
+                Orthogonal columns minimize coefficient variances (<a href="../ch07-optimality/02-gauss-markov.html#prp-opt-orthogonal-design" class="xref" data-ref="prp-opt-orthogonal-design" data-shard="ch07-optimality">Proposition 7.2.4</a>).</p></li>
+                <li><p>Under normality, the MLE of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\beta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">β</mi></math></mjx-assistive-mml></mjx-container></span> is least squares
+                and the MLE of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\text{SSE}/n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mtext class="mjx-n"><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c45"></mjx-c></mjx-mtext><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>SSE</mtext><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>, biased by
+                the factor <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(n-r)/n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>
+                and inconsistent when <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="r"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math></mjx-assistive-mml></mjx-container></span> grows with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch07-optimality/03-maximum-likelihood.html#thm-opt-mle" class="xref" data-ref="thm-opt-mle" data-shard="ch07-optimality">Theorem 7.3.1</a> and <a href="../ch07-optimality/03-maximum-likelihood.html#exm-opt-neyman-scott" class="xref" data-ref="exm-opt-neyman-scott" data-shard="ch07-optimality">Example (Many means, one variance)</a>).
+                The profile likelihood of an estimable function is a
+                decreasing function of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>t</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch07-optimality/03-maximum-likelihood.html#prp-opt-profile-t" class="xref" data-ref="prp-opt-profile-t" data-shard="ch07-optimality">Proposition 7.3.3</a>).</p></li>
+                <li><p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(\boldsymbol{M}\boldsymbol{Y},\text{SSE})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D474 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="2"><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c45"></mjx-c></mjx-mtext><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi mathvariant="bold-italic">M</mi><mi mathvariant="bold-italic">Y</mi><mo>,</mo><mtext>SSE</mtext><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> is
+                complete and sufficient. By Lehmann–Scheffé, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\lambda}^{\top}\hat{\boldsymbol{\beta}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D740 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.426em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold-italic">β</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span> and
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="s^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>s</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> are the UMVUEs,
+                with no linearity restriction (<a href="../ch07-optimality/04-minimum-variance.html#prp-opt-complete-sufficient" class="xref" data-ref="prp-opt-complete-sufficient" data-shard="ch07-optimality">Proposition 7.4.3</a> and
+                <a href="../ch07-optimality/04-minimum-variance.html#thm-opt-umvue" class="xref" data-ref="thm-opt-umvue" data-shard="ch07-optimality">Theorem 7.4.6</a>). Least
+                squares attains the Cramér–Rao bound for <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\beta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">β</mi></math></mjx-assistive-mml></mjx-container></span>, and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="s^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>s</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> has efficiency <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(n-p)/n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch07-optimality/04-minimum-variance.html#thm-opt-cramer-rao" class="xref" data-ref="thm-opt-cramer-rao" data-shard="ch07-optimality">Theorem 7.4.8</a>).</p></li>
+                <li><p>Under normality, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\Lambda}^{\top}\hat{\boldsymbol{\beta}}\sim\mathrm{N}(\boldsymbol{\Lambda}^{\top}\boldsymbol{\beta},\sigma^2\boldsymbol{\Lambda}^{\top}(\boldsymbol{X}^{\top}\boldsymbol{X})^{-}\boldsymbol{\Lambda})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.426em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c223C"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c4E"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold">Λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold-italic">β</mi><mo stretchy="false">^</mo></mover></mrow><mo>∼</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">N</mi></mrow><mo stretchy="false">(</mo><msup><mi mathvariant="bold">Λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">β</mi><mo>,</mo><msup><mi>σ</mi><mn>2</mn></msup><msup><mi mathvariant="bold">Λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">X</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">X</mi><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msup><mi mathvariant="bold">Λ</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>,
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\text{SSE}/\sigma^2\sim\chi^2(n-r)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mtext class="mjx-n"><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c45"></mjx-c></mjx-mtext><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c223C"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>SSE</mtext><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msup><mi>σ</mi><mn>2</mn></msup><mo>∼</mo><msup><mi>χ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>,
+                the two are independent, and standardized estimable
+                functions are <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t(n-r)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>r</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch07-optimality/05-sampling-distributions.html#thm-opt-sampling" class="xref" data-ref="thm-opt-sampling" data-shard="ch07-optimality">Theorem 7.5.1</a>, <a href="../ch07-optimality/05-sampling-distributions.html#cor-opt-t" class="xref" data-ref="cor-opt-t" data-shard="ch07-optimality">Corollary 7.5.2</a> and <a href="../ch07-optimality/05-sampling-distributions.html#cor-opt-quadratic" class="xref" data-ref="cor-opt-quadratic" data-shard="ch07-optimality">Corollary 7.5.3</a>).
+                Without normality the variance of SSE depends on the
+                kurtosis (<a href="../ch07-optimality/05-sampling-distributions.html#prp-opt-var-sse" class="xref" data-ref="prp-opt-var-sse" data-shard="ch07-optimality">Proposition 7.5.4</a>).</p></li>
+                <li><p>The normal-inverse-gamma prior is conjugate. The
+                posterior mean is a precision-weighted combination of
+                the prior mean and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\boldsymbol{\beta}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.426em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D737 TEX-BI"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold-italic">β</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span>, and the flat
+                prior <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1/\sigma^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msup><mi>σ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>
+                reproduces least squares and the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> intervals (<a href="../ch07-optimality/06-bayes-conjugate.html#thm-opt-bayes-conjugate" class="xref" data-ref="thm-opt-bayes-conjugate" data-shard="ch07-optimality">Theorem 7.6.2</a>, <a href="../ch07-optimality/06-bayes-conjugate.html#prp-opt-shrinkage" class="xref" data-ref="prp-opt-shrinkage" data-shard="ch07-optimality">Proposition 7.6.3</a> and
+                <a href="../ch07-optimality/06-bayes-conjugate.html#cor-opt-flat-prior" class="xref" data-ref="cor-opt-flat-prior" data-shard="ch07-optimality">Corollary 7.6.4</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">7.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>Gauss and Markov.</strong> Gauss (1823)
+                proved that least squares gives the linear unbiased
+                combination of observations with the smallest variance,
+                without assuming normal errors. It was his second
+                justification of the method, after the normal-theory
+                argument of 1809. Markov’s lectures on probability (1900
+                and later editions) restated the result, and Neyman
+                (1934) attached Markov’s name to it. The history is
+                traced by Plackett (1949, 1972) and Stigler (1986). The
+                projection proof of <a href="02-gauss-markov.html">Section 7.2</a> splits the
+                coefficient vector of a competing estimator by
+                Pythagoras, so that its excess variance is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2\lVert (\boldsymbol{I}-\boldsymbol{M})\bm
+                a\rVert^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D470 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="3"><mjx-c class="mjx-c1D474 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D482 TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">‖</mo><mo stretchy="false">(</mo><mi mathvariant="bold-italic">I</mi><mo>−</mo><mi mathvariant="bold-italic">M</mi><mo stretchy="false">)</mo><mi mathvariant="bold-italic">a</mi><msup><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">‖</mo><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>. This is the proof of Seber and Lee (2003,
+                section 3.2, Theorem 3.2), stated there for linear
+                functions of the mean vector; we apply it to estimable
+                functions in the rank-deficient case. Christensen (2020,
+                section 2.3) argues instead through the covariance with
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\bm\rho^{\top}\boldsymbol{M}\boldsymbol{Y}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D746 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D474 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">ρ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">M</mi><mi mathvariant="bold-italic">Y</mi></math></mjx-assistive-mml></mjx-container></span>.
+                Rencher and Schaalje (2008, section 7.3) give the matrix
+                form for full-rank models, and Agresti (2015, section
+                2.7) discusses its scope and its extension to
+                generalized least squares. The generalized least squares
+                version (<a href="../ch07-optimality/02-gauss-markov.html#cor-opt-aitken" class="xref" data-ref="cor-opt-aitken" data-shard="ch07-optimality">Corollary 7.2.3</a>) is due
+                to Aitken (1935). The characterization of models in
+                which ordinary least squares remains best (<a href="../ch07-optimality/02-gauss-markov.html#exr-opt-zyskind" class="xref" data-ref="exr-opt-zyskind" data-shard="ch07-optimality">Exercise (C3)</a>) is due
+                to Zyskind (1967) and, in coordinate-free form, to
+                Kruskal (1968).</p>
+                <p><strong>What Gauss–Markov does not cover.</strong>
+                That shrinkage can improve on unbiased estimation in
+                three or more dimensions was discovered by Stein (1956),
+                and James and Stein (1961) gave the explicit estimator.
+                Hoerl and Kennard (1970) introduced ridge regression.
+                The existence of a better ridge estimator (<a href="../ch07-optimality/02-gauss-markov.html#exr-opt-ridge" class="xref" data-ref="exr-opt-ridge" data-shard="ch07-optimality">Exercise (B1)</a>) is their
+                theorem. Wald (1940) proposed the group-means slope
+                estimator of <a href="../ch07-optimality/01-linear-unbiased.html#exm-opt-three-slopes" class="xref" data-ref="exm-opt-three-slopes" data-shard="ch07-optimality">Example (Three linear unbiased estimators of a slope)</a>
+                for regressions with errors in the regressor. The
+                optimality of orthogonal weighing designs goes back to
+                Hotelling (1944).</p>
+                <p><strong>Likelihood.</strong> The inconsistency of the
+                maximum likelihood estimate of a variance in the
+                presence of many nuisance means is the example of Neyman
+                and Scott (1948). Restricted maximum likelihood (<a href="../ch07-optimality/03-maximum-likelihood.html#exr-opt-reml" class="xref" data-ref="exr-opt-reml" data-shard="ch07-optimality">Exercise (C2)</a>) was
+                developed by Patterson and Thompson (1971) for variance
+                components. Christensen (2020, section 2.4), Seber and
+                Lee (2003, section 3.5) and Rencher and Schaalje (2008,
+                section 7.6) derive the normal-theory MLEs. The
+                maximization through <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\log
+                u\le u-1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>u</mi><mo>≤</mo><mi>u</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> used in <a href="../ch07-optimality/03-maximum-likelihood.html#thm-opt-mle" class="xref" data-ref="thm-opt-mle" data-shard="ch07-optimality">Theorem 7.3.1</a> follows
+                Seber and Lee (2003, section 3.5).</p>
+                <p><strong>Minimum variance.</strong> The Rao–Blackwell
+                theorem is due to Rao (1945) and Blackwell (1947).
+                Completeness and the uniqueness theorem are due to
+                Lehmann and Scheffé (1950). The two results we quoted,
+                the factorization criterion and the completeness of
+                full-rank exponential families, are proved in Lehmann
+                and Casella (1998) and Lehmann and Romano (2005). The
+                same variance bound was found independently by Rao
+                (1945) and Cramér (1946). Christensen (2020, section
+                2.5) outlines the minimum variance unbiased argument for
+                the linear model by reparameterizing to full rank. Seber
+                and Lee (2003, section 3.5) compare the Cramér–Rao bound
+                with the variance of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="s^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>s</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>. The optimality of
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="s^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>s</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> among
+                nonnegative quadratic unbiased estimators (<a href="../ch07-optimality/04-minimum-variance.html#exr-opt-quadratic-sigma2" class="xref" data-ref="exr-opt-quadratic-sigma2" data-shard="ch07-optimality">Exercise (C2)</a>) is due
+                to Atiqullah (1962). That the divisor <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="k+2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi><mo>+</mo><mn>2</mn></math></mjx-assistive-mml></mjx-container></span> minimizes the mean
+                squared error among multiples of SSE (<a href="../ch07-optimality/03-maximum-likelihood.html#prp-opt-divisor" class="xref" data-ref="prp-opt-divisor" data-shard="ch07-optimality">Proposition 7.3.2</a>) is
+                due to Theil and Schweitzer (1961). The reflection
+                argument of <a href="../ch07-optimality/04-minimum-variance.html#exm-opt-reflection" class="xref" data-ref="exm-opt-reflection" data-shard="ch07-optimality">Example (Conditioning on the sufficient statistic)</a>
+                is our own illustration.</p>
+                <p><strong>Sampling distributions.</strong> The
+                distribution theory of <a href="05-sampling-distributions.html">Section 7.5</a>
+                follows Christensen (2020, section 2.6), Seber and Lee
+                (2003, section 3.4) and Rencher and Schaalje (2008,
+                section 7.6.3), with the rank-deficient forms
+                throughout. The effect of kurtosis on inference about
+                variances, and the relative robustness of inference
+                about means, were emphasized by Box (1953).</p>
+                <p><strong>Bayesian thread.</strong> The conjugate
+                normal-inverse-gamma analysis goes back to Raiffa and
+                Schlaifer (1961) and is developed for regression by
+                Zellner (1971) and Box and Tiao (1973). O’Hagan and
+                Forster (2004) give a modern account. Zellner (1986)
+                introduced the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="g"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi></math></mjx-assistive-mml></mjx-container></span>-prior. Seber and Lee
+                (2003, section 3.12), Christensen (2020, section 2.10)
+                and Rencher and Schaalje (2008, chapter 11) treat
+                Bayesian estimation in the linear model, and Fahrmeir,
+                Kneib, Lang and Marx (2021, section 4.4) present the
+                conjugate analysis as the starting point for richer
+                priors. For an applied account of the Gauss–Markov
+                conditions and what follows from them, see Sen and
+                Srivastava (1990, section 2.5).</p>
+                <p><strong>Data.</strong> The stack loss data are from
+                Brownlee (1965) and are distributed with
+                statsmodels.</p>
+                <h2 id="references"><span class="header-section-number">7.7.3. </span>
+                References</h2>
+                <ul>
+                <li>Agresti, Alan (2015). <em>Foundations of Linear and
+                Generalized Linear Models</em>. Hoboken, NJ: Wiley.</li>
+                <li>Aitken, Alexander C. (1935). On Least Squares and
+                Linear Combination of Observations. <em>Proceedings of
+                the Royal Society of Edinburgh</em> 55, 42–48.</li>
+                <li>Atiqullah, M. (1962). The Estimation of Residual
+                Variance in Quadratically Balanced Least-Squares
+                Problems and the Robustness of the F-Test.
+                <em>Biometrika</em> 49(1/2), 83–91.</li>
+                <li>Blackwell, David (1947). Conditional Expectation and
+                Unbiased Sequential Estimation. <em>The Annals of
+                Mathematical Statistics</em> 18(1), 105–110.</li>
+                <li>Box, George E. P. (1953). Non-Normality and Tests on
+                Variances. <em>Biometrika</em> 40(3/4), 318–335.</li>
+                <li>Box, George E. P. and Tiao, George C. (1973).
+                <em>Bayesian Inference in Statistical Analysis</em>.
+                Reading, MA: Addison-Wesley.</li>
+                <li>Brownlee, K. A. (1965). <em>Statistical Theory and
+                Methodology in Science and Engineering</em>. 2nd
+                edition. New York: Wiley.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Cramér, Harald (1946). <em>Mathematical Methods of
+                Statistics</em>. Princeton, NJ: Princeton University
+                Press.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Gauss, Carl Friedrich (1823). <em>Theoria
+                Combinationis Observationum Erroribus Minimis
+                Obnoxiae</em>. Göttingen: Dieterich.</li>
+                <li>Hoerl, Arthur E. and Kennard, Robert W. (1970).
+                Ridge Regression: Biased Estimation for Nonorthogonal
+                Problems. <em>Technometrics</em> 12(1), 55–67.</li>
+                <li>Hotelling, Harold (1944). Some Improvements in
+                Weighing and Other Experimental Techniques. <em>The
+                Annals of Mathematical Statistics</em> 15(3),
+                297–306.</li>
+                <li>James, W. and Stein, Charles (1961). Estimation with
+                Quadratic Loss. <em>Proceedings of the Fourth Berkeley
+                Symposium on Mathematical Statistics and
+                Probability</em> 1, 361–379.</li>
+                <li>Kruskal, William (1968). When Are Gauss–Markov and
+                Least Squares Estimators Identical? A Coordinate-Free
+                Approach. <em>The Annals of Mathematical Statistics</em>
+                39(1), 70–75.</li>
+                <li>Lehmann, E. L. and Casella, George (1998).
+                <em>Theory of Point Estimation</em>. 2nd edition. New
+                York: Springer.</li>
+                <li>Lehmann, E. L. and Romano, Joseph P. (2005).
+                <em>Testing Statistical Hypotheses</em>. 3rd edition.
+                New York: Springer.</li>
+                <li>Lehmann, E. L. and Scheffé, Henry (1950).
+                Completeness, Similar Regions, and Unbiased Estimation.
+                Part I. <em>Sankhyā</em> 10(4), 305–340.</li>
+                <li>Neyman, Jerzy (1934). On the Two Different Aspects
+                of the Representative Method. <em>Journal of the Royal
+                Statistical Society</em> 97(4), 558–625.</li>
+                <li>Neyman, J. and Scott, Elizabeth L. (1948).
+                Consistent Estimates Based on Partially Consistent
+                Observations. <em>Econometrica</em> 16(1), 1–32.</li>
+                <li>O’Hagan, Anthony and Forster, Jonathan (2004).
+                <em>Kendall’s Advanced Theory of Statistics, Volume 2B:
+                Bayesian Inference</em>. 2nd edition. London:
+                Arnold.</li>
+                <li>Patterson, H. D. and Thompson, Robin (1971).
+                Recovery of Inter-Block Information When Block Sizes Are
+                Unequal. <em>Biometrika</em> 58(3), 545–554.</li>
+                <li>Plackett, R. L. (1949). A Historical Note on the
+                Method of Least Squares. <em>Biometrika</em> 36(3/4),
+                458–460.</li>
+                <li>Plackett, R. L. (1972). Studies in the History of
+                Probability and Statistics. XXIX: The Discovery of the
+                Method of Least Squares. <em>Biometrika</em> 59(2),
+                239–251.</li>
+                <li>Raiffa, Howard and Schlaifer, Robert (1961).
+                <em>Applied Statistical Decision Theory</em>. Boston:
+                Division of Research, Graduate School of Business
+                Administration, Harvard University.</li>
+                <li>Rao, C. Radhakrishna (1945). Information and the
+                Accuracy Attainable in the Estimation of Statistical
+                Parameters. <em>Bulletin of the Calcutta Mathematical
+                Society</em> 37, 81–91.</li>
+                <li>Rencher, Alvin C. and Schaalje, G. Bruce (2008).
+                <em>Linear Models in Statistics</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Sen, Ashish and Srivastava, Muni (1990).
+                <em>Regression Analysis: Theory, Methods, and
+                Applications</em>. New York: Springer.</li>
+                <li>Stein, Charles (1956). Inadmissibility of the Usual
+                Estimator for the Mean of a Multivariate Normal
+                Distribution. <em>Proceedings of the Third Berkeley
+                Symposium on Mathematical Statistics and
+                Probability</em> 1, 197–206.</li>
+                <li>Stigler, Stephen M. (1986). <em>The History of
+                Statistics: The Measurement of Uncertainty before
+                1900</em>. Cambridge, MA: Harvard University Press.</li>
+                <li>Theil, H. and Schweitzer, A. (1961). The Best
+                Quadratic Estimator of the Residual Variance in
+                Regression Analysis. <em>Statistica Neerlandica</em>
+                15(1), 19–23.</li>
+                <li>Wald, Abraham (1940). The Fitting of Straight Lines
+                if Both Variables Are Subject to Error. <em>The Annals
+                of Mathematical Statistics</em> 11(3), 284–300.</li>
+                <li>Zellner, Arnold (1971). <em>An Introduction to
+                Bayesian Inference in Econometrics</em>. New York:
+                Wiley.</li>
+                <li>Zellner, Arnold (1986). On Assessing Prior
+                Distributions and Bayesian Regression Analysis with
+                g-Prior Distributions. In P. K. Goel and A. Zellner
+                (eds.), <em>Bayesian Inference and Decision Techniques:
+                Essays in Honor of Bruno de Finetti</em>, 233–243.
+                Amsterdam: North-Holland.</li>
+                <li>Zyskind, George (1967). On Canonical Forms,
+                Non-Negative Covariance Matrices and Best and Simple
+                Least Squares Linear Estimators in Linear Models.
+                <em>The Annals of Mathematical Statistics</em> 38(4),
+                1092–1109.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch07-optimality/06-bayes-conjugate.html" class="pagination-link" aria-label="Bayesian
+thread I: the conjugate linear model">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">7.6 Bayesian
+thread I: the conjugate linear model</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch08-estimability/index.html" class="pagination-link" aria-label="Estimability,
+Identifiability and Indicator Variables">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Estimability,
+Identifiability and Indicator Variables</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%207.7%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch07-optimality%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch07-optimality/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=80e681a81e"></script>
+            </body>
+
+</html>

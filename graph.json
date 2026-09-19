@@ -37,13 +37,58 @@
    "part": ""
   },
   {
+   "id": "ch05-model-and-least-squares",
+   "name": "Chapter 5",
+   "title": "The Model, Least Squares and the Normal Equations",
+   "url": "ch05-model-and-least-squares/index.html",
+   "results": 79,
+   "chapterNumber": 5,
+   "part": "Part II \u00b7 The Linear Model as a Projection"
+  },
+  {
    "id": "ch06-projections",
    "name": "Chapter 6",
    "title": "Projections: The Geometry of Least Squares",
    "url": "ch06-projections/index.html",
    "results": 96,
    "chapterNumber": 6,
-   "part": "Part II \u00b7 The Linear Model as a Projection"
+   "part": ""
+  },
+  {
+   "id": "ch07-optimality",
+   "name": "Chapter 7",
+   "title": "Optimality: Gauss\u2013Markov, Maximum Likelihood and Minimum Variance",
+   "url": "ch07-optimality/index.html",
+   "results": 81,
+   "chapterNumber": 7,
+   "part": ""
+  },
+  {
+   "id": "ch08-estimability",
+   "name": "Chapter 8",
+   "title": "Estimability, Identifiability and Indicator Variables",
+   "url": "ch08-estimability/index.html",
+   "results": 75,
+   "chapterNumber": 8,
+   "part": ""
+  },
+  {
+   "id": "ch09-sums-of-squares",
+   "name": "Chapter 9",
+   "title": "Sums of Squares and Orthogonal Decomposition",
+   "url": "ch09-sums-of-squares/index.html",
+   "results": 75,
+   "chapterNumber": 9,
+   "part": ""
+  },
+  {
+   "id": "ch10-computation",
+   "name": "Chapter 10",
+   "title": "Computation: QR, SVD and Conditioning",
+   "url": "ch10-computation/index.html",
+   "results": 70,
+   "chapterNumber": 10,
+   "part": ""
   }
  ],
  "edges": [
@@ -66,6 +111,36 @@
    "implied": false
   },
   {
+   "source": "ch01-matrix-algebra",
+   "target": "ch05-model-and-least-squares",
+   "weight": 18,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch07-optimality",
+   "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch08-estimability",
+   "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch09-sums-of-squares",
+   "weight": 8,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch10-computation",
+   "weight": 29,
+   "implied": false
+  },
+  {
    "source": "ch02-random-vectors",
    "target": "ch03-multivariate-normal",
    "weight": 23,
@@ -75,6 +150,36 @@
    "source": "ch02-random-vectors",
    "target": "ch04-quadratic-forms",
    "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch05-model-and-least-squares",
+   "weight": 18,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch07-optimality",
+   "weight": 16,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch08-estimability",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch09-sums-of-squares",
+   "weight": 17,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch10-computation",
+   "weight": 2,
    "implied": false
   },
   {
@@ -96,6 +201,30 @@
    "implied": false
   },
   {
+   "source": "ch03-multivariate-normal",
+   "target": "ch05-model-and-least-squares",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch07-optimality",
+   "weight": 8,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch09-sums-of-squares",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch10-computation",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch04-quadratic-forms",
    "target": "ch02-random-vectors",
    "weight": 4,
@@ -108,9 +237,207 @@
    "implied": false
   },
   {
+   "source": "ch04-quadratic-forms",
+   "target": "ch05-model-and-least-squares",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch07-optimality",
+   "weight": 17,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch08-estimability",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch09-sums-of-squares",
+   "weight": 14,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch03-multivariate-normal",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch06-projections",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch07-optimality",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch08-estimability",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch09-sums-of-squares",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch10-computation",
+   "weight": 6,
+   "implied": false
+  },
+  {
    "source": "ch06-projections",
    "target": "ch03-multivariate-normal",
    "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch05-model-and-least-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch07-optimality",
+   "weight": 33,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch08-estimability",
+   "weight": 42,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch09-sums-of-squares",
+   "weight": 63,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch10-computation",
+   "weight": 18,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch02-random-vectors",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch05-model-and-least-squares",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch08-estimability",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch09-sums-of-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch10-computation",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch01-matrix-algebra",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch05-model-and-least-squares",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch06-projections",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch07-optimality",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch09-sums-of-squares",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch10-computation",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch04-quadratic-forms",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch05-model-and-least-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch06-projections",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch10-computation",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch10-computation",
+   "target": "ch05-model-and-least-squares",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch10-computation",
+   "target": "ch06-projections",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch10-computation",
+   "target": "ch08-estimability",
+   "weight": 2,
    "implied": false
   }
  ]

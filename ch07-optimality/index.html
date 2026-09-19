@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimality: Gauss–Markov, Maximum Likelihood and Minimum
+Variance – Regression: From Projection to Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch07-optimality/index.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Least squares was introduced
+as a way of fitting, and Chapter 6 showed that it is a projection.
+Neither fact says it is a good way of estimating.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch07-optimality/index.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch07-optimality/index.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="Optimality: Gauss–Markov, Maximum
+Likelihood and Minimum Variance">
+        <meta property="og:description" content="Least squares was
+introduced as a way of fitting, and Chapter 6 showed that it is a
+projection. Neither fact says it is a good way of estimating.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=80e681a81e">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar"
+                    aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false"
+                        aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar"
+                        aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch07-optimality/index.html">Optimality: Gauss–Markov, Maximum Likelihood and Minimum Variance</a></li>
+                        <li class="breadcrumb-item"><a href="../ch07-optimality/index.html"><span class="chapter-title">Optimality: Gauss–Markov, Maximum Likelihood and Minimum Variance</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            
+                            <span class="chapter-title">Optimality:
+Gauss–Markov, Maximum Likelihood and Minimum Variance</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div
+                id="optimality-gaussmarkov-maximum-likelihood-and-minimum-variance">
+
+                </div>
+                <p>Least squares was introduced as a way of fitting, and
+                <a href="../ch06-projections/index.html">Chapter 6</a>
+                showed that it is a projection. Neither fact says it is
+                a <em>good</em> way of estimating. This chapter asks in
+                what precise senses least squares is the best one can
+                do, and where those senses end. With only means and
+                covariances assumed, least squares has the smallest
+                variance among linear unbiased estimators
+                (Gauss–Markov), and the proof is one more application of
+                the projection theorem. With normal errors three more
+                things hold. Least squares is maximum likelihood. It has
+                the smallest variance among <em>all</em> unbiased
+                estimators (Lehmann–Scheffé). And its sampling
+                distribution is known exactly, which is what Part III
+                builds tests and intervals on. The same assumptions also
+                show where optimality stops. Nonlinear estimators can
+                win when the errors are not normal, and biased
+                estimators can win on mean squared error. A Bayesian
+                analysis with a conjugate prior is one principled biased
+                estimator, and it recovers least squares as the prior
+                becomes flat.</p>
+                <p><strong>What you need.</strong> Covariances of linear
+                functions and the mean of a quadratic form (<a
+                href="../ch02-random-vectors/index.html">Chapter 2</a>:
+                <a
+                href="../ch02-random-vectors/02-linear.html#thm-rv-linear"
+                class="xref" data-ref="thm-rv-linear"
+                data-shard="ch02-random-vectors">Theorem 2.2.1</a> and
+                <a
+                href="../ch02-random-vectors/03-quadratic.html#thm-rv-quadform-mean"
+                class="xref" data-ref="thm-rv-quadform-mean"
+                data-shard="ch02-random-vectors">Theorem 2.3.1</a>). The
+                multivariate normal and its density (<a
+                href="../ch03-multivariate-normal/index.html">Chapter
+                3</a>: <a
+                href="../ch03-multivariate-normal/03-linear.html#thm-mvn-linear"
+                class="xref" data-ref="thm-mvn-linear"
+                data-shard="ch03-multivariate-normal">Theorem 3.3.1</a>
+                and <a
+                href="../ch03-multivariate-normal/02-mgf-density.html#thm-mvn-density"
+                class="xref" data-ref="thm-mvn-density"
+                data-shard="ch03-multivariate-normal">Theorem 3.2.2</a>).
+                Chi-squared quadratic forms and their independence (<a
+                href="../ch04-quadratic-forms/index.html">Chapter 4</a>:
+                <a
+                href="../ch04-quadratic-forms/03-chisq.html#thm-qf-chisq"
+                class="xref" data-ref="thm-qf-chisq"
+                data-shard="ch04-quadratic-forms">Theorem 4.3.2</a> and
+                <a
+                href="../ch04-quadratic-forms/04-independence.html#thm-qf-indep-linear"
+                class="xref" data-ref="thm-qf-indep-linear"
+                data-shard="ch04-quadratic-forms">Theorem 4.4.1</a>).
+                The linear model and its first two moments (<a
+                href="../ch05-model-and-least-squares/index.html">Chapter
+                5</a>: <a
+                href="../ch05-model-and-least-squares/03-multiple-regression-model.html#def-lm-linear-model"
+                class="xref" data-ref="def-lm-linear-model"
+                data-shard="ch05-model-and-least-squares">Definition 5.3.1</a>
+                and <a
+                href="../ch05-model-and-least-squares/05-properties.html#thm-lm-moments"
+                class="xref" data-ref="thm-lm-moments"
+                data-shard="ch05-model-and-least-squares">Theorem 5.5.1</a>).
+                Least squares as projection, including the
+                rank-deficient case (<a
+                href="../ch06-projections/index.html">Chapter 6</a>: <a
+                href="../ch06-projections/04-least-squares.html#thm-proj-ls-projection"
+                class="xref" data-ref="thm-proj-ls-projection"
+                data-shard="ch06-projections">Theorem 6.4.1</a>, <a
+                href="../ch06-projections/04-least-squares.html#thm-proj-normal-equations"
+                class="xref" data-ref="thm-proj-normal-equations"
+                data-shard="ch06-projections">Theorem 6.4.2</a> and <a
+                href="../ch06-projections/04-least-squares.html#thm-proj-invariant-functions"
+                class="xref" data-ref="thm-proj-invariant-functions"
+                data-shard="ch06-projections">Theorem 6.4.4</a>).</p>
+                <h2 id="roadmap">Roadmap</h2>
+                <ul>
+                <li><a href="01-linear-unbiased.html">Linear unbiased
+                estimation</a></li>
+                <li><a href="02-gauss-markov.html">The Gauss–Markov
+                theorem</a></li>
+                <li><a href="03-maximum-likelihood.html">Maximum
+                likelihood under normality</a></li>
+                <li><a href="04-minimum-variance.html">Sufficiency,
+                completeness and minimum variance</a></li>
+                <li><a href="05-sampling-distributions.html">Sampling
+                distributions of the estimates</a></li>
+                <li><a href="06-bayes-conjugate.html">Bayesian thread I:
+                the conjugate linear model</a></li>
+                <li><a href="07-summary-and-notes.html">Summary and
+                notes</a></li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch06-projections/12-summary-and-notes.html" class="pagination-link" aria-label="Summary
+and Notes">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">6.12 Summary and
+Notes</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch07-optimality/01-linear-unbiased.html" class="pagination-link" aria-label="Linear
+unbiased estimation">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">7.1 Linear
+unbiased estimation</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Optimality%3A%20Gauss%E2%80%93Markov%2C%20Maximum%20Likelihood%20and%20Minimum%20Variance&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch07-optimality%2Findex.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch07-optimality/index.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=80e681a81e"></script>
+            </body>
+
+</html>

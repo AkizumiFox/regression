@@ -22,7 +22,7 @@
       "title": "Matrix Algebra for Linear Models",
       "number": 1,
       "part": "Part I · Apparatus",
-      "collapsed": false,
+      "collapsed": true,
       "path": "ch01-matrix-algebra/index.html",
       "sections": [
         {
@@ -103,7 +103,7 @@
       "title": "Random Vectors: Expectation and Covariance Operators",
       "number": 2,
       "part": "",
-      "collapsed": false,
+      "collapsed": true,
       "path": "ch02-random-vectors/index.html",
       "sections": [
         {
@@ -160,7 +160,7 @@
       "title": "The Multivariate Normal Distribution",
       "number": 3,
       "part": "",
-      "collapsed": false,
+      "collapsed": true,
       "path": "ch03-multivariate-normal/index.html",
       "sections": [
         {
@@ -211,7 +211,7 @@
       "title": "Quadratic Forms and Their Distributions",
       "number": 4,
       "part": "",
-      "collapsed": false,
+      "collapsed": true,
       "path": "ch04-quadratic-forms/index.html",
       "sections": [
         {
@@ -253,10 +253,73 @@
       ]
     },
     {
+      "title": "The Model, Least Squares and the Normal Equations",
+      "number": 5,
+      "part": "Part II · The Linear Model as a Projection",
+      "collapsed": true,
+      "path": "ch05-model-and-least-squares/index.html",
+      "sections": [
+        {
+          "title": "What a regression model claims",
+          "number": "5.1",
+          "path": "ch05-model-and-least-squares/01-what-a-model-claims.html",
+          "filename": "01-what-a-model-claims.md"
+        },
+        {
+          "title": "Simple linear regression as a warm-up",
+          "number": "5.2",
+          "path": "ch05-model-and-least-squares/02-simple-regression.html",
+          "filename": "02-simple-regression.md"
+        },
+        {
+          "title": "The multiple linear regression model",
+          "number": "5.3",
+          "path": "ch05-model-and-least-squares/03-multiple-regression-model.html",
+          "filename": "03-multiple-regression-model.md"
+        },
+        {
+          "title": "Least squares and the normal equations",
+          "number": "5.4",
+          "path": "ch05-model-and-least-squares/04-least-squares.html",
+          "filename": "04-least-squares.md"
+        },
+        {
+          "title": "Properties of the estimator under second-moment assumptions",
+          "number": "5.5",
+          "path": "ch05-model-and-least-squares/05-properties.html",
+          "filename": "05-properties.md"
+        },
+        {
+          "title": "Estimating the error variance",
+          "number": "5.6",
+          "path": "ch05-model-and-least-squares/06-error-variance.html",
+          "filename": "06-error-variance.md"
+        },
+        {
+          "title": "Interpreting coefficients",
+          "number": "5.7",
+          "path": "ch05-model-and-least-squares/07-interpreting-coefficients.html",
+          "filename": "07-interpreting-coefficients.md"
+        },
+        {
+          "title": "A panorama of regression models to come",
+          "number": "5.8",
+          "path": "ch05-model-and-least-squares/08-panorama.html",
+          "filename": "08-panorama.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "5.9",
+          "path": "ch05-model-and-least-squares/09-summary-and-notes.html",
+          "filename": "09-summary-and-notes.md"
+        }
+      ]
+    },
+    {
       "title": "Projections: The Geometry of Least Squares",
       "number": 6,
-      "part": "Part II · The Linear Model as a Projection",
-      "collapsed": false,
+      "part": "",
+      "collapsed": true,
       "path": "ch06-projections/index.html",
       "sections": [
         {
@@ -330,6 +393,222 @@
           "number": "6.12",
           "path": "ch06-projections/12-summary-and-notes.html",
           "filename": "12-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Optimality: Gauss–Markov, Maximum Likelihood and Minimum Variance",
+      "number": 7,
+      "part": "",
+      "collapsed": true,
+      "path": "ch07-optimality/index.html",
+      "sections": [
+        {
+          "title": "Linear unbiased estimation",
+          "number": "7.1",
+          "path": "ch07-optimality/01-linear-unbiased.html",
+          "filename": "01-linear-unbiased.md"
+        },
+        {
+          "title": "The Gauss–Markov theorem",
+          "number": "7.2",
+          "path": "ch07-optimality/02-gauss-markov.html",
+          "filename": "02-gauss-markov.md"
+        },
+        {
+          "title": "Maximum likelihood under normality",
+          "number": "7.3",
+          "path": "ch07-optimality/03-maximum-likelihood.html",
+          "filename": "03-maximum-likelihood.md"
+        },
+        {
+          "title": "Sufficiency, completeness and minimum variance",
+          "number": "7.4",
+          "path": "ch07-optimality/04-minimum-variance.html",
+          "filename": "04-minimum-variance.md"
+        },
+        {
+          "title": "Sampling distributions of the estimates",
+          "number": "7.5",
+          "path": "ch07-optimality/05-sampling-distributions.html",
+          "filename": "05-sampling-distributions.md"
+        },
+        {
+          "title": "Bayesian thread I: the conjugate linear model",
+          "number": "7.6",
+          "path": "ch07-optimality/06-bayes-conjugate.html",
+          "filename": "06-bayes-conjugate.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "7.7",
+          "path": "ch07-optimality/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Estimability, Identifiability and Indicator Variables",
+      "number": 8,
+      "part": "",
+      "collapsed": true,
+      "path": "ch08-estimability/index.html",
+      "sections": [
+        {
+          "title": "Identifiability",
+          "number": "8.1",
+          "path": "ch08-estimability/01-identifiability.html",
+          "filename": "01-identifiability.md"
+        },
+        {
+          "title": "Estimable functions",
+          "number": "8.2",
+          "path": "ch08-estimability/02-estimable-functions.html",
+          "filename": "02-estimable-functions.md"
+        },
+        {
+          "title": "Characterizations of estimability",
+          "number": "8.3",
+          "path": "ch08-estimability/03-characterizations.html",
+          "filename": "03-characterizations.md"
+        },
+        {
+          "title": "Reparameterization and side conditions",
+          "number": "8.4",
+          "path": "ch08-estimability/04-side-conditions.html",
+          "filename": "04-side-conditions.md"
+        },
+        {
+          "title": "Indicator variables and the coding of a factor",
+          "number": "8.5",
+          "path": "ch08-estimability/05-factor-coding.html",
+          "filename": "05-factor-coding.md"
+        },
+        {
+          "title": "Several factors, interactions and covariates",
+          "number": "8.6",
+          "path": "ch08-estimability/06-several-factors.html",
+          "filename": "06-several-factors.md"
+        },
+        {
+          "title": "Contrasts",
+          "number": "8.7",
+          "path": "ch08-estimability/07-contrasts.html",
+          "filename": "07-contrasts.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "8.8",
+          "path": "ch08-estimability/08-summary-and-notes.html",
+          "filename": "08-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Sums of Squares and Orthogonal Decomposition",
+      "number": 9,
+      "part": "",
+      "collapsed": true,
+      "path": "ch09-sums-of-squares/index.html",
+      "sections": [
+        {
+          "title": "Decomposing the total sum of squares",
+          "number": "9.1",
+          "path": "ch09-sums-of-squares/01-total-decomposition.html",
+          "filename": "01-total-decomposition.md"
+        },
+        {
+          "title": "Extra sums of squares",
+          "number": "9.2",
+          "path": "ch09-sums-of-squares/02-extra-sums.html",
+          "filename": "02-extra-sums.md"
+        },
+        {
+          "title": "Sequential and partial sums of squares",
+          "number": "9.3",
+          "path": "ch09-sums-of-squares/03-sequential-partial.html",
+          "filename": "03-sequential-partial.md"
+        },
+        {
+          "title": "Orthogonal designs",
+          "number": "9.4",
+          "path": "ch09-sums-of-squares/04-orthogonal-designs.html",
+          "filename": "04-orthogonal-designs.md"
+        },
+        {
+          "title": "The coefficient of determination and its limits",
+          "number": "9.5",
+          "path": "ch09-sums-of-squares/05-r-squared.html",
+          "filename": "05-r-squared.md"
+        },
+        {
+          "title": "Expected mean squares",
+          "number": "9.6",
+          "path": "ch09-sums-of-squares/06-expected-mean-squares.html",
+          "filename": "06-expected-mean-squares.md"
+        },
+        {
+          "title": "Summary and notes",
+          "number": "9.7",
+          "path": "ch09-sums-of-squares/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Computation: QR, SVD and Conditioning",
+      "number": 10,
+      "part": "",
+      "collapsed": true,
+      "path": "ch10-computation/index.html",
+      "sections": [
+        {
+          "title": "Why not invert the cross-product matrix",
+          "number": "10.1",
+          "path": "ch10-computation/01-why-not-invert.html",
+          "filename": "01-why-not-invert.md"
+        },
+        {
+          "title": "The Cholesky factorization",
+          "number": "10.2",
+          "path": "ch10-computation/02-cholesky.html",
+          "filename": "02-cholesky.md"
+        },
+        {
+          "title": "Householder and Givens QR",
+          "number": "10.3",
+          "path": "ch10-computation/03-householder-givens.html",
+          "filename": "03-householder-givens.md"
+        },
+        {
+          "title": "The singular value decomposition",
+          "number": "10.4",
+          "path": "ch10-computation/04-svd.html",
+          "filename": "04-svd.md"
+        },
+        {
+          "title": "Conditioning and perturbation bounds",
+          "number": "10.5",
+          "path": "ch10-computation/05-conditioning.html",
+          "filename": "05-conditioning.md"
+        },
+        {
+          "title": "Updating and downdating",
+          "number": "10.6",
+          "path": "ch10-computation/06-updating.html",
+          "filename": "06-updating.md"
+        },
+        {
+          "title": "Rank-revealing factorizations",
+          "number": "10.7",
+          "path": "ch10-computation/07-rank-revealing.html",
+          "filename": "07-rank-revealing.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "10.8",
+          "path": "ch10-computation/08-summary-and-notes.html",
+          "filename": "08-summary-and-notes.md"
         }
       ]
     }
