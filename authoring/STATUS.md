@@ -6,16 +6,16 @@ The plan is `blueprint/book.yaml` (45 chapters in 10 parts); each chapter's brie
 
 | Ch | Dir | Topic | State |
 |---|---|---|---|
-| 1 | ch01-matrix-algebra | Matrix algebra for linear models | written |
-| 2 | ch02-random-vectors | Random vectors | written |
-| 3 | ch03-multivariate-normal | The multivariate normal distribution | written |
-| 4 | ch04-quadratic-forms | Quadratic forms and their distributions | written |
+| 1 | ch01-matrix-algebra | Matrix algebra for linear models | deployed |
+| 2 | ch02-random-vectors | Random vectors | deployed |
+| 3 | ch03-multivariate-normal | The multivariate normal distribution | deployed |
+| 4 | ch04-quadratic-forms | Quadratic forms and their distributions | deployed |
 | 5 | ch05-model-and-least-squares | The model, least squares and the normal equations | not started |
-| 6 | ch06-projections | Projections: the geometry of least squares | written (pilot) |
+| 6 | ch06-projections | Projections: the geometry of least squares | deployed (pilot) |
 | 7–45 | | see `blueprint/book.yaml` | not started |
 
-Not deployed yet: the deploy target (AkizumiFox/regression, regression.akizumifox.com) is
-configured but has never been pushed.
+Deployed 2026-09-19 to https://regression.akizumifox.com (site repo AkizumiFox/regression, GitHub
+Pages from `main`, DNS through Cloudflare). Republish with `./build.py deploy --push`.
 
 ## Open forward promises
 
