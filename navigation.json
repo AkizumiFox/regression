@@ -1,0 +1,337 @@
+{
+  "title": "Regression: From Projection to Distribution",
+  "author": "Akizumi",
+  "home": {
+    "title": "Preface",
+    "path": "index.html"
+  },
+  "extras": [
+    {
+      "title": "List of results",
+      "path": "results.html",
+      "icon": "bi-list-ol"
+    },
+    {
+      "title": "Dependency graph",
+      "path": "graph.html",
+      "icon": "bi-diagram-3"
+    }
+  ],
+  "chapters": [
+    {
+      "title": "Matrix Algebra for Linear Models",
+      "number": 1,
+      "part": "Part I · Apparatus",
+      "collapsed": false,
+      "path": "ch01-matrix-algebra/index.html",
+      "sections": [
+        {
+          "title": "Vectors, matrices and the operations we use",
+          "number": "1.1",
+          "path": "ch01-matrix-algebra/01-basics.html",
+          "filename": "01-basics.md"
+        },
+        {
+          "title": "Rank, column space and null space",
+          "number": "1.2",
+          "path": "ch01-matrix-algebra/02-rank.html",
+          "filename": "02-rank.md"
+        },
+        {
+          "title": "Inverses and generalized inverses",
+          "number": "1.3",
+          "path": "ch01-matrix-algebra/03-inverses.html",
+          "filename": "03-inverses.md"
+        },
+        {
+          "title": "Systems of equations and consistency",
+          "number": "1.4",
+          "path": "ch01-matrix-algebra/04-systems.html",
+          "filename": "04-systems.md"
+        },
+        {
+          "title": "Orthogonality and orthogonal matrices",
+          "number": "1.5",
+          "path": "ch01-matrix-algebra/05-orthogonality.html",
+          "filename": "05-orthogonality.md"
+        },
+        {
+          "title": "Trace, determinants and partitioned matrices",
+          "number": "1.6",
+          "path": "ch01-matrix-algebra/06-partitioned.html",
+          "filename": "06-partitioned.md"
+        },
+        {
+          "title": "Eigenvalues, the spectral theorem and positive definiteness",
+          "number": "1.7",
+          "path": "ch01-matrix-algebra/07-eigen.html",
+          "filename": "07-eigen.md"
+        },
+        {
+          "title": "The singular value decomposition and conditioning",
+          "number": "1.8",
+          "path": "ch01-matrix-algebra/08-svd.html",
+          "filename": "08-svd.md"
+        },
+        {
+          "title": "Idempotent matrices",
+          "number": "1.9",
+          "path": "ch01-matrix-algebra/09-idempotent.html",
+          "filename": "09-idempotent.md"
+        },
+        {
+          "title": "Kronecker products and the vec operator",
+          "number": "1.10",
+          "path": "ch01-matrix-algebra/10-kronecker.html",
+          "filename": "10-kronecker.md"
+        },
+        {
+          "title": "Vector and matrix calculus",
+          "number": "1.11",
+          "path": "ch01-matrix-algebra/11-calculus.html",
+          "filename": "11-calculus.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "1.12",
+          "path": "ch01-matrix-algebra/12-summary-and-notes.html",
+          "filename": "12-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Random Vectors: Expectation and Covariance Operators",
+      "number": 2,
+      "part": "",
+      "collapsed": false,
+      "path": "ch02-random-vectors/index.html",
+      "sections": [
+        {
+          "title": "Mean vectors and covariance matrices",
+          "number": "2.1",
+          "path": "ch02-random-vectors/01-mean-cov.html",
+          "filename": "01-mean-cov.md"
+        },
+        {
+          "title": "Linear and affine transformations",
+          "number": "2.2",
+          "path": "ch02-random-vectors/02-linear.html",
+          "filename": "02-linear.md"
+        },
+        {
+          "title": "Expectation of quadratic forms",
+          "number": "2.3",
+          "path": "ch02-random-vectors/03-quadratic.html",
+          "filename": "03-quadratic.md"
+        },
+        {
+          "title": "Correlation matrices",
+          "number": "2.4",
+          "path": "ch02-random-vectors/04-correlation.html",
+          "filename": "04-correlation.md"
+        },
+        {
+          "title": "Moments of partitioned random vectors",
+          "number": "2.5",
+          "path": "ch02-random-vectors/05-partitioned.html",
+          "filename": "05-partitioned.md"
+        },
+        {
+          "title": "Moment generating functions and independence",
+          "number": "2.6",
+          "path": "ch02-random-vectors/06-mgf.html",
+          "filename": "06-mgf.md"
+        },
+        {
+          "title": "Sample moments and their computation",
+          "number": "2.7",
+          "path": "ch02-random-vectors/07-sample.html",
+          "filename": "07-sample.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "2.8",
+          "path": "ch02-random-vectors/08-summary-and-notes.html",
+          "filename": "08-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "The Multivariate Normal Distribution",
+      "number": 3,
+      "part": "",
+      "collapsed": false,
+      "path": "ch03-multivariate-normal/index.html",
+      "sections": [
+        {
+          "title": "Definition through linear combinations",
+          "number": "3.1",
+          "path": "ch03-multivariate-normal/01-definition.html",
+          "filename": "01-definition.md"
+        },
+        {
+          "title": "Moment generating function and density",
+          "number": "3.2",
+          "path": "ch03-multivariate-normal/02-mgf-density.html",
+          "filename": "02-mgf-density.md"
+        },
+        {
+          "title": "Linear transformations and marginals",
+          "number": "3.3",
+          "path": "ch03-multivariate-normal/03-linear.html",
+          "filename": "03-linear.md"
+        },
+        {
+          "title": "Independence and zero covariance",
+          "number": "3.4",
+          "path": "ch03-multivariate-normal/04-independence.html",
+          "filename": "04-independence.md"
+        },
+        {
+          "title": "Conditional distributions",
+          "number": "3.5",
+          "path": "ch03-multivariate-normal/05-conditional.html",
+          "filename": "05-conditional.md"
+        },
+        {
+          "title": "Partial correlation",
+          "number": "3.6",
+          "path": "ch03-multivariate-normal/06-partial-correlation.html",
+          "filename": "06-partial-correlation.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "3.7",
+          "path": "ch03-multivariate-normal/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Quadratic Forms and Their Distributions",
+      "number": 4,
+      "part": "",
+      "collapsed": false,
+      "path": "ch04-quadratic-forms/index.html",
+      "sections": [
+        {
+          "title": "Noncentral chi-squared, t and F distributions",
+          "number": "4.1",
+          "path": "ch04-quadratic-forms/01-noncentral.html",
+          "filename": "01-noncentral.md"
+        },
+        {
+          "title": "Mean and variance of quadratic forms",
+          "number": "4.2",
+          "path": "ch04-quadratic-forms/02-moments.html",
+          "filename": "02-moments.md"
+        },
+        {
+          "title": "When a quadratic form is chi-squared",
+          "number": "4.3",
+          "path": "ch04-quadratic-forms/03-chisq.html",
+          "filename": "03-chisq.md"
+        },
+        {
+          "title": "Independence of quadratic forms and linear forms",
+          "number": "4.4",
+          "path": "ch04-quadratic-forms/04-independence.html",
+          "filename": "04-independence.md"
+        },
+        {
+          "title": "The Cochran theorem",
+          "number": "4.5",
+          "path": "ch04-quadratic-forms/05-cochran.html",
+          "filename": "05-cochran.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "4.6",
+          "path": "ch04-quadratic-forms/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Projections: The Geometry of Least Squares",
+      "number": 6,
+      "part": "Part II · The Linear Model as a Projection",
+      "collapsed": false,
+      "path": "ch06-projections/index.html",
+      "sections": [
+        {
+          "title": "Least squares as a nearest-point problem",
+          "number": "6.1",
+          "path": "ch06-projections/01-nearest-point.html",
+          "filename": "01-nearest-point.md"
+        },
+        {
+          "title": "The subspaces we need",
+          "number": "6.2",
+          "path": "ch06-projections/02-subspaces.html",
+          "filename": "02-subspaces.md"
+        },
+        {
+          "title": "Orthogonal projection",
+          "number": "6.3",
+          "path": "ch06-projections/03-orthogonal-projection.html",
+          "filename": "03-orthogonal-projection.md"
+        },
+        {
+          "title": "Least squares via projection",
+          "number": "6.4",
+          "path": "ch06-projections/04-least-squares.html",
+          "filename": "04-least-squares.md"
+        },
+        {
+          "title": "Nested models and sequential projection",
+          "number": "6.5",
+          "path": "ch06-projections/05-nested.html",
+          "filename": "05-nested.md"
+        },
+        {
+          "title": "The Frisch–Waugh–Lovell theorem",
+          "number": "6.6",
+          "path": "ch06-projections/06-fwl.html",
+          "filename": "06-fwl.md"
+        },
+        {
+          "title": "Reparameterization, centring and R²",
+          "number": "6.7",
+          "path": "ch06-projections/07-reparameterization.html",
+          "filename": "07-reparameterization.md"
+        },
+        {
+          "title": "Leverage as geometry",
+          "number": "6.8",
+          "path": "ch06-projections/08-leverage.html",
+          "filename": "08-leverage.md"
+        },
+        {
+          "title": "Other inner products",
+          "number": "6.9",
+          "path": "ch06-projections/09-inner-products.html",
+          "filename": "09-inner-products.md"
+        },
+        {
+          "title": "Computation",
+          "number": "6.10",
+          "path": "ch06-projections/10-computation.html",
+          "filename": "10-computation.md"
+        },
+        {
+          "title": "Projection in the population: best linear prediction",
+          "number": "6.11",
+          "path": "ch06-projections/11-population.html",
+          "filename": "11-population.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "6.12",
+          "path": "ch06-projections/12-summary-and-notes.html",
+          "filename": "12-summary-and-notes.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,389 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.12 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch01-matrix-algebra/12-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Coverage and framing. The
+selection of results follows what the rest of the book uses.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch01-matrix-algebra/12-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch01-matrix-algebra/12-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="1.12 Summary and Notes">
+        <meta property="og:description" content="Coverage and framing.
+The selection of results follows what the rest of the book uses.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=80e681a81e">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch01-matrix-algebra/index.html">Matrix Algebra for Linear Models</a></li>
+                        <li class="breadcrumb-item"><a href="../ch01-matrix-algebra/12-summary-and-notes.html"><span class="chapter-number">1.12</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">1.12</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">1.12.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>Row rank equals column rank, and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{rank}(\boldsymbol{A})+\dim\mathcal{N}(\boldsymbol{A})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6E"></mjx-c><mjx-c class="mjx-c6B"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="3"><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6D"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-TeXAtom space="2" texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c4E TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>rank</mi><mo stretchy="false">(</mo><mi mathvariant="bold-italic">A</mi><mo stretchy="false">)</mo><mo>+</mo><mi>dim</mi><mo data-mjx-texclass="NONE">⁡</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">N</mi></mrow><mo stretchy="false">(</mo><mi mathvariant="bold-italic">A</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                is the number of columns. <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathcal{C}(\boldsymbol{A}^{\top}\boldsymbol{A})=\mathcal{C}(\boldsymbol{A}^{\top})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">A</mi><mo stretchy="false">)</mo><mo>=</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, so
+                the normal equations are always consistent (<a href="../ch01-matrix-algebra/02-rank.html#thm-mat-row-col-rank" class="xref" data-ref="thm-mat-row-col-rank" data-shard="ch01-matrix-algebra">Theorem 1.2.1</a>, <a href="../ch01-matrix-algebra/02-rank.html#thm-mat-rank-nullity" class="xref" data-ref="thm-mat-rank-nullity" data-shard="ch01-matrix-algebra">Theorem 1.2.2</a> and
+                <a href="../ch01-matrix-algebra/02-rank.html#prp-mat-rank-product" class="xref" data-ref="prp-mat-rank-product" data-shard="ch01-matrix-algebra">Proposition 1.2.3</a>).</p></li>
+                <li><p>A generalized inverse satisfies <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}\boldsymbol{A}^{-}\boldsymbol{A}=\boldsymbol{A}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="4"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">A</mi><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msup><mi mathvariant="bold-italic">A</mi><mo>=</mo><mi mathvariant="bold-italic">A</mi></math></mjx-assistive-mml></mjx-container></span>. Every
+                matrix has one, built from any nonsingular <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="r\times r"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi><mo>×</mo><mi>r</mi></math></mjx-assistive-mml></mjx-container></span> submatrix. The
+                Moore–Penrose inverse is the unique one that is also
+                reflexive and makes <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}\boldsymbol{A}^+"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">A</mi><msup><mi mathvariant="bold-italic">A</mi><mo>+</mo></msup></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}^+\boldsymbol{A}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">A</mi><mo>+</mo></msup><mi mathvariant="bold-italic">A</mi></math></mjx-assistive-mml></mjx-container></span> symmetric (<a href="../ch01-matrix-algebra/03-inverses.html#def-mat-ginverse" class="xref" data-ref="def-mat-ginverse" data-shard="ch01-matrix-algebra">Definition 1.3.1</a>,
+                <a href="../ch01-matrix-algebra/03-inverses.html#thm-mat-ginverse-exists" class="xref" data-ref="thm-mat-ginverse-exists" data-shard="ch01-matrix-algebra">Theorem 1.3.2</a>, <a href="../ch01-matrix-algebra/02-rank.html#prp-mat-nonsingular-submatrix" class="xref" data-ref="prp-mat-nonsingular-submatrix" data-shard="ch01-matrix-algebra">Proposition 1.2.4</a>
+                and <a href="../ch01-matrix-algebra/03-inverses.html#def-mat-moore-penrose" class="xref" data-ref="def-mat-moore-penrose" data-shard="ch01-matrix-algebra">Definition 1.3.2</a>).</p></li>
+                <li><p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}\boldsymbol{x}=\boldsymbol{b}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D499 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="4"><mjx-c class="mjx-c1D483 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold-italic">x</mi><mo>=</mo><mi mathvariant="bold-italic">b</mi></math></mjx-assistive-mml></mjx-container></span> is
+                consistent iff <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}\boldsymbol{A}^{-}\boldsymbol{b}=\boldsymbol{b}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D483 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="4"><mjx-c class="mjx-c1D483 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">A</mi><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msup><mi mathvariant="bold-italic">b</mi><mo>=</mo><mi mathvariant="bold-italic">b</mi></math></mjx-assistive-mml></mjx-container></span>, and
+                then its solutions are <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}^{-}\boldsymbol{b}+(\boldsymbol{I}-\boldsymbol{A}^{-}\boldsymbol{A})\boldsymbol{z}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D483 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D470 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D49B TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msup><mi mathvariant="bold-italic">b</mi><mo>+</mo><mo stretchy="false">(</mo><mi mathvariant="bold-italic">I</mi><mo>−</mo><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msup><mi mathvariant="bold-italic">A</mi><mo stretchy="false">)</mo><mi mathvariant="bold-italic">z</mi></math></mjx-assistive-mml></mjx-container></span>.
+                A linear function <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\bm
+                q^{\top}\boldsymbol{x}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D492 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D499 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">q</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">x</mi></math></mjx-assistive-mml></mjx-container></span> is the same for all solutions iff <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\bm q\in\mathcal{C}(\boldsymbol{A}^{\top})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D492 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">q</mi><mo>∈</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch01-matrix-algebra/04-systems.html#thm-mat-consistency" class="xref" data-ref="thm-mat-consistency" data-shard="ch01-matrix-algebra">Theorem 1.4.1</a> and
+                <a href="../ch01-matrix-algebra/04-systems.html#cor-mat-invariant" class="xref" data-ref="cor-mat-invariant" data-shard="ch01-matrix-algebra">Corollary 1.4.2</a>).</p></li>
+                <li><p>Orthogonal matrices preserve lengths and angles.
+                Gram–Schmidt gives the QR factorization, and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbb{R}^n=\mathcal{C}(\boldsymbol{A}^{\top})\oplus\mathcal{N}(\boldsymbol{A})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-ds mjx-b"><mjx-c class="mjx-c211D TEX-A"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2295"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c4E TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="double-struck">R</mi></mrow><mi>n</mi></msup><mo>=</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">)</mo><mo>⊕</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">N</mi></mrow><mo stretchy="false">(</mo><mi mathvariant="bold-italic">A</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch01-matrix-algebra/05-orthogonality.html#prp-mat-orthogonal" class="xref" data-ref="prp-mat-orthogonal" data-shard="ch01-matrix-algebra">Proposition 1.5.3</a>,
+                <a href="../ch01-matrix-algebra/05-orthogonality.html#thm-mat-qr" class="xref" data-ref="thm-mat-qr" data-shard="ch01-matrix-algebra">Theorem 1.5.2</a> and
+                <a href="../ch01-matrix-algebra/05-orthogonality.html#prp-mat-complement" class="xref" data-ref="prp-mat-complement" data-shard="ch01-matrix-algebra">Proposition 1.5.1</a>).</p></li>
+                <li><p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{tr}(\boldsymbol{A}\boldsymbol{B})=\operatorname{tr}(\boldsymbol{B}\boldsymbol{A})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D469 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="4"><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D469 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>tr</mi><mo stretchy="false">(</mo><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold-italic">B</mi><mo stretchy="false">)</mo><mo>=</mo><mi>tr</mi><mo stretchy="false">(</mo><mi mathvariant="bold-italic">B</mi><mi mathvariant="bold-italic">A</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>.
+                Block elimination gives the determinant and inverse of a
+                partitioned matrix through Schur complements, and the
+                Sherman–Morrison–Woodbury identity as a special case (<a href="../ch01-matrix-algebra/06-partitioned.html#thm-mat-trace-cyclic" class="xref" data-ref="thm-mat-trace-cyclic" data-shard="ch01-matrix-algebra">Theorem 1.6.1</a>, <a href="../ch01-matrix-algebra/06-partitioned.html#thm-mat-block-determinant" class="xref" data-ref="thm-mat-block-determinant" data-shard="ch01-matrix-algebra">Theorem 1.6.3</a>, <a href="../ch01-matrix-algebra/06-partitioned.html#thm-mat-partitioned-inverse" class="xref" data-ref="thm-mat-partitioned-inverse" data-shard="ch01-matrix-algebra">Theorem 1.6.4</a> and
+                <a href="../ch01-matrix-algebra/06-partitioned.html#thm-mat-woodbury" class="xref" data-ref="thm-mat-woodbury" data-shard="ch01-matrix-algebra">Theorem 1.6.5</a>).</p></li>
+                <li><p>A symmetric matrix is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{Q}\boldsymbol{\Lambda}\boldsymbol{Q}^{\top}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D478 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B2 TEX-B"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D478 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">Q</mi><mi mathvariant="bold">Λ</mi><msup><mi mathvariant="bold-italic">Q</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup></math></mjx-assistive-mml></mjx-container></span> with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{Q}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D478 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">Q</mi></math></mjx-assistive-mml></mjx-container></span> orthogonal. Positive
+                definiteness is equivalent to positive eigenvalues, to a
+                Cholesky factorization, and to positive leading minors.
+                Nonnegative definite matrices have a unique nonnegative
+                definite square root (<a href="../ch01-matrix-algebra/07-eigen.html#thm-mat-spectral" class="xref" data-ref="thm-mat-spectral" data-shard="ch01-matrix-algebra">Theorem 1.7.2</a>, <a href="../ch01-matrix-algebra/07-eigen.html#thm-mat-pd-characterizations" class="xref" data-ref="thm-mat-pd-characterizations" data-shard="ch01-matrix-algebra">Theorem 1.7.4</a> and
+                <a href="../ch01-matrix-algebra/07-eigen.html#thm-mat-square-root" class="xref" data-ref="thm-mat-square-root" data-shard="ch01-matrix-algebra">Theorem 1.7.6</a>).</p></li>
+                <li><p>The Rayleigh quotient <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{x}^{\top}\boldsymbol{A}\boldsymbol{x}/\boldsymbol{x}^{\top}\boldsymbol{x}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D499 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D499 TEX-BI"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D499 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D499 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">x</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold-italic">x</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msup><mi mathvariant="bold-italic">x</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">x</mi></math></mjx-assistive-mml></mjx-container></span> ranges
+                over <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="[\lambda_{\min},\lambda_{\max}]"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">[</mo><msub><mi>λ</mi><mrow data-mjx-texclass="ORD"><mo data-mjx-texclass="OP" movablelimits="true">min</mo></mrow></msub><mo>,</mo><msub><mi>λ</mi><mrow data-mjx-texclass="ORD"><mo data-mjx-texclass="OP" movablelimits="true">max</mo></mrow></msub><mo stretchy="false">]</mo></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch01-matrix-algebra/07-eigen.html#thm-mat-extremal-rayleigh" class="xref" data-ref="thm-mat-extremal-rayleigh" data-shard="ch01-matrix-algebra">Theorem 1.7.7</a> and
+                <a href="../ch01-matrix-algebra/07-eigen.html#cor-mat-generalized-rayleigh" class="xref" data-ref="cor-mat-generalized-rayleigh" data-shard="ch01-matrix-algebra">Corollary 1.7.8</a>).</p></li>
+                <li><p>Every matrix is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{U}\boldsymbol{D}\boldsymbol{V}^{\top}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47C TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D46B TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47D TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.06em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">U</mi><mi mathvariant="bold-italic">D</mi><msup><mi mathvariant="bold-italic">V</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup></math></mjx-assistive-mml></mjx-container></span>. The condition
+                number <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\kappa=\sigma_{\max}/\sigma_{\min}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c6E"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>κ</mi><mo>=</mo><msub><mi>σ</mi><mrow data-mjx-texclass="ORD"><mo data-mjx-texclass="OP" movablelimits="true">max</mo></mrow></msub><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>σ</mi><mrow data-mjx-texclass="ORD"><mo data-mjx-texclass="OP" movablelimits="true">min</mo></mrow></msub></math></mjx-assistive-mml></mjx-container></span>
+                bounds error growth, is squared by forming <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{X}^{\top}\boldsymbol{X}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47F TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">X</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">X</mi></math></mjx-assistive-mml></mjx-container></span>, and its smallest
+                singular vector exhibits near-dependences among the
+                columns (<a href="../ch01-matrix-algebra/08-svd.html#thm-mat-svd" class="xref" data-ref="thm-mat-svd" data-shard="ch01-matrix-algebra">Theorem 1.8.1</a>, <a href="../ch01-matrix-algebra/08-svd.html#def-mat-condition-number" class="xref" data-ref="def-mat-condition-number" data-shard="ch01-matrix-algebra">Definition 1.8.1</a>
+                and <a href="../ch01-matrix-algebra/08-svd.html#prp-mat-svd-norms" class="xref" data-ref="prp-mat-svd-norms" data-shard="ch01-matrix-algebra">Proposition 1.8.2</a>).</p></li>
+                <li><p>Idempotent matrices have eigenvalues <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>0</mn></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> and rank equal to
+                trace. Symmetric ones are <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{Q}_1\boldsymbol{Q}_1^{\top}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D478 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-msubsup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D478 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.288em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi mathvariant="bold-italic">Q</mi><mn>1</mn></msub><msubsup><mi mathvariant="bold-italic">Q</mi><mn>1</mn><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msubsup></math></mjx-assistive-mml></mjx-container></span>. If symmetric
+                matrices summing to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{I}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D470 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">I</mi></math></mjx-assistive-mml></mjx-container></span> have ranks summing to
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>, they are
+                idempotent and mutually orthogonal (<a href="../ch01-matrix-algebra/09-idempotent.html#prp-mat-idempotent-basic" class="xref" data-ref="prp-mat-idempotent-basic" data-shard="ch01-matrix-algebra">Proposition 1.9.1</a>,
+                <a href="../ch01-matrix-algebra/09-idempotent.html#thm-mat-idempotent" class="xref" data-ref="thm-mat-idempotent" data-shard="ch01-matrix-algebra">Theorem 1.9.2</a> and
+                <a href="../ch01-matrix-algebra/09-idempotent.html#thm-mat-idempotent-sum" class="xref" data-ref="thm-mat-idempotent-sum" data-shard="ch01-matrix-algebra">Theorem 1.9.3</a>).</p></li>
+                <li><p>Kronecker products factor balanced designs. <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{vec}(\boldsymbol{A}\boldsymbol{B}\bm C)=(\bm
+                C^{\top}\otimes\boldsymbol{A})\operatorname{vec}(\boldsymbol{B})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c63"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D469 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D46A TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D46A TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.052em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2297"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="3"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c76"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c63"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D469 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>vec</mi><mo stretchy="false">(</mo><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold-italic">B</mi><mi mathvariant="bold-italic">C</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">C</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo>⊗</mo><mi mathvariant="bold-italic">A</mi><mo stretchy="false">)</mo><mi>vec</mi><mo stretchy="false">(</mo><mi mathvariant="bold-italic">B</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch01-matrix-algebra/10-kronecker.html#prp-mat-kronecker" class="xref" data-ref="prp-mat-kronecker" data-shard="ch01-matrix-algebra">Proposition 1.10.1</a>).</p></li>
+                <li><p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\partial(\boldsymbol{x}^{\top}\boldsymbol{A}\boldsymbol{x})/\partial\boldsymbol{x}=(\boldsymbol{A}+\boldsymbol{A}^{\top})\boldsymbol{x}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D715"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D499 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D499 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D715"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D499 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D499 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>∂</mi><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">x</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold-italic">x</mi><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>∂</mi><mi mathvariant="bold-italic">x</mi><mo>=</mo><mo stretchy="false">(</mo><mi mathvariant="bold-italic">A</mi><mo>+</mo><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">)</mo><mi mathvariant="bold-italic">x</mi></math></mjx-assistive-mml></mjx-container></span>.
+                Quadratic functions with nonnegative definite matrices
+                are minimized by solving a linear system, with or
+                without linear constraints (<a href="../ch01-matrix-algebra/11-calculus.html#thm-mat-quadform-derivative" class="xref" data-ref="thm-mat-quadform-derivative" data-shard="ch01-matrix-algebra">Theorem 1.11.1</a>, <a href="../ch01-matrix-algebra/11-calculus.html#prp-mat-quadratic-min" class="xref" data-ref="prp-mat-quadratic-min" data-shard="ch01-matrix-algebra">Proposition 1.11.2</a>
+                and <a href="../ch01-matrix-algebra/11-calculus.html#prp-mat-lagrange" class="xref" data-ref="prp-mat-lagrange" data-shard="ch01-matrix-algebra">Proposition 1.11.3</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">1.12.2. </span> Notes and
+                sources</h2>
+                <p><strong>Coverage and framing.</strong> The selection
+                of results follows what the rest of the book uses.
+                Rencher and Schaalje (2008, chapter 2) was the checklist
+                for topics: its sections on positive definite matrices,
+                generalized inverses, orthogonal matrices, idempotent
+                matrices and matrix calculus correspond to <a href="07-eigen.html">Section 1.7</a>, <a href="03-inverses.html">Section 1.3</a>, <a href="05-orthogonality.html">Section 1.5</a>, <a href="09-idempotent.html">Section 1.9</a> and <a href="11-calculus.html">Section 1.11</a>. Several
+                results that Rencher and Schaalje state without proof or
+                with a reference, such as the general solution of a
+                consistent system, the characterizations of positive
+                definiteness and the sums of idempotent matrices, are
+                proved here. The vector-space point of view, in which
+                column spaces, null spaces and orthogonal complements
+                come first and matrices second, is that of Christensen
+                (2020, appendices A and B). Seber and Lee (2003,
+                appendix A) is a compact list of further matrix facts.
+                The Kronecker product results in <a href="10-kronecker.html">Section 1.10</a> are also in
+                Christensen’s appendix B.</p>
+                <p><strong>Linear algebra for statisticians.</strong>
+                Harville (1997) is the most complete treatment written
+                for statisticians, with full proofs of the determinant
+                facts assumed in <a href="../ch01-matrix-algebra/06-partitioned.html#prp-mat-det" class="xref" data-ref="prp-mat-det" data-shard="ch01-matrix-algebra">Proposition 1.6.2</a>
+                and a long development of generalized inverses. Searle
+                (1982) is more elementary and has many worked examples
+                from linear models. Horn and Johnson (2013) is the
+                standard reference for eigenvalue inequalities, positive
+                definite matrices and norms. Halmos (1958) gives the
+                coordinate-free view of the vector-space facts used in
+                <a href="02-rank.html">Section 1.2</a>.</p>
+                <p><strong>Generalized inverses.</strong> The four
+                conditions of <a href="../ch01-matrix-algebra/03-inverses.html#def-mat-moore-penrose" class="xref" data-ref="def-mat-moore-penrose" data-shard="ch01-matrix-algebra">Definition 1.3.2</a>
+                are due to Penrose (1955), who proved existence and
+                uniqueness. E. H. Moore had described an equivalent
+                inverse decades earlier. Rao (1973) made the weaker
+                inverse <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}\boldsymbol{A}^{-}\boldsymbol{A}=\boldsymbol{A}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="4"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">A</mi><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msup><mi mathvariant="bold-italic">A</mi><mo>=</mo><mi mathvariant="bold-italic">A</mi></math></mjx-assistive-mml></mjx-container></span> the basic
+                tool of linear-model theory, and it is his approach that
+                <a href="04-systems.html">Section 1.4</a> and Chapter 8
+                follow. The construction from a nonsingular submatrix in
+                <a href="../ch01-matrix-algebra/03-inverses.html#thm-mat-ginverse-exists" class="xref" data-ref="thm-mat-ginverse-exists" data-shard="ch01-matrix-algebra">Theorem 1.3.2</a> is a
+                matrix-free way of stating an algorithm that is often
+                given as a sequence of steps (Searle 1982).</p>
+                <p><strong>Schur complements and updating
+                formulas.</strong> The name “Schur complement” and the
+                notation for it vary. Zhang (2005) collects the history
+                and many applications. The rank-one formula <a href="../ch01-matrix-algebra/06-partitioned.html#eq-mat-sherman-morrison" class="xref" data-ref="eq-mat-sherman-morrison" data-shard="ch01-matrix-algebra">Eq. 1.6.7</a> is from
+                Sherman and Morrison (1950), and the general identity <a href="../ch01-matrix-algebra/06-partitioned.html#eq-mat-woodbury" class="xref" data-ref="eq-mat-woodbury" data-shard="ch01-matrix-algebra">Eq. 1.6.6</a> from
+                Woodbury (1950). Henderson and Searle (1981) trace
+                earlier appearances and compare several derivations.
+                Obtaining the identity by comparing two expressions for
+                one block of a partitioned inverse, as in <a href="../ch01-matrix-algebra/06-partitioned.html#thm-mat-woodbury" class="xref" data-ref="thm-mat-woodbury" data-shard="ch01-matrix-algebra">Theorem 1.6.5</a>, is a
+                classical route.</p>
+                <p><strong>Singular values and conditioning.</strong>
+                Stewart (1993) tells the early history of the singular
+                value decomposition, beginning with Beltrami and Jordan
+                in the 1870s. The low-rank approximation theorem, <a href="../ch01-matrix-algebra/08-svd.html#prp-mat-svd-norms" class="xref" data-ref="prp-mat-svd-norms" data-shard="ch01-matrix-algebra">Proposition 1.8.2</a>(c)
+                and its Frobenius form, is usually credited to Eckart
+                and Young (1936), although Stewart points out that
+                Schmidt had proved it earlier in the setting of integral
+                equations. Golub and Van Loan (2013) is the reference
+                for computing the decomposition and for perturbation
+                bounds such as <a href="../ch01-matrix-algebra/08-svd.html#eq-mat-perturbation" class="xref" data-ref="eq-mat-perturbation" data-shard="ch01-matrix-algebra">Eq. 1.8.3</a>, and
+                Higham (2002) for their refinements. The use of scaled
+                condition numbers and singular vectors to diagnose
+                collinearity is due to Belsley et al. (1980). Chapter 26
+                returns to it.</p>
+                <p><strong>Kronecker products and calculus.</strong>
+                Henderson and Searle (1979) survey the vec operator and
+                its uses in multivariate statistics. Magnus and
+                Neudecker (2019) develop matrix calculus systematically
+                through differentials, which avoid the bookkeeping of
+                the entrywise definitions used in <a href="11-calculus.html">Section 1.11</a> and handle
+                symmetric matrix arguments cleanly.</p>
+                <h2 id="references"><span class="header-section-number">1.12.3. </span>
+                References</h2>
+                <ul>
+                <li>Belsley, David A., Kuh, Edwin and Welsch, Roy E.
+                (1980). <em>Regression Diagnostics: Identifying
+                Influential Data and Sources of Collinearity</em>. New
+                York: Wiley.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Eckart, Carl and Young, Gale (1936). The
+                Approximation of One Matrix by Another of Lower Rank.
+                <em>Psychometrika</em> 1(3), 211–218.</li>
+                <li>Golub, Gene H. and Van Loan, Charles F. (2013).
+                <em>Matrix Computations</em>. 4th edition. Baltimore:
+                Johns Hopkins University Press.</li>
+                <li>Halmos, Paul R. (1958). <em>Finite-Dimensional
+                Vector Spaces</em>. 2nd edition. Princeton, NJ: Van
+                Nostrand.</li>
+                <li>Harville, David A. (1997). <em>Matrix Algebra From a
+                Statistician’s Perspective</em>. New York:
+                Springer.</li>
+                <li>Henderson, Harold V. and Searle, Shayle R. (1979).
+                Vec and Vech Operators for Matrices, with Some Uses in
+                Jacobians and Multivariate Statistics. <em>Canadian
+                Journal of Statistics</em> 7(1), 65–81.</li>
+                <li>Henderson, Harold V. and Searle, Shayle R. (1981).
+                On Deriving the Inverse of a Sum of Matrices. <em>SIAM
+                Review</em> 23(1), 53–60.</li>
+                <li>Higham, Nicholas J. (2002). <em>Accuracy and
+                Stability of Numerical Algorithms</em>. 2nd edition.
+                Philadelphia: SIAM.</li>
+                <li>Horn, Roger A. and Johnson, Charles R. (2013).
+                <em>Matrix Analysis</em>. 2nd edition. Cambridge:
+                Cambridge University Press.</li>
+                <li>Magnus, Jan R. and Neudecker, Heinz (2019).
+                <em>Matrix Differential Calculus with Applications in
+                Statistics and Econometrics</em>. 3rd edition. Hoboken,
+                NJ: Wiley.</li>
+                <li>Penrose, Roger (1955). A Generalized Inverse for
+                Matrices. <em>Mathematical Proceedings of the Cambridge
+                Philosophical Society</em> 51(3), 406–413.</li>
+                <li>Rao, C. Radhakrishna (1973). <em>Linear Statistical
+                Inference and Its Applications</em>. 2nd edition. New
+                York: Wiley.</li>
+                <li>Rencher, Alvin C. and Schaalje, G. Bruce (2008).
+                <em>Linear Models in Statistics</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Searle, Shayle R. (1982). <em>Matrix Algebra Useful
+                for Statistics</em>. New York: Wiley.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Sherman, Jack and Morrison, Winifred J. (1950).
+                Adjustment of an Inverse Matrix Corresponding to a
+                Change in One Element of a Given Matrix. <em>Annals of
+                Mathematical Statistics</em> 21(1), 124–127.</li>
+                <li>Stewart, G. W. (1993). On the Early History of the
+                Singular Value Decomposition. <em>SIAM Review</em>
+                35(4), 551–566.</li>
+                <li>Woodbury, Max A. (1950). <em>Inverting Modified
+                Matrices</em>. Princeton, NJ: .</li>
+                <li>Zhang, Fuzhen (2005). <em>The Schur Complement and
+                Its Applications</em>. New York: Springer.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch01-matrix-algebra/11-calculus.html" class="pagination-link" aria-label="Vector
+and matrix calculus">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">1.11 Vector and
+matrix calculus</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch02-random-vectors/index.html" class="pagination-link" aria-label="Random
+Vectors: Expectation and Covariance Operators">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Random Vectors:
+Expectation and Covariance Operators</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%201.12%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch01-matrix-algebra%2F12-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch01-matrix-algebra/12-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=80e681a81e"></script>
+            </body>
+
+</html>

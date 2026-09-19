@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.7 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch03-multivariate-normal/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Cramér–Wold.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch03-multivariate-normal/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch03-multivariate-normal/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="3.7 Summary and Notes">
+        <meta property="og:description" content="Cramér–Wold.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=80e681a81e">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch03-multivariate-normal/index.html">The Multivariate Normal Distribution</a></li>
+                        <li class="breadcrumb-item"><a href="../ch03-multivariate-normal/07-summary-and-notes.html"><span class="chapter-number">3.7</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">3.7</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">3.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{Y}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">Y</mi></math></mjx-assistive-mml></mjx-container></span> is
+                multivariate normal when every linear combination <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\bm a^{\top}\boldsymbol{Y}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D482 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold-italic">a</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">Y</mi></math></mjx-assistive-mml></mjx-container></span> is normal,
+                constants included (<a href="../ch03-multivariate-normal/01-definition.html#def-mvn" class="xref" data-ref="def-mvn" data-shard="ch03-multivariate-normal">Definition 3.1.1</a>).
+                The definition covers singular covariance matrices,
+                which regression needs for fitted values and
+                residuals.</p></li>
+                <li><p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\mu}+\boldsymbol{A}\boldsymbol{Z}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D741 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="3"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D481 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">μ</mi><mo>+</mo><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold-italic">Z</mi></math></mjx-assistive-mml></mjx-container></span>,
+                with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{Z}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D481 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">Z</mi></math></mjx-assistive-mml></mjx-container></span> standard
+                normal, is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathrm{N}(\boldsymbol{\mu},\boldsymbol{A}\boldsymbol{A}^{\top})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c4E"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D741 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="2"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">N</mi></mrow><mo stretchy="false">(</mo><mi mathvariant="bold-italic">μ</mi><mo>,</mo><mi mathvariant="bold-italic">A</mi><msup><mi mathvariant="bold-italic">A</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>.
+                Every mean and every nonnegative definite covariance
+                occurs (<a href="../ch03-multivariate-normal/01-definition.html#thm-mvn-existence" class="xref" data-ref="thm-mvn-existence" data-shard="ch03-multivariate-normal">Theorem 3.1.2</a>).</p></li>
+                <li><p>The moment generating function is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\exp(\bm t^{\top}\boldsymbol{\mu}+\tfrac12\bm
+                t^{\top}\boldsymbol{\Sigma}\bm t)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c78"></mjx-c><mjx-c class="mjx-c70"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D495 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D741 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mstyle space="3"><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D495 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6BA TEX-B"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D495 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>exp</mi><mo data-mjx-texclass="NONE">⁡</mo><mo stretchy="false">(</mo><msup><mi mathvariant="bold-italic">t</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold-italic">μ</mi><mo>+</mo><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><msup><mi mathvariant="bold-italic">t</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mi mathvariant="bold">Σ</mi><mi mathvariant="bold-italic">t</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, so a normal distribution is
+                determined by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\mu}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D741 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">μ</mi></math></mjx-assistive-mml></mjx-container></span>
+                and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\Sigma}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6BA TEX-B"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">Σ</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch03-multivariate-normal/02-mgf-density.html#thm-mvn-mgf" class="xref" data-ref="thm-mvn-mgf" data-shard="ch03-multivariate-normal">Theorem 3.2.1</a>).
+                When <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\Sigma}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6BA TEX-B"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">Σ</mi></math></mjx-assistive-mml></mjx-container></span> is
+                positive definite there is a density whose contours are
+                the ellipsoids of constant Mahalanobis distance, and
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\Delta^2(\boldsymbol{Y})\sim\chi^2(n)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-n"><mjx-c class="mjx-c394"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c223C"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="normal">Δ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mi mathvariant="bold-italic">Y</mi><mo stretchy="false">)</mo><mo>∼</mo><msup><mi>χ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch03-multivariate-normal/02-mgf-density.html#thm-mvn-density" class="xref" data-ref="thm-mvn-density" data-shard="ch03-multivariate-normal">Theorem 3.2.2</a>
+                and <a href="../ch03-multivariate-normal/02-mgf-density.html#prp-mvn-mahalanobis" class="xref" data-ref="prp-mvn-mahalanobis" data-shard="ch03-multivariate-normal">Proposition 3.2.3</a>).</p></li>
+                <li><p>Affine maps of normal vectors are normal, with no
+                rank condition, and so are all subvectors (<a href="../ch03-multivariate-normal/03-linear.html#thm-mvn-linear" class="xref" data-ref="thm-mvn-linear" data-shard="ch03-multivariate-normal">Theorem 3.3.1</a>
+                and <a href="../ch03-multivariate-normal/03-linear.html#cor-mvn-marginals" class="xref" data-ref="cor-mvn-marginals" data-shard="ch03-multivariate-normal">Corollary 3.3.2</a>).
+                A normal vector of rank <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="r"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math></mjx-assistive-mml></mjx-container></span> is an exact affine
+                image of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="r"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>r</mi></math></mjx-assistive-mml></mjx-container></span>
+                independent standard normals (<a href="../ch03-multivariate-normal/03-linear.html#prp-mvn-rank-representation" class="xref" data-ref="prp-mvn-rank-representation" data-shard="ch03-multivariate-normal">Proposition 3.3.4</a>).</p></li>
+                <li><p>Normal margins do not imply joint normality, and
+                zero correlation between normal variables does not imply
+                independence without it (<a href="../ch03-multivariate-normal/03-linear.html#exm-mvn-sign-flip" class="xref" data-ref="exm-mvn-sign-flip" data-shard="ch03-multivariate-normal">Example (A random sign)</a>
+                and <a href="../ch03-multivariate-normal/03-linear.html#exm-mvn-mixture" class="xref" data-ref="exm-mvn-mixture" data-shard="ch03-multivariate-normal">Example (A mixture of two correlations)</a>).</p></li>
+                <li><p>For jointly normal blocks, zero cross-covariance
+                is equivalent to independence. <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}\boldsymbol{Y}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold-italic">Y</mi></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{B}\boldsymbol{Y}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D469 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">B</mi><mi mathvariant="bold-italic">Y</mi></math></mjx-assistive-mml></mjx-container></span> are independent iff
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}\boldsymbol{\Sigma}\boldsymbol{B}^{\top}=\boldsymbol{0}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6BA TEX-B"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D469 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-b" space="4"><mjx-c class="mjx-c1D7CE TEX-B"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold">Σ</mi><msup><mi mathvariant="bold-italic">B</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo>=</mo><mn mathvariant="bold">0</mn></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch03-multivariate-normal/04-independence.html#thm-mvn-independence" class="xref" data-ref="thm-mvn-independence" data-shard="ch03-multivariate-normal">Theorem 3.4.1</a>
+                and <a href="../ch03-multivariate-normal/04-independence.html#cor-mvn-AY-BY" class="xref" data-ref="cor-mvn-AY-BY" data-shard="ch03-multivariate-normal">Corollary 3.4.2</a>).</p></li>
+                <li><p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{Y}_1\mid\boldsymbol{Y}_2=\boldsymbol{y}_2\sim\mathrm{N}\bigl(\boldsymbol{\mu}_1+\boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-}(\boldsymbol{y}_2-\boldsymbol{\mu}_2),\
+                \boldsymbol{\Sigma}_{11\cdot2}\bigr)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.201em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2223"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.201em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D49A TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c223C"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c4E"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-TeXAtom texclass="OPEN"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c28 TEX-S1"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D741 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6BA TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msub><mjx-msubsup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6BA TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.297em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D49A TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D741 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mtext class="mjx-n" space="2"><mjx-c class="mjx-cA0"></mjx-c></mjx-mtext><mjx-msub><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6BA TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c22C5"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msub><mjx-TeXAtom texclass="CLOSE"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c29 TEX-S1"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi mathvariant="bold-italic">Y</mi><mn>1</mn></msub><mo>∣</mo><msub><mi mathvariant="bold-italic">Y</mi><mn>2</mn></msub><mo>=</mo><msub><mi mathvariant="bold-italic">y</mi><mn>2</mn></msub><mo>∼</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">N</mi></mrow><mrow data-mjx-texclass="OPEN"><mo minsize="1.2em" maxsize="1.2em">(</mo></mrow><msub><mi mathvariant="bold-italic">μ</mi><mn>1</mn></msub><mo>+</mo><msub><mi mathvariant="bold">Σ</mi><mrow data-mjx-texclass="ORD"><mn>12</mn></mrow></msub><msubsup><mi mathvariant="bold">Σ</mi><mrow data-mjx-texclass="ORD"><mn>22</mn></mrow><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msubsup><mo stretchy="false">(</mo><msub><mi mathvariant="bold-italic">y</mi><mn>2</mn></msub><mo>−</mo><msub><mi mathvariant="bold-italic">μ</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>,</mo><mtext> </mtext><msub><mi mathvariant="bold">Σ</mi><mrow data-mjx-texclass="ORD"><mn>11</mn><mo>⋅</mo><mn>2</mn></mrow></msub><mrow data-mjx-texclass="CLOSE"><mo minsize="1.2em" maxsize="1.2em">)</mo></mrow></math></mjx-assistive-mml></mjx-container></span>: linear mean, constant
+                covariance, reduced variance (<a href="../ch03-multivariate-normal/05-conditional.html#thm-mvn-conditional" class="xref" data-ref="thm-mvn-conditional" data-shard="ch03-multivariate-normal">Theorem 3.5.2</a>).
+                The conditional mean is the best predictor of all, and
+                coincides with the best linear predictor (<a href="../ch03-multivariate-normal/05-conditional.html#prp-mvn-best-predictor" class="xref" data-ref="prp-mvn-best-predictor" data-shard="ch03-multivariate-normal">Proposition 3.5.3</a>).</p></li>
+                <li><p>The partial correlation is the correlation of the
+                residuals from linear prediction on the conditioning
+                variables. Under normality it is the conditional
+                correlation, and it is zero iff the variables are
+                conditionally independent (<a href="../ch03-multivariate-normal/06-partial-correlation.html#def-mvn-partial-correlation" class="xref" data-ref="def-mvn-partial-correlation" data-shard="ch03-multivariate-normal">Definition 3.6.1</a>
+                and <a href="../ch03-multivariate-normal/06-partial-correlation.html#prp-mvn-partial-meaning" class="xref" data-ref="prp-mvn-partial-meaning" data-shard="ch03-multivariate-normal">Proposition 3.6.1</a>).
+                It can be computed by a recursion, from the inverse
+                covariance matrix, or by FWL residuals (<a href="../ch03-multivariate-normal/06-partial-correlation.html#prp-mvn-partial-recursion" class="xref" data-ref="prp-mvn-partial-recursion" data-shard="ch03-multivariate-normal">Proposition 3.6.2</a>
+                and <a href="../ch03-multivariate-normal/06-partial-correlation.html#prp-mvn-precision" class="xref" data-ref="prp-mvn-precision" data-shard="ch03-multivariate-normal">Proposition 3.6.3</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">3.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>Three definitions.</strong> Linear-model
+                texts reach the multivariate normal by different routes,
+                and comparing them explains the choices made here.
+                Rencher and Schaalje (2008, chapter 4) start from the
+                positive definite case, obtain the density by
+                transforming independent standard normals with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\Sigma}^{1/2}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6BA TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold">Σ</mi><mrow data-mjx-texclass="ORD"><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>, and prove
+                the properties of linear functions and independence with
+                moment generating functions, for full-rank
+                transformations. Seber and Lee (2003, chapter 2) also
+                begin with the density, then extend the definition to
+                singular covariance matrices through the representation
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}\boldsymbol{Z}+\boldsymbol{\mu}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D481 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="3"><mjx-c class="mjx-c1D741 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold-italic">Z</mi><mo>+</mo><mi mathvariant="bold-italic">μ</mi></math></mjx-assistive-mml></mjx-container></span> and prove
+                that normality of all linear combinations characterizes
+                the family. Their moment-generating-function proof of
+                the independence theorem is the model for <a href="04-independence.html">Section 3.4</a>. Christensen
+                (2020, §1.2) takes <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{A}\boldsymbol{Z}+\boldsymbol{\mu}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D468 TEX-BI"></mjx-c></mjx-mi><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D481 TEX-BI"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="3"><mjx-c class="mjx-c1D741 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">A</mi><mi mathvariant="bold-italic">Z</mi><mo>+</mo><mi mathvariant="bold-italic">μ</mi></math></mjx-assistive-mml></mjx-container></span> as the
+                definition from the outset, shows with characteristic
+                functions that the law depends only on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\mu}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D741 TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">μ</mi></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\Sigma}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6BA TEX-B"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">Σ</mi></math></mjx-assistive-mml></mjx-container></span>, and proves the
+                independence theorem by building an explicit independent
+                version. Defining the distribution through linear
+                combinations, as this chapter does, goes back at least
+                to Rao (1973, chapter 8). It has the advantage that the
+                theorem on affine transformations needs no rank
+                condition and a one-line proof.</p>
+                <p><strong>Cramér–Wold.</strong> The device of reducing
+                a vector to its linear combinations is from Cramér and
+                Wold (1936), where it was used to reduce multivariate
+                limit theorems to univariate ones. <a href="../ch02-random-vectors/index.html">Chapter 2</a>
+                proves it, together with the uniqueness and
+                factorization properties of moment generating functions
+                used in <a href="02-mgf-density.html">Section 3.2</a>.
+                Billingsley (1995) is the reference for these facts and
+                for the conditioning property of independent variables
+                used in the proof of <a href="../ch03-multivariate-normal/05-conditional.html#thm-mvn-conditional" class="xref" data-ref="thm-mvn-conditional" data-shard="ch03-multivariate-normal">Theorem 3.5.2</a>.</p>
+                <p><strong>Conditional distributions and partial
+                correlation.</strong> The proof of <a href="../ch03-multivariate-normal/05-conditional.html#thm-mvn-conditional" class="xref" data-ref="thm-mvn-conditional" data-shard="ch03-multivariate-normal">Theorem 3.5.2</a>
+                through the independent error <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{W}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D47E TEX-BI"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold-italic">W</mi></math></mjx-assistive-mml></mjx-container></span> borrows one idea from
+                Rencher and Schaalje (2008) and Seber and Lee (2003):
+                both pass through the transformed vector <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{Y}_1-\boldsymbol{B}\boldsymbol{Y}_2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.201em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-b mjx-i" space="3"><mjx-c class="mjx-c1D469 TEX-BI"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.201em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi mathvariant="bold-italic">Y</mi><mn>1</mn></msub><mo>−</mo><mi mathvariant="bold-italic">B</mi><msub><mi mathvariant="bold-italic">Y</mi><mn>2</mn></msub></math></mjx-assistive-mml></mjx-container></span>, which is
+                independent of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{Y}_2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-b mjx-i"><mjx-c class="mjx-c1D480 TEX-BI"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.201em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi mathvariant="bold-italic">Y</mi><mn>2</mn></msub></math></mjx-assistive-mml></mjx-container></span>, although both still
+                obtain the conditional density as a ratio of densities
+                in the positive definite case. The proof here uses only
+                independence and a generalized inverse, so it covers
+                singular <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\Sigma}_{22}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6BA TEX-B"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi mathvariant="bold">Σ</mi><mrow data-mjx-texclass="ORD"><mn>22</mn></mrow></msub></math></mjx-assistive-mml></mjx-container></span>, an
+                extension that is standard in multivariate analysis (Rao
+                1973). Anderson (2003) is the classical reference for
+                the multivariate normal in statistics, including the
+                distribution theory of sample partial and multiple
+                correlation coefficients that Chapter 14 uses. Rencher
+                and Schaalje (2008, §4.5) define partial correlation as
+                a conditional correlation, as in <a href="../ch03-multivariate-normal/06-partial-correlation.html#prp-mvn-partial-meaning" class="xref" data-ref="prp-mvn-partial-meaning" data-shard="ch03-multivariate-normal">Proposition 3.6.1</a>(b).
+                The residual interpretation (a) does not require
+                normality and is the one that connects to least squares.
+                Regression toward the mean was described by Galton
+                (1886). The link between zeros of the inverse covariance
+                matrix and conditional independence was made the basis
+                of a modelling strategy by Dempster (1972), and
+                Lauritzen (1996) develops the theory of graphical models
+                that grew from it.</p>
+                <p><strong>Data.</strong> <a href="../ch03-multivariate-normal/06-partial-correlation.html#exm-mvn-longley" class="xref" data-ref="exm-mvn-longley" data-shard="ch03-multivariate-normal">Example (Employment and unemployment)</a>
+                uses the macroeconomic series published by Longley
+                (1967) as a test of numerical accuracy, available in
+                <code>statsmodels</code>. The same series appear in <a href="../ch02-random-vectors/index.html">Chapter 2</a>,
+                as an example of sample moments, and in <a href="../ch06-projections/index.html">Chapter 6</a>, to
+                illustrate ill-conditioning.</p>
+                <h2 id="references"><span class="header-section-number">3.7.3. </span>
+                References</h2>
+                <ul>
+                <li>Anderson, T. W. (2003). <em>An Introduction to
+                Multivariate Statistical Analysis</em>. 3rd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Billingsley, Patrick (1995). <em>Probability and
+                Measure</em>. 3rd edition. New York: Wiley.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Cramér, Harald and Wold, Herman (1936). Some
+                Theorems on Distribution Functions. <em>Journal of the
+                London Mathematical Society</em> s1-11(4), 290–294.</li>
+                <li>Dempster, A. P. (1972). Covariance Selection.
+                <em>Biometrics</em> 28(1), 157–175.</li>
+                <li>Frisch, Ragnar and Waugh, Frederick V. (1933).
+                Partial Time Regressions as Compared with Individual
+                Trends. <em>Econometrica</em> 1(4), 387–401.</li>
+                <li>Galton, Francis (1886). Regression Towards
+                Mediocrity in Hereditary Stature. <em>The Journal of the
+                Anthropological Institute of Great Britain and
+                Ireland</em> 15, 246–263.</li>
+                <li>Lauritzen, Steffen L. (1996). <em>Graphical
+                Models</em>. Oxford: Oxford University Press.</li>
+                <li>Longley, James W. (1967). An Appraisal of Least
+                Squares Programs for the Electronic Computer from the
+                Point of View of the User. <em>Journal of the American
+                Statistical Association</em> 62(319), 819–841.</li>
+                <li>Rao, C. Radhakrishna (1973). <em>Linear Statistical
+                Inference and Its Applications</em>. 2nd edition. New
+                York: Wiley.</li>
+                <li>Rencher, Alvin C. and Schaalje, G. Bruce (2008).
+                <em>Linear Models in Statistics</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch03-multivariate-normal/06-partial-correlation.html" class="pagination-link" aria-label="Partial
+correlation">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">3.6 Partial
+correlation</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch04-quadratic-forms/index.html" class="pagination-link" aria-label="Quadratic
+Forms and Their Distributions">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Quadratic Forms
+and Their Distributions</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%203.7%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch03-multivariate-normal%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch03-multivariate-normal/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=80e681a81e"></script>
+            </body>
+
+</html>

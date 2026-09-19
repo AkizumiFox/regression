@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <script>
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem('book-theme'); } catch (e) {}
+            document.documentElement.dataset.theme = theme === 'light' || theme === 'dark' ? theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        })();
+    </script>
+    <title>Page not found – Regression: From Projection to Distribution</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <main class="not-found">
+        <p class="not-found-book"><a href="/index.html">Regression: From Projection to Distribution</a></p>
+        <h1>Page not found</h1>
+        <p>This page does not exist, or it moved when the book was reorganized.</p>
+        <p><a href="/index.html">Go to the start of the book</a>, or use the search in the sidebar there.</p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,117 @@
+{
+ "nodes": [
+  {
+   "id": "ch01-matrix-algebra",
+   "name": "Chapter 1",
+   "title": "Matrix Algebra for Linear Models",
+   "url": "ch01-matrix-algebra/index.html",
+   "results": 84,
+   "chapterNumber": 1,
+   "part": "Part I \u00b7 Apparatus"
+  },
+  {
+   "id": "ch02-random-vectors",
+   "name": "Chapter 2",
+   "title": "Random Vectors: Expectation and Covariance Operators",
+   "url": "ch02-random-vectors/index.html",
+   "results": 60,
+   "chapterNumber": 2,
+   "part": ""
+  },
+  {
+   "id": "ch03-multivariate-normal",
+   "name": "Chapter 3",
+   "title": "The Multivariate Normal Distribution",
+   "url": "ch03-multivariate-normal/index.html",
+   "results": 63,
+   "chapterNumber": 3,
+   "part": ""
+  },
+  {
+   "id": "ch04-quadratic-forms",
+   "name": "Chapter 4",
+   "title": "Quadratic Forms and Their Distributions",
+   "url": "ch04-quadratic-forms/index.html",
+   "results": 56,
+   "chapterNumber": 4,
+   "part": ""
+  },
+  {
+   "id": "ch06-projections",
+   "name": "Chapter 6",
+   "title": "Projections: The Geometry of Least Squares",
+   "url": "ch06-projections/index.html",
+   "results": 96,
+   "chapterNumber": 6,
+   "part": "Part II \u00b7 The Linear Model as a Projection"
+  }
+ ],
+ "edges": [
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch02-random-vectors",
+   "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch03-multivariate-normal",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch04-quadratic-forms",
+   "weight": 13,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch03-multivariate-normal",
+   "weight": 23,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch04-quadratic-forms",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch01-matrix-algebra",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch02-random-vectors",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch04-quadratic-forms",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch02-random-vectors",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch03-multivariate-normal",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch03-multivariate-normal",
+   "weight": 7,
+   "implied": false
+  }
+ ]
+}
