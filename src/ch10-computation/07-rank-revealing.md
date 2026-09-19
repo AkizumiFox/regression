@@ -289,7 +289,7 @@ relative test does this implicitly. Tie the tolerance to the accuracy of the dat
 regressors recorded to six significant figures cannot resolve near dependences below about \( 10^{-6} \) of
 the column lengths (@prp-cmp-weyl, applied to the recording error). And look for a gap, as in
 [Figure 10.7.1](#fig-cmp-pivoted)(b). Without one the rank decision is fragile, the data are showing
-collinearity (Chapter 26), and shrinkage is often a better response than a sharp cut-off (Chapter 27).
+collinearity ([Chapter 26](../ch26-collinearity/index.html)), and shrinkage is often a better response than a sharp cut-off ([Chapter 27](../ch27-shrinkage/index.html)).
 
 ::: {.idea}
 Pivoted QR brings the most independent columns to the front. A small trailing pivot proves a near

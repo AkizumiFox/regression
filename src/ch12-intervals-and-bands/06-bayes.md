@@ -228,7 +228,7 @@ the \( t \) interval and covers exactly \( 95\% \) at every parameter value.
 :::
 
 An informative prior makes intervals shorter, and better when the prior is sound; when it is not, they are confidently wrong. The
-frequentist interval makes no bet and pays in length. Chapter 27 meets the same
+frequentist interval makes no bet and pays in length. [Chapter 27](../ch27-shrinkage/index.html) meets the same
 trade-off as bias against variance.
 
 ## Exercises

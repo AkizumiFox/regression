@@ -36,7 +36,7 @@
 **Underfitting and overfitting.** The omitted-variable formula is classical; it is @prp-lm-omitted in Chapter 5. The
 criterion \( \gamma\le1 \) for the restricted estimator to have the smaller mean squared error matrix is due to
 Toro-Vizcarrondo and Wallace (1968) (in their notation, with the factor \( 1/2 \) in the
-noncentrality, the condition reads \( \lambda\le1/2 \)), who also proposed testing it with the noncentral \( F \) distribution. Pretest estimators, which choose between the two models from the data, are taken up with model selection in Chapter 29.
+noncentrality, the condition reads \( \lambda\le1/2 \)), who also proposed testing it with the noncentral \( F \) distribution. Pretest estimators, which choose between the two models from the data, are taken up with model selection in [Section 29.2](../ch29-model-selection/02-cp-aic-bic.html) and [Section 29.5](../ch29-model-selection/05-selection-bias.html).
 
 **Wrong covariance.** The bounds on the bias of the usual variance estimate are Swindel's (1968). The efficiency
 bound of @thm-dep-efficiency rests on Kantorovich's inequality. The sharp bound for the determinant of the whole

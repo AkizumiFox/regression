@@ -117,7 +117,7 @@ A small \( \sigma_{\min} \) has a direct statistical reading. By
 @prp-mat-svd-norms(b), \( \norm{\X\bv_n}=\sigma_n \) with \( \norm{\bv_n}=1 \). The coefficients
 \( \bv_n \) combine the columns of \( \X \) into a vector that is nearly zero, which is a
 near-dependence among the regressors. This is the basis of the collinearity diagnostics of
-Chapter 26. The size of \( \kappa \) depends on the units of the columns, so
+[Chapter 26](../ch26-collinearity/index.html), such as the condition indices of @def-col-condition-index. The size of \( \kappa \) depends on the units of the columns, so
 columns are usually rescaled before it is interpreted.
 
 ::: {#exm-mat-macro-svd}
@@ -140,7 +140,7 @@ two series move almost in lockstep: their correlation is \( 0.9990 \). No rescal
 well. Centring is not a neutral choice, however: it removes near-dependences that involve the
 intercept, and Belsley et al. (1980) recommend scaling without centring for that
 reason, so their diagnostics would use the unit-length figure \( 383 \).
-Chapter 26 returns to the choice. The listing computes the singular values, and the script also checks
+[Section 26.3](../ch26-collinearity/03-condition-indices.html) returns to the choice. The listing computes the singular values, and the script also checks
 @eq-mat-kappa-squared, the Penrose conditions for \( \V\bD^{-1}\bU\T \), and the
 Eckart–Young bound.
 :::

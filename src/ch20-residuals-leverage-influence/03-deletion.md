@@ -51,7 +51,7 @@ Its variance is \( \sigma^2/(1-h_{ii}) \), and dividing it by an estimate of \( 
 \text{PRESS}=\sum_{i=1}^n\Bigl(\frac{\hat{\varepsilon}_i}{1-h_{ii}}\Bigr)^2 ,
 \]{#eq-res-press}
 
-a leave-one-out estimate of prediction error that Chapter 29 uses for choosing between models.
+a leave-one-out estimate of prediction error that [Chapter 29](../ch29-model-selection/index.html) uses for choosing between models (@thm-sel-loocv).
 
 ::: {#prp-res-press}
 [Expected PRESS]

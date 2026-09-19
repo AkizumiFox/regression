@@ -185,7 +185,7 @@ Part (e) is the point of the adjustment. In the simulation the averages of \( \b
 proportion \( 0.674 \) of the data sets with one regressor: it is not a proportion of
 anything. Part (c) shows what selection by \( \bar{R}^2 \) amounts to: a regressor is admitted when
 \( |t|>1 \), far below the threshold near two of a \( 5\% \) test, so the chosen models tend to be too
-large (Chapter 29).
+large (@prp-sel-adjusted-link).
 
 ::: {#exm-ss-crime-adjusted}
 [Adjusted \( R^2 \) for the state data]
@@ -369,7 +369,7 @@ for group averages, have different denominators \( \text{SST} \). Averaging repl
 **It is not comparable without an intercept** (@prp-ss-no-intercept, @exm-ss-no-intercept).
 
 **It is not a measure of prediction or of cause.** Computed on the fitting data, it overstates
-predictive accuracy for new data (Chapter 29), and variation “explained” is linear association,
+predictive accuracy for new data ([Chapter 29](../ch29-model-selection/index.html)), and variation “explained” is linear association,
 not the effect of changing a regressor ([Chapter 25](../ch25-causal-interpretation/index.html)).
 
 ## Exercises

@@ -31,13 +31,19 @@ The plan is `blueprint/book.yaml` (45 chapters in 10 parts); each chapter's brie
 | 23 | ch23-resampling-inference | Bootstrap and permutation inference | deployed |
 | 24 | ch24-errors-in-variables | Errors in variables | deployed |
 | 25 | ch25-causal-interpretation | Causal interpretation of coefficients | deployed |
-| 26–45 | | see `blueprint/book.yaml` | not started |
+| 26 | ch26-collinearity | Collinearity: diagnosis and consequences | written |
+| 27 | ch27-shrinkage | Shrinkage: ridge, principal components and the lasso | written |
+| 28 | ch28-high-dimensional | High-dimensional regression: p > n | written |
+| 29 | ch29-model-selection | Model selection and prediction | written |
+| 30 | ch30-regularization-boosting | Regularization and boosting | written |
+| 31–45 | | see `blueprint/book.yaml` | not started |
 
 Deployed 2026-09-19 to https://regression.akizumifox.com (site repo AkizumiFox/regression, GitHub
 Pages from `main`, DNS through Cloudflare). Republish with `./build.py deploy --push`.
-Chapters 1–25 (Parts I–V) are deployed.
+Chapters 1–25 (Parts I–V) are deployed. Chapters 26–30 (Part VI) are written and integrated
+(cross-references linked, numbers accepted, main build checked) and await deployment.
 
 ## Open forward promises
 
-Chapters 1–18 point forward to unwritten chapters in prose ("Chapter 32 treats random and mixed effects"). Those references are plain text until the target chapter is published;
+Chapters 1–30 point forward to unwritten chapters in prose ("Chapter 32 treats random and mixed effects"). Those references are plain text until the target chapter is published;
 when a chapter is added, search `src/` for "Chapter N" and link it.

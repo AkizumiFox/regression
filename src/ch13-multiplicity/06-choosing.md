@@ -117,7 +117,7 @@ distribution of a maximum. In the education example the most extreme contrast ha
 equal means its square is not an \( F(1,937) \) variable but \( 6 \) times an \( F(6,937) \) variable (@cor-mc-scheffe-f),
 and treating it as planned would overstate the evidence by exactly the amount
 Scheffé's multiplier corrects. The same happens at a larger scale when regressors are selected by
-their \( t \) statistics; Chapter 29 takes up inference after model selection.
+their \( t \) statistics; [Section 29.5](../ch29-model-selection/05-selection-bias.html) takes up inference after model selection.
 
 ## Procedures not developed in this book
 

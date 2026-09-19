@@ -108,7 +108,15 @@
         "src/ch22-transformations",
         "src/ch23-resampling-inference",
         "src/ch24-errors-in-variables",
-        "src/ch25-causal-interpretation"
+        "src/ch25-causal-interpretation",
+        {
+            "dir": "src/ch26-collinearity",
+            "part": "Part VI · Trading Bias for Variance"
+        },
+        "src/ch27-shrinkage",
+        "src/ch28-high-dimensional",
+        "src/ch29-model-selection",
+        "src/ch30-regularization-boosting"
     ],
     "macros": "latex/macros.tex",
     "templates": {

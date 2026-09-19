@@ -195,7 +195,7 @@ print(f"slope of Y on X: all units {slope_all:.3f}, units with C > 1 {slope_sel:
 
 ::: {.warning}
 A variable belongs in a causal regression because of its position in the graph, not because it improves \( R^2 \) or is
-"significant"; predictive model selection (Chapter 29) readily selects mediators and colliders.
+"significant"; predictive model selection ([Chapter 29](../ch29-model-selection/index.html)) readily selects mediators and colliders.
 :::
 
 ## Exercises

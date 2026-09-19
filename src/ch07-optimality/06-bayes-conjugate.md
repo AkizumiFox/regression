@@ -9,7 +9,7 @@ connects directly to the rest of the chapter. The posterior mean is a matrix-wei
 and the least squares estimate. It is biased in the frequentist sense, which is how it escapes the
 Gauss–Markov bound. And as the prior becomes flat, the posterior reproduces least squares and the
 \( t \) intervals of [Section 7.5](05-sampling-distributions.html) exactly. This is the first of several Bayesian
-threads in the book. [Section 12.6](../ch12-intervals-and-bands/06-bayes.html) continues it with credible regions and predictive distributions, Chapter 27
+threads in the book. [Section 12.6](../ch12-intervals-and-bands/06-bayes.html) continues it with credible regions and predictive distributions, [Chapter 27](../ch27-shrinkage/index.html)
 with shrinkage priors, and Chapter 39 with generalized linear models.
 
 ## The normal-inverse-gamma family
@@ -187,7 +187,7 @@ Part (a) is the Bayesian counterpart of Gauss–Markov. The posterior mean is li
 unless \( \mathbf{m}_0=\bbeta \): \( \E(\mathbf{m}_n)=\W\mathbf{m}_0+(\I-\W)\bbeta \). So the Gauss–Markov theorem does not apply to it,
 and it can have smaller mean squared error than least squares when the prior mean is close to the truth.
 Part (d) identifies ridge regression, whose mean squared error was studied in @exr-opt-ridge, as a posterior
-mean. Chapter 27 develops the connection. When the prior is weak relative to the data, \( \W \) is close to \( \mathbf{0} \)
+mean. [Chapter 27](../ch27-shrinkage/index.html) develops the connection in @thm-shr-ridge. When the prior is weak relative to the data, \( \W \) is close to \( \mathbf{0} \)
 and the posterior mean is close to \( \hbeta \). When it is strong, \( \W \) is close to \( \I \) and the data barely move it.
 
 In general \( \W \) is a full matrix, not a multiple of the identity. Shrinkage then happens along the eigenvectors

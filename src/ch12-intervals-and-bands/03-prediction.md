@@ -164,7 +164,7 @@ Part (a) is the Gauss–Markov theorem in disguise. Part (b) makes leverage a di
 times the squared Mahalanobis distance of \( \x_{01} \) from the centroid of the regressors, as for the observed points
 (@prp-proj-leverage-mahalanobis). So the interval for the mean is shortest at the centroid, where \( h_0=1/n \), and widens along
 ellipsoidal contours. Part (c) says a larger model never predicts more precisely at a given point, though it may predict with less
-bias; Chapter 29 weighs the two.
+bias; [Chapter 29](../ch29-model-selection/index.html) weighs the two.
 
 With several correlated regressors, a point can lie inside the range of every regressor and still be far from the data, because it
 breaks their correlation. This **hidden extrapolation** is detected by the leverage, not by the separate ranges.

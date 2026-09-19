@@ -97,7 +97,7 @@ Eckart and Young (1936), although Stewart points out that Schmidt had proved it
 earlier in the setting of integral equations. Golub and Van Loan (2013) is the reference for computing the decomposition and for perturbation bounds such as
 @eq-mat-perturbation, and Higham (2002) for their refinements. The use of
 scaled condition numbers and singular vectors to diagnose collinearity is due to
-Belsley et al. (1980). Chapter 26 returns to it.
+Belsley et al. (1980). [Chapter 26](../ch26-collinearity/index.html) returns to it.
 
 **Kronecker products and calculus.**  Henderson and Searle (1979) survey the vec operator
 and its uses in multivariate statistics. Magnus and Neudecker (2019) develop matrix calculus

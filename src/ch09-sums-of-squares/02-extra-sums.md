@@ -123,8 +123,8 @@ since \( \X\T\R=\bzero \). With \( \Cov(\hbeta)=\sigma^2\mathbf{C} \) (@thm-lm-m
 
 Since \( \bL(\mathbf{Z}\T\R\mathbf{Z})^{-1}\bL\T \) is nonnegative definite, part (d) shows that *adding
 regressors never decreases the variances of the coefficients already in the model*, when both
-models are correct (compare @exr-mat-adding-regressors, and see @exr-ss-no-variance-change). Chapter 26 measures this price of adjustment as
-variance inflation. In computation one updates a QR factorization instead of using these formulas
+models are correct (compare @exr-mat-adding-regressors, and see @exr-ss-no-variance-change). [Chapter 26](../ch26-collinearity/index.html) measures this price of adjustment as
+variance inflation (@def-col-vif). In computation one updates a QR factorization instead of using these formulas
 ([Chapter 10](../ch10-computation/index.html)).
 
 ::: {#exm-ss-adding-crime}

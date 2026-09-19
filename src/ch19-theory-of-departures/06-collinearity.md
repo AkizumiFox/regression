@@ -2,7 +2,7 @@
 
 Collinearity, near-linear dependence among the columns of \( \X \), violates none of the assumptions of Part III.
 As long as \( \X \) has full rank, every result of Parts II and III holds. What collinearity does is make some of
-them unhelpful: intervals that are correct but very wide. Chapter 26 develops diagnostics, and Chapter 27 remedies that trade bias for variance.
+them unhelpful: intervals that are correct but very wide. [Chapter 26](../ch26-collinearity/index.html) develops diagnostics, and [Chapter 27](../ch27-shrinkage/index.html) remedies that trade bias for variance.
 
 ## Variance inflation
 

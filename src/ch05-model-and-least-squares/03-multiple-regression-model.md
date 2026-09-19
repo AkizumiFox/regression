@@ -285,7 +285,7 @@ linear combination of the others. By rank–nullity (@thm-mat-rank-nullity), thi
 iff \( \X\bb=\bzero \) only for \( \bb=\bzero \), that is, iff two different coefficient vectors
 never give the same mean vector. It fails in three common ways:
 
-1. **Too few cases**: \( n<p \). Chapter 28 deals with this setting.
+1. **Too few cases**: \( n<p \). [Chapter 28](../ch28-high-dimensional/index.html) deals with this setting.
 
 2. **Redundant coding**: an indicator for every category together with an intercept, as
    above, or the same quantity measured in two units.
@@ -295,7 +295,7 @@ never give the same mean vector. It fails in three common ways:
    between two indicators when some combination of categories never occurs.
 
 Near-failures, where columns are almost dependent, are more common and more
-troublesome. They make coefficients imprecise (Chapter 26) and computations inaccurate
+troublesome. They make coefficients imprecise ([Chapter 26](../ch26-collinearity/index.html)) and computations inaccurate
 ([Chapter 10](../ch10-computation/index.html)).
 
 ## Exercises

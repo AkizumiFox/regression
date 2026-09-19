@@ -263,7 +263,7 @@ keeping, since its coefficients are ratios and elasticities (@prp-tr-multiplicat
 on the original scale: medians and prediction intervals, which transform exactly, and means, which need a
 correction factor and a constant variance. Compare models fitted on different scales on a common scale,
 through the Box–Cox likelihood ([Section 22.2](02-box-cox.html)) or the accuracy of predictions of \( y \)
-(Chapter 29), not through \( R^2 \) (@exr-tr-r2-scales).
+([Chapter 29](../ch29-model-selection/index.html)), not through \( R^2 \) (@exr-tr-r2-scales).
 
 ## Exercises
 

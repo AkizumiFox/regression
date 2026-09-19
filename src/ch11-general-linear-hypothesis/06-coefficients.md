@@ -265,7 +265,7 @@ share the estimate \( s \), so they are not exactly independent.) Reporting the 
 if it were the only one overstates the evidence in the same way. The \( F \) test of the group, or a
 multiple-comparison procedure designed for the family ([Chapter 13](../ch13-multiplicity/index.html)),
 controls the familywise error rate. Choosing regressors by their \( t \) statistics and then testing the chosen model on
-the same data invalidates all the p-values of the final fit. Chapter 29 returns to this problem.
+the same data invalidates all the p-values of the final fit. [Section 29.5](../ch29-model-selection/05-selection-bias.html) returns to this problem.
 :::
 
 ## Exercises

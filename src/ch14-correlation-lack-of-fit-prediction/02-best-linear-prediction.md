@@ -260,7 +260,7 @@ random case is \( 1.607\sigma^2 \): the in-sample figure flatters the fit by a f
 \( \sigma^2 \). The simulated averages over \( 20000 \) training samples per point, for instance
 \( 1.604 \) at \( k=10 \) and \( 3.612 \) at \( k=20 \), agree with @eq-cor-prediction-error.
 Estimating the out-of-sample error honestly, by penalties such as Mallows' \( C_p \) or by
-cross-validation, is the subject of Chapter 29.
+cross-validation, is the subject of [Chapter 29](../ch29-model-selection/index.html).
 
 ::: {when-format="html"}
 ![**Figure 14.2.1.** Expected squared error of a least squares fit, \( n=30 \): in-sample (bottom), new

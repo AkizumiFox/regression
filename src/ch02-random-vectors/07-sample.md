@@ -49,7 +49,7 @@ The divisor \( n-1 \) is the trace of \( \mathbf{C} \), the dimension of the spa
 exactly as \( n-r \) is for regression residuals in @exm-rv-rss-bias. Part (c) has a practical
 side. With \( n\le p \), as in genomics or finance, the sample covariance matrix is always
 singular, even when \( \bSigma \) is positive definite. It has a linear combination with zero sample
-variance whether or not one exists in the population. Chapter 28 returns to
+variance whether or not one exists in the population. [Chapter 28](../ch28-high-dimensional/index.html) returns to
 this.
 
 **Computation.**  In practice \( \mathbf{C} \) is never formed: one subtracts column means. The
@@ -78,7 +78,7 @@ combinations. Its two largest weights are \( 0.681 \) on year and
 is almost an exact linear function of time (their correlation is
 \( 0.995 \)). This is the sample version of @thm-rv-cov-nnd(c): a nearly
 zero eigenvalue marks a nearly constant linear combination. For regression it signals
-collinearity, which Chapter 26 studies. Finally, the first
+collinearity, which [Chapter 26](../ch26-collinearity/index.html) studies. Finally, the first
 \( 5 \) rows alone give a sample covariance matrix of rank
 \( 4 \), as @prp-rv-sample-moments(c) requires.
 :::

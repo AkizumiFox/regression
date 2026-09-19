@@ -116,7 +116,7 @@ A simulation with \( n=60 \), \( p=30 \), a Gaussian design and normal errors sh
 variance to true variance for one coefficient, over \( 200 \) data sets, is \( 0.47 \) for the plain residual bootstrap,
 \( 0.97 \) after rescaling the residuals by \( \sqrt{n/(n-p)} \), and \( 3.38 \) for the case bootstrap. El Karoui and
 Purdom (2018) study these failures, and Mammen (1993) gives conditions under which the residual and wild bootstraps remain
-valid as \( p \) grows. Chapter 28 takes up regression with more parameters than cases.
+valid as \( p \) grows. [Chapter 28](../ch28-high-dimensional/index.html) takes up regression with more parameters than cases.
 
 ```{.python .run #cell-failures-dimension}
 import numpy as np

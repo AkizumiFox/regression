@@ -298,8 +298,8 @@ by @thm-rv-linear. By @prp-proj-trace-rank(d) applied to \( \I-\M_{(j)} \),
 
 So among designs whose columns have given lengths, orthogonal designs minimize the variance of
 every coefficient at once. This is one reason designed experiments are built from orthogonal
-contrasts ([Part IV](../ch15-anova-subspaces/index.html)), and why collinearity, meaning near-dependence among columns, inflates variances
-(Chapter 26). @exr-opt-weighing applies the proposition to a problem of weighing objects on a balance.
+contrasts ([Part IV](../ch15-anova-subspaces/index.html)), and why collinearity, meaning near-dependence among columns, inflates variances (@thm-col-variance).
+@exr-opt-weighing applies the proposition to a problem of weighing objects on a balance.
 
 ## What the theorem does not say
 
@@ -352,7 +352,7 @@ and the Gauss–Markov theorem ranks estimators by it only within the unbiased c
 squared error than least squares (@exr-opt-ridge). Stein (1956) and James and Stein (1961) showed
 more: in the model \( \Y\sim\Normal_n(\bbeta,\sigma^2\I) \) with known \( \sigma^2 \) and
 \( n\ge3 \), a nonlinear shrinkage estimator has smaller total mean squared error than \( \Y \) itself
-*for every* \( \bbeta \). Chapter 27 develops shrinkage. [Section 7.6](06-bayes-conjugate.html) derives
+*for every* \( \bbeta \) (@thm-shr-james-stein). [Chapter 27](../ch27-shrinkage/index.html) develops shrinkage. [Section 7.6](06-bayes-conjugate.html) derives
 a family of biased linear estimators from prior information.
 
 **Wrong assumptions.** If \( \Cov(\be)\ne\sigma^2\I \), @cor-opt-aitken replaces least squares by

@@ -304,7 +304,7 @@ If a treatment works partly by changing an intermediate variable, adjusting for 
 removes part of the effect one wants to measure. Adjusting for a common consequence of the
 regressor and the response can create an association where there is none. Second, adding
 regressors that are nearly collinear with \( x_j \) inflates the variance of \( \hat{\beta}_j \)
-(Chapter 26). Which variables to adjust for is a question about how the data were generated, not
+([Chapter 26](../ch26-collinearity/index.html), @def-col-vif). Which variables to adjust for is a question about how the data were generated, not
 about the fit. [Chapter 25](../ch25-causal-interpretation/index.html) develops the tools for answering it.
 :::
 

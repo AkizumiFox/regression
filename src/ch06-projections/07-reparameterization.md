@@ -152,7 +152,7 @@ Three consequences follow directly from the geometry.
            \( \C(\X_0)\subseteq\C(\X) \) and both contain \( \bone \), then
            \( \text{SSE}_0-\text{SSE}=\norm{(\M-\Mo)\y}^2\ge0 \) by @eq-proj-extra-ss.
            Adding a regressor of pure noise increases \( R^2 \) almost surely. This is why
-           \( R^2 \) cannot be used for model selection (Chapter 29).
+           \( R^2 \) cannot be used for model selection ([Chapter 29](../ch29-model-selection/index.html)).
 
 2. *\( R^2=1 \) once the model space contains \( \y \)*, which always happens when
            \( \rank(\X)=n \). A model with as many free parameters as observations

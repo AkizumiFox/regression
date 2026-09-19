@@ -236,7 +236,7 @@ predicts about eleven digits from QR, and \( \kappa^2u\approx2\times10^{-7} \) a
 equations. That is what is observed. Scaling the columns explicitly before forming the normal equations
 changes nothing, as the argument above predicts. Centring as well reduces the condition number to
 \( 1.11\times 10^{2} \). That is a reparameterization rather than a scaling (@thm-proj-reparam), and what
-remains is genuine collinearity among the regressors (Chapter 26).
+remains is genuine collinearity among the regressors ([Chapter 26](../ch26-collinearity/index.html)).
 :::
 
 ```{.python .run #cell-perturbation-longley}

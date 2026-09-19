@@ -134,7 +134,7 @@ condition number is only a matter of units: one column is a year, another is
 population in thousands. Rescaling columns (@thm-proj-reparam) changes \( \kappa \)
 without changing the fit (@exr-proj-longley-scaling). The part that remains
 after rescaling reflects genuine near-dependence among the regressors, the subject of
-Chapter 26.
+[Chapter 26](../ch26-collinearity/index.html).
 
 Two practical lessons follow. First, never compute \( (\X\T\X)^{-1} \) just to obtain
 \( \hbeta \). Solve with QR, or call a least squares routine that does. Second,

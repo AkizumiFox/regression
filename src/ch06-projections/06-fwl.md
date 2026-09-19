@@ -130,7 +130,7 @@ in \( \X_2 \),
 where \( S_{jj}=\sum_i(x_{ij}-\bar x_j)^2 \) and \( R_j^2 \) is the coefficient of
 determination from regressing \( \x_j \) on the other regressors. The second equality
 is @exr-proj-vif. The factor \( 1/(1-R_j^2) \) is the *variance inflation
-factor* of Chapter 26.
+factor* of [Chapter 26](../ch26-collinearity/index.html) (@def-col-vif).
 
 **Centring.**  Take \( \X_2=\bone \). Then \( \M_2=n^{-1}\bone\bone\T \) and
 \( \tilde{\X}_1 \), \( \tilde{\y} \) are the centred regressors and response. FWL says the

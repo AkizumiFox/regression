@@ -314,7 +314,7 @@ for delta in [1.0, 1e-2, 1e-4, 1e-8, 0.0]:
 The practical rule has two parts. Decide estimability with the SVD of \( \X \), never with
 \( \X\T\X \). Then look at the variance, not only the verdict. A function that passes the
 test with a variance of \( 10^{7}\sigma^2 \) has, for practical purposes, not been estimated.
-Collinearity, in Chapter 26, is the study of this middle ground.
+Collinearity, in [Chapter 26](../ch26-collinearity/index.html), is the study of this middle ground.
 
 ## Exercises
 

@@ -190,8 +190,8 @@ Each dropped component costs its squared coefficient \( (\bv_i\T\bbeta)^2 \) in 
 \( \sigma^2/\sigma_i^2 \) in variance. It is worth dropping exactly when the signal along \( \bv_i \) is
 weaker than the noise in its estimate, that is, when \( \sigma_i\lvert\bv_i\T\bbeta\rvert<\sigma \). The
 estimator \( \bb_k \) is principal components regression in its uncentred form. Ridge regression replaces
-the hard cut-off by weights \( \sigma_i^2/(\sigma_i^2+\lambda) \). Both are developed in Chapter 27,
-and choosing \( k \) from data is a model-selection problem (Chapter 29).
+the hard cut-off by weights \( \sigma_i^2/(\sigma_i^2+\lambda) \). Both are developed in
+[Chapter 27](../ch27-shrinkage/index.html) (@thm-shr-ridge and @def-shr-pcr), and choosing \( k \) from data is a model-selection problem ([Chapter 29](../ch29-model-selection/index.html)).
 
 ::: {#exm-cmp-tsvd}
 [Truncating a polynomial design]

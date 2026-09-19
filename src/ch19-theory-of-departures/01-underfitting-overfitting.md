@@ -2,7 +2,7 @@
 
 The assumption \( \E(\Y)=\X\bbeta \) claims that the columns of \( \X \) are the right ones. This section compares
 two ways of getting them wrong. *Underfitting* leaves out regressors that matter. *Overfitting* includes
-regressors that do not. This is a first look at the bias-variance trade-off of Part VI.
+regressors that do not. This is a first look at the bias–variance trade-off of [Part VI](../ch26-collinearity/index.html).
 
 ## The setting
 
@@ -210,7 +210,7 @@ The threshold in (b) depends only on the noncentrality, not on the design or on 
 functions at once; for a particular function the short estimator can win for larger \( \gamma \), as (c) shows. Since
 \( \gamma \) is unknown, neither criterion applies directly. But the \( F \) statistic for \( \bbeta_2=\bzero \) depends on the
 parameters only through \( \gamma \) (@thm-glh-f-test), so a small \( F \) is evidence that \( \gamma \) is small. Turning this
-into a procedure, and paying for having chosen the model from the data, is the subject of Chapter 29.
+into a procedure, and paying for having chosen the model from the data, is the subject of [Chapter 29](../ch29-model-selection/index.html).
 
 ::: {#exm-dep-short-wins}
 [A biased estimator that wins]

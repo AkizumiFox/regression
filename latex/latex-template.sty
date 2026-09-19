@@ -1470,5 +1470,13 @@
 \DeclareUnicodeCharacter{017D}{\accent20 Z}
 \DeclareUnicodeCharacter{017E}{\accent20 z}
 
+% A list that opens a theorem-like environment would otherwise share the line of the
+% environment's head (amsthm leaves the head pending until the first text), so the first
+% item's label lands beside the title. Typeset the pending head first.
+\makeatletter
+\AtBeginEnvironment{enumerate}{\if@inlabel\leavevmode\vspace{-\baselineskip}\fi}
+\AtBeginEnvironment{itemize}{\if@inlabel\leavevmode\vspace{-\baselineskip}\fi}
+\makeatother
+
 % End of package
 \endinput

@@ -154,7 +154,7 @@ because \( \M\he=\bzero \) and \( \M^2=\M \). Removing the \( j=i \) term, which
 
 With a QR factorization the leverages cost \( O(np) \) (@prp-cmp-qr-quantities(c)), and the rest \( O(n) \).
 This gives the PRESS residuals \( \hat{\varepsilon}_i/(1-h_{ii}) \), whose sum of squares is leave-one-out
-cross-validation (Allen 1974; Chapter 29), and the deleted variances \( s_{(i)}^2=\text{SSE}_{(i)}/(n-p-1) \)
+cross-validation (Allen 1974; @thm-sel-loocv), and the deleted variances \( s_{(i)}^2=\text{SSE}_{(i)}/(n-p-1) \)
 behind the externally studentized residuals \( t_i=\hat{\varepsilon}_i/(s_{(i)}\sqrt{1-h_{ii}}) \) of [Chapter 20](../ch20-residuals-leverage-influence/index.html) (@thm-res-external-t).
 
 ::: {#exm-cmp-dc}
