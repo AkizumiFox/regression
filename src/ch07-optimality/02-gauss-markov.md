@@ -337,7 +337,7 @@ Uniform errors have sharp edges, and the extreme observations locate those edges
 linear estimator must give every observation a fixed weight whatever the sample looks like, so it
 cannot exploit this. Heavy-tailed errors produce the opposite phenomenon: there the extremes are
 unreliable, and estimators that downweight them, such as medians and M-estimators, beat least
-squares (@exr-opt-laplace-mle; Chapter 20 and Chapter 45 return to such estimators). [Section 7.4](04-minimum-variance.html) shows that under *normal* errors
+squares (@exr-opt-laplace-mle; [Chapter 20](../ch20-residuals-leverage-influence/06-robust.html) and Chapter 45 return to such estimators). [Section 7.4](04-minimum-variance.html) shows that under *normal* errors
 neither phenomenon occurs, and least squares is best among all unbiased estimators.
 
 **Biased estimators.** Mean squared error is variance plus squared bias. Accepting a little bias can
@@ -358,7 +358,7 @@ a family of biased linear estimators from prior information.
 **Wrong assumptions.** If \( \Cov(\be)\ne\sigma^2\I \), @cor-opt-aitken replaces least squares by
 generalized least squares. If the mean is misspecified, so that \( \E(\Y)\notin\C(\X) \), then
 \( \E(\hY)=\M\E(\Y) \) is the projection of the true mean. Least squares then estimates the best
-approximation within the model, not the truth (compare @thm-proj-blp). Part V is about diagnosing
+approximation within the model, not the truth (compare @thm-proj-blp). [Part V](../ch19-theory-of-departures/index.html) is about diagnosing
 and repairing these departures.
 
 ## Exercises

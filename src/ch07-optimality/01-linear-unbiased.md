@@ -225,7 +225,7 @@ surprise. The group-means estimator uses every observation, and it is still clea
 squares. It weights all observations in a half equally, while least squares weights each
 observation in proportion to its distance from \( \bar{x} \). Estimators of this grouping type were
 proposed by Wald (1940) for regressions in which \( x \) itself is measured with error.
-Chapter 24 returns to that problem.
+[Chapter 24](../ch24-errors-in-variables/index.html) returns to that problem.
 
 ## Why these restrictions?
 

@@ -205,7 +205,7 @@ Normality enters (b)–(d) through the third and fourth moments of \( \Y \). For
 independent coordinates with excess kurtosis the variance acquires an extra term
 that involves only the diagonal of \( \A \) (@thm-rv-quadform-variance). Variance formulas for
 sums of squares derived under normality can be badly wrong for heavy-tailed errors,
-a point taken up in Chapter 21.
+a point taken up in [Chapter 19](../ch19-theory-of-departures/index.html) (@prp-dep-sigma-interval, @prp-dep-balance).
 
 ## Exercises
 

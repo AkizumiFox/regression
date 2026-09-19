@@ -24,11 +24,18 @@ The plan is `blueprint/book.yaml` (45 chapters in 10 parts); each chapter's brie
 | 16 | ch16-multiway-layouts | Multi-way layouts and interaction | deployed |
 | 17 | ch17-unbalanced-data | Unbalanced data, cell means and empty cells | deployed |
 | 18 | ch18-covariance-and-design | Analysis of covariance and designed experiments | deployed |
-| 19–45 | | see `blueprint/book.yaml` | not started |
+| 19 | ch19-theory-of-departures | What goes wrong: a theory of departures | deployed |
+| 20 | ch20-residuals-leverage-influence | Residuals, leverage and influence | deployed |
+| 21 | ch21-nonnormality-heteroscedasticity-serial | Non-normality, heteroscedasticity and serial correlation | deployed |
+| 22 | ch22-transformations | Transformations | deployed |
+| 23 | ch23-resampling-inference | Bootstrap and permutation inference | deployed |
+| 24 | ch24-errors-in-variables | Errors in variables | deployed |
+| 25 | ch25-causal-interpretation | Causal interpretation of coefficients | deployed |
+| 26–45 | | see `blueprint/book.yaml` | not started |
 
 Deployed 2026-09-19 to https://regression.akizumifox.com (site repo AkizumiFox/regression, GitHub
 Pages from `main`, DNS through Cloudflare). Republish with `./build.py deploy --push`.
-Chapters 1–18 (Parts I–IV) are deployed.
+Chapters 1–25 (Parts I–V) are deployed.
 
 ## Open forward promises
 

@@ -269,7 +269,7 @@ within-level slope is \( 0.0674 \) times per week per year of age, and the adjus
 \( 0.224 \). More than three quarters of the raw difference is an age difference, and
 @prp-est-adjusted accounts for it exactly. Whether the adjusted figure is the “effect of education” is a
 different question. Here age plausibly influences both schooling (older cohorts had less of it) and viewing habits, which
-argues for adjusting, but Chapter 25 shows that adjustment is not always appropriate.
+argues for adjusting, but [Chapter 25](../ch25-causal-interpretation/index.html) shows that adjustment is not always appropriate.
 
 Allowing separate age slopes for three education groups (codes 1–3, high school or less, \( 313 \) respondents;
 codes 4–5, \( 277 \); and the two highest levels, codes 6–7, \( 354 \)) gives slopes

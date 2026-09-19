@@ -70,7 +70,7 @@ This shows up in the residual variances. If \( \Cov(\be)=\sigma^2\I \), then by
 \]
 so residuals at high-leverage points are *less* variable than others, even
 though those are exactly the points where an error would do the most damage.
-Chapter 20 standardizes residuals to correct for this.
+[Chapter 20](../ch20-residuals-leverage-influence/index.html) standardizes residuals to correct for this (@def-res-residuals).
 
 ## Leverage as distance from the centre
 

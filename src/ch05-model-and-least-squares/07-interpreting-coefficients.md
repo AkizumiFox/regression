@@ -29,7 +29,7 @@ Three qualifications are built into the definition.
 1. **It compares profiles, not interventions.** @eq-lm-partial-effect compares the mean response
    of two kinds of case that exist in the population the model describes. Whether changing
    \( x_j \) *in a given case* would change its response by \( \beta_j \) is a causal question,
-   which the model alone cannot answer (Chapter 25).
+   which the model alone cannot answer ([Chapter 25](../ch25-causal-interpretation/index.html)).
 
 2. **"The other regressors" means the ones in the model.** Adding or removing a
    regressor changes the comparison being made, and so changes \( \beta_j \), unless the
@@ -115,7 +115,7 @@ proportional rather than absolute differences.
   with a difference of about \( \beta_1/100 \) in \( Y \).
 
 The phrase "geometric mean" matters. \( \E(\log Y) \) is not \( \log\E(Y) \), so a model for the mean of
-\( \log Y \) is not a model for the mean of \( Y \). Chapter 22 returns to back-transformation.
+\( \log Y \) is not a model for the mean of \( Y \). [Chapter 22](../ch22-transformations/index.html) returns to back-transformation (@prp-tr-retransformation).
 
 ::: {#exm-lm-money-interpret}
 [Reading the money demand coefficients]
@@ -305,7 +305,7 @@ removes part of the effect one wants to measure. Adjusting for a common conseque
 regressor and the response can create an association where there is none. Second, adding
 regressors that are nearly collinear with \( x_j \) inflates the variance of \( \hat{\beta}_j \)
 (Chapter 26). Which variables to adjust for is a question about how the data were generated, not
-about the fit. Chapter 25 develops the tools for answering it.
+about the fit. [Chapter 25](../ch25-causal-interpretation/index.html) develops the tools for answering it.
 :::
 
 ## Exercises

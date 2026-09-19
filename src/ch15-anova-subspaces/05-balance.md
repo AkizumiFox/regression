@@ -188,7 +188,7 @@ If the variances \( \sigma_k^2 \) were known, weighted least squares ([Section 6
 would compare the group means with their precision-weighted average \( \tilde{\mu}=\sum_kw_k\bar{Y}_k/\sum_kw_k \), \( w_k=n_k/\sigma_k^2 \),
 and \( \sum_kw_k(\bar{Y}_k-\tilde{\mu})^2 \) would have an exact \( \chi^2(g-1) \) law under equal means. In practice the \( \sigma_k^2 \) are
 replaced by the \( s_k^2 \) and the reference distribution is approximated. We describe the two approximations in common use without
-deriving them; Chapter 21 treats heteroscedasticity in general.
+deriving them; [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) treats heteroscedasticity in general.
 
 **Welch's test.** Welch (1951) replaced \( \sigma_k^2 \) by \( s_k^2 \) in the weights, \( w_k=n_k/s_k^2 \), and divided the weighted mean square
 by a correction factor:
@@ -340,7 +340,7 @@ A common variance and normality are checked with the residuals \( e_{kj}=y_{kj}-
 The leverage of an observation in group \( k \) is \( 1/n_k \) (@prp-proj-leverage), so \( \Var(e_{kj})=\sigma^2(1-1/n_k) \). Residuals from small
 groups are shrunk towards zero, so they are compared on the common scale \( r_{kj}=e_{kj}/\bigl(s\sqrt{1-1/n_k}\bigr) \). A plot of residuals
 against the group means shows whether the spread differs between groups, and a spread growing with the mean suggests a transformation
-(Chapter 22). A normal quantile plot of the studentized residuals shows skewness and heavy tails. Chapter 20 develops residual
+([Chapter 22](../ch22-transformations/index.html)). A normal quantile plot of the studentized residuals shows skewness and heavy tails. [Chapter 20](../ch20-residuals-leverage-influence/index.html) develops residual
 diagnostics in general.
 
 ::: {when-format="html"}
@@ -364,8 +364,8 @@ for the classical \( F \) test is not recommended, since it has little power in 
 harm. The analysis should be chosen in advance, from the design and from what is known about the response.
 
 Nonnormality is usually the least serious problem for tests about means: the level of the \( F \) test is fairly robust to it, more so
-in balanced designs (Chapter 19), though heavy tails cost power by inflating \( \text{MSE} \). Transformations (Chapter 22) and resampling
-(Chapter 23), for example the Kruskal–Wallis permutation test on ranks, are the usual remedies.
+in balanced designs (@prp-dep-balance), though heavy tails cost power by inflating \( \text{MSE} \). Transformations ([Chapter 22](../ch22-transformations/index.html)) and resampling
+([Chapter 23](../ch23-resampling-inference/index.html)), for example the Kruskal–Wallis permutation test on ranks, are the usual remedies.
 
 ## Exercises
 

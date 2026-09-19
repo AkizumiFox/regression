@@ -418,7 +418,7 @@ has rank \( p \), because \( \W^{1/2} \) is nonsingular (@prp-mat-rank-product(b
 @thm-lm-ls-full-rank the unique minimizer is
 \( \bigl((\W^{1/2}\X)\T\W^{1/2}\X\bigr)^{-1}(\W^{1/2}\X)\T\W^{1/2}\y=(\X\T\W\X)^{-1}\X\T\W\y \). With
 \( w_i=1/\Var(Y_i) \), the least variable cases count most. This is weighted least squares,
-the subject of Chapter 21 and, with a general covariance matrix, of
+the subject of [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) and, with a general covariance matrix, of
 [Section 6.9](../ch06-projections/09-inner-products.html).
 :::
 

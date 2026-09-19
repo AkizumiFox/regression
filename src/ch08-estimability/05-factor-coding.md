@@ -315,7 +315,7 @@ the leverage (@def-proj-leverage) of observation \( i \) in the fit of \( \X \) 
 zero. What remains is the deletion criterion, and its minimizer \( \hbeta_{(i)} \) is unique: if \( \X\mathbf{b}=c\mathbf{e}_i \) with
 \( \mathbf{b}\ne\bzero \), then \( c\ne0 \) by full rank, and \( \mathbf{e}_i\in\C(\X) \). So \( \hbeta=\hbeta_{(i)} \).
 (c) By (b), \( \hat{\delta}=y_i-\x_{(i)}\T\hbeta_{(i)} \); compare with (a). The \( t \) statistic for \( \delta \) is the
-externally studentized residual of Chapter 20.
+externally studentized residual of [Chapter 20](../ch20-residuals-leverage-influence/index.html).
 :::
 
 ::: {#exr-est-cumulative}

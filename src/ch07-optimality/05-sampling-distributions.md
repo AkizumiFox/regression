@@ -225,7 +225,7 @@ Which parts of @thm-opt-sampling survive when the errors are merely uncorrelated
 The first two moments of \( \blambda\T\hbeta \) do, by @thm-opt-gauss-markov, and so does \( \E(s^2)=\sigma^2 \). The
 normality of \( \blambda\T\hbeta \) is lost, but it often returns approximately. \( \blambda\T\hbeta \) is a weighted sum of
 independent errors, and a central limit theorem applies when no single observation dominates the weights.
-Chapter 19 makes this precise. The distribution of SSE is less forgiving, because its variance depends on the
+[Chapter 19](../ch19-theory-of-departures/index.html) makes this precise (@thm-dep-nonnormal). The distribution of SSE is less forgiving, because its variance depends on the
 fourth moment of the errors.
 
 ::: {#prp-opt-var-sse}

@@ -144,7 +144,7 @@ for name, mu in [("additive", additive), ("removable", removable), ("crossing", 
           f"  log {np.abs(interaction(np.log(mu))).max():.3f}   same orders: {same_orders(mu)}")
 ```
 
-Two cautions apply to transforming data rather than means. Since \( \E\,g(Y)\ne g(\E\,Y) \) for nonlinear \( g \), additivity of \( g(y) \) and of \( g(\mu_{ij}) \) agree only approximately, for small errors. And a transformation also changes the shape and variance of the errors. In @exm-tw-solvers the logarithm happened to fix both, because the noise was multiplicative. The choice of scale is the subject of Chapter 22.
+Two cautions apply to transforming data rather than means. Since \( \E\,g(Y)\ne g(\E\,Y) \) for nonlinear \( g \), additivity of \( g(y) \) and of \( g(\mu_{ij}) \) agree only approximately, for small errors. And a transformation also changes the shape and variance of the errors. In @exm-tw-solvers the logarithm happened to fix both, because the noise was multiplicative. The choice of scale is the subject of [Chapter 22](../ch22-transformations/index.html).
 
 ## Main effects in the presence of interaction
 

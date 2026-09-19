@@ -145,7 +145,7 @@ then neither statement would hold.
 **Randomization tests.**  Under the *sharp* null hypothesis that every unit would respond the same under every treatment,
 the responses are fixed and only the labels are random. The proportion of the \( (t!)^b \) equally likely randomizations giving an
 \( F_T \) at least as large as the observed one is an exact \( p \)-value, estimated by sampling randomizations when there are too many.
-Chapter 23 develops permutation tests for linear models.
+[Chapter 23](../ch23-resampling-inference/index.html) develops permutation tests for linear models.
 
 ## An example
 

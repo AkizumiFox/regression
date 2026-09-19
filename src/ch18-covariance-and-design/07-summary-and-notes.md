@@ -46,7 +46,7 @@ covariate affected by treatment and of adjusting non-randomized groups. Rencher 
 taken in @thm-dsn-ancova, and uses the same device for missing data and for incomplete block designs. The case against
 testing baseline balance in randomized trials was made forcefully by Senn (1994). The modern debate on regression adjustment in randomized
 experiments, which asks whether adjustment can hurt when the model is wrong, was opened by Freedman (2008) and answered, for the
-interacted estimator of @exr-dsn-interacted, by Lin (2013). Chapter 25 returns to it.
+interacted estimator of @exr-dsn-interacted, by Lin (2013). [Chapter 25](../ch25-causal-interpretation/index.html) returns to it (@thm-cau-adjustment).
 
 **Heterogeneous slopes.**  The region of significance for non-parallel lines is due to Johnson and Neyman (1936), who developed it for
 comparisons of teaching methods with an ability covariate. Simultaneous versions use the Scheffé argument of

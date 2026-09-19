@@ -76,7 +76,7 @@ should be the yardstick for computational accuracy, the point made at the end of
 
 **Statistics.** Recursive least squares via the Sherman–Morrison formula goes back to Plackett (1950). The PRESS
 statistic is due to Allen (1974). The recursive residuals of @exr-cmp-recursive-residuals are those of Brown, Durbin
-and Evans (1975). Deletion diagnostics are developed in Chapter 20, collinearity in Chapter 26, and ridge and
+and Evans (1975). Deletion diagnostics are developed in [Chapter 20](../ch20-residuals-leverage-influence/index.html), collinearity in Chapter 26, and ridge and
 principal components regression in Chapter 27.
 
 ## References

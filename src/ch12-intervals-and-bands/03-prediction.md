@@ -195,7 +195,7 @@ model may be wrong where there are no data to check it, is in neither formula. I
 ## When the errors are not normal
 
 The estimate \( \hat{Y}_0 \) is a weighted sum of \( n \) errors, approximately normal by a central limit theorem when no weight
-dominates (Chapter 19). The new error \( \varepsilon_0 \) is a single draw, and its distribution enters the prediction interval
+dominates (@thm-dep-nonnormal). The new error \( \varepsilon_0 \) is a single draw, and its distribution enters the prediction interval
 unchanged, however large \( n \) is.
 
 ::: {#prp-ci-pi-limit}
@@ -282,14 +282,14 @@ for (law, m), out in table.items():
     print(f"{law:12s} n = {m:3d}: " + ", ".join(f"{k[0]} {k[1]:.2f}: {v:.3f}" for k, v in out.items()))
 ```
 
-Remedies, transformation (Chapter 22) and resampling (Chapter 23), come later. Checking normality matters much more for
+Remedies, transformation ([Chapter 22](../ch22-transformations/index.html)) and resampling ([Chapter 23](../ch23-resampling-inference/index.html)), come later. Checking normality matters much more for
 prediction than for estimation.
 
 ::: {.remark}
 [Prediction is not intervention]
 
 A prediction interval describes the next observation from the *same process*. If the regressors are set by intervention,
-say a policy that changes a state's poverty rate, the observed association need not describe what happens (Chapter 25).
+say a policy that changes a state's poverty rate, the observed association need not describe what happens ([Chapter 25](../ch25-causal-interpretation/index.html)).
 :::
 
 ## Exercises

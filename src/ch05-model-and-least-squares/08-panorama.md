@@ -30,7 +30,7 @@ the models below.
 |---|---|---|
 | Linear model, second moments | the starting point: geometry, optimality, estimability, computation | Chapters 5–10 |
 | Normal linear model | exact tests, intervals, multiple comparisons, designed experiments | Chapters [11](../ch11-general-linear-hypothesis/index.html)–18 |
-| Departures from the assumptions | diagnostics, transformations, resampling, measurement error, causation | Chapters 19–25 |
+| Departures from the assumptions | diagnostics, transformations, resampling, measurement error, causation | Chapters [19](../ch19-theory-of-departures/index.html)–[25](../ch25-causal-interpretation/index.html) |
 | Many regressors | collinearity, shrinkage, \( p>n \), selection, boosting | Chapters 26–30 |
 | General covariance and random effects | \( \Cov(\be)=\sigma^2\V \); \( \Y=\X\bbeta+\mathbf{Z}\mathbf{b}+\be \) | Chapters 31–33 |
 | Generalized linear models | non-normal distribution and a link | Chapters 34–41 |
@@ -45,10 +45,10 @@ confidence regions (Chapters [11](../ch11-general-linear-hypothesis/index.html) 
 whose columns are indicator variables, often not of full rank; their theory rests on
 [Chapter 6](../ch06-projections/index.html) and [Chapter 8](../ch08-estimability/index.html).
 
-**When the assumptions fail, or there are many regressors.** Part V asks what happens when
+**When the assumptions fail, or there are many regressors.** [Part V](../ch19-theory-of-departures/index.html) asks what happens when
 the mean is misspecified, the variance is not constant, the errors are correlated or not
 normal, the regressors are measured with error, or the question is causal; some remedies,
-such as robust standard errors based on @eq-lm-sandwich (Chapter 21), stay inside the linear
+such as robust standard errors based on @eq-lm-sandwich (@thm-het-sandwich), stay inside the linear
 model. Part VI treats large \( p \) and nearly dependent columns, where ridge regression,
 principal components and the lasso trade a little bias for less variance. Regression trees,
 random forests and neural networks also estimate \( m \), judged by prediction error rather than

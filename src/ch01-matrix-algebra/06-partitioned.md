@@ -239,7 +239,7 @@ Removing the \( i \)th row \( \x_i\T \) from a model matrix changes \( \X\T\X \)
 valid whenever \( h_i<1 \), and the determinant lemma gives
 \( \det(\X\T\X-\x_i\x_i\T)=(1-h_i)\det(\X\T\X) \). The quantity \( h_i \) is the leverage of observation \( i \)
 ([Chapter 6](../ch06-projections/index.html)), and these formulas are what make the deletion diagnostics of
-Chapter 20 cheap. For Brownlee's stack-loss data
+[Chapter 20](../ch20-residuals-leverage-influence/index.html) cheap (@thm-res-deletion). For Brownlee's stack-loss data
 (\( n=21 \), \( p=4 \)), the listing updates the inverse for each of
 the \( 21 \) deletions. The largest relative discrepancy from direct inversion is
 \( 1\times 10^{-13} \). Observation \( 17 \) has the largest leverage,

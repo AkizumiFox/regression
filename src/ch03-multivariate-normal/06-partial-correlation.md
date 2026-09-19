@@ -262,8 +262,8 @@ A partial correlation answers a precise question: how are the parts of two varia
 linearly explained by \( \Y_2 \) related? Whether that is the *right* question depends on
 what \( \Y_2 \) is. Adjusting for a common cause, as the year stands in for population growth
 here, removes a spurious association. Adjusting for a common effect can *create* an
-association between variables that are independent. Chapter 25 treats
-the difference. Under normality, the sampling distribution of a sample partial correlation
+association between variables that are independent. [Chapter 25](../ch25-causal-interpretation/index.html) treats
+the difference (@thm-cau-bad-controls). Under normality, the sampling distribution of a sample partial correlation
 given \( q \) variables is that of an ordinary sample correlation from \( n-q \) observations, a
 result used for tests in [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html).
 :::

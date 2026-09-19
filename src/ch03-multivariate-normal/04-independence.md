@@ -105,8 +105,8 @@ to have a \( t \) distribution (@thm-glh-t-test).
 The two examples use only a covariance calculation. Without joint normality, zero
 covariance between \( \hbeta \) and \( \he \) still holds under the second-moment
 assumptions of @def-lm-linear-model, but independence does not follow,
-and neither do exact \( t \) and \( F \) distributions. Chapter 21
-examines what survives approximately.
+and neither do exact \( t \) and \( F \) distributions. [Chapter 19](../ch19-theory-of-departures/index.html) (@thm-dep-nonnormal)
+and [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) examine what survives approximately.
 :::
 
 ## Exercises

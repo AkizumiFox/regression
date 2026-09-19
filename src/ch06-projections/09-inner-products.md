@@ -180,7 +180,7 @@ ordinary least squares the richest households have the most leverage, with a max
 \( 0.255 \). In the weighted geometry their large variance shrinks their
 influence, and no household has leverage above \( 0.037 \). Whether this
 is the *right* geometry depends on whether the variance model holds.
-Chapter 21 discusses how to check it, and how to
+[Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) discusses how to check it, and how to
 get valid standard errors when it fails.
 :::
 

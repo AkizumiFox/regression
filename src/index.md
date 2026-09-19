@@ -50,14 +50,14 @@ stability are closely linked.
 Boxed “Bayesian thread” sections close Parts II, III, VII and VIII. Each
 develops the Bayesian counterpart of the result just proved.
 
-**Departures have a theory.**  Part V opens by deriving what omitted
+**Departures have a theory.**  [Part V](ch19-theory-of-departures/index.html) opens by deriving what omitted
 variables, wrong covariance, non-normality, outliers and collinearity actually
 do to the estimator. Diagnostics and remedies come after that.
 
 **Material most regression texts omit.**  This book adds chapters on
-bootstrap and permutation inference (Chapter 23),
-errors in variables (Chapter 24), the causal
-interpretation of coefficients (Chapter 25),
+bootstrap and permutation inference ([Chapter 23](ch23-resampling-inference/index.html)),
+errors in variables ([Chapter 24](ch24-errors-in-variables/index.html)), the causal
+interpretation of coefficients ([Chapter 25](ch25-causal-interpretation/index.html)),
 high-dimensional regression (Chapter 28) and missing data
 (Chapter 41).
 
@@ -96,11 +96,11 @@ are written; the ones not yet on the site are named in plain text.
 
 ### Reading paths
 
-- **A first course on linear models.** Chapters [5](ch05-model-and-least-squares/index.html)–[9](ch09-sums-of-squares/index.html), [11](ch11-general-linear-hypothesis/index.html)–[12](ch12-intervals-and-bands/index.html), [15](ch15-anova-subspaces/index.html), 19–20 and 29.
+- **A first course on linear models.** Chapters [5](ch05-model-and-least-squares/index.html)–[9](ch09-sums-of-squares/index.html), [11](ch11-general-linear-hypothesis/index.html)–[12](ch12-intervals-and-bands/index.html), [15](ch15-anova-subspaces/index.html), [19](ch19-theory-of-departures/index.html)–[20](ch20-residuals-leverage-influence/index.html) and 29.
   Consult Part I as needed.
 - **The theory spine.** Part I, then Chapters [6](ch06-projections/index.html), [7](ch07-optimality/index.html), [8](ch08-estimability/index.html), [9](ch09-sums-of-squares/index.html), [11](ch11-general-linear-hypothesis/index.html) and 31.
   This is the shortest route to a full structural understanding of the linear model.
-- **For implementers.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html), [10](ch10-computation/index.html) and 20, Part VI and Chapter 34.
+- **For implementers.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html), [10](ch10-computation/index.html) and [20](ch20-residuals-leverage-influence/index.html), Part VI and Chapter 34.
 - **A course on generalized models.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html) and [11](ch11-general-linear-hypothesis/index.html), then Parts VII–X.
 
 ### Prerequisites

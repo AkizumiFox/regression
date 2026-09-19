@@ -37,7 +37,9 @@ mjx-utext[variant="bold"][data-short] {
 /* Accents over these letters (the hat on beta, epsilon): lower them onto the glyph. The padding
    above already brings them down for the short letters. */
 mjx-mover:has(> mjx-base mjx-utext[variant="bold"]) > mjx-over {
-  margin-bottom: -0.78em !important;
+  /* A relative nudge, not a fixed margin: MathJax gives each accent its own offset (a hat
+     and a tilde differ), and all of them are too high by about the same amount. */
+  transform: translateY(0.25em);
 }
 
 @font-face {

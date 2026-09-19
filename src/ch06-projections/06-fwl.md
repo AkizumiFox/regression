@@ -227,7 +227,7 @@ FWL is an algebraic identity about fitted coefficients. It says what the number
 \( \hat{\beta}_j \) *is*: an association with the unexplained part of \( \x_j \). It
 does not say that changing \( x_j \) in the world, with the other regressors held
 fixed, would change the response by \( \hat{\beta}_j \). That is a causal claim, and it
-needs assumptions about how the data arose. Chapter 25 takes
+needs assumptions about how the data arose. [Chapter 25](../ch25-causal-interpretation/index.html) takes
 up this question, including cases where adding a regressor to \( \X_2 \) makes the
 coefficient *less* interpretable rather than more.
 :::
@@ -299,7 +299,7 @@ Chapter 32 and Chapter 33.
 Added-variable plots are among the most useful diagnostics for multiple
 regression. They show the evidence for a single coefficient in two dimensions,
 together with any points that dominate it. They reappear in
-Chapter 20.
+[Section 20.1](../ch20-residuals-leverage-influence/01-kinds-of-residuals.html).
 
 ## Exercises
 

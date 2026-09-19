@@ -162,7 +162,7 @@ There is one exception. In a randomized experiment, \( \delta \) at the populati
 treatment effect, because \( \delta \) is linear. Its estimate \( \hat{\delta}(\bar{x}) \) is the treatment coefficient in the
 regression with a treatment-by-covariate interaction and the covariate centred at \( \bar{x} \) (@exr-dsn-interacted). This
 "interacted" adjustment is asymptotically never less precise than the unadjusted difference, even when the model is wrong.
-Chapter 25 returns to it.
+[Chapter 25](../ch25-causal-interpretation/index.html) returns to it (@thm-cau-adjustment).
 :::
 
 ## The Johnson–Neyman region

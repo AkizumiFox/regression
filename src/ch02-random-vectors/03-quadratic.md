@@ -94,7 +94,7 @@ biased upwards by the squared distance from the true mean to the model space, di
 \( n-r \). For instance, fit a straight line at \( x=1,\dots,6 \) when the true mean is the parabola
 \( \theta_i=\tfrac14(x_i-3.5)^2 \) and \( \sigma^2=1 \). Then \( \sigma^2(n-r)=4 \),
 \( \norm{(\I-\M)\boldsymbol{\uptheta}}^2=2.333 \), and \( \E(\text{RSS})=6.333 \).
-Chapter 19 studies such departures systematically.
+[Chapter 19](../ch19-theory-of-departures/index.html) studies such departures systematically (@thm-dep-omitted).
 :::
 
 The theorem uses only two moments, so it holds equally for skewed and heavy-tailed data.

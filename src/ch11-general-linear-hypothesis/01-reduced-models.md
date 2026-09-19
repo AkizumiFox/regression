@@ -251,13 +251,13 @@ the full model itself. [Chapter 14](../ch14-correlation-lack-of-fit-prediction/i
 there are replicate observations.
 
 *The errors must be independent with a common variance.* Correlated or heteroscedastic errors
-change both numerator and denominator, and the null distribution is no longer \( F \). Chapter 21
+change both numerator and denominator, and the null distribution is no longer \( F \). [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html)
 and Chapter 31 treat these cases.
 
 *Normality* gives the exact distribution, and it is the least critical of the three. The null
 distribution is exactly \( F \) for every spherically symmetric error law
 ([Section 11.2](02-comparing-projections.html)), and approximately so for independent non-normal errors
-unless the sample is small or some points have high leverage (Chapter 19).
+unless the sample is small or some points have high leverage (@thm-dep-nonnormal).
 
 ::: {.warning}
 [What a nonsignificant \( F \) does not show]

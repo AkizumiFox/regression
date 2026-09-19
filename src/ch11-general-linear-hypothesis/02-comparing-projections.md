@@ -341,7 +341,7 @@ for name, E in errors.items():
 error length \( R \) as well as the direction, and the power under spherical \( t \) errors differs from
 the power under normal errors with the same covariance. Nor does the proposition say that the
 \( F \) test is a *good* test for heavy-tailed errors. Its power can be poor compared with robust
-methods. Those questions belong to Chapter 19 and Chapter 21.
+methods. Those questions belong to [Chapter 19](../ch19-theory-of-departures/index.html) and [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html).
 :::
 
 ## Exercises

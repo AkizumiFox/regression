@@ -370,7 +370,7 @@ for group averages, have different denominators \( \text{SST} \). Averaging repl
 
 **It is not a measure of prediction or of cause.** Computed on the fitting data, it overstates
 predictive accuracy for new data (Chapter 29), and variation “explained” is linear association,
-not the effect of changing a regressor (Chapter 25).
+not the effect of changing a regressor ([Chapter 25](../ch25-causal-interpretation/index.html)).
 
 ## Exercises
 

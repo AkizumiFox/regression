@@ -90,7 +90,7 @@ column \( \log z_i \) enters \( \X \), and \( \E(Y_i)=\beta_0+\beta_1\log z_i \)
 \( (\beta_0,\beta_1) \). The response can be transformed too, as in the money demand
 model of [Section 5.4](04-least-squares.html), where \( Y \) is the logarithm of money
 holdings. A transformation of the response changes the meaning of the error, and hence
-the assumptions; Chapter 22 treats this.
+the assumptions; [Chapter 22](../ch22-transformations/index.html) treats this.
 
 **Polynomials.** A quadratic trend \( \E(Y_i)=\beta_0+\beta_1t_i+\beta_2t_i^2 \) uses the
 columns \( \bone \), \( \mathbf{t} \) and \( \mathbf{t}^2 \) (squared entrywise). A polynomial of degree
@@ -184,7 +184,7 @@ The residuals of this model are strongly correlated from month to month: the
 correlation between consecutive residuals is \( 0.90 \), because departures from a
 smooth trend persist for many months. So (L3) fails and the standard errors of
 [Section 5.5](05-properties.html) would be too optimistic. The *fit* is still a
-sensible description. Chapter 21 treats serially correlated errors.
+sensible description. [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) treats serially correlated errors.
 
 **Models that are not linear.** Some relations cannot be rearranged into linear form.
 Exponential decay toward an unknown asymptote,

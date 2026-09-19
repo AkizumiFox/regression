@@ -338,7 +338,7 @@ have the Laplace density \( (2\tau)^{-1}e^{-\lvert\varepsilon\rvert/\tau} \), th
 \( -n\log(2\tau)-\sum_i\lvert y_i-\x_{(i)}\T\bbeta\rvert/\tau \), and maximum likelihood minimizes the sum of *absolute*
 residuals; @exr-opt-laplace-mle works out the location case. For errors with a \( t \) distribution it downweights large residuals. For each error
 distribution the likelihood picks its own loss function. Least squares is the one that goes with the
-Gaussian. Chapter 20 uses robust fitting as a diagnostic, and Chapter 45 treats median and quantile regression.
+Gaussian. [Section 20.6](../ch20-residuals-leverage-influence/06-robust.html) uses robust fitting as a diagnostic, and Chapter 45 treats median and quantile regression.
 :::
 
 ## Exercises

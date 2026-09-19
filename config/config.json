@@ -98,7 +98,17 @@
         },
         "src/ch16-multiway-layouts",
         "src/ch17-unbalanced-data",
-        "src/ch18-covariance-and-design"
+        "src/ch18-covariance-and-design",
+        {
+            "dir": "src/ch19-theory-of-departures",
+            "part": "Part V · When the Assumptions Fail"
+        },
+        "src/ch20-residuals-leverage-influence",
+        "src/ch21-nonnormality-heteroscedasticity-serial",
+        "src/ch22-transformations",
+        "src/ch23-resampling-inference",
+        "src/ch24-errors-in-variables",
+        "src/ch25-causal-interpretation"
     ],
     "macros": "latex/macros.tex",
     "templates": {

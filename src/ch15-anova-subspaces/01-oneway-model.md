@@ -163,7 +163,7 @@ The derived errors are not exactly those of @def-aov-oneway: sampling without re
 correlated (@exr-aov-randomization-mean), and nothing makes them normal. But under the hypothesis that no treatment has any
 effect, every rearrangement of the yields among the treatments was equally likely, so the **randomization distribution** of
 the \( F \) statistic of [Section 15.3](03-anova-table.html) can be computed exactly by permuting the data, and for moderate
-designs the normal-theory \( F \) distribution approximates it closely. Chapter 23 develops permutation tests. Here the normal
+designs the normal-theory \( F \) distribution approximates it closely. [Chapter 23](../ch23-resampling-inference/index.html) develops permutation tests (@thm-bs-permutation). Here the normal
 model is the working model, and randomization is the reason for trusting it.
 
 ## Fixed and random effects

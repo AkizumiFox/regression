@@ -158,9 +158,9 @@ for label, t in [("independent errors", t_indep), ("spread depends on X", t_hete
 
 ::: {.warning}
 The conditional model can fail in ways no amount of data repairs. If the error variance depends
-on the regressors, the \( t \) and \( F \) statistics lose their exact laws (Chapter 21). If the regressors are
-correlated with the errors, as with measurement error (Chapter 24), an omitted common cause
-(Chapter 25) or a lagged response, least squares estimates something other than \( \bbeta \). And if the mean
+on the regressors, the \( t \) and \( F \) statistics lose their exact laws ([Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html)). If the regressors are
+correlated with the errors, as with measurement error (@thm-eiv-attenuation), an omitted common cause
+([Chapter 25](../ch25-causal-interpretation/index.html)) or a lagged response, least squares estimates something other than \( \bbeta \). And if the mean
 is not linear, the population projection of [Section 6.11](../ch06-projections/11-population.html) is
 still estimated consistently, but its errors depend on the regressors and the usual standard errors are wrong.
 :::

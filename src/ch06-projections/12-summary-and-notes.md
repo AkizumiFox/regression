@@ -85,7 +85,7 @@ panel data.
 **Leverage.**  Hoaglin and Welsch (1978) introduced the name “hat matrix”
 into common use and established the basic properties in @prp-proj-leverage.
 Diagnostic use of leverage is taken up in
-Chapter 20.
+[Chapter 20](../ch20-residuals-leverage-influence/index.html).
 
 **Other inner products.**  Generalized least squares is due to
 Aitken (1935). The coordinate-free condition for equality of ordinary and

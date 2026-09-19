@@ -393,7 +393,7 @@ print(f"total effect {total:.2f}: unadjusted mean {est_unadj.mean():.3f},"
       f" adjusted for w mean {est_adj.mean():.3f}")
 ```
 
-Chapter 25 develops the language for this in observational data: mediators, on the causal path from treatment to
+[Chapter 25](../ch25-causal-interpretation/index.html) develops the language for this in observational data: mediators, on the causal path from treatment to
 response, must not be adjusted for when the total effect is wanted. In a randomized experiment the safe rule is simple:
 *adjust only for variables fixed before randomization.* By @prp-dsn-precision this costs little even when the covariate
 turns out to be useless. A test of whether the groups are "balanced" on such a covariate is pointless, since its null

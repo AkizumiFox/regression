@@ -7,7 +7,7 @@ geometry, least squares estimates something even when the linear model is false,
 namely the population projection of \( Y \) onto a span of regressors. The conditional
 expectation turns out to be a projection too. This section sets up the correspondence.
 [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) develops prediction theory from it, and
-Chapter 19 uses it to study what least squares estimates under
+[Chapter 19](../ch19-theory-of-departures/index.html) uses it to study what least squares estimates under
 misspecification.
 
 ## Random variables as vectors
@@ -212,6 +212,6 @@ line always estimates a well-defined population quantity. It says nothing about 
 is not constant, the approximation error \( m(\mathbf{X})-L(Y\mid\mathbf{X}) \) behaves like extra
 noise that depends on \( \mathbf{X} \). The textbook formula \( \sigma^2(\X\T\X)^{-1} \) for the
 covariance of \( \hbeta \) is then wrong, even in large samples. The “sandwich”
-covariance estimators of Chapter 21 are designed
+covariance estimators of [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) (@thm-het-sandwich) are designed
 for exactly this situation.
 :::

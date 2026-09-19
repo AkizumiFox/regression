@@ -120,7 +120,7 @@ Two consequences deserve emphasis. First, residuals are *not* uncorrelated and
 *not* of equal variance, even when the errors are both. The residual of a case with
 \( h_{ii} \) near \( 1 \) has variance near zero: the fit is pulled so close to such a case
 that its residual says little about its error. The number \( h_{ii} \) is the **leverage** of
-case \( i \) ([Section 6.8](../ch06-projections/08-leverage.html), Chapter 20).
+case \( i \) ([Section 6.8](../ch06-projections/08-leverage.html), [Chapter 20](../ch20-residuals-leverage-influence/index.html)).
 Second, the fitted values and the residuals are uncorrelated. Under normality they are
 then independent (@thm-mvn-independence), which is the key to the exact tests of
 [Chapter 11](../ch11-general-linear-hypothesis/index.html).
@@ -344,9 +344,9 @@ Part (a) says that when the mean is misspecified, least squares estimates not
 \( \X \). The most important case is an omitted regressor, which
 [Section 5.7](07-interpreting-coefficients.html) examines. Part (b) says that with the wrong
 covariance, the estimator stays unbiased but the formula \( \sigma^2(\X\T\X)^{-1} \) is wrong.
-The "sandwich" @eq-lm-sandwich is the correct covariance, and Chapter 21 shows how to
-estimate it when \( \bSigma \) is diagonal but unknown. Chapter 19 studies both
-departures systematically.
+The "sandwich" @eq-lm-sandwich is the correct covariance, and [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) shows how to
+estimate it when \( \bSigma \) is diagonal but unknown (@thm-het-sandwich). [Chapter 19](../ch19-theory-of-departures/index.html) studies both
+departures systematically (@thm-dep-omitted, @thm-dep-covariance).
 
 ## Exercises
 

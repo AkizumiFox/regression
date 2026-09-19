@@ -167,7 +167,7 @@ regressors gives \( F=1.92 \) on \( 3 \) and \( 14 \) (\( p \)-value \( 0.172 \)
 (\( p \)-value \( 0.497 \)), and RESET gives \( F=1.17 \) on \( 2 \) and \( 15 \) (\( p \)-value
 \( 0.336 \)). None of the tests finds lack of fit. The strong lack of fit of the line in air flow alone (@exm-cor-stackloss-lof) was the omitted water temperature, which varies within the groups of equal air
 flow. With \( 21 \) cases none of these tests is powerful, and a few unusual days deserve the
-scrutiny of Chapter 20.
+scrutiny of [Chapter 20](../ch20-residuals-leverage-influence/index.html).
 :::
 
 ```{.python .run #cell-lof-alternatives-stackloss}
@@ -320,7 +320,7 @@ for label, shape, a in [("curvature", curve, 6.0), ("bump", bump, 2.5)]:
 The lesson is to decide which inadequacy matters before testing: a low-degree polynomial or RESET for
 smooth curvature, a flexible alternative or a smoother for local departures. Only the pure-error test of
 @thm-cor-lack-of-fit has a larger model containing every mean function of the regressors. Residual plots,
-which look in all directions informally, remain indispensable (Chapter 20).
+which look in all directions informally, remain indispensable ([Chapter 20](../ch20-residuals-leverage-influence/index.html)).
 
 ## Exercises
 

@@ -230,7 +230,7 @@ print(f"Fisher z interval ({lo_z:.3f}, {hi_z:.3f}); exact ({lo_x:.3f}, {hi_x:.3f
 Conditioning can shrink an association, as in the example, reverse its sign, as in @exm-mvn-longley
 and Simpson's paradox, or create one where none exists, when the conditioning variable is a common
 effect of the two (@exr-cor-collider). The distribution theory is silent on the choice of conditioning
-set; Chapter 25 takes it up.
+set; [Chapter 25](../ch25-causal-interpretation/index.html) takes it up.
 :::
 
 ## Exercises

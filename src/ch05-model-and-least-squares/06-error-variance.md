@@ -100,7 +100,7 @@ for [Chapter 11](../ch11-general-linear-hypothesis/index.html).
 These standard errors rest on (L2) and (L3). For a quarterly economic series (L3) is
 doubtful. The correlation between consecutive residuals is \( 0.62 \), which
 suggests that the errors are positively correlated in time, and then the formula
-\( \sigma^2(\X\T\X)^{-1} \) usually understates the true variability. Chapter 21 shows how to
+\( \sigma^2(\X\T\X)^{-1} \) usually understates the true variability. [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) shows how to
 detect and allow for this.
 :::
 

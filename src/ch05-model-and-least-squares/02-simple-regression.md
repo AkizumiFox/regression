@@ -255,7 +255,7 @@ December \( 27.08 \)°C), has a residual of \( 1.430 \)°C. Because it lies
 far from \( \bar{x} \), it pulls on the slope: without it the slope would be
 \( 0.6214 \). Points with regressor values far from the mean have high
 *leverage*, a notion made precise in
-[Section 6.8](../ch06-projections/08-leverage.html) and Chapter 20.
+[Section 6.8](../ch06-projections/08-leverage.html) and [Chapter 20](../ch20-residuals-leverage-influence/index.html).
 
 ## Regression through the origin
 

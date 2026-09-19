@@ -372,7 +372,7 @@ regressing \( \hat{\be}_H \) on \( \X \). Explain why this "\( nR^2 \)" recipe n
 regression of \( \hat{\be}_H \) on \( \X \) is \( \norm{\M\hat{\be}_H}^2/\norm{\hat{\be}_H}^2 \). Computing it requires the restricted
 residuals and one auxiliary regression, but not \( \hbeta \) or the unrestricted model's residual sum of
 squares as such. This is why score tests are popular when the full model is hard to fit, as in tests
-for omitted nonlinear terms or for heteroscedasticity (Chapter 21).
+for omitted nonlinear terms or for heteroscedasticity ([Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html)).
 :::
 
 ::: {#exr-glh-known-sigma-lr}

@@ -224,7 +224,7 @@ acceptance region is an ellipse stretched along the line \( t_1=-t_2 \). The obs
 negative, a combination the ellipse excludes although each coordinate on its own is unremarkable. The
 data are clear that unemployment and population *together* matter, and unclear about how to divide the
 credit. With \( 16 \) consecutive years of trending series, the errors are also unlikely to be independent, a
-caution taken up in Chapter 21.
+caution taken up in [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html).
 :::
 
 ::: {when-format="html"}

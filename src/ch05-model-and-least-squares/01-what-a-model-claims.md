@@ -81,7 +81,7 @@ assumption hides elsewhere: in the claim that \( m \) has a particular form, or
 that the quantity of interest is \( m \) at all. When someone says "the error is
 correlated with the regressor", the error they have in mind is a different
 object, usually the deviation from a *causal* or *structural* relation rather
-than from the conditional mean. Chapter 24 and Chapter 25 take this up.
+than from the conditional mean. [Chapter 24](../ch24-errors-in-variables/index.html) and [Chapter 25](../ch25-causal-interpretation/index.html) take this up.
 :::
 
 ## What the linear model adds
@@ -155,7 +155,7 @@ layers of assumptions hold. (b) Right-skewed errors whose spread grows with
 The assumptions concern the errors \( \varepsilon_i \), which are never observed. What
 we see are residuals, the differences between the responses and a fitted function.
 Whether the assumptions are credible is judged from residuals, from the design of the
-study, and from knowledge of the subject. Part V of the book is devoted to the first of
+study, and from knowledge of the subject. [Part V](../ch19-theory-of-departures/index.html) of the book is devoted to the first of
 these and to what goes wrong when the assumptions fail.
 
 ## Fixed and random regressors
@@ -231,7 +231,7 @@ print(f"random design: mean {b_random.mean():.4f}  var {b_random.var():.5f}"
 
 Conditioning on the regressors is not always harmless. It fails when the regressors
 are measured with error, because then the regression on the *measured* values is not the
-one of scientific interest (Chapter 24). It fails when a regressor is a lagged value of
+one of scientific interest ([Chapter 24](../ch24-errors-in-variables/index.html), @thm-eiv-attenuation). It fails when a regressor is a lagged value of
 the response, as in autoregressive time series, because then \( \X \) is not
 determined before the errors are drawn. It also changes the question when the target is a
 population quantity, such as the best linear predictor of one variable from others in a
@@ -257,7 +257,7 @@ usually differ in other ways too. Randomized assignment of the regressor, as in 
 designed experiment, is the standard way to make the two questions coincide. Without
 it, the step from association to effect needs assumptions that the data cannot check.
 [Section 5.7](07-interpreting-coefficients.html) returns to this point, and
-Chapter 25 treats it in full.
+[Chapter 25](../ch25-causal-interpretation/index.html) treats it in full.
 :::
 
 ## Exercises

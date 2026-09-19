@@ -82,7 +82,7 @@ between association and causation that [Section 5.1](01-what-a-model-claims.html
 
 **Standard errors under departures.** The sandwich formula @eq-lm-sandwich, with the unknown
 covariance matrix estimated from squared residuals, is due to White (1980) in econometrics; it is
-developed in Chapter 21.
+developed in [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) (@thm-het-sandwich).
 
 **Beyond the linear model.** Generalized linear models were introduced by Nelder and
 Wedderburn (1972) and quantile regression by Koenker and Bassett (1978). Additive models were
