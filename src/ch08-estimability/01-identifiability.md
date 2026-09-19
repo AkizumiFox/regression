@@ -270,7 +270,7 @@ identifiable, so are their ratio (where defined), their product, and \( \max\{\b
 Every function of \( \bmu \) is identifiable, for example \( \norm{\bmu}^2 \) or the largest mean. For
 instance, in a quadratic regression \( \E(y)=\beta_0+\beta_1x+\beta_2x^2 \) with a full-rank design,
 the location \( -\beta_1/(2\beta_2) \) of the turning point is identifiable. It is not linear, and
-Chapter 12 has to estimate it with care. The next section shows that among
+[Section 12.5](../ch12-intervals-and-bands/05-calibration.html) has to estimate it with care. The next section shows that among
 the *linear* functions, identifiability coincides with a much more concrete property,
 the existence of a linear unbiased estimator.
 

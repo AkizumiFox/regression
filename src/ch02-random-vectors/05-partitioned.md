@@ -163,7 +163,7 @@ Dividing gives the bound and the maximizer. The last identity is the definition 
 :::
 
 \( \rho^2_{Y\cdot X} \) is the population version of \( R^2 \): the fraction of the variance of \( Y \)
-that the best linear predictor accounts for. Chapter 14 studies
+that the best linear predictor accounts for. [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) studies
 its sample version.
 
 ## Conditioning: total expectation and total covariance

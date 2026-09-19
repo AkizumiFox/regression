@@ -159,7 +159,7 @@ with covariance \( \sigma^2\M \). Its \( i \)th diagonal entry is \( \sigma^2h_{
 :::
 
 Part (b) says least squares minimizes the total mean squared error among unbiased linear estimators.
-Part (c) has a geometric meaning that Chapter 12 will use. For normal errors, the confidence
+Part (c) has a geometric meaning that [Chapter 12](../ch12-intervals-and-bands/index.html) will use. For normal errors, the confidence
 ellipsoid for \( \bm\theta \) has volume proportional to \( \sqrt{\det\Cov} \), so least squares gives the
 smallest ellipsoids.
 

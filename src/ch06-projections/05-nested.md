@@ -4,7 +4,7 @@ Statistical questions about linear models are almost always comparisons. Does a
 regressor matter? Are several group means equal? Is a curve needed, or will a line do? Each
 comparison sets a full model against a *reduced* model whose mean space is
 a subspace of the full one. This section studies the geometry of such nested
-pairs. [Chapter 9](../ch09-sums-of-squares/index.html) and Chapter 11 build the analysis of
+pairs. [Chapter 9](../ch09-sums-of-squares/index.html) and [Chapter 11](../ch11-general-linear-hypothesis/index.html) build the analysis of
 variance and the \( F \) test on it.
 
 ## Two nested subspaces
@@ -275,7 +275,7 @@ remaining claims follow from @thm-proj-nested with the roles
 The subspace \( \C(\M\bm P) \) is the *test space* of the hypothesis. Its dimension
 \( \rank(\M\bm P) \) counts how many independent restrictions the constraint really
 places on the mean. It can be smaller than \( q \) if some rows of the constraint are
-redundant. Chapter 11 uses exactly this space for the
+redundant. [Chapter 11](../ch11-general-linear-hypothesis/index.html) uses exactly this space for the
 numerator of the \( F \) statistic.
 
 ## Exercises

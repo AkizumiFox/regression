@@ -96,7 +96,7 @@ the residual sum of squares \( \norm{\he}^2 \) and of the estimate \( s^2=\norm{
 The same argument shows that the fitted values \( \hY \) and the residuals are independent.
 This independence is what allows a \( t \) statistic
 \( (\blambda\T\hbeta-\blambda\T\bbeta)/\{s^2\blambda\T(\X\T\X)^{-1}\blambda\}^{1/2} \)
-to have a \( t \) distribution (Chapter 11).
+to have a \( t \) distribution (@thm-glh-t-test).
 :::
 
 ::: {.remark}

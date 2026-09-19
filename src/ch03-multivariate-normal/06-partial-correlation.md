@@ -265,7 +265,7 @@ here, removes a spurious association. Adjusting for a common effect can *create*
 association between variables that are independent. Chapter 25 treats
 the difference. Under normality, the sampling distribution of a sample partial correlation
 given \( q \) variables is that of an ordinary sample correlation from \( n-q \) observations, a
-result used for tests in Chapter 14.
+result used for tests in [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html).
 :::
 
 ## Exercises

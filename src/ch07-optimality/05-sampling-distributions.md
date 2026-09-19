@@ -97,8 +97,8 @@ With \( d=\blambda\T\bbeta \), \( \delta=0 \), and @eq-opt-t-interval restates
 :::
 
 @eq-opt-t-interval is the familiar confidence interval \( \blambda\T\hbeta\pm t_{n-r,\alpha/2}\,\text{se} \), and
-\( T_d \) is the statistic for testing \( \blambda\T\bbeta=d \). Its noncentrality \( \delta \) governs the power. Chapter 11
-and Chapter 12 develop both. For the air-flow coefficient in the stack loss regression this interval was
+\( T_d \) is the statistic for testing \( \blambda\T\bbeta=d \). Its noncentrality \( \delta \) governs the power. [Chapter 11](../ch11-general-linear-hypothesis/index.html)
+and [Chapter 12](../ch12-intervals-and-bands/index.html) develop both. For the air-flow coefficient in the stack loss regression this interval was
 \( (0.431,\ 1.000) \) (@exm-opt-stackloss-profile). Two features of the corollary are easy to
 overlook. The degrees of freedom are \( n-r \), the dimension of the residual space. They are not \( n \), and when
 \( \X \) is rank deficient they are not \( n-p \) either. And the interval is exact for every sample size, which no
@@ -148,7 +148,7 @@ variables divided by their degrees of freedom (@def-qf-noncentral-f).
 :::
 
 The set of \( \bLambda\T\bbeta \) values for which this \( F \) ratio stays below an \( F \) quantile is a confidence
-ellipsoid. Chapter 12 studies these regions, and Chapter 11 turns the same statistic into the test of the
+ellipsoid. [Chapter 12](../ch12-intervals-and-bands/index.html) studies these regions, and [Chapter 11](../ch11-general-linear-hypothesis/index.html) turns the same statistic into the test of the
 general linear hypothesis. Here we note only that the degrees of freedom in the numerator are the number
 of *linearly independent* functions being estimated, not the number of rows of \( \bLambda\T \).
 

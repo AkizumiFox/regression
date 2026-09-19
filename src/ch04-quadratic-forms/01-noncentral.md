@@ -252,7 +252,7 @@ test is an \( F \) test with one numerator degree of freedom. Second, since
 \]
 
 The central \( F \) is the null distribution of the tests of
-Chapter 11, and \( F(r,s,\gamma) \) is their distribution
+[Chapter 11](../ch11-general-linear-hypothesis/index.html), and \( F(r,s,\gamma) \) is their distribution
 under an alternative. The power of such a test is therefore
 \( \Pr\{F(r,s,\gamma)>F_\alpha(r,s)\} \), and the following fact is what guarantees
 that it behaves as a test should.

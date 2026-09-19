@@ -218,7 +218,7 @@ Four points are worth keeping in mind.
 
 *Anything that depends on the fit is invariant.* This includes fitted values, residuals, \( R^2 \),
 \( \hat{\sigma}^2 \), and the \( F \) test that all levels have the same mean. That test compares \( \C(\Z) \)
-with \( \C(\bone) \), and the coding does not enter it (Chapter 11).
+with \( \C(\bone) \), and the coding does not enter it (@thm-glh-f-test).
 
 *Coefficient tests answer different questions.* The \( t \) test for a reference-coded coefficient tests
 whether level \( k \) differs from the reference level. The \( t \) test for a sum-coded coefficient tests

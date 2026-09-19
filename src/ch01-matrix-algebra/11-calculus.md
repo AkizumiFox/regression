@@ -102,7 +102,7 @@ which exceeds \( f(\x_*) \) unless \( \bm d=\bzero \).
 :::
 
 With \( \A=\X\T\X \) and \( \bb=\X\T\y \), this is least squares subject to a linear hypothesis
-\( \bm H\bbeta=\bm h \), the starting point of Chapter 11.
+\( \bm H\bbeta=\bm h \), the starting point of [Chapter 11](../ch11-general-linear-hypothesis/index.html).
 
 ## Derivatives with respect to matrices and scalars
 
@@ -226,5 +226,5 @@ completing the square as in @prp-mat-quadratic-min,
 (\bm H\hbeta-\bm h)\T\bm W^{-1}\bm H(\X\T\X)^{-1}\bm H\T\bm W^{-1}(\bm H\hbeta-\bm h)
 =(\bm H\hbeta-\bm h)\T\bm W^{-1}(\bm H\hbeta-\bm h).
 \]
-This quadratic form is the numerator of the \( F \) statistic in Chapter 11.
+This quadratic form is the numerator of the \( F \) statistic in [Chapter 11](../ch11-general-linear-hypothesis/index.html) (@thm-glh-general-f).
 :::

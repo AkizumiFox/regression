@@ -238,7 +238,7 @@ Compare a restriction that *is* estimable, \( \alpha_1=\alpha_2 \). It is not a 
 (by solving the Lagrange system for least squares under a linear restriction) forces the first two group means
 to be equal. The residual sum of squares rises from \( 14.665 \) to
 \( 46.078 \). The fit has changed, which is what testing the hypothesis
-\( \alpha_1=\alpha_2 \) in Chapter 11 measures.
+\( \alpha_1=\alpha_2 \) in [Chapter 11](../ch11-general-linear-hypothesis/index.html) measures.
 :::
 
 ```{.python .run #cell-side-conditions-layout}

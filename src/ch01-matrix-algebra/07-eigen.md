@@ -359,7 +359,7 @@ Substitute \( \x=\B^{-1/2}\bz \). The quotient in (a) becomes
 :::
 
 Part (c) is the Cauchy–Schwarz inequality in the inner product \( \x\T\B\bv \). It is the
-algebra behind simultaneous confidence intervals (Chapter 12), and
+algebra behind simultaneous confidence intervals ([Section 12.2](../ch12-intervals-and-bands/02-ellipsoids.html)), and
 part (b) is used for linear discriminants and for comparing two covariance matrices.
 
 ## Exercises

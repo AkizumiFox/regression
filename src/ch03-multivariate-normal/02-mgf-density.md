@@ -178,7 +178,7 @@ which is the definition of \( \chi^2(n) \).
 nonzero mean and a general \( \A \) (@thm-qf-chisq). Because the density is
 largest inside these ellipsoids, they are the smallest regions with their
 probability content, which is why they reappear as confidence regions for
-\( \bbeta \) in Chapter 12.
+\( \bbeta \) in [Chapter 12](../ch12-intervals-and-bands/index.html) (@thm-ci-ellipsoid).
 
 **Computing with the density.**  Neither \( \bSigma^{-1} \) nor \( \det\bSigma \)
 should be formed explicitly. With the Cholesky factorization \( \bSigma=\bL\bL\T \),

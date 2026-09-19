@@ -29,7 +29,7 @@ the models below.
 | Model | What changes | Where |
 |---|---|---|
 | Linear model, second moments | the starting point: geometry, optimality, estimability, computation | Chapters 5–10 |
-| Normal linear model | exact tests, intervals, multiple comparisons, designed experiments | Chapters 11–18 |
+| Normal linear model | exact tests, intervals, multiple comparisons, designed experiments | Chapters [11](../ch11-general-linear-hypothesis/index.html)–18 |
 | Departures from the assumptions | diagnostics, transformations, resampling, measurement error, causation | Chapters 19–25 |
 | Many regressors | collinearity, shrinkage, \( p>n \), selection, boosting | Chapters 26–30 |
 | General covariance and random effects | \( \Cov(\be)=\sigma^2\V \); \( \Y=\X\bbeta+\bm Z\bm b+\be \) | Chapters 31–33 |
@@ -40,8 +40,8 @@ the models below.
 **The normal linear model and its designs.** With normal errors, the least squares
 estimator has an exact normal distribution and the residual sum of squares an exact
 chi-squared distribution (@thm-opt-sampling). This gives \( t \) and \( F \) tests and exact
-confidence regions (Chapters 11 and 12), and procedures for many comparisons at once
-(Chapter 13). Analysis of variance and designed experiments (Chapters 15–18) are linear models
+confidence regions (Chapters [11](../ch11-general-linear-hypothesis/index.html) and [12](../ch12-intervals-and-bands/index.html)), and procedures for many comparisons at once
+([Chapter 13](../ch13-multiplicity/index.html)). Analysis of variance and designed experiments (Chapters 15–18) are linear models
 whose columns are indicator variables, often not of full rank; their theory rests on
 [Chapter 6](../ch06-projections/index.html) and [Chapter 8](../ch08-estimability/index.html).
 
@@ -90,7 +90,7 @@ into a model rather than a violation (Chapter 45).
 
 **The Bayesian thread.** A prior distribution on \( (\bbeta,\sigma^2) \) turns the likelihood into a
 posterior. For the normal linear model with a conjugate prior the posterior is available in
-closed form (@thm-opt-bayes-conjugate), and it reappears for intervals (Chapter 12) and for
+closed form (@thm-opt-bayes-conjugate), and it reappears for intervals (@thm-ci-bayes-credible) and for
 generalized linear models (Chapter 39).
 
 ## A first look beyond the linear model

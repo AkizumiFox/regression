@@ -396,7 +396,7 @@ print(f"treatment SS {ss_treat:.3f} = {contrast_ss(c1):.3f} + {contrast_ss(c2):.
 print(f"with the plain contrast: {contrast_ss(c1_plain):.3f} + {contrast_ss(c2):.3f}")
 ```
 
-Single-degree-of-freedom sums of squares reappear in Chapter 13, where many of them are tested at
+Single-degree-of-freedom sums of squares reappear in [Chapter 13](../ch13-multiplicity/index.html), where many of them are tested at
 once, and in Chapter 15, where orthogonal contrasts organize the one-way analysis of variance.
 
 ## Exercises

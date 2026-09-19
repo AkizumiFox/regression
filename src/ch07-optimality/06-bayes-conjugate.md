@@ -9,7 +9,7 @@ connects directly to the rest of the chapter. The posterior mean is a matrix-wei
 and the least squares estimate. It is biased in the frequentist sense, which is how it escapes the
 Gauss–Markov bound. And as the prior becomes flat, the posterior reproduces least squares and the
 \( t \) intervals of [Section 7.5](05-sampling-distributions.html) exactly. This is the first of several Bayesian
-threads in the book. Chapter 12 continues it with credible regions and predictive distributions, Chapter 27
+threads in the book. [Section 12.6](../ch12-intervals-and-bands/06-bayes.html) continues it with credible regions and predictive distributions, Chapter 27
 with shrinkage priors, and Chapter 39 with generalized linear models.
 
 ## The normal-inverse-gamma family

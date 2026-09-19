@@ -123,7 +123,7 @@ that its residual says little about its error. The number \( h_{ii} \) is the **
 case \( i \) ([Section 6.8](../ch06-projections/08-leverage.html), Chapter 20).
 Second, the fitted values and the residuals are uncorrelated. Under normality they are
 then independent (@thm-mvn-independence), which is the key to the exact tests of
-Chapter 11.
+[Chapter 11](../ch11-general-linear-hypothesis/index.html).
 
 ## The straight line
 

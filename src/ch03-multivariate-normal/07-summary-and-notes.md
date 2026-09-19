@@ -80,7 +80,7 @@ uses only independence and a generalized inverse, so it covers singular \( \bSig
 an extension that is standard in multivariate analysis (Rao 1973). Anderson (2003)
 is the classical reference for the multivariate normal in statistics, including the
 distribution theory of sample partial and multiple correlation coefficients that
-Chapter 14 uses. Rencher and Schaalje (2008, §4.5) define
+[Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) uses. Rencher and Schaalje (2008, §4.5) define
 partial correlation as a conditional correlation, as in
 @prp-mvn-partial-meaning(b). The residual interpretation (a) does not require
 normality and is the one that connects to least squares. Regression toward the mean was

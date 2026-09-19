@@ -307,7 +307,7 @@ Show that the Helmert contrasts \( \bm h_2,\dots,\bm h_g \) are orthogonal for t
 [B1]
 
 Show that for every contrast \( \bm c \), \( \operatorname{SS}(\bm c)\le\sum_kn_k(\bar{y}_k-\bar{y})^2 \), with equality when
-\( c_k=n_k(\bar{y}_k-\bar{y}) \). This fact is the basis of Scheffé's method in Chapter 13.
+\( c_k=n_k(\bar{y}_k-\bar{y}) \). This fact is the basis of Scheffé's method in [Chapter 13](../ch13-multiplicity/index.html) (@thm-mc-scheffe).
 :::
 
 ::: {.solution}

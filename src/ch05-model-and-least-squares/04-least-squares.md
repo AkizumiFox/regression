@@ -107,7 +107,7 @@ share this invariance is the question of estimability, answered in
 
 Least squares under known linear restrictions \( \bm H\bb=\bm h \), such as shares that add to
 one, has a closed form found by Lagrange multipliers in @exr-mat-constrained-ls; the increase
-in the residual sum of squares it computes drives the test of the restrictions in Chapter 11.
+in the residual sum of squares it computes drives the test of the restrictions in [Chapter 11](../ch11-general-linear-hypothesis/index.html) (@thm-glh-general-f).
 
 ::: {#exm-lm-simple-matrix}
 [The straight line again]

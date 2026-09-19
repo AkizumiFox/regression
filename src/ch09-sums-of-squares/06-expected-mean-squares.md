@@ -126,7 +126,7 @@ the denominator of every \( F \) ratio, which pushes the ratios towards zero, an
 shift the numerators, because the omitted part of
 \( \bmu \) may have components in the \( \mathcal V_i \) (@exr-ss-omitted-term).
 
-Chapter 11 derives the \( F \) test from the likelihood ratio principle and studies its power.
+[Chapter 11](../ch11-general-linear-hypothesis/index.html) derives the \( F \) test from the likelihood ratio principle (@thm-glh-lrt) and studies its power (@thm-glh-power).
 
 ## Expected mean squares in an unbalanced layout
 

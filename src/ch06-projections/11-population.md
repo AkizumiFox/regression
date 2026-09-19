@@ -6,7 +6,7 @@ vectors are *random variables* and the inner product is an expectation. In that
 geometry, least squares estimates something even when the linear model is false,
 namely the population projection of \( Y \) onto a span of regressors. The conditional
 expectation turns out to be a projection too. This section sets up the correspondence.
-Chapter 14 develops prediction theory from it, and
+[Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) develops prediction theory from it, and
 Chapter 19 uses it to study what least squares estimates under
 misspecification.
 

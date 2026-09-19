@@ -159,7 +159,7 @@ population squared multiple correlation (@prp-rv-multiple-correlation). So if ob
 independently from a joint normal distribution, then conditionally on the predictors,
 the normal linear model with independent homoscedastic errors holds exactly.
 Inference that treats the predictors as fixed is valid for random predictors, as
-Chapter 14 develops.
+[Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) develops (@thm-cor-conditional).
 
 **The bivariate case.**  With \( k=1 \), correlation \( \rho \) and standard deviations
 \( \sigma_X,\sigma_Y \),

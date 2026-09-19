@@ -163,7 +163,7 @@ F=\frac{\text{SSR}/(r-1)}{\text{SSE}/(n-r)} ,
 compares the variation along the regression directions with the variation in the error space.
 Under normality and when no regressor matters, it has the \( F(r-1,n-r) \) distribution
 (@thm-qf-nested-f). [Section 9.6](06-expected-mean-squares.html) explains why this ratio is the
-right comparison, and Chapter 11 develops the test.
+right comparison, and [Chapter 11](../ch11-general-linear-hypothesis/index.html) develops the test.
 
 A few formulas make the table easy to compute from any least squares solution.
 
@@ -379,7 +379,7 @@ Let \( \mathcal V \) be a subspace with projection \( \bP \). Show that
 \]
 with the maximum attained at \( \bv=\bP\y \) when \( \bP\y\neq\bzero \). Interpret: the sum of
 squares of a row with \( r_i \) degrees of freedom is the largest one-degree-of-freedom sum of
-squares obtainable by refining that row. Chapter 13 uses this fact to build Scheffé's
+squares obtainable by refining that row. [Chapter 13](../ch13-multiplicity/02-scheffe.html) uses this fact to build Scheffé's
 simultaneous intervals.
 :::
 

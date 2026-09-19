@@ -108,14 +108,14 @@ The first three layers are the **second-moment assumptions**. They mention only
 means, variances and covariances, and they are all that [Section 5.5](05-properties.html)
 and [Section 5.6](06-error-variance.html) use. Adding (L4) gives the normal linear
 model, and with it exact sampling distributions for estimates and test statistics,
-which [Chapter 7](../ch07-optimality/index.html) and Chapter 11 develop. Each layer is used by a specific part of the
+which [Chapter 7](../ch07-optimality/index.html) and [Chapter 11](../ch11-general-linear-hypothesis/index.html) develop. Each layer is used by a specific part of the
 theory:
 
 | Assumptions | What they deliver | Where |
 |---|---|---|
 | (L1) | the least squares estimator is unbiased | [Section 5.5](05-properties.html) |
 | (L1)–(L3) | its covariance matrix; an unbiased estimate of \( \sigma^2 \); Gauss–Markov optimality | [Section 5.5](05-properties.html), [Section 5.6](06-error-variance.html), [Chapter 7](../ch07-optimality/index.html) |
-| (L1)–(L4) | exact \( t \) and \( F \) distributions; maximum likelihood; exact intervals | [Chapter 7](../ch07-optimality/index.html), Chapter 11, Chapter 12 |
+| (L1)–(L4) | exact \( t \) and \( F \) distributions; maximum likelihood; exact intervals | [Chapter 7](../ch07-optimality/index.html), [Chapter 11](../ch11-general-linear-hypothesis/index.html), [Chapter 12](../ch12-intervals-and-bands/index.html) |
 
 Least squares itself needs none of them. The estimator of
 [Section 5.4](04-least-squares.html) is defined for any data at all. The assumptions
@@ -236,7 +236,7 @@ the response, as in autoregressive time series, because then \( \X \) is not
 determined before the errors are drawn. It also changes the question when the target is a
 population quantity, such as the best linear predictor of one variable from others in a
 population where the regression function is not linear
-([Section 6.11](../ch06-projections/11-population.html) and Chapter 14).
+([Section 6.11](../ch06-projections/11-population.html) and [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html)).
 
 ## What regression is used for
 

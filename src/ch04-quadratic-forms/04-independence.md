@@ -144,7 +144,7 @@ It is not a technicality that more careful arguments could remove.
 
 ## Preview: the \( F \) statistic for nested models
 
-The main use of these results comes in Chapter 11. Its core fits in
+The main use of these results comes in [Chapter 11](../ch11-general-linear-hypothesis/index.html). Its core fits in
 a few lines.
 
 ::: {#thm-qf-nested-f}

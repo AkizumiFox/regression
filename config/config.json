@@ -84,7 +84,14 @@
         "src/ch07-optimality",
         "src/ch08-estimability",
         "src/ch09-sums-of-squares",
-        "src/ch10-computation"
+        "src/ch10-computation",
+        {
+            "dir": "src/ch11-general-linear-hypothesis",
+            "part": "Part III · Exact Inference under Normality"
+        },
+        "src/ch12-intervals-and-bands",
+        "src/ch13-multiplicity",
+        "src/ch14-correlation-lack-of-fit-prediction"
     ],
     "macros": "latex/macros.tex",
     "templates": {

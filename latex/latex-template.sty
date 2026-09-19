@@ -1457,5 +1457,18 @@
 }
 \fi
 
+% The vector shorthands above redefine \v (the caron accent), so a UTF-8 caron letter
+% in the prose, as in "Šidák", would print "vS". Map the caron letters the book uses
+% directly to the OT1 caron glyph (slot 20) instead.
+\DeclareUnicodeCharacter{0160}{\accent20 S}
+\DeclareUnicodeCharacter{0161}{\accent20 s}
+\DeclareUnicodeCharacter{011B}{\accent20 e}
+\DeclareUnicodeCharacter{010C}{\accent20 C}
+\DeclareUnicodeCharacter{010D}{\accent20 c}
+\DeclareUnicodeCharacter{0158}{\accent20 R}
+\DeclareUnicodeCharacter{0159}{\accent20 r}
+\DeclareUnicodeCharacter{017D}{\accent20 Z}
+\DeclareUnicodeCharacter{017E}{\accent20 z}
+
 % End of package
 \endinput

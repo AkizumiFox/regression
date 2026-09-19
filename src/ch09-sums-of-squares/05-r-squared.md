@@ -263,7 +263,7 @@ cosine of the angle between \( \tilde{\y} \) and \( \tilde{\x} \). Both have mea
 :::
 
 Part (c) identifies the partial \( R^2 \) of one regressor with a squared **sample partial
-correlation**, the sample counterpart of @def-mvn-partial-correlation; Chapter 14 studies its sampling distribution. Within one
+correlation**, the sample counterpart of @def-mvn-partial-correlation; [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) studies its sampling distribution. Within one
 model, ranking regressors by \( |t| \) and by partial \( R^2 \) is the same thing.
 
 ::: {#exm-ss-crime-partial}
@@ -358,7 +358,7 @@ for label, x in [("narrow", np.linspace(4, 6, n)), ("wide", np.linspace(0, 10, n
 ```
 
 **It is not a test of the model.** A line fitted to points on a smooth curve can have a high
-\( R^2 \) while missing the curvature; residual plots and lack-of-fit tests (Chapter 14) reveal it.
+\( R^2 \) while missing the curvature; residual plots and lack-of-fit tests (@thm-cor-lack-of-fit) reveal it.
 Conversely, a correct model has a low \( R^2 \) whenever the error variance is large, and its
 coefficients can still be precisely estimated and important.
 

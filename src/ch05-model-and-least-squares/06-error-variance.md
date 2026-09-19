@@ -95,7 +95,7 @@ the fitted relation by about \( 4 \) percent. The standard errors of the four co
 fourteen standard errors from zero and the bond rate coefficient \( -2.6163 \)
 about eight, but the deposit rate coefficient \( 0.6186 \) is smaller than its
 standard error. Whether the deposit rate belongs in the model at all is a testing question
-for Chapter 11.
+for [Chapter 11](../ch11-general-linear-hypothesis/index.html).
 
 These standard errors rest on (L2) and (L3). For a quarterly economic series (L3) is
 doubtful. The correlation between consecutive residuals is \( 0.62 \), which
@@ -283,7 +283,7 @@ The extra term is the squared distance from the true mean vector to the nearest 
 model can produce. So an incomplete model *overestimates* \( \sigma^2 \): variation that the
 model fails to capture is counted as error. This is one reason to prefer a model that
 includes all relevant regressors, and it is the basis of the lack-of-fit tests of
-Chapter 14, which compare \( s^2 \) with an estimate of \( \sigma^2 \) that does not depend on the
+[Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) (@thm-cor-lack-of-fit), which compare \( s^2 \) with an estimate of \( \sigma^2 \) that does not depend on the
 form of the mean.
 
 ## Exercises

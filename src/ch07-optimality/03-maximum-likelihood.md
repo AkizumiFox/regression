@@ -232,7 +232,7 @@ With \( \sigma^2 \) as nuisance, the profile of \( \bbeta \) is
 \]
 a decreasing function of \( \norm{\y-\X\bbeta}^2 \). Its level sets are the level sets of the residual sum of
 squares. When \( \X \) has full rank they are ellipsoids centred at \( \hbeta \), and they are the basis of the
-confidence ellipsoids of Chapter 12. With \( \bbeta \) as nuisance, the profile of \( \sigma^2 \) is the function \( g \) in the proof.
+confidence ellipsoids of [Chapter 12](../ch12-intervals-and-bands/index.html) (@thm-ci-ellipsoid). With \( \bbeta \) as nuisance, the profile of \( \sigma^2 \) is the function \( g \) in the proof.
 
 The most useful case is a single estimable function. Here the profile likelihood turns out to be a
 function of the familiar \( t \) statistic.
@@ -281,8 +281,8 @@ since \( \delta^2/(\norm{\bm c}^2\,\text{SSE})=t(\psi)^2/(n-r) \).
 
 Two consequences show up immediately. First, any procedure based on the profile likelihood of
 \( \blambda\T\bbeta \) is a procedure based on \( \lvert t\rvert \), because @eq-opt-profile-t is increasing in \( t^2 \).
-The likelihood ratio test of \( \blambda\T\bbeta=\psi_0 \) is therefore the \( t \) test, a fact Chapter 11 extends
-to general hypotheses. Second, the large-sample calibration of the likelihood ratio, "reject when
+The likelihood ratio test of \( \blambda\T\bbeta=\psi_0 \) is therefore the \( t \) test, a fact [Chapter 11](../ch11-general-linear-hypothesis/index.html) extends
+to general hypotheses (@thm-glh-lrt). Second, the large-sample calibration of the likelihood ratio, "reject when
 \( 2\{\ell_{\max}-\ell_p\} \) exceeds a \( \chi^2(1) \) quantile", is only approximate. The exact calibration uses the \( t(n-r) \)
 distribution of [Section 7.5](05-sampling-distributions.html).
 
@@ -366,7 +366,7 @@ By @thm-opt-mle, \( L_{\max}=(2\pi\,\text{SSE}/n)^{-n/2}e^{-n/2} \), and similar
 ratio is \( (\text{SSE}_0/\text{SSE})^{-n/2}=\{1+(\text{SSE}_0-\text{SSE})/\text{SSE}\}^{-n/2} \), which decreases in
 \( (\text{SSE}_0-\text{SSE})/\text{SSE} \). That quantity is, up to degrees of freedom, the \( F \) statistic of @thm-qf-nested-f.
 So the likelihood ratio test for nested normal linear models is the \( F \) test.
-Chapter 11 develops this.
+[Chapter 11](../ch11-general-linear-hypothesis/index.html) develops this (@thm-glh-lrt).
 :::
 
 ### B. Practice
