@@ -125,6 +125,42 @@
    "results": 78,
    "chapterNumber": 14,
    "part": ""
+  },
+  {
+   "id": "ch15-anova-subspaces",
+   "name": "Chapter 15",
+   "title": "Analysis of Variance as Subspace Comparison",
+   "url": "ch15-anova-subspaces/index.html",
+   "results": 53,
+   "chapterNumber": 15,
+   "part": "Part IV \u00b7 Rank Deficiency and Designed Structure"
+  },
+  {
+   "id": "ch16-multiway-layouts",
+   "name": "Chapter 16",
+   "title": "Multi-Way Layouts and Interaction",
+   "url": "ch16-multiway-layouts/index.html",
+   "results": 51,
+   "chapterNumber": 16,
+   "part": ""
+  },
+  {
+   "id": "ch17-unbalanced-data",
+   "name": "Chapter 17",
+   "title": "Unbalanced Data, Cell Means and Empty Cells",
+   "url": "ch17-unbalanced-data/index.html",
+   "results": 42,
+   "chapterNumber": 17,
+   "part": ""
+  },
+  {
+   "id": "ch18-covariance-and-design",
+   "name": "Chapter 18",
+   "title": "Analysis of Covariance and Designed Experiments",
+   "url": "ch18-covariance-and-design/index.html",
+   "results": 64,
+   "chapterNumber": 18,
+   "part": ""
   }
  ],
  "edges": [
@@ -201,6 +237,18 @@
    "implied": false
   },
   {
+   "source": "ch01-matrix-algebra",
+   "target": "ch16-multiway-layouts",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch17-unbalanced-data",
+   "weight": 4,
+   "implied": false
+  },
+  {
    "source": "ch02-random-vectors",
    "target": "ch03-multivariate-normal",
    "weight": 23,
@@ -252,6 +300,24 @@
    "source": "ch02-random-vectors",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch15-anova-subspaces",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch16-multiway-layouts",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch17-unbalanced-data",
+   "weight": 1,
    "implied": false
   },
   {
@@ -381,6 +447,24 @@
    "implied": false
   },
   {
+   "source": "ch04-quadratic-forms",
+   "target": "ch15-anova-subspaces",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch16-multiway-layouts",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch18-covariance-and-design",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch05-model-and-least-squares",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -426,6 +510,24 @@
    "source": "ch05-model-and-least-squares",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch15-anova-subspaces",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch17-unbalanced-data",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch18-covariance-and-design",
+   "weight": 1,
    "implied": false
   },
   {
@@ -489,6 +591,30 @@
    "implied": false
   },
   {
+   "source": "ch06-projections",
+   "target": "ch15-anova-subspaces",
+   "weight": 14,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch16-multiway-layouts",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch17-unbalanced-data",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch18-covariance-and-design",
+   "weight": 12,
+   "implied": false
+  },
+  {
    "source": "ch07-optimality",
    "target": "ch02-random-vectors",
    "weight": 1,
@@ -540,6 +666,24 @@
    "source": "ch07-optimality",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch15-anova-subspaces",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch16-multiway-layouts",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch17-unbalanced-data",
+   "weight": 2,
    "implied": false
   },
   {
@@ -597,6 +741,30 @@
    "implied": false
   },
   {
+   "source": "ch08-estimability",
+   "target": "ch15-anova-subspaces",
+   "weight": 21,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch16-multiway-layouts",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch17-unbalanced-data",
+   "weight": 21,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch18-covariance-and-design",
+   "weight": 9,
+   "implied": false
+  },
+  {
    "source": "ch09-sums-of-squares",
    "target": "ch04-quadratic-forms",
    "weight": 1,
@@ -642,6 +810,30 @@
    "source": "ch09-sums-of-squares",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 15,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch15-anova-subspaces",
+   "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch16-multiway-layouts",
+   "weight": 17,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch17-unbalanced-data",
+   "weight": 18,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch18-covariance-and-design",
+   "weight": 11,
    "implied": false
   },
   {
@@ -717,6 +909,30 @@
    "implied": false
   },
   {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch15-anova-subspaces",
+   "weight": 16,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch16-multiway-layouts",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch17-unbalanced-data",
+   "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch18-covariance-and-design",
+   "weight": 6,
+   "implied": false
+  },
+  {
    "source": "ch12-intervals-and-bands",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -747,6 +963,18 @@
    "implied": false
   },
   {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch15-anova-subspaces",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch18-covariance-and-design",
+   "weight": 5,
+   "implied": false
+  },
+  {
    "source": "ch13-multiplicity",
    "target": "ch08-estimability",
    "weight": 1,
@@ -756,6 +984,24 @@
    "source": "ch13-multiplicity",
    "target": "ch12-intervals-and-bands",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch13-multiplicity",
+   "target": "ch15-anova-subspaces",
+   "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch13-multiplicity",
+   "target": "ch16-multiway-layouts",
+   "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch13-multiplicity",
+   "target": "ch18-covariance-and-design",
+   "weight": 9,
    "implied": false
   },
   {
@@ -772,6 +1018,108 @@
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch09-sums-of-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch15-anova-subspaces",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch16-multiway-layouts",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch18-covariance-and-design",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch15-anova-subspaces",
+   "target": "ch08-estimability",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch15-anova-subspaces",
+   "target": "ch09-sums-of-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch15-anova-subspaces",
+   "target": "ch16-multiway-layouts",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch15-anova-subspaces",
+   "target": "ch17-unbalanced-data",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch16-multiway-layouts",
+   "target": "ch01-matrix-algebra",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch16-multiway-layouts",
+   "target": "ch05-model-and-least-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch16-multiway-layouts",
+   "target": "ch15-anova-subspaces",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch16-multiway-layouts",
+   "target": "ch17-unbalanced-data",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch16-multiway-layouts",
+   "target": "ch18-covariance-and-design",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch17-unbalanced-data",
+   "target": "ch08-estimability",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch17-unbalanced-data",
+   "target": "ch09-sums-of-squares",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch17-unbalanced-data",
+   "target": "ch16-multiway-layouts",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch17-unbalanced-data",
+   "target": "ch18-covariance-and-design",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch18-covariance-and-design",
    "target": "ch09-sums-of-squares",
    "weight": 1,
    "implied": false

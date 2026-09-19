@@ -128,6 +128,34 @@
   <url><loc>https://regression.akizumifox.com/ch14-correlation-lack-of-fit-prediction/06-lack-of-fit.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch14-correlation-lack-of-fit-prediction/07-near-replicates.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch14-correlation-lack-of-fit-prediction/08-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch15-anova-subspaces/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch15-anova-subspaces/01-oneway-model.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch15-anova-subspaces/02-contrasts.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch15-anova-subspaces/03-anova-table.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch15-anova-subspaces/04-orthogonal-contrasts.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch15-anova-subspaces/05-balance.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch15-anova-subspaces/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch16-multiway-layouts/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch16-multiway-layouts/01-additive.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch16-multiway-layouts/02-interaction.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch16-multiway-layouts/03-balanced.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch16-multiway-layouts/04-higher-way.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch16-multiway-layouts/05-nested.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch16-multiway-layouts/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch17-unbalanced-data/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch17-unbalanced-data/01-cell-means.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch17-unbalanced-data/02-types-of-sums-of-squares.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch17-unbalanced-data/03-constrained-models.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch17-unbalanced-data/04-empty-cells.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch17-unbalanced-data/05-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/01-ancova.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/02-adjusted-means.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/03-heterogeneous-slopes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/04-randomized-blocks.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/05-latin-squares-incomplete-blocks.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/06-missing-observations.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/07-summary-and-notes.html</loc></url>
   <url><loc>https://regression.akizumifox.com/results.html</loc></url>
   <url><loc>https://regression.akizumifox.com/graph.html</loc></url>
 </urlset>

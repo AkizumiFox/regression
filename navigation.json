@@ -821,6 +821,186 @@
           "filename": "08-summary-and-notes.md"
         }
       ]
+    },
+    {
+      "title": "Analysis of Variance as Subspace Comparison",
+      "number": 15,
+      "part": "Part IV · Rank Deficiency and Designed Structure",
+      "collapsed": true,
+      "path": "ch15-anova-subspaces/index.html",
+      "sections": [
+        {
+          "title": "The one-way layout as a linear model",
+          "number": "15.1",
+          "path": "ch15-anova-subspaces/01-oneway-model.html",
+          "filename": "01-oneway-model.md"
+        },
+        {
+          "title": "Estimable contrasts",
+          "number": "15.2",
+          "path": "ch15-anova-subspaces/02-contrasts.html",
+          "filename": "02-contrasts.md"
+        },
+        {
+          "title": "The analysis of variance table from projections",
+          "number": "15.3",
+          "path": "ch15-anova-subspaces/03-anova-table.html",
+          "filename": "03-anova-table.md"
+        },
+        {
+          "title": "Orthogonal contrasts",
+          "number": "15.4",
+          "path": "ch15-anova-subspaces/04-orthogonal-contrasts.html",
+          "filename": "04-orthogonal-contrasts.md"
+        },
+        {
+          "title": "Balanced and unbalanced one-way layouts",
+          "number": "15.5",
+          "path": "ch15-anova-subspaces/05-balance.html",
+          "filename": "05-balance.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "15.6",
+          "path": "ch15-anova-subspaces/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Multi-Way Layouts and Interaction",
+      "number": 16,
+      "part": "",
+      "collapsed": true,
+      "path": "ch16-multiway-layouts/index.html",
+      "sections": [
+        {
+          "title": "Two-way additive models",
+          "number": "16.1",
+          "path": "ch16-multiway-layouts/01-additive.html",
+          "filename": "01-additive.md"
+        },
+        {
+          "title": "Interaction and its interpretation",
+          "number": "16.2",
+          "path": "ch16-multiway-layouts/02-interaction.html",
+          "filename": "02-interaction.md"
+        },
+        {
+          "title": "Balanced two-way layouts via orthogonal projections",
+          "number": "16.3",
+          "path": "ch16-multiway-layouts/03-balanced.html",
+          "filename": "03-balanced.md"
+        },
+        {
+          "title": "Higher-way layouts",
+          "number": "16.4",
+          "path": "ch16-multiway-layouts/04-higher-way.html",
+          "filename": "04-higher-way.md"
+        },
+        {
+          "title": "Nested factors",
+          "number": "16.5",
+          "path": "ch16-multiway-layouts/05-nested.html",
+          "filename": "05-nested.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "16.6",
+          "path": "ch16-multiway-layouts/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Unbalanced Data, Cell Means and Empty Cells",
+      "number": 17,
+      "part": "",
+      "collapsed": true,
+      "path": "ch17-unbalanced-data/index.html",
+      "sections": [
+        {
+          "title": "The cell-means model",
+          "number": "17.1",
+          "path": "ch17-unbalanced-data/01-cell-means.html",
+          "filename": "01-cell-means.md"
+        },
+        {
+          "title": "Types of sums of squares and what they test",
+          "number": "17.2",
+          "path": "ch17-unbalanced-data/02-types-of-sums-of-squares.html",
+          "filename": "02-types-of-sums-of-squares.md"
+        },
+        {
+          "title": "Constrained models",
+          "number": "17.3",
+          "path": "ch17-unbalanced-data/03-constrained-models.html",
+          "filename": "03-constrained-models.md"
+        },
+        {
+          "title": "Empty cells and estimability",
+          "number": "17.4",
+          "path": "ch17-unbalanced-data/04-empty-cells.html",
+          "filename": "04-empty-cells.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "17.5",
+          "path": "ch17-unbalanced-data/05-summary-and-notes.html",
+          "filename": "05-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Analysis of Covariance and Designed Experiments",
+      "number": 18,
+      "part": "",
+      "collapsed": true,
+      "path": "ch18-covariance-and-design/index.html",
+      "sections": [
+        {
+          "title": "Analysis of covariance as a projection problem",
+          "number": "18.1",
+          "path": "ch18-covariance-and-design/01-ancova.html",
+          "filename": "01-ancova.md"
+        },
+        {
+          "title": "Adjusted treatment means",
+          "number": "18.2",
+          "path": "ch18-covariance-and-design/02-adjusted-means.html",
+          "filename": "02-adjusted-means.md"
+        },
+        {
+          "title": "Heterogeneous slopes",
+          "number": "18.3",
+          "path": "ch18-covariance-and-design/03-heterogeneous-slopes.html",
+          "filename": "03-heterogeneous-slopes.md"
+        },
+        {
+          "title": "Randomized complete blocks",
+          "number": "18.4",
+          "path": "ch18-covariance-and-design/04-randomized-blocks.html",
+          "filename": "04-randomized-blocks.md"
+        },
+        {
+          "title": "Latin squares and incomplete blocks",
+          "number": "18.5",
+          "path": "ch18-covariance-and-design/05-latin-squares-incomplete-blocks.html",
+          "filename": "05-latin-squares-incomplete-blocks.md"
+        },
+        {
+          "title": "Missing observations in designed experiments",
+          "number": "18.6",
+          "path": "ch18-covariance-and-design/06-missing-observations.html",
+          "filename": "06-missing-observations.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "18.7",
+          "path": "ch18-covariance-and-design/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
     }
   ]
 }

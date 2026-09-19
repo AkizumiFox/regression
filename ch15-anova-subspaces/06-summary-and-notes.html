@@ -1,0 +1,379 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch15-anova-subspaces/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Origins. The analysis of
+variance is Fisher’s.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch15-anova-subspaces/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch15-anova-subspaces/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="15.6 Summary and Notes">
+        <meta property="og:description" content="Origins. The analysis
+of variance is Fisher’s.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=3476ae33ff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch15-anova-subspaces/index.html">Analysis of Variance as Subspace Comparison</a></li>
+                        <li class="breadcrumb-item"><a href="../ch15-anova-subspaces/06-summary-and-notes.html"><span class="chapter-number">15.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">15.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">15.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>The one-way layout has mean space <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathcal{C}(\mathbf{Z})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D419 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Z</mi></mrow><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, the vectors
+                constant within groups, in both its forms (<a href="../ch15-anova-subspaces/01-oneway-model.html#def-aov-oneway" class="xref" data-ref="def-aov-oneway" data-shard="ch15-anova-subspaces">Definition 15.1.1</a>).
+                The fit is the group means, and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="s^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>s</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> pools the group
+                variances. Different side conditions define different
+                “overall means” when the layout is unbalanced (<a href="01-oneway-model.html">Section 15.1</a>).</p></li>
+                <li><p>Contrasts are the directions of the treatment
+                space <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathcal
+                T=\mathcal{C}(\mathbf{Z})\cap\mathbf{1}^{\perp}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c54 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D419 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2229"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-TeXAtom texclass="ORD"><mjx-mn class="mjx-b"><mjx-c class="mjx-c1D7CF TEX-B"></mjx-c></mjx-mn></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c22A5"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">T</mi></mrow><mo>=</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Z</mi></mrow><mo stretchy="false">)</mo><mo>∩</mo><msup><mrow data-mjx-texclass="ORD"><mn mathvariant="bold">1</mn></mrow><mrow data-mjx-texclass="ORD"><mo>⊥</mo></mrow></msup></math></mjx-assistive-mml></mjx-container></span>, and a contrast’s test,
+                interval and sum of squares come from the projection
+                onto its line (<a href="../ch15-anova-subspaces/02-contrasts.html#prp-aov-contrast-ss" class="xref" data-ref="prp-aov-contrast-ss" data-shard="ch15-anova-subspaces">Proposition 15.2.1</a>).
+                Families use Bonferroni or Dunnett for comparisons with
+                a control, Tukey for all pairs and Scheffé for contrasts
+                suggested by the data (<a href="02-contrasts.html">Section 15.2</a>).</p></li>
+                <li><p>A contrast test captures the fraction <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\cos^2\varphi"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-n"><mjx-c class="mjx-c63"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c73"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D711 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>cos</mi><mn>2</mn></msup><mo data-mjx-texclass="NONE">⁡</mo><mi>φ</mi></math></mjx-assistive-mml></mjx-container></span> of the
+                overall noncentrality, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\varphi"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D711 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>φ</mi></math></mjx-assistive-mml></mjx-container></span> being its angle
+                with the true treatment component (<a href="../ch15-anova-subspaces/02-contrasts.html#prp-aov-contrast-angle" class="xref" data-ref="prp-aov-contrast-angle" data-shard="ch15-anova-subspaces">Proposition 15.2.2</a>):
+                a well-chosen planned contrast beats the overall test, a
+                badly chosen one has no power.</p></li>
+                <li><p>The decomposition <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{I}=\mathbf{P}_0+(\mathbf{M}-\mathbf{P}_0)+(\mathbf{I}-\mathbf{M})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D408 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40C TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D408 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40C TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">I</mi></mrow><mo>=</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow><mn>0</mn></msub><mo>+</mo><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">M</mi></mrow><mo>−</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow><mn>0</mn></msub><mo stretchy="false">)</mo><mo>+</mo><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">I</mi></mrow><mo>−</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">M</mi></mrow><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                gives the analysis of variance table. The <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> statistic has the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F(g-1,n-g,\gamma)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi><mo stretchy="false">(</mo><mi>g</mi><mo>−</mo><mn>1</mn><mo>,</mo><mi>n</mi><mo>−</mo><mi>g</mi><mo>,</mo><mi>γ</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> law
+                with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\gamma=\sum_kn_k(\mu_k-\bar{\mu})^2/\sigma^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-munder space="4" limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.329em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-cAF"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>γ</mi><mo>=</mo><munder><mo data-mjx-texclass="OP">∑</mo><mi>k</mi></munder><msub><mi>n</mi><mi>k</mi></msub><mo stretchy="false">(</mo><msub><mi>μ</mi><mi>k</mi></msub><mo>−</mo><mrow data-mjx-texclass="ORD"><mover><mi>μ</mi><mo stretchy="false">¯</mo></mover></mrow><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msup><mi>σ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>,
+                and it is the likelihood ratio test of equal means (<a href="../ch15-anova-subspaces/03-anova-table.html#thm-aov-oneway-f" class="xref" data-ref="thm-aov-oneway-f" data-shard="ch15-anova-subspaces">Theorem 15.3.1</a>).
+                Without normality, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{E}(\text{MSE})=\sigma^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mtext class="mjx-n"><mjx-c class="mjx-c4D"></mjx-c><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c45"></mjx-c></mjx-mtext><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mo stretchy="false">(</mo><mtext>MSE</mtext><mo stretchy="false">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>
+                and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{E}(\text{MSB})=\sigma^2+\sum_kn_k(\mu_k-\bar{\mu})^2/(g-1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mtext class="mjx-n"><mjx-c class="mjx-c4D"></mjx-c><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c42"></mjx-c></mjx-mtext><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-munder space="3" limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.329em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-cAF"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mo stretchy="false">(</mo><mtext>MSB</mtext><mo stretchy="false">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>+</mo><munder><mo data-mjx-texclass="OP">∑</mo><mi>k</mi></munder><msub><mi>n</mi><mi>k</mi></msub><mo stretchy="false">(</mo><msub><mi>μ</mi><mi>k</mi></msub><mo>−</mo><mrow data-mjx-texclass="ORD"><mover><mi>μ</mi><mo stretchy="false">¯</mo></mover></mrow><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><mi>g</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch15-anova-subspaces/03-anova-table.html#thm-aov-oneway-ems" class="xref" data-ref="thm-aov-oneway-ems" data-shard="ch15-anova-subspaces">Theorem 15.3.2</a>).
+                The quantity <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(g-1)F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>g</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi>F</mi></math></mjx-assistive-mml></mjx-container></span>
+                is the largest squared contrast <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> statistic.</p></li>
+                <li><p>A complete set of orthogonal contrasts,
+                orthogonal in the sense <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sum_kc_kd_k/n_k=0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-munder limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><munder><mo data-mjx-texclass="OP">∑</mo><mi>k</mi></munder><msub><mi>c</mi><mi>k</mi></msub><msub><mi>d</mi><mi>k</mi></msub><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>n</mi><mi>k</mi></msub><mo>=</mo><mn>0</mn></math></mjx-assistive-mml></mjx-container></span>,
+                splits <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\text{SSB}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mtext class="mjx-n"><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c42"></mjx-c></mjx-mtext></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>SSB</mtext></math></mjx-assistive-mml></mjx-container></span>
+                into <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="g-1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>g</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>
+                independent single-degree-of-freedom pieces whose
+                noncentralities add up to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\gamma"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>γ</mi></math></mjx-assistive-mml></mjx-container></span>, and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> is the average of their
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> statistics (<a href="../ch15-anova-subspaces/04-orthogonal-contrasts.html#thm-aov-orthogonal-contrasts" class="xref" data-ref="thm-aov-orthogonal-contrasts" data-shard="ch15-anova-subspaces">Theorem 15.4.1</a>).
+                Successive splits of the treatments give such sets for
+                any group sizes (<a href="../ch15-anova-subspaces/04-orthogonal-contrasts.html#prp-aov-tree-contrasts" class="xref" data-ref="prp-aov-tree-contrasts" data-shard="ch15-anova-subspaces">Proposition 15.4.2</a>),
+                and polynomial contrasts give a trend analysis, whose
+                higher-degree pieces are the pure-error lack-of-fit test
+                of a low-degree curve (<a href="../ch15-anova-subspaces/04-orthogonal-contrasts.html#exm-aov-nitrogen-trend" class="xref" data-ref="exm-aov-nitrogen-trend" data-shard="ch15-anova-subspaces">Example (The shape of the nitrogen response)</a>).</p></li>
+                <li><p>Balance makes design orthogonality plain
+                orthogonality and maximizes the noncentrality guaranteed
+                against every configuration of means with a given range
+                (<a href="../ch15-anova-subspaces/05-balance.html#prp-aov-balance-power" class="xref" data-ref="prp-aov-balance-power" data-shard="ch15-anova-subspaces">Proposition 15.5.1</a>).</p></li>
+                <li><p>With unequal variances, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\text{MSB}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mtext class="mjx-n"><mjx-c class="mjx-c4D"></mjx-c><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c42"></mjx-c></mjx-mtext></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>MSB</mtext></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\text{MSE}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mtext class="mjx-n"><mjx-c class="mjx-c4D"></mjx-c><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c45"></mjx-c></mjx-mtext></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>MSE</mtext></math></mjx-assistive-mml></mjx-container></span> estimate the
+                same average variance under equal means if the layout is
+                balanced, but not otherwise. The classical test is
+                liberal when the small groups are the variable ones and
+                conservative when the large groups are (<a href="../ch15-anova-subspaces/05-balance.html#thm-aov-heteroscedastic" class="xref" data-ref="thm-aov-heteroscedastic" data-shard="ch15-anova-subspaces">Theorem 15.5.2</a>).
+                The tests of Welch and of Brown and Forsythe hold their
+                level approximately, and Welch–Satterthwaite intervals
+                do the same for contrasts (<a href="05-balance.html">Section 15.5</a>).</p></li>
+                <li><p>Residuals have variance <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2(1-1/n_k)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>n</mi><mi>k</mi></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>;
+                plotted against the group means and on a normal quantile
+                plot after studentizing, they check the variances and
+                normality. Within-group correlation, which the data
+                cannot reveal, is the most damaging failure.</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">15.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Origins.</strong> The analysis of variance is
+                Fisher’s. It appears in <em>Statistical Methods for
+                Research Workers</em> (Fisher 1925), developed for the
+                field experiments at Rothamsted, and <em>The Design of
+                Experiments</em> (Fisher 1935) made randomization the
+                logical basis of the analysis. The derivation of the
+                one-way model from unit–treatment additivity and random
+                assignment, sketched in <a href="01-oneway-model.html">Section 15.1</a>, is
+                developed in detail by Kempthorne (1952). Scheffé (1959)
+                remains the classic treatment of the fixed-effects
+                theory, including the effects of departures from the
+                assumptions.</p>
+                <p><strong>The textbook treatments.</strong> Christensen
+                (2020, chapter 4) derives the one-way analysis entirely
+                from the projections <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{M}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40C TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">M</mi></mrow></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{M}-\mathbf{P}_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40C TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">M</mi></mrow><mo>−</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span>, including the
+                characterization of contrasts through the space onto
+                which <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{M}-\mathbf{P}_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40C TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">M</mi></mrow><mo>−</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span>
+                projects; this chapter follows his geometric approach,
+                with the treatment space as the organizing object.
+                Rencher and Schaalje (2008, chapter 13) give the
+                balanced case through full-and-reduced models and
+                through the general linear hypothesis, derive the
+                expected mean squares both ways, and treat orthogonal
+                and orthogonal polynomial contrasts, including the
+                result that the overall <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> statistic averages the
+                single-degree-of-freedom statistics of a complete
+                orthogonal set. Their section 12.7 covers the testable
+                hypotheses of non-full-rank models used in <a href="../ch15-anova-subspaces/03-anova-table.html#thm-aov-oneway-f" class="xref" data-ref="thm-aov-oneway-f" data-shard="ch15-anova-subspaces">Theorem 15.3.1</a>.
+                Seber and Lee (2003, section 8.2) discuss simultaneous
+                intervals and the assumptions, including unequal
+                variances. Note that Rencher and Schaalje and
+                Christensen define noncentrality as half of our <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\gamma"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>γ</mi></math></mjx-assistive-mml></mjx-container></span>.</p>
+                <p><strong>Contrasts and multiple comparisons.</strong>
+                Tables of orthogonal polynomials for equally spaced
+                levels go back at least to Fisher and Yates (1938). The
+                exact method for comparisons with a control is due to
+                Dunnett (1955), and the conservativeness of the
+                Tukey–Kramer intervals for unequal group sizes was
+                proved by Hayter (1984); <a href="../ch13-multiplicity/index.html">Chapter 13</a>
+                (<a href="../ch13-multiplicity/03-tukey.html#exr-mc-control" class="xref" data-ref="exr-mc-control" data-shard="ch13-multiplicity">Exercise (B2)</a>)
+                characterizes the many-to-one multiplier and gives
+                further references. <a href="../ch15-anova-subspaces/02-contrasts.html#prp-aov-contrast-angle" class="xref" data-ref="prp-aov-contrast-angle" data-shard="ch15-anova-subspaces">Proposition 15.2.2</a>
+                and <a href="../ch15-anova-subspaces/04-orthogonal-contrasts.html#prp-aov-tree-contrasts" class="xref" data-ref="prp-aov-tree-contrasts" data-shard="ch15-anova-subspaces">Proposition 15.4.2</a>
+                are elementary consequences of the projection picture.
+                Part (a) of <a href="../ch15-anova-subspaces/05-balance.html#prp-aov-balance-power" class="xref" data-ref="prp-aov-balance-power" data-shard="ch15-anova-subspaces">Proposition 15.5.1</a>
+                is <a href="../ch11-general-linear-hypothesis/05-power.html#exr-glh-unbalanced-lf" class="xref" data-ref="exr-glh-unbalanced-lf" data-shard="ch11-general-linear-hypothesis">Exercise (B1)</a>
+                of Chapter 11; part (b), the optimality of balance, is a
+                short calculation.</p>
+                <p><strong>Unequal variances.</strong> Box (1954)
+                computed the effect of unequal variances on the one-way
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test, showing
+                that it is small when the groups are of equal size and
+                can be large otherwise, in the directions described by
+                <a href="../ch15-anova-subspaces/05-balance.html#thm-aov-heteroscedastic" class="xref" data-ref="thm-aov-heteroscedastic" data-shard="ch15-anova-subspaces">Theorem 15.5.2</a>.
+                The test of Welch (1951) weights the groups by their
+                estimated precisions; the test of Brown and Forsythe
+                (1974a) keeps the unweighted numerator and estimates its
+                null expectation. Welch obtained his correction factor
+                and degrees of freedom from a series expansion of the
+                statistic’s distribution to first order in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1/(n_k-1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><msub><mi>n</mi><mi>k</mi></msub><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>; the
+                Brown–Forsythe degrees of freedom, like those of the
+                contrast intervals, are Satterthwaite’s (1946) moment
+                match. The robust test of equal variances by analysis of
+                variance of absolute deviations is due to Levene (1960),
+                and the version based on deviations from medians to
+                Brown and Forsythe (1974b). The simulation of <a href="../ch15-anova-subspaces/05-balance.html#exm-aov-size-simulation" class="xref" data-ref="exm-aov-size-simulation" data-shard="ch15-anova-subspaces">Example (How far the level moves)</a>
+                is ours. Chapter 21 returns to heteroscedasticity with
+                weighted least squares and heteroscedasticity-consistent
+                standard errors, and Chapter 32 to random effects.</p>
+                <h2 id="references"><span class="header-section-number">15.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Box, George E. P. (1954). Some Theorems on Quadratic
+                Forms Applied in the Study of Analysis of Variance
+                Problems, I. Effect of Inequality of Variance in the
+                One-Way Classification. <em>The Annals of Mathematical
+                Statistics</em> 25(2), 290–302.</li>
+                <li>Brown, Morton B. and Forsythe, Alan B. (1974a). The
+                Small Sample Behavior of Some Statistics Which Test the
+                Equality of Several Means. <em>Technometrics</em> 16(1),
+                129–132.</li>
+                <li>Brown, Morton B. and Forsythe, Alan B. (1974b).
+                Robust Tests for the Equality of Variances. <em>Journal
+                of the American Statistical Association</em> 69(346),
+                364–367.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Dunnett, Charles W. (1955). A Multiple Comparison
+                Procedure for Comparing Several Treatments with a
+                Control. <em>Journal of the American Statistical
+                Association</em> 50(272), 1096–1121.</li>
+                <li>Fisher, Ronald A. (1925). <em>Statistical Methods
+                for Research Workers</em>. Edinburgh: Oliver and
+                Boyd.</li>
+                <li>Fisher, Ronald A. (1935). <em>The Design of
+                Experiments</em>. Edinburgh: Oliver and Boyd.</li>
+                <li>Fisher, Ronald A. and Yates, Frank (1938).
+                <em>Statistical Tables for Biological, Agricultural and
+                Medical Research</em>. Edinburgh: Oliver and Boyd.</li>
+                <li>Hayter, Anthony J. (1984). A Proof of the Conjecture
+                That the Tukey–Kramer Multiple Comparisons Procedure Is
+                Conservative. <em>The Annals of Statistics</em> 12(1),
+                61–75.</li>
+                <li>Kempthorne, Oscar (1952). <em>The Design and
+                Analysis of Experiments</em>. New York: Wiley.</li>
+                <li>Levene, Howard (1960). Robust Tests for Equality of
+                Variances. In I. Olkin et al. (eds), <em>Contributions
+                to Probability and Statistics: Essays in Honor of Harold
+                Hotelling</em>, 278–292. Stanford, CA: Stanford
+                University Press.</li>
+                <li>Rencher, Alvin C. and Schaalje, G. Bruce (2008).
+                <em>Linear Models in Statistics</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Satterthwaite, Franklin E. (1946). An Approximate
+                Distribution of Estimates of Variance Components.
+                <em>Biometrics Bulletin</em> 2(6), 110–114.</li>
+                <li>Scheffé, Henry (1959). <em>The Analysis of
+                Variance</em>. New York: Wiley.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Welch, Bernard L. (1951). On the Comparison of
+                Several Mean Values: An Alternative Approach.
+                <em>Biometrika</em> 38(3/4), 330–336.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch15-anova-subspaces/05-balance.html" class="pagination-link" aria-label="Balanced
+and unbalanced one-way layouts">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">15.5 Balanced
+and unbalanced one-way layouts</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch16-multiway-layouts/index.html" class="pagination-link" aria-label="Multi-Way
+Layouts and Interaction">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Multi-Way
+Layouts and Interaction</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2015.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch15-anova-subspaces%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch15-anova-subspaces/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=3476ae33ff"></script>
+            </body>
+
+</html>

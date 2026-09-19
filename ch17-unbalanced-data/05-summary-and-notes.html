@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17.5 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch17-unbalanced-data/05-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Cell means. Analysing
+unbalanced data through cell means goes back to Yates (1934), whose
+weighted squares of means test hypotheses about unweighted means.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch17-unbalanced-data/05-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch17-unbalanced-data/05-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="17.5 Summary and Notes">
+        <meta property="og:description" content="Cell means. Analysing
+unbalanced data through cell means goes back to Yates (1934), whose
+weighted squares of means test hypotheses about unweighted means.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=3476ae33ff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch17-unbalanced-data/index.html">Unbalanced Data, Cell Means and Empty Cells</a></li>
+                        <li class="breadcrumb-item"><a href="../ch17-unbalanced-data/05-summary-and-notes.html"><span class="chapter-number">17.5</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">17.5</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">17.5.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>The cell-means model is the one-way layout on the
+                occupied cells. Any hypothesis <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{L}\boldsymbol{\upmu}=\mathbf{d}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40B TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛍</mjx-utext></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D41D TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">L</mi></mrow><mi mathvariant="bold">μ</mi><mo>=</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">d</mi></mrow></math></mjx-assistive-mml></mjx-container></span> on
+                occupied cells is tested by <a href="../ch17-unbalanced-data/01-cell-means.html#eq-ub-cell-f" class="xref" data-ref="eq-ub-cell-f" data-shard="ch17-unbalanced-data">Eq. 17.1.1</a> (<a href="../ch17-unbalanced-data/01-cell-means.html#def-ub-cell-means" class="xref" data-ref="def-ub-cell-means" data-shard="ch17-unbalanced-data">Definition 17.1.1</a>,
+                <a href="../ch17-unbalanced-data/01-cell-means.html#prp-ub-cell-means" class="xref" data-ref="prp-ub-cell-means" data-shard="ch17-unbalanced-data">Proposition 17.1.1</a>).</p></li>
+                <li><p>Count-weighted marginal means are the most
+                precise, but they estimate the mixture the design
+                happened to produce. Choose the target before the
+                weights (<a href="../ch17-unbalanced-data/01-cell-means.html#prp-ub-marginal-means" class="xref" data-ref="prp-ub-marginal-means" data-shard="ch17-unbalanced-data">Proposition 17.1.2</a>).</p></li>
+                <li><p>An extra sum of squares tests whether the
+                count-weighted residual of the true cell means, after
+                the terms already fitted, is orthogonal to the new term
+                (<a href="../ch17-unbalanced-data/02-types-of-sums-of-squares.html#lem-ub-tested" class="xref" data-ref="lem-ub-tested" data-shard="ch17-unbalanced-data">Lemma 17.2.1</a>).
+                This gives the hypotheses of all the types (<a href="../ch17-unbalanced-data/02-types-of-sums-of-squares.html#thm-ub-types" class="xref" data-ref="thm-ub-types" data-shard="ch17-unbalanced-data">Theorem 17.2.2</a>).</p></li>
+                <li><p>The last-in sum of squares of a main effect
+                depends on the coding of the <em>other</em> factors. It
+                is the Type III sum of squares exactly when they are
+                coded by contrasts (<a href="../ch17-unbalanced-data/02-types-of-sums-of-squares.html#prp-ub-coding" class="xref" data-ref="prp-ub-coding" data-shard="ch17-unbalanced-data">Proposition 17.2.3</a>).</p></li>
+                <li><p>Constrained models are cell-means models with
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{R}\boldsymbol{\upmu}=\mathbf{0}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D411 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛍</mjx-utext></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mn class="mjx-b"><mjx-c class="mjx-c1D7CE TEX-B"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">R</mi></mrow><mi mathvariant="bold">μ</mi><mo>=</mo><mrow data-mjx-texclass="ORD"><mn mathvariant="bold">0</mn></mrow></math></mjx-assistive-mml></mjx-container></span>,
+                fitted and tested by restricted least squares (<a href="../ch17-unbalanced-data/03-constrained-models.html#thm-ub-constrained" class="xref" data-ref="thm-ub-constrained" data-shard="ch17-unbalanced-data">Theorem 17.3.1</a>).
+                Under additivity every common weighting of the row means
+                gives the Type II test (<a href="../ch17-unbalanced-data/03-constrained-models.html#cor-ub-additive" class="xref" data-ref="cor-ub-additive" data-shard="ch17-unbalanced-data">Corollary 17.3.2</a>).</p></li>
+                <li><p>With empty cells, the interaction has <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m-a-b+c"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi><mo>−</mo><mi>a</mi><mo>−</mo><mi>b</mi><mo>+</mo><mi>c</mi></math></mjx-assistive-mml></mjx-container></span> degrees of
+                freedom, one per independent cycle of the design graph,
+                and the “Type III” sum of squares compares only the
+                complete rows (<a href="../ch17-unbalanced-data/04-empty-cells.html#thm-ub-empty-cells" class="xref" data-ref="thm-ub-empty-cells" data-shard="ch17-unbalanced-data">Theorem 17.4.1</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">17.5.2. </span> Notes and
+                sources</h2>
+                <p><strong>Cell means.</strong> Analysing unbalanced
+                data through cell means goes back to Yates (1934), whose
+                weighted squares of means test hypotheses about
+                unweighted means. Speed, Hocking and Hackney (1978)
+                identified the cell-mean hypotheses of the sums of
+                squares computed by the programs of their day, and
+                Hocking (1985) and Searle (1987) give book-length
+                treatments. Rencher and Schaalje (2008, chapter 15)
+                presents unconstrained and constrained cell-means models
+                and empty cells, and was the main source for this
+                chapter’s coverage. Christensen (2020, sections 7.5–7.6)
+                treats unbalanced layouts as a problem of comparing
+                models, an emphasis reflected in <a href="03-constrained-models.html">Section 17.3</a>.</p>
+                <p><strong>Types of sums of squares.</strong> The Type
+                I, II and III terminology comes from statistical
+                software. Nelder (1977) argued from the marginality of
+                model terms that main effects should not be tested in
+                the presence of their interactions, and Nelder and Lane
+                (1995) restated the case. Langsrud (2003) argued for
+                Type II on grounds of power, which <a href="../ch17-unbalanced-data/02-types-of-sums-of-squares.html#exr-ub-power-types" class="xref" data-ref="exr-ub-power-types" data-shard="ch17-unbalanced-data">Exercise (C1)</a>
+                makes precise. The hypothesis formulas of <a href="../ch17-unbalanced-data/02-types-of-sums-of-squares.html#thm-ub-types" class="xref" data-ref="thm-ub-types" data-shard="ch17-unbalanced-data">Theorem 17.2.2</a>(b)
+                and (c) are classical. Christensen (2020, section 7.5)
+                states them for the two-way layout with interaction, and
+                <a href="../ch17-unbalanced-data/02-types-of-sums-of-squares.html#lem-ub-tested" class="xref" data-ref="lem-ub-tested" data-shard="ch17-unbalanced-data">Lemma 17.2.1</a> is
+                our route to them. The characterization of the coding
+                dependence in <a href="../ch17-unbalanced-data/02-types-of-sums-of-squares.html#prp-ub-coding" class="xref" data-ref="prp-ub-coding" data-shard="ch17-unbalanced-data">Proposition 17.2.3</a>,
+                stated through the orthogonal complement of the other
+                factor’s coding columns, is this book’s formulation of
+                the familiar advice to use sum-to-zero contrasts.</p>
+                <p><strong>Empty cells.</strong> Goodnight (1980)
+                described the construction of the hypotheses behind
+                SAS’s Type IV sums of squares for designs with empty
+                cells, and noted that they are not unique. Milliken and
+                Johnson (2009) discuss the analysis of two-way layouts
+                with missing cells at length, with an emphasis on
+                estimable questions and on identifying the hypotheses
+                that software tests. The reading of estimable
+                interaction contrasts as the cycle space of the design
+                graph (<a href="../ch17-unbalanced-data/04-empty-cells.html#thm-ub-empty-cells" class="xref" data-ref="thm-ub-empty-cells" data-shard="ch17-unbalanced-data">Theorem 17.4.1</a>(b))
+                uses the standard fact that a graph with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math></mjx-assistive-mml></mjx-container></span> edges, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="v"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>v</mi></math></mjx-assistive-mml></mjx-container></span> vertices and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="c"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>c</mi></math></mjx-assistive-mml></mjx-container></span> components has <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m-v+c"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi><mo>−</mo><mi>v</mi><mo>+</mo><mi>c</mi></math></mjx-assistive-mml></mjx-container></span> independent cycles.
+                The description of the Type III hypothesis with empty
+                cells in <a href="../ch17-unbalanced-data/04-empty-cells.html#thm-ub-empty-cells" class="xref" data-ref="thm-ub-empty-cells" data-shard="ch17-unbalanced-data">Theorem 17.4.1</a>(d)
+                and the software comparison of <a href="04-empty-cells.html">Section 17.4</a> are this
+                book’s.</p>
+                <p><strong>Data.</strong> The variety trial and the
+                curing study are synthetic, generated by the scripts in
+                <code>code/ch17/</code> with fixed seeds, so that the
+                true cell means are known.</p>
+                <h2 id="references"><span class="header-section-number">17.5.3. </span>
+                References</h2>
+                <ul>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Goodnight, James H. (1980). Tests of Hypotheses in
+                Fixed Effects Linear Models. <em>Communications in
+                Statistics – Theory and Methods</em> 9(2), 167–180.</li>
+                <li>Hocking, Ronald R. (1985). <em>The Analysis of
+                Linear Models</em>. Monterey, CA: Brooks/Cole.</li>
+                <li>Langsrud, Øyvind (2003). ANOVA for Unbalanced Data:
+                Use Type II Instead of Type III Sums of Squares.
+                <em>Statistics and Computing</em> 13(2), 163–167.</li>
+                <li>Milliken, George A. and Johnson, Dallas E. (2009).
+                <em>Analysis of Messy Data, Volume 1: Designed
+                Experiments</em>. 2nd edition. Boca Raton, FL: Chapman
+                and Hall/CRC.</li>
+                <li>Nelder, John A. (1977). A Reformulation of Linear
+                Models. <em>Journal of the Royal Statistical Society.
+                Series A</em> 140(1), 48–77.</li>
+                <li>Nelder, John A. and Lane, Peter W. (1995). The
+                Computer Analysis of Factorial Experiments: In
+                Memoriam—Frank Yates. <em>The American Statistician</em>
+                49(4), 382–385.</li>
+                <li>Rencher, Alvin C. and Schaalje, G. Bruce (2008).
+                <em>Linear Models in Statistics</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Searle, Shayle R. (1987). <em>Linear Models for
+                Unbalanced Data</em>. New York: Wiley.</li>
+                <li>Speed, F. M., Hocking, Ronald R. and Hackney, O. P.
+                (1978). Methods of Analysis of Linear Models with
+                Unbalanced Data. <em>Journal of the American Statistical
+                Association</em> 73(361), 105–112.</li>
+                <li>Yates, Frank (1934). The Analysis of Multiple
+                Classifications with Unequal Numbers in the Different
+                Classes. <em>Journal of the American Statistical
+                Association</em> 29(185), 51–66.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch17-unbalanced-data/04-empty-cells.html" class="pagination-link" aria-label="Empty
+cells and estimability">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">17.4 Empty cells
+and estimability</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch18-covariance-and-design/index.html" class="pagination-link" aria-label="Analysis
+of Covariance and Designed Experiments">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Analysis of
+Covariance and Designed Experiments</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2017.5%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch17-unbalanced-data%2F05-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch17-unbalanced-data/05-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=3476ae33ff"></script>
+            </body>
+
+</html>

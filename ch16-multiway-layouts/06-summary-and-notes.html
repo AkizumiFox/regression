@@ -1,0 +1,369 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch16-multiway-layouts/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Sources.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch16-multiway-layouts/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch16-multiway-layouts/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="16.6 Summary and Notes">
+        <meta property="og:description" content="Sources.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=3476ae33ff">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch16-multiway-layouts/index.html">Multi-Way Layouts and Interaction</a></li>
+                        <li class="breadcrumb-item"><a href="../ch16-multiway-layouts/06-summary-and-notes.html"><span class="chapter-number">16.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">16.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">16.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>In a balanced layout every projection of interest
+                is a Kronecker product of averaging matrices <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\bar{\mathbf{J}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.297em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-cAF"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D409 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">J</mi></mrow><mo stretchy="false">¯</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span>,
+                centring matrices <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{C}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D402 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">C</mi></mrow></math></mjx-assistive-mml></mjx-container></span> and
+                identities. Products that differ by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\bar{\mathbf{J}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.297em; margin-bottom: -0.544em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-cAF"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D409 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">J</mi></mrow><mo stretchy="false">¯</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span> against
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{C}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D402 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">C</mi></mrow></math></mjx-assistive-mml></mjx-container></span> in some
+                position are orthogonal, and ranks multiply (<a href="../ch16-multiway-layouts/01-additive.html#lem-tw-kron" class="xref" data-ref="lem-tw-kron" data-shard="ch16-multiway-layouts">Lemma 16.1.1</a>).</p></li>
+                <li><p>The additive two-way model has projection <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{P}_0+\mathbf{P}_A+\mathbf{P}_B"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.153em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow><mn>0</mn></msub><mo>+</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow><mi>A</mi></msub><mo>+</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow><mi>B</mi></msub></math></mjx-assistive-mml></mjx-container></span>. Row
+                contrasts are estimated and judged as in a one-way
+                layout that ignores the columns. With replication, the
+                residual splits into interaction (lack of fit) and pure
+                error. With one observation per cell, Tukey’s
+                one-degree-of-freedom test is an exact test against the
+                kind of nonadditivity a wrong scale produces, and its
+                slope suggests a power transformation (<a href="../ch16-multiway-layouts/01-additive.html#thm-tw-additive" class="xref" data-ref="thm-tw-additive" data-shard="ch16-multiway-layouts">Theorem 16.1.2</a>).</p></li>
+                <li><p>Interaction is a property of the table of cell
+                means. It is present iff some interaction contrast (a
+                zero-margin combination of cell means) is nonzero, and
+                it has <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(a-1)(b-1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>a</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>b</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                dimensions whatever parameterization is used (<a href="../ch16-multiway-layouts/02-interaction.html#def-tw-interaction" class="xref" data-ref="def-tw-interaction" data-shard="ch16-multiway-layouts">Definition 16.2.1</a>,
+                <a href="../ch16-multiway-layouts/02-interaction.html#prp-tw-interaction-equiv" class="xref" data-ref="prp-tw-interaction-equiv" data-shard="ch16-multiway-layouts">Proposition 16.2.1</a>).</p></li>
+                <li><p>An increasing transformation can remove
+                interaction only if the orders of the levels are the
+                same everywhere. Qualitative (crossing) interaction
+                cannot be removed. Main effects in the presence of
+                interaction are weighted averages of simple effects, and
+                their values, even their signs, depend on the weights
+                (<a href="../ch16-multiway-layouts/02-interaction.html#prp-tw-removable" class="xref" data-ref="prp-tw-removable" data-shard="ch16-multiway-layouts">Proposition 16.2.2</a>,
+                <a href="../ch16-multiway-layouts/02-interaction.html#prp-tw-weighted-main" class="xref" data-ref="prp-tw-weighted-main" data-shard="ch16-multiway-layouts">Proposition 16.2.3</a>).</p></li>
+                <li><p>The balanced two-way layout with replication
+                splits into grand mean, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="A"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="B"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="AB"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> and error, with ranks
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="a-1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="b-1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(a-1)(b-1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>a</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>b</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="ab(m-1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>a</mi><mi>b</mi><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>. The <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> tests are exact, and
+                the sequential, Type II and Type III sums of squares all
+                coincide (<a href="../ch16-multiway-layouts/03-balanced.html#thm-tw-balanced" class="xref" data-ref="thm-tw-balanced" data-shard="ch16-multiway-layouts">Theorem 16.3.1</a>).</p></li>
+                <li><p>Products of orthogonal contrasts split the
+                interaction sum of squares into single degrees of
+                freedom. Tukey’s method covers the levels of one factor,
+                Scheffé’s all interaction contrasts, and Bonferroni or
+                Holm planned families (<a href="../ch16-multiway-layouts/03-balanced.html#prp-tw-product-contrasts" class="xref" data-ref="prp-tw-product-contrasts" data-shard="ch16-multiway-layouts">Proposition 16.3.2</a>).</p></li>
+                <li><p>A balanced factorial with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> factors has one term
+                for each subset of factors, with projection <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{P}_S"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D446 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow><mi>S</mi></msub></math></mjx-assistive-mml></mjx-container></span> built from centring
+                matrices in the positions of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="S"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D446 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>S</mi></math></mjx-assistive-mml></mjx-container></span>. Hierarchical models
+                have order-free sums of squares, and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{P}_S\mathbf{y}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D446 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow><mi>S</mi></msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow></math></mjx-assistive-mml></mjx-container></span> is an alternating
+                sum of marginal means (<a href="../ch16-multiway-layouts/04-higher-way.html#thm-tw-factorial" class="xref" data-ref="thm-tw-factorial" data-shard="ch16-multiway-layouts">Theorem 16.4.1</a>).
+                The three-factor interaction measures how a two-factor
+                interaction changes across the third factor (<a href="../ch16-multiway-layouts/04-higher-way.html#prp-tw-three-factor" class="xref" data-ref="prp-tw-three-factor" data-shard="ch16-multiway-layouts">Proposition 16.4.2</a>).</p></li>
+                <li><p>In a <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="2^t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.363em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>2</mn><mi>t</mi></msup></math></mjx-assistive-mml></mjx-container></span>
+                factorial every term has one degree of freedom, and its
+                effect is a difference of two means with variance <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="4\sigma^2/n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>4</mn><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch16-multiway-layouts/04-higher-way.html#prp-tw-two-level" class="xref" data-ref="prp-tw-two-level" data-shard="ch16-multiway-layouts">Proposition 16.4.3</a>).
+                Pooling terms into error is exact if they are null and
+                chosen in advance, and conservative if they are chosen
+                in advance but not null. It is invalid if they are
+                chosen because they look small (<a href="../ch16-multiway-layouts/04-higher-way.html#prp-tw-pooling" class="xref" data-ref="prp-tw-pooling" data-shard="ch16-multiway-layouts">Proposition 16.4.4</a>).</p></li>
+                <li><p>A nested factor has no main effect. Its sum of
+                squares is the crossed <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="B"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>B</mi></math></mjx-assistive-mml></mjx-container></span> plus <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="AB"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mi>B</mi></math></mjx-assistive-mml></mjx-container></span>, the variation among
+                inner levels within each outer level (<a href="../ch16-multiway-layouts/05-nested.html#def-tw-nested" class="xref" data-ref="def-tw-nested" data-shard="ch16-multiway-layouts">Definition 16.5.1</a>,
+                <a href="../ch16-multiway-layouts/05-nested.html#thm-tw-nested" class="xref" data-ref="thm-tw-nested" data-shard="ch16-multiway-layouts">Theorem 16.5.1</a>).
+                When the inner levels are a sample, the outer factor
+                must be tested against the inner mean square, not
+                against the within-level error.</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">16.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Sources.</strong> The coverage of this
+                chapter was checked against Rencher and Schaalje (2008,
+                chapter 14), Christensen (2020, chapter 7) and Seber and
+                Lee (2003, sections 8.4–8.6). The projection approach
+                follows the vector-space treatment of Christensen
+                (2020), which develops interaction contrasts and their
+                product construction (<a href="../ch16-multiway-layouts/03-balanced.html#prp-tw-product-contrasts" class="xref" data-ref="prp-tw-product-contrasts" data-shard="ch16-multiway-layouts">Proposition 16.3.2</a>)
+                with particular care. Rencher and Schaalje compute the
+                expected mean squares directly, and projections replace
+                that computation here. Scheffé (1959) remains the
+                classical account of fixed-effects multiway layouts,
+                including main effects and interactions defined with
+                general weights (compare <a href="../ch16-multiway-layouts/02-interaction.html#prp-tw-interaction-equiv" class="xref" data-ref="prp-tw-interaction-equiv" data-shard="ch16-multiway-layouts">Proposition 16.2.1</a>(v)).</p>
+                <p><strong>Factorial experiments.</strong> Fisher (1935)
+                argued for factorial experiments over
+                one-factor-at-a-time trials: every observation
+                contributes to every main effect, and interactions can
+                be studied at all. Yates (1937) developed the analysis
+                of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="2^t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.363em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>2</mn><mi>t</mi></msup></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="3^t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.363em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>3</mn><mi>t</mi></msup></math></mjx-assistive-mml></mjx-container></span> designs, including
+                the algorithm for <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="2^t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-script style="vertical-align: 0.363em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mn>2</mn><mi>t</mi></msup></math></mjx-assistive-mml></mjx-container></span> effects that carries
+                his name. Box, Hunter and Hunter (2005) and Wu and
+                Hamada (2009) are standard modern texts.</p>
+                <p><strong>Tukey’s test.</strong> The
+                one-degree-of-freedom test is due to Tukey (1949). Its
+                exact distribution follows from the theorem of Milliken
+                and Graybill (1970) on regressors computed from the
+                fitted values (<a href="../ch14-correlation-lack-of-fit-prediction/07-near-replicates.html#thm-cor-fitted-regressors" class="xref" data-ref="thm-cor-fitted-regressors" data-shard="ch14-correlation-lack-of-fit-prediction">Theorem 14.7.2</a>),
+                because Tukey’s regressor is, after the additive model
+                is projected out, the table of squared fitted values; <a href="../ch14-correlation-lack-of-fit-prediction/07-near-replicates.html#exr-cor-tukey-nonadditivity" class="xref" data-ref="exr-cor-tukey-nonadditivity" data-shard="ch14-correlation-lack-of-fit-prediction">Exercise (C1)</a>
+                made the same connection. The power rule <a href="../ch16-multiway-layouts/01-additive.html#eq-tw-tukey-power" class="xref" data-ref="eq-tw-tukey-power" data-shard="ch16-multiway-layouts">Eq. 16.1.5</a> is a
+                heuristic, and Chapter 22 treats transformations
+                systematically.</p>
+                <p><strong>Interaction and scale.</strong> The
+                dependence of interaction on the scale of measurement,
+                and the order condition of <a href="../ch16-multiway-layouts/02-interaction.html#prp-tw-removable" class="xref" data-ref="prp-tw-removable" data-shard="ch16-multiway-layouts">Proposition 16.2.2</a>,
+                belong to the theory of conjoint measurement of Luce and
+                Tukey (1964). The counterexample of <a href="../ch16-multiway-layouts/02-interaction.html#exr-tw-nonremovable" class="xref" data-ref="exr-tw-nonremovable" data-shard="ch16-multiway-layouts">Exercise (C1)</a> is
+                an instance of their double cancellation condition. In
+                clinical trials a treatment effect that changes sign
+                across patient subgroups is called a <em>qualitative
+                interaction</em>, and Gail and Simon (1985) gave a
+                likelihood ratio test for it.</p>
+                <p><strong>Unreplicated factorials and pooling.</strong>
+                The half-normal plot is due to Daniel (1959), and the
+                pseudo standard error of <a href="../ch16-multiway-layouts/04-higher-way.html#exr-tw-lenth" class="xref" data-ref="exr-tw-lenth" data-shard="ch16-multiway-layouts">Exercise (C1)</a> to
+                Lenth (1989). The effect of preliminary tests on
+                subsequent inference was first studied by Bancroft
+                (1944), and the simulation of <a href="04-higher-way.html#fig-tw-pooling">Figure
+                16.4.2</a> illustrates his conclusions in a simple
+                case.</p>
+                <p><strong>Nested designs.</strong> Hurlbert (1984)
+                named <em>pseudoreplication</em>, treating observations
+                within an experimental unit as independent replicates of
+                the unit’s treatment, and documented how widespread it
+                was in ecology. Random inner levels are taken up with
+                variance components in Chapters 32 and 33. Unbalanced
+                multiway data are the subject of <a href="../ch17-unbalanced-data/index.html">Chapter
+                17</a>, and randomized blocks and Latin squares,
+                additive layouts whose structure comes from
+                randomization, of <a href="../ch18-covariance-and-design/index.html">Chapter
+                18</a>.</p>
+                <h2 id="references"><span class="header-section-number">16.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Bancroft, T. A. (1944). On Biases in Estimation Due
+                to the Use of Preliminary Tests of Significance. <em>The
+                Annals of Mathematical Statistics</em> 15(2),
+                190–204.</li>
+                <li>Box, George E. P., Hunter, J. Stuart and Hunter,
+                William G. (2005). <em>Statistics for Experimenters:
+                Design, Innovation, and Discovery</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Daniel, Cuthbert (1959). Use of Half-Normal Plots in
+                Interpreting Factorial Two-Level Experiments.
+                <em>Technometrics</em> 1(4), 311–341.</li>
+                <li>Fisher, Ronald A. (1935). <em>The Design of
+                Experiments</em>. Edinburgh: Oliver and Boyd.</li>
+                <li>Gail, Mitchell and Simon, Richard (1985). Testing
+                for Qualitative Interactions between Treatment Effects
+                and Patient Subsets. <em>Biometrics</em> 41(2),
+                361–372.</li>
+                <li>Hurlbert, Stuart H. (1984). Pseudoreplication and
+                the Design of Ecological Field Experiments.
+                <em>Ecological Monographs</em> 54(2), 187–211.</li>
+                <li>Lenth, Russell V. (1989). Quick and Easy Analysis of
+                Unreplicated Factorials. <em>Technometrics</em> 31(4),
+                469–473.</li>
+                <li>Luce, R. Duncan and Tukey, John W. (1964).
+                Simultaneous Conjoint Measurement: A New Type of
+                Fundamental Measurement. <em>Journal of Mathematical
+                Psychology</em> 1(1), 1–27.</li>
+                <li>Milliken, George A. and Graybill, Franklin A.
+                (1970). Extensions of the General Linear Hypothesis
+                Model. <em>Journal of the American Statistical
+                Association</em> 65(330), 797–807.</li>
+                <li>Rencher, Alvin C. and Schaalje, G. Bruce (2008).
+                <em>Linear Models in Statistics</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Scheffé, Henry (1959). <em>The Analysis of
+                Variance</em>. New York: Wiley.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Tukey, John W. (1949). One Degree of Freedom for
+                Non-Additivity. <em>Biometrics</em> 5(3), 232–242.</li>
+                <li>Wu, C. F. Jeff and Hamada, Michael S. (2009).
+                <em>Experiments: Planning, Analysis, and
+                Optimization</em>. 2nd edition. Hoboken, NJ: Wiley.</li>
+                <li>Yates, Frank (1937). <em>The Design and Analysis of
+                Factorial Experiments</em>. Technical Communication
+                No. 35. Harpenden: Imperial Bureau of Soil Science.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch16-multiway-layouts/05-nested.html" class="pagination-link" aria-label="Nested
+factors">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">16.5 Nested
+factors</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch17-unbalanced-data/index.html" class="pagination-link" aria-label="Unbalanced
+Data, Cell Means and Empty Cells">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Unbalanced Data,
+Cell Means and Empty Cells</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2016.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch16-multiway-layouts%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch16-multiway-layouts/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=3476ae33ff"></script>
+            </body>
+
+</html>
