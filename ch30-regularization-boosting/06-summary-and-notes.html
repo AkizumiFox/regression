@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch30-regularization-boosting/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Coverage. Fahrmeir, Kneib,
+Lang and Marx (2021, §4.2–4.3) treat penalties and componentwise
+boosting in applied terms; the theory and proofs are added here.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch30-regularization-boosting/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch30-regularization-boosting/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="30.6 Summary and Notes">
+        <meta property="og:description" content="Coverage. Fahrmeir,
+Kneib, Lang and Marx (2021, §4.2–4.3) treat penalties and componentwise
+boosting in applied terms; the theory and proofs are added here.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch30-regularization-boosting/index.html">Regularization and Boosting</a></li>
+                        <li class="breadcrumb-item"><a href="../ch30-regularization-boosting/06-summary-and-notes.html"><span class="chapter-number">30.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">30.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">30.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A penalized criterion (<a href="../ch30-regularization-boosting/01-penalized-least-squares.html#def-reg-penalized" class="xref" data-ref="def-reg-penalized" data-shard="ch30-regularization-boosting">Definition 30.1.1</a>)
+                has a minimizer when it is coercive; with a convex
+                penalty all minimizers share their fit and penalty, and
+                strict convexity or full rank gives uniqueness (<a href="../ch30-regularization-boosting/01-penalized-least-squares.html#thm-reg-existence" class="xref" data-ref="thm-reg-existence" data-shard="ch30-regularization-boosting">Theorem 30.1.1</a>).</p></li>
+                <li><p>For convex penalties, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{X}^{\top}(\mathbf{y}-\mathbf{X}\hat{\boldsymbol{\upbeta}})\in\lambda\,\partial
+                P(\hat{\boldsymbol{\upbeta}})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2208"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mstyle><mjx-mspace style="width: 0.167em;"></mjx-mspace></mjx-mstyle><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D715"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow><mo>−</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">β</mi><mo stretchy="false">^</mo></mover></mrow><mo stretchy="false">)</mo><mo>∈</mo><mi>λ</mi><mstyle scriptlevel="0"><mspace width="0.167em"></mspace></mstyle><mi>∂</mi><mi>P</mi><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">β</mi><mo stretchy="false">^</mo></mover></mrow><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> characterizes minimizers (<a href="../ch30-regularization-boosting/01-penalized-least-squares.html#lem-reg-optimality" class="xref" data-ref="lem-reg-optimality" data-shard="ch30-regularization-boosting">Lemma 30.1.2</a>,
+                <a href="../ch30-regularization-boosting/01-penalized-least-squares.html#lem-reg-norm-subgradient" class="xref" data-ref="lem-reg-norm-subgradient" data-shard="ch30-regularization-boosting">Lemma 30.1.3</a>),
+                and penalized estimates are posterior modes (<a href="../ch30-regularization-boosting/01-penalized-least-squares.html#prp-reg-map" class="xref" data-ref="prp-reg-map" data-shard="ch30-regularization-boosting">Proposition 30.1.4</a>).</p></li>
+                <li><p>SCAD and MCP are sparse, continuous and nearly
+                unbiased; MCP is firm thresholding (<a href="../ch30-regularization-boosting/01-penalized-least-squares.html#prp-reg-mcp" class="xref" data-ref="prp-reg-mcp" data-shard="ch30-regularization-boosting">Proposition 30.1.5</a>).</p></li>
+                <li><p>The elastic net is unique, a lasso on augmented
+                data, and groups correlated regressors (<a href="../ch30-regularization-boosting/02-elastic-net.html#prp-reg-elastic-net" class="xref" data-ref="prp-reg-elastic-net" data-shard="ch30-regularization-boosting">Proposition 30.2.1</a>,
+                <a href="../ch30-regularization-boosting/02-elastic-net.html#prp-reg-rescaled" class="xref" data-ref="prp-reg-rescaled" data-shard="ch30-regularization-boosting">Proposition 30.2.3</a>).</p></li>
+                <li><p>The group lasso selects whole groups by block
+                soft thresholding (<a href="../ch30-regularization-boosting/03-group-penalties.html#prp-reg-group-lasso" class="xref" data-ref="prp-reg-group-lasso" data-shard="ch30-regularization-boosting">Proposition 30.3.1</a>)
+                and, orthonormalized, ignores the coding of factors (<a href="../ch30-regularization-boosting/03-group-penalties.html#prp-reg-group-invariance" class="xref" data-ref="prp-reg-group-invariance" data-shard="ch30-regularization-boosting">Proposition 30.3.2</a>).</p></li>
+                <li><p>Componentwise boosting converges geometrically to
+                least squares (<a href="../ch30-regularization-boosting/04-componentwise-boosting.html#thm-reg-boosting" class="xref" data-ref="thm-reg-boosting" data-shard="ch30-regularization-boosting">Theorem 30.4.1</a>);
+                early stopping is a spectral filter like ridge (<a href="../ch30-regularization-boosting/04-componentwise-boosting.html#prp-reg-boosting-operator" class="xref" data-ref="prp-reg-boosting-operator" data-shard="ch30-regularization-boosting">Proposition 30.4.2</a>),
+                and the operator trace understates its degrees of
+                freedom.</p></li>
+                <li><p>Forward stagewise tracks the lasso path (<a href="../ch30-regularization-boosting/05-boosting-as-regularization.html#prp-reg-stagewise-orthonormal" class="xref" data-ref="prp-reg-stagewise-orthonormal" data-shard="ch30-regularization-boosting">Proposition 30.5.1</a>);
+                its limit is the lasso when paths are monotone and the
+                monotone lasso otherwise (<a href="../ch30-regularization-boosting/05-boosting-as-regularization.html#prp-reg-stagewise" class="xref" data-ref="prp-reg-stagewise" data-shard="ch30-regularization-boosting">Proposition 30.5.2</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">30.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Coverage.</strong> Fahrmeir, Kneib, Lang and
+                Marx (2021, §4.2–4.3) treat penalties and componentwise
+                boosting in applied terms; the theory and proofs are
+                added here. Hastie, Tibshirani and Friedman (2009,
+                chapters 3, 10 and 16) cover the same ground from the
+                machine-learning side.</p>
+                <p><strong>Penalties.</strong> Ridge regression is due
+                to Hoerl and Kennard (1970), the lasso to Tibshirani
+                (1996) and bridge penalties to Frank and Friedman
+                (1993); uniqueness of the lasso in general position is
+                from Tibshirani (2013). Boyd and Vandenberghe (2004)
+                cover subgradients, and Park and Casella (2008) develop
+                the Bayesian lasso. SCAD and the oracle property are
+                from Fan and Li (2001), MCP from Zhang (2010).</p>
+                <p><strong>Elastic net and groups.</strong> The elastic
+                net, its grouping effect and rescaling are from Zou and
+                Hastie (2005); our grouping bound adds the residual-norm
+                term. Pathwise coordinate descent is from Friedman,
+                Hastie, Höfling and Tibshirani (2007) and Friedman,
+                Hastie and Tibshirani (2010). The group lasso is due to
+                Yuan and Lin (2006), its orthonormalized form is
+                discussed by Simon and Tibshirani (2012), and the sparse
+                group lasso is from Simon, Friedman, Hastie and
+                Tibshirani (2013).</p>
+                <p><strong>Boosting.</strong> AdaBoost is due to Freund
+                and Schapire (1997); Friedman, Hastie and Tibshirani
+                (2000) and Friedman (2001) gave the statistical and
+                gradient view, and matching pursuit is from Mallat and
+                Zhang (1993). <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="L_2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>L</mi><mn>2</mn></msub></math></mjx-assistive-mml></mjx-container></span>
+                boosting and the boosting operator are from Bühlmann and
+                Yu (2003), componentwise boosting in high dimensions
+                from Bühlmann (2006), and a survey is Bühlmann and
+                Hothorn (2007). Our proof of <a href="../ch30-regularization-boosting/04-componentwise-boosting.html#thm-reg-boosting" class="xref" data-ref="thm-reg-boosting" data-shard="ch30-regularization-boosting">Theorem 30.4.1</a>
+                is the standard argument for greedy coordinate descent
+                on a quadratic. Efron, Hastie, Johnstone and Tibshirani
+                (2004) proved that FS<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-n"></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi></mi><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span> is the lasso path
+                under their positive cone condition, and Hastie, Taylor,
+                Tibshirani and Walther (2007) described FS<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-n"></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi></mi><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span> in general as the
+                monotone lasso; <a href="../ch30-regularization-boosting/05-boosting-as-regularization.html#prp-reg-stagewise-orthonormal" class="xref" data-ref="prp-reg-stagewise-orthonormal" data-shard="ch30-regularization-boosting">Proposition 30.5.1</a>
+                is a special case proved directly.</p>
+                <h2 id="references"><span class="header-section-number">30.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Boyd, Stephen and Vandenberghe, Lieven (2004).
+                <em>Convex Optimization</em>. Cambridge: Cambridge
+                University Press.</li>
+                <li>Bühlmann, Peter (2006). Boosting for
+                High-Dimensional Linear Models. <em>The Annals of
+                Statistics</em> 34(2), 559–583.</li>
+                <li>Bühlmann, Peter and Hothorn, Torsten (2007).
+                Boosting Algorithms: Regularization, Prediction and
+                Model Fitting. <em>Statistical Science</em> 22(4),
+                477–505.</li>
+                <li>Bühlmann, Peter and Yu, Bin (2003). Boosting with
+                the L2 Loss: Regression and Classification. <em>Journal
+                of the American Statistical Association</em> 98(462),
+                324–339.</li>
+                <li>Efron, Bradley, Hastie, Trevor, Johnstone, Iain and
+                Tibshirani, Robert (2004). Least Angle Regression.
+                <em>The Annals of Statistics</em> 32(2), 407–499.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Fan, Jianqing and Li, Runze (2001). Variable
+                Selection via Nonconcave Penalized Likelihood and Its
+                Oracle Properties. <em>Journal of the American
+                Statistical Association</em> 96(456), 1348–1360.</li>
+                <li>Frank, Ildiko E. and Friedman, Jerome H. (1993). A
+                Statistical View of Some Chemometrics Regression Tools.
+                <em>Technometrics</em> 35(2), 109–135.</li>
+                <li>Freund, Yoav and Schapire, Robert E. (1997). A
+                Decision-Theoretic Generalization of On-Line Learning
+                and an Application to Boosting. <em>Journal of Computer
+                and System Sciences</em> 55(1), 119–139.</li>
+                <li>Friedman, Jerome H. (2001). Greedy Function
+                Approximation: A Gradient Boosting Machine. <em>The
+                Annals of Statistics</em> 29(5), 1189–1232.</li>
+                <li>Friedman, Jerome, Hastie, Trevor, Höfling, Holger
+                and Tibshirani, Robert (2007). Pathwise Coordinate
+                Optimization. <em>The Annals of Applied Statistics</em>
+                1(2), 302–332.</li>
+                <li>Friedman, Jerome, Hastie, Trevor and Tibshirani,
+                Robert (2000). Additive Logistic Regression: A
+                Statistical View of Boosting. <em>The Annals of
+                Statistics</em> 28(2), 337–407.</li>
+                <li>Friedman, Jerome, Hastie, Trevor and Tibshirani,
+                Robert (2010). Regularization Paths for Generalized
+                Linear Models via Coordinate Descent. <em>Journal of
+                Statistical Software</em> 33(1), 1–22.</li>
+                <li>George, Edward I. and McCulloch, Robert E. (1993).
+                Variable Selection via Gibbs Sampling. <em>Journal of
+                the American Statistical Association</em> 88(423),
+                881–889.</li>
+                <li>Gertheiss, Jan and Tutz, Gerhard (2010). Sparse
+                Modeling of Categorial Explanatory Variables. <em>The
+                Annals of Applied Statistics</em> 4(4), 2150–2180.</li>
+                <li>Hastie, Trevor, Taylor, Jonathan, Tibshirani, Robert
+                and Walther, Guenther (2007). Forward Stagewise
+                Regression and the Monotone Lasso. <em>Electronic
+                Journal of Statistics</em> 1, 1–29.</li>
+                <li>Hastie, Trevor, Tibshirani, Robert and Friedman,
+                Jerome (2009). <em>The Elements of Statistical
+                Learning</em>. 2nd edition. New York: Springer.</li>
+                <li>Hoerl, Arthur E. and Kennard, Robert W. (1970).
+                Ridge Regression: Biased Estimation for Nonorthogonal
+                Problems. <em>Technometrics</em> 12(1), 55–67.</li>
+                <li>Leeb, Hannes and Pötscher, Benedikt M. (2005). Model
+                Selection and Inference: Facts and Fiction.
+                <em>Econometric Theory</em> 21(1), 21–59.</li>
+                <li>Mallat, Stéphane G. and Zhang, Zhifeng (1993).
+                Matching Pursuits with Time-Frequency Dictionaries.
+                <em>IEEE Transactions on Signal Processing</em> 41(12),
+                3397–3415.</li>
+                <li>Park, Trevor and Casella, George (2008). The
+                Bayesian Lasso. <em>Journal of the American Statistical
+                Association</em> 103(482), 681–686.</li>
+                <li>Simon, Noah, Friedman, Jerome, Hastie, Trevor and
+                Tibshirani, Robert (2013). A Sparse-Group Lasso.
+                <em>Journal of Computational and Graphical
+                Statistics</em> 22(2), 231–245.</li>
+                <li>Simon, Noah and Tibshirani, Robert (2012).
+                Standardization and the Group Lasso Penalty.
+                <em>Statistica Sinica</em> 22(3), 983–1001.</li>
+                <li>Tibshirani, Robert (1996). Regression Shrinkage and
+                Selection via the Lasso. <em>Journal of the Royal
+                Statistical Society, Series B</em> 58(1), 267–288.</li>
+                <li>Tibshirani, Robert, Saunders, Michael, Rosset,
+                Saharon, Zhu, Ji and Knight, Keith (2005). Sparsity and
+                Smoothness via the Fused Lasso. <em>Journal of the Royal
+                Statistical Society, Series B</em> 67(1), 91–108.</li>
+                <li>Tibshirani, Ryan J. (2013). The Lasso Problem and
+                Uniqueness. <em>Electronic Journal of Statistics</em> 7,
+                1456–1490.</li>
+                <li>Tseng, Paul (2001). Convergence of a Block
+                Coordinate Descent Method for Nondifferentiable
+                Minimization. <em>Journal of Optimization Theory and
+                Applications</em> 109(3), 475–494.</li>
+                <li>Yuan, Ming and Lin, Yi (2006). Model Selection and
+                Estimation in Regression with Grouped Variables.
+                <em>Journal of the Royal Statistical Society, Series
+                B</em> 68(1), 49–67.</li>
+                <li>Zhang, Cun-Hui (2010). Nearly Unbiased Variable
+                Selection under Minimax Concave Penalty. <em>The Annals
+                of Statistics</em> 38(2), 894–942.</li>
+                <li>Zhang, Tong and Yu, Bin (2005). Boosting with Early
+                Stopping: Convergence and Consistency. <em>The Annals of
+                Statistics</em> 33(4), 1538–1579.</li>
+                <li>Zou, Hui (2006). The Adaptive Lasso and Its Oracle
+                Properties. <em>Journal of the American Statistical
+                Association</em> 101(476), 1418–1429.</li>
+                <li>Zou, Hui and Hastie, Trevor (2005). Regularization
+                and Variable Selection via the Elastic Net. <em>Journal
+                of the Royal Statistical Society, Series B</em> 67(2),
+                301–320.</li>
+                <li>Zou, Hui, Hastie, Trevor and Tibshirani, Robert
+                (2007). On the “Degrees of Freedom” of the Lasso.
+                <em>The Annals of Statistics</em> 35(5), 2173–2192.</li>
+                <li>Zou, Hui and Li, Runze (2008). One-Step Sparse
+                Estimates in Nonconcave Penalized Likelihood Models.
+                <em>The Annals of Statistics</em> 36(4), 1509–1533.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch30-regularization-boosting/05-boosting-as-regularization.html" class="pagination-link" aria-label="Boosting
+as regularization">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">30.5 Boosting as
+regularization</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2030.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch30-regularization-boosting%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch30-regularization-boosting/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

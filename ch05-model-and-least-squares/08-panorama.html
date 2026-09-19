@@ -269,7 +269,7 @@ regression models to come</span>
                 <td>Many regressors</td>
                 <td>collinearity, shrinkage, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p>n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mo>&gt;</mo><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>, selection,
                 boosting</td>
-                <td>Chapters 26–30</td>
+                <td>Chapters <a href="../ch26-collinearity/index.html">26</a>–<a href="../ch30-regularization-boosting/index.html">30</a></td>
                 </tr>
                 <tr class="odd">
                 <td>General covariance and random effects</td>
@@ -317,15 +317,15 @@ regression models to come</span>
                 or the question is causal; some remedies, such as robust
                 standard errors based on <a href="../ch05-model-and-least-squares/05-properties.html#eq-lm-sandwich" class="xref" data-ref="eq-lm-sandwich" data-shard="ch05-model-and-least-squares">Eq. 5.5.3</a>
                 (<a href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html#thm-het-sandwich" class="xref" data-ref="thm-het-sandwich" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.4.2</a>),
-                stay inside the linear model. Part VI treats large <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> and nearly dependent
-                columns, where ridge regression, principal components
-                and the lasso trade a little bias for less variance.
-                Regression trees, random forests and neural networks
-                also estimate <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math></mjx-assistive-mml></mjx-container></span>,
-                judged by prediction error rather than by the meaning of
-                coefficients; the book does not develop them, but
-                Chapters 29 and 30 compare predictors and treat
-                boosting.</p>
+                stay inside the linear model. <a href="../ch26-collinearity/index.html">Part VI</a>
+                treats large <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> and
+                nearly dependent columns, where ridge regression,
+                principal components and the lasso trade a little bias
+                for less variance. Regression trees, random forests and
+                neural networks also estimate <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math></mjx-assistive-mml></mjx-container></span>, judged by prediction
+                error rather than by the meaning of coefficients; the
+                book does not develop them, but Chapters <a href="../ch29-model-selection/index.html">29</a> and <a href="../ch30-regularization-boosting/index.html">30</a>
+                compare predictors and treat boosting.</p>
                 <p><strong>General covariance and mixed models.</strong>
                 The general Gauss–Markov model replaces <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2\mathbf{I}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D408 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">I</mi></mrow></math></mjx-assistive-mml></mjx-container></span> by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2\mathbf{V}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D415 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">V</mi></mrow></math></mjx-assistive-mml></mjx-container></span> (Chapter 31),
                 and generalized least squares is least squares in a

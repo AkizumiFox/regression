@@ -210,6 +210,41 @@
   <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/05-bad-controls.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/06-randomized-adjustment.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch26-collinearity/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch26-collinearity/01-variance.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch26-collinearity/02-vif.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch26-collinearity/03-condition-indices.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch26-collinearity/04-prediction.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch26-collinearity/05-remedies.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch26-collinearity/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch27-shrinkage/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch27-shrinkage/01-mean-squared-error.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch27-shrinkage/02-ridge.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch27-shrinkage/03-principal-components.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch27-shrinkage/04-lasso.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch27-shrinkage/05-james-stein.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch27-shrinkage/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch28-high-dimensional/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch28-high-dimensional/01-minimum-norm.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch28-high-dimensional/02-restricted-eigenvalues.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch28-high-dimensional/03-lasso-bounds.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch28-high-dimensional/04-support-recovery.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch28-high-dimensional/05-debiased-inference.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch28-high-dimensional/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch29-model-selection/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch29-model-selection/01-prediction-error.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch29-model-selection/02-cp-aic-bic.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch29-model-selection/03-cross-validation.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch29-model-selection/04-subset-search.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch29-model-selection/05-selection-bias.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch29-model-selection/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch30-regularization-boosting/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch30-regularization-boosting/01-penalized-least-squares.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch30-regularization-boosting/02-elastic-net.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch30-regularization-boosting/03-group-penalties.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch30-regularization-boosting/04-componentwise-boosting.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch30-regularization-boosting/05-boosting-as-regularization.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch30-regularization-boosting/06-summary-and-notes.html</loc></url>
   <url><loc>https://regression.akizumifox.com/results.html</loc></url>
   <url><loc>https://regression.akizumifox.com/graph.html</loc></url>
 </urlset>

@@ -1,0 +1,435 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch27-shrinkage/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Coverage.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch27-shrinkage/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch27-shrinkage/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="27.6 Summary and Notes">
+        <meta property="og:description" content="Coverage.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch27-shrinkage/index.html">Shrinkage: Ridge, Principal Components and the Lasso</a></li>
+                        <li class="breadcrumb-item"><a href="../ch27-shrinkage/06-summary-and-notes.html"><span class="chapter-number">27.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">27.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">27.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>Mean squared error is variance plus squared bias.
+                A linear estimator beats least squares in the matrix
+                sense iff its squared bias, measured in the metric of
+                the covariance it saves, is at most one (<a href="../ch27-shrinkage/01-mean-squared-error.html#thm-shr-bias-variance" class="xref" data-ref="thm-shr-bias-variance" data-shard="ch27-shrinkage">Theorem 27.1.1</a>); none
+                wins for every <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\upbeta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">β</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch27-shrinkage/01-mean-squared-error.html#exr-shr-no-linear-dominance" class="xref" data-ref="exr-shr-no-linear-dominance" data-shard="ch27-shrinkage">Exercise (B1)</a>).</p></li>
+                <li><p>Shrinking the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="j"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math></mjx-assistive-mml></mjx-container></span>th canonical coordinate
+                is governed by its signal-to-noise ratio <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tau_j^2=d_j^2\alpha_j^2/\sigma^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: -0.08em;"><mjx-mn class="mjx-n" size="s" style="margin-left: 0.19em;"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msubsup space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FC TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>τ</mi><mi>j</mi><mn>2</mn></msubsup><mo>=</mo><msubsup><mi>d</mi><mi>j</mi><mn>2</mn></msubsup><msubsup><mi>α</mi><mi>j</mi><mn>2</mn></msubsup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msup><mi>σ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>:
+                the oracle factor is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tau_j^2/(1+\tau_j^2)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: -0.08em;"><mjx-mn class="mjx-n" size="s" style="margin-left: 0.19em;"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msubsup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: -0.08em;"><mjx-mn class="mjx-n" size="s" style="margin-left: 0.19em;"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>τ</mi><mi>j</mi><mn>2</mn></msubsup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><msubsup><mi>τ</mi><mi>j</mi><mn>2</mn></msubsup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>,
+                and dropping the direction helps iff <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tau_j^2<1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: -0.08em;"><mjx-mn class="mjx-n" size="s" style="margin-left: 0.19em;"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>τ</mi><mi>j</mi><mn>2</mn></msubsup><mo>&lt;</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch27-shrinkage/01-mean-squared-error.html#prp-shr-canonical" class="xref" data-ref="prp-shr-canonical" data-shard="ch27-shrinkage">Proposition 27.1.2</a>).</p></li>
+                <li><p>Ridge regression shrinks the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="j"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math></mjx-assistive-mml></mjx-container></span>th direction by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="d_j^2/(d_j^2+\lambda)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>d</mi><mi>j</mi><mn>2</mn></msubsup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><msubsup><mi>d</mi><mi>j</mi><mn>2</mn></msubsup><mo>+</mo><mi>λ</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>,
+                has effective degrees of freedom <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sum_jd_j^2/(d_j^2+\lambda)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-munder limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-msubsup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><munder><mo data-mjx-texclass="OP">∑</mo><mi>j</mi></munder><msubsup><mi>d</mi><mi>j</mi><mn>2</mn></msubsup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><msubsup><mi>d</mi><mi>j</mi><mn>2</mn></msubsup><mo>+</mo><mi>λ</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>,
+                and is the posterior mean under an exchangeable normal
+                prior (<a href="../ch27-shrinkage/02-ridge.html#thm-shr-ridge" class="xref" data-ref="thm-shr-ridge" data-shard="ch27-shrinkage">Theorem 27.2.2</a>). Every
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda<2\sigma^2/\max_j\alpha_j^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-munder space="2" limits="false"><mjx-mo class="mjx-n"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-msubsup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FC TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi><mo>&lt;</mo><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><munder><mo data-mjx-texclass="OP" movablelimits="true">max</mo><mi>j</mi></munder><msubsup><mi>α</mi><mi>j</mi><mn>2</mn></msubsup></math></mjx-assistive-mml></mjx-container></span>
+                beats least squares, and every <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda\le2\sigma^2/\lVert \boldsymbol{\upbeta}\rVert^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi><mo>≤</mo><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">‖</mo><mi mathvariant="bold">β</mi><msup><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">‖</mo><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>
+                does so in the matrix sense (<a href="../ch27-shrinkage/02-ridge.html#thm-shr-ridge-dominates" class="xref" data-ref="thm-shr-ridge-dominates" data-shard="ch27-shrinkage">Theorem 27.2.3</a>).</p></li>
+                <li><p>Principal component regression keeps the leading
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="k"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi></math></mjx-assistive-mml></mjx-container></span> directions, and
+                beats least squares in the matrix sense iff the dropped
+                directions carry total signal <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sum_{j>k}\tau_j^2\le1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-munder limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-munder><mjx-msubsup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: -0.08em;"><mjx-mn class="mjx-n" size="s" style="margin-left: 0.19em;"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><munder><mo data-mjx-texclass="OP">∑</mo><mrow data-mjx-texclass="ORD"><mi>j</mi><mo>&gt;</mo><mi>k</mi></mrow></munder><msubsup><mi>τ</mi><mi>j</mi><mn>2</mn></msubsup><mo>≤</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>.
+                The directions worth dropping are those with small <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tau_j^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: -0.08em;"><mjx-mn class="mjx-n" size="s" style="margin-left: 0.19em;"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>τ</mi><mi>j</mi><mn>2</mn></msubsup></math></mjx-assistive-mml></mjx-container></span>, not small <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="d_j^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>d</mi><mi>j</mi><mn>2</mn></msubsup></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch27-shrinkage/03-principal-components.html#prp-shr-pcr" class="xref" data-ref="prp-shr-pcr" data-shard="ch27-shrinkage">Proposition 27.3.1</a>, <a href="../ch27-shrinkage/03-principal-components.html#exm-shr-longley-pcr" class="xref" data-ref="exm-shr-longley-pcr" data-shard="ch27-shrinkage">Example (Principal components of Longley’s regressors)</a>).
+                Tuning or selecting from the data makes the minimized
+                leave-one-out error optimistic; nested cross-validation
+                is honest.</p></li>
+                <li><p>The lasso minimizes <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tfrac12\lVert \mathbf{y}-\mathbf{X}\mathbf{b}\rVert^2+\lambda\lVert \mathbf{b}\rVert_1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mstyle><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D41B TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D41B TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">‖</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow><mo>−</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">b</mi></mrow><msup><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">‖</mo><mn>2</mn></msup><mo>+</mo><mi>λ</mi><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">‖</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">b</mi></mrow><msub><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">‖</mo><mn>1</mn></msub></math></mjx-assistive-mml></mjx-container></span>.
+                Its solutions are the solutions of the KKT conditions
+                and share one fitted vector (<a href="../ch27-shrinkage/04-lasso.html#def-shr-lasso" class="xref" data-ref="def-shr-lasso" data-shard="ch27-shrinkage">Definition 27.4.1</a>, <a href="../ch27-shrinkage/04-lasso.html#thm-shr-lasso-kkt" class="xref" data-ref="thm-shr-lasso-kkt" data-shard="ch27-shrinkage">Theorem 27.4.1</a>). Under
+                an orthonormal design it is soft thresholding, against
+                proportional shrinkage for ridge and hard thresholding
+                for subset selection (<a href="../ch27-shrinkage/04-lasso.html#thm-shr-lasso-orthonormal" class="xref" data-ref="thm-shr-lasso-orthonormal" data-shard="ch27-shrinkage">Theorem 27.4.2</a>).
+                Coordinate descent computes it by repeated soft
+                thresholding (<a href="../ch27-shrinkage/04-lasso.html#lem-shr-coordinate" class="xref" data-ref="lem-shr-coordinate" data-shard="ch27-shrinkage">Lemma 27.4.4</a>).</p></li>
+                <li><p>By simulation, best subset selection wins when a
+                few coefficients are large, ridge wins when many are
+                moderate, and the lasso sits between (<a href="../ch27-shrinkage/04-lasso.html#exm-shr-lasso-simulation" class="xref" data-ref="exm-shr-lasso-simulation" data-shard="ch27-shrinkage">Example (Three coefficient patterns)</a>).</p></li>
+                <li><p>With Stein’s lemma (<a href="../ch27-shrinkage/05-james-stein.html#lem-shr-stein" class="xref" data-ref="lem-shr-stein" data-shard="ch27-shrinkage">Lemma 27.5.1</a>), the
+                James–Stein estimator <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(1-(p-2)\sigma^2/\lVert \mathbf{Z}\rVert^2)\mathbf{Z}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D419 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c2016"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D419 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mo stretchy="false">(</mo><mi>p</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">‖</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Z</mi></mrow><msup><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">‖</mo><mn>2</mn></msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Z</mi></mrow></math></mjx-assistive-mml></mjx-container></span>
+                has risk below <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p\sigma^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><msup><mi>σ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> for every <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\uptheta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛉</mjx-utext></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">θ</mi></math></mjx-assistive-mml></mjx-container></span>
+                when <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p\ge3"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2265"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mo>≥</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch27-shrinkage/05-james-stein.html#thm-shr-james-stein" class="xref" data-ref="thm-shr-james-stein" data-shard="ch27-shrinkage">Theorem 27.5.2</a>), its
+                positive part does better still (<a href="../ch27-shrinkage/05-james-stein.html#prp-shr-positive-part" class="xref" data-ref="prp-shr-positive-part" data-shard="ch27-shrinkage">Proposition 27.5.3</a>), and
+                in regression, with an estimated variance, the factor is
+                about <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1-1/F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>−</mo><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch27-shrinkage/05-james-stein.html#cor-shr-js-regression" class="xref" data-ref="cor-shr-js-regression" data-shard="ch27-shrinkage">Corollary 27.5.5</a>).</p></li>
+                <li><p>James–Stein is an empirical Bayes rule: it
+                estimates the shrinkage factor <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2/(\sigma^2+\omega^2)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D714 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>+</mo><msup><mi>ω</mi><mn>2</mn></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                of a normal prior without bias, and pays at most <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="2\sigma^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> for not knowing
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\omega^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D714 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>ω</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch27-shrinkage/05-james-stein.html#prp-shr-empirical-bayes" class="xref" data-ref="prp-shr-empirical-bayes" data-shard="ch27-shrinkage">Proposition 27.5.4</a>).
+                Ridge with a fixed <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math></mjx-assistive-mml></mjx-container></span> is the same rule
+                with a guessed prior variance.</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">27.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Coverage.</strong> Christensen (2020,
+                sections 13.3–13.5) treats canonical form, principal
+                component and ridge regression; Sen and Srivastava
+                (1990, chapter 12) add a Stein-type shrinkage of least
+                squares; Fahrmeir, Kneib, Lang and Marx (2021, section
+                4.2) present ridge and the lasso as penalized least
+                squares. This chapter organizes them around the
+                shrinkage factors of <a href="../ch27-shrinkage/01-mean-squared-error.html#prp-shr-canonical" class="xref" data-ref="prp-shr-canonical" data-shard="ch27-shrinkage">Proposition 27.1.2</a>.
+                Examples, simulations and exercises are the book’s
+                own.</p>
+                <p><strong>Mean squared error.</strong> The matrix
+                comparison of estimators and its equivalence with every
+                quadratic loss are due to Theobald (1974), who used them
+                for the matrix-sense part of <a href="../ch27-shrinkage/02-ridge.html#thm-shr-ridge-dominates" class="xref" data-ref="thm-shr-ridge-dominates" data-shard="ch27-shrinkage">Theorem 27.2.3</a>.</p>
+                <p><strong>Ridge regression.</strong> Hoerl and Kennard
+                (1970) named the method, introduced the ridge trace and
+                proved the existence theorem. The same regularization of
+                ill-posed problems is due to Tikhonov (Tikhonov and
+                Arsenin 1977). Generalized cross-validation for ridge is
+                due to Golub, Heath and Wahba (1979). Hoerl, Kennard and
+                Baldwin (1975) proposed the plug-in choice of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math></mjx-assistive-mml></mjx-container></span>, and Draper and
+                Van Nostrand (1979) review the debate over data-chosen
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math></mjx-assistive-mml></mjx-container></span>.</p>
+                <p><strong>Principal components.</strong> Hotelling
+                (1933) introduced principal components and Massy (1965)
+                regression on them. The warnings about low-variance
+                components are from Jolliffe (1982) and Hadi and Ling
+                (1998); Jolliffe (2002) is the standard monograph. Frank
+                and Friedman (1993) compare principal components,
+                partial least squares and ridge regression.</p>
+                <p><strong>The lasso.</strong> Tibshirani (1996)
+                introduced the lasso, Chen, Donoho and Saunders (1998)
+                the same criterion as basis pursuit, and Park and
+                Casella (2008) a Bayesian version. Tibshirani (2013)
+                treats uniqueness and sparsity of solutions (<a href="../ch27-shrinkage/04-lasso.html#exr-shr-sparsity-bound" class="xref" data-ref="exr-shr-sparsity-bound" data-shard="ch27-shrinkage">Exercise (C2)</a>). Path
+                algorithms are due to Osborne, Presnell and Turlach
+                (2000) and Efron, Hastie, Johnstone and Tibshirani
+                (2004); coordinate descent to Fu (1998), Friedman,
+                Hastie, Höfling and Tibshirani (2007) and Friedman,
+                Hastie and Tibshirani (2010), with convergence theory by
+                Tseng (2001). Donoho and Johnstone (1994) analysed soft
+                thresholding, and Hastie, Tibshirani and Tibshirani
+                (2020) compare subset selection and the lasso at scale.
+                Hastie, Tibshirani and Wainwright (2015) and Hastie,
+                Tibshirani and Friedman (2009, chapter 3) cover these
+                methods for prediction.</p>
+                <p><strong>Stein’s paradox.</strong> The inadmissibility
+                of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{Z}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D419 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Z</mi></mrow></math></mjx-assistive-mml></mjx-container></span> for <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p\ge3"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2265"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mo>≥</mo><mn>3</mn></math></mjx-assistive-mml></mjx-container></span> is due to Stein
+                (1956), and the explicit estimator, including an
+                estimated variance, to James and Stein (1961). The proof
+                through <a href="../ch27-shrinkage/05-james-stein.html#lem-shr-stein" class="xref" data-ref="lem-shr-stein" data-shard="ch27-shrinkage">Lemma 27.5.1</a> follows
+                Stein (1981); the empirical Bayes reading is from Efron
+                and Morris (1973). Lehmann and Casella (1998, chapter 5)
+                discuss admissibility and the positive-part estimator;
+                Efron and Hastie (2016, chapter 7) link James–Stein and
+                ridge regression.</p>
+                <h2 id="references"><span class="header-section-number">27.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Boyd, Stephen and Vandenberghe, Lieven (2004).
+                <em>Convex Optimization</em>. Cambridge: Cambridge
+                University Press.</li>
+                <li>Chen, Scott Shaobing, Donoho, David L. and Saunders,
+                Michael A. (1998). Atomic Decomposition by Basis
+                Pursuit. <em>SIAM Journal on Scientific Computing</em>
+                20(1), 33–61.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Donoho, David L. and Johnstone, Iain M. (1994).
+                Ideal Spatial Adaptation by Wavelet Shrinkage.
+                <em>Biometrika</em> 81(3), 425–455.</li>
+                <li>Draper, Norman R. and Van Nostrand, R. Craig (1979).
+                Ridge Regression and James–Stein Estimation: Review and
+                Comments. <em>Technometrics</em> 21(4), 451–466.</li>
+                <li>Efron, Bradley and Hastie, Trevor (2016).
+                <em>Computer Age Statistical Inference: Algorithms,
+                Evidence, and Data Science</em>. Cambridge: Cambridge
+                University Press.</li>
+                <li>Efron, Bradley, Hastie, Trevor, Johnstone, Iain and
+                Tibshirani, Robert (2004). Least Angle Regression.
+                <em>The Annals of Statistics</em> 32(2), 407–499.</li>
+                <li>Efron, Bradley and Morris, Carl (1973). Stein’s
+                Estimation Rule and Its Competitors—An Empirical Bayes
+                Approach. <em>Journal of the American Statistical
+                Association</em> 68(341), 117–130.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Frank, Ildiko E. and Friedman, Jerome H. (1993). A
+                Statistical View of Some Chemometrics Regression Tools.
+                <em>Technometrics</em> 35(2), 109–135.</li>
+                <li>Friedman, Jerome, Hastie, Trevor, Höfling, Holger
+                and Tibshirani, Robert (2007). Pathwise Coordinate
+                Optimization. <em>The Annals of Applied Statistics</em>
+                1(2), 302–332.</li>
+                <li>Friedman, Jerome, Hastie, Trevor and Tibshirani,
+                Robert (2010). Regularization Paths for Generalized
+                Linear Models via Coordinate Descent. <em>Journal of
+                Statistical Software</em> 33(1), 1–22.</li>
+                <li>Fu, Wenjiang J. (1998). Penalized Regressions: The
+                Bridge versus the Lasso. <em>Journal of Computational
+                and Graphical Statistics</em> 7(3), 397–416.</li>
+                <li>Golub, Gene H., Heath, Michael and Wahba, Grace
+                (1979). Generalized Cross-Validation as a Method for
+                Choosing a Good Ridge Parameter. <em>Technometrics</em>
+                21(2), 215–223.</li>
+                <li>Hadi, Ali S. and Ling, Robert F. (1998). Some
+                Cautionary Notes on the Use of Principal Components
+                Regression. <em>The American Statistician</em> 52(1),
+                15–19.</li>
+                <li>Hastie, Trevor, Tibshirani, Robert and Friedman,
+                Jerome (2009). <em>The Elements of Statistical
+                Learning</em>. 2nd edition. New York: Springer.</li>
+                <li>Hastie, Trevor, Tibshirani, Robert and Tibshirani,
+                Ryan (2020). Best Subset, Forward Stepwise or Lasso?
+                Analysis and Recommendations Based on Extensive
+                Comparisons. <em>Statistical Science</em> 35(4),
+                579–592.</li>
+                <li>Hastie, Trevor, Tibshirani, Robert and Wainwright,
+                Martin (2015). <em>Statistical Learning with Sparsity:
+                The Lasso and Generalizations</em>. Boca Raton, FL: CRC
+                Press.</li>
+                <li>Hoerl, Arthur E. and Kennard, Robert W. (1970).
+                Ridge Regression: Biased Estimation for Nonorthogonal
+                Problems. <em>Technometrics</em> 12(1), 55–67.</li>
+                <li>Hoerl, Arthur E., Kennard, Robert W. and Baldwin,
+                Kent F. (1975). Ridge Regression: Some Simulations.
+                <em>Communications in Statistics</em> 4(2),
+                105–123.</li>
+                <li>Hotelling, Harold (1933). Analysis of a Complex of
+                Statistical Variables into Principal Components.
+                <em>Journal of Educational Psychology</em> 24, 417–441
+                and 498–520.</li>
+                <li>James, W. and Stein, Charles (1961). Estimation with
+                Quadratic Loss. <em>Proceedings of the Fourth Berkeley
+                Symposium on Mathematical Statistics and
+                Probability</em> 1, 361–379.</li>
+                <li>Jolliffe, Ian T. (1982). A Note on the Use of
+                Principal Components in Regression. <em>Journal of the
+                Royal Statistical Society. Series C (Applied
+                Statistics)</em> 31(3), 300–303.</li>
+                <li>Jolliffe, Ian T. (2002). <em>Principal Component
+                Analysis</em>. 2nd edition. New York: Springer.</li>
+                <li>Lehmann, E. L. and Casella, George (1998).
+                <em>Theory of Point Estimation</em>. 2nd edition. New
+                York: Springer.</li>
+                <li>Longley, James W. (1967). An Appraisal of Least
+                Squares Programs for the Electronic Computer from the
+                Point of View of the User. <em>Journal of the American
+                Statistical Association</em> 62(319), 819–841.</li>
+                <li>Massy, William F. (1965). Principal Components
+                Regression in Exploratory Statistical Research.
+                <em>Journal of the American Statistical Association</em>
+                60(309), 234–256.</li>
+                <li>Osborne, Michael R., Presnell, Brett and Turlach,
+                Berwin A. (2000). A New Approach to Variable Selection
+                in Least Squares Problems. <em>IMA Journal of Numerical
+                Analysis</em> 20(3), 389–403.</li>
+                <li>Park, Trevor and Casella, George (2008). The
+                Bayesian Lasso. <em>Journal of the American Statistical
+                Association</em> 103(482), 681–686.</li>
+                <li>Sen, Ashish and Srivastava, Muni (1990).
+                <em>Regression Analysis: Theory, Methods, and
+                Applications</em>. New York: Springer.</li>
+                <li>Stein, Charles (1956). Inadmissibility of the Usual
+                Estimator for the Mean of a Multivariate Normal
+                Distribution. <em>Proceedings of the Third Berkeley
+                Symposium on Mathematical Statistics and
+                Probability</em> 1, 197–206.</li>
+                <li>Stein, Charles M. (1981). Estimation of the Mean of
+                a Multivariate Normal Distribution. <em>The Annals of
+                Statistics</em> 9(6), 1135–1151.</li>
+                <li>Theobald, C. M. (1974). Generalizations of Mean
+                Square Error Applied to Ridge Regression. <em>Journal of
+                the Royal Statistical Society. Series B</em> 36(1),
+                103–106.</li>
+                <li>Tibshirani, Robert (1996). Regression Shrinkage and
+                Selection via the Lasso. <em>Journal of the Royal
+                Statistical Society. Series B</em> 58(1), 267–288.</li>
+                <li>Tibshirani, Ryan J. (2013). The Lasso Problem and
+                Uniqueness. <em>Electronic Journal of Statistics</em> 7,
+                1456–1490.</li>
+                <li>Tikhonov, Andrey N. and Arsenin, Vasiliy Y. (1977).
+                <em>Solutions of Ill-Posed Problems</em>. Washington,
+                DC: Winston.</li>
+                <li>Tseng, Paul (2001). Convergence of a Block
+                Coordinate Descent Method for Nondifferentiable
+                Minimization. <em>Journal of Optimization Theory and
+                Applications</em> 109(3), 475–494.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch27-shrinkage/05-james-stein.html" class="pagination-link" aria-label="Stein’s
+paradox and James–Stein estimation">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">27.5 Stein’s
+paradox and James–Stein estimation</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch28-high-dimensional/index.html" class="pagination-link" aria-label="High-Dimensional
+Regression: p > n">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">High-Dimensional
+Regression: p &gt; n</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2027.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch27-shrinkage%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch27-shrinkage/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

@@ -1346,6 +1346,231 @@
           "filename": "07-summary-and-notes.md"
         }
       ]
+    },
+    {
+      "title": "Collinearity: Diagnosis and Consequences",
+      "number": 26,
+      "part": "Part VI · Trading Bias for Variance",
+      "collapsed": true,
+      "path": "ch26-collinearity/index.html",
+      "sections": [
+        {
+          "title": "What collinearity does to variance",
+          "number": "26.1",
+          "path": "ch26-collinearity/01-variance.html",
+          "filename": "01-variance.md"
+        },
+        {
+          "title": "Variance inflation factors",
+          "number": "26.2",
+          "path": "ch26-collinearity/02-vif.html",
+          "filename": "02-vif.md"
+        },
+        {
+          "title": "Condition indices and variance decomposition",
+          "number": "26.3",
+          "path": "ch26-collinearity/03-condition-indices.html",
+          "filename": "03-condition-indices.md"
+        },
+        {
+          "title": "Collinearity and prediction",
+          "number": "26.4",
+          "path": "ch26-collinearity/04-prediction.html",
+          "filename": "04-prediction.md"
+        },
+        {
+          "title": "What to do about collinearity",
+          "number": "26.5",
+          "path": "ch26-collinearity/05-remedies.html",
+          "filename": "05-remedies.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "26.6",
+          "path": "ch26-collinearity/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Shrinkage: Ridge, Principal Components and the Lasso",
+      "number": 27,
+      "part": "",
+      "collapsed": true,
+      "path": "ch27-shrinkage/index.html",
+      "sections": [
+        {
+          "title": "The bias–variance trade-off",
+          "number": "27.1",
+          "path": "ch27-shrinkage/01-mean-squared-error.html",
+          "filename": "01-mean-squared-error.md"
+        },
+        {
+          "title": "Ridge regression",
+          "number": "27.2",
+          "path": "ch27-shrinkage/02-ridge.html",
+          "filename": "02-ridge.md"
+        },
+        {
+          "title": "Principal component regression",
+          "number": "27.3",
+          "path": "ch27-shrinkage/03-principal-components.html",
+          "filename": "03-principal-components.md"
+        },
+        {
+          "title": "The lasso",
+          "number": "27.4",
+          "path": "ch27-shrinkage/04-lasso.html",
+          "filename": "04-lasso.md"
+        },
+        {
+          "title": "Stein's paradox and James–Stein estimation",
+          "number": "27.5",
+          "path": "ch27-shrinkage/05-james-stein.html",
+          "filename": "05-james-stein.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "27.6",
+          "path": "ch27-shrinkage/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "High-Dimensional Regression: p > n",
+      "number": 28,
+      "part": "",
+      "collapsed": true,
+      "path": "ch28-high-dimensional/index.html",
+      "sections": [
+        {
+          "title": "Minimum-norm interpolation",
+          "number": "28.1",
+          "path": "ch28-high-dimensional/01-minimum-norm.html",
+          "filename": "01-minimum-norm.md"
+        },
+        {
+          "title": "Restricted eigenvalue conditions",
+          "number": "28.2",
+          "path": "ch28-high-dimensional/02-restricted-eigenvalues.html",
+          "filename": "02-restricted-eigenvalues.md"
+        },
+        {
+          "title": "Prediction and estimation bounds for the lasso",
+          "number": "28.3",
+          "path": "ch28-high-dimensional/03-lasso-bounds.html",
+          "filename": "03-lasso-bounds.md"
+        },
+        {
+          "title": "Support recovery",
+          "number": "28.4",
+          "path": "ch28-high-dimensional/04-support-recovery.html",
+          "filename": "04-support-recovery.md"
+        },
+        {
+          "title": "Post-selection and debiased inference",
+          "number": "28.5",
+          "path": "ch28-high-dimensional/05-debiased-inference.html",
+          "filename": "05-debiased-inference.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "28.6",
+          "path": "ch28-high-dimensional/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Model Selection and Prediction",
+      "number": 29,
+      "part": "",
+      "collapsed": true,
+      "path": "ch29-model-selection/index.html",
+      "sections": [
+        {
+          "title": "Prediction error and optimism",
+          "number": "29.1",
+          "path": "ch29-model-selection/01-prediction-error.html",
+          "filename": "01-prediction-error.md"
+        },
+        {
+          "title": "Mallows' Cp, AIC and BIC",
+          "number": "29.2",
+          "path": "ch29-model-selection/02-cp-aic-bic.html",
+          "filename": "02-cp-aic-bic.md"
+        },
+        {
+          "title": "Cross-validation",
+          "number": "29.3",
+          "path": "ch29-model-selection/03-cross-validation.html",
+          "filename": "03-cross-validation.md"
+        },
+        {
+          "title": "All subsets and stepwise search",
+          "number": "29.4",
+          "path": "ch29-model-selection/04-subset-search.html",
+          "filename": "04-subset-search.md"
+        },
+        {
+          "title": "Selection bias and honest inference",
+          "number": "29.5",
+          "path": "ch29-model-selection/05-selection-bias.html",
+          "filename": "05-selection-bias.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "29.6",
+          "path": "ch29-model-selection/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Regularization and Boosting",
+      "number": 30,
+      "part": "",
+      "collapsed": true,
+      "path": "ch30-regularization-boosting/index.html",
+      "sections": [
+        {
+          "title": "Penalized least squares in general",
+          "number": "30.1",
+          "path": "ch30-regularization-boosting/01-penalized-least-squares.html",
+          "filename": "01-penalized-least-squares.md"
+        },
+        {
+          "title": "The elastic net",
+          "number": "30.2",
+          "path": "ch30-regularization-boosting/02-elastic-net.html",
+          "filename": "02-elastic-net.md"
+        },
+        {
+          "title": "Group penalties",
+          "number": "30.3",
+          "path": "ch30-regularization-boosting/03-group-penalties.html",
+          "filename": "03-group-penalties.md"
+        },
+        {
+          "title": "Componentwise boosting",
+          "number": "30.4",
+          "path": "ch30-regularization-boosting/04-componentwise-boosting.html",
+          "filename": "04-componentwise-boosting.md"
+        },
+        {
+          "title": "Boosting as regularization",
+          "number": "30.5",
+          "path": "ch30-regularization-boosting/05-boosting-as-regularization.html",
+          "filename": "05-boosting-as-regularization.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "30.6",
+          "path": "ch30-regularization-boosting/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
     }
   ]
 }

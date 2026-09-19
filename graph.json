@@ -224,6 +224,51 @@
    "results": 49,
    "chapterNumber": 25,
    "part": ""
+  },
+  {
+   "id": "ch26-collinearity",
+   "name": "Chapter 26",
+   "title": "Collinearity: Diagnosis and Consequences",
+   "url": "ch26-collinearity/index.html",
+   "results": 44,
+   "chapterNumber": 26,
+   "part": "Part VI \u00b7 Trading Bias for Variance"
+  },
+  {
+   "id": "ch27-shrinkage",
+   "name": "Chapter 27",
+   "title": "Shrinkage: Ridge, Principal Components and the Lasso",
+   "url": "ch27-shrinkage/index.html",
+   "results": 58,
+   "chapterNumber": 27,
+   "part": ""
+  },
+  {
+   "id": "ch28-high-dimensional",
+   "name": "Chapter 28",
+   "title": "High-Dimensional Regression: p > n",
+   "url": "ch28-high-dimensional/index.html",
+   "results": 47,
+   "chapterNumber": 28,
+   "part": ""
+  },
+  {
+   "id": "ch29-model-selection",
+   "name": "Chapter 29",
+   "title": "Model Selection and Prediction",
+   "url": "ch29-model-selection/index.html",
+   "results": 64,
+   "chapterNumber": 29,
+   "part": ""
+  },
+  {
+   "id": "ch30-regularization-boosting",
+   "name": "Chapter 30",
+   "title": "Regularization and Boosting",
+   "url": "ch30-regularization-boosting/index.html",
+   "results": 47,
+   "chapterNumber": 30,
+   "part": ""
   }
  ],
  "edges": [
@@ -336,6 +381,30 @@
    "implied": false
   },
   {
+   "source": "ch01-matrix-algebra",
+   "target": "ch26-collinearity",
+   "weight": 23,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch27-shrinkage",
+   "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch28-high-dimensional",
+   "weight": 13,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch30-regularization-boosting",
+   "weight": 7,
+   "implied": false
+  },
+  {
    "source": "ch02-random-vectors",
    "target": "ch03-multivariate-normal",
    "weight": 23,
@@ -438,6 +507,24 @@
    "implied": false
   },
   {
+   "source": "ch02-random-vectors",
+   "target": "ch27-shrinkage",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch28-high-dimensional",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch29-model-selection",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch03-multivariate-normal",
    "target": "ch01-matrix-algebra",
    "weight": 1,
@@ -528,6 +615,24 @@
    "implied": false
   },
   {
+   "source": "ch03-multivariate-normal",
+   "target": "ch27-shrinkage",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch28-high-dimensional",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch29-model-selection",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch04-quadratic-forms",
    "target": "ch02-random-vectors",
    "weight": 4,
@@ -615,6 +720,18 @@
    "source": "ch04-quadratic-forms",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch27-shrinkage",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch29-model-selection",
+   "weight": 3,
    "implied": false
   },
   {
@@ -723,6 +840,18 @@
    "source": "ch05-model-and-least-squares",
    "target": "ch25-causal-interpretation",
    "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch26-collinearity",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch28-high-dimensional",
+   "weight": 2,
    "implied": false
   },
   {
@@ -852,6 +981,30 @@
    "implied": false
   },
   {
+   "source": "ch06-projections",
+   "target": "ch26-collinearity",
+   "weight": 14,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch28-high-dimensional",
+   "weight": 8,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch29-model-selection",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch30-regularization-boosting",
+   "weight": 8,
+   "implied": false
+  },
+  {
    "source": "ch07-optimality",
    "target": "ch02-random-vectors",
    "weight": 1,
@@ -954,6 +1107,36 @@
    "implied": false
   },
   {
+   "source": "ch07-optimality",
+   "target": "ch26-collinearity",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch27-shrinkage",
+   "weight": 17,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch28-high-dimensional",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch29-model-selection",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch30-regularization-boosting",
+   "weight": 6,
+   "implied": false
+  },
+  {
    "source": "ch08-estimability",
    "target": "ch01-matrix-algebra",
    "weight": 1,
@@ -1038,6 +1221,18 @@
    "implied": false
   },
   {
+   "source": "ch08-estimability",
+   "target": "ch26-collinearity",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch28-high-dimensional",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch09-sums-of-squares",
    "target": "ch04-quadratic-forms",
    "weight": 1,
@@ -1110,6 +1305,12 @@
    "implied": false
   },
   {
+   "source": "ch09-sums-of-squares",
+   "target": "ch29-model-selection",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch10-computation",
    "target": "ch05-model-and-least-squares",
    "weight": 2,
@@ -1155,6 +1356,30 @@
    "source": "ch10-computation",
    "target": "ch23-resampling-inference",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch10-computation",
+   "target": "ch26-collinearity",
+   "weight": 8,
+   "implied": false
+  },
+  {
+   "source": "ch10-computation",
+   "target": "ch27-shrinkage",
+   "weight": 8,
+   "implied": false
+  },
+  {
+   "source": "ch10-computation",
+   "target": "ch28-high-dimensional",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch10-computation",
+   "target": "ch29-model-selection",
+   "weight": 1,
    "implied": false
   },
   {
@@ -1260,6 +1485,24 @@
    "implied": false
   },
   {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch26-collinearity",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch28-high-dimensional",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch29-model-selection",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch12-intervals-and-bands",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -1338,6 +1581,18 @@
    "implied": false
   },
   {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch26-collinearity",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch28-high-dimensional",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch13-multiplicity",
    "target": "ch08-estimability",
    "weight": 1,
@@ -1371,6 +1626,18 @@
    "source": "ch13-multiplicity",
    "target": "ch20-residuals-leverage-influence",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch13-multiplicity",
+   "target": "ch28-high-dimensional",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch13-multiplicity",
+   "target": "ch29-model-selection",
+   "weight": 5,
    "implied": false
   },
   {
@@ -1443,6 +1710,18 @@
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch25-causal-interpretation",
    "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch28-high-dimensional",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch29-model-selection",
+   "weight": 9,
    "implied": false
   },
   {
@@ -1638,6 +1917,30 @@
    "implied": false
   },
   {
+   "source": "ch19-theory-of-departures",
+   "target": "ch26-collinearity",
+   "weight": 15,
+   "implied": false
+  },
+  {
+   "source": "ch19-theory-of-departures",
+   "target": "ch27-shrinkage",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch19-theory-of-departures",
+   "target": "ch28-high-dimensional",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch19-theory-of-departures",
+   "target": "ch29-model-selection",
+   "weight": 8,
+   "implied": false
+  },
+  {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch01-matrix-algebra",
    "weight": 1,
@@ -1677,6 +1980,24 @@
    "source": "ch20-residuals-leverage-influence",
    "target": "ch23-resampling-inference",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch20-residuals-leverage-influence",
+   "target": "ch26-collinearity",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch20-residuals-leverage-influence",
+   "target": "ch27-shrinkage",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch20-residuals-leverage-influence",
+   "target": "ch29-model-selection",
+   "weight": 4,
    "implied": false
   },
   {
@@ -1776,6 +2097,12 @@
    "implied": false
   },
   {
+   "source": "ch24-errors-in-variables",
+   "target": "ch26-collinearity",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch25-causal-interpretation",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -1785,6 +2112,132 @@
    "source": "ch25-causal-interpretation",
    "target": "ch18-covariance-and-design",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch26-collinearity",
+   "target": "ch01-matrix-algebra",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch26-collinearity",
+   "target": "ch05-model-and-least-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch26-collinearity",
+   "target": "ch06-projections",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch26-collinearity",
+   "target": "ch07-optimality",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch26-collinearity",
+   "target": "ch09-sums-of-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch26-collinearity",
+   "target": "ch27-shrinkage",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch26-collinearity",
+   "target": "ch28-high-dimensional",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch07-optimality",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch10-computation",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch26-collinearity",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch28-high-dimensional",
+   "weight": 17,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch29-model-selection",
+   "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch30-regularization-boosting",
+   "weight": 22,
+   "implied": false
+  },
+  {
+   "source": "ch28-high-dimensional",
+   "target": "ch29-model-selection",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch28-high-dimensional",
+   "target": "ch30-regularization-boosting",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch09-sums-of-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch10-computation",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch20-residuals-leverage-influence",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch27-shrinkage",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch28-high-dimensional",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch30-regularization-boosting",
+   "weight": 3,
    "implied": false
   }
  ]

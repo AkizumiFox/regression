@@ -1,0 +1,556 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch29-model-selection/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Coverage.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch29-model-selection/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch29-model-selection/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="29.6 Summary and Notes">
+        <meta property="og:description" content="Coverage.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch29-model-selection/index.html">Model Selection and Prediction</a></li>
+                        <li class="breadcrumb-item"><a href="../ch29-model-selection/06-summary-and-notes.html"><span class="chapter-number">29.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">29.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">29.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>The training error of any fitting procedure
+                understates its in-sample prediction error by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="2n^{-1}\sum_i\operatorname{Cov}(\hat{\mu}_i,Y_i)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-munder space="2" limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c43"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c76"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.329em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.182em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><msup><mi>n</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup><munder><mo data-mjx-texclass="OP">∑</mo><mi>i</mi></munder><mi>Cov</mi><mo stretchy="false">(</mo><msub><mrow data-mjx-texclass="ORD"><mover><mi>μ</mi><mo stretchy="false">^</mo></mover></mrow><mi>i</mi></msub><mo>,</mo><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                on average. For least squares on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> columns this is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="2\sigma^2p/n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup><mi>p</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>, whether or
+                not the model is correct, and for a linear smoother
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="2\sigma^2\operatorname{tr}(\mathbf{S})/n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D412 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><msup><mi>σ</mi><mn>2</mn></msup><mi>tr</mi><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">S</mi></mrow><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch29-model-selection/01-prediction-error.html#thm-sel-optimism" class="xref" data-ref="thm-sel-optimism" data-shard="ch29-model-selection">Theorem 29.1.1</a>).</p></li>
+                <li><p>The degrees of freedom of a procedure are <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^{-2}\sum_i\operatorname{Cov}(\hat{\mu}_i,Y_i)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-munder space="2" limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c43"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c76"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.329em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.182em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>2</mn></mrow></msup><munder><mo data-mjx-texclass="OP">∑</mo><mi>i</mi></munder><mi>Cov</mi><mo stretchy="false">(</mo><msub><mrow data-mjx-texclass="ORD"><mover><mi>μ</mi><mo stretchy="false">^</mo></mover></mrow><mi>i</mi></msub><mo>,</mo><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch29-model-selection/01-prediction-error.html#def-sel-df" class="xref" data-ref="def-sel-df" data-shard="ch29-model-selection">Definition 29.1.2</a>).
+                Under normality they equal the expected divergence of
+                the fit, by Stein’s lemma (<a href="../ch27-shrinkage/05-james-stein.html#lem-shr-stein" class="xref" data-ref="lem-shr-stein" data-shard="ch27-shrinkage">Lemma 27.5.1</a>, <a href="../ch29-model-selection/01-prediction-error.html#prp-sel-divergence" class="xref" data-ref="prp-sel-divergence" data-shard="ch29-model-selection">Proposition 29.1.2</a>).
+                Soft thresholding costs its expected number of nonzero
+                coefficients, hard thresholding and subset search cost
+                more (<a href="../ch29-model-selection/01-prediction-error.html#prp-sel-hard-df" class="xref" data-ref="prp-sel-hard-df" data-shard="ch29-model-selection">Proposition 29.1.3</a>
+                and <a href="../ch29-model-selection/01-prediction-error.html#exm-sel-subset-df" class="xref" data-ref="exm-sel-subset-df" data-shard="ch29-model-selection">Example (Best subset of a given size)</a>).</p></li>
+                <li><p>Mallows’ <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="C_p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.045em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>C</mi><mi>p</mi></msub></math></mjx-assistive-mml></mjx-container></span>
+                is an unbiased estimate of the scaled risk of each
+                candidate, and it prefers a larger model iff the added
+                columns have <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F>2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi><mo>&gt;</mo><mn>2</mn></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch29-model-selection/02-cp-aic-bic.html#def-sel-cp" class="xref" data-ref="def-sel-cp" data-shard="ch29-model-selection">Definition 29.2.1</a>
+                and <a href="../ch29-model-selection/02-cp-aic-bic.html#prp-sel-cp" class="xref" data-ref="prp-sel-cp" data-shard="ch29-model-selection">Proposition 29.2.1</a>).
+                AIC estimates a Kullback–Leibler discrepancy, and AICc
+                estimates it without bias in the normal linear model (<a href="../ch29-model-selection/02-cp-aic-bic.html#def-sel-aic-bic" class="xref" data-ref="def-sel-aic-bic" data-shard="ch29-model-selection">Definition 29.2.2</a>
+                and <a href="../ch29-model-selection/02-cp-aic-bic.html#thm-sel-aicc" class="xref" data-ref="thm-sel-aicc" data-shard="ch29-model-selection">Theorem 29.2.2</a>).
+                BIC approximates a log marginal likelihood, with penalty
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\log n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><mi>n</mi></math></mjx-assistive-mml></mjx-container></span> per
+                parameter.</p></li>
+                <li><p>Criteria with a growing penalty such as BIC find
+                a true finite model with probability tending to one. AIC
+                keeps each irrelevant column with probability about
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\Pr\{\chi^2(1)>2\}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c50"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo data-mjx-texclass="OP" movablelimits="true">Pr</mo><mo fence="false" stretchy="false">{</mo><msup><mi>χ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo><mo>&gt;</mo><mn>2</mn><mo fence="false" stretchy="false">}</mo></math></mjx-assistive-mml></mjx-container></span>
+                however large <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></mjx-assistive-mml></mjx-container></span> is,
+                but it is efficient for prediction when no candidate is
+                true (<a href="../ch29-model-selection/02-cp-aic-bic.html#prp-sel-aic-bic" class="xref" data-ref="prp-sel-aic-bic" data-shard="ch29-model-selection">Proposition 29.2.4</a>).</p></li>
+                <li><p>In an orthonormal design selection is hard
+                thresholding, and no threshold dominates another (<a href="../ch29-model-selection/02-cp-aic-bic.html#prp-sel-orthonormal" class="xref" data-ref="prp-sel-orthonormal" data-shard="ch29-model-selection">Proposition 29.2.5</a>
+                and <a href="../ch29-model-selection/02-cp-aic-bic.html#eq-sel-hard-risk" class="xref" data-ref="eq-sel-hard-risk" data-shard="ch29-model-selection">Eq. 29.2.4</a>).</p></li>
+                <li><p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="K"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container></span>-fold
+                cross-validation estimates the expected error of the
+                procedure fitted to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n-n/K"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>−</mo><mi>n</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>K</mi></math></mjx-assistive-mml></mjx-container></span> cases, not the
+                error of the model at hand (<a href="../ch29-model-selection/03-cross-validation.html#prp-sel-cv-target" class="xref" data-ref="prp-sel-cv-target" data-shard="ch29-model-selection">Proposition 29.3.1</a>).
+                For quadratic penalties, leave-one-out needs no
+                refitting, and GCV replaces the leverages by their
+                average (<a href="../ch29-model-selection/03-cross-validation.html#thm-sel-loocv" class="xref" data-ref="thm-sel-loocv" data-shard="ch29-model-selection">Theorem 29.3.2</a> and
+                <a href="../ch29-model-selection/03-cross-validation.html#def-sel-gcv" class="xref" data-ref="def-sel-gcv" data-shard="ch29-model-selection">Definition 29.3.2</a>).
+                Every data-driven step must be repeated inside the folds
+                (<a href="../ch29-model-selection/03-cross-validation.html#exm-sel-nested" class="xref" data-ref="exm-sel-nested" data-shard="ch29-model-selection">Example (Screening, then cross-validating)</a>).</p></li>
+                <li><p>Criteria that depend on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\text{SSE}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mtext class="mjx-n"><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c45"></mjx-c></mjx-mtext></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mtext>SSE</mtext></math></mjx-assistive-mml></mjx-container></span> agree within a
+                size (<a href="../ch29-model-selection/04-subset-search.html#prp-sel-same-size" class="xref" data-ref="prp-sel-same-size" data-shard="ch29-model-selection">Proposition 29.4.1</a>).
+                Branch and bound finds the best subset exactly with far
+                fewer fits (<a href="../ch29-model-selection/04-subset-search.html#prp-sel-branch-bound" class="xref" data-ref="prp-sel-branch-bound" data-shard="ch29-model-selection">Proposition 29.4.2</a>).
+                Stepwise steps maximize partial correlations (<a href="../ch29-model-selection/04-subset-search.html#prp-sel-forward-step" class="xref" data-ref="prp-sel-forward-step" data-shard="ch29-model-selection">Proposition 29.4.3</a>)
+                and can miss the best subset, and the chosen subset is
+                unstable (<a href="../ch29-model-selection/04-subset-search.html#exm-sel-instability" class="xref" data-ref="exm-sel-instability" data-shard="ch29-model-selection">Example (Bootstrapping the state regressions)</a>).</p></li>
+                <li><p>After selection, estimates are biased away from
+                zero, minimized error estimates are optimistic, and
+                naive intervals under-cover (<a href="../ch29-model-selection/05-selection-bias.html#prp-sel-selection-bias" class="xref" data-ref="prp-sel-selection-bias" data-shard="ch29-model-selection">Proposition 29.5.1</a>).
+                Sample splitting (<a href="../ch29-model-selection/05-selection-bias.html#prp-sel-splitting" class="xref" data-ref="prp-sel-splitting" data-shard="ch29-model-selection">Proposition 29.5.2</a>),
+                simultaneous intervals over all submodels (<a href="../ch29-model-selection/05-selection-bias.html#prp-sel-simultaneous" class="xref" data-ref="prp-sel-simultaneous" data-shard="ch29-model-selection">Proposition 29.5.3</a>)
+                and conditional intervals (<a href="../ch29-model-selection/05-selection-bias.html#exm-sel-truncated" class="xref" data-ref="exm-sel-truncated" data-shard="ch29-model-selection">Example (A selective interval)</a>)
+                restore validity at different prices.</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">29.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Coverage.</strong> The chapter covers Seber
+                and Lee (2003, chapter 12), Christensen (2020, chapter
+                14), Sen and Srivastava (1990, chapter 11) and Fahrmeir,
+                Kneib, Lang and Marx (2021, section 3.4) with its own
+                arguments and examples. The comparison of short and long
+                regressions behind selection is <a href="../ch19-theory-of-departures/01-underfitting-overfitting.html#thm-dep-mse" class="xref" data-ref="thm-dep-mse" data-shard="ch19-theory-of-departures">Theorem 19.1.5</a>.
+                Shrinkage, the high-dimensional case, and penalized and
+                boosted fits are in <a href="../ch27-shrinkage/index.html">Chapter 27</a>, <a href="../ch28-high-dimensional/index.html">Chapter
+                28</a> and <a href="../ch30-regularization-boosting/index.html">Chapter
+                30</a>; bagging and random forests are outside the
+                book’s scope.</p>
+                <p><strong>Optimism and degrees of freedom.</strong> The
+                covariance form of the optimism is due to Efron (1986,
+                2004), and the covariance definition of degrees of
+                freedom, with the observation that selection adds to
+                them, to Ye (1998). Stein (1981) proved the identity
+                behind <a href="../ch29-model-selection/01-prediction-error.html#prp-sel-divergence" class="xref" data-ref="prp-sel-divergence" data-shard="ch29-model-selection">Proposition 29.1.2</a>
+                and the unbiased risk estimate. Zou, Hastie and
+                Tibshirani (2007) showed that the number of nonzero
+                lasso coefficients is unbiased for its degrees of
+                freedom, and Tibshirani (2015) studied the search
+                degrees of freedom of best subset selection, of which <a href="../ch29-model-selection/01-prediction-error.html#prp-sel-hard-df" class="xref" data-ref="prp-sel-hard-df" data-shard="ch29-model-selection">Proposition 29.1.3</a>
+                is the orthonormal case. Breiman (1992) estimated the
+                prediction error of a selected model by resampling
+                residuals, and Breiman and Spector (1992) compared fixed
+                and random designs and leave-one-out with five- and
+                ten-fold cross-validation.</p>
+                <p><strong>Criteria.</strong> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="C_p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.045em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>C</mi><mi>p</mi></msub></math></mjx-assistive-mml></mjx-container></span> and its plot are due
+                to Mallows (1973), AIC to Akaike (1973, 1974), and AICc
+                to Sugiura (1978) and Hurvich and Tsai (1989), whose
+                derivation <a href="../ch29-model-selection/02-cp-aic-bic.html#thm-sel-aicc" class="xref" data-ref="thm-sel-aicc" data-shard="ch29-model-selection">Theorem 29.2.2</a>
+                follows. BIC is from Schwarz (1978); Kass and Raftery
+                (1995) and Kass and Wasserman (1995) discuss its
+                accuracy. Consistency for penalties with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="c_n\to\infty"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2192"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="4"><mjx-c class="mjx-c221E"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>c</mi><mi>n</mi></msub><mo accent="false" stretchy="false">→</mo><mi mathvariant="normal">∞</mi></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="c_n/n\to0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2192"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>c</mi><mi>n</mi></msub><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi><mo accent="false" stretchy="false">→</mo><mn>0</mn></math></mjx-assistive-mml></mjx-container></span> is due to
+                Nishii (1984), efficiency to Shibata (1981) and Li
+                (1987), and their incompatibility to Yang (2005).
+                Konishi and Kitagawa (2008) treat information criteria
+                at book length. The pretest estimator goes back to
+                Bancroft (1944).</p>
+                <p><strong>Cross-validation.</strong> Cross-validation
+                is due to Stone (1974) and Geisser (1975), PRESS to
+                Allen (1974), the equivalence with AIC to Stone (1977),
+                and the need for large validation sets for consistency
+                to Shao (1993); Shao (1997) unifies these results. GCV
+                is from Craven and Wahba (1979) and Golub, Heath and
+                Wahba (1979), and the one-standard-error rule from
+                Breiman, Friedman, Olshen and Stone (1984). Bengio and
+                Grandvalet (2004) and Bates, Hastie and Tibshirani
+                (2024) analyse its variance and its target. Varma and
+                Simon (2006) and Hastie, Tibshirani and Friedman (2009,
+                section 7.10) discuss cross-validation after
+                screening.</p>
+                <p><strong>Search.</strong> Enumeration by sweeps is due
+                to Schatzoff, Tsao and Fienberg (1968), branch and bound
+                to Furnival and Wilson (1974), and stepwise regression
+                to Efroymson (1960). Miller (2002) is the standard
+                monograph on subset selection. Natarajan (1995) proved
+                NP-hardness, Bertsimas, King and Mazumder (2016) used
+                mixed-integer optimization, and Hastie, Tibshirani and
+                Tibshirani (2020) compare best subset, forward stepwise
+                and the lasso. Breiman (1996b) analysed instability,
+                Breiman (1996a) proposed bagging, Hoeting, Madigan,
+                Raftery and Volinsky (1999) review model averaging, and
+                Meinshausen and Bühlmann (2010) introduced stability
+                selection.</p>
+                <p><strong>Inference after selection.</strong> The
+                screening paradox is Freedman’s (1983). Leeb and
+                Pötscher (2005, 2006) showed that post-selection
+                distributions cannot be estimated uniformly. Sample
+                splitting goes back to Cox (1975), with modern versions
+                by Wasserman and Roeder (2009) and Rinaldo, Wasserman
+                and G’Sell (2019). <a href="../ch29-model-selection/05-selection-bias.html#prp-sel-simultaneous" class="xref" data-ref="prp-sel-simultaneous" data-shard="ch29-model-selection">Proposition 29.5.3</a>
+                is the PoSI approach of Berk, Brown, Buja, Zhang and
+                Zhao (2013). Exact conditional inference is due to Lee,
+                Sun, Sun and Taylor (2016) and Tibshirani, Taylor,
+                Lockhart and Tibshirani (2016), and data carving to
+                Fithian, Sun and Taylor (2014).</p>
+                <h2 id="references"><span class="header-section-number">29.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Akaike, Hirotugu (1973). Information Theory and an
+                Extension of the Maximum Likelihood Principle. In
+                Petrov, B. N. and Csáki, F. (eds.), <em>Second
+                International Symposium on Information Theory</em>,
+                267–281. Budapest: Akadémiai Kiadó.</li>
+                <li>Akaike, Hirotugu (1974). A New Look at the
+                Statistical Model Identification. <em>IEEE Transactions
+                on Automatic Control</em> 19(6), 716–723.</li>
+                <li>Allen, David M. (1974). The Relationship Between
+                Variable Selection and Data Augmentation and a Method
+                for Prediction. <em>Technometrics</em> 16(1),
+                125–127.</li>
+                <li>Bancroft, T. A. (1944). On Biases in Estimation Due
+                to the Use of Preliminary Tests of Significance. <em>The
+                Annals of Mathematical Statistics</em> 15(2),
+                190–204.</li>
+                <li>Bates, Stephen, Hastie, Trevor and Tibshirani,
+                Robert (2024). Cross-Validation: What Does It Estimate
+                and How Well Does It Do It? <em>Journal of the American
+                Statistical Association</em> 119(546), 1434–1445.</li>
+                <li>Bengio, Yoshua and Grandvalet, Yves (2004). No
+                Unbiased Estimator of the Variance of K-Fold
+                Cross-Validation. <em>Journal of Machine Learning
+                Research</em> 5, 1089–1105.</li>
+                <li>Berk, Richard, Brown, Lawrence, Buja, Andreas,
+                Zhang, Kai and Zhao, Linda (2013). Valid Post-Selection
+                Inference. <em>The Annals of Statistics</em> 41(2),
+                802–837.</li>
+                <li>Bertsimas, Dimitris, King, Angela and Mazumder,
+                Rahul (2016). Best Subset Selection via a Modern
+                Optimization Lens. <em>The Annals of Statistics</em>
+                44(2), 813–852.</li>
+                <li>Breiman, Leo (1992). The Little Bootstrap and Other
+                Methods for Dimensionality Selection in Regression:
+                X-Fixed Prediction Error. <em>Journal of the American
+                Statistical Association</em> 87(419), 738–754.</li>
+                <li>Breiman, Leo (1996a). Bagging Predictors.
+                <em>Machine Learning</em> 24(2), 123–140.</li>
+                <li>Breiman, Leo (1996b). Heuristics of Instability and
+                Stabilization in Model Selection. <em>The Annals of
+                Statistics</em> 24(6), 2350–2383.</li>
+                <li>Breiman, Leo, Friedman, Jerome H., Olshen, Richard
+                A. and Stone, Charles J. (1984). <em>Classification and
+                Regression Trees</em>. Belmont, CA: Wadsworth.</li>
+                <li>Breiman, Leo and Spector, Philip (1992). Submodel
+                Selection and Evaluation in Regression. The X-Random
+                Case. <em>International Statistical Review</em> 60(3),
+                291–319.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Cox, D. R. (1975). A Note on Data-Splitting for the
+                Evaluation of Significance Levels. <em>Biometrika</em>
+                62(2), 441–444.</li>
+                <li>Craven, Peter and Wahba, Grace (1979). Smoothing
+                Noisy Data with Spline Functions. <em>Numerische
+                Mathematik</em> 31(4), 377–403.</li>
+                <li>Donoho, David L. and Johnstone, Iain M. (1995).
+                Adapting to Unknown Smoothness via Wavelet Shrinkage.
+                <em>Journal of the American Statistical Association</em>
+                90(432), 1200–1224.</li>
+                <li>Efron, Bradley (1986). How Biased Is the Apparent
+                Error Rate of a Prediction Rule? <em>Journal of the
+                American Statistical Association</em> 81(394),
+                461–470.</li>
+                <li>Efron, Bradley (2004). The Estimation of Prediction
+                Error: Covariance Penalties and Cross-Validation.
+                <em>Journal of the American Statistical Association</em>
+                99(467), 619–632.</li>
+                <li>Efroymson, M. A. (1960). Multiple Regression
+                Analysis. In Ralston, Anthony and Wilf, Herbert S.
+                (eds.), <em>Mathematical Methods for Digital
+                Computers</em>, 191–203. New York: Wiley.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Fithian, William, Sun, Dennis and Taylor, Jonathan
+                (2014). Optimal Inference After Model Selection.
+                arXiv:1410.2597.</li>
+                <li>Freedman, David A. (1983). A Note on Screening
+                Regression Equations. <em>The American Statistician</em>
+                37(2), 152–155.</li>
+                <li>Furnival, George M. and Wilson, Robert W. (1974).
+                Regressions by Leaps and Bounds. <em>Technometrics</em>
+                16(4), 499–511.</li>
+                <li>Geisser, Seymour (1975). The Predictive Sample Reuse
+                Method with Applications. <em>Journal of the American
+                Statistical Association</em> 70(350), 320–328.</li>
+                <li>Golub, Gene H., Heath, Michael and Wahba, Grace
+                (1979). Generalized Cross-Validation as a Method for
+                Choosing a Good Ridge Parameter. <em>Technometrics</em>
+                21(2), 215–223.</li>
+                <li>Hastie, Trevor, Tibshirani, Robert and Friedman,
+                Jerome (2009). <em>The Elements of Statistical
+                Learning</em>. 2nd edition. New York: Springer.</li>
+                <li>Hastie, Trevor, Tibshirani, Robert and Tibshirani,
+                Ryan (2020). Best Subset, Forward Stepwise or Lasso?
+                Analysis and Recommendations Based on Extensive
+                Comparisons. <em>Statistical Science</em> 35(4),
+                579–592.</li>
+                <li>Hoeting, Jennifer A., Madigan, David, Raftery,
+                Adrian E. and Volinsky, Chris T. (1999). Bayesian Model
+                Averaging: A Tutorial. <em>Statistical Science</em>
+                14(4), 382–417.</li>
+                <li>Hurvich, Clifford M. and Tsai, Chih-Ling (1989).
+                Regression and Time Series Model Selection in Small
+                Samples. <em>Biometrika</em> 76(2), 297–307.</li>
+                <li>Kass, Robert E. and Raftery, Adrian E. (1995). Bayes
+                Factors. <em>Journal of the American Statistical
+                Association</em> 90(430), 773–795.</li>
+                <li>Kass, Robert E. and Wasserman, Larry (1995). A
+                Reference Bayesian Test for Nested Hypotheses and Its
+                Relationship to the Schwarz Criterion. <em>Journal of
+                the American Statistical Association</em> 90(431),
+                928–934.</li>
+                <li>Konishi, Sadanori and Kitagawa, Genshiro (2008).
+                <em>Information Criteria and Statistical Modeling</em>.
+                New York: Springer.</li>
+                <li>Kullback, S. and Leibler, R. A. (1951). On
+                Information and Sufficiency. <em>The Annals of
+                Mathematical Statistics</em> 22(1), 79–86.</li>
+                <li>Lee, Jason D., Sun, Dennis L., Sun, Yuekai and
+                Taylor, Jonathan E. (2016). Exact Post-Selection
+                Inference, with Application to the Lasso. <em>The Annals
+                of Statistics</em> 44(3), 907–927.</li>
+                <li>Leeb, Hannes and Pötscher, Benedikt M. (2005). Model
+                Selection and Inference: Facts and Fiction.
+                <em>Econometric Theory</em> 21(1), 21–59.</li>
+                <li>Leeb, Hannes and Pötscher, Benedikt M. (2006). Can
+                One Estimate the Conditional Distribution of
+                Post-Model-Selection Estimators? <em>The Annals of
+                Statistics</em> 34(5), 2554–2591.</li>
+                <li>Li, Ker-Chau (1987). Asymptotic Optimality for <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="C_p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.045em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>C</mi><mi>p</mi></msub></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="C_L"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.045em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>C</mi><mi>L</mi></msub></math></mjx-assistive-mml></mjx-container></span>, Cross-Validation and
+                Generalized Cross-Validation: Discrete Index Set.
+                <em>The Annals of Statistics</em> 15(3), 958–975.</li>
+                <li>Mallows, C. L. (1973). Some Comments on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="C_p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.045em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>C</mi><mi>p</mi></msub></math></mjx-assistive-mml></mjx-container></span>.
+                <em>Technometrics</em> 15(4), 661–675.</li>
+                <li>Meinshausen, Nicolai and Bühlmann, Peter (2010).
+                Stability Selection. <em>Journal of the Royal
+                Statistical Society, Series B</em> 72(4), 417–473.</li>
+                <li>Miller, Alan (2002). <em>Subset Selection in
+                Regression</em>. 2nd edition. Boca Raton, FL: Chapman
+                and Hall/CRC.</li>
+                <li>Natarajan, B. K. (1995). Sparse Approximate
+                Solutions to Linear Systems. <em>SIAM Journal on
+                Computing</em> 24(2), 227–234.</li>
+                <li>Nishii, Ryuei (1984). Asymptotic Properties of
+                Criteria for Selection of Variables in Multiple
+                Regression. <em>The Annals of Statistics</em> 12(2),
+                758–765.</li>
+                <li>Rinaldo, Alessandro, Wasserman, Larry and G’Sell,
+                Max (2019). Bootstrapping and Sample Splitting for
+                High-Dimensional, Assumption-Lean Inference. <em>The
+                Annals of Statistics</em> 47(6), 3438–3469.</li>
+                <li>Schatzoff, Martin, Tsao, R. and Fienberg, Stephen
+                (1968). Efficient Calculation of All Possible
+                Regressions. <em>Technometrics</em> 10(4), 769–779.</li>
+                <li>Schwarz, Gideon (1978). Estimating the Dimension of
+                a Model. <em>The Annals of Statistics</em> 6(2),
+                461–464.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Sen, Ashish and Srivastava, Muni (1990).
+                <em>Regression Analysis: Theory, Methods, and
+                Applications</em>. New York: Springer.</li>
+                <li>Shao, Jun (1993). Linear Model Selection by
+                Cross-Validation. <em>Journal of the American
+                Statistical Association</em> 88(422), 486–494.</li>
+                <li>Shao, Jun (1997). An Asymptotic Theory for Linear
+                Model Selection. <em>Statistica Sinica</em> 7(2),
+                221–264.</li>
+                <li>Shibata, Ritei (1981). An Optimal Selection of
+                Regression Variables. <em>Biometrika</em> 68(1),
+                45–54.</li>
+                <li>Stein, Charles M. (1981). Estimation of the Mean of
+                a Multivariate Normal Distribution. <em>The Annals of
+                Statistics</em> 9(6), 1135–1151.</li>
+                <li>Stone, M. (1974). Cross-Validatory Choice and
+                Assessment of Statistical Predictions. <em>Journal of
+                the Royal Statistical Society, Series B</em> 36(2),
+                111–147.</li>
+                <li>Stone, M. (1977). An Asymptotic Equivalence of
+                Choice of Model by Cross-Validation and Akaike’s
+                Criterion. <em>Journal of the Royal Statistical Society,
+                Series B</em> 39(1), 44–47.</li>
+                <li>Sugiura, Nariaki (1978). Further Analysts of the
+                Data by Akaike’s Information Criterion and the Finite
+                Corrections. <em>Communications in Statistics: Theory
+                and Methods</em> 7(1), 13–26.</li>
+                <li>Tibshirani, Ryan J. (2015). Degrees of Freedom and
+                Model Search. <em>Statistica Sinica</em> 25(3),
+                1265–1296.</li>
+                <li>Tibshirani, Ryan J., Taylor, Jonathan, Lockhart,
+                Richard and Tibshirani, Robert (2016). Exact
+                Post-Selection Inference for Sequential Regression
+                Procedures. <em>Journal of the American Statistical
+                Association</em> 111(514), 600–620.</li>
+                <li>Tierney, Luke and Kadane, Joseph B. (1986). Accurate
+                Approximations for Posterior Moments and Marginal
+                Densities. <em>Journal of the American Statistical
+                Association</em> 81(393), 82–86.</li>
+                <li>Varma, Sudhir and Simon, Richard (2006). Bias in
+                Error Estimation When Using Cross-Validation for Model
+                Selection. <em>BMC Bioinformatics</em> 7, 91.</li>
+                <li>Wasserman, Larry and Roeder, Kathryn (2009).
+                High-Dimensional Variable Selection. <em>The Annals of
+                Statistics</em> 37(5A), 2178–2201.</li>
+                <li>Yang, Yuhong (2005). Can the Strengths of AIC and
+                BIC Be Shared? A Conflict Between Model Identification
+                and Regression Estimation. <em>Biometrika</em> 92(4),
+                937–950.</li>
+                <li>Ye, Jianming (1998). On Measuring and Correcting the
+                Effects of Data Mining and Model Selection. <em>Journal
+                of the American Statistical Association</em> 93(441),
+                120–131.</li>
+                <li>Zou, Hui, Hastie, Trevor and Tibshirani, Robert
+                (2007). On the “Degrees of Freedom” of the Lasso.
+                <em>The Annals of Statistics</em> 35(5), 2173–2192.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch29-model-selection/05-selection-bias.html" class="pagination-link" aria-label="Selection
+bias and honest inference">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">29.5 Selection
+bias and honest inference</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch30-regularization-boosting/index.html" class="pagination-link" aria-label="Regularization
+and Boosting">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Regularization
+and Boosting</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2029.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch29-model-selection%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch29-model-selection/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>
