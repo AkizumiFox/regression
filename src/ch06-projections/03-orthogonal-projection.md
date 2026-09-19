@@ -335,8 +335,8 @@ iff \( \bP_1 \) and \( \bP_2 \) commute, in which case it projects onto
 [A1]
 
 Let \( \mathcal S=\spn\{(1,1,0)\T,(0,1,1)\T\} \). Compute \( \bP_{\mathcal S} \) in two ways: by
-Gram–Schmidt and @prp-proj-orthonormal-formula, and by
-@thm-proj-M-formula. Verify symmetry, idempotence and \( \tr\bP_{\mathcal S}=2 \).
+Gram–Schmidt and @prp-proj-orthonormal-formula, and by @thm-proj-M-formula.
+Verify symmetry, idempotence and \( \tr\bP_{\mathcal S}=2 \).
 Find \( \mathcal S\perpc \) and check that \( \I-\bP_{\mathcal S} \) projects onto it.
 :::
 

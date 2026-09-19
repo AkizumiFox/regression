@@ -77,9 +77,14 @@
         "src/ch03-multivariate-normal",
         "src/ch04-quadratic-forms",
         {
-            "dir": "src/ch06-projections",
+            "dir": "src/ch05-model-and-least-squares",
             "part": "Part II · The Linear Model as a Projection"
-        }
+        },
+        "src/ch06-projections",
+        "src/ch07-optimality",
+        "src/ch08-estimability",
+        "src/ch09-sums-of-squares",
+        "src/ch10-computation"
     ],
     "macros": "latex/macros.tex",
     "templates": {

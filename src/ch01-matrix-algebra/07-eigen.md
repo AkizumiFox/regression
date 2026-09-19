@@ -255,7 +255,7 @@ and every eigenvalue of \( \bm C^{-1}=\B^{1/2}\A^{-1}\B^{1/2} \) is at most \( 1
 \( \B^{-1}\succeq\A^{-1} \) by (c).
 :::
 
-Part (f) is used in Chapter 7: an estimator whose covariance matrix is smaller in
+Part (f) is used in [Chapter 7](../ch07-optimality/index.html): an estimator whose covariance matrix is smaller in
 the Loewner order has smaller variance for every linear combination of its components.
 
 ::: {#thm-mat-square-root}

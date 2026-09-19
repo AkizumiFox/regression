@@ -300,8 +300,8 @@ and subtracting \( (\E\bm X\T\A\bm X)^2=(\tr\A\bSigma)^2 \) gives the variance.
 ::: {#exr-mvn-singular-density}
 [B2]
 
-Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) with \( \rank(\bSigma)=r<n \), and use the notation of
-@prp-mvn-rank-representation. Show that \( \bm V=\Q\T(\Y-\bmu) \) has a density on \( \Real^r \),
+Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) with \( \rank(\bSigma)=r<n \), and use the notation of @prp-mvn-rank-representation.
+Show that \( \bm V=\Q\T(\Y-\bmu) \) has a density on \( \Real^r \),
 and that this density can be written as
 \( (2\pi)^{-r/2}(\lambda_1\cdots\lambda_r)^{-1/2}\exp\{-\tfrac12(\y-\bmu)\T\bSigma^{+}(\y-\bmu)\} \)
 with \( \y=\bmu+\Q\bm v \), where \( \bSigma^+=\Q\bLambda^{-1}\Q\T \) is the Moore–Penrose inverse.

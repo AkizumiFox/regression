@@ -109,8 +109,7 @@ So \( \A_i\A_j\bm y=\A_i\x=\bzero \) for every \( i\ne j \) and every \( \bm y \
 
 (i) and (iii) imply (ii): By (iii), \( \A\A_i=\A_i^2 \). Using \( \A^2=\A \),
 \( \A_i^2=\A\A_i=\A^2\A_i=\A\A_i^2=\A_i^3 \). The eigenvalues of the symmetric \( \A_i \) therefore
-satisfy \( \lambda^2=\lambda^3 \), so they lie in \( \{0,1\} \), and \( \A_i \) is idempotent by
-@thm-mat-idempotent.
+satisfy \( \lambda^2=\lambda^3 \), so they lie in \( \{0,1\} \), and \( \A_i \) is idempotent by @thm-mat-idempotent.
 
 For the last statement, let \( r_i=\rank(\A_i) \). For each \( i \),
 \( \I-\A_i=\sum_{j\ne i}\A_j \) has rank at most \( \sum_{j\ne i}r_j=n-r_i \)

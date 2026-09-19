@@ -353,8 +353,7 @@ since \( (1-h_i)y_i-\x\T\hbeta+h_iy_i=y_i-\x\T\hbeta \).
 
 For an \( n\times p \) matrix \( \X \) and \( \lambda>0 \), show that
 \( (\X\T\X+\lambda\I_p)^{-1}\X\T=\X\T(\X\X\T+\lambda\I_n)^{-1} \). Explain why the right-hand side is
-preferable when \( p \) is much larger than \( n \), and derive the identity a second way from
-@thm-mat-woodbury.
+preferable when \( p \) is much larger than \( n \), and derive the identity a second way from @thm-mat-woodbury.
 :::
 
 ::: {.solution}

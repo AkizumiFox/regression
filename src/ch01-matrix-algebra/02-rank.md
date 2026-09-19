@@ -130,14 +130,12 @@ where \( \A_{\cdot J} \) holds the columns in \( J \) and \( \A_{I\cdot} \) the 
 The columns in \( J \) are a basis of \( \C(\A) \), so \( \A=\A_{\cdot J}\bm F \) for some \( r\times n \)
 matrix \( \bm F \). Keeping only the rows in \( I \) gives \( \A_{I\cdot}=\A_{IJ}\bm F \). The left side
 has rank \( r \), so by @prp-mat-rank-product(a) the \( r\times r \) matrix \( \A_{IJ} \) has rank
-\( r \) and is nonsingular. Then \( \bm F=\A_{IJ}^{-1}\A_{I\cdot} \), which gives
-@eq-mat-skeleton.
+\( r \) and is nonsingular. Then \( \bm F=\A_{IJ}^{-1}\A_{I\cdot} \), which gives @eq-mat-skeleton.
 :::
 
 Conversely, a nonsingular \( k\times k \) submatrix makes the \( k \) columns of \( \A \) that contain it
 linearly independent, so \( \rank(\A)\ge k \). In particular, a matrix has rank \( r \) iff it has a
-nonsingular \( r\times r \) submatrix and no nonsingular larger one. This proposition gives an explicit generalized inverse in
-@thm-mat-ginverse-exists.
+nonsingular \( r\times r \) submatrix and no nonsingular larger one. This proposition gives an explicit generalized inverse in @thm-mat-ginverse-exists.
 
 ## Exercises
 

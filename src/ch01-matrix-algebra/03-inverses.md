@@ -54,7 +54,7 @@ of \( \A \), hence on all of \( \C(\A) \): if \( \bu=\A\bb \) then \( \A(\A\ginv
 \( \A\ginv\bu \) is a solution of \( \A\x=\bu \) whenever one exists. If \( \A \) is nonsingular,
 multiplying the definition by \( \A^{-1} \) on both sides gives \( \A\ginv=\A^{-1} \). In
 general there are many generalized inverses. [Chapter 6](../ch06-projections/index.html) uses them to write
-projections, and Chapter 8 uses them to describe estimable functions in
+projections, and [Chapter 8](../ch08-estimability/index.html) uses them to describe estimable functions in
 models of less than full rank.
 
 ::: {#thm-mat-ginverse-exists}

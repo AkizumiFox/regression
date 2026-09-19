@@ -13,8 +13,8 @@ has been observed. The answer is the probabilistic core of regression.
 ## Partial covariance with a generalized inverse
 
 The natural answer involves \( \bSigma_{22}^{-1} \), but \( \bSigma_{22} \) may be singular,
-for instance when \( \Y_2 \) contains a sum and its summands. A generalized inverse
-(@def-mat-ginverse) removes the need for a separate treatment. The facts that make
+for instance when \( \Y_2 \) contains a sum and its summands. A generalized inverse (@def-mat-ginverse)
+removes the need for a separate treatment. The facts that make
 this work were proved for arbitrary random vectors in [Section 2.5](../ch02-random-vectors/05-partitioned.html). We
 collect them in the notation of this chapter.
 
@@ -84,8 +84,8 @@ for any random vector. What normality adds is that zero covariance becomes indep
 \( \Y_2 \), and \( \W \) is independent of \( \Y_2 \). For independent \( \W \) and \( \Y_2 \), the
 conditional distribution of \( h(\W,\Y_2) \) given \( \Y_2=\y_2 \) is the distribution of
 \( h(\W,\y_2) \) (Billingsley 1995). With
-\( h(\bw,\y_2)=\bmu_1+\B(\y_2-\bmu_2)+\bw \), this is the normal distribution
-@eq-mvn-conditional. If \( \y_2-\bmu_2=\bSigma_{22}\bm k \), then
+\( h(\bw,\y_2)=\bmu_1+\B(\y_2-\bmu_2)+\bw \), this is the normal distribution @eq-mvn-conditional.
+If \( \y_2-\bmu_2=\bSigma_{22}\bm k \), then
 \( \B(\y_2-\bmu_2)=\bSigma_{12}\G\bSigma_{22}\bm k=\bSigma_{12}\bm k \), which does not
 involve \( \G \).
 
@@ -303,8 +303,8 @@ equals the best linear predictor of @thm-proj-blp (entry by entry, when
 :::
 
 ::: {.proof}
-\( \Y_1-\bm g(\Y_2)=\W+\bigl(\bm m(\Y_2)-\bm g(\Y_2)\bigr) \) with \( \W \) as in
-@thm-mvn-conditional. The cross term
+\( \Y_1-\bm g(\Y_2)=\W+\bigl(\bm m(\Y_2)-\bm g(\Y_2)\bigr) \) with \( \W \) as in @thm-mvn-conditional.
+The cross term
 \( \E\bigl[\W\T(\bm m(\Y_2)-\bm g(\Y_2))\bigr] \) vanishes, because \( \W \) has mean zero and is
 independent of \( \Y_2 \). And \( \E\norm{\W}^2=\tr\Cov(\W)=\tr(\bSigma_{11\cdot2}) \). The
 minimizer \( \bm m \) is affine, so it is also the best affine predictor, which is the

@@ -6,7 +6,7 @@ two problems. \( \M \) is \( n\times n \), so forming it costs \( O(n^2) \) memo
 that is never needed in full. And forming \( \X\T\X \) squares the condition number of the
 problem, which can throw away half of the available floating-point digits before any
 equation is solved. This section shows how the geometry itself suggests the fix, which
-is to build an orthonormal basis for \( \C(\X) \). Chapter 10 develops the
+is to build an orthonormal basis for \( \C(\X) \). [Chapter 10](../ch10-computation/index.html) develops the
 numerical linear algebra in full.
 
 ## QR: Gram–Schmidt as a factorization
@@ -177,8 +177,8 @@ least squares estimate is \( \hbeta^++\bv \) with \( \bv\in\Null(\X) \)
 In @exm-proj-ginverse-numeric, the Moore–Penrose row is this minimum-norm
 solution. In floating point, “\( \sigma_j>0 \)” becomes “\( \sigma_j \) larger
 than a tolerance”, and choosing the tolerance decides the numerical rank. That choice is
-a statistical decision in disguise. Chapter 10 discusses it, together with
-pivoted QR, which gives most of the SVD's rank-revealing ability at lower cost.
+a statistical decision in disguise. [Chapter 10](../ch10-computation/index.html) discusses it, together with
+pivoted QR (@thm-cmp-rank-revealing), which gives most of the SVD's rank-revealing ability at lower cost.
 
 ## Exercises
 

@@ -70,8 +70,8 @@ Halmos (1958) remains a model of coordinate-free exposition.
 **Generalized inverses.**  The four-condition inverse is due to
 Penrose (1955). Its statistical uses, and the theory of general
 \( \A\ginv \) including the characterization in @exr-proj-all-ginverses, are developed
-by Rao (1973). The invariance of \( \X(\X\T\X)\ginv\X\T \)
-(@lem-proj-ginverse-invariance) is the fact that makes generalized inverses
+by Rao (1973). The invariance of \( \X(\X\T\X)\ginv\X\T \) (@lem-proj-ginverse-invariance)
+is the fact that makes generalized inverses
 harmless in linear models. Every quantity of statistical interest is sandwiched in
 this way.
 
@@ -83,8 +83,8 @@ machine-learning estimators, and the fixed-effects (“within”) estimator for
 panel data.
 
 **Leverage.**  Hoaglin and Welsch (1978) introduced the name “hat matrix”
-into common use and established the basic properties in
-@prp-proj-leverage. Diagnostic use of leverage is taken up in
+into common use and established the basic properties in @prp-proj-leverage.
+Diagnostic use of leverage is taken up in
 Chapter 20.
 
 **Other inner products.**  Generalized least squares is due to
@@ -98,7 +98,7 @@ the SVD and their perturbation theory. Higham (2002) gives the precise
 statement of the conditioning of least squares problems, including the
 \( \kappa^2\norm{\he} \) term mentioned in [Section 6.10](10-computation.html).
 Seber and Lee (2003, chapter 11) surveys algorithms from a statistician's
-perspective, and Chapter 10 builds on it.
+perspective, and [Chapter 10](../ch10-computation/index.html) builds on it.
 
 ## References
 

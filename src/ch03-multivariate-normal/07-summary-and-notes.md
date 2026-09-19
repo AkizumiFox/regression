@@ -69,8 +69,7 @@ from Cramér and Wold (1936), where it was used to reduce multivariate limit the
 univariate ones. [Chapter 2](../ch02-random-vectors/index.html) proves it, together with the uniqueness and
 factorization properties of moment generating functions used in [Section 3.2](02-mgf-density.html).
 Billingsley (1995) is the reference for these facts and for the
-conditioning property of independent variables used in the proof of
-@thm-mvn-conditional.
+conditioning property of independent variables used in the proof of @thm-mvn-conditional.
 
 **Conditional distributions and partial correlation.**  The proof of
 @thm-mvn-conditional through the independent error \( \W \) borrows one idea from

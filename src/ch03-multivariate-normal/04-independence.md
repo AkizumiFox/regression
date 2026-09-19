@@ -77,8 +77,8 @@ deviations is \( \bm d=(\I-n^{-1}\bone\bone\T)\Y \). As in @exm-rv-centering,
 \]
 By @cor-mvn-AY-BY, \( \bar{Y} \) is independent of \( \bm d \), and so of every function
 of the deviations: the sample variance \( S^2=\norm{\bm d}^2/(n-1) \), the range, the
-sample skewness. The distribution of \( (n-1)S^2/\sigma^2 \) is found in
-@cor-qf-sample-variance. The computation used \( \Cov(\Y)=\sigma^2\I \) only through
+sample skewness. The distribution of \( (n-1)S^2/\sigma^2 \) is found in @cor-qf-sample-variance.
+The computation used \( \Cov(\Y)=\sigma^2\I \) only through
 \( \bSigma\bone\in\spn(\bone) \), which is the precise condition for the conclusion
 (@exr-mvn-equicorrelated-mean).
 :::
@@ -104,7 +104,7 @@ to have a \( t \) distribution (Chapter 11).
 
 The two examples use only a covariance calculation. Without joint normality, zero
 covariance between \( \hbeta \) and \( \he \) still holds under the second-moment
-assumptions of Chapter 5, but independence does not follow,
+assumptions of @def-lm-linear-model, but independence does not follow,
 and neither do exact \( t \) and \( F \) distributions. Chapter 21
 examines what survives approximately.
 :::

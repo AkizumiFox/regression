@@ -89,8 +89,7 @@ matrix \( \I-n^{-1}\bm J \) is symmetric and idempotent, so @thm-rv-linear gives
 The deviations have variances \( \sigma^2(1-1/n) \) and are negatively correlated, with
 correlation \( -1/(n-1) \) between each pair, because they are forced to sum to zero. And each
 deviation is uncorrelated with the mean. Under normality, uncorrelated becomes
-independent (@exm-mvn-mean-deviations), which is the first half of
-@cor-qf-sample-variance.
+independent (@exm-mvn-mean-deviations), which is the first half of @cor-qf-sample-variance.
 :::
 
 ## Covariance matrices are nonnegative definite
@@ -124,8 +123,7 @@ constant with probability one. Then \( \Y \) lies, with probability one, in the 
 :::
 
 ::: {.proof}
-(a) \( \bSigma \) is symmetric, and \( \bm a\T\bSigma\bm a=\Var(\bm a\T\Y)\ge0 \) by
-@eq-rv-linear-combination.
+(a) \( \bSigma \) is symmetric, and \( \bm a\T\bSigma\bm a=\Var(\bm a\T\Y)\ge0 \) by @eq-rv-linear-combination.
 
 (b) Let \( \bSigma \) be nonnegative definite and let \( \bSigma^{1/2} \) be its symmetric
 nonnegative definite square root (@thm-mat-square-root). Let \( \Z \) have independent
@@ -315,8 +313,8 @@ covariance, so \( \E(\Y)=\X\bbeta \) and \( \Cov(\Y)=\sigma^2\I_n \). The least 
 \Cov(\hbeta)=\sigma^2(\X\T\X)^{-1}\X\T\X(\X\T\X)^{-1}=\sigma^2(\X\T\X)^{-1}.
 \]
 No distributional assumption was used, and none is needed for the Gauss–Markov theorem
-of Chapter 7. Fitted values and residuals are also linear in \( \Y \), and their
-covariance matrices are computed the same way in Chapter 5 and
+(@thm-opt-gauss-markov). Fitted values and residuals are also linear in \( \Y \), and their
+covariance matrices are computed the same way in [Chapter 5](../ch05-model-and-least-squares/index.html) and
 [Chapter 6](../ch06-projections/index.html). If instead \( \Cov(\be)=\sigma^2\V \) with \( \V \) positive definite, then
 \( \V^{-1/2}\Y=\V^{-1/2}\X\bbeta+\V^{-1/2}\be \) is a model with \( \Cov(\V^{-1/2}\be)=\sigma^2\I \).
 Whitening the data turns correlated errors back into the standard case. This is

@@ -55,7 +55,7 @@ this.
 **Computation.**  In practice \( \bm C \) is never formed: one subtracts column means. The
 eigenvalues of \( \bS \) are the squared singular values of \( \bm C\bm{\mathcal{Y}}/\sqrt{n-1} \)
 (@thm-mat-svd), which can be computed without forming a cross-product matrix
-(Chapter 10).
+([Chapter 10](../ch10-computation/index.html)).
 
 ::: {#exm-rv-longley}
 [Macroeconomic series]

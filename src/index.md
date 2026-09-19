@@ -43,7 +43,7 @@ to treat ANOVA as ordinary subspace comparison.
 
 **Computation is part of the theory.**  Conditioning, QR and the
 singular value decomposition come immediately after least squares
-(Chapter 10), because numerical stability and statistical
+([Chapter 10](ch10-computation/index.html)), because numerical stability and statistical
 stability are closely linked.
 
 **The Bayesian treatment is a thread, not a quarantined chapter.**
@@ -96,12 +96,12 @@ are written; the ones not yet on the site are named in plain text.
 
 ### Reading paths
 
-- **A first course on linear models.** Chapters 5–9, 11–12, 15, 19–20 and 29.
+- **A first course on linear models.** Chapters [5](ch05-model-and-least-squares/index.html)–[9](ch09-sums-of-squares/index.html), 11–12, 15, 19–20 and 29.
   Consult Part I as needed.
-- **The theory spine.** Part I, then Chapters [6](ch06-projections/index.html), 7, 8, 9, 11 and 31.
+- **The theory spine.** Part I, then Chapters [6](ch06-projections/index.html), [7](ch07-optimality/index.html), [8](ch08-estimability/index.html), [9](ch09-sums-of-squares/index.html), 11 and 31.
   This is the shortest route to a full structural understanding of the linear model.
-- **For implementers.** Chapters 5, [6](ch06-projections/index.html), 10 and 20, Part VI and Chapter 34.
-- **A course on generalized models.** Chapters 5, [6](ch06-projections/index.html) and 11, then Parts VII–X.
+- **For implementers.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html), [10](ch10-computation/index.html) and 20, Part VI and Chapter 34.
+- **A course on generalized models.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html) and 11, then Parts VII–X.
 
 ### Prerequisites
 

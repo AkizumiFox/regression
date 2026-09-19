@@ -7,7 +7,7 @@ vector. In the model
 \]
 \( \Y=(Y_1,\dots,Y_n)\T \) has one entry per observational unit, and so does the
 unobservable error \( \be \). The assumptions that do the real work in
-Chapter 5, [Chapter 6](../ch06-projections/index.html) and Chapter 7 are not about the shape
+[Chapter 5](../ch05-model-and-least-squares/index.html), [Chapter 6](../ch06-projections/index.html) and [Chapter 7](../ch07-optimality/index.html) are not about the shape
 of any distribution. They are statements about moments: \( \E(\be)=\bzero \), and the errors have
 equal variances and are uncorrelated. The second way is the measurement vector. When
 several quantities are recorded on the same unit, such as income, age and years of

@@ -71,7 +71,7 @@ By @eq-mat-general-solution, \( \bm q\T\x \) is constant over solutions iff
 Applied to the normal equations \( \X\T\X\bb=\X\T\y \), which are consistent by
 @prp-mat-rank-product(c), the corollary says that \( \bm q\T\hbeta \) is the same for all
 least squares solutions iff \( \bm q\in\C(\X\T\X)=\C(\X\T) \). This is the algebra behind
-estimable functions (Chapter 8).
+estimable functions (@thm-est-characterization).
 
 ::: {#prp-mat-min-norm}
 [Minimum-norm solution]

@@ -9,7 +9,7 @@ A chapter that needs a new symbol adds it here and there before using it.
 | `\X`, `\x_j`, `\x_{(i)}` | model matrix n × p; its j-th column; its i-th row as a column |
 | `\bbeta`, `\hbeta`, `\be` | coefficients, a least squares estimate, the error vector ε |
 | `\hY`, `\he` | fitted values, residuals |
-| `\A, \B, \G, \M, \Q, \R, \V, \bP, \bD, \bL, \bS, \bT, \bU, \bH` | bold matrices (`\bH` is the hat matrix) |
+| `\A, \B, \G, \M, \Q, \R, \V, \bP, \bD, \bL, \bS, \bT, \bU, \bH` | bold matrices (`\bH` is the hat matrix, written `\bH` in Ch. 5 before Ch. 6 renames it `\M`; locally, `\bH_{\G}=\G\X\T\X` in Ch. 8 and a Householder reflection in Ch. 10) |
 | `\bu, \bv, \bw, \bz, \bb, \br, \bmu, \bgamma, \blambda, \bzero, \bone` | bold vectors |
 | `\bSigma`, `\bLambda`, `\bm{...}` | bold Greek; `\bm` for anything else |
 | `\I` | identity. `\M` the orthogonal projection onto C(X), `\Mo` onto a reduced model |

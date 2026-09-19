@@ -5,6 +5,14 @@
 % web converter. Operators the engine's LaTeX style already defines use \providecommand,
 % so the PDF keeps the engine's definition and the website gets the same one from here.
 
+% PDF only: the engine's style (latex-template.sty) already defines several of these names
+% (\R and \C as blackboard letters, \T as an upright bold T, ...), which made the \newcommand
+% lines below fail silently. Clearing them first lets this file's definitions win. The web
+% converter ignores \let.
+\let\A\relax \let\B\relax \let\C\relax \let\E\relax \let\G\relax \let\I\relax
+\let\M\relax \let\Q\relax \let\R\relax \let\T\relax \let\V\relax \let\W\relax
+\let\X\relax \let\Y\relax \let\Z\relax \let\norm\relax
+
 % Bold vectors and matrices: bold italic, Latin and Greek alike
 \newcommand{\vect}[1]{\boldsymbol{#1}}
 \providecommand{\bm}[1]{\boldsymbol{#1}}
@@ -70,3 +78,7 @@
 \newcommand{\iid}{\overset{\text{iid}}{\sim}}
 \newcommand{\Normal}{\mathrm{N}}
 \newcommand{\dirsum}{\oplus}
+
+% PDF only: the engine redefines single lower-case letters (\x, \y, ...) as upright bold
+% vectors at \begin{document}; restate the book's bold italic versions after it.
+\AtBeginDocument{\def\x{\vect{x}}\def\y{\vect{y}}}

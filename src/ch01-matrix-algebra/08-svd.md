@@ -111,7 +111,7 @@ is solved. If \( \A \) is square and nonsingular, \( \A\x=\bb \) and \( \A(\x+\d
 In floating point, relative errors of about \( 10^{-16} \) in the data can therefore become errors
 of about \( \kappa\times10^{-16} \) in the solution. Solving the normal equations works with
 \( \X\T\X \) and so, by @eq-mat-kappa-squared, squares the damage.
-[Chapter 6](../ch06-projections/index.html) and Chapter 10 take this up.
+[Chapter 6](../ch06-projections/index.html) and [Chapter 10](../ch10-computation/index.html) take this up.
 
 A small \( \sigma_{\min} \) has a direct statistical reading. By
 @prp-mat-svd-norms(b), \( \norm{\X\bv_n}=\sigma_n \) with \( \norm{\bv_n}=1 \). The coefficients

@@ -8,7 +8,7 @@ squares, the Frisch–Waugh–Lovell theorem, \( R^2 \) as a squared cosine, lev
 generalized least squares, and how the projection should actually be computed.
 
 **What you need.** [Chapter 1](../ch01-matrix-algebra/index.html) (rank, inverses, eigenvalues),
-Chapter 5 (the linear model and least squares). Random
+[Chapter 5](../ch05-model-and-least-squares/index.html) (the linear model and least squares). Random
 vectors ([Chapter 2](../ch02-random-vectors/index.html)) appear only in a few remarks.
 
 ## Roadmap

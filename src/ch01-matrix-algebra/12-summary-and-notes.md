@@ -78,7 +78,7 @@ the vector-space facts used in [Section 1.2](02-rank.html).
 Penrose (1955), who proved existence and uniqueness. E. H. Moore had
 described an equivalent inverse decades earlier. Rao (1973) made the weaker
 inverse \( \A\A\ginv\A=\A \) the basic tool of linear-model theory, and it is his approach that
-[Section 1.4](04-systems.html) and Chapter 8 follow. The construction from a nonsingular
+[Section 1.4](04-systems.html) and [Chapter 8](../ch08-estimability/index.html) follow. The construction from a nonsingular
 submatrix in @thm-mat-ginverse-exists is a matrix-free way of stating an algorithm
 that is often given as a sequence of steps (Searle 1982).
 

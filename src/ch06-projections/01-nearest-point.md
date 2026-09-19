@@ -1,6 +1,6 @@
 # Least squares as a nearest-point problem
 
-Chapter 5 introduced least squares as a calculus problem:
+[Chapter 5](../ch05-model-and-least-squares/index.html) introduced least squares as a calculus problem:
 write down the sum of squared errors as a function of the coefficients,
 differentiate, set the derivative to zero. That route gets the right answer, but
 it hides the structure of the answer. It treats the coefficient vector \( \bbeta \)

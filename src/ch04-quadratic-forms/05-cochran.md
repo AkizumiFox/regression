@@ -167,7 +167,7 @@ of Chapter 31.
 Most analysis of variance tables in this book come from a chain of nested model spaces.
 The successive differences of their projections are mutually orthogonal projections whose
 ranks add up, so Cochran's theorem applies without further work
-(@exr-qf-sequential, Chapter 9).
+(@exr-qf-sequential, @thm-ss-decomposition).
 
 ## Exercises
 

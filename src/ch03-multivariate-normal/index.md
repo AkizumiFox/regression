@@ -11,7 +11,7 @@ squares.
 
 **What you need.** [Chapter 1](../ch01-matrix-algebra/index.html) (spectral theorem, square roots, generalized and
 partitioned inverses), [Chapter 2](../ch02-random-vectors/index.html) (mean vectors and covariance matrices).
-Some examples refer forward to least squares (Chapter 5 and [Chapter 6](../ch06-projections/index.html)).
+Some examples refer forward to least squares ([Chapter 5](../ch05-model-and-least-squares/index.html) and [Chapter 6](../ch06-projections/index.html)).
 
 ## Roadmap
 

@@ -133,8 +133,8 @@ Differentiating, \( K'(t)=r(1-2t)^{-1}+\gamma(1-2t)^{-2} \) and
 \E\,e^{tV}=\sum_{k=0}^\infty e^{-\gamma/2}\frac{(\gamma/2)^k}{k!}(1-2t)^{-(r+2k)/2}
 =(1-2t)^{-r/2}e^{-\gamma/2}\exp\Bigl(\frac{\gamma/2}{1-2t}\Bigr),
 \]
-and \( -\tfrac{\gamma}{2}+\tfrac{\gamma}{2(1-2t)}=\tfrac{\gamma t}{1-2t} \). This is
-@eq-qf-ncchisq-mgf. The density of a mixture is the mixture of the densities.
+and \( -\tfrac{\gamma}{2}+\tfrac{\gamma}{2(1-2t)}=\tfrac{\gamma t}{1-2t} \). This is @eq-qf-ncchisq-mgf.
+The density of a mixture is the mixture of the densities.
 :::
 
 The mixture in (d) is more than a formula. It says that noncentrality acts like a
@@ -316,8 +316,8 @@ that rejects for \( T>c \) increases with \( \delta \).
 \( T^2=X^2/(V/s) \) with \( X^2\sim\chi^2(1,\delta^2) \) independent of
 \( V \), which is @def-qf-noncentral-f. The two-sided test rejects when
 \( \lvert T\rvert>t_{\alpha/2}(s) \), that is, when \( T^2>F_\alpha(1,s) \). Its power is therefore
-\( \Pr\{F(1,s,\delta^2)>F_\alpha(1,s)\} \), a strictly increasing function of \( \delta^2 \) by
-@thm-qf-f-power. For the one-sided test, \( \Pr(T>c)=\E\,\Pr\{X>c\sqrt{V/s}\mid V\}
+\( \Pr\{F(1,s,\delta^2)>F_\alpha(1,s)\} \), a strictly increasing function of \( \delta^2 \) by @thm-qf-f-power.
+For the one-sided test, \( \Pr(T>c)=\E\,\Pr\{X>c\sqrt{V/s}\mid V\}
 =\E\,\Phi(\delta-c\sqrt{V/s}) \), and \( \Phi \) is strictly increasing.
 :::
 

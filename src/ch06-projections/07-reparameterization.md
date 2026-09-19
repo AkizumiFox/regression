@@ -19,8 +19,8 @@ have full column rank, then \( p=q \), \( \bT=\bS^{-1} \), and \( \hat{\bgamma}=
 
 ::: {.proof}
 A projection is determined by its range (@thm-proj-sym-idem), so both models
-have projection \( \M \), and fitted values and residuals follow from
-@thm-proj-ls-projection. Each column of \( \W \) lies in \( \C(\X) \), so \( \W=\X\bT \)
+have projection \( \M \), and fitted values and residuals follow from @thm-proj-ls-projection.
+Each column of \( \W \) lies in \( \C(\X) \), so \( \W=\X\bT \)
 for some \( \bT \), and likewise \( \X=\W\bS \). If \( \W\hat{\bgamma}=\M\y \), then
 \( \X(\bT\hat{\bgamma})=\M\y \), so \( \bT\hat{\bgamma} \) is a least squares estimate for \( \X \).
 The other direction is symmetric. With full column rank, \( \X=\X\bT\bS \) gives
@@ -72,7 +72,7 @@ that subspace is spanned by the centred columns
 +\underbrace{\sum_i(y_i-\hat y_i)^2}_{\text{SSE}} ,
 \]{#eq-proj-corrected-decomposition}
 
-with dimensions \( n-1=(r-1)+(n-r) \). Chapter 9 builds the analysis of
+with dimensions \( n-1=(r-1)+(n-r) \). [Chapter 9](../ch09-sums-of-squares/index.html) builds the analysis of
 variance on this identity.
 
 ## \( R^2 \) is a squared cosine

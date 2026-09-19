@@ -60,8 +60,7 @@ Let \( \Y\sim\Normal_n(\bmu,\bSigma) \).
 
 ::: {.proof}
 Both follow from @thm-mvn-linear: \( \A^{-1}\A\A\T(\A^{-1})\T=\I \) and
-\( \Q\T(\sigma^2\I)\Q=\sigma^2\I \). Independence in (a) was shown in the proof of
-@prp-mvn-mahalanobis.
+\( \Q\T(\sigma^2\I)\Q=\sigma^2\I \). Independence in (a) was shown in the proof of @prp-mvn-mahalanobis.
 :::
 
 Part (b) is the probabilistic basis of the canonical form of the linear model.
@@ -106,7 +105,7 @@ lower-dimensional normal vectors in disguise.
 
 Let \( \Y\sim\Normal_n(\X\bbeta,\sigma^2\I) \) with \( \X \) of full column rank \( p \), and let
 \( \M=\X(\X\T\X)^{-1}\X\T \), the symmetric idempotent matrix of rank \( p \) with
-\( \M\X=\X \) (Chapter 5 and [Chapter 6](../ch06-projections/index.html)). By
+\( \M\X=\X \) ([Chapter 5](../ch05-model-and-least-squares/index.html) and [Chapter 6](../ch06-projections/index.html)). By
 @thm-mvn-linear:
 
 ::: {.enumerate options="label=(\alph*)"}

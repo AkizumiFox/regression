@@ -111,7 +111,7 @@ seen geometrically.
 \tilde{\X}_1\T\tilde{\X}_1(\tilde{\X}_1\T\tilde{\X}_1)^{-1}
 =\sigma^2(\tilde{\X}_1\T\tilde{\X}_1)^{-1}.
 \]
-Comparing with \( \Cov(\hbeta)=\sigma^2(\X\T\X)^{-1} \) (Chapter 5)
+Comparing with \( \Cov(\hbeta)=\sigma^2(\X\T\X)^{-1} \) (@thm-lm-moments)
 identifies the leading block of the inverse of a partitioned matrix,
 \[
 \bigl[(\X\T\X)^{-1}\bigr]_{11}

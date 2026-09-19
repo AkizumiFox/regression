@@ -56,10 +56,9 @@ A vector \( \bb \) solves @eq-proj-normal-equations iff \( \y-\X\bb\perp\C(\X) \
 Since \( \X\bb\in\C(\X) \) automatically, this holds iff \( \y=\X\bb+(\y-\X\bb) \) is the
 orthogonal decomposition of \( \y \), that is, iff \( \X\bb=\M\y \). By
 @thm-proj-ls-projection this is the same as \( \bb \) being a least squares
-estimate. For the particular solution, \( \X(\X\T\X)\ginv\X\T\y=\M\y \) by
-@thm-proj-M-formula. Finally, \( \X\bb=\M\y=\X\hbeta \) iff
-\( \X(\bb-\hbeta)=\bzero \), and \( \Null(\X)=\{\bzero\} \) iff \( \rank(\X)=p \) by
-@eq-proj-rank-nullity.
+estimate. For the particular solution, \( \X(\X\T\X)\ginv\X\T\y=\M\y \) by @thm-proj-M-formula.
+Finally, \( \X\bb=\M\y=\X\hbeta \) iff
+\( \X(\bb-\hbeta)=\bzero \), and \( \Null(\X)=\{\bzero\} \) iff \( \rank(\X)=p \) by @eq-proj-rank-nullity.
 :::
 
 The logic of this proof runs opposite to the usual calculus derivation, and
@@ -111,8 +110,8 @@ data can reveal must therefore come from \( (\I-\M)\be \). If
 \]
 using @prp-proj-trace-rank. So \( \norm{\he}^2/(n-r) \) is unbiased for
 \( \sigma^2 \). The divisor is the dimension of the space in which the residuals live,
-not the number of observations and not \( n-p \). Chapter 7 develops the
-sampling theory, and Chapter 9 develops the decomposition.
+not the number of observations and not \( n-p \). [Chapter 7](../ch07-optimality/index.html) develops the
+sampling theory, and [Chapter 9](../ch09-sums-of-squares/index.html) develops the decomposition.
 
 ## Coefficients are not unique; fitted values are
 
@@ -198,7 +197,7 @@ for name, G in ginverses.items():
 
 Which linear functions of \( \hbeta \) come out the same for every least squares
 estimate? The answer is a first look at estimability, the subject of
-Chapter 8.
+[Chapter 8](../ch08-estimability/index.html).
 
 ::: {#thm-proj-invariant-functions}
 For \( \blambda\in\Real^p \), the value \( \blambda\T\hbeta \) is the same for every least
@@ -230,7 +229,7 @@ Imposing \( \beta_0=0 \) or \( \beta_1=0 \) does not add information about the d
 It picks one point from the affine set \( \hbeta+\Null(\X) \). A side condition
 \( \bm c\T\bbeta=0 \) picks exactly one point iff \( \bm c\notin\C(\X\T) \). A condition
 inside \( \C(\X\T) \) would constrain the fitted values and change the model rather
-than just its coordinates. Chapter 8 makes this precise.
+than just its coordinates. @thm-est-side-conditions makes this precise.
 :::
 
 ## Exercises

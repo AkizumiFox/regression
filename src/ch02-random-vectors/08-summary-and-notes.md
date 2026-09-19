@@ -86,8 +86,8 @@ quadratic forms, including general covariance structures.
 **Correlation, partial covariance and prediction.**  The feasible range in
 @prp-rv-three-correlations is a special case of the fact that a symmetric matrix is
 nonnegative definite iff a Schur complement is, when the leading block is positive definite.
-Horn and Johnson (2013) give the general Schur-complement and Loewner-order results used in
-@thm-rv-blp. Stating the best linear predictor with a generalized inverse, so that nothing
+Horn and Johnson (2013) give the general Schur-complement and Loewner-order results used in @thm-rv-blp.
+Stating the best linear predictor with a generalized inverse, so that nothing
 needs \( \bSigma_{XX} \) to be nonsingular, is in the spirit of Rao (1973), who uses
 generalized inverses throughout.
 

@@ -63,7 +63,7 @@ last identity, read column by column, is \( \X=\Q\R \) with \( r_{jj}=\norm{\bw_
 :::
 
 The factorization is unique (@exr-mat-qr-unique). Numerical software computes it
-by a more stable route, but the object is the same, and [Chapter 6](../ch06-projections/index.html) and Chapter 10
+by a more stable route, but the object is the same, and [Chapter 6](../ch06-projections/index.html) and [Chapter 10](../ch10-computation/index.html)
 rely on it. Two consequences are used repeatedly. First, any orthonormal set
 \( \bu_1,\dots,\bu_r \) in \( \Real^n \) extends to an orthonormal basis: apply Gram–Schmidt to
 \( \bu_1,\dots,\bu_r,\bm e_1,\dots,\bm e_n \), discarding each vector that depends on its

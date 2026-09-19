@@ -117,8 +117,8 @@ leverage is \( p/n=0.078 \), and the smallest is
 
 The District of Columbia is entirely urban, with by far the highest proportion of
 single-parent households. It sits at a corner of the regressor cloud that no state comes
-near, and its leverage is about half the maximum possible. It was omitted from
-@exm-proj-fwl-crime. @exr-proj-dc asks what happens to the poverty
+near, and its leverage is about half the maximum possible. It was omitted from @exm-proj-fwl-crime.
+@exr-proj-dc asks what happens to the poverty
 coefficient when it is put back.
 :::
 

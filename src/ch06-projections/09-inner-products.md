@@ -46,8 +46,7 @@ estimate is \( (\X_*\T\X_*)\ginv\X_*\T\y_*=(\X\T\A\X)\ginv\X\T\A\y \), and
 on the left by \( \bL^{-\top} \) and on the right by \( \bL\T \) shows that
 \( \bP_{\X,\A}=\bL^{-\top}\M_*\bL\T \), where \( \M_* \) projects onto \( \C(\X_*) \). Idempotence and
 \( \C(\bP_{\X,\A})=\bL^{-\top}\C(\X_*)=\C(\X) \) follow, and
-\( \A\bP_{\X,\A}=\bL\M_*\bL\T \) is symmetric. For the last claim, see
-@exr-proj-kruskal.
+\( \A\bP_{\X,\A}=\bL\M_*\bL\T \) is symmetric. For the last claim, see @exr-proj-kruskal.
 :::
 
 The proof also gives the general principle: *\( \A \)-geometry is Euclidean
@@ -242,8 +241,7 @@ then \( \bu=\bP^2\bw=\bP\bu=\bzero \), so the sum is direct. For \( \bu\in\C(\bP
 uniqueness of the decomposition, and it is idempotent with the required range and null
 space. It is unique because its values are forced on all of \( \Real^n \). If
 \( \mathcal T=\mathcal S\perpc \), the map is the orthogonal projection, which is symmetric. If
-\( \bP \) is symmetric, then \( \Null(\bP)=\Null(\bP\T)=\C(\bP)\perpc \) by
-@lem-proj-null-colspace.
+\( \bP \) is symmetric, then \( \Null(\bP)=\Null(\bP\T)=\C(\bP)\perpc \) by @lem-proj-null-colspace.
 :::
 
 ::: {when-format="html"}

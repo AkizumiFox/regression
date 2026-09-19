@@ -4,7 +4,7 @@ Statistical questions about linear models are almost always comparisons. Does a
 regressor matter? Are several group means equal? Is a curve needed, or will a line do? Each
 comparison sets a full model against a *reduced* model whose mean space is
 a subspace of the full one. This section studies the geometry of such nested
-pairs. Chapter 9 and Chapter 11 build the analysis of
+pairs. [Chapter 9](../ch09-sums-of-squares/index.html) and Chapter 11 build the analysis of
 variance and the \( F \) test on it.
 
 ## Two nested subspaces
@@ -137,7 +137,7 @@ to \( \I \). The corresponding lengths
 \[
 \norm{(\M_j-\M_{j-1})\y}^2=\text{SSE}_{j-1}-\text{SSE}_j
 \]
-are the **sequential sums of squares** of Chapter 9. Their
+are the **sequential sums of squares** of @def-ss-sequential. Their
 values depend on the *order* in which the subspaces are nested. A regressor
 added early can take credit that it would not get if added last. The
 Frisch–Waugh–Lovell theorem of [Section 6.6](06-fwl.html) describes what the regressor
@@ -213,8 +213,7 @@ Let factor \( A \) have \( a \) levels and factor \( B \) have \( b \) levels, w
 \( y_{ij} \) for each of the \( n=ab \) combinations. Let \( \bP_A \) project onto vectors
 that depend only on the \( A \) level, so \( \bP_A\y \) has entries \( \bar y_{i\cdot} \), and
 define \( \bP_B \) similarly. Let \( \bP_0=n^{-1}\bone\bone\T \). Both
-\( \C(\bP_A) \) and \( \C(\bP_B) \) contain \( \bone \), so \( \bP_A\bP_0=\bP_B\bP_0=\bP_0 \) by
-@thm-proj-nested.
+\( \C(\bP_A) \) and \( \C(\bP_B) \) contain \( \bone \), so \( \bP_A\bP_0=\bP_B\bP_0=\bP_0 \) by @thm-proj-nested.
 
 The crucial computation is \( \bP_A\bP_B \). Averaging over \( j \) with \( i \) fixed a
 vector that depends only on \( j \) gives the overall average of that vector. So for
