@@ -1001,6 +1001,351 @@
           "filename": "07-summary-and-notes.md"
         }
       ]
+    },
+    {
+      "title": "What Goes Wrong: A Theory of Departures",
+      "number": 19,
+      "part": "Part V · When the Assumptions Fail",
+      "collapsed": true,
+      "path": "ch19-theory-of-departures/index.html",
+      "sections": [
+        {
+          "title": "Omitting and adding regressors",
+          "number": "19.1",
+          "path": "ch19-theory-of-departures/01-underfitting-overfitting.html",
+          "filename": "01-underfitting-overfitting.md"
+        },
+        {
+          "title": "An incorrect covariance matrix",
+          "number": "19.2",
+          "path": "ch19-theory-of-departures/02-wrong-covariance.html",
+          "filename": "02-wrong-covariance.md"
+        },
+        {
+          "title": "Non-normal errors",
+          "number": "19.3",
+          "path": "ch19-theory-of-departures/03-non-normal-errors.html",
+          "filename": "03-non-normal-errors.md"
+        },
+        {
+          "title": "A single bad observation",
+          "number": "19.4",
+          "path": "ch19-theory-of-departures/04-outliers.html",
+          "filename": "04-outliers.md"
+        },
+        {
+          "title": "Random regressors and a curved mean",
+          "number": "19.5",
+          "path": "ch19-theory-of-departures/05-random-regressors.html",
+          "filename": "05-random-regressors.md"
+        },
+        {
+          "title": "Collinearity, previewed",
+          "number": "19.6",
+          "path": "ch19-theory-of-departures/06-collinearity.html",
+          "filename": "06-collinearity.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "19.7",
+          "path": "ch19-theory-of-departures/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Residuals, Leverage and Influence",
+      "number": 20,
+      "part": "",
+      "collapsed": true,
+      "path": "ch20-residuals-leverage-influence/index.html",
+      "sections": [
+        {
+          "title": "Kinds of residuals",
+          "number": "20.1",
+          "path": "ch20-residuals-leverage-influence/01-kinds-of-residuals.html",
+          "filename": "01-kinds-of-residuals.md"
+        },
+        {
+          "title": "Leverage and the hat matrix",
+          "number": "20.2",
+          "path": "ch20-residuals-leverage-influence/02-leverage.html",
+          "filename": "02-leverage.md"
+        },
+        {
+          "title": "Deletion diagnostics",
+          "number": "20.3",
+          "path": "ch20-residuals-leverage-influence/03-deletion.html",
+          "filename": "03-deletion.md"
+        },
+        {
+          "title": "Cook's distance, DFFITS and DFBETAS",
+          "number": "20.4",
+          "path": "ch20-residuals-leverage-influence/04-influence.html",
+          "filename": "04-influence.md"
+        },
+        {
+          "title": "Masking and swamping",
+          "number": "20.5",
+          "path": "ch20-residuals-leverage-influence/05-masking.html",
+          "filename": "05-masking.md"
+        },
+        {
+          "title": "Robust fitting as a diagnostic",
+          "number": "20.6",
+          "path": "ch20-residuals-leverage-influence/06-robust.html",
+          "filename": "06-robust.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "20.7",
+          "path": "ch20-residuals-leverage-influence/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Non-Normality, Heteroscedasticity and Serial Correlation",
+      "number": 21,
+      "part": "",
+      "collapsed": true,
+      "path": "ch21-nonnormality-heteroscedasticity-serial/index.html",
+      "sections": [
+        {
+          "title": "Checking normality",
+          "number": "21.1",
+          "path": "ch21-nonnormality-heteroscedasticity-serial/01-checking-normality.html",
+          "filename": "01-checking-normality.md"
+        },
+        {
+          "title": "Detecting heteroscedasticity",
+          "number": "21.2",
+          "path": "ch21-nonnormality-heteroscedasticity-serial/02-detecting-heteroscedasticity.html",
+          "filename": "02-detecting-heteroscedasticity.md"
+        },
+        {
+          "title": "Weighted least squares",
+          "number": "21.3",
+          "path": "ch21-nonnormality-heteroscedasticity-serial/03-weighted-least-squares.html",
+          "filename": "03-weighted-least-squares.md"
+        },
+        {
+          "title": "Heteroscedasticity-consistent covariance estimators",
+          "number": "21.4",
+          "path": "ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html",
+          "filename": "04-sandwich-estimators.md"
+        },
+        {
+          "title": "Serial correlation and the Durbin–Watson test",
+          "number": "21.5",
+          "path": "ch21-nonnormality-heteroscedasticity-serial/05-durbin-watson.html",
+          "filename": "05-durbin-watson.md"
+        },
+        {
+          "title": "Autoregressive errors",
+          "number": "21.6",
+          "path": "ch21-nonnormality-heteroscedasticity-serial/06-autoregressive-errors.html",
+          "filename": "06-autoregressive-errors.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "21.7",
+          "path": "ch21-nonnormality-heteroscedasticity-serial/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Transformations",
+      "number": 22,
+      "part": "",
+      "collapsed": true,
+      "path": "ch22-transformations/index.html",
+      "sections": [
+        {
+          "title": "Transforming the response",
+          "number": "22.1",
+          "path": "ch22-transformations/01-transforming-the-response.html",
+          "filename": "01-transforming-the-response.md"
+        },
+        {
+          "title": "The Box–Cox family",
+          "number": "22.2",
+          "path": "ch22-transformations/02-box-cox.html",
+          "filename": "02-box-cox.md"
+        },
+        {
+          "title": "Transforming regressors",
+          "number": "22.3",
+          "path": "ch22-transformations/03-transforming-regressors.html",
+          "filename": "03-transforming-regressors.md"
+        },
+        {
+          "title": "Variance-stabilizing transformations",
+          "number": "22.4",
+          "path": "ch22-transformations/04-variance-stabilizing.html",
+          "filename": "04-variance-stabilizing.md"
+        },
+        {
+          "title": "Interpreting a transformed model",
+          "number": "22.5",
+          "path": "ch22-transformations/05-interpreting.html",
+          "filename": "05-interpreting.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "22.6",
+          "path": "ch22-transformations/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Bootstrap and Permutation Inference",
+      "number": 23,
+      "part": "",
+      "collapsed": true,
+      "path": "ch23-resampling-inference/index.html",
+      "sections": [
+        {
+          "title": "Resampling cases versus resampling residuals",
+          "number": "23.1",
+          "path": "ch23-resampling-inference/01-cases-and-residuals.html",
+          "filename": "01-cases-and-residuals.md"
+        },
+        {
+          "title": "The wild bootstrap",
+          "number": "23.2",
+          "path": "ch23-resampling-inference/02-wild-bootstrap.html",
+          "filename": "02-wild-bootstrap.md"
+        },
+        {
+          "title": "Bootstrap confidence intervals",
+          "number": "23.3",
+          "path": "ch23-resampling-inference/03-confidence-intervals.html",
+          "filename": "03-confidence-intervals.md"
+        },
+        {
+          "title": "Permutation tests for linear hypotheses",
+          "number": "23.4",
+          "path": "ch23-resampling-inference/04-permutation-tests.html",
+          "filename": "04-permutation-tests.md"
+        },
+        {
+          "title": "Freedman–Lane and related schemes",
+          "number": "23.5",
+          "path": "ch23-resampling-inference/05-freedman-lane.html",
+          "filename": "05-freedman-lane.md"
+        },
+        {
+          "title": "When resampling fails",
+          "number": "23.6",
+          "path": "ch23-resampling-inference/06-failures.html",
+          "filename": "06-failures.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "23.7",
+          "path": "ch23-resampling-inference/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Errors in Variables",
+      "number": 24,
+      "part": "",
+      "collapsed": true,
+      "path": "ch24-errors-in-variables/index.html",
+      "sections": [
+        {
+          "title": "Attenuation bias",
+          "number": "24.1",
+          "path": "ch24-errors-in-variables/01-attenuation.html",
+          "filename": "01-attenuation.md"
+        },
+        {
+          "title": "The classical measurement error model",
+          "number": "24.2",
+          "path": "ch24-errors-in-variables/02-measurement-error-model.html",
+          "filename": "02-measurement-error-model.md"
+        },
+        {
+          "title": "Reliability and moment correction",
+          "number": "24.3",
+          "path": "ch24-errors-in-variables/03-moment-correction.html",
+          "filename": "03-moment-correction.md"
+        },
+        {
+          "title": "Instrumental variables",
+          "number": "24.4",
+          "path": "ch24-errors-in-variables/04-instrumental-variables.html",
+          "filename": "04-instrumental-variables.md"
+        },
+        {
+          "title": "Regression calibration and SIMEX",
+          "number": "24.5",
+          "path": "ch24-errors-in-variables/05-calibration-simex.html",
+          "filename": "05-calibration-simex.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "24.6",
+          "path": "ch24-errors-in-variables/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Causal Interpretation of Coefficients",
+      "number": 25,
+      "part": "",
+      "collapsed": true,
+      "path": "ch25-causal-interpretation/index.html",
+      "sections": [
+        {
+          "title": "Prediction versus intervention",
+          "number": "25.1",
+          "path": "ch25-causal-interpretation/01-prediction-intervention.html",
+          "filename": "01-prediction-intervention.md"
+        },
+        {
+          "title": "Potential outcomes and the regression coefficient",
+          "number": "25.2",
+          "path": "ch25-causal-interpretation/02-potential-outcomes.html",
+          "filename": "02-potential-outcomes.md"
+        },
+        {
+          "title": "Confounding and causal graphs",
+          "number": "25.3",
+          "path": "ch25-causal-interpretation/03-confounding-dags.html",
+          "filename": "03-confounding-dags.md"
+        },
+        {
+          "title": "Adjustment sets and the back-door criterion",
+          "number": "25.4",
+          "path": "ch25-causal-interpretation/04-backdoor.html",
+          "filename": "04-backdoor.md"
+        },
+        {
+          "title": "Bad controls: mediators and colliders",
+          "number": "25.5",
+          "path": "ch25-causal-interpretation/05-bad-controls.html",
+          "filename": "05-bad-controls.md"
+        },
+        {
+          "title": "Regression adjustment in randomized experiments",
+          "number": "25.6",
+          "path": "ch25-causal-interpretation/06-randomized-adjustment.html",
+          "filename": "06-randomized-adjustment.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "25.7",
+          "path": "ch25-causal-interpretation/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
     }
   ]
 }

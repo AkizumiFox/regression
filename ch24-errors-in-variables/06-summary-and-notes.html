@@ -1,0 +1,347 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch24-errors-in-variables/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Sources. None of the six
+source books treats errors in variables at length.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch24-errors-in-variables/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch24-errors-in-variables/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="24.6 Summary and Notes">
+        <meta property="og:description" content="Sources. None of the
+six source books treats errors in variables at length.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch24-errors-in-variables/index.html">Errors in Variables</a></li>
+                        <li class="breadcrumb-item"><a href="../ch24-errors-in-variables/06-summary-and-notes.html"><span class="chapter-number">24.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">24.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">24.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>Under classical, nondifferential error, least
+                squares estimates the best linear predictor from the
+                <em>reading</em>. A simple-regression slope is
+                attenuated by the reliability <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math></mjx-assistive-mml></mjx-container></span>, whatever <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch24-errors-in-variables/01-attenuation.html#thm-eiv-attenuation" class="xref" data-ref="thm-eiv-attenuation" data-shard="ch24-errors-in-variables">Theorem 24.1.1</a>).</p></li>
+                <li><p>Exactly measured covariates absorb part of the
+                effect and can look important when they are not (<a href="../ch24-errors-in-variables/01-attenuation.html#exm-eiv-leak" class="xref" data-ref="exm-eiv-leak" data-shard="ch24-errors-in-variables">Example (Age looks important)</a>).
+                Error in the response only adds variance (<a href="../ch24-errors-in-variables/01-attenuation.html#prp-eiv-response" class="xref" data-ref="prp-eiv-response" data-shard="ch24-errors-in-variables">Proposition 24.1.2</a>).
+                The test of no effect of the mismeasured regressor keeps
+                its level; tests on correlated, correctly measured
+                covariates do not (<a href="../ch24-errors-in-variables/01-attenuation.html#prp-eiv-tests" class="xref" data-ref="prp-eiv-tests" data-shard="ch24-errors-in-variables">Proposition 24.1.3</a>).</p></li>
+                <li><p>Attenuation is the same with fixed true values
+                (<a href="../ch24-errors-in-variables/02-measurement-error-model.html#prp-eiv-functional" class="xref" data-ref="prp-eiv-functional" data-shard="ch24-errors-in-variables">Proposition 24.2.1</a>).
+                The normal structural model identifies the slope only up
+                to the interval between the direct and reverse
+                regressions (<a href="../ch24-errors-in-variables/02-measurement-error-model.html#prp-eiv-nonidentified" class="xref" data-ref="prp-eiv-nonidentified" data-shard="ch24-errors-in-variables">Proposition 24.2.2</a>).
+                Berkson error causes no bias in a linear model (<a href="../ch24-errors-in-variables/02-measurement-error-model.html#prp-eiv-berkson" class="xref" data-ref="prp-eiv-berkson" data-shard="ch24-errors-in-variables">Proposition 24.2.3</a>).</p></li>
+                <li><p>A known or replicate-estimated error covariance
+                gives the moment correction, with a sandwich covariance
+                (<a href="../ch24-errors-in-variables/03-moment-correction.html#thm-eiv-correction" class="xref" data-ref="thm-eiv-correction" data-shard="ch24-errors-in-variables">Theorem 24.3.1</a>);
+                a known variance ratio gives Deming regression (<a href="../ch24-errors-in-variables/03-moment-correction.html#prp-eiv-deming" class="xref" data-ref="prp-eiv-deming" data-shard="ch24-errors-in-variables">Proposition 24.3.2</a>).</p></li>
+                <li><p>IV and two-stage least squares are consistent
+                under exogeneity and relevance (<a href="../ch24-errors-in-variables/04-instrumental-variables.html#lem-eiv-2sls" class="xref" data-ref="lem-eiv-2sls" data-shard="ch24-errors-in-variables">Lemma 24.4.1</a>,
+                <a href="../ch24-errors-in-variables/04-instrumental-variables.html#thm-eiv-iv" class="xref" data-ref="thm-eiv-iv" data-shard="ch24-errors-in-variables">Theorem 24.4.2</a>);
+                with weak instruments they have no mean, drift towards
+                least squares, and Wald intervals undercover (<a href="../ch24-errors-in-variables/04-instrumental-variables.html#prp-eiv-weak" class="xref" data-ref="prp-eiv-weak" data-shard="ch24-errors-in-variables">Proposition 24.4.3</a>).</p></li>
+                <li><p>Linear regression calibration is exact and equals
+                the moment correction (<a href="../ch24-errors-in-variables/05-calibration-simex.html#prp-eiv-calibration" class="xref" data-ref="prp-eiv-calibration" data-shard="ch24-errors-in-variables">Proposition 24.5.1</a>).
+                SIMEX extrapolates the naive estimate to zero error; in
+                the linear model the rational form matches the limit
+                exactly, so the rational extrapolant is consistent under
+                regularity conditions for its fit (<a href="../ch24-errors-in-variables/05-calibration-simex.html#prp-eiv-simex" class="xref" data-ref="prp-eiv-simex" data-shard="ch24-errors-in-variables">Proposition 24.5.2</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">24.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Sources.</strong> None of the six source
+                books treats errors in variables at length. Seber and
+                Lee (2003, section 9.6) surveys random regressors, fixed
+                regressors measured with error, the structural
+                identification problem, rounding errors and Berkson’s
+                model, covered here in <a href="../ch24-errors-in-variables/01-attenuation.html#thm-eiv-attenuation" class="xref" data-ref="thm-eiv-attenuation" data-shard="ch24-errors-in-variables">Theorem 24.1.1</a>,
+                <a href="../ch24-errors-in-variables/02-measurement-error-model.html#prp-eiv-functional" class="xref" data-ref="prp-eiv-functional" data-shard="ch24-errors-in-variables">Proposition 24.2.1</a>,
+                <a href="../ch24-errors-in-variables/02-measurement-error-model.html#prp-eiv-nonidentified" class="xref" data-ref="prp-eiv-nonidentified" data-shard="ch24-errors-in-variables">Proposition 24.2.2</a>,
+                <a href="../ch24-errors-in-variables/01-attenuation.html#exr-eiv-rounding" class="xref" data-ref="exr-eiv-rounding" data-shard="ch24-errors-in-variables">Exercise (C1)</a>
+                and <a href="../ch24-errors-in-variables/02-measurement-error-model.html#prp-eiv-berkson" class="xref" data-ref="prp-eiv-berkson" data-shard="ch24-errors-in-variables">Proposition 24.2.3</a>.
+                Fuller (1987) is the classical treatment of linear
+                measurement error models, including moment estimators,
+                their asymptotics and small-sample modifications.
+                Carroll, Ruppert, Stefanski and Crainiceanu (2006) is
+                the standard reference for nonlinear models, regression
+                calibration and SIMEX, and discusses the choice of SIMEX
+                extrapolant. All data in the chapter are simulated.</p>
+                <p><strong>Attenuation and identification.</strong>
+                Spearman (1904) introduced the correction for
+                attenuation in mental testing. Reiersøl (1950) proved
+                that non-normality of the true regressor restores
+                identification. The functional model’s incidental
+                parameters are an instance of Neyman and Scott (1948).
+                Gleser and Hwang (1987) proved that errors-in-variables
+                confidence sets with guaranteed coverage have infinite
+                expected length. Berkson (1950) distinguished controlled
+                regressors from classical error.</p>
+                <p><strong>Orthogonal and Deming regression.</strong>
+                Orthogonal regression goes back to Adcock in the 1870s;
+                the version with a known variance ratio carries Deming’s
+                name from Deming (1943). In numerical analysis it is
+                total least squares (Golub and Van Loan, 1980). Wald
+                (1940) proposed the grouping estimator of <a href="../ch24-errors-in-variables/04-instrumental-variables.html#exr-eiv-wald-grouping" class="xref" data-ref="exr-eiv-wald-grouping" data-shard="ch24-errors-in-variables">Exercise (B1)</a>.</p>
+                <p><strong>Instrumental variables.</strong> Instrumental
+                variables go back to Wright (1928). Two-stage least
+                squares was developed in the 1950s by Theil and by
+                Basmann (1957), among others, and Sargan (1958) gave the
+                general theory, including the test of overidentifying
+                restrictions. Anderson and Rubin (1949) introduced the
+                test of <a href="../ch24-errors-in-variables/04-instrumental-variables.html#exr-eiv-anderson-rubin" class="xref" data-ref="exr-eiv-anderson-rubin" data-shard="ch24-errors-in-variables">Exercise (C1)</a>.
+                Bound, Jaeger and Baker (1995) showed the practical
+                danger of weak instruments, and Staiger and Stock (1997)
+                gave the asymptotics behind the first-stage <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> rule of thumb. Angrist
+                and Pischke (2009) give a modern treatment, including
+                the causal use of IV taken up in <a href="../ch25-causal-interpretation/index.html">Chapter
+                25</a>.</p>
+                <p><strong>Regression calibration and SIMEX.</strong>
+                Regression calibration developed in epidemiology in the
+                1980s to correct relative risks for exposure measurement
+                error. SIMEX is due to Cook and Stefanski (1994).</p>
+                <h2 id="references"><span class="header-section-number">24.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Anderson, T. W. and Rubin, Herman (1949). Estimation
+                of the Parameters of a Single Equation in a Complete
+                System of Stochastic Equations. <em>The Annals of
+                Mathematical Statistics</em> 20(1), 46–63.</li>
+                <li>Angrist, Joshua D. and Pischke, Jörn-Steffen (2009).
+                <em>Mostly Harmless Econometrics: An Empiricist’s
+                Companion</em>. Princeton, NJ: Princeton University
+                Press.</li>
+                <li>Basmann, R. L. (1957). A Generalized Classical
+                Method of Linear Estimation of Coefficients in a
+                Structural Equation. <em>Econometrica</em> 25(1),
+                77–83.</li>
+                <li>Berkson, Joseph (1950). Are There Two Regressions?
+                <em>Journal of the American Statistical Association</em>
+                45(250), 164–180.</li>
+                <li>Bound, John, Jaeger, David A. and Baker, Regina M.
+                (1995). Problems with Instrumental Variables Estimation
+                When the Correlation Between the Instruments and the
+                Endogenous Explanatory Variable Is Weak. <em>Journal of
+                the American Statistical Association</em> 90(430),
+                443–450.</li>
+                <li>Carroll, Raymond J., Ruppert, David, Stefanski,
+                Leonard A. and Crainiceanu, Ciprian M. (2006).
+                <em>Measurement Error in Nonlinear Models: A Modern
+                Perspective</em>. 2nd edition. Boca Raton, FL: Chapman
+                &amp; Hall/CRC.</li>
+                <li>Cook, J. R. and Stefanski, L. A. (1994).
+                Simulation-Extrapolation Estimation in Parametric
+                Measurement Error Models. <em>Journal of the American
+                Statistical Association</em> 89(428), 1314–1328.</li>
+                <li>Deming, W. Edwards (1943). <em>Statistical
+                Adjustment of Data</em>. New York: Wiley.</li>
+                <li>Fuller, Wayne A. (1987). <em>Measurement Error
+                Models</em>. New York: Wiley.</li>
+                <li>Gleser, Leon Jay and Hwang, Jiunn Tzon (1987). The
+                Nonexistence of 100(1−α)% Confidence Sets of Finite
+                Expected Diameter in Errors-in-Variables and Related
+                Models. <em>The Annals of Statistics</em> 15(4),
+                1351–1362.</li>
+                <li>Golub, Gene H. and Van Loan, Charles F. (1980). An
+                Analysis of the Total Least Squares Problem. <em>SIAM
+                Journal on Numerical Analysis</em> 17(6), 883–893.</li>
+                <li>Neyman, J. and Scott, Elizabeth L. (1948).
+                Consistent Estimates Based on Partially Consistent
+                Observations. <em>Econometrica</em> 16(1), 1–32.</li>
+                <li>Reiersøl, Olav (1950). Identifiability of a Linear
+                Relation between Variables Which Are Subject to Error.
+                <em>Econometrica</em> 18(4), 375–389.</li>
+                <li>Sargan, J. D. (1958). The Estimation of Economic
+                Relationships Using Instrumental Variables.
+                <em>Econometrica</em> 26(3), 393–415.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Spearman, C. (1904). The Proof and Measurement of
+                Association between Two Things. <em>The American Journal
+                of Psychology</em> 15(1), 72–101.</li>
+                <li>Staiger, Douglas and Stock, James H. (1997).
+                Instrumental Variables Regression with Weak Instruments.
+                <em>Econometrica</em> 65(3), 557–586.</li>
+                <li>Wald, Abraham (1940). The Fitting of Straight Lines
+                if Both Variables Are Subject to Error. <em>The Annals
+                of Mathematical Statistics</em> 11(3), 284–300.</li>
+                <li>Wright, Philip G. (1928). <em>The Tariff on Animal
+                and Vegetable Oils</em>. New York: Macmillan.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch24-errors-in-variables/05-calibration-simex.html" class="pagination-link" aria-label="Regression
+calibration and SIMEX">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">24.5 Regression
+calibration and SIMEX</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch25-causal-interpretation/index.html" class="pagination-link" aria-label="Causal
+Interpretation of Coefficients">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Causal
+Interpretation of Coefficients</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2024.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch24-errors-in-variables%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch24-errors-in-variables/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

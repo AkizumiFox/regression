@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch22-transformations/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Source books.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch22-transformations/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch22-transformations/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="22.6 Summary and Notes">
+        <meta property="og:description" content="Source books.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch22-transformations/index.html">Transformations</a></li>
+                        <li class="breadcrumb-item"><a href="../ch22-transformations/06-summary-and-notes.html"><span class="chapter-number">22.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">22.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">22.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A strictly increasing transformation of the
+                response acts on linearity, constant variance and
+                normality at once. Multiplicative errors make the
+                logarithm exact for the first two, and log-scale
+                coefficients are then ratios of quantiles and means (<a href="../ch22-transformations/01-transforming-the-response.html#prp-tr-multiplicative" class="xref" data-ref="prp-tr-multiplicative" data-shard="ch22-transformations">Proposition 22.1.1</a>).
+                The mean comes first.</p></li>
+                <li><p>The Box–Cox family is continuous in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math></mjx-assistive-mml></mjx-container></span>, increasing,
+                ordered by convexity, and bounded on one side except at
+                the logarithm (<a href="../ch22-transformations/02-box-cox.html#def-tr-box-cox" class="xref" data-ref="def-tr-box-cox" data-shard="ch22-transformations">Definition 22.2.1</a>
+                and <a href="../ch22-transformations/02-box-cox.html#prp-tr-family" class="xref" data-ref="prp-tr-family" data-shard="ch22-transformations">Proposition 22.2.1</a>).</p></li>
+                <li><p>With the geometric-mean normalization the profile
+                log-likelihood of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math></mjx-assistive-mml></mjx-container></span> is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="-\frac
+                n2\log\text{SSE}_z(\lambda)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac><mjx-mi class="mjx-n"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-mtext class="mjx-n"><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c53"></mjx-c><mjx-c class="mjx-c45"></mjx-c></mjx-mtext><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mfrac><mi>n</mi><mn>2</mn></mfrac><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><msub><mtext>SSE</mtext><mi>z</mi></msub><mo stretchy="false">(</mo><mi>λ</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> plus a constant,
+                which gives the likelihood ratio interval (<a href="../ch22-transformations/02-box-cox.html#thm-tr-box-cox" class="xref" data-ref="thm-tr-box-cox" data-shard="ch22-transformations">Theorem 22.2.2</a>),
+                free of the units of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="y"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch22-transformations/02-box-cox.html#prp-tr-units" class="xref" data-ref="prp-tr-units" data-shard="ch22-transformations">Proposition 22.2.3</a>).
+                The constructed variable locates its stationary points
+                (<a href="../ch22-transformations/02-box-cox.html#prp-tr-constructed" class="xref" data-ref="prp-tr-constructed" data-shard="ch22-transformations">Proposition 22.2.4</a>).</p></li>
+                <li><p>Component-plus-residual plots show the shape of a
+                regressor’s effect, distorted by the part of the
+                nonlinearity the other regressors reproduce (<a href="../ch22-transformations/03-transforming-regressors.html#prp-tr-cpr" class="xref" data-ref="prp-tr-cpr" data-shard="ch22-transformations">Proposition 22.3.1</a>).
+                The Box–Tidwell constructed variable gives an exact test
+                of a regressor’s power, and its iteration is
+                Gauss–Newton (<a href="../ch22-transformations/03-transforming-regressors.html#thm-tr-box-tidwell" class="xref" data-ref="thm-tr-box-tidwell" data-shard="ch22-transformations">Theorem 22.3.2</a>).</p></li>
+                <li><p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\int
+                v^{-1/2}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c222B TEX-S1"></mjx-c></mjx-mo><mjx-msup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo data-mjx-texclass="OP">∫</mo><msup><mi>v</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> stabilizes a variance function <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="v"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D463 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>v</mi></math></mjx-assistive-mml></mjx-container></span>, uniquely up to sign
+                and a constant (<a href="../ch22-transformations/04-variance-stabilizing.html#thm-tr-variance-stabilizing" class="xref" data-ref="thm-tr-variance-stabilizing" data-shard="ch22-transformations">Theorem 22.4.1</a>):
+                square roots for counts, arcsine square roots for
+                proportions, logarithms for a constant coefficient of
+                variation (<a href="../ch22-transformations/04-variance-stabilizing.html#cor-tr-classical" class="xref" data-ref="cor-tr-classical" data-shard="ch22-transformations">Corollary 22.4.2</a>).</p></li>
+                <li><p>Quantiles pass through a monotone transformation,
+                means do not. The back-transformed fit estimates
+                medians; the mean needs a factor, which smearing
+                supplies without normality (<a href="../ch22-transformations/05-interpreting.html#prp-tr-retransformation" class="xref" data-ref="prp-tr-retransformation" data-shard="ch22-transformations">Proposition 22.5.1</a>).
+                Prediction intervals and intervals for medians transform
+                exactly (<a href="../ch22-transformations/05-interpreting.html#prp-tr-back-intervals" class="xref" data-ref="prp-tr-back-intervals" data-shard="ch22-transformations">Proposition 22.5.2</a>),
+                and elasticities follow by differentiating through both
+                scales (<a href="../ch22-transformations/05-interpreting.html#prp-tr-elasticity" class="xref" data-ref="prp-tr-elasticity" data-shard="ch22-transformations">Proposition 22.5.3</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">22.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Source books.</strong> Coverage was checked
+                against Sen and Srivastava (1990, chapter 9), Seber and
+                Lee (2003, section 10.3 and parts of sections 10.4–10.5)
+                and Christensen (2020, section 12.7). Proofs, examples
+                and exercises here are this book’s own.</p>
+                <p><strong>Power transformations.</strong> Tukey (1957)
+                studied the powers systematically, and Tukey (1977)
+                popularized the ladder. Box and Cox (1964) introduced
+                the likelihood approach and the geometric-mean
+                normalization, and Hernandez and Johnson (1980) gave its
+                large-sample theory when no power is exactly right. On
+                whether inference should allow for estimating <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math></mjx-assistive-mml></mjx-container></span>, see Bickel and
+                Doksum (1981), Box and Cox (1982) and Hinkley and Runger
+                (1984). Carroll and Ruppert (1988) is the standard
+                monograph on transformation and weighting, including the
+                <em>transform-both-sides</em> model, which transforms
+                the response and a known nonlinear mean function alike.
+                Yeo and Johnson (2000) give a family defined on the
+                whole line.</p>
+                <p><strong>Diagnostics.</strong> Constructed variables
+                and their added-variable plots are developed by Atkinson
+                (1985) and Cook and Weisberg (1982); Atkinson and Cook
+                and Wang (1983) study the influence of single cases on
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\lambda}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.291em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi>λ</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span>.
+                Larsen and McCleary (1972) analysed partial residual
+                plots, Mallows (1986) augmented them, and Cook (1993)
+                explained when they work. Box and Tidwell (1962)
+                proposed the regressor transformation, and Royston and
+                Altman (1994) fractional polynomials.</p>
+                <p><strong>Variance stabilization and
+                retransformation.</strong> Bartlett (1947) reviewed
+                variance-stabilizing transformations and the
+                spread-versus-level idea, Anscombe (1948) derived the
+                constants <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="3/8"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>8</mn></math></mjx-assistive-mml></mjx-container></span>, and
+                Grizzle, Starmer and Koch (1969) developed weighted
+                least squares on transformed proportions. The limit
+                theorems are in van der Vaart (1998). The smearing
+                estimate is due to Duan (1983). Manning (1998) showed
+                how heteroscedasticity on the log scale biases
+                retransformed means, one reason why generalized linear
+                models with a log link (Chapter 34) are now the usual
+                alternative for skewed positive responses.</p>
+                <h2 id="references"><span class="header-section-number">22.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Anscombe, Francis J. (1948). The Transformation of
+                Poisson, Binomial and Negative-Binomial Data.
+                <em>Biometrika</em> 35(3/4), 246–254.</li>
+                <li>Atkinson, Anthony C. (1985). <em>Plots,
+                Transformations, and Regression: An Introduction to
+                Graphical Methods of Diagnostic Regression
+                Analysis</em>. Oxford: Clarendon Press.</li>
+                <li>Bartlett, Maurice S. (1947). The Use of
+                Transformations. <em>Biometrics</em> 3(1), 39–52.</li>
+                <li>Bickel, Peter J. and Doksum, Kjell A. (1981). An
+                Analysis of Transformations Revisited. <em>Journal of
+                the American Statistical Association</em> 76(374),
+                296–311.</li>
+                <li>Box, George E. P. and Cox, David R. (1964). An
+                Analysis of Transformations. <em>Journal of the Royal
+                Statistical Society, Series B</em> 26(2), 211–252.</li>
+                <li>Box, George E. P. and Cox, David R. (1982). An
+                Analysis of Transformations Revisited, Rebutted.
+                <em>Journal of the American Statistical Association</em>
+                77(377), 209–210.</li>
+                <li>Box, George E. P. and Tidwell, Paul W. (1962).
+                Transformation of the Independent Variables.
+                <em>Technometrics</em> 4(4), 531–550.</li>
+                <li>Carroll, Raymond J. and Ruppert, David (1988).
+                <em>Transformation and Weighting in Regression</em>. New
+                York: Chapman and Hall.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Cook, R. Dennis (1993). Exploring Partial Residual
+                Plots. <em>Technometrics</em> 35(4), 351–362.</li>
+                <li>Cook, R. Dennis and Wang, Paul C. (1983).
+                Transformations and Influential Cases in Regression.
+                <em>Technometrics</em> 25(4), 337–343.</li>
+                <li>Cook, R. Dennis and Weisberg, Sanford (1982).
+                <em>Residuals and Influence in Regression</em>. New
+                York: Chapman and Hall.</li>
+                <li>Duan, Naihua (1983). Smearing Estimate: A
+                Nonparametric Retransformation Method. <em>Journal of
+                the American Statistical Association</em> 78(383),
+                605–610.</li>
+                <li>Grizzle, James E., Starmer, C. Frank and Koch, Gary
+                G. (1969). Analysis of Categorical Data by Linear
+                Models. <em>Biometrics</em> 25(3), 489–504.</li>
+                <li>Hernandez, Francisco and Johnson, Richard A. (1980).
+                The Large-Sample Behavior of Transformations to
+                Normality. <em>Journal of the American Statistical
+                Association</em> 75(372), 855–861.</li>
+                <li>Hinkley, David V. and Runger, George (1984). The
+                Analysis of Transformed Data. <em>Journal of the
+                American Statistical Association</em> 79(386),
+                302–309.</li>
+                <li>Larsen, Wayne A. and McCleary, Susan J. (1972). The
+                Use of Partial Residual Plots in Regression Analysis.
+                <em>Technometrics</em> 14(3), 781–790.</li>
+                <li>Mallows, Colin L. (1986). Augmented Partial
+                Residuals. <em>Technometrics</em> 28(4), 313–319.</li>
+                <li>Manning, Willard G. (1998). The Logged Dependent
+                Variable, Heteroscedasticity, and the Retransformation
+                Problem. <em>Journal of Health Economics</em> 17(3),
+                283–295.</li>
+                <li>Royston, Patrick and Altman, Douglas G. (1994).
+                Regression Using Fractional Polynomials of Continuous
+                Covariates: Parsimonious Parametric Modelling.
+                <em>Applied Statistics</em> 43(3), 429–467.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Sen, Ashish and Srivastava, Muni (1990).
+                <em>Regression Analysis: Theory, Methods, and
+                Applications</em>. New York: Springer.</li>
+                <li>Tukey, John W. (1957). On the Comparative Anatomy of
+                Transformations. <em>The Annals of Mathematical
+                Statistics</em> 28(3), 602–632.</li>
+                <li>Tukey, John W. (1977). <em>Exploratory Data
+                Analysis</em>. Reading, MA: Addison-Wesley.</li>
+                <li>van der Vaart, Aad W. (1998). <em>Asymptotic
+                Statistics</em>. Cambridge: Cambridge University
+                Press.</li>
+                <li>Yeo, In-Kwon and Johnson, Richard A. (2000). A New
+                Family of Power Transformations to Improve Normality or
+                Symmetry. <em>Biometrika</em> 87(4), 954–959.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch22-transformations/05-interpreting.html" class="pagination-link" aria-label="Interpreting
+a transformed model">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">22.5 Interpreting
+a transformed model</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch23-resampling-inference/index.html" class="pagination-link" aria-label="Bootstrap
+and Permutation Inference">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Bootstrap and
+Permutation Inference</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2022.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch22-transformations%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch22-transformations/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

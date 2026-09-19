@@ -1,0 +1,480 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21.7 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch21-nonnormality-heteroscedasticity-serial/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Sources.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="21.7 Summary and Notes">
+        <meta property="og:description" content="Sources.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch21-nonnormality-heteroscedasticity-serial/index.html">Non-Normality, Heteroscedasticity and Serial Correlation</a></li>
+                        <li class="breadcrumb-item"><a href="../ch21-nonnormality-heteroscedasticity-serial/07-summary-and-notes.html"><span class="chapter-number">21.7</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">21.7</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">21.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>Residuals mix all the errors. Each differs from
+                its error with variance <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2h_{ii}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><msub><mi>h</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>i</mi></mrow></msub></math></mjx-assistive-mml></mjx-container></span>, and
+                residuals keep only part of the errors’ skewness and
+                kurtosis, so they look more normal than the errors when
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p/n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container></span> is not small
+                (<a href="../ch21-nonnormality-heteroscedasticity-serial/01-checking-normality.html#prp-het-normal-check" class="xref" data-ref="prp-het-normal-check" data-shard="ch21-nonnormality-heteroscedasticity-serial">Proposition 21.1.1</a>).</p></li>
+                <li><p>Normal plots of studentized residuals with
+                simulated envelopes are the main check of normality.
+                Coefficient inference is protected by the central limit
+                theorem; prediction intervals are not, and their
+                coverage tends to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\Pr(\lvert\varepsilon_0\rvert\le
+                z\sigma)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c50"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D700 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo data-mjx-texclass="OP" movablelimits="true">Pr</mo><mo stretchy="false">(</mo><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">|</mo><msub><mi>ε</mi><mn>0</mn></msub><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">|</mo><mo>≤</mo><mi>z</mi><mi>σ</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch12-intervals-and-bands/03-prediction.html#prp-ci-pi-limit" class="xref" data-ref="prp-ci-pi-limit" data-shard="ch12-intervals-and-bands">Proposition 12.3.3</a>),
+                which <a href="01-checking-normality.html#tab-het-prediction">Table
+                21.1.1</a> evaluates for five error laws.</p></li>
+                <li><p>The Breusch–Pagan statistic is half the explained
+                sum of squares of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\varepsilon}_i^2/\tilde{\sigma}^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.316em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D700 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.285em; margin-bottom: -0.215em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c7E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mover><mi>ε</mi><mo stretchy="false">^</mo></mover></mrow><mi>i</mi><mn>2</mn></msubsup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msup><mrow data-mjx-texclass="ORD"><mover><mi>σ</mi><mo stretchy="false">~</mo></mover></mrow><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>
+                on the variance variables, whatever the variance
+                function. Non-normal errors inflate its null law by
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(\kappa-1)/2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>κ</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></math></mjx-assistive-mml></mjx-container></span>, with
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\kappa"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>κ</mi></math></mjx-assistive-mml></mjx-container></span> the raw
+                kurtosis, and Koenker’s <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="nR^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D445 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><msup><mi>R</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> corrects this (<a href="../ch21-nonnormality-heteroscedasticity-serial/02-detecting-heteroscedasticity.html#thm-het-breusch-pagan" class="xref" data-ref="thm-het-breusch-pagan" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.2.2</a>,
+                using <a href="../ch21-nonnormality-heteroscedasticity-serial/02-detecting-heteroscedasticity.html#lem-het-clt" class="xref" data-ref="lem-het-clt" data-shard="ch21-nonnormality-heteroscedasticity-serial">Lemma 21.2.1</a>).
+                The Goldfeld–Quandt test is exact under normality (<a href="../ch21-nonnormality-heteroscedasticity-serial/02-detecting-heteroscedasticity.html#prp-het-goldfeld-quandt" class="xref" data-ref="prp-het-goldfeld-quandt" data-shard="ch21-nonnormality-heteroscedasticity-serial">Proposition 21.2.3</a>).</p></li>
+                <li><p>Weighted least squares is optimal with known
+                weights, unbiased with wrong ones, unbiased under
+                symmetric errors with weights from residuals, and
+                asymptotically optimal with weights from well-replicated
+                groups (<a href="../ch21-nonnormality-heteroscedasticity-serial/03-weighted-least-squares.html#thm-het-wls" class="xref" data-ref="thm-het-wls" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.3.1</a>).
+                Weights from a few replicates can be worse than
+                none.</p></li>
+                <li><p>HC0–HC3 estimate the covariance of least squares
+                without a variance model (<a href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html#def-het-hc" class="xref" data-ref="def-het-hc" data-shard="ch21-nonnormality-heteroscedasticity-serial">Definition 21.4.1</a>).
+                HC2 is unbiased under homoscedasticity and HC3 is the
+                jackknife (<a href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html#prp-het-hc-facts" class="xref" data-ref="prp-het-hc-facts" data-shard="ch21-nonnormality-heteroscedasticity-serial">Proposition 21.4.1</a>).
+                All are consistent (<a href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html#thm-het-sandwich" class="xref" data-ref="thm-het-sandwich" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.4.2</a>),
+                but high leverage makes them unreliable in small
+                samples.</p></li>
+                <li><p>Given <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{X}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow></math></mjx-assistive-mml></mjx-container></span> and
+                normal errors, the Durbin–Watson <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="d\approx2(1-r_1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2248"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi><mo>≈</mo><mn>2</mn><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>r</mi><mn>1</mn></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> is a
+                ratio of quadratic forms with a computable law,
+                bracketed by design-free bounds when there is an
+                intercept (<a href="../ch21-nonnormality-heteroscedasticity-serial/05-durbin-watson.html#thm-het-durbin-watson" class="xref" data-ref="thm-het-durbin-watson" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.5.3</a>,
+                <a href="../ch21-nonnormality-heteroscedasticity-serial/05-durbin-watson.html#lem-het-dw-eigen" class="xref" data-ref="lem-het-dw-eigen" data-shard="ch21-nonnormality-heteroscedasticity-serial">Lemma 21.5.1</a>,
+                <a href="../ch21-nonnormality-heteroscedasticity-serial/05-durbin-watson.html#lem-het-interlace" class="xref" data-ref="lem-het-interlace" data-shard="ch21-nonnormality-heteroscedasticity-serial">Lemma 21.5.2</a>).</p></li>
+                <li><p>AR(1) errors are whitened by the Prais–Winsten
+                transformation, and Cochrane–Orcutt iteration decreases
+                the conditional sum of squares (<a href="../ch21-nonnormality-heteroscedasticity-serial/06-autoregressive-errors.html#def-het-ar1" class="xref" data-ref="def-het-ar1" data-shard="ch21-nonnormality-heteroscedasticity-serial">Definition 21.6.1</a>,
+                <a href="../ch21-nonnormality-heteroscedasticity-serial/06-autoregressive-errors.html#thm-het-ar1" class="xref" data-ref="thm-het-ar1" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.6.1</a>).
+                Smooth regressors make least squares efficient but its
+                standard errors wrong. Newey–West estimates are
+                nonnegative definite (<a href="../ch21-nonnormality-heteroscedasticity-serial/06-autoregressive-errors.html#prp-het-newey-west" class="xref" data-ref="prp-het-newey-west" data-shard="ch21-nonnormality-heteroscedasticity-serial">Proposition 21.6.2</a>).
+                Residual autocorrelation often signals missing
+                dynamics.</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">21.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>Sources.</strong> The chapter covers Sen and
+                Srivastava (1990, chapters 5–6 and sections 7.1–7.3 and
+                7.6), Seber and Lee (2003, sections 10.4–10.5) and
+                Christensen (2020, sections 12.2–12.4). It adds proofs
+                of the facts about residuals behind the diagnostics, the
+                null limits of both forms of the Breusch–Pagan test, the
+                properties of feasible weighting in the grouped case,
+                the consistency of the sandwich estimators, and the
+                Durbin–Watson bounds through interlacing. The limit
+                theorems are from van der Vaart (1998).</p>
+                <p><strong>Normality.</strong> Blom (1958) gave the
+                plotting positions, Shapiro and Wilk (1965) and Shapiro
+                and Francia (1972) the two correlation-type tests, and
+                Jarque and Bera (1980) the skewness–kurtosis score test.
+                Lilliefors (1967) tabulated the Kolmogorov–Smirnov test
+                with estimated parameters, and Anderson and Darling
+                (1952) introduced their tail-weighted distance.
+                Simulated envelopes are due to Atkinson (1981). That
+                residuals look more normal than errors is an old
+                observation; <a href="../ch21-nonnormality-heteroscedasticity-serial/01-checking-normality.html#prp-het-normal-check" class="xref" data-ref="prp-het-normal-check" data-shard="ch21-nonnormality-heteroscedasticity-serial">Proposition 21.1.1</a>(c)
+                quantifies it.</p>
+                <p><strong>Heteroscedasticity.</strong> The score test
+                is due to Breusch and Pagan (1979) and to Cook and
+                Weisberg (1983); the score principle is Rao’s (1948).
+                Koenker (1981) exposed the sensitivity to kurtosis and
+                gave the studentized form. White (1980) proposed the
+                direct test and the covariance estimator, and Goldfeld
+                and Quandt (1965) the exact <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test. Levene (1960) and
+                Brown and Forsythe (1974) gave robust tests for groups,
+                and Box (1953) showed the non-robustness of
+                normal-theory variance tests. Carroll and Ruppert (1988)
+                is the standard monograph on weighting; Carroll (1982)
+                showed that weights estimated by smoothing can be fully
+                efficient asymptotically. The symmetry argument of <a href="../ch21-nonnormality-heteroscedasticity-serial/03-weighted-least-squares.html#thm-het-wls" class="xref" data-ref="thm-het-wls" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.3.1</a>(c)
+                goes back to Kakwani (1967).</p>
+                <p><strong>Sandwich estimators.</strong> Eicker (1963)
+                gave conditions for asymptotic normality of least
+                squares with unequal variances and Eicker (1967) the
+                consistency of the covariance estimator; Huber (1967)
+                introduced the sandwich form for general estimators, and
+                White (1980) made it standard in econometrics. MacKinnon
+                and White (1985) proposed HC2 and HC3. Long and Ervin
+                (2000) recommended HC3, and Imbens and Kolesár (2016)
+                recommend HC2 with the degrees-of-freedom adjustment of
+                Bell and McCaffrey (2002).</p>
+                <p><strong>Serial correlation.</strong> Durbin and
+                Watson (1950, 1951, 1971) introduced the statistic and
+                the bounds and studied its exact distribution; Imhof
+                (1961) gave the inversion formula. Durbin (1970) treated
+                lagged responses, Breusch (1978) and Godfrey (1978) the
+                score test for higher-order errors, and Ljung and Box
+                (1978) the portmanteau statistic. The transformations
+                are those of Cochrane and Orcutt (1949) and Prais and
+                Winsten (1954). Grenander (1954) proved the asymptotic
+                efficiency of least squares for polynomial trends. Newey
+                and West (1987) proposed the Bartlett-weighted estimator
+                and Andrews (1991) studied its bandwidth. Hendry and
+                Mizon (1978) argued for testing the common factor
+                restriction, and Granger and Newbold (1974) exposed
+                spurious regressions. Fuller (1996) gives the asymptotic
+                theory of regression with autocorrelated errors in
+                full.</p>
+                <h2 id="references"><span class="header-section-number">21.7.3. </span>
+                References</h2>
+                <ul>
+                <li>Anderson, Theodore W. and Darling, Donald A. (1952).
+                Asymptotic Theory of Certain “Goodness of Fit” Criteria
+                Based on Stochastic Processes. <em>The Annals of
+                Mathematical Statistics</em> 23(2), 193–212.</li>
+                <li>Andrews, Donald W. K. (1991). Heteroskedasticity and
+                Autocorrelation Consistent Covariance Matrix Estimation.
+                <em>Econometrica</em> 59(3), 817–858.</li>
+                <li>Atkinson, Anthony C. (1981). Two Graphical Displays
+                for Outlying and Influential Observations in Regression.
+                <em>Biometrika</em> 68(1), 13–20.</li>
+                <li>Bell, Robert M. and McCaffrey, Daniel F. (2002).
+                Bias Reduction in Standard Errors for Linear Regression
+                with Multi-Stage Samples. <em>Survey Methodology</em>
+                28(2), 169–181.</li>
+                <li>Blom, Gunnar (1958). <em>Statistical Estimates and
+                Transformed Beta-Variables</em>. New York: Wiley.</li>
+                <li>Box, George E. P. (1953). Non-Normality and Tests on
+                Variances. <em>Biometrika</em> 40(3/4), 318–335.</li>
+                <li>Breusch, Trevor S. (1978). Testing for
+                Autocorrelation in Dynamic Linear Models. <em>Australian
+                Economic Papers</em> 17, 334–355.</li>
+                <li>Breusch, Trevor S. and Pagan, Adrian R. (1979). A
+                Simple Test for Heteroscedasticity and Random
+                Coefficient Variation. <em>Econometrica</em> 47(5),
+                1287–1294.</li>
+                <li>Brown, Morton B. and Forsythe, Alan B. (1974).
+                Robust Tests for the Equality of Variances. <em>Journal
+                of the American Statistical Association</em> 69(346),
+                364–367.</li>
+                <li>Carroll, Raymond J. (1982). Adapting for
+                Heteroscedasticity in Linear Models. <em>The Annals of
+                Statistics</em> 10(4), 1224–1233.</li>
+                <li>Carroll, Raymond J. and Ruppert, David (1988).
+                <em>Transformation and Weighting in Regression</em>. New
+                York: Chapman and Hall.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Cochrane, Donald and Orcutt, Guy H. (1949).
+                Application of Least Squares Regression to Relationships
+                Containing Auto-Correlated Error Terms. <em>Journal of
+                the American Statistical Association</em> 44(245),
+                32–61.</li>
+                <li>Cook, R. Dennis and Weisberg, Sanford (1983).
+                Diagnostics for Heteroscedasticity in Regression.
+                <em>Biometrika</em> 70(1), 1–10.</li>
+                <li>Durbin, James (1970). Testing for Serial Correlation
+                in Least-Squares Regression when Some of the Regressors
+                are Lagged Dependent Variables. <em>Econometrica</em>
+                38(3), 410–421.</li>
+                <li>Durbin, James and Watson, Geoffrey S. (1950).
+                Testing for Serial Correlation in Least Squares
+                Regression. I. <em>Biometrika</em> 37(3/4),
+                409–428.</li>
+                <li>Durbin, James and Watson, Geoffrey S. (1951).
+                Testing for Serial Correlation in Least Squares
+                Regression. II. <em>Biometrika</em> 38(1/2),
+                159–178.</li>
+                <li>Durbin, James and Watson, Geoffrey S. (1971).
+                Testing for Serial Correlation in Least Squares
+                Regression. III. <em>Biometrika</em> 58(1), 1–19.</li>
+                <li>Eicker, Friedhelm (1963). Asymptotic Normality and
+                Consistency of the Least Squares Estimators for Families
+                of Linear Regressions. <em>The Annals of Mathematical
+                Statistics</em> 34(2), 447–456.</li>
+                <li>Eicker, Friedhelm (1967). Limit Theorems for
+                Regressions with Unequal and Dependent Errors. In
+                <em>Proceedings of the Fifth Berkeley Symposium on
+                Mathematical Statistics and Probability</em>, Vol. 1,
+                59–82. Berkeley: University of California Press.</li>
+                <li>Fuller, Wayne A. (1996). <em>Introduction to
+                Statistical Time Series</em>. 2nd edition. New York:
+                Wiley.</li>
+                <li>Godfrey, Leslie G. (1978). Testing Against General
+                Autoregressive and Moving Average Error Models when the
+                Regressors Include Lagged Dependent Variables.
+                <em>Econometrica</em> 46(6), 1293–1301.</li>
+                <li>Goldfeld, Stephen M. and Quandt, Richard E. (1965).
+                Some Tests for Homoscedasticity. <em>Journal of the
+                American Statistical Association</em> 60(310),
+                539–547.</li>
+                <li>Granger, Clive W. J. and Newbold, Paul (1974).
+                Spurious Regressions in Econometrics. <em>Journal of
+                Econometrics</em> 2(2), 111–120.</li>
+                <li>Grenander, Ulf (1954). On the Estimation of
+                Regression Coefficients in the Case of an Autocorrelated
+                Disturbance. <em>The Annals of Mathematical
+                Statistics</em> 25(2), 252–272.</li>
+                <li>Hendry, David F. and Mizon, Grayham E. (1978).
+                Serial Correlation as a Convenient Simplification, Not a
+                Nuisance: A Comment on a Study of the Demand for Money
+                by the Bank of England. <em>The Economic Journal</em>
+                88(351), 549–563.</li>
+                <li>Huber, Peter J. (1967). The Behavior of Maximum
+                Likelihood Estimates under Nonstandard Conditions. In
+                <em>Proceedings of the Fifth Berkeley Symposium on
+                Mathematical Statistics and Probability</em>, Vol. 1,
+                221–233. Berkeley: University of California Press.</li>
+                <li>Imbens, Guido W. and Kolesár, Michal (2016). Robust
+                Standard Errors in Small Samples: Some Practical Advice.
+                <em>The Review of Economics and Statistics</em> 98(4),
+                701–712.</li>
+                <li>Imhof, J. P. (1961). Computing the Distribution of
+                Quadratic Forms in Normal Variables. <em>Biometrika</em>
+                48(3/4), 419–426.</li>
+                <li>Jarque, Carlos M. and Bera, Anil K. (1980).
+                Efficient Tests for Normality, Homoscedasticity and
+                Serial Independence of Regression Residuals.
+                <em>Economics Letters</em> 6(3), 255–259.</li>
+                <li>Kakwani, Nanak C. (1967). The Unbiasedness of
+                Zellner’s Seemingly Unrelated Regression Equations
+                Estimators. <em>Journal of the American Statistical
+                Association</em> 62(317), 141–142.</li>
+                <li>Koenker, Roger (1981). A Note on Studentizing a Test
+                for Heteroscedasticity. <em>Journal of Econometrics</em>
+                17(1), 107–112.</li>
+                <li>Levene, Howard (1960). Robust Tests for Equality of
+                Variances. In <em>Contributions to Probability and
+                Statistics: Essays in Honor of Harold Hotelling</em>,
+                ed. I. Olkin et al., 278–292. Stanford: Stanford
+                University Press.</li>
+                <li>Lilliefors, Hubert W. (1967). On the
+                Kolmogorov–Smirnov Test for Normality with Mean and
+                Variance Unknown. <em>Journal of the American
+                Statistical Association</em> 62(318), 399–402.</li>
+                <li>Ljung, Greta M. and Box, George E. P. (1978). On a
+                Measure of Lack of Fit in Time Series Models.
+                <em>Biometrika</em> 65(2), 297–303.</li>
+                <li>Long, J. Scott and Ervin, Laurie H. (2000). Using
+                Heteroscedasticity Consistent Standard Errors in the
+                Linear Regression Model. <em>The American
+                Statistician</em> 54(3), 217–224.</li>
+                <li>MacKinnon, James G. and White, Halbert (1985). Some
+                Heteroskedasticity-Consistent Covariance Matrix
+                Estimators with Improved Finite Sample Properties.
+                <em>Journal of Econometrics</em> 29(3), 305–325.</li>
+                <li>Newey, Whitney K. and West, Kenneth D. (1987). A
+                Simple, Positive Semi-Definite, Heteroskedasticity and
+                Autocorrelation Consistent Covariance Matrix.
+                <em>Econometrica</em> 55(3), 703–708.</li>
+                <li>Prais, Sigbert J. and Winsten, Christopher B.
+                (1954). Trend Estimators and Serial Correlation. Cowles
+                Commission Discussion Paper No. 383, Chicago.</li>
+                <li>Rao, C. Radhakrishna (1948). Large Sample Tests of
+                Statistical Hypotheses Concerning Several Parameters
+                with Applications to Problems of Estimation.
+                <em>Proceedings of the Cambridge Philosophical
+                Society</em> 44(1), 50–57.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Sen, Ashish and Srivastava, Muni (1990).
+                <em>Regression Analysis: Theory, Methods, and
+                Applications</em>. New York: Springer.</li>
+                <li>Shapiro, Samuel S. and Francia, R. S. (1972). An
+                Approximate Analysis of Variance Test for Normality.
+                <em>Journal of the American Statistical Association</em>
+                67(337), 215–216.</li>
+                <li>Shapiro, Samuel S. and Wilk, Martin B. (1965). An
+                Analysis of Variance Test for Normality (Complete
+                Samples). <em>Biometrika</em> 52(3/4), 591–611.</li>
+                <li>van der Vaart, Aad W. (1998). <em>Asymptotic
+                Statistics</em>. Cambridge: Cambridge University
+                Press.</li>
+                <li>White, Halbert (1980). A
+                Heteroskedasticity-Consistent Covariance Matrix
+                Estimator and a Direct Test for Heteroskedasticity.
+                <em>Econometrica</em> 48(4), 817–838.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch21-nonnormality-heteroscedasticity-serial/06-autoregressive-errors.html" class="pagination-link" aria-label="Autoregressive
+errors">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">21.6 Autoregressive
+errors</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch22-transformations/index.html" class="pagination-link" aria-label="Transformations">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Transformations</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2021.7%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch21-nonnormality-heteroscedasticity-serial%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch21-nonnormality-heteroscedasticity-serial/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

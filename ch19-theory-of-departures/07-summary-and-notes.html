@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19.7 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch19-theory-of-departures/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Coverage. The chapter covers
+the topics of Seber and Lee (2003, chapter 9) with its own arguments,
+and adds , , the limiting coverages and the breakdown point.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch19-theory-of-departures/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch19-theory-of-departures/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="19.7 Summary and Notes">
+        <meta property="og:description" content="Coverage. The chapter
+covers the topics of Seber and Lee (2003, chapter 9) with its own
+arguments, and adds , , the limiting coverages and the breakdown
+point.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch19-theory-of-departures/index.html">What Goes Wrong: A Theory of Departures</a></li>
+                        <li class="breadcrumb-item"><a href="../ch19-theory-of-departures/07-summary-and-notes.html"><span class="chapter-number">19.7</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">19.7</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">19.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>Omitting regressors biases <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\boldsymbol{\upbeta}}_1^{\mathrm{S}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.297em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c53"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">β</mi><mo stretchy="false">^</mo></mover></mrow><mn>1</mn><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">S</mi></mrow></mrow></msubsup></math></mjx-assistive-mml></mjx-container></span> by
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\Pi}\boldsymbol{\upbeta}_2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D6B7 TEX-B"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">Π</mi><msub><mi mathvariant="bold">β</mi><mn>2</mn></msub></math></mjx-assistive-mml></mjx-container></span>
+                and inflates <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="s^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>s</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>,
+                while the covariances look exactly as the short model
+                claims (<a href="../ch19-theory-of-departures/01-underfitting-overfitting.html#thm-dep-omitted" class="xref" data-ref="thm-dep-omitted" data-shard="ch19-theory-of-departures">Theorem 19.1.2</a>).
+                Irrelevant regressors cost only variance (<a href="../ch19-theory-of-departures/01-underfitting-overfitting.html#thm-dep-overfit" class="xref" data-ref="thm-dep-overfit" data-shard="ch19-theory-of-departures">Theorem 19.1.3</a>).</p></li>
+                <li><p>The short regression has the smaller mean squared
+                error matrix iff <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\gamma\le1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>γ</mi><mo>≤</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>; at the design
+                points the threshold is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p_2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>p</mi><mn>2</mn></msub></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch19-theory-of-departures/01-underfitting-overfitting.html#thm-dep-mse" class="xref" data-ref="thm-dep-mse" data-shard="ch19-theory-of-departures">Theorem 19.1.5</a>).</p></li>
+                <li><p>Under <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{Cov}(\mathbf{Y})=\sigma^2\mathbf{V}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c43"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c76"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D418 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D415 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Cov</mi><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Y</mi></mrow><mo stretchy="false">)</mo><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">V</mi></mrow></math></mjx-assistive-mml></mjx-container></span> the
+                usual variance estimate is off by a factor bounded by
+                eigenvalue ratios of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{V}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D415 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">V</mi></mrow></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch19-theory-of-departures/02-wrong-covariance.html#thm-dep-covariance" class="xref" data-ref="thm-dep-covariance" data-shard="ch19-theory-of-departures">Theorem 19.2.2</a>),
+                while the efficiency loss is bounded by Kantorovich’s
+                constant (<a href="../ch19-theory-of-departures/02-wrong-covariance.html#thm-dep-efficiency" class="xref" data-ref="thm-dep-efficiency" data-shard="ch19-theory-of-departures">Theorem 19.2.3</a>).</p></li>
+                <li><p>With non-normal errors and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\max_ih_{ii}\to0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-munder limits="false"><mjx-mo class="mjx-n"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2192"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><munder><mo data-mjx-texclass="OP" movablelimits="true">max</mo><mi>i</mi></munder><msub><mi>h</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>i</mi></mrow></msub><mo accent="false" stretchy="false">→</mo><mn>0</mn></math></mjx-assistive-mml></mjx-container></span>, linear
+                estimates are asymptotically normal and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> tests asymptotically
+                valid (<a href="../ch19-theory-of-departures/03-non-normal-errors.html#thm-dep-nonnormal" class="xref" data-ref="thm-dep-nonnormal" data-shard="ch19-theory-of-departures">Theorem 19.3.2</a>);
+                leverage bounds the finite-sample skewness and kurtosis
+                (<a href="../ch19-theory-of-departures/03-non-normal-errors.html#prp-dep-cumulants" class="xref" data-ref="prp-dep-cumulants" data-shard="ch19-theory-of-departures">Proposition 19.3.3</a>).</p></li>
+                <li><p>Intervals for <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>, variance-ratio
+                tests and prediction intervals stay wrong in large
+                samples (<a href="../ch19-theory-of-departures/03-non-normal-errors.html#prp-dep-sigma-interval" class="xref" data-ref="prp-dep-sigma-interval" data-shard="ch19-theory-of-departures">Proposition 19.3.4</a>,
+                <a href="../ch12-intervals-and-bands/03-prediction.html#prp-ci-pi-limit" class="xref" data-ref="prp-ci-pi-limit" data-shard="ch12-intervals-and-bands">Proposition 12.3.3</a>);
+                quadratic balance protects <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> tests (<a href="../ch19-theory-of-departures/03-non-normal-errors.html#prp-dep-balance" class="xref" data-ref="prp-dep-balance" data-shard="ch19-theory-of-departures">Proposition 19.3.5</a>).</p></li>
+                <li><p>One contaminated case moves <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\boldsymbol{\upbeta}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">β</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span> by a leverage
+                factor times its residual, hides itself in the fit (<a href="../ch19-theory-of-departures/04-outliers.html#thm-dep-outlier" class="xref" data-ref="thm-dep-outlier" data-shard="ch19-theory-of-departures">Theorem 19.4.1</a>),
+                and can move the estimate arbitrarily far (<a href="../ch19-theory-of-departures/04-outliers.html#prp-dep-breakdown" class="xref" data-ref="prp-dep-breakdown" data-shard="ch19-theory-of-departures">Proposition 19.4.2</a>).</p></li>
+                <li><p>With random regressors and a curved mean, least
+                squares estimates the population projection with a
+                sandwich covariance that the usual formula misses (<a href="../ch19-theory-of-departures/05-random-regressors.html#prp-dep-design-target" class="xref" data-ref="prp-dep-design-target" data-shard="ch19-theory-of-departures">Proposition 19.5.1</a>,
+                <a href="../ch19-theory-of-departures/05-random-regressors.html#thm-dep-random-x" class="xref" data-ref="thm-dep-random-x" data-shard="ch19-theory-of-departures">Theorem 19.5.2</a>).</p></li>
+                <li><p>Collinearity breaks no assumption but inflates
+                the variance of coefficients and of predictions against
+                the pattern of the data (<a href="../ch19-theory-of-departures/06-collinearity.html#prp-dep-collinear-directions" class="xref" data-ref="prp-dep-collinear-directions" data-shard="ch19-theory-of-departures">Proposition 19.6.1</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">19.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>Coverage.</strong> The chapter covers the
+                topics of Seber and Lee (2003, chapter 9) with its own
+                arguments, and adds <a href="../ch19-theory-of-departures/01-underfitting-overfitting.html#thm-dep-mse" class="xref" data-ref="thm-dep-mse" data-shard="ch19-theory-of-departures">Theorem 19.1.5</a>,
+                <a href="../ch19-theory-of-departures/03-non-normal-errors.html#prp-dep-cumulants" class="xref" data-ref="prp-dep-cumulants" data-shard="ch19-theory-of-departures">Proposition 19.3.3</a>,
+                the limiting coverages and the breakdown point.
+                Measurement error is in <a href="../ch24-errors-in-variables/index.html">Chapter
+                24</a> (rounding in <a href="05-random-regressors.html">Section 19.5</a>),
+                perturbation theory in <a href="../ch10-computation/index.html">Chapter
+                10</a>.</p>
+                <p><strong>Underfitting and overfitting.</strong> The
+                omitted-variable formula is classical; it is <a href="../ch05-model-and-least-squares/07-interpreting-coefficients.html#prp-lm-omitted" class="xref" data-ref="prp-lm-omitted" data-shard="ch05-model-and-least-squares">Proposition 5.7.2</a>
+                in Chapter 5. The criterion <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\gamma\le1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FE TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>γ</mi><mo>≤</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> for the
+                restricted estimator to have the smaller mean squared
+                error matrix is due to Toro-Vizcarrondo and Wallace
+                (1968) (in their notation, with the factor <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1/2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></math></mjx-assistive-mml></mjx-container></span> in the noncentrality,
+                the condition reads <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda\le1/2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi><mo>≤</mo><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></math></mjx-assistive-mml></mjx-container></span>), who also
+                proposed testing it with the noncentral <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> distribution. Pretest
+                estimators, which choose between the two models from the
+                data, are taken up with model selection in Chapter
+                29.</p>
+                <p><strong>Wrong covariance.</strong> The bounds on the
+                bias of the usual variance estimate are Swindel’s
+                (1968). The efficiency bound of <a href="../ch19-theory-of-departures/02-wrong-covariance.html#thm-dep-efficiency" class="xref" data-ref="thm-dep-efficiency" data-shard="ch19-theory-of-departures">Theorem 19.2.3</a>
+                rests on Kantorovich’s inequality. The sharp bound for
+                the determinant of the whole covariance matrix is due to
+                Bloomfield and Watson (1975) and Knott (1975). Grenander
+                (1954) showed that least squares is asymptotically
+                efficient for polynomial trends under stationary errors,
+                the phenomenon of <a href="../ch19-theory-of-departures/02-wrong-covariance.html#exm-dep-ar1" class="xref" data-ref="exm-dep-ar1" data-shard="ch19-theory-of-departures">Example (A trend with autocorrelated errors)</a>.
+                Kruskal’s (1968) condition for exact equality is <a href="../ch06-projections/09-inner-products.html#thm-proj-kruskal" class="xref" data-ref="thm-proj-kruskal" data-shard="ch06-projections">Theorem 6.9.3</a>.</p>
+                <p><strong>Non-normality.</strong> The Lindeberg–Feller
+                theorem is in Billingsley (1995), and Cramér–Wold,
+                Slutsky and continuous mapping in van der Vaart (1998).
+                The leverage condition <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="h^*_n\to0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo><mjx-spacer style="margin-top: 0.322em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2192"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>h</mi><mi>n</mi><mo>∗</mo></msubsup><mo accent="false" stretchy="false">→</mo><mn>0</mn></math></mjx-assistive-mml></mjx-container></span> is the one used
+                by Huber (1973) in his asymptotic theory of robust
+                regression. That tests on variances are sensitive to
+                non-normality while tests on means are not was
+                emphasized by Box (1953). Box and Watson (1962) and
+                Atiqullah (1962) studied the regression <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test through its first
+                two moments, and Atiqullah introduced quadratic balance.
+                <a href="../ch19-theory-of-departures/03-non-normal-errors.html#prp-dep-balance" class="xref" data-ref="prp-dep-balance" data-shard="ch19-theory-of-departures">Proposition 19.3.5</a>
+                is a compact version of their calculation.</p>
+                <p><strong>Outliers and breakdown.</strong> The
+                breakdown point in its finite-sample form is from Donoho
+                and Huber (1983), and the influence function from Hampel
+                (1974). Regression estimators with breakdown point near
+                one half exist, least median of squares (Rousseeuw 1984)
+                being the first. The stack loss data are from Brownlee
+                (1965), and their last observation is a much-analysed
+                outlier. <a href="../ch20-residuals-leverage-influence/index.html">Chapter
+                20</a> develops diagnostics for such cases.</p>
+                <p><strong>Random regressors.</strong> The view of least
+                squares as estimating a best linear approximation, with
+                a sandwich covariance that the usual formula gets wrong,
+                is due to White (1980). Berkson (1950) distinguished
+                controlled regressors from regressors measured with
+                error. Longley’s (1967) data are the standard example of
+                severe collinearity.</p>
+                <h2 id="references"><span class="header-section-number">19.7.3. </span>
+                References</h2>
+                <ul>
+                <li>Atiqullah, M. (1962). The Estimation of Residual
+                Variance in Quadratically Balanced Least-Squares
+                Problems and the Robustness of the F-Test.
+                <em>Biometrika</em> 49(1/2), 83–91.</li>
+                <li>Berkson, Joseph (1950). Are There Two Regressions?
+                <em>Journal of the American Statistical Association</em>
+                45(250), 164–180.</li>
+                <li>Billingsley, Patrick (1995). <em>Probability and
+                Measure</em>. 3rd edition. New York: Wiley.</li>
+                <li>Bloomfield, Peter and Watson, Geoffrey S. (1975).
+                The Inefficiency of Least Squares. <em>Biometrika</em>
+                62(1), 121–128.</li>
+                <li>Box, George E. P. (1953). Non-Normality and Tests on
+                Variances. <em>Biometrika</em> 40(3/4), 318–335.</li>
+                <li>Box, George E. P. and Watson, Geoffrey S. (1962).
+                Robustness to Non-Normality of Regression Tests.
+                <em>Biometrika</em> 49(1/2), 93–106.</li>
+                <li>Brownlee, K. A. (1965). <em>Statistical Theory and
+                Methodology in Science and Engineering</em>. 2nd
+                edition. New York: Wiley.</li>
+                <li>Donoho, David L. and Huber, Peter J. (1983). The
+                Notion of Breakdown Point. In P. J. Bickel, K. A. Doksum
+                and J. L. Hodges (eds), <em>A Festschrift for Erich L.
+                Lehmann</em>, 157–184. Belmont, CA: Wadsworth.</li>
+                <li>Grenander, Ulf (1954). On the Estimation of
+                Regression Coefficients in the Case of an Autocorrelated
+                Disturbance. <em>The Annals of Mathematical
+                Statistics</em> 25(2), 252–272.</li>
+                <li>Hampel, Frank R. (1974). The Influence Curve and Its
+                Role in Robust Estimation. <em>Journal of the American
+                Statistical Association</em> 69(346), 383–393.</li>
+                <li>Huber, Peter J. (1973). Robust Regression:
+                Asymptotics, Conjectures and Monte Carlo. <em>The Annals
+                of Statistics</em> 1(5), 799–821.</li>
+                <li>Knott, M. (1975). On the Minimum Efficiency of Least
+                Squares. <em>Biometrika</em> 62(1), 129–132.</li>
+                <li>Kruskal, William (1968). When Are Gauss–Markov and
+                Least Squares Estimators Identical? A Coordinate-Free
+                Approach. <em>The Annals of Mathematical Statistics</em>
+                39(1), 70–75.</li>
+                <li>Longley, James W. (1967). An Appraisal of Least
+                Squares Programs for the Electronic Computer from the
+                Point of View of the User. <em>Journal of the American
+                Statistical Association</em> 62(319), 819–841.</li>
+                <li>Rousseeuw, Peter J. (1984). Least Median of Squares
+                Regression. <em>Journal of the American Statistical
+                Association</em> 79(388), 871–880.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Swindel, Benee F. (1968). On the Bias of Some
+                Least-Squares Estimators of Variance in a General Linear
+                Model. <em>Biometrika</em> 55(2), 313–316.</li>
+                <li>Toro-Vizcarrondo, Carlos and Wallace, T. Dudley
+                (1968). A Test of the Mean Square Error Criterion for
+                Restrictions in Linear Regression. <em>Journal of the
+                American Statistical Association</em> 63(322),
+                558–572.</li>
+                <li>van der Vaart, Aad W. (1998). <em>Asymptotic
+                Statistics</em>. Cambridge: Cambridge University
+                Press.</li>
+                <li>White, Halbert (1980). Using Least Squares to
+                Approximate Unknown Regression Functions.
+                <em>International Economic Review</em> 21(1),
+                149–170.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch19-theory-of-departures/06-collinearity.html" class="pagination-link" aria-label="Collinearity,
+previewed">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">19.6 Collinearity,
+previewed</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch20-residuals-leverage-influence/index.html" class="pagination-link" aria-label="Residuals,
+Leverage and Influence">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Residuals,
+Leverage and Influence</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2019.7%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch19-theory-of-departures%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch19-theory-of-departures/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

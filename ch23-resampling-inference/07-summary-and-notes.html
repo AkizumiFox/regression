@@ -1,0 +1,394 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23.7 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch23-resampling-inference/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="The bootstrap. Efron (1979)
+introduced the bootstrap.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch23-resampling-inference/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch23-resampling-inference/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="23.7 Summary and Notes">
+        <meta property="og:description" content="The bootstrap. Efron
+(1979) introduced the bootstrap.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch23-resampling-inference/index.html">Bootstrap and Permutation Inference</a></li>
+                        <li class="breadcrumb-item"><a href="../ch23-resampling-inference/07-summary-and-notes.html"><span class="chapter-number">23.7</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">23.7</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">23.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>The bootstrap estimates the distribution of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\theta}-\theta"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.318em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi>θ</mi><mo stretchy="false">^</mo></mover></mrow><mo>−</mo><mi>θ</mi></math></mjx-assistive-mml></mjx-container></span> by
+                that of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\theta}^*-\hat{\theta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.318em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.318em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow data-mjx-texclass="ORD"><mover><mi>θ</mi><mo stretchy="false">^</mo></mover></mrow><mo>∗</mo></msup><mo>−</mo><mrow data-mjx-texclass="ORD"><mover><mi>θ</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span>
+                under an estimated mechanism: resampled residuals with
+                the design fixed, or resampled cases (<a href="../ch23-resampling-inference/01-cases-and-residuals.html#def-bs-bootstrap" class="xref" data-ref="def-bs-bootstrap" data-shard="ch23-resampling-inference">Definition 23.1.1</a>).</p></li>
+                <li><p>The residual bootstrap has covariance <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\sigma}_*^2(\mathbf{X}^{\top}\mathbf{X})^{-1}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.285em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.247em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.281em;"></mjx-spacer><mjx-mo class="mjx-n" size="s"><mjx-c class="mjx-c2217"></mjx-c></mjx-mo></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mover><mi>σ</mi><mo stretchy="false">^</mo></mover></mrow><mo>∗</mo><mn>2</mn></msubsup><mo stretchy="false">(</mo><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>,
+                biased by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(n-p)/n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch23-resampling-inference/01-cases-and-residuals.html#prp-bs-residual-moments" class="xref" data-ref="prp-bs-residual-moments" data-shard="ch23-resampling-inference">Proposition 23.1.1</a>),
+                and is consistent for contrasts under exchangeable
+                errors when no case dominates (<a href="../ch23-resampling-inference/01-cases-and-residuals.html#thm-bs-residual" class="xref" data-ref="thm-bs-residual" data-shard="ch23-resampling-inference">Theorem 23.1.4</a>);
+                it fails under heteroscedasticity.</p></li>
+                <li><p>The case bootstrap, linearized, has the HC0
+                sandwich covariance (<a href="../ch23-resampling-inference/01-cases-and-residuals.html#prp-bs-case-linear" class="xref" data-ref="prp-bs-case-linear" data-shard="ch23-resampling-inference">Proposition 23.1.5</a>).
+                The wild bootstrap reproduces the sandwich exactly (<a href="../ch23-resampling-inference/02-wild-bootstrap.html#prp-bs-wild-moments" class="xref" data-ref="prp-bs-wild-moments" data-shard="ch23-resampling-inference">Proposition 23.2.1</a>)
+                and is consistent under heteroscedasticity (<a href="../ch23-resampling-inference/02-wild-bootstrap.html#thm-bs-wild-consistency" class="xref" data-ref="thm-bs-wild-consistency" data-shard="ch23-resampling-inference">Theorem 23.2.2</a>).</p></li>
+                <li><p>Percentile, basic and studentized intervals are
+                first-order correct (<a href="../ch23-resampling-inference/03-confidence-intervals.html#cor-bs-interval-consistency" class="xref" data-ref="cor-bs-interval-consistency" data-shard="ch23-resampling-inference">Corollary 23.3.2</a>);
+                studentizing reproduces exact pivots exactly (<a href="../ch23-resampling-inference/03-confidence-intervals.html#prp-bs-parametric" class="xref" data-ref="prp-bs-parametric" data-shard="ch23-resampling-inference">Proposition 23.3.3</a>)
+                and, by Hall’s Edgeworth analysis (not proved here),
+                gives higher-order accuracy.</p></li>
+                <li><p>Permutation tests are exact for any statistic
+                under invariance (<a href="../ch23-resampling-inference/04-permutation-tests.html#thm-bs-permutation" class="xref" data-ref="thm-bs-permutation" data-shard="ch23-resampling-inference">Theorem 23.4.2</a>):
+                in simple regression with exchangeable errors, and with
+                nuisance regressors only for permutations that fix them
+                (<a href="../ch23-resampling-inference/04-permutation-tests.html#prp-bs-invariant-nuisance" class="xref" data-ref="prp-bs-invariant-nuisance" data-shard="ch23-resampling-inference">Proposition 23.4.4</a>).
+                Heteroscedasticity turns them into tests of independence
+                unless the statistic is studentized.</p></li>
+                <li><p>The Freedman–Lane scheme is exact when an exact
+                test exists, ignores the nuisance coefficients, and its
+                permuted statistics are asymptotically those of an exact
+                oracle (<a href="../ch23-resampling-inference/05-freedman-lane.html#prp-bs-freedman-lane" class="xref" data-ref="prp-bs-freedman-lane" data-shard="ch23-resampling-inference">Proposition 23.5.1</a>(d));
+                its asymptotic size is due to Anderson and Robinson
+                (2001). Kennedy’s scheme is more liberal (<a href="../ch23-resampling-inference/05-freedman-lane.html#prp-bs-kennedy" class="xref" data-ref="prp-bs-kennedy" data-shard="ch23-resampling-inference">Proposition 23.5.2</a>).</p></li>
+                <li><p>Resampling fails for extremes (<a href="../ch23-resampling-inference/06-failures.html#prp-bs-maximum" class="xref" data-ref="prp-bs-maximum" data-shard="ch23-resampling-inference">Proposition 23.6.1</a>),
+                heavy tails, dominant cases, large <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p/n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>, dependence and,
+                unless studentized, small samples (<a href="06-failures.html">Section 23.6</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">23.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>The bootstrap.</strong> Efron (1979)
+                introduced the bootstrap. Freedman (1981) set out
+                residual and case resampling for regression and proved
+                both consistent; <a href="../ch23-resampling-inference/01-cases-and-residuals.html#thm-bs-residual" class="xref" data-ref="thm-bs-residual" data-shard="ch23-resampling-inference">Theorem 23.1.4</a>
+                is a version for linear contrasts. Bickel and Freedman
+                (1981) developed the general theory, and Wu (1986)
+                showed that the residual bootstrap fails under
+                heteroscedasticity. Efron and Tibshirani (1993) and
+                Davison and Hinkley (1997) are the standard books; the
+                latter uses the leverage-adjusted residuals adopted
+                here. Sen and Srivastava (1990, section 5.4) describe
+                the residual bootstrap test of a linear hypothesis.</p>
+                <p><strong>The wild bootstrap.</strong> The idea is in
+                Wu (1986); Liu (1988) and Mammen (1993) developed its
+                theory, and Mammen introduced the two-point law.
+                Davidson and Flachaire (2008) recommend Rademacher
+                weights with restricted residuals for tests.</p>
+                <p><strong>Intervals.</strong> Hall (1988) compared
+                bootstrap intervals by Edgeworth expansions, and Hall
+                (1992) is the full account, including the iterated
+                bootstrap of <a href="../ch23-resampling-inference/03-confidence-intervals.html#exr-bs-iterated" class="xref" data-ref="exr-bs-iterated" data-shard="ch23-resampling-inference">Exercise (C1)</a>.
+                Efron (1987) introduced BCa; DiCiccio and Efron (1996)
+                review the methods. Prediction intervals for a new
+                response, which add a resampled error to the resampled
+                estimate in place of the normal-theory interval of <a href="../ch12-intervals-and-bands/03-prediction.html#thm-ci-prediction-interval" class="xref" data-ref="thm-ci-prediction-interval" data-shard="ch12-intervals-and-bands">Theorem 12.3.1</a>,
+                are treated in Davison and Hinkley (1997, chapter
+                6).</p>
+                <p><strong>Permutation tests.</strong> Fisher (1935) and
+                Pitman (1937) introduced permutation tests. The proof of
+                <a href="../ch23-resampling-inference/04-permutation-tests.html#thm-bs-permutation" class="xref" data-ref="thm-bs-permutation" data-shard="ch23-resampling-inference">Theorem 23.4.2</a>
+                follows Lehmann and Romano (2005, chapter 15); on the
+                Monte Carlo count see Phipson and Smyth (2010). DiCiccio
+                and Romano (2017) proved the validity of studentized
+                permutation tests under dependence without
+                correlation.</p>
+                <p><strong>Partial tests.</strong> The schemes are due
+                to Freedman and Lane (1983), ter Braak (1992), Kennedy
+                (1995), Draper and Stoneman (1966) and Manly (1997).
+                Anderson and Legendre (1999) compared them by
+                simulation, Anderson and Robinson (2001) analytically,
+                and Winkler and coauthors (2014) review them for the
+                general linear model.</p>
+                <p><strong>Failures.</strong> Bickel, Götze and van Zwet
+                (1997) analyse the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math></mjx-assistive-mml></mjx-container></span>-out-of-<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></mjx-assistive-mml></mjx-container></span> bootstrap, Athreya
+                (1987) the infinite-variance mean, and El Karoui and
+                Purdom (2018) large <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p/n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>. Künsch (1989)
+                introduced the moving-block bootstrap; Lahiri (2003)
+                treats dependent data at length.</p>
+                <h2 id="references"><span class="header-section-number">23.7.3. </span>
+                References</h2>
+                <ul>
+                <li>Anderson, Marti J. and Legendre, Pierre (1999). An
+                Empirical Comparison of Permutation Methods for Tests of
+                Partial Regression Coefficients in a Linear Model.
+                <em>Journal of Statistical Computation and
+                Simulation</em> 62(3), 271–303.</li>
+                <li>Anderson, Marti J. and Robinson, John (2001).
+                Permutation Tests for Linear Models. <em>Australian and
+                New Zealand Journal of Statistics</em> 43(1),
+                75–88.</li>
+                <li>Athreya, Krishna B. (1987). Bootstrap of the Mean in
+                the Infinite Variance Case. <em>The Annals of
+                Statistics</em> 15(2), 724–731.</li>
+                <li>Bickel, Peter J. and Freedman, David A. (1981). Some
+                Asymptotic Theory for the Bootstrap. <em>The Annals of
+                Statistics</em> 9(6), 1196–1217.</li>
+                <li>Bickel, Peter J., Götze, Friedrich and van Zwet,
+                Willem R. (1997). Resampling Fewer than n Observations:
+                Gains, Losses, and Remedies for Losses. <em>Statistica
+                Sinica</em> 7(1), 1–31.</li>
+                <li>Davidson, Russell and Flachaire, Emmanuel (2008).
+                The Wild Bootstrap, Tamed at Last. <em>Journal of
+                Econometrics</em> 146(1), 162–169.</li>
+                <li>Davison, Anthony C. and Hinkley, David V. (1997).
+                <em>Bootstrap Methods and Their Application</em>.
+                Cambridge: Cambridge University Press.</li>
+                <li>DiCiccio, Cyrus J. and Romano, Joseph P. (2017).
+                Robust Permutation Tests for Correlation and Regression
+                Coefficients. <em>Journal of the American Statistical
+                Association</em> 112(519), 1211–1220.</li>
+                <li>DiCiccio, Thomas J. and Efron, Bradley (1996).
+                Bootstrap Confidence Intervals. <em>Statistical
+                Science</em> 11(3), 189–228.</li>
+                <li>Draper, Norman R. and Stoneman, David M. (1966).
+                Testing for the Inclusion of Variables in Linear
+                Regression by a Randomisation Technique.
+                <em>Technometrics</em> 8(4), 695–699.</li>
+                <li>Efron, Bradley (1979). Bootstrap Methods: Another
+                Look at the Jackknife. <em>The Annals of Statistics</em>
+                7(1), 1–26.</li>
+                <li>Efron, Bradley (1987). Better Bootstrap Confidence
+                Intervals. <em>Journal of the American Statistical
+                Association</em> 82(397), 171–185.</li>
+                <li>Efron, Bradley and Tibshirani, Robert J. (1993).
+                <em>An Introduction to the Bootstrap</em>. New York:
+                Chapman and Hall.</li>
+                <li>El Karoui, Noureddine and Purdom, Elizabeth (2018).
+                Can We Trust the Bootstrap in High-Dimensions? The Case
+                of Linear Models. <em>Journal of Machine Learning
+                Research</em> 19, 1–66.</li>
+                <li>Fisher, Ronald A. (1935). <em>The Design of
+                Experiments</em>. Edinburgh: Oliver and Boyd.</li>
+                <li>Freedman, David A. (1981). Bootstrapping Regression
+                Models. <em>The Annals of Statistics</em> 9(6),
+                1218–1228.</li>
+                <li>Freedman, David and Lane, David (1983). A
+                Nonstochastic Interpretation of Reported Significance
+                Levels. <em>Journal of Business and Economic
+                Statistics</em> 1(4), 292–298.</li>
+                <li>Hall, Peter (1988). Theoretical Comparison of
+                Bootstrap Confidence Intervals. <em>The Annals of
+                Statistics</em> 16(3), 927–953.</li>
+                <li>Hall, Peter (1992). <em>The Bootstrap and Edgeworth
+                Expansion</em>. New York: Springer.</li>
+                <li>Kennedy, Peter E. (1995). Randomization Tests in
+                Econometrics. <em>Journal of Business and Economic
+                Statistics</em> 13(1), 85–94.</li>
+                <li>Künsch, Hans R. (1989). The Jackknife and the
+                Bootstrap for General Stationary Observations. <em>The
+                Annals of Statistics</em> 17(3), 1217–1241.</li>
+                <li>Lahiri, Soumendra N. (2003). <em>Resampling Methods
+                for Dependent Data</em>. New York: Springer.</li>
+                <li>Lehmann, Erich L. and Romano, Joseph P. (2005).
+                <em>Testing Statistical Hypotheses</em>. 3rd edition.
+                New York: Springer.</li>
+                <li>Liu, Regina Y. (1988). Bootstrap Procedures under
+                Some Non-I.I.D. Models. <em>The Annals of
+                Statistics</em> 16(4), 1696–1708.</li>
+                <li>Mammen, Enno (1993). Bootstrap and Wild Bootstrap
+                for High Dimensional Linear Models. <em>The Annals of
+                Statistics</em> 21(1), 255–285.</li>
+                <li>Manly, Bryan F. J. (1997). <em>Randomization,
+                Bootstrap and Monte Carlo Methods in Biology</em>. 2nd
+                edition. London: Chapman and Hall.</li>
+                <li>Phipson, Belinda and Smyth, Gordon K. (2010).
+                Permutation P-values Should Never Be Zero: Calculating
+                Exact P-values When Permutations Are Randomly Drawn.
+                <em>Statistical Applications in Genetics and Molecular
+                Biology</em> 9(1), Article 39.</li>
+                <li>Pitman, Edwin J. G. (1937). Significance Tests Which
+                May Be Applied to Samples from Any Populations.
+                <em>Supplement to the Journal of the Royal Statistical
+                Society</em> 4(1), 119–130.</li>
+                <li>Sen, Ashish and Srivastava, Muni (1990).
+                <em>Regression Analysis: Theory, Methods, and
+                Applications</em>. New York: Springer.</li>
+                <li>ter Braak, Cajo J. F. (1992). Permutation Versus
+                Bootstrap Significance Tests in Multiple Regression and
+                ANOVA. In K.-H. Jöckel, G. Rothe and W. Sendler (eds.),
+                <em>Bootstrapping and Related Techniques</em>. Berlin:
+                Springer.</li>
+                <li>van der Vaart, Aad W. (1998). <em>Asymptotic
+                Statistics</em>. Cambridge: Cambridge University
+                Press.</li>
+                <li>Winkler, Anderson M., Ridgway, Gerard R., Webster,
+                Matthew A., Smith, Stephen M. and Nichols, Thomas E.
+                (2014). Permutation Inference for the General Linear
+                Model. <em>NeuroImage</em> 92, 381–397.</li>
+                <li>Wu, C. F. Jeff (1986). Jackknife, Bootstrap and
+                Other Resampling Methods in Regression Analysis. <em>The
+                Annals of Statistics</em> 14(4), 1261–1295.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch23-resampling-inference/06-failures.html" class="pagination-link" aria-label="When
+resampling fails">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">23.6 When
+resampling fails</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch24-errors-in-variables/index.html" class="pagination-link" aria-label="Errors
+in Variables">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Errors in
+Variables</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2023.7%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch23-resampling-inference%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch23-resampling-inference/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

@@ -156,6 +156,60 @@
   <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/05-latin-squares-incomplete-blocks.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/06-missing-observations.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch18-covariance-and-design/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch19-theory-of-departures/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch19-theory-of-departures/01-underfitting-overfitting.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch19-theory-of-departures/02-wrong-covariance.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch19-theory-of-departures/03-non-normal-errors.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch19-theory-of-departures/04-outliers.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch19-theory-of-departures/05-random-regressors.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch19-theory-of-departures/06-collinearity.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch19-theory-of-departures/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch20-residuals-leverage-influence/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch20-residuals-leverage-influence/01-kinds-of-residuals.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch20-residuals-leverage-influence/02-leverage.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch20-residuals-leverage-influence/03-deletion.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch20-residuals-leverage-influence/04-influence.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch20-residuals-leverage-influence/05-masking.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch20-residuals-leverage-influence/06-robust.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch20-residuals-leverage-influence/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/01-checking-normality.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/02-detecting-heteroscedasticity.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/03-weighted-least-squares.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/05-durbin-watson.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/06-autoregressive-errors.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch22-transformations/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch22-transformations/01-transforming-the-response.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch22-transformations/02-box-cox.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch22-transformations/03-transforming-regressors.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch22-transformations/04-variance-stabilizing.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch22-transformations/05-interpreting.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch22-transformations/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch23-resampling-inference/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch23-resampling-inference/01-cases-and-residuals.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch23-resampling-inference/02-wild-bootstrap.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch23-resampling-inference/03-confidence-intervals.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch23-resampling-inference/04-permutation-tests.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch23-resampling-inference/05-freedman-lane.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch23-resampling-inference/06-failures.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch23-resampling-inference/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch24-errors-in-variables/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch24-errors-in-variables/01-attenuation.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch24-errors-in-variables/02-measurement-error-model.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch24-errors-in-variables/03-moment-correction.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch24-errors-in-variables/04-instrumental-variables.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch24-errors-in-variables/05-calibration-simex.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch24-errors-in-variables/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/01-prediction-intervention.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/02-potential-outcomes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/03-confounding-dags.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/04-backdoor.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/05-bad-controls.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/06-randomized-adjustment.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch25-causal-interpretation/07-summary-and-notes.html</loc></url>
   <url><loc>https://regression.akizumifox.com/results.html</loc></url>
   <url><loc>https://regression.akizumifox.com/graph.html</loc></url>
 </urlset>

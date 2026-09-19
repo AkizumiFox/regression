@@ -1,0 +1,390 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25.7 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch25-causal-interpretation/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Structural models and
+graphs.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch25-causal-interpretation/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch25-causal-interpretation/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="25.7 Summary and Notes">
+        <meta property="og:description" content="Structural models and
+graphs.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch25-causal-interpretation/index.html">Causal Interpretation of Coefficients</a></li>
+                        <li class="breadcrumb-item"><a href="../ch25-causal-interpretation/07-summary-and-notes.html"><span class="chapter-number">25.7</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">25.7</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">25.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p><span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{E}\bigl(Y\mid\operatorname{do}(X=x)\bigr)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-TeXAtom texclass="OPEN"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c28 TEX-S1"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2223"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="4"><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c6F"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="CLOSE"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c29 TEX-S1"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mrow data-mjx-texclass="OPEN"><mo minsize="1.2em" maxsize="1.2em">(</mo></mrow><mi>Y</mi><mo>∣</mo><mi>do</mi><mo stretchy="false">(</mo><mi>X</mi><mo>=</mo><mi>x</mi><mo stretchy="false">)</mo><mrow data-mjx-texclass="CLOSE"><mo minsize="1.2em" maxsize="1.2em">)</mo></mrow></math></mjx-assistive-mml></mjx-container></span>,
+                defined by a structural causal model (<a href="../ch25-causal-interpretation/01-prediction-intervention.html#def-cau-scm" class="xref" data-ref="def-cau-scm" data-shard="ch25-causal-interpretation">Definition 25.1.1</a>),
+                differs from <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{E}(Y\mid
+                X=x)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2223"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mo stretchy="false">(</mo><mi>Y</mi><mo>∣</mo><mi>X</mi><mo>=</mo><mi>x</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> under confounding, at every sample size
+                (<a href="../ch25-causal-interpretation/01-prediction-intervention.html#prp-cau-confounded" class="xref" data-ref="prp-cau-confounded" data-shard="ch25-causal-interpretation">Proposition 25.1.1</a>).</p></li>
+                <li><p>Potential outcomes (<a href="../ch25-causal-interpretation/02-potential-outcomes.html#def-cau-potential-outcomes" class="xref" data-ref="def-cau-potential-outcomes" data-shard="ch25-causal-interpretation">Definition 25.2.1</a>):
+                the naive comparison is the effect on the treated plus a
+                selection bias (<a href="../ch25-causal-interpretation/02-potential-outcomes.html#prp-cau-selection-bias" class="xref" data-ref="prp-cau-selection-bias" data-shard="ch25-causal-interpretation">Proposition 25.2.1</a>).</p></li>
+                <li><p>Under complete randomization the difference in
+                means is unbiased, with Neyman’s variance; the estimate
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="s_1^2/n_1+s_0^2/n_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.288em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msubsup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.288em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>s</mi><mn>1</mn><mn>2</mn></msubsup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>n</mi><mn>1</mn></msub><mo>+</mo><msubsup><mi>s</mi><mn>0</mn><mn>2</mn></msubsup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>n</mi><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span>
+                is conservative and equals the HC2 sandwich (<a href="../ch25-causal-interpretation/02-potential-outcomes.html#thm-cau-randomized" class="xref" data-ref="thm-cau-randomized" data-shard="ch25-causal-interpretation">Theorem 25.2.3</a>).</p></li>
+                <li><p>An intervention deletes one factor of the Markov
+                factorization (<a href="../ch25-causal-interpretation/03-confounding-dags.html#prp-cau-markov" class="xref" data-ref="prp-cau-markov" data-shard="ch25-causal-interpretation">Proposition 25.3.1</a>);
+                linear effects are sums over paths (<a href="../ch25-causal-interpretation/03-confounding-dags.html#prp-cau-path-tracing" class="xref" data-ref="prp-cau-path-tracing" data-shard="ch25-causal-interpretation">Proposition 25.3.2</a>);
+                d-separation reads conditional independence off the
+                graph (<a href="../ch25-causal-interpretation/03-confounding-dags.html#prp-cau-three-structures" class="xref" data-ref="prp-cau-three-structures" data-shard="ch25-causal-interpretation">Proposition 25.3.3</a>,
+                <a href="../ch25-causal-interpretation/03-confounding-dags.html#thm-cau-d-separation" class="xref" data-ref="thm-cau-d-separation" data-shard="ch25-causal-interpretation">Theorem 25.3.4</a>).</p></li>
+                <li><p>Confounding is an open back-door path, and in
+                linear models its bias is a sum over common ancestors
+                (<a href="../ch25-causal-interpretation/03-confounding-dags.html#prp-cau-confounding-bias" class="xref" data-ref="prp-cau-confounding-bias" data-shard="ch25-causal-interpretation">Proposition 25.3.5</a>).</p></li>
+                <li><p>An adjustment set identifies the effect; in
+                linear models the coefficient of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="X"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span> is then the total
+                effect (<a href="../ch25-causal-interpretation/04-backdoor.html#thm-cau-backdoor" class="xref" data-ref="thm-cau-backdoor" data-shard="ch25-causal-interpretation">Theorem 25.4.1</a>).
+                Causes of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="Y"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Y</mi></math></mjx-assistive-mml></mjx-container></span> improve
+                precision, pure causes of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="X"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span> worsen it (<a href="../ch25-causal-interpretation/04-backdoor.html#prp-cau-adjustment-precision" class="xref" data-ref="prp-cau-adjustment-precision" data-shard="ch25-causal-interpretation">Proposition 25.4.2</a>).</p></li>
+                <li><p>Mediators, common effects and pre-treatment
+                colliders are bad controls (<a href="../ch25-causal-interpretation/05-bad-controls.html#thm-cau-bad-controls" class="xref" data-ref="thm-cau-bad-controls" data-shard="ch25-causal-interpretation">Theorem 25.5.1</a>).</p></li>
+                <li><p>In experiments, analysis of covariance can lose
+                to no adjustment, and the interacted regression is
+                asymptotically optimal (<a href="../ch25-causal-interpretation/06-randomized-adjustment.html#lem-cau-fixed-coefficients" class="xref" data-ref="lem-cau-fixed-coefficients" data-shard="ch25-causal-interpretation">Lemma 25.6.1</a>,
+                <a href="../ch25-causal-interpretation/06-randomized-adjustment.html#thm-cau-adjustment" class="xref" data-ref="thm-cau-adjustment" data-shard="ch25-causal-interpretation">Theorem 25.6.2</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">25.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>Structural models and graphs.</strong> Wright
+                (1921, 1934) introduced path analysis (<a href="../ch25-causal-interpretation/03-confounding-dags.html#prp-cau-path-tracing" class="xref" data-ref="prp-cau-path-tracing" data-shard="ch25-causal-interpretation">Proposition 25.3.2</a>),
+                and Haavelmo (1943) read structural equations as
+                autonomous mechanisms that interventions change one at a
+                time. The intervention as an explicit operation and the
+                truncated factorization (<a href="../ch25-causal-interpretation/03-confounding-dags.html#prp-cau-markov" class="xref" data-ref="prp-cau-markov" data-shard="ch25-causal-interpretation">Proposition 25.3.1</a>)
+                are from Pearl (1995), and in parallel the manipulation
+                theorem of Spirtes, Glymour and Scheines (2000; first
+                edition 1993); Pearl (2009) is the systematic account.
+                d-separation is due to Pearl (1988), with proofs by
+                Geiger, Verma and Pearl (1990) and Lauritzen, Dawid,
+                Larsen and Leimer (1990); Spirtes, Glymour and Scheines
+                (2000) develop faithfulness.</p>
+                <p><strong>Potential outcomes.</strong> <a href="../ch25-causal-interpretation/02-potential-outcomes.html#def-cau-potential-outcomes" class="xref" data-ref="def-cau-potential-outcomes" data-shard="ch25-causal-interpretation">Definition 25.2.1</a>
+                and <a href="../ch25-causal-interpretation/02-potential-outcomes.html#eq-cau-neyman-variance" class="xref" data-ref="eq-cau-neyman-variance" data-shard="ch25-causal-interpretation">Eq. 25.2.3</a>
+                are Neyman’s (1923), in a paper on field trials
+                translated in 1990. Rubin (1974) extended the framework
+                to observational studies, Holland (1986) named the
+                fundamental problem of causal inference, and Imbens and
+                Rubin (2015) set out the finite-population view.
+                Finite-population central limit theorems go back to
+                Hájek (1960); Li and Ding (2017) give forms suited to
+                causal inference. Samii and Aronow (2012) show that
+                Neyman’s estimate is the HC2 sandwich (<a href="../ch25-causal-interpretation/02-potential-outcomes.html#exr-cau-hc2" class="xref" data-ref="exr-cau-hc2" data-shard="ch25-causal-interpretation">Exercise (B2)</a>).</p>
+                <p><strong>Adjustment and bad controls.</strong> The
+                back-door and front-door criteria are from Pearl (1995);
+                Rosenbaum and Rubin (1983) introduced strong
+                ignorability and the propensity score; Shpitser,
+                VanderWeele and Robins (2010) give a necessary and
+                sufficient adjustment criterion; and Henckel, Perković
+                and Maathuis (2022) find the most efficient adjustment
+                set in linear models. <a href="../ch25-causal-interpretation/04-backdoor.html#exr-cau-stratified" class="xref" data-ref="exr-cau-stratified" data-shard="ch25-causal-interpretation">Exercise (B1)</a>
+                is Angrist (1998)’s observation, and the “Table 2
+                fallacy” is named by Westreich and Greenland (2013).
+                Angrist and Pischke (2009) popularized the term bad
+                control. Berkson (1946) described selection on a common
+                effect, Greenland, Pearl and Robins (1999) showed that
+                pre-treatment colliders can bias adjustment, Ding and
+                Miratrix (2015) quantify M-bias and butterfly bias,
+                Elwert and Winship (2014) survey collider bias, and
+                Pearl (2010) analyses bias amplification.</p>
+                <p><strong>Adjustment in experiments.</strong>
+                Covariance adjustment of experiments is Fisher’s (1935).
+                The design-based critique is Freedman (2008a, 2008b),
+                and the interacted estimator and its sandwich standard
+                errors are Lin (2013). The route through the exact
+                variance of fixed-coefficient estimators (<a href="../ch25-causal-interpretation/06-randomized-adjustment.html#lem-cau-fixed-coefficients" class="xref" data-ref="lem-cau-fixed-coefficients" data-shard="ch25-causal-interpretation">Lemma 25.6.1</a>),
+                which reduces the comparison to completing a square, is
+                this book’s.</p>
+                <h2 id="references"><span class="header-section-number">25.7.3. </span>
+                References</h2>
+                <ul>
+                <li>Angrist, Joshua D. (1998). Estimating the Labor
+                Market Impact of Voluntary Military Service Using Social
+                Security Data on Military Applicants.
+                <em>Econometrica</em> 66(2), 249–288.</li>
+                <li>Angrist, Joshua D. and Pischke, Jörn-Steffen (2009).
+                <em>Mostly Harmless Econometrics: An Empiricist’s
+                Companion</em>. Princeton, NJ: Princeton University
+                Press.</li>
+                <li>Berkson, Joseph (1946). Limitations of the
+                Application of Fourfold Table Analysis to Hospital Data.
+                <em>Biometrics Bulletin</em> 2(3), 47–53.</li>
+                <li>Billingsley, Patrick (1995). <em>Probability and
+                Measure</em>. 3rd edition. New York: Wiley.</li>
+                <li>Ding, Peng and Miratrix, Luke W. (2015). To Adjust
+                or Not to Adjust? Sensitivity Analysis of M-Bias and
+                Butterfly-Bias. <em>Journal of Causal Inference</em>
+                3(1), 41–57.</li>
+                <li>Elwert, Felix and Winship, Christopher (2014).
+                Endogenous Selection Bias: The Problem of Conditioning
+                on a Collider Variable. <em>Annual Review of
+                Sociology</em> 40, 31–53.</li>
+                <li>Fisher, Ronald A. (1935). <em>The Design of
+                Experiments</em>. Edinburgh: Oliver and Boyd.</li>
+                <li>Freedman, David A. (2008a). On Regression
+                Adjustments to Experimental Data. <em>Advances in
+                Applied Mathematics</em> 40(2), 180–193.</li>
+                <li>Freedman, David A. (2008b). On Regression
+                Adjustments in Experiments with Several Treatments.
+                <em>The Annals of Applied Statistics</em> 2(1),
+                176–196.</li>
+                <li>Geiger, Dan, Verma, Thomas and Pearl, Judea (1990).
+                Identifying Independence in Bayesian Networks.
+                <em>Networks</em> 20(5), 507–534.</li>
+                <li>Greenland, Sander, Pearl, Judea and Robins, James M.
+                (1999). Causal Diagrams for Epidemiologic Research.
+                <em>Epidemiology</em> 10(1), 37–48.</li>
+                <li>Haavelmo, Trygve (1943). The Statistical
+                Implications of a System of Simultaneous Equations.
+                <em>Econometrica</em> 11(1), 1–12.</li>
+                <li>Hájek, Jaroslav (1960). Limiting Distributions in
+                Simple Random Sampling from a Finite Population.
+                <em>Publications of the Mathematical Institute of the
+                Hungarian Academy of Sciences</em> 5, 361–374.</li>
+                <li>Henckel, Leonard, Perković, Emilija and Maathuis,
+                Marloes H. (2022). Graphical Criteria for Efficient
+                Total Effect Estimation via Adjustment in Causal Linear
+                Models. <em>Journal of the Royal Statistical Society,
+                Series B</em> 84(2), 579–599.</li>
+                <li>Holland, Paul W. (1986). Statistics and Causal
+                Inference. <em>Journal of the American Statistical
+                Association</em> 81(396), 945–960.</li>
+                <li>Imbens, Guido W. and Rubin, Donald B. (2015).
+                <em>Causal Inference for Statistics, Social, and
+                Biomedical Sciences: An Introduction</em>. Cambridge:
+                Cambridge University Press.</li>
+                <li>Lauritzen, Steffen L., Dawid, A. Philip, Larsen,
+                Birgitte N. and Leimer, Hanns-Georg (1990). Independence
+                Properties of Directed Markov Fields. <em>Networks</em>
+                20(5), 491–505.</li>
+                <li>Li, Xinran and Ding, Peng (2017). General Forms of
+                Finite Population Central Limit Theorems with
+                Applications to Causal Inference. <em>Journal of the
+                American Statistical Association</em> 112(520),
+                1759–1769.</li>
+                <li>Lin, Winston (2013). Agnostic Notes on Regression
+                Adjustments to Experimental Data: Reexamining Freedman’s
+                Critique. <em>The Annals of Applied Statistics</em>
+                7(1), 295–318.</li>
+                <li>Neyman, Jerzy (1923). On the Application of
+                Probability Theory to Agricultural Experiments. Essay on
+                Principles. Section 9. Translated from the Polish and
+                edited by D. M. Dabrowska and T. P. Speed (1990),
+                <em>Statistical Science</em> 5(4), 465–472.</li>
+                <li>Pearl, Judea (1988). <em>Probabilistic Reasoning in
+                Intelligent Systems: Networks of Plausible
+                Inference</em>. San Mateo, CA: Morgan Kaufmann.</li>
+                <li>Pearl, Judea (1995). Causal Diagrams for Empirical
+                Research. <em>Biometrika</em> 82(4), 669–688.</li>
+                <li>Pearl, Judea (2009). <em>Causality: Models,
+                Reasoning, and Inference</em>. 2nd edition. Cambridge:
+                Cambridge University Press.</li>
+                <li>Pearl, Judea (2010). On a Class of Bias-Amplifying
+                Variables that Endanger Effect Estimates. In
+                <em>Proceedings of the Twenty-Sixth Conference on
+                Uncertainty in Artificial Intelligence</em>. Corvallis,
+                OR: AUAI Press.</li>
+                <li>Rosenbaum, Paul R. and Rubin, Donald B. (1983). The
+                Central Role of the Propensity Score in Observational
+                Studies for Causal Effects. <em>Biometrika</em> 70(1),
+                41–55.</li>
+                <li>Rubin, Donald B. (1974). Estimating Causal Effects
+                of Treatments in Randomized and Nonrandomized Studies.
+                <em>Journal of Educational Psychology</em> 66(5),
+                688–701.</li>
+                <li>Samii, Cyrus and Aronow, Peter M. (2012). On
+                Equivalencies between Design-Based and Regression-Based
+                Variance Estimators for Randomized Experiments.
+                <em>Statistics &amp; Probability Letters</em> 82(2),
+                365–370.</li>
+                <li>Shpitser, Ilya, VanderWeele, Tyler J. and Robins,
+                James M. (2010). On the Validity of Covariate Adjustment
+                for Estimating Causal Effects. In <em>Proceedings of the
+                Twenty-Sixth Conference on Uncertainty in Artificial
+                Intelligence</em>. Corvallis, OR: AUAI Press.</li>
+                <li>Spirtes, Peter, Glymour, Clark and Scheines, Richard
+                (2000). <em>Causation, Prediction, and Search</em>. 2nd
+                edition. Cambridge, MA: MIT Press.</li>
+                <li>Westreich, Daniel and Greenland, Sander (2013). The
+                Table 2 Fallacy: Presenting and Interpreting Confounder
+                and Modifier Coefficients. <em>American Journal of
+                Epidemiology</em> 177(4), 292–298.</li>
+                <li>Wright, Sewall (1921). Correlation and Causation.
+                <em>Journal of Agricultural Research</em> 20(7),
+                557–585.</li>
+                <li>Wright, Sewall (1934). The Method of Path
+                Coefficients. <em>The Annals of Mathematical
+                Statistics</em> 5(3), 161–215.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch25-causal-interpretation/06-randomized-adjustment.html" class="pagination-link" aria-label="Regression
+adjustment in randomized experiments">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">25.6 Regression
+adjustment in randomized experiments</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2025.7%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch25-causal-interpretation%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch25-causal-interpretation/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

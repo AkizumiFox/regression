@@ -44,7 +44,7 @@ this chapter makes three kinds of claim: about the mean of the response
     <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../styles.css?v=3476ae33ff">
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
         <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
@@ -263,7 +263,7 @@ regression models to come</span>
                 <td>Departures from the assumptions</td>
                 <td>diagnostics, transformations, resampling,
                 measurement error, causation</td>
-                <td>Chapters 19–25</td>
+                <td>Chapters <a href="../ch19-theory-of-departures/index.html">19</a>–<a href="../ch25-causal-interpretation/index.html">25</a></td>
                 </tr>
                 <tr class="even">
                 <td>Many regressors</td>
@@ -310,20 +310,22 @@ regression models to come</span>
                 <a href="../ch08-estimability/index.html">Chapter
                 8</a>.</p>
                 <p><strong>When the assumptions fail, or there are many
-                regressors.</strong> Part V asks what happens when the
-                mean is misspecified, the variance is not constant, the
-                errors are correlated or not normal, the regressors are
-                measured with error, or the question is causal; some
-                remedies, such as robust standard errors based on <a href="../ch05-model-and-least-squares/05-properties.html#eq-lm-sandwich" class="xref" data-ref="eq-lm-sandwich" data-shard="ch05-model-and-least-squares">Eq. 5.5.3</a>
-                (Chapter 21), stay inside the linear model. Part VI
-                treats large <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> and
-                nearly dependent columns, where ridge regression,
-                principal components and the lasso trade a little bias
-                for less variance. Regression trees, random forests and
-                neural networks also estimate <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math></mjx-assistive-mml></mjx-container></span>, judged by prediction
-                error rather than by the meaning of coefficients; the
-                book does not develop them, but Chapters 29 and 30
-                compare predictors and treat boosting.</p>
+                regressors.</strong> <a href="../ch19-theory-of-departures/index.html">Part
+                V</a> asks what happens when the mean is misspecified,
+                the variance is not constant, the errors are correlated
+                or not normal, the regressors are measured with error,
+                or the question is causal; some remedies, such as robust
+                standard errors based on <a href="../ch05-model-and-least-squares/05-properties.html#eq-lm-sandwich" class="xref" data-ref="eq-lm-sandwich" data-shard="ch05-model-and-least-squares">Eq. 5.5.3</a>
+                (<a href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html#thm-het-sandwich" class="xref" data-ref="thm-het-sandwich" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.4.2</a>),
+                stay inside the linear model. Part VI treats large <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> and nearly dependent
+                columns, where ridge regression, principal components
+                and the lasso trade a little bias for less variance.
+                Regression trees, random forests and neural networks
+                also estimate <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math></mjx-assistive-mml></mjx-container></span>,
+                judged by prediction error rather than by the meaning of
+                coefficients; the book does not develop them, but
+                Chapters 29 and 30 compare predictors and treat
+                boosting.</p>
                 <p><strong>General covariance and mixed models.</strong>
                 The general Gauss–Markov model replaces <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2\mathbf{I}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D408 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">I</mi></mrow></math></mjx-assistive-mml></mjx-container></span> by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2\mathbf{V}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D415 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">V</mi></mrow></math></mjx-assistive-mml></mjx-container></span> (Chapter 31),
                 and generalized least squares is least squares in a
@@ -581,8 +583,8 @@ Notes</span>
     </div>
 
     <!-- Tooltip Script -->
-    <script src="../main.js?v=3476ae33ff"></script>
-            <script type="module" src="../components.js?v=3476ae33ff"></script>
+    <script src="../main.js?v=c240cbf4c3"></script>
+            <script type="module" src="../components.js?v=c240cbf4c3"></script>
         </body>
 
 </html>

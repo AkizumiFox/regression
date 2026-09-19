@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Normality, Heteroscedasticity and Serial
+Correlation – Regression: From Projection to Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch21-nonnormality-heteroscedasticity-serial/index.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="The exact theory of Part III
+rests on three assumptions about the errors: they are normal, they have
+a common variance, and they are uncorrelated.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/index.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch21-nonnormality-heteroscedasticity-serial/index.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="Non-Normality, Heteroscedasticity
+and Serial Correlation">
+        <meta property="og:description" content="The exact theory of
+Part III rests on three assumptions about the errors: they are normal,
+they have a common variance, and they are uncorrelated.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar"
+                    aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false"
+                        aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar"
+                        aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch21-nonnormality-heteroscedasticity-serial/index.html">Non-Normality, Heteroscedasticity and Serial Correlation</a></li>
+                        <li class="breadcrumb-item"><a href="../ch21-nonnormality-heteroscedasticity-serial/index.html"><span class="chapter-title">Non-Normality, Heteroscedasticity and Serial Correlation</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            
+                            <span class="chapter-title">Non-Normality,
+Heteroscedasticity and Serial Correlation</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div
+                id="non-normality-heteroscedasticity-and-serial-correlation">
+
+                </div>
+                <p>The exact theory of Part III rests on three
+                assumptions about the errors: they are normal, they have
+                a common variance, and they are uncorrelated. <a
+                href="../ch19-theory-of-departures/index.html">Chapter
+                19</a> worked out what least squares does when each of
+                them fails. This chapter is about the data analyst’s
+                side of the same question: how to see a failure in the
+                residuals, how large it must be before it matters, and
+                what to do about it. The three assumptions do not matter
+                equally. Coefficient inference survives non-normal
+                errors in moderately large samples, but prediction
+                intervals do not. Unequal variances leave least squares
+                unbiased but make its usual standard errors wrong,
+                sometimes by a factor of four or more, and they can be
+                repaired either by weighting or by a variance estimator
+                that does not trust the model. Serial correlation does
+                the same damage in time-ordered data, and it often
+                signals a mean function that is missing its dynamics.
+                Every diagnostic in the chapter is computed from
+                residuals, which are not the errors. How they differ is
+                where the chapter starts.</p>
+                <p><strong>What you need.</strong> Residuals, leverage
+                and generalized least squares from <a
+                href="../ch06-projections/index.html">Chapter 6</a> (<a
+                href="../ch06-projections/04-least-squares.html#prp-proj-fit-residual"
+                class="xref" data-ref="prp-proj-fit-residual"
+                data-shard="ch06-projections">Proposition 6.4.3</a>, <a
+                href="../ch06-projections/08-leverage.html#prp-proj-leverage"
+                class="xref" data-ref="prp-proj-leverage"
+                data-shard="ch06-projections">Proposition 6.8.1</a>, <a
+                href="../ch06-projections/09-inner-products.html#def-proj-gls"
+                class="xref" data-ref="def-proj-gls"
+                data-shard="ch06-projections">Definition 6.9.1</a>, <a
+                href="../ch06-projections/09-inner-products.html#thm-proj-A-projection"
+                class="xref" data-ref="thm-proj-A-projection"
+                data-shard="ch06-projections">Theorem 6.9.1</a>), the
+                Gauss–Markov and Aitken theorems and the normal sampling
+                theory of <a
+                href="../ch07-optimality/index.html">Chapter 7</a> (<a
+                href="../ch07-optimality/02-gauss-markov.html#thm-opt-gauss-markov"
+                class="xref" data-ref="thm-opt-gauss-markov"
+                data-shard="ch07-optimality">Theorem 7.2.1</a>, <a
+                href="../ch07-optimality/02-gauss-markov.html#cor-opt-aitken"
+                class="xref" data-ref="cor-opt-aitken"
+                data-shard="ch07-optimality">Corollary 7.2.3</a>, <a
+                href="../ch07-optimality/05-sampling-distributions.html#thm-opt-sampling"
+                class="xref" data-ref="thm-opt-sampling"
+                data-shard="ch07-optimality">Theorem 7.5.1</a>), the
+                moments of quadratic forms from <a
+                href="../ch02-random-vectors/index.html">Chapter 2</a>
+                (<a
+                href="../ch02-random-vectors/03-quadratic.html#thm-rv-quadform-mean"
+                class="xref" data-ref="thm-rv-quadform-mean"
+                data-shard="ch02-random-vectors">Theorem 2.3.1</a>, <a
+                href="../ch02-random-vectors/03-quadratic.html#thm-rv-quadform-variance"
+                class="xref" data-ref="thm-rv-quadform-variance"
+                data-shard="ch02-random-vectors">Theorem 2.3.3</a>) and
+                their normal distribution theory from <a
+                href="../ch04-quadratic-forms/index.html">Chapter 4</a>
+                (<a
+                href="../ch04-quadratic-forms/02-moments.html#thm-qf-canonical"
+                class="xref" data-ref="thm-qf-canonical"
+                data-shard="ch04-quadratic-forms">Theorem 4.2.1</a>, <a
+                href="../ch04-quadratic-forms/03-chisq.html#cor-qf-mahalanobis"
+                class="xref" data-ref="cor-qf-mahalanobis"
+                data-shard="ch04-quadratic-forms">Corollary 4.3.3</a>),
+                the deletion formulas of <a
+                href="../ch10-computation/index.html">Chapter 10</a> (<a
+                href="../ch10-computation/06-updating.html#prp-cmp-loo"
+                class="xref" data-ref="prp-cmp-loo"
+                data-shard="ch10-computation">Proposition 10.6.2</a>),
+                and prediction intervals from <a
+                href="../ch12-intervals-and-bands/index.html">Chapter
+                12</a> (<a
+                href="../ch12-intervals-and-bands/03-prediction.html#thm-ci-prediction-interval"
+                class="xref" data-ref="thm-ci-prediction-interval"
+                data-shard="ch12-intervals-and-bands">Theorem 12.3.1</a>)
+                and their large-sample coverage under non-normal errors
+                (<a
+                href="../ch12-intervals-and-bands/03-prediction.html#prp-ci-pi-limit"
+                class="xref" data-ref="prp-ci-pi-limit"
+                data-shard="ch12-intervals-and-bands">Proposition 12.3.3</a>).
+                From <a
+                href="../ch19-theory-of-departures/index.html">Chapter
+                19</a> we use the covariance of least squares under a
+                general error covariance (<a
+                href="../ch19-theory-of-departures/02-wrong-covariance.html#thm-dep-covariance"
+                class="xref" data-ref="thm-dep-covariance"
+                data-shard="ch19-theory-of-departures">Theorem 19.2.2</a>)
+                and its large-sample behaviour under non-normal errors
+                (<a
+                href="../ch19-theory-of-departures/03-non-normal-errors.html#thm-dep-nonnormal"
+                class="xref" data-ref="thm-dep-nonnormal"
+                data-shard="ch19-theory-of-departures">Theorem 19.3.2</a>).
+                From <a
+                href="../ch20-residuals-leverage-influence/index.html">Chapter
+                20</a> we use studentized residuals (<a
+                href="../ch20-residuals-leverage-influence/01-kinds-of-residuals.html#def-res-residuals"
+                class="xref" data-ref="def-res-residuals"
+                data-shard="ch20-residuals-leverage-influence">Definition 20.1.1</a>,
+                <a
+                href="../ch20-residuals-leverage-influence/03-deletion.html#thm-res-external-t"
+                class="xref" data-ref="thm-res-external-t"
+                data-shard="ch20-residuals-leverage-influence">Theorem 20.3.3</a>).
+                The limit theorems of probability that the chapter needs
+                are gathered, or pointed to, in <a
+                href="02-detecting-heteroscedasticity.html">Section
+                21.2</a>.</p>
+                <h2 id="roadmap">Roadmap</h2>
+                <ul>
+                <li><a href="01-checking-normality.html">Checking
+                normality</a></li>
+                <li><a
+                href="02-detecting-heteroscedasticity.html">Detecting
+                heteroscedasticity</a></li>
+                <li><a href="03-weighted-least-squares.html">Weighted
+                least squares</a></li>
+                <li><a
+                href="04-sandwich-estimators.html">Heteroscedasticity-consistent
+                covariance estimators</a></li>
+                <li><a href="05-durbin-watson.html">Serial correlation
+                and the Durbin–Watson test</a></li>
+                <li><a
+                href="06-autoregressive-errors.html">Autoregressive
+                errors</a></li>
+                <li><a href="07-summary-and-notes.html">Summary and
+                notes</a></li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch20-residuals-leverage-influence/07-summary-and-notes.html" class="pagination-link" aria-label="Summary
+and Notes">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">20.7 Summary and
+Notes</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch21-nonnormality-heteroscedasticity-serial/01-checking-normality.html" class="pagination-link" aria-label="Checking
+normality">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">21.1 Checking
+normality</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Non-Normality%2C%20Heteroscedasticity%20and%20Serial%20Correlation&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch21-nonnormality-heteroscedasticity-serial%2Findex.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch21-nonnormality-heteroscedasticity-serial/index.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

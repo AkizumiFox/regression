@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errors in Variables – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch24-errors-in-variables/index.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="What you need. Chapter 6 (the
+population projection, and , and ). Chapter 5 (moments of least squares
+under departures, ).">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch24-errors-in-variables/index.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch24-errors-in-variables/index.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="Errors in Variables">
+        <meta property="og:description" content="What you need. Chapter
+6 (the population projection, and , and ). Chapter 5 (moments of least
+squares under departures, ).">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch24-errors-in-variables/index.html">Errors in Variables</a></li>
+                        <li class="breadcrumb-item"><a href="../ch24-errors-in-variables/index.html"><span class="chapter-title">Errors in Variables</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            
+                            <span class="chapter-title">Errors in
+Variables</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="errors-in-variables">
+
+                </div>
+                <p>Every earlier chapter takes the regressors as
+                recorded without error. Often they are not: one clinic
+                reading stands in for long-run blood pressure, a
+                questionnaire for usual diet. The scientific model
+                concerns the true value <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="X"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml></mjx-container></span>, but the data contain a
+                noisy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="W"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44A TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi></math></mjx-assistive-mml></mjx-container></span>, and least
+                squares on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="W"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44A TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>W</mi></math></mjx-assistive-mml></mjx-container></span>
+                estimates the best linear predictor from what was
+                recorded. This chapter measures the gap and closes it.
+                Classical error flattens a slope by a factor no sample
+                size removes, makes correctly measured covariates look
+                important, and in the normal model leaves the slope
+                unidentified. Information from outside the regression
+                rescues the analysis: a known error variance, repeated
+                measurements, a known variance ratio, an instrument, or
+                validation data. The moment correction, instrumental
+                variables, regression calibration and SIMEX turn that
+                information into estimates, each with its own conditions
+                and costs.</p>
+                <p><strong>What you need.</strong> <a href="../ch06-projections/index.html">Chapter 6</a> (the
+                population projection, <a href="../ch06-projections/11-population.html#thm-proj-blp" class="xref" data-ref="thm-proj-blp" data-shard="ch06-projections">Theorem 6.11.1</a> and <a href="../ch06-projections/11-population.html#prp-proj-consistency" class="xref" data-ref="prp-proj-consistency" data-shard="ch06-projections">Proposition 6.11.3</a>,
+                and <a href="../ch06-projections/03-orthogonal-projection.html#thm-proj-M-formula" class="xref" data-ref="thm-proj-M-formula" data-shard="ch06-projections">Theorem 6.3.7</a>). <a href="../ch05-model-and-least-squares/index.html">Chapter
+                5</a> (moments of least squares under departures, <a href="../ch05-model-and-least-squares/05-properties.html#prp-lm-misspecified" class="xref" data-ref="prp-lm-misspecified" data-shard="ch05-model-and-least-squares">Proposition 5.5.7</a>).
+                <a href="../ch14-correlation-lack-of-fit-prediction/index.html">Chapter
+                14</a> (random regressors, <a href="../ch14-correlation-lack-of-fit-prediction/01-random-regressors.html#thm-cor-conditional" class="xref" data-ref="thm-cor-conditional" data-shard="ch14-correlation-lack-of-fit-prediction">Theorem 14.1.2</a>,
+                and the limit theorems of <a href="../ch14-correlation-lack-of-fit-prediction/04-correlation-coefficient.html">Section
+                14.4</a>). From this part, <a href="../ch19-theory-of-departures/index.html">Chapter
+                19</a> (omitted-variable bias, <a href="../ch19-theory-of-departures/01-underfitting-overfitting.html#thm-dep-omitted" class="xref" data-ref="thm-dep-omitted" data-shard="ch19-theory-of-departures">Theorem 19.1.2</a>),
+                <a href="../ch21-nonnormality-heteroscedasticity-serial/index.html">Chapter
+                21</a> (sandwich covariance estimators, <a href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html#thm-het-sandwich" class="xref" data-ref="thm-het-sandwich" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.4.2</a>)
+                and <a href="../ch23-resampling-inference/index.html">Chapter
+                23</a> (the pairs bootstrap, <a href="../ch23-resampling-inference/01-cases-and-residuals.html#def-bs-bootstrap" class="xref" data-ref="def-bs-bootstrap" data-shard="ch23-resampling-inference">Definition 23.1.1</a>).</p>
+                <h2 id="roadmap">Roadmap</h2>
+                <ul>
+                <li><a href="01-attenuation.html">Attenuation
+                bias</a></li>
+                <li><a href="02-measurement-error-model.html">The
+                classical measurement error model</a></li>
+                <li><a href="03-moment-correction.html">Reliability and
+                moment correction</a></li>
+                <li><a href="04-instrumental-variables.html">Instrumental
+                variables</a></li>
+                <li><a href="05-calibration-simex.html">Regression
+                calibration and SIMEX</a></li>
+                <li><a href="06-summary-and-notes.html">Summary and
+                notes</a></li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch23-resampling-inference/07-summary-and-notes.html" class="pagination-link" aria-label="Summary
+and Notes">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">23.7 Summary and
+Notes</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch24-errors-in-variables/01-attenuation.html" class="pagination-link" aria-label="Attenuation
+bias">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">24.1 Attenuation
+bias</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Errors%20in%20Variables&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch24-errors-in-variables%2Findex.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch24-errors-in-variables/index.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

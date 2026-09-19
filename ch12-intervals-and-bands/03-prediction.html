@@ -43,7 +43,7 @@ reading of the next specimen.">
     <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../styles.css?v=3476ae33ff">
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
         <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
@@ -486,7 +486,8 @@ intervals</span>
                 <p>The estimate <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{Y}_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.427em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em; margin-left: -0.182em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mover><mi>Y</mi><mo stretchy="false">^</mo></mover></mrow><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span> is a weighted
                 sum of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></mjx-assistive-mml></mjx-container></span> errors,
                 approximately normal by a central limit theorem when no
-                weight dominates (Chapter 19). The new error <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\varepsilon_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D700 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ε</mi><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span> is a single
+                weight dominates (<a href="../ch19-theory-of-departures/03-non-normal-errors.html#thm-dep-nonnormal" class="xref" data-ref="thm-dep-nonnormal" data-shard="ch19-theory-of-departures">Theorem 19.3.2</a>).
+                The new error <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\varepsilon_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D700 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ε</mi><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span> is a single
                 draw, and its distribution enters the prediction
                 interval unchanged, however large <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></mjx-assistive-mml></mjx-container></span> is.</p>
                 <div id="prp-ci-pi-limit" class="proposition env" data-env-type="proposition" data-number="12.3.3" style="--env-color: #2f62b5">
@@ -681,17 +682,18 @@ intervals</span>
                 </div>
                 <div class="code-cell-output" hidden=""></div>
                 </div>
-                <p>Remedies, transformation (Chapter 22) and resampling
-                (Chapter 23), come later. Checking normality matters
-                much more for prediction than for estimation.</p>
+                <p>Remedies, transformation (<a href="../ch22-transformations/index.html">Chapter
+                22</a>) and resampling (<a href="../ch23-resampling-inference/index.html">Chapter
+                23</a>), come later. Checking normality matters much
+                more for prediction than for estimation.</p>
                 <div class="remark small-env" data-env-type="remark">
                 <p><em>Remark</em> (Prediction is not
                 intervention)<em>.</em> A prediction interval describes
                 the next observation from the <em>same process</em>. If
                 the regressors are set by intervention, say a policy
                 that changes a state’s poverty rate, the observed
-                association need not describe what happens (Chapter
-                25).</p>
+                association need not describe what happens (<a href="../ch25-causal-interpretation/index.html">Chapter
+                25</a>).</p>
                 </div>
                 <h2 id="exercises"><span class="header-section-number">12.3.4. </span>
                 Exercises</h2>
@@ -917,8 +919,8 @@ bands for the regression line and surface</span>
     </div>
 
     <!-- Tooltip Script -->
-    <script src="../main.js?v=3476ae33ff"></script>
-            <script type="module" src="../components.js?v=3476ae33ff"></script>
+    <script src="../main.js?v=c240cbf4c3"></script>
+            <script type="module" src="../components.js?v=c240cbf4c3"></script>
         </body>
 
 </html>
