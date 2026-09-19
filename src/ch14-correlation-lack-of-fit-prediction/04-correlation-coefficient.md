@@ -101,8 +101,8 @@ from probability theory, used here without proof (see van der Vaart 1998, chapte
 mean \( \bmu \) and covariance matrix \( \boldsymbol{\Gamma} \), then \( \sqrt n(\bar{\mathbf{W}}_n-\bmu)\to\Normal(\bzero,\boldsymbol{\Gamma}) \) in distribution.
 (ii) *Slutsky's lemma.* If \( \mathbf{U}_n\to\mathbf{U} \) in distribution and \( \mathbf{V}_n\to\mathbf{c} \) in probability, then
 \( \mathbf{U}_n+\mathbf{V}_n\to\mathbf{U}+\mathbf{c} \), and \( V_nU_n\to cU \) for scalars. (iii) *Delta method.* If
-\( \sqrt n(\mathbf{T}_n-\boldsymbol{\theta})\to\Normal(\bzero,\boldsymbol{\Gamma}) \) and \( g \) is differentiable at \( \boldsymbol{\theta} \) with gradient
-\( \nabla g \), then \( \sqrt n\bigl(g(\mathbf{T}_n)-g(\boldsymbol{\theta})\bigr)\to\Normal\bigl(0,\nabla g\T\boldsymbol{\Gamma}\nabla g\bigr) \).
+\( \sqrt n(\mathbf{T}_n-\boldsymbol{\uptheta})\to\Normal(\bzero,\boldsymbol{\Gamma}) \) and \( g \) is differentiable at \( \boldsymbol{\uptheta} \) with gradient
+\( \nabla g \), then \( \sqrt n\bigl(g(\mathbf{T}_n)-g(\boldsymbol{\uptheta})\bigr)\to\Normal\bigl(0,\nabla g\T\boldsymbol{\Gamma}\nabla g\bigr) \).
 :::
 
 The limiting variance of \( r \) needs fourth moments of the bivariate normal distribution.
@@ -143,12 +143,12 @@ does not depend on \( \rho \): \( \tanh^{-1} \) is a variance-stabilizing transf
 ::: {.proof}
 The correlation is unchanged by the maps \( X\mapsto a+bX \), \( Y\mapsto c+dY \) with \( b,d>0 \), so we may assume
 \( \E X=\E Y=0 \) and \( \Var X=\Var Y=1 \). Let \( \bar{\mathbf{W}}_n \) be the average of \( \mathbf{W}_i=(X_i^2,Y_i^2,X_iY_i) \), whose
-mean is \( \boldsymbol{\theta}=(1,1,\rho) \) and whose covariance is \( \boldsymbol{\Gamma} \) of @lem-cor-bivariate-moments. With divisor \( n \),
+mean is \( \boldsymbol{\uptheta}=(1,1,\rho) \) and whose covariance is \( \boldsymbol{\Gamma} \) of @lem-cor-bivariate-moments. With divisor \( n \),
 the sample variances and covariance are
 \( \bar{\mathbf{W}}_n-(\bar X^2,\bar Y^2,\bar X\bar Y) \). Since \( \sqrt n\,\bar X \) converges in distribution and \( \bar X\to0 \) in
 probability, \( \sqrt n\,\bar X^2\to0 \) in probability, and similarly for the other two products, so by
 Slutsky's lemma the centring does not affect the limit. The divisor cancels in \( r=g(\text{sample moments}) \),
-where \( g(a,b,c)=c/\sqrt{ab} \), and \( \nabla g(\boldsymbol{\theta})=(-\rho/2,-\rho/2,1) \). By the central limit theorem and the
+where \( g(a,b,c)=c/\sqrt{ab} \), and \( \nabla g(\boldsymbol{\uptheta})=(-\rho/2,-\rho/2,1) \). By the central limit theorem and the
 delta method, \( \sqrt n(r-\rho) \) is asymptotically normal with variance
 \[
 \nabla g\T\boldsymbol{\Gamma}\nabla g

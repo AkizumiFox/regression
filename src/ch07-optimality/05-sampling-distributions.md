@@ -88,8 +88,8 @@ where \( t_{n-r,\alpha/2} \) is the upper \( \alpha/2 \) point of \( t(n-r) \).
 :::
 
 ::: {.proof}
-Put \( c^2=\blambda\T(\X\T\X)\ginv\blambda \). Then \( c>0 \), since \( c^2=\norm{\M\boldsymbol{\rho}}^2 \) with
-\( \X\T\M\boldsymbol{\rho}=\blambda\ne\bzero \). By @thm-opt-sampling(a),
+Put \( c^2=\blambda\T(\X\T\X)\ginv\blambda \). Then \( c>0 \), since \( c^2=\norm{\M\boldsymbol{\uprho}}^2 \) with
+\( \X\T\M\boldsymbol{\uprho}=\blambda\ne\bzero \). By @thm-opt-sampling(a),
 \( Z=(\blambda\T\hbeta-d)/(\sigma c)\sim\Normal(\delta,1) \). By (b), \( V=(n-r)s^2/\sigma^2\sim\chi^2(n-r) \), and by
 (c) \( Z \) and \( V \) are independent. Now \( T_d=Z/\sqrt{V/(n-r)} \), which is \( t(n-r,\delta) \) by @def-qf-noncentral-t.
 With \( d=\blambda\T\bbeta \), \( \delta=0 \), and @eq-opt-t-interval restates
@@ -239,9 +239,9 @@ Let the errors be independent with mean zero, variance \( \sigma^2 \), third mom
 :::
 
 ::: {.proof}
-Apply @thm-rv-quadform-variance to \( \text{SSE}=\Y\T(\I-\M)\Y \), with \( \boldsymbol{\theta}=\X\bbeta \) and \( \A=\I-\M \), whose
-diagonal entries are \( 1-h_{ii} \). The terms \( 4\sigma^2\boldsymbol{\theta}\T\A^2\boldsymbol{\theta} \) and \( 4\mu_3\boldsymbol{\theta}\T\A\mathbf{a} \) vanish
-because \( \A\boldsymbol{\theta}=(\I-\M)\X\bbeta=\bzero \), and \( \tr(\A^2)=\tr(\A)=n-r \).
+Apply @thm-rv-quadform-variance to \( \text{SSE}=\Y\T(\I-\M)\Y \), with \( \boldsymbol{\uptheta}=\X\bbeta \) and \( \A=\I-\M \), whose
+diagonal entries are \( 1-h_{ii} \). The terms \( 4\sigma^2\boldsymbol{\uptheta}\T\A^2\boldsymbol{\uptheta} \) and \( 4\mu_3\boldsymbol{\uptheta}\T\A\mathbf{a} \) vanish
+because \( \A\boldsymbol{\uptheta}=(\I-\M)\X\bbeta=\bzero \), and \( \tr(\A^2)=\tr(\A)=n-r \).
 :::
 
 The factor \( \mu_4-3\sigma^4 \) is \( \sigma^4 \) times the excess kurtosis. For normal errors it vanishes and we recover

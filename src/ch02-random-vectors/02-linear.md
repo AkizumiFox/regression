@@ -164,17 +164,17 @@ and when \( \Cov(\Y)=\sigma^2\I \) its covariance matrix has rank \( n-\rank(\X)
 [Multinomial counts]
 
 In \( m \) independent trials, each outcome falls into one of \( k \) categories with
-probabilities \( \boldsymbol{\pi}=(\pi_1,\dots,\pi_k)\T \), where \( \sum_j\pi_j=1 \). Let \( \mathbf{Z}_t \) be the indicator
+probabilities \( \boldsymbol{\uppi}=(\pi_1,\dots,\pi_k)\T \), where \( \sum_j\pi_j=1 \). Let \( \mathbf{Z}_t \) be the indicator
 vector of trial \( t \), with a single \( 1 \) in the position of its category. Then
-\( \E(\mathbf{Z}_t)=\boldsymbol{\pi} \), and \( \mathbf{Z}_t\mathbf{Z}_t\T=\diag(\mathbf{Z}_t) \) because the indicator has only one
-nonzero entry. So \( \Cov(\mathbf{Z}_t)=\diag(\boldsymbol{\pi})-\boldsymbol{\pi}\boldsymbol{\pi}\T \). The count vector
+\( \E(\mathbf{Z}_t)=\boldsymbol{\uppi} \), and \( \mathbf{Z}_t\mathbf{Z}_t\T=\diag(\mathbf{Z}_t) \) because the indicator has only one
+nonzero entry. So \( \Cov(\mathbf{Z}_t)=\diag(\boldsymbol{\uppi})-\boldsymbol{\uppi}\boldsymbol{\uppi}\T \). The count vector
 \( \Y=\sum_t\mathbf{Z}_t \) is a sum of independent vectors, and @prp-rv-sums(c) gives
 \[
-\bSigma=\Cov(\Y)=m\bigl(\diag(\boldsymbol{\pi})-\boldsymbol{\pi}\boldsymbol{\pi}\T\bigr).
+\bSigma=\Cov(\Y)=m\bigl(\diag(\boldsymbol{\uppi})-\boldsymbol{\uppi}\boldsymbol{\uppi}\T\bigr).
 \]
-Because \( \bSigma\bone=m(\boldsymbol{\pi}-\boldsymbol{\pi}\,\boldsymbol{\pi}\T\bone)=\bzero \), the matrix is singular, and
+Because \( \bSigma\bone=m(\boldsymbol{\uppi}-\boldsymbol{\uppi}\,\boldsymbol{\uppi}\T\bone)=\bzero \), the matrix is singular, and
 @thm-rv-cov-nnd(c) recovers the constraint \( \bone\T\Y=m \). For \( m=20 \) and
-\( \boldsymbol{\pi}=(0.5,0.3,0.2)\T \) the eigenvalues are \( 7.762 \), \( 4.638 \)
+\( \boldsymbol{\uppi}=(0.5,0.3,0.2)\T \) the eigenvalues are \( 7.762 \), \( 4.638 \)
 and \( 0 \). All \( 5000 \) simulated count vectors lie in the plane
 \( \bmu+\C(\bSigma)=\{\y:\bone\T\y=m\} \).
 :::

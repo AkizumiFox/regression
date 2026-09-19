@@ -197,12 +197,12 @@ Let \( H:\bLambda\T\bbeta=\mathbf{d} \) be testable with \( \bLambda \) of full 
    \( \X\hbeta_H=\M\y-\M\bT\W^{-1}\bu=\X\bb_0+\bP_{\mathcal S_0}(\y-\X\bb_0) \), and
    \( \norm{\y-\X\hbeta_H}^2=\text{SSE}+\text{SS}_H \), with \( \text{SS}_H=\bu\T\W^{-1}\bu \).
 
-3. With \( \hat{\boldsymbol{\theta}}=\W^{-1}\bu \), the restricted estimate solves the constrained normal equations (compare @thm-proj-normal-equations)
+3. With \( \hat{\boldsymbol{\uptheta}}=\W^{-1}\bu \), the restricted estimate solves the constrained normal equations (compare @thm-proj-normal-equations)
    \[
-\X\T\X\hbeta_H+\bLambda\hat{\boldsymbol{\theta}}=\X\T\y,\qquad \bLambda\T\hbeta_H=\mathbf{d},
+\X\T\X\hbeta_H+\bLambda\hat{\boldsymbol{\uptheta}}=\X\T\y,\qquad \bLambda\T\hbeta_H=\mathbf{d},
 \]
 
-   and \( \text{SS}_H=\hat{\boldsymbol{\theta}}\T\W\hat{\boldsymbol{\theta}} \).
+   and \( \text{SS}_H=\hat{\boldsymbol{\uptheta}}\T\W\hat{\boldsymbol{\uptheta}} \).
 :::
 
 :::
@@ -228,12 +228,12 @@ by @thm-glh-general-f(a). The fitted vector \( \X\hbeta_H \) is the point of \( 
 \( \y \), which is \( \X\bb_0+\bP_{\mathcal S_0}(\y-\X\bb_0) \) by the argument in the proof
 of @thm-glh-general-f(b).
 
-(c) \( \X\T\X\hbeta_H=\X\T\X\hbeta-\X\T\X\G\X\T\bT\W^{-1}\bu=\X\T\y-\X\T\M\bT\hat{\boldsymbol{\theta}}=\X\T\y-\bLambda\hat{\boldsymbol{\theta}} \),
+(c) \( \X\T\X\hbeta_H=\X\T\X\hbeta-\X\T\X\G\X\T\bT\W^{-1}\bu=\X\T\y-\X\T\M\bT\hat{\boldsymbol{\uptheta}}=\X\T\y-\bLambda\hat{\boldsymbol{\uptheta}} \),
 because \( \X\T\X\hbeta=\X\T\y \) and \( \X\T\M=\X\T \). The last identity is
-\( \bu\T\W^{-1}\bu=\hat{\boldsymbol{\theta}}\T\W\hat{\boldsymbol{\theta}} \).
+\( \bu\T\W^{-1}\bu=\hat{\boldsymbol{\uptheta}}\T\W\hat{\boldsymbol{\uptheta}} \).
 :::
 
-Part (c) identifies \( \hat{\boldsymbol{\theta}} \) as a vector of Lagrange multipliers (compare @prp-mat-lagrange).
+Part (c) identifies \( \hat{\boldsymbol{\uptheta}} \) as a vector of Lagrange multipliers (compare @prp-mat-lagrange).
 Each multiplier measures how hard the data push against its constraint, and the hypothesis sum of
 squares is their squared Mahalanobis length. This is the "Lagrange multiplier" form of the test met
 again in [Section 11.4](04-likelihood-ratio.html).

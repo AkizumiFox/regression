@@ -129,10 +129,10 @@ print(f"largest leverage in the data: {h.max():.4f}")
 ::: {#prp-ci-new-leverage}
 [Leverage of a new point]
 
-Let \( \x_0=\X\T\boldsymbol{\rho}\in\C(\X\T) \) and \( h_0=\x_0\T\G\x_0 \).
+Let \( \x_0=\X\T\boldsymbol{\uprho}\in\C(\X\T) \) and \( h_0=\x_0\T\G\x_0 \).
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( h_0=\min\{\norm{\mathbf{a}}^2:\ \X\T\mathbf{a}=\x_0\} \), and the minimum is attained only at \( \mathbf{a}=\M\boldsymbol{\rho} \).
+1. \( h_0=\min\{\norm{\mathbf{a}}^2:\ \X\T\mathbf{a}=\x_0\} \), and the minimum is attained only at \( \mathbf{a}=\M\boldsymbol{\uprho} \).
 
 2. If \( \X=[\bone,\X_1] \) has full column rank, \( \x_0=(1,\x_{01}\T)\T \), \( \bar{\x} \) is the vector of column means of
    \( \X_1 \) and \( \tilde{\X}_1=\X_1-\bone\bar{\x}\T \), then
@@ -146,10 +146,10 @@ h_0=\frac1n+(\x_{01}-\bar{\x})\T\bigl(\tilde{\X}_1\T\tilde{\X}_1\bigr)^{-1}(\x_{
 :::
 
 ::: {.proof}
-(a) Let \( \X\T\mathbf{a}=\x_0 \). Then \( \X\T\M\mathbf{a}=\X\T\mathbf{a}=\x_0=\X\T\M\boldsymbol{\rho} \), so \( \M\mathbf{a}-\M\boldsymbol{\rho} \) lies in \( \C(\X) \) and is
-orthogonal to \( \C(\X) \); hence \( \M\mathbf{a}=\M\boldsymbol{\rho} \). By Pythagoras,
-\( \norm{\mathbf{a}}^2=\norm{\M\boldsymbol{\rho}}^2+\norm{(\I-\M)\mathbf{a}}^2\ge\norm{\M\boldsymbol{\rho}}^2 \), with equality iff \( \mathbf{a}=\M\boldsymbol{\rho} \), and
-\( \norm{\M\boldsymbol{\rho}}^2=\boldsymbol{\rho}\T\X\G\X\T\boldsymbol{\rho}=h_0 \) by @thm-proj-M-formula.
+(a) Let \( \X\T\mathbf{a}=\x_0 \). Then \( \X\T\M\mathbf{a}=\X\T\mathbf{a}=\x_0=\X\T\M\boldsymbol{\uprho} \), so \( \M\mathbf{a}-\M\boldsymbol{\uprho} \) lies in \( \C(\X) \) and is
+orthogonal to \( \C(\X) \); hence \( \M\mathbf{a}=\M\boldsymbol{\uprho} \). By Pythagoras,
+\( \norm{\mathbf{a}}^2=\norm{\M\boldsymbol{\uprho}}^2+\norm{(\I-\M)\mathbf{a}}^2\ge\norm{\M\boldsymbol{\uprho}}^2 \), with equality iff \( \mathbf{a}=\M\boldsymbol{\uprho} \), and
+\( \norm{\M\boldsymbol{\uprho}}^2=\boldsymbol{\uprho}\T\X\G\X\T\boldsymbol{\uprho}=h_0 \) by @thm-proj-M-formula.
 
 (b) \( \X=[\bone,\tilde{\X}_1]\A \) with \( \A=\begin{pmatrix}1&\bar{\x}\T\\\bzero&\I\end{pmatrix} \), which is invertible. Since
 \( \bone\T\tilde{\X}_1=\bzero\T \), \( \X\T\X=\A\T\diag\bigl(n,\tilde{\X}_1\T\tilde{\X}_1\bigr)\A \), and so
@@ -337,12 +337,12 @@ So the leverage is unchanged iff \( z_0 \) equals the value \( \mathbf{k}\T\x_0 
 :::
 
 ::: {.solution}
-Use @prp-ci-new-leverage(a) for the enlarged model. Write \( \x_0=\X\T\boldsymbol{\rho} \) and split any feasible \( \mathbf{a} \) as
-\( \mathbf{a}=\M\mathbf{a}+\mathbf{b} \) with \( \mathbf{b}\perp\C(\X) \). The constraint \( \X\T\mathbf{a}=\x_0 \) forces \( \M\mathbf{a}=\M\boldsymbol{\rho} \), as in the proof
-of the proposition. The constraint \( \bz\T\mathbf{a}=z_0 \) then reads \( \bz\T\M\boldsymbol{\rho}+\bz\T\mathbf{b}=z_0 \), and
-\( \bz\T\M\boldsymbol{\rho}=\bz\T\X(\X\T\X)^{-1}\X\T\boldsymbol{\rho}=\mathbf{k}\T\x_0 \). Since \( \mathbf{b}\perp\C(\X) \), \( \bz\T\mathbf{b}=((\I-\M)\bz)\T\mathbf{b} \), and by the
+Use @prp-ci-new-leverage(a) for the enlarged model. Write \( \x_0=\X\T\boldsymbol{\uprho} \) and split any feasible \( \mathbf{a} \) as
+\( \mathbf{a}=\M\mathbf{a}+\mathbf{b} \) with \( \mathbf{b}\perp\C(\X) \). The constraint \( \X\T\mathbf{a}=\x_0 \) forces \( \M\mathbf{a}=\M\boldsymbol{\uprho} \), as in the proof
+of the proposition. The constraint \( \bz\T\mathbf{a}=z_0 \) then reads \( \bz\T\M\boldsymbol{\uprho}+\bz\T\mathbf{b}=z_0 \), and
+\( \bz\T\M\boldsymbol{\uprho}=\bz\T\X(\X\T\X)^{-1}\X\T\boldsymbol{\uprho}=\mathbf{k}\T\x_0 \). Since \( \mathbf{b}\perp\C(\X) \), \( \bz\T\mathbf{b}=((\I-\M)\bz)\T\mathbf{b} \), and by the
 Cauchy–Schwarz inequality the shortest \( \mathbf{b} \) with \( ((\I-\M)\bz)\T\mathbf{b}=z_0-\mathbf{k}\T\x_0 \) is a multiple of \( (\I-\M)\bz \), with
-\( \norm{\mathbf{b}}^2=(z_0-\mathbf{k}\T\x_0)^2/\norm{(\I-\M)\bz}^2 \). Adding \( \norm{\M\boldsymbol{\rho}}^2=h_0 \) gives the formula.
+\( \norm{\mathbf{b}}^2=(z_0-\mathbf{k}\T\x_0)^2/\norm{(\I-\M)\bz}^2 \). Adding \( \norm{\M\boldsymbol{\uprho}}^2=h_0 \) gives the formula.
 :::
 
 ::: {#exr-ci-through-origin}

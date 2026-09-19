@@ -141,25 +141,25 @@ random variables. For scalar \( Y \), the coefficient vector used there is \( \B
 [Multiple correlation]
 
 Let \( Y \) be scalar with \( \sigma_{YY}=\Var(Y)>0 \), let \( \bSigma_{XX} \) be positive definite, and write
-\( \boldsymbol{\sigma}_{XY}=\Cov(\X,Y) \). Over all \( \mathbf{a}\ne\bzero \),
+\( \boldsymbol{\upsigma}_{XY}=\Cov(\X,Y) \). Over all \( \mathbf{a}\ne\bzero \),
 \[
 \max_{\mathbf{a}}\operatorname{corr}(Y,\mathbf{a}\T\X)^2
 =\rho^2_{Y\cdot X}
-=\frac{\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY}}{\sigma_{YY}},
+=\frac{\boldsymbol{\upsigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY}}{\sigma_{YY}},
 \]
-attained at \( \mathbf{a}=\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY} \), the coefficients of the best linear predictor
-(if \( \boldsymbol{\sigma}_{XY}=\bzero \), every \( \mathbf{a} \) attains the maximum \( 0 \)).
+attained at \( \mathbf{a}=\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY} \), the coefficients of the best linear predictor
+(if \( \boldsymbol{\upsigma}_{XY}=\bzero \), every \( \mathbf{a} \) attains the maximum \( 0 \)).
 Moreover \( 1-\rho^2_{Y\cdot X}=\sigma_{YY\cdot X}/\sigma_{YY} \).
 :::
 
 ::: {.proof}
-\( \operatorname{corr}(Y,\mathbf{a}\T\X)^2=(\mathbf{a}\T\boldsymbol{\sigma}_{XY})^2/(\sigma_{YY}\,\mathbf{a}\T\bSigma_{XX}\mathbf{a}) \).
-Write \( \mathbf{a}\T\boldsymbol{\sigma}_{XY}=(\bSigma_{XX}^{1/2}\mathbf{a})\T(\bSigma_{XX}^{-1/2}\boldsymbol{\sigma}_{XY}) \). The
+\( \operatorname{corr}(Y,\mathbf{a}\T\X)^2=(\mathbf{a}\T\boldsymbol{\upsigma}_{XY})^2/(\sigma_{YY}\,\mathbf{a}\T\bSigma_{XX}\mathbf{a}) \).
+Write \( \mathbf{a}\T\boldsymbol{\upsigma}_{XY}=(\bSigma_{XX}^{1/2}\mathbf{a})\T(\bSigma_{XX}^{-1/2}\boldsymbol{\upsigma}_{XY}) \). The
 Cauchy–Schwarz inequality gives
-\( (\mathbf{a}\T\boldsymbol{\sigma}_{XY})^2\le(\mathbf{a}\T\bSigma_{XX}\mathbf{a})(\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY}) \),
-with equality iff \( \bSigma_{XX}^{1/2}\mathbf{a} \) is proportional to \( \bSigma_{XX}^{-1/2}\boldsymbol{\sigma}_{XY} \).
+\( (\mathbf{a}\T\boldsymbol{\upsigma}_{XY})^2\le(\mathbf{a}\T\bSigma_{XX}\mathbf{a})(\boldsymbol{\upsigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY}) \),
+with equality iff \( \bSigma_{XX}^{1/2}\mathbf{a} \) is proportional to \( \bSigma_{XX}^{-1/2}\boldsymbol{\upsigma}_{XY} \).
 Dividing gives the bound and the maximizer. The last identity is the definition of
-\( \sigma_{YY\cdot X}=\sigma_{YY}-\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY} \), divided by \( \sigma_{YY} \).
+\( \sigma_{YY\cdot X}=\sigma_{YY}-\boldsymbol{\upsigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY} \), divided by \( \sigma_{YY} \).
 :::
 
 \( \rho^2_{Y\cdot X} \) is the population version of \( R^2 \): the fraction of the variance of \( Y \)

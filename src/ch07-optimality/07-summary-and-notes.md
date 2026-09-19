@@ -6,7 +6,7 @@
 
 1. A linear estimator \( \mathbf{a}\T\Y \) is unbiased for \( \blambda\T\bbeta \) iff \( \X\T\mathbf{a}=\blambda \). Such estimators exist
    iff \( \blambda\in\C(\X\T) \), the same condition under which least squares estimates \( \blambda\T\bbeta \) uniquely. Their
-   coefficient vectors form the flat \( \M\boldsymbol{\rho}+\C(\X)\perpc \) (@prp-opt-lue and @prp-opt-lue-set).
+   coefficient vectors form the flat \( \M\boldsymbol{\uprho}+\C(\X)\perpc \) (@prp-opt-lue and @prp-opt-lue-set).
 
 2. **Gauss–Markov.** Under \( \E(\be)=\bzero \) and \( \Cov(\be)=\sigma^2\I \), in any rank, \( \blambda\T\hbeta \) is the unique BLUE of
    every estimable \( \blambda\T\bbeta \). For any LUE, \( \Var(\mathbf{a}\T\Y)=\Var(\blambda\T\hbeta)+\sigma^2\norm{(\I-\M)\mathbf{a}}^2 \). In
@@ -46,7 +46,7 @@ Stigler (1986). The projection proof of [Section 7.2](02-gauss-markov.html) spli
 competing estimator by Pythagoras, so that its excess variance is \( \sigma^2\norm{(\I-\M)\mathbf{a}}^2 \). This is the
 proof of Seber and Lee (2003, section 3.2, Theorem 3.2), stated there for linear functions of the mean vector; we
 apply it to estimable functions in the rank-deficient case. Christensen (2020, section 2.3) argues instead through
-the covariance with \( \boldsymbol{\rho}\T\M\Y \). Rencher and Schaalje (2008,
+the covariance with \( \boldsymbol{\uprho}\T\M\Y \). Rencher and Schaalje (2008,
 section 7.3) give the matrix form for full-rank models, and Agresti (2015, section 2.7) discusses its scope and its
 extension to generalized least squares. The generalized least squares version (@cor-opt-aitken) is due to
 Aitken (1935). The characterization of models in which ordinary least squares remains best (@exr-opt-zyskind) is

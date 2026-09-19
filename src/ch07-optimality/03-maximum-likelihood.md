@@ -218,9 +218,9 @@ appear in the likelihood. A simple and general way to eliminate them is to maxim
 ::: {#def-opt-profile}
 [Profile likelihood]
 
-Let the parameter be \( \boldsymbol{\theta}=(\psi,\boldsymbol{\eta}) \), where \( \psi \) is of interest and \( \boldsymbol{\eta} \) is a nuisance
+Let the parameter be \( \boldsymbol{\uptheta}=(\psi,\boldsymbol{\upeta}) \), where \( \psi \) is of interest and \( \boldsymbol{\upeta} \) is a nuisance
 parameter. The **profile log-likelihood** of \( \psi \) is
-\( \ell_p(\psi)=\sup_{\boldsymbol{\eta}}\ell(\psi,\boldsymbol{\eta}) \).
+\( \ell_p(\psi)=\sup_{\boldsymbol{\upeta}}\ell(\psi,\boldsymbol{\upeta}) \).
 :::
 
 The profile log-likelihood is maximized at the MLE of \( \psi \), with maximum \( \ell_{\max} \). The drop
@@ -258,12 +258,12 @@ and the profile log-likelihood of \( \psi=\blambda\T\bbeta \), with \( (\bbeta,\
 :::
 
 ::: {.proof}
-Write \( \blambda=\X\T\boldsymbol{\rho} \) and \( \mathbf{c}=\M\boldsymbol{\rho} \). Then \( \mathbf{c}\ne\bzero \), since \( \X\T\mathbf{c}=\X\T\boldsymbol{\rho}=\blambda\ne\bzero \),
+Write \( \blambda=\X\T\boldsymbol{\uprho} \) and \( \mathbf{c}=\M\boldsymbol{\uprho} \). Then \( \mathbf{c}\ne\bzero \), since \( \X\T\mathbf{c}=\X\T\boldsymbol{\uprho}=\blambda\ne\bzero \),
 and \( \norm{\mathbf{c}}^2=\blambda\T(\X\T\X)\ginv\blambda \) as in the proof of @thm-opt-gauss-markov(a). For any
 \( \bb \), @eq-proj-distance-split gives
 \( \norm{\y-\X\bb}^2=\text{SSE}+\norm{\X\hbeta-\X\bb}^2 \). Put \( \bu=\X(\hbeta-\bb)\in\C(\X) \). The constraint
-\( \blambda\T\bb=\psi \) reads \( \boldsymbol{\rho}\T\X(\hbeta-\bb)=\blambda\T\hbeta-\psi=:\delta \), that is,
-\( \boldsymbol{\rho}\T\bu=\delta \). Since \( \bu\in\C(\X) \), \( \boldsymbol{\rho}\T\bu=\boldsymbol{\rho}\T\M\bu=\mathbf{c}\T\bu \). By the Cauchy–Schwarz
+\( \blambda\T\bb=\psi \) reads \( \boldsymbol{\uprho}\T\X(\hbeta-\bb)=\blambda\T\hbeta-\psi=:\delta \), that is,
+\( \boldsymbol{\uprho}\T\bu=\delta \). Since \( \bu\in\C(\X) \), \( \boldsymbol{\uprho}\T\bu=\boldsymbol{\uprho}\T\M\bu=\mathbf{c}\T\bu \). By the Cauchy–Schwarz
 inequality, \( \lvert\delta\rvert=\lvert\mathbf{c}\T\bu\rvert\le\norm{\mathbf{c}}\norm{\bu} \), so
 \( \norm{\bu}^2\ge\delta^2/\norm{\mathbf{c}}^2 \). Equality holds for \( \bu=\delta\mathbf{c}/\norm{\mathbf{c}}^2 \), which lies in
 \( \C(\X) \) and so equals \( \X(\hbeta-\bb) \) for some \( \bb \). That \( \bb \) satisfies the constraint. This proves @eq-opt-constrained-sse.

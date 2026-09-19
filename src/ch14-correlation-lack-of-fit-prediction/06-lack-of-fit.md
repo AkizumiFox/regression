@@ -2,7 +2,7 @@
 
 Every test and interval so far has assumed that the mean function is right, that
 \( \E(\Y)\in\C(\X) \). When it is wrong, the residual mean square overestimates the error variance:
-@exm-rv-rss-bias showed that \( \E(\text{SSE})=\sigma^2(n-r)+\norm{(\I-\M)\boldsymbol{\theta}}^2 \) for a mean vector \( \boldsymbol{\theta} \)
+@exm-rv-rss-bias showed that \( \E(\text{SSE})=\sigma^2(n-r)+\norm{(\I-\M)\boldsymbol{\uptheta}}^2 \) for a mean vector \( \boldsymbol{\uptheta} \)
 outside the model space. Separating noise from systematic error needs an estimate of \( \sigma^2 \) free of the form of the mean,
 and repeated rows provide one: observations at identical settings differ only by noise. The idea, and
 the test built on it, go back to Fisher (1922).
@@ -65,7 +65,7 @@ The two expressions for each sum of squares agree by @lem-cor-row-structure(b): 
 ::: {#thm-cor-lack-of-fit}
 [Pure-error lack-of-fit test]
 
-Let \( \Y\sim\Normal_n(\boldsymbol{\theta},\sigma^2\I) \) with \( \boldsymbol{\theta}\in\C(\Z) \), that is, \( \E(y_{ij})=\mu_i \) depends only on the row of
+Let \( \Y\sim\Normal_n(\boldsymbol{\uptheta},\sigma^2\I) \) with \( \boldsymbol{\uptheta}\in\C(\Z) \), that is, \( \E(y_{ij})=\mu_i \) depends only on the row of
 \( \X \); assume \( r<c<n \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
@@ -75,16 +75,16 @@ Let \( \Y\sim\Normal_n(\boldsymbol{\theta},\sigma^2\I) \) with \( \boldsymbol{\t
 
 3. \( \text{SSLF}/\sigma^2\sim\chi^2(c-r,\gamma) \) with
    \[
-\gamma=\frac{\norm{(\I-\M)\boldsymbol{\theta}}^2}{\sigma^2}=\frac1{\sigma^2}\sum_{i=1}^cn_i\bigl(\mu_i-\tilde\mu_i\bigr)^2,
+\gamma=\frac{\norm{(\I-\M)\boldsymbol{\uptheta}}^2}{\sigma^2}=\frac1{\sigma^2}\sum_{i=1}^cn_i\bigl(\mu_i-\tilde\mu_i\bigr)^2,
 \]{#eq-cor-lof-noncentrality}
 
-   where \( \tilde\mu_i \) is the \( i \)th group value of \( \M\boldsymbol{\theta} \), the least squares fit to the true means;
+   where \( \tilde\mu_i \) is the \( i \)th group value of \( \M\boldsymbol{\uptheta} \), the least squares fit to the true means;
 
 4. the ratio
    \[
 F=\frac{\text{SSLF}/(c-r)}{\text{SSPE}/(n-c)}\sim F(c-r,n-c,\gamma),
 \]
-   and \( \gamma=0 \) iff \( \boldsymbol{\theta}\in\C(\X) \), that is, iff the model is correct. The test that rejects the model
+   and \( \gamma=0 \) iff \( \boldsymbol{\uptheta}\in\C(\X) \), that is, iff the model is correct. The test that rejects the model
    when \( F>F_\alpha(c-r,n-c) \) has size \( \alpha \), and its power increases strictly with \( \gamma \).
 :::
 
@@ -95,10 +95,10 @@ By @lem-cor-row-structure, \( \C(\X)\subseteq\C(\Z) \), so by @thm-proj-nested \
 complement of \( \C(\X) \) in \( \C(\Z) \), of rank \( c-r \), and \( \I-\M=(\M_Z-\M)+(\I-\M_Z) \) splits into two orthogonal
 projections. This gives the identity in (a). By @thm-qf-orthogonal-projections, \( \text{SSLF}/\sigma^2 \) and
 \( \text{SSPE}/\sigma^2 \) are independent noncentral chi-squared variables with \( c-r \) and \( n-c \) degrees of freedom and
-noncentralities \( \norm{(\M_Z-\M)\boldsymbol{\theta}}^2/\sigma^2 \) and \( \norm{(\I-\M_Z)\boldsymbol{\theta}}^2/\sigma^2 \). The second is zero because
-\( \boldsymbol{\theta}\in\C(\Z) \), which proves (b). In the first, \( \M_Z\boldsymbol{\theta}=\boldsymbol{\theta} \), so \( (\M_Z-\M)\boldsymbol{\theta}=(\I-\M)\boldsymbol{\theta} \), whose
+noncentralities \( \norm{(\M_Z-\M)\boldsymbol{\uptheta}}^2/\sigma^2 \) and \( \norm{(\I-\M_Z)\boldsymbol{\uptheta}}^2/\sigma^2 \). The second is zero because
+\( \boldsymbol{\uptheta}\in\C(\Z) \), which proves (b). In the first, \( \M_Z\boldsymbol{\uptheta}=\boldsymbol{\uptheta} \), so \( (\M_Z-\M)\boldsymbol{\uptheta}=(\I-\M)\boldsymbol{\uptheta} \), whose
 entries are \( \mu_i-\tilde\mu_i \), repeated \( n_i \) times; this is (c). Part (d) follows from @def-qf-noncentral-f,
-the fact that \( (\I-\M)\boldsymbol{\theta}=\bzero \) iff \( \boldsymbol{\theta}\in\C(\X) \), and @thm-qf-f-power.
+the fact that \( (\I-\M)\boldsymbol{\uptheta}=\bzero \) iff \( \boldsymbol{\uptheta}\in\C(\X) \), and @thm-qf-f-power.
 :::
 
 The test is the \( F \) test of the reduced model \( \C(\X) \) inside the full model \( \C(\Z) \) (@thm-glh-f-test, @thm-qf-nested-f). What makes it special is the full model, which is chosen not by the analyst but by
@@ -172,13 +172,13 @@ for name, X in [("line", np.column_stack([np.ones(n), x])),
 
 ## When pure error is not pure
 
-The theorem assumes \( \boldsymbol{\theta}\in\C(\Z) \): the mean depends on the observation only through its row of
+The theorem assumes \( \boldsymbol{\uptheta}\in\C(\Z) \): the mean depends on the observation only through its row of
 \( \X \). If a variable that is not in the model affects the response and varies within the groups of
 replicates, as water temperature does among the days with equal air flow in the stack loss data,
 then observations in a group do not share a mean. By @thm-ss-expected-mean-squares(b), applied to the
 cell-means model,
 \[
-\E\Bigl(\frac{\text{SSPE}}{n-c}\Bigr)=\sigma^2+\frac{\norm{(\I-\M_Z)\boldsymbol{\theta}}^2}{n-c},
+\E\Bigl(\frac{\text{SSPE}}{n-c}\Bigr)=\sigma^2+\frac{\norm{(\I-\M_Z)\boldsymbol{\uptheta}}^2}{n-c},
 \]
 so the "pure" error estimate is inflated, and \( F \) becomes a ratio of two noncentral chi-squared variables,
 a *doubly noncentral* \( F \), which rejects less often than it would with a pure estimate of \( \sigma^2 \). Two further cautions: the pooled estimate

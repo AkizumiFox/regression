@@ -9,25 +9,25 @@ every \( t \) test accepts, and the reverse.
 ## The ellipsoid
 
 Let \( \bLambda \) be a \( p\times q \) matrix of rank \( q \) whose columns lie in \( \C(\X\T) \), so that every entry of
-\( \boldsymbol{\phi}=\bLambda\T\bbeta \) is estimable. Put
+\( \boldsymbol{\upphi}=\bLambda\T\bbeta \) is estimable. Put
 \[
-\hat{\boldsymbol{\phi}}=\bLambda\T\hbeta,\qquad \W=\bLambda\T\G\bLambda .
+\hat{\boldsymbol{\upphi}}=\bLambda\T\hbeta,\qquad \W=\bLambda\T\G\bLambda .
 \]
 By @thm-ss-hypothesis(a), neither depends on the choices of \( \hbeta \) and \( \G \), and \( \W \) is positive definite.
-By @thm-opt-sampling(a), \( \hat{\boldsymbol{\phi}}\sim\Normal_q(\boldsymbol{\phi},\sigma^2\W) \).
+By @thm-opt-sampling(a), \( \hat{\boldsymbol{\upphi}}\sim\Normal_q(\boldsymbol{\upphi},\sigma^2\W) \).
 
 ::: {#thm-ci-ellipsoid}
 [Confidence ellipsoid for \( \bLambda\T\bbeta \)]
 
 With the notation above, let \( F_\alpha=F_\alpha(q,n-r) \) and
 \[
-E(\Y)=\bigl\{\boldsymbol{\phi}_0\in\Real^q:\ (\hat{\boldsymbol{\phi}}-\boldsymbol{\phi}_0)\T\W^{-1}(\hat{\boldsymbol{\phi}}-\boldsymbol{\phi}_0)\le q\,s^2F_\alpha\bigr\}.
+E(\Y)=\bigl\{\boldsymbol{\upphi}_0\in\Real^q:\ (\hat{\boldsymbol{\upphi}}-\boldsymbol{\upphi}_0)\T\W^{-1}(\hat{\boldsymbol{\upphi}}-\boldsymbol{\upphi}_0)\le q\,s^2F_\alpha\bigr\}.
 \]{#eq-ci-ellipsoid}
 
 ::: {.enumerate options="label=(\alph*)"}
 1. \( E(\Y) \) is an exact \( 1-\alpha \) confidence set for \( \bLambda\T\bbeta \).
 
-2. \( E(\Y) \) is a solid ellipsoid centred at \( \hat{\boldsymbol{\phi}} \). If \( \W=\sum_{k=1}^q w_k\bu_k\bu_k\T \) is a spectral
+2. \( E(\Y) \) is a solid ellipsoid centred at \( \hat{\boldsymbol{\upphi}} \). If \( \W=\sum_{k=1}^q w_k\bu_k\bu_k\T \) is a spectral
    decomposition, its principal axes point along \( \bu_1,\dots,\bu_q \) and have half-lengths
    \( \sqrt{q\,s^2F_\alpha\,w_k} \). Its volume is
    \[
@@ -37,7 +37,7 @@ E(\Y)=\bigl\{\boldsymbol{\phi}_0\in\Real^q:\ (\hat{\boldsymbol{\phi}}-\boldsymbo
 3. *(Duality with the \( F \) test.)* For \( \mathbf{d}\in\Real^q \), let \( \text{SSE}_{\mathbf{d}} \) be the minimum of
    \( \norm{\Y-\X\bb}^2 \) over \( \{\bb:\bLambda\T\bb=\mathbf{d}\} \) and let
    \[
-F_{\mathbf{d}}=\frac{(\text{SSE}_{\mathbf{d}}-\text{SSE})/q}{s^2}=\frac{(\hat{\boldsymbol{\phi}}-\mathbf{d})\T\W^{-1}(\hat{\boldsymbol{\phi}}-\mathbf{d})}{q\,s^2}.
+F_{\mathbf{d}}=\frac{(\text{SSE}_{\mathbf{d}}-\text{SSE})/q}{s^2}=\frac{(\hat{\boldsymbol{\upphi}}-\mathbf{d})\T\W^{-1}(\hat{\boldsymbol{\upphi}}-\mathbf{d})}{q\,s^2}.
 \]
    Then \( \mathbf{d}\in E(\Y) \) iff \( F_{\mathbf{d}}\le F_\alpha \), that is, iff the level-\( \alpha \) \( F \) test of
    \( H:\bLambda\T\bbeta=\mathbf{d} \) does not reject.
@@ -48,13 +48,13 @@ F_{\mathbf{d}}=\frac{(\text{SSE}_{\mathbf{d}}-\text{SSE})/q}{s^2}=\frac{(\hat{\b
 (a) Since \( \W \) is invertible, \( \W^{-1} \) is its only generalized inverse, and @cor-opt-quadratic with
 \( \rank(\bLambda)=q \) gives
 \[
-\frac{(\hat{\boldsymbol{\phi}}-\boldsymbol{\phi})\T\W^{-1}(\hat{\boldsymbol{\phi}}-\boldsymbol{\phi})}{q\,s^2}\sim F(q,n-r)
+\frac{(\hat{\boldsymbol{\upphi}}-\boldsymbol{\upphi})\T\W^{-1}(\hat{\boldsymbol{\upphi}}-\boldsymbol{\upphi})}{q\,s^2}\sim F(q,n-r)
 \]
-at every parameter value. This is a pivot, and \( \boldsymbol{\phi}\in E(\Y) \) is the event that it is at most \( F_\alpha \).
+at every parameter value. This is a pivot, and \( \boldsymbol{\upphi}\in E(\Y) \) is the event that it is at most \( F_\alpha \).
 
-(b) Put \( c=q\,s^2F_\alpha \) and write \( \boldsymbol{\phi}_0-\hat{\boldsymbol{\phi}}=\sum_kc_k\bu_k \). Since
+(b) Put \( c=q\,s^2F_\alpha \) and write \( \boldsymbol{\upphi}_0-\hat{\boldsymbol{\upphi}}=\sum_kc_k\bu_k \). Since
 \( \W^{-1}=\sum_kw_k^{-1}\bu_k\bu_k\T \), the defining inequality becomes \( \sum_kc_k^2/w_k\le c \), the standard form of an
-ellipsoid with half-axes \( \sqrt{cw_k} \) along \( \bu_k \). Equivalently \( E(\Y)=\hat{\boldsymbol{\phi}}+\W^{1/2}B \), where \( B \) is the
+ellipsoid with half-axes \( \sqrt{cw_k} \) along \( \bu_k \). Equivalently \( E(\Y)=\hat{\boldsymbol{\upphi}}+\W^{1/2}B \), where \( B \) is the
 ball of radius \( \sqrt c \) in \( \Real^q \). A linear map multiplies volume by the absolute value of its determinant, so the volume is
 \( \det(\W)^{1/2}c^{q/2} \) times the volume \( \pi^{q/2}/\Gamma(q/2+1) \) of the unit ball.
 
@@ -89,7 +89,7 @@ centred at the fitted vector. Moreover, if \( \bLambda=\X\T\bT \) for an \( n\ti
 by @thm-est-characterization), the image of \( B(\Y) \) under
 \( \bmu_0\mapsto\bT\T\bmu_0 \) is the set
 \[
-\bigl\{\boldsymbol{\phi}_0:\ (\hat{\boldsymbol{\phi}}-\boldsymbol{\phi}_0)\T\W^{-1}(\hat{\boldsymbol{\phi}}-\boldsymbol{\phi}_0)\le c_r\bigr\},
+\bigl\{\boldsymbol{\upphi}_0:\ (\hat{\boldsymbol{\upphi}}-\boldsymbol{\upphi}_0)\T\W^{-1}(\hat{\boldsymbol{\upphi}}-\boldsymbol{\upphi}_0)\le c_r\bigr\},
 \]
 which contains the ellipsoid @eq-ci-ellipsoid.
 :::
@@ -100,8 +100,8 @@ which contains the ellipsoid @eq-ci-ellipsoid.
 \( r\,s^2/\sigma^2 \) gives an \( F(r,n-r) \) pivot, and the first claim follows as before.
 
 For the image, put \( \A=\bT\T\M \), a \( q\times n \) matrix. For \( \bmu_0\in\C(\X) \), \( \bT\T\bmu_0=\A\bmu_0 \), and
-\( \A\A\T=\bT\T\M\bT=\W \) (@thm-ss-hypothesis(a)). Also \( \hat{\boldsymbol{\phi}}=\bT\T\hY=\A\hY \). So the image consists of the points
-\( \hat{\boldsymbol{\phi}}-\A\bu \) with \( \bu\in\C(\X) \) and \( \norm\bu^2\le c_r \). If \( \mathbf{z}=\A\bu \) with \( \norm\bu^2\le c_r \), then
+\( \A\A\T=\bT\T\M\bT=\W \) (@thm-ss-hypothesis(a)). Also \( \hat{\boldsymbol{\upphi}}=\bT\T\hY=\A\hY \). So the image consists of the points
+\( \hat{\boldsymbol{\upphi}}-\A\bu \) with \( \bu\in\C(\X) \) and \( \norm\bu^2\le c_r \). If \( \mathbf{z}=\A\bu \) with \( \norm\bu^2\le c_r \), then
 \( \mathbf{z}\T\W^{-1}\mathbf{z}=\bu\T\A\T\W^{-1}\A\bu\le\norm\bu^2\le c_r \), because \( \A\T\W^{-1}\A \) is symmetric and idempotent, hence
 a projection, and a projection does not increase length (@prp-proj-trace-rank(d)). Conversely, if
 \( \mathbf{z}\T\W^{-1}\mathbf{z}\le c_r \), then \( \bu=\A\T\W^{-1}\mathbf{z} \) lies in \( \C(\M)=\C(\X) \), satisfies \( \A\bu=\mathbf{z} \), and has
@@ -147,18 +147,18 @@ from the maximum applied to \( \mathbf{a} \) and \( -\mathbf{a} \). For "if", ta
 
 For every \( \mathbf{a}\in\Real^q \), the projection of \( E(\Y) \) onto the line spanned by \( \mathbf{a} \) is the interval
 \[
-\mathbf{a}\T\hat{\boldsymbol{\phi}}\ \pm\ \sqrt{q\,F_\alpha(q,n-r)}\ \,\text{se}(\mathbf{a}\T\hat{\boldsymbol{\phi}}),\qquad
-\text{se}(\mathbf{a}\T\hat{\boldsymbol{\phi}})=s\sqrt{\mathbf{a}\T\W\mathbf{a}},
+\mathbf{a}\T\hat{\boldsymbol{\upphi}}\ \pm\ \sqrt{q\,F_\alpha(q,n-r)}\ \,\text{se}(\mathbf{a}\T\hat{\boldsymbol{\upphi}}),\qquad
+\text{se}(\mathbf{a}\T\hat{\boldsymbol{\upphi}})=s\sqrt{\mathbf{a}\T\W\mathbf{a}},
 \]
-and \( E(\Y) \) is the intersection of the slabs \( \{\boldsymbol{\phi}_0:\lvert\mathbf{a}\T\hat{\boldsymbol{\phi}}-\mathbf{a}\T\boldsymbol{\phi}_0\rvert\le\sqrt{qF_\alpha}\,\text{se}(\mathbf{a}\T\hat{\boldsymbol{\phi}})\} \)
+and \( E(\Y) \) is the intersection of the slabs \( \{\boldsymbol{\upphi}_0:\lvert\mathbf{a}\T\hat{\boldsymbol{\upphi}}-\mathbf{a}\T\boldsymbol{\upphi}_0\rvert\le\sqrt{qF_\alpha}\,\text{se}(\mathbf{a}\T\hat{\boldsymbol{\upphi}})\} \)
 over all \( \mathbf{a} \). Hence, with probability exactly \( 1-\alpha \), every one of these intervals contains \( \mathbf{a}\T\bLambda\T\bbeta \).
 :::
 
 ::: {.proof}
-Apply @lem-ci-cauchy-schwarz to \( \bu=\boldsymbol{\phi}_0-\hat{\boldsymbol{\phi}} \) with \( c=q\,s^2F_\alpha \). The extreme values of \( \mathbf{a}\T\boldsymbol{\phi}_0 \) over
-\( E(\Y) \) are \( \mathbf{a}\T\hat{\boldsymbol{\phi}}\pm\sqrt{c\,\mathbf{a}\T\W\mathbf{a}} \), and the set of values in between is attained because
+Apply @lem-ci-cauchy-schwarz to \( \bu=\boldsymbol{\upphi}_0-\hat{\boldsymbol{\upphi}} \) with \( c=q\,s^2F_\alpha \). The extreme values of \( \mathbf{a}\T\boldsymbol{\upphi}_0 \) over
+\( E(\Y) \) are \( \mathbf{a}\T\hat{\boldsymbol{\upphi}}\pm\sqrt{c\,\mathbf{a}\T\W\mathbf{a}} \), and the set of values in between is attained because
 \( E(\Y) \) is convex. The intersection statement is the last part of the lemma. The final claim holds because the event "all
-intervals cover" is the event \( \boldsymbol{\phi}\in E(\Y) \).
+intervals cover" is the event \( \boldsymbol{\upphi}\in E(\Y) \).
 :::
 
 A shadow is a \( t \) interval with \( t_{n-r,\alpha/2} \) replaced by \( \sqrt{qF_\alpha(q,n-r)} \). The multipliers agree when
@@ -173,10 +173,10 @@ the box can lie outside the ellipsoid, and the ellipsoid pokes out of the box al
 [A joint region for two coefficients]
 
 In the murder-rate regression of @exm-ci-state-intervals, take \( \bLambda \) to pick out the coefficients of poverty and
-single parenthood, so \( q=2 \), \( \hat{\boldsymbol{\phi}}=(0.2538,\ 0.3980)\T \), and the correlation of the two estimates is
+single parenthood, so \( q=2 \), \( \hat{\boldsymbol{\upphi}}=(0.2538,\ 0.3980)\T \), and the correlation of the two estimates is
 \( -0.639 \). The negative correlation reflects the positive correlation of the regressors: the data can credit murder
 to either, but not to both at once. With \( F_{0.05}(2,46)=3.200 \), the
-\( 95\% \) ellipse is drawn in [Figure 12.2.1](#fig-ci-ellipse). The \( F \) statistic for \( \boldsymbol{\phi}=\bzero \) is
+\( 95\% \) ellipse is drawn in [Figure 12.2.1](#fig-ci-ellipse). The \( F \) statistic for \( \boldsymbol{\upphi}=\bzero \) is
 \( 39.81 \), so the origin is far outside.
 
 The shadows of the ellipse on the two axes are \( (0.018,\ 0.490) \) and \( (0.188,\ 0.608) \),
@@ -324,8 +324,8 @@ of \( \phi_1=\phi_2 \). Which is appropriate if the hypothesis was formulated be
 :::
 
 ::: {.solution}
-The line is \( \{\boldsymbol{\phi}_0:\mathbf{a}\T\boldsymbol{\phi}_0=0\} \) with \( \mathbf{a}=(1,-1)\T \). By @cor-ci-shadows, the values of \( \mathbf{a}\T\boldsymbol{\phi}_0 \) over the
-ellipse fill the interval \( \mathbf{a}\T\hat{\boldsymbol{\phi}}\pm\sqrt{2F_\alpha}\,s\sqrt{\mathbf{a}\T\W\mathbf{a}} \), so the line meets the ellipse iff this
+The line is \( \{\boldsymbol{\upphi}_0:\mathbf{a}\T\boldsymbol{\upphi}_0=0\} \) with \( \mathbf{a}=(1,-1)\T \). By @cor-ci-shadows, the values of \( \mathbf{a}\T\boldsymbol{\upphi}_0 \) over the
+ellipse fill the interval \( \mathbf{a}\T\hat{\boldsymbol{\upphi}}\pm\sqrt{2F_\alpha}\,s\sqrt{\mathbf{a}\T\W\mathbf{a}} \), so the line meets the ellipse iff this
 interval contains \( 0 \). The \( t \) test uses the smaller multiplier \( t_{n-r,\alpha/2} \). It is the right test for a hypothesis fixed in
 advance. The ellipse criterion is the right one for a contrast chosen after looking at the estimates, because it holds
 simultaneously for all \( \mathbf{a} \).
@@ -335,10 +335,10 @@ simultaneously for all \( \mathbf{a} \).
 [B3]
 
 Let the columns of \( \bLambda \) lie in \( \C(\X\T) \) but be linearly dependent, with \( \rank(\bLambda)=k<q \). Show that
-\( \W=\bLambda\T\G\bLambda \) is singular, that \( \hat{\boldsymbol{\phi}}-\boldsymbol{\phi}\in\C(\W) \) with probability one, and that
+\( \W=\bLambda\T\G\bLambda \) is singular, that \( \hat{\boldsymbol{\upphi}}-\boldsymbol{\upphi}\in\C(\W) \) with probability one, and that
 \[
 \begin{aligned}
-\bigl\{\boldsymbol{\phi}_0\in\hat{\boldsymbol{\phi}}+\C(\W):\ &(\hat{\boldsymbol{\phi}}-\boldsymbol{\phi}_0)\T\W\ginv(\hat{\boldsymbol{\phi}}-\boldsymbol{\phi}_0)\\
+\bigl\{\boldsymbol{\upphi}_0\in\hat{\boldsymbol{\upphi}}+\C(\W):\ &(\hat{\boldsymbol{\upphi}}-\boldsymbol{\upphi}_0)\T\W\ginv(\hat{\boldsymbol{\upphi}}-\boldsymbol{\upphi}_0)\\
 &\le k\,s^2F_\alpha(k,n-r)\bigr\}
 \end{aligned}
 \]
@@ -346,11 +346,11 @@ is an exact \( 1-\alpha \) confidence set, a \( k \)-dimensional ellipsoid insid
 :::
 
 ::: {.solution}
-\( \W=(\M\bT)\T(\M\bT) \) has rank \( \rank(\M\bT)=\rank(\bLambda)=k \) (proof of @cor-opt-quadratic). The vector \( \hat{\boldsymbol{\phi}}-\boldsymbol{\phi} \) is
+\( \W=(\M\bT)\T(\M\bT) \) has rank \( \rank(\M\bT)=\rank(\bLambda)=k \) (proof of @cor-opt-quadratic). The vector \( \hat{\boldsymbol{\upphi}}-\boldsymbol{\upphi} \) is
 \( \Normal_q(\bzero,\sigma^2\W) \), so it lies in \( \C(\W) \) almost surely (@thm-rv-cov-nnd). By @cor-opt-quadratic the quadratic form over
-\( k\,s^2 \) is \( F(k,n-r) \) and does not depend on the generalized inverse. So the displayed set covers \( \boldsymbol{\phi} \) with probability
+\( k\,s^2 \) is \( F(k,n-r) \) and does not depend on the generalized inverse. So the displayed set covers \( \boldsymbol{\upphi} \) with probability
 \( 1-\alpha \). Restricted to the affine subspace, write \( \W=\mathbf{U}\mathbf{D}\mathbf{U}\T \) with \( \mathbf{U} \) (\( q\times k \)) orthonormal and \( \mathbf{D} \) positive
-diagonal. For \( \boldsymbol{\phi}_0-\hat{\boldsymbol{\phi}}=\mathbf{U}\mathbf{c} \), the form is \( \mathbf{c}\T\mathbf{D}^{-1}\mathbf{c} \), an ellipsoid in the coordinates \( \mathbf{c} \).
+diagonal. For \( \boldsymbol{\upphi}_0-\hat{\boldsymbol{\upphi}}=\mathbf{U}\mathbf{c} \), the form is \( \mathbf{c}\T\mathbf{D}^{-1}\mathbf{c} \), an ellipsoid in the coordinates \( \mathbf{c} \).
 :::
 
 ### C. Going deeper

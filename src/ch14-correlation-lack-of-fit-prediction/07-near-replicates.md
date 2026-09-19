@@ -12,19 +12,19 @@ alternative: each test looks in some directions and is blind in others.
 ::: {#prp-cor-augmented-test}
 [Testing against any larger model]
 
-Let \( \Y\sim\Normal_n(\boldsymbol{\theta},\sigma^2\I) \), let \( \X \) have rank \( r \), and let \( \Z \) be a fixed matrix, chosen without
+Let \( \Y\sim\Normal_n(\boldsymbol{\uptheta},\sigma^2\I) \), let \( \X \) have rank \( r \), and let \( \Z \) be a fixed matrix, chosen without
 reference to \( \Y \), with \( \C(\X)\subseteq\C(\Z) \) and \( \rank(\Z)=s \), \( r<s<n \). Let \( \M \) and \( \M_Z \) be the two projections and
 \[
 F=\frac{\bigl[\text{SSE}(\X)-\text{SSE}(\Z)\bigr]/(s-r)}{\text{SSE}(\Z)/(n-s)} .
 \]
 
 ::: {.enumerate options="label=(\alph*)"}
-1. If \( \boldsymbol{\theta}\in\C(\X) \), then \( F\sim F(s-r,n-s) \).
+1. If \( \boldsymbol{\uptheta}\in\C(\X) \), then \( F\sim F(s-r,n-s) \).
 
-2. If \( \boldsymbol{\theta}\in\C(\Z) \), then \( F\sim F\bigl(s-r,n-s,\norm{(\I-\M)\boldsymbol{\theta}}^2/\sigma^2\bigr) \).
+2. If \( \boldsymbol{\uptheta}\in\C(\Z) \), then \( F\sim F\bigl(s-r,n-s,\norm{(\I-\M)\boldsymbol{\uptheta}}^2/\sigma^2\bigr) \).
 
 3. In general \( F=\dfrac{U/(s-r)}{V/(n-s)} \) with independent \( U\sim\chi^2(s-r,\gamma_1) \) and \( V\sim\chi^2(n-s,\gamma_2) \), where
-   \( \gamma_1=\norm{(\M_Z-\M)\boldsymbol{\theta}}^2/\sigma^2 \) and \( \gamma_2=\norm{(\I-\M_Z)\boldsymbol{\theta}}^2/\sigma^2 \). For every \( c>0 \),
+   \( \gamma_1=\norm{(\M_Z-\M)\boldsymbol{\uptheta}}^2/\sigma^2 \) and \( \gamma_2=\norm{(\I-\M_Z)\boldsymbol{\uptheta}}^2/\sigma^2 \). For every \( c>0 \),
    \( \Pr(F>c) \) is strictly increasing in \( \gamma_1 \) and strictly decreasing in \( \gamma_2 \).
 :::
 
@@ -362,13 +362,13 @@ matrix \( \X_c \) have rank \( r \). Show that \( \Z=\begin{psmallmatrix}\X_c&\b
 ::: {#exr-cor-lof-below-level}
 [B3]
 
-In @prp-cor-augmented-test, suppose \( \boldsymbol{\theta}=\X\bbeta+\boldsymbol{\delta} \) with \( \boldsymbol{\delta}\ne\bzero \) orthogonal to \( \C(\Z) \). Show that the
+In @prp-cor-augmented-test, suppose \( \boldsymbol{\uptheta}=\X\bbeta+\boldsymbol{\updelta} \) with \( \boldsymbol{\updelta}\ne\bzero \) orthogonal to \( \C(\Z) \). Show that the
 power of the test is strictly less than its size.
 :::
 
 ::: {.solution}
-Here \( (\M_Z-\M)\boldsymbol{\theta}=\M_Z\boldsymbol{\delta}-\M\boldsymbol{\delta}=\bzero \), since \( \boldsymbol{\delta}\perp\C(\Z)\supseteq\C(\X) \), so \( \gamma_1=0 \), while
-\( \gamma_2=\norm{\boldsymbol{\delta}}^2/\sigma^2>0 \). By part (c), \( \Pr(F>c) \) is strictly smaller than its value at \( \gamma_2=0 \), which is the
+Here \( (\M_Z-\M)\boldsymbol{\uptheta}=\M_Z\boldsymbol{\updelta}-\M\boldsymbol{\updelta}=\bzero \), since \( \boldsymbol{\updelta}\perp\C(\Z)\supseteq\C(\X) \), so \( \gamma_1=0 \), while
+\( \gamma_2=\norm{\boldsymbol{\updelta}}^2/\sigma^2>0 \). By part (c), \( \Pr(F>c) \) is strictly smaller than its value at \( \gamma_2=0 \), which is the
 size by part (a).
 :::
 

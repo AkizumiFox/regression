@@ -80,20 +80,20 @@ square estimates \( \sigma^2 \) only when the mean structure is right.
 ::: {#exm-rv-rss-bias}
 [Residual sum of squares under a wrong mean]
 
-Let \( \Cov(\Y)=\sigma^2\I_n \) and \( \E(\Y)=\boldsymbol{\theta} \), where \( \boldsymbol{\theta} \) need not lie in
+Let \( \Cov(\Y)=\sigma^2\I_n \) and \( \E(\Y)=\boldsymbol{\uptheta} \), where \( \boldsymbol{\uptheta} \) need not lie in
 \( \C(\X) \). The residual sum of squares is \( \Y\T(\I-\M)\Y \), where \( \M \) is symmetric and
 idempotent of rank \( r=\rank(\X) \), so \( \tr(\I-\M)=n-r \) (@thm-mat-idempotent). By
 @cor-rv-quadform-special(b),
 \[
-\E(\text{RSS})=\sigma^2(n-r)+\norm{(\I-\M)\boldsymbol{\theta}}^2 .
+\E(\text{RSS})=\sigma^2(n-r)+\norm{(\I-\M)\boldsymbol{\uptheta}}^2 .
 \]{#eq-rv-rss-mean}
 
-If the model is right, \( \boldsymbol{\theta}\in\C(\X) \), the second term vanishes and
+If the model is right, \( \boldsymbol{\uptheta}\in\C(\X) \), the second term vanishes and
 \( \text{RSS}/(n-r) \) is unbiased for \( \sigma^2 \). If the model is wrong, the estimate is
 biased upwards by the squared distance from the true mean to the model space, divided by
 \( n-r \). For instance, fit a straight line at \( x=1,\dots,6 \) when the true mean is the parabola
 \( \theta_i=\tfrac14(x_i-3.5)^2 \) and \( \sigma^2=1 \). Then \( \sigma^2(n-r)=4 \),
-\( \norm{(\I-\M)\boldsymbol{\theta}}^2=2.333 \), and \( \E(\text{RSS})=6.333 \).
+\( \norm{(\I-\M)\boldsymbol{\uptheta}}^2=2.333 \), and \( \E(\text{RSS})=6.333 \).
 Chapter 19 studies such departures systematically.
 :::
 
@@ -147,22 +147,22 @@ moments \( \sigma^2=\E(Y_i-\theta_i)^2 \), \( \mu_3=\E(Y_i-\theta_i)^3 \) and
 let \( \mathbf{a}=(a_{11},\dots,a_{nn})\T \) be its diagonal. Then
 \[
 \Var(\Y\T\A\Y)=(\mu_4-3\sigma^4)\,\mathbf{a}\T\mathbf{a}+2\sigma^4\tr(\A^2)
-+4\sigma^2\,\boldsymbol{\theta}\T\A^2\boldsymbol{\theta}+4\mu_3\,\boldsymbol{\theta}\T\A\mathbf{a} .
++4\sigma^2\,\boldsymbol{\uptheta}\T\A^2\boldsymbol{\uptheta}+4\mu_3\,\boldsymbol{\uptheta}\T\A\mathbf{a} .
 \]
 :::
 
 ::: {.proof}
-Write \( \Y=\boldsymbol{\theta}+\be \), where the \( \varepsilon_i \) are independent with mean zero. Then
+Write \( \Y=\boldsymbol{\uptheta}+\be \), where the \( \varepsilon_i \) are independent with mean zero. Then
 \[
-\Y\T\A\Y=q+\ell+\boldsymbol{\theta}\T\A\boldsymbol{\theta},\qquad q=\be\T\A\be,\quad \ell=2\bb\T\be,\quad \bb=\A\boldsymbol{\theta},
+\Y\T\A\Y=q+\ell+\boldsymbol{\uptheta}\T\A\boldsymbol{\uptheta},\qquad q=\be\T\A\be,\quad \ell=2\bb\T\be,\quad \bb=\A\boldsymbol{\uptheta},
 \]
 so \( \Var(\Y\T\A\Y)=\Var(q)+\Var(\ell)+2\Cov(q,\ell) \). We compute the three terms.
 
-*The linear term.* \( \Cov(\be)=\sigma^2\I \), so \( \Var(\ell)=4\sigma^2\bb\T\bb=4\sigma^2\boldsymbol{\theta}\T\A^2\boldsymbol{\theta} \).
+*The linear term.* \( \Cov(\be)=\sigma^2\I \), so \( \Var(\ell)=4\sigma^2\bb\T\bb=4\sigma^2\boldsymbol{\uptheta}\T\A^2\boldsymbol{\uptheta} \).
 
 *The cross term.* Since \( \E(\ell)=0 \), \( \Cov(q,\ell)=\E(q\ell)=2\sum_{i,j,k}a_{ij}b_k\E(\varepsilon_i\varepsilon_j\varepsilon_k) \).
 By independence and zero means, \( \E(\varepsilon_i\varepsilon_j\varepsilon_k) \) vanishes unless
-\( i=j=k \), when it equals \( \mu_3 \). So \( \Cov(q,\ell)=2\mu_3\sum_ia_{ii}b_i=2\mu_3\,\boldsymbol{\theta}\T\A\mathbf{a} \).
+\( i=j=k \), when it equals \( \mu_3 \). So \( \Cov(q,\ell)=2\mu_3\sum_ia_{ii}b_i=2\mu_3\,\boldsymbol{\uptheta}\T\A\mathbf{a} \).
 
 *The quadratic term.* \( \E(q^2)=\sum_{i,j,k,l}a_{ij}a_{kl}\E(\varepsilon_i\varepsilon_j\varepsilon_k\varepsilon_l) \).
 The fourth-order moment is \( \mu_4 \) if all four indices agree. It is \( \sigma^4 \) if the indices
@@ -179,11 +179,11 @@ Adding the three terms proves the formula.
 :::
 
 For normal errors, \( \mu_3=0 \) and \( \mu_4=3\sigma^4 \), and the formula collapses to
-\( 2\sigma^4\tr(\A^2)+4\sigma^2\boldsymbol{\theta}\T\A^2\boldsymbol{\theta} \). Both extra terms describe how
+\( 2\sigma^4\tr(\A^2)+4\sigma^2\boldsymbol{\uptheta}\T\A^2\boldsymbol{\uptheta} \). Both extra terms describe how
 non-normality leaks into second-order behaviour. The kurtosis term depends on \( \A \) only
 through its diagonal. The skewness term needs both a skewed error distribution and a
 mean that the form does not annihilate. For the residual sum of squares of a correct
-model, \( \A\boldsymbol{\theta}=(\I-\M)\boldsymbol{\theta}=\bzero \), so the skewness term disappears but the kurtosis
+model, \( \A\boldsymbol{\uptheta}=(\I-\M)\boldsymbol{\uptheta}=\bzero \), so the skewness term disappears but the kurtosis
 term remains.
 
 ::: {#exm-rv-rss-variance}
@@ -284,8 +284,8 @@ fourth central moment \( \mu_4 \). Use @thm-rv-quadform-variance to show that
 :::
 
 ::: {.solution}
-Take \( \A=\mathbf{C}/(n-1) \) and \( \boldsymbol{\theta}=\mu\bone \). Then
-\( \A\boldsymbol{\theta}=\bzero \), so the last two terms of @thm-rv-quadform-variance vanish. Every diagonal
+Take \( \A=\mathbf{C}/(n-1) \) and \( \boldsymbol{\uptheta}=\mu\bone \). Then
+\( \A\boldsymbol{\uptheta}=\bzero \), so the last two terms of @thm-rv-quadform-variance vanish. Every diagonal
 entry of \( \A \) is \( (1-1/n)/(n-1)=1/n \), so \( \mathbf{a}\T\mathbf{a}=1/n \), and
 \( \tr(\A^2)=\tr(\mathbf{C})/(n-1)^2=1/(n-1) \). This gives the formula. Normal data have
 \( \mu_4=3\sigma^4 \) and \( \Var(S^2)=2\sigma^4/(n-1) \). Heavy tails (\( \mu_4>3\sigma^4 \)) add a term of the same
@@ -295,7 +295,7 @@ order \( 1/n \), so the normal-theory variance is wrong even in large samples.
 ::: {#exr-rv-cov-quadforms}
 [B4]
 
-Under the conditions of @thm-rv-quadform-variance with \( \boldsymbol{\theta}=\bzero \), show that
+Under the conditions of @thm-rv-quadform-variance with \( \boldsymbol{\uptheta}=\bzero \), show that
 \( \Cov(\Y\T\A\Y,\Y\T\B\Y)=(\mu_4-3\sigma^4)\mathbf{a}\T\mathbf{b}+2\sigma^4\tr(\A\B) \), where \( \mathbf{a} \) and \( \mathbf{b} \) are the
 diagonals of the symmetric matrices \( \A \) and \( \B \). *Hint:* apply the theorem to \( \A+\B \).
 :::

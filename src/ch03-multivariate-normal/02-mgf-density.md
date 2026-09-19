@@ -310,10 +310,10 @@ with \( \y=\bmu+\Q\mathbf{v} \), where \( \bSigma^+=\Q\bLambda^{-1}\Q\T \) is th
 ::: {#exr-mvn-noncentral-mahalanobis}
 [B3]
 
-Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) with \( \bSigma \) positive definite and let \( \boldsymbol{\nu} \) be a fixed
-vector. Show that \( (\Y-\boldsymbol{\nu})\T\bSigma^{-1}(\Y-\boldsymbol{\nu}) \) has the noncentral chi-squared
+Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) with \( \bSigma \) positive definite and let \( \boldsymbol{\upnu} \) be a fixed
+vector. Show that \( (\Y-\boldsymbol{\upnu})\T\bSigma^{-1}(\Y-\boldsymbol{\upnu}) \) has the noncentral chi-squared
 distribution \( \chi^2(n,\gamma) \) with
-\( \gamma=(\bmu-\boldsymbol{\nu})\T\bSigma^{-1}(\bmu-\boldsymbol{\nu}) \), in the convention of
+\( \gamma=(\bmu-\boldsymbol{\upnu})\T\bSigma^{-1}(\bmu-\boldsymbol{\upnu}) \), in the convention of
 @def-qf-noncentral-chisq, and find its mean.
 :::
 

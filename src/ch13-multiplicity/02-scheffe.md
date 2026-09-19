@@ -17,17 +17,17 @@ Throughout this section the model is the normal linear model @eq-opt-normal-mode
 
 An estimable function is a linear function of the mean vector, and a linear function of
 \( \bmu\in\C(\X) \) can be represented by a vector of \( \C(\X) \). If \( \blambda\T\bbeta \) is
-estimable, then \( \blambda=\X\T\boldsymbol{\rho} \) for some vector
-\( \boldsymbol{\rho}\in\Real^n \) (@thm-est-characterization), and with \( \bv=\M\boldsymbol{\rho} \),
+estimable, then \( \blambda=\X\T\boldsymbol{\uprho} \) for some vector
+\( \boldsymbol{\uprho}\in\Real^n \) (@thm-est-characterization), and with \( \bv=\M\boldsymbol{\uprho} \),
 \[
-\blambda\T\bbeta=\boldsymbol{\rho}\T\X\bbeta=\bv\T\bmu,\qquad
-\blambda\T\hbeta=\boldsymbol{\rho}\T\M\Y=\bv\T\Y,\qquad
-\blambda\T\G\blambda=\boldsymbol{\rho}\T\X\G\X\T\boldsymbol{\rho}=\boldsymbol{\rho}\T\M\boldsymbol{\rho}=\norm{\bv}^2 .
+\blambda\T\bbeta=\boldsymbol{\uprho}\T\X\bbeta=\bv\T\bmu,\qquad
+\blambda\T\hbeta=\boldsymbol{\uprho}\T\M\Y=\bv\T\Y,\qquad
+\blambda\T\G\blambda=\boldsymbol{\uprho}\T\X\G\X\T\boldsymbol{\uprho}=\boldsymbol{\uprho}\T\M\boldsymbol{\uprho}=\norm{\bv}^2 .
 \]{#eq-mc-function-vector}
 
 The second identity is @thm-proj-invariant-functions, and the third uses \( \M=\X\G\X\T \) (@thm-proj-M-formula).
-The vector \( \bv \) does not depend on the choice of \( \boldsymbol{\rho} \), since two
-choices differ by some \( \boldsymbol{\delta} \) with \( \X\T\boldsymbol{\delta}=\bzero \), hence \( \M\boldsymbol{\delta}=\bzero \). So the
+The vector \( \bv \) does not depend on the choice of \( \boldsymbol{\uprho} \), since two
+choices differ by some \( \boldsymbol{\updelta} \) with \( \X\T\boldsymbol{\updelta}=\bzero \), hence \( \M\boldsymbol{\updelta}=\bzero \). So the
 estimate is the inner product of \( \bv \) with the data, the estimand its inner product with the
 mean, and the standard error is \( s\norm{\bv} \).
 
@@ -88,14 +88,14 @@ Assume @eq-opt-normal-model with \( r<n \), and let \( 0<\alpha<1 \).
    \blambda\T\hbeta+\sqrt{qF_\alpha(q,\nu)}\;\text{se}(\blambda\T\hbeta)\Bigr].
    \]{#eq-mc-scheffe-interval}
 
-   Moreover, with \( \boldsymbol{\theta}=\bLambda\T\bbeta \), \( \hat{\boldsymbol{\theta}}=\bLambda\T\hbeta \) and
+   Moreover, with \( \boldsymbol{\uptheta}=\bLambda\T\bbeta \), \( \hat{\boldsymbol{\uptheta}}=\bLambda\T\hbeta \) and
    \( \W=\bLambda\T\G\bLambda \),
    \[
    \max_{\blambda\in\C(\bLambda),\ \blambda\ne\bzero}\frac{(\blambda\T\hbeta-\blambda\T\bbeta)^2}{\text{se}(\blambda\T\hbeta)^2}
-   =\frac{(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})\T\W^{-1}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})}{s^2},
+   =\frac{(\hat{\boldsymbol{\uptheta}}-\boldsymbol{\uptheta})\T\W^{-1}(\hat{\boldsymbol{\uptheta}}-\boldsymbol{\uptheta})}{s^2},
    \]{#eq-mc-scheffe-max}
 
-   attained at \( \blambda=\bLambda\W^{-1}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta}) \).
+   attained at \( \blambda=\bLambda\W^{-1}(\hat{\boldsymbol{\uptheta}}-\boldsymbol{\uptheta}) \).
 :::
 
 :::
@@ -104,7 +104,7 @@ Assume @eq-opt-normal-model with \( r<n \), and let \( 0<\alpha<1 \).
 *(a)* The first equality is @lem-mc-projection-max with \( \bu=\Y-\bmu \). The map \( \bv\mapsto\X\T\bv \) is
 one to one on \( \C(\X) \) (Step 1 of the proof of @thm-ci-working-hotelling), so
 \( \mathcal L=\{\X\T\bv:\bv\in\mathcal V\} \) is a subspace of \( \C(\X\T) \) of dimension \( q \). For
-\( \x=\X\T\bv \), @eq-mc-function-vector with \( \boldsymbol{\rho}=\bv \) gives
+\( \x=\X\T\bv \), @eq-mc-function-vector with \( \boldsymbol{\uprho}=\bv \) gives
 \( \x\T\hbeta-\x\T\bbeta=\bv\T(\Y-\bmu) \) and \( \x\T\G\x=\norm{\bv}^2 \). So the event in the display is
 the event @eq-ci-wh-band with \( k=q \), and it has probability exactly \( 1-\alpha \) by
 @thm-ci-working-hotelling. That event is also the event that the maximum is at most
@@ -116,11 +116,11 @@ distribution function of \( F(q,\nu) \).
 \( \blambda\T\hbeta-\blambda\T\bbeta=\bv\T\Y-\bv\T\bmu \) and \( \text{se}(\blambda\T\hbeta)=s\norm{\bv} \)
 with \( \bv=\M\bT\mathbf{a}\in\mathcal V \). As \( \mathbf{a} \) ranges over \( \Real^q \), \( \bv \) ranges over all of
 \( \mathcal V \). So the event in (b) is the event in (a).
-Finally, @eq-mc-scheffe-max is @prp-glh-max-t for the hypothesis \( \bLambda\T\bbeta=\boldsymbol{\theta} \), which is
-testable because \( \boldsymbol{\theta} \) is the true value: its statistic @eq-glh-general-F is
-\( (\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})\T\W^{-1}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})/(q\,s^2) \), and each \( T(\mathbf{a})^2 \) is the ratio on the
+Finally, @eq-mc-scheffe-max is @prp-glh-max-t for the hypothesis \( \bLambda\T\bbeta=\boldsymbol{\uptheta} \), which is
+testable because \( \boldsymbol{\uptheta} \) is the true value: its statistic @eq-glh-general-F is
+\( (\hat{\boldsymbol{\uptheta}}-\boldsymbol{\uptheta})\T\W^{-1}(\hat{\boldsymbol{\uptheta}}-\boldsymbol{\uptheta})/(q\,s^2) \), and each \( T(\mathbf{a})^2 \) is the ratio on the
 left of @eq-mc-scheffe-max at \( \blambda=\bLambda\mathbf{a} \), so the maximum is attained at
-\( \mathbf{a}\propto\W^{-1}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta}) \).
+\( \mathbf{a}\propto\W^{-1}(\hat{\boldsymbol{\uptheta}}-\boldsymbol{\uptheta}) \).
 :::
 
 The coverage is exact, not a bound: some function in the family, depending on the data, always lies
@@ -129,11 +129,11 @@ dropped first. For \( q=1 \) the multiplier is \( t_{\nu,\alpha/2} \), since \( 
 and the interval is that of @thm-ci-estimable-interval.
 
 Part (b) is the observation-space form of a fact met twice already. [Section 11.6](../ch11-general-linear-hypothesis/06-coefficients.html)
-proved @eq-mc-scheffe-max, with \( \mathbf{d} \) in place of \( \boldsymbol{\theta} \), as the statement that a group \( F \)
+proved @eq-mc-scheffe-max, with \( \mathbf{d} \) in place of \( \boldsymbol{\uptheta} \), as the statement that a group \( F \)
 statistic is the largest single \( t \) statistic in the group, and [Section 12.2](../ch12-intervals-and-bands/02-ellipsoids.html)
 showed that the intervals @eq-mc-scheffe-interval are the *shadows* of the confidence ellipsoid for
-\( \boldsymbol{\theta}=\bLambda\T\bbeta \) (@thm-ci-ellipsoid). The ellipsoid covers \( \boldsymbol{\theta} \) iff every shadow covers
-the corresponding \( \mathbf{a}\T\boldsymbol{\theta} \), which is why an infinite family costs no more than one ellipsoid.
+\( \boldsymbol{\uptheta}=\bLambda\T\bbeta \) (@thm-ci-ellipsoid). The ellipsoid covers \( \boldsymbol{\uptheta} \) iff every shadow covers
+the corresponding \( \mathbf{a}\T\boldsymbol{\uptheta} \), which is why an infinite family costs no more than one ellipsoid.
 The coverage statement itself is the Working–Hotelling band of @thm-ci-working-hotelling for the
 subspace \( \mathcal L=\C(\bLambda) \): a band for a regression surface and a family of intervals for
 estimable functions are one object, written in the coordinates of \( \C(\X\T) \) or of \( \C(\X) \).
@@ -222,7 +222,7 @@ Let \( \mathbf{d}\in\Real^q \) and consider the hypothesis \( \bLambda\T\bbeta=\
 Because \( \bLambda\T \) has rank \( q \), the hypothesis is consistent for every
 \( \mathbf{d} \). By @thm-glh-general-f its \( F \) statistic is
 \[
-F=\frac{(\hat{\boldsymbol{\theta}}-\mathbf{d})\T\W^{-1}(\hat{\boldsymbol{\theta}}-\mathbf{d})}{q\,s^2} .
+F=\frac{(\hat{\boldsymbol{\uptheta}}-\mathbf{d})\T\W^{-1}(\hat{\boldsymbol{\uptheta}}-\mathbf{d})}{q\,s^2} .
 \]
 The hypothesis implies a single-degree-of-freedom statement for every
 \( \blambda=\bLambda\mathbf{a} \) in the family, namely \( \blambda\T\bbeta=\mathbf{a}\T\mathbf{d} \). Call such a statement
@@ -234,8 +234,8 @@ The hypothesis implies a single-degree-of-freedom statement for every
 In the setting of @thm-mc-scheffe(b), for every \( \mathbf{d}\in\Real^q \):
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \displaystyle\max_{\mathbf{a}\ne\bzero}\frac{(\mathbf{a}\T\hat{\boldsymbol{\theta}}-\mathbf{a}\T\mathbf{d})^2}{s^2\,\mathbf{a}\T\W\mathbf{a}}=qF \),
-   attained at \( \mathbf{a}=\W^{-1}(\hat{\boldsymbol{\theta}}-\mathbf{d}) \);
+1. \( \displaystyle\max_{\mathbf{a}\ne\bzero}\frac{(\mathbf{a}\T\hat{\boldsymbol{\uptheta}}-\mathbf{a}\T\mathbf{d})^2}{s^2\,\mathbf{a}\T\W\mathbf{a}}=qF \),
+   attained at \( \mathbf{a}=\W^{-1}(\hat{\boldsymbol{\uptheta}}-\mathbf{d}) \);
 
 2. the level-\( \alpha \) \( F \) test rejects \( \bLambda\T\bbeta=\mathbf{d} \) iff at least one statement
    \( \blambda\T\bbeta=\mathbf{a}\T\mathbf{d} \), \( \blambda=\bLambda\mathbf{a} \), is Scheffé-rejected;
@@ -249,7 +249,7 @@ In the setting of @thm-mc-scheffe(b), for every \( \mathbf{d}\in\Real^q \):
 
 ::: {.proof}
 *(a)* For \( \blambda=\bLambda\mathbf{a} \), the ratio is \( (\mathbf{a}\T\mathbf{w})^2/(s^2\mathbf{a}\T\W\mathbf{a}) \) with
-\( \mathbf{w}=\hat{\boldsymbol{\theta}}-\mathbf{d} \), and its maximum is \( \mathbf{w}\T\W^{-1}\mathbf{w}/s^2=qF \), attained at \( \mathbf{a}=\W^{-1}\mathbf{w} \), by
+\( \mathbf{w}=\hat{\boldsymbol{\uptheta}}-\mathbf{d} \), and its maximum is \( \mathbf{w}\T\W^{-1}\mathbf{w}/s^2=qF \), attained at \( \mathbf{a}=\W^{-1}\mathbf{w} \), by
 @cor-mat-generalized-rayleigh(c) with \( \W \) positive definite (@thm-ss-hypothesis(a)); this is the maximum
 identity of [Section 11.6](../ch11-general-linear-hypothesis/06-coefficients.html). *(b)* The statement for \( \mathbf{a} \) is Scheffé-rejected iff its squared
 \( t \) statistic exceeds \( qF_\alpha(q,\nu) \), so some statement is rejected iff the maximum in (a)

@@ -19,20 +19,20 @@ such as Lehmann and Casella (1998) and Lehmann and Romano (2005). Everything bui
 ::: {#def-opt-sufficient}
 [Sufficient and complete statistics]
 
-Let \( \Y \) have a distribution \( P_{\boldsymbol{\theta}} \) from a family indexed by \( \boldsymbol{\theta}\in\Theta \), and let
+Let \( \Y \) have a distribution \( P_{\boldsymbol{\uptheta}} \) from a family indexed by \( \boldsymbol{\uptheta}\in\Theta \), and let
 \( \bT=\bT(\Y) \) be a statistic.
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \bT \) is **sufficient** for \( \boldsymbol{\theta} \) if the conditional law of \( \Y \) given \( \bT \)
-   is the same for every \( \boldsymbol{\theta} \).
+1. \( \bT \) is **sufficient** for \( \boldsymbol{\uptheta} \) if the conditional law of \( \Y \) given \( \bT \)
+   is the same for every \( \boldsymbol{\uptheta} \).
 
-2. \( \bT \) is **complete** if, for every function \( h \) with \( \E_{\boldsymbol{\theta}}\lvert h(\bT)\rvert<\infty \) and
-   \( \E_{\boldsymbol{\theta}}h(\bT)=0 \) for all \( \boldsymbol{\theta}\in\Theta \), we have \( \Pr_{\boldsymbol{\theta}}\{h(\bT)=0\}=1 \) for all
-   \( \boldsymbol{\theta} \).
+2. \( \bT \) is **complete** if, for every function \( h \) with \( \E_{\boldsymbol{\uptheta}}\lvert h(\bT)\rvert<\infty \) and
+   \( \E_{\boldsymbol{\uptheta}}h(\bT)=0 \) for all \( \boldsymbol{\uptheta}\in\Theta \), we have \( \Pr_{\boldsymbol{\uptheta}}\{h(\bT)=0\}=1 \) for all
+   \( \boldsymbol{\uptheta} \).
 :::
 :::
 
-A sufficient statistic carries all the information about \( \boldsymbol{\theta} \) in the data. Once \( \bT \) is known,
+A sufficient statistic carries all the information about \( \boldsymbol{\uptheta} \) in the data. Once \( \bT \) is known,
 the rest of \( \Y \) is noise whose distribution does not involve the parameter. Completeness says that
 \( \bT \) carries no redundant information either: no nontrivial function of \( \bT \) has expectation zero
 for every parameter value. Equivalently, an unbiased estimator that is a function of \( \bT \) is unique.
@@ -40,9 +40,9 @@ for every parameter value. Equivalently, an unbiased estimator that is a functio
 ::: {#lem-opt-factorization}
 [Factorization criterion]
 
-Suppose \( \Y \) has a density \( f_{\boldsymbol{\theta}}(\y) \) on \( \Real^n \). Then \( \bT(\Y) \) is sufficient iff there
-are functions \( g_{\boldsymbol{\theta}} \) and \( h \), with \( h \) not depending on \( \boldsymbol{\theta} \), such that
-\( f_{\boldsymbol{\theta}}(\y)=g_{\boldsymbol{\theta}}(\bT(\y))\,h(\y) \) for all \( \y \) and \( \boldsymbol{\theta} \).
+Suppose \( \Y \) has a density \( f_{\boldsymbol{\uptheta}}(\y) \) on \( \Real^n \). Then \( \bT(\Y) \) is sufficient iff there
+are functions \( g_{\boldsymbol{\uptheta}} \) and \( h \), with \( h \) not depending on \( \boldsymbol{\uptheta} \), such that
+\( f_{\boldsymbol{\uptheta}}(\y)=g_{\boldsymbol{\uptheta}}(\bT(\y))\,h(\y) \) for all \( \y \) and \( \boldsymbol{\uptheta} \).
 :::
 
 ::: {#lem-opt-exponential-family}
@@ -50,14 +50,14 @@ are functions \( g_{\boldsymbol{\theta}} \) and \( h \), with \( h \) not depend
 
 Suppose \( \Y \) has a density of the form
 \[
-f_{\boldsymbol{\eta}}(\y)=c(\boldsymbol{\eta})\,h(\y)\exp\{\boldsymbol{\eta}\T\bT(\y)\},\qquad \boldsymbol{\eta}\in\mathcal E\subseteq\Real^k,
+f_{\boldsymbol{\upeta}}(\y)=c(\boldsymbol{\upeta})\,h(\y)\exp\{\boldsymbol{\upeta}\T\bT(\y)\},\qquad \boldsymbol{\upeta}\in\mathcal E\subseteq\Real^k,
 \]
 with \( \bT(\y)\in\Real^k \). If \( \mathcal E \) contains a nonempty open subset of \( \Real^k \), then \( \bT(\Y) \) is
 complete and sufficient.
 :::
 
-Sufficiency follows from @lem-opt-factorization with \( g_{\boldsymbol{\eta}}(\bT)=c(\boldsymbol{\eta})e^{\boldsymbol{\eta}\T\bT} \). Completeness
-rests on the uniqueness of Laplace transforms: \( \E_{\boldsymbol{\eta}}h(\bT)=0 \) on an open set of \( \boldsymbol{\eta} \) forces a
+Sufficiency follows from @lem-opt-factorization with \( g_{\boldsymbol{\upeta}}(\bT)=c(\boldsymbol{\upeta})e^{\boldsymbol{\upeta}\T\bT} \). Completeness
+rests on the uniqueness of Laplace transforms: \( \E_{\boldsymbol{\upeta}}h(\bT)=0 \) on an open set of \( \boldsymbol{\upeta} \) forces a
 certain two-sided Laplace transform to vanish on an open set, and hence \( h(\bT)=0 \) almost surely.
 
 For the normal linear model, expand the exponent of the density:
@@ -86,7 +86,7 @@ Since \( \X\bbeta\in\C(\X) \), \( \X\bbeta=\Q\bgamma \) with \( \bgamma=\Q\T\X\b
 \( \bbeta\T\X\T\y=\bgamma\T\Q\T\y \). By @eq-opt-expfam the density has the form of
 @lem-opt-exponential-family with \( k=r+1 \),
 \[
-\bT(\y)=(\Q\T\y,\ \y\T\y),\qquad \boldsymbol{\eta}=\bigl(\bgamma/\sigma^2,\ {-}1/(2\sigma^2)\bigr).
+\bT(\y)=(\Q\T\y,\ \y\T\y),\qquad \boldsymbol{\upeta}=\bigl(\bgamma/\sigma^2,\ {-}1/(2\sigma^2)\bigr).
 \]
 As \( \bbeta \) ranges over \( \Real^p \), \( \bgamma=\Q\T\X\bbeta \) ranges over all of \( \Real^r \): the \( r\times p \) matrix
 \( \Q\T\X \) has rank \( r \), because \( \Q\Q\T\X=\M\X=\X \) has rank \( r \). Hence
@@ -112,22 +112,22 @@ precisely because, under normality, it has a known and parameter-free distributi
 ::: {#thm-opt-rao-blackwell}
 [Rao–Blackwell]
 
-Let \( \bT \) be sufficient for \( \boldsymbol{\theta} \), and let \( \delta(\Y) \) be an unbiased estimator of \( g(\boldsymbol{\theta}) \)
-with \( \Var_{\boldsymbol{\theta}}\delta<\infty \) for all \( \boldsymbol{\theta} \). Then \( \delta^*=\E(\delta\mid\bT) \) is a statistic,
-it is unbiased for \( g(\boldsymbol{\theta}) \), and
+Let \( \bT \) be sufficient for \( \boldsymbol{\uptheta} \), and let \( \delta(\Y) \) be an unbiased estimator of \( g(\boldsymbol{\uptheta}) \)
+with \( \Var_{\boldsymbol{\uptheta}}\delta<\infty \) for all \( \boldsymbol{\uptheta} \). Then \( \delta^*=\E(\delta\mid\bT) \) is a statistic,
+it is unbiased for \( g(\boldsymbol{\uptheta}) \), and
 \[
 \begin{aligned}
-\Var_{\boldsymbol{\theta}}(\delta)&=\Var_{\boldsymbol{\theta}}(\delta^*)+\E_{\boldsymbol{\theta}}\bigl[(\delta-\delta^*)^2\bigr]\\
-&\ge\Var_{\boldsymbol{\theta}}(\delta^*)
+\Var_{\boldsymbol{\uptheta}}(\delta)&=\Var_{\boldsymbol{\uptheta}}(\delta^*)+\E_{\boldsymbol{\uptheta}}\bigl[(\delta-\delta^*)^2\bigr]\\
+&\ge\Var_{\boldsymbol{\uptheta}}(\delta^*)
 \end{aligned}
 \]
-for every \( \boldsymbol{\theta} \), with equality iff \( \delta=\delta^* \) with probability one.
+for every \( \boldsymbol{\uptheta} \), with equality iff \( \delta=\delta^* \) with probability one.
 :::
 
 ::: {.proof}
-The law of \( \Y \) given \( \bT \) does not depend on \( \boldsymbol{\theta} \), so neither does
+The law of \( \Y \) given \( \bT \) does not depend on \( \boldsymbol{\uptheta} \), so neither does
 \( \E(\delta(\Y)\mid\bT) \). It is therefore computable from the data, which makes it a statistic. By the
-law of total expectation (@prp-rv-total-covariance), \( \E\delta^*=\E\delta=g(\boldsymbol{\theta}) \). By the law of
+law of total expectation (@prp-rv-total-covariance), \( \E\delta^*=\E\delta=g(\boldsymbol{\uptheta}) \). By the law of
 total variance in the same result,
 \( \Var\delta=\E\{\Var(\delta\mid\bT)\}+\Var(\delta^*) \), and
 \( \E\{\Var(\delta\mid\bT)\}=\E\{\E[(\delta-\delta^*)^2\mid\bT]\}=\E(\delta-\delta^*)^2 \). This last term is zero iff
@@ -141,15 +141,15 @@ parameter-free noise. It never hurts, and it helps unless the estimator was alre
 ::: {#thm-opt-lehmann-scheffe}
 [Lehmann–Scheffé]
 
-Let \( \bT \) be complete and sufficient for \( \boldsymbol{\theta} \). If \( \phi(\bT) \) is unbiased for \( g(\boldsymbol{\theta}) \) and has
+Let \( \bT \) be complete and sufficient for \( \boldsymbol{\uptheta} \). If \( \phi(\bT) \) is unbiased for \( g(\boldsymbol{\uptheta}) \) and has
 finite variance, then \( \phi(\bT) \) is a **uniformly minimum variance unbiased estimator** (UMVUE) of
-\( g(\boldsymbol{\theta}) \): \( \Var_{\boldsymbol{\theta}}\phi(\bT)\le\Var_{\boldsymbol{\theta}}\delta \) for every unbiased \( \delta \) and every
-\( \boldsymbol{\theta} \). It is the only unbiased function of \( \bT \) and, up to sets of probability zero, the only UMVUE.
+\( g(\boldsymbol{\uptheta}) \): \( \Var_{\boldsymbol{\uptheta}}\phi(\bT)\le\Var_{\boldsymbol{\uptheta}}\delta \) for every unbiased \( \delta \) and every
+\( \boldsymbol{\uptheta} \). It is the only unbiased function of \( \bT \) and, up to sets of probability zero, the only UMVUE.
 :::
 
 ::: {.proof}
-If \( \phi_1(\bT) \) and \( \phi_2(\bT) \) are both unbiased, then \( \E_{\boldsymbol{\theta}}\{\phi_1(\bT)-\phi_2(\bT)\}=0 \) for all
-\( \boldsymbol{\theta} \), so \( \phi_1(\bT)=\phi_2(\bT) \) almost surely by completeness. Now let \( \delta \) be any unbiased
+If \( \phi_1(\bT) \) and \( \phi_2(\bT) \) are both unbiased, then \( \E_{\boldsymbol{\uptheta}}\{\phi_1(\bT)-\phi_2(\bT)\}=0 \) for all
+\( \boldsymbol{\uptheta} \), so \( \phi_1(\bT)=\phi_2(\bT) \) almost surely by completeness. Now let \( \delta \) be any unbiased
 estimator with finite variance. By @thm-opt-rao-blackwell, \( \E(\delta\mid\bT) \) is an unbiased function
 of \( \bT \), so it equals \( \phi(\bT) \) almost surely, and \( \Var\phi(\bT)\le\Var\delta \), with equality iff
 \( \delta=\phi(\bT) \) almost surely. (If \( \delta \) has infinite variance there is nothing to prove.)
@@ -180,7 +180,7 @@ b_k=\sqrt{\frac2k}\,\frac{\Gamma\bigl(\frac{k+1}2\bigr)}{\Gamma\bigl(\frac k2\bi
 ::: {.proof}
 By @prp-opt-complete-sufficient, \( (\M\Y,\text{SSE}) \) is complete and sufficient, so by
 @thm-opt-lehmann-scheffe it suffices to show that each estimator is an unbiased function of it with finite
-variance. (a) Write \( \blambda=\X\T\boldsymbol{\rho} \). Then \( \blambda\T\hbeta=\boldsymbol{\rho}\T\M\Y \) is a function of \( \M\Y \), it is
+variance. (a) Write \( \blambda=\X\T\boldsymbol{\uprho} \). Then \( \blambda\T\hbeta=\boldsymbol{\uprho}\T\M\Y \) is a function of \( \M\Y \), it is
 unbiased by @thm-opt-gauss-markov(a), and its variance is finite. (b) \( s^2 \) is a function of SSE, it is unbiased
 because \( \E(\text{SSE})=\sigma^2(n-r) \) (@thm-rv-quadform-mean), and it has finite variance. (c) The first
 statement is @thm-opt-lehmann-scheffe again. For \( \sigma \), note that
@@ -288,7 +288,7 @@ A different route to optimality bounds the variance of every unbiased estimator 
 whether the bound is attained. We state the bound for the full-rank normal linear model, where every
 ingredient can be computed.
 
-Write \( \boldsymbol{\theta}=(\bbeta\T,v)\T \) with \( v=\sigma^2 \). The **score** is the gradient of the
+Write \( \boldsymbol{\uptheta}=(\bbeta\T,v)\T \) with \( v=\sigma^2 \). The **score** is the gradient of the
 log-likelihood @eq-opt-loglik, evaluated at the random \( \Y \):
 \[
 \mathbf{S}=\begin{pmatrix}\partial\ell/\partial\bbeta\\ \partial\ell/\partial v\end{pmatrix}
@@ -301,7 +301,7 @@ log-likelihood @eq-opt-loglik, evaluated at the random \( \Y \):
 
 In @eq-opt-normal-model with \( \rank(\X)=p \), \( \E\mathbf{S}=\bzero \) and
 \[
-\boldsymbol{\mathcal I}(\boldsymbol{\theta})=\Cov(\mathbf{S})=\begin{pmatrix}\X\T\X/\sigma^2&\bzero\\ \bzero\T&n/(2\sigma^4)\end{pmatrix}.
+\boldsymbol{\mathcal I}(\boldsymbol{\uptheta})=\Cov(\mathbf{S})=\begin{pmatrix}\X\T\X/\sigma^2&\bzero\\ \bzero\T&n/(2\sigma^4)\end{pmatrix}.
 \]
 :::
 
@@ -316,10 +316,10 @@ last coordinate has mean \( -n/(2v)+nv/(2v^2)=0 \) and variance \( 2n/(4v^2)=n/(
 [Cramér–Rao bound in the normal linear model]
 
 Assume @eq-opt-normal-model with \( \rank(\X)=p \). Let \( \delta(\Y) \) have finite variance and satisfy
-\( \E_{\boldsymbol{\theta}}\delta=g(\boldsymbol{\theta}) \) for all \( \boldsymbol{\theta} \), with \( g \) differentiable. Then
+\( \E_{\boldsymbol{\uptheta}}\delta=g(\boldsymbol{\uptheta}) \) for all \( \boldsymbol{\uptheta} \), with \( g \) differentiable. Then
 \[
 \begin{aligned}
-\Var_{\boldsymbol{\theta}}(\delta)&\ge\nabla g(\boldsymbol{\theta})\T\boldsymbol{\mathcal I}(\boldsymbol{\theta})^{-1}\nabla g(\boldsymbol{\theta})\\
+\Var_{\boldsymbol{\uptheta}}(\delta)&\ge\nabla g(\boldsymbol{\uptheta})\T\boldsymbol{\mathcal I}(\boldsymbol{\uptheta})^{-1}\nabla g(\boldsymbol{\uptheta})\\
 &=\sigma^2\,\mathbf{g}_{\bbeta}\T(\X\T\X)^{-1}\mathbf{g}_{\bbeta}+\frac{2\sigma^4}{n}\,g_v^2,
 \end{aligned}
 \]
@@ -327,12 +327,12 @@ where \( \mathbf{g}_{\bbeta}=\partial g/\partial\bbeta \) and \( g_v=\partial g/
 :::
 
 ::: {.proof}
-Write \( f_{\boldsymbol{\theta}} \) for the density. Differentiating \( g(\boldsymbol{\theta})=\int\delta(\y)f_{\boldsymbol{\theta}}(\y)\,d\y \) under the
+Write \( f_{\boldsymbol{\uptheta}} \) for the density. Differentiating \( g(\boldsymbol{\uptheta})=\int\delta(\y)f_{\boldsymbol{\uptheta}}(\y)\,d\y \) under the
 integral sign, which is justified because the normal family is an exponential family
 (Lehmann and Casella 1998, chapter 1), gives
 \[
 \begin{aligned}
-\nabla g(\boldsymbol{\theta})&=\int\delta(\y)\,\nabla\log f_{\boldsymbol{\theta}}(\y)\,f_{\boldsymbol{\theta}}(\y)\,d\y\\
+\nabla g(\boldsymbol{\uptheta})&=\int\delta(\y)\,\nabla\log f_{\boldsymbol{\uptheta}}(\y)\,f_{\boldsymbol{\uptheta}}(\y)\,d\y\\
 &=\E(\delta\mathbf{S})=\Cov(\delta,\mathbf{S}),
 \end{aligned}
 \]
@@ -342,7 +342,7 @@ the last step because \( \E\mathbf{S}=\bzero \). For any constant vector \( \mat
 form of @prp-opt-information gives the right-hand side.
 :::
 
-For \( g(\boldsymbol{\theta})=\blambda\T\bbeta \) the bound is \( \sigma^2\blambda\T(\X\T\X)^{-1}\blambda \), exactly the variance of
+For \( g(\boldsymbol{\uptheta})=\blambda\T\bbeta \) the bound is \( \sigma^2\blambda\T(\X\T\X)^{-1}\blambda \), exactly the variance of
 \( \blambda\T\hbeta \). Least squares **attains** the bound, which gives a second proof of @thm-opt-umvue(a) in full
 rank. For \( g=\sigma^2 \) the bound is \( 2\sigma^4/n \), while
 \[
@@ -354,7 +354,7 @@ bound is simply not sharp here. Its ratio to the attained minimum, the **efficie
 with \( p \) fixed. The same happens for \( \sigma \): the UMVUE \( s/b_k \) has variance \( 0.0298\,\sigma^2 \)
 when \( k=17 \), against the bound \( \sigma^2/(2n)=0.0238\,\sigma^2 \), an efficiency of
 \( 0.798 \). The equality condition in the proof explains why. The bound is attained iff
-\( \Var(\delta-\mathbf{c}\T\mathbf{S})=0 \), that is, iff \( \delta=g(\boldsymbol{\theta})+\nabla g\T\boldsymbol{\mathcal I}^{-1}\mathbf{S} \) with probability one.
+\( \Var(\delta-\mathbf{c}\T\mathbf{S})=0 \), that is, iff \( \delta=g(\boldsymbol{\uptheta})+\nabla g\T\boldsymbol{\mathcal I}^{-1}\mathbf{S} \) with probability one.
 For \( g=\sigma^2 \) the right-hand side is
 \( \sigma^2+(2\sigma^4/n)\{-n/(2\sigma^2)+\be\T\be/(2\sigma^4)\}=\norm{\Y-\X\bbeta}^2/n \). This is not a statistic,
 because it involves the unknown \( \bbeta \), so no unbiased estimator of \( \sigma^2 \) attains the bound.

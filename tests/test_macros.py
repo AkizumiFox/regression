@@ -43,7 +43,8 @@ class TestParseMacros(unittest.TestCase):
             self.skipTest("no latex/macros.tex")
         macros = mathjax_macros(macros_file)
         self.assertEqual(macros["X"], r"\vect{X}")
-        self.assertEqual(macros["vect"], [r"\boldsymbol{#1}", 1])
+        self.assertEqual(macros["vect"], [r"\mathbf{#1}", 1])
+        self.assertEqual(macros["bbeta"], r"\boldsymbol{\upbeta}")
         self.assertEqual(macros["norm"][1], 1)
 
 

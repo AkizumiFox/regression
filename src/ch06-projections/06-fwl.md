@@ -239,7 +239,7 @@ disguise. Suppose units \( k=1,\dots,K \) are observed repeatedly: firms over ye
 patients over visits, schools over cohorts. The analyst wants the effect of
 time-varying regressors \( \X_1 \) while allowing each unit its own intercept:
 \[
-\E(\Y)=\X_1\bbeta_1+\mathbf{D}\boldsymbol{\alpha} ,
+\E(\Y)=\X_1\bbeta_1+\mathbf{D}\boldsymbol{\upalpha} ,
 \]
 where \( \mathbf{D} \) is the \( n\times K \) matrix of unit indicators. Fitting this directly means a
 regression with \( K \) extra columns, and \( K \) may be in the thousands.

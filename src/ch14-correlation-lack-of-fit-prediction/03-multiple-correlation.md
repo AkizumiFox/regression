@@ -2,7 +2,7 @@
 
 The population squared multiple correlation
 \[
-\rho^2_{Y\cdot X}=\frac{\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY}}{\sigma_Y^2}
+\rho^2_{Y\cdot X}=\frac{\boldsymbol{\upsigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY}}{\sigma_Y^2}
 \]
 is the largest squared correlation between \( Y \) and a linear combination of \( \mathbf{X} \) (@prp-rv-multiple-correlation). [Section 9.5](../ch09-sums-of-squares/05-r-squared.html) studied its sample
 counterpart \( R^2 \) for a fixed design (@thm-ss-r2-max-correlation, @thm-ss-r2-null). With random rows,
@@ -47,7 +47,7 @@ estimate of \( \rho^2_{Y\cdot X} \) is \( R^2 \).
 The joint density of a row factorizes as \( f(\mathbf{x};\bmu_X,\bSigma_{XX})\,f(y\mid\mathbf{x};\alpha,\bbeta,\sigma^2) \), a normal
 density for the regressors times the conditional normal density of @thm-mvn-conditional. The map
 from \( (\bmu,\bSigma) \) to \( (\bmu_X,\bSigma_{XX},\alpha,\bbeta,\sigma^2) \) is one-to-one onto the set where \( \bSigma_{XX} \) is positive
-definite and \( \sigma^2>0 \), with inverse \( \boldsymbol{\sigma}_{XY}=\bSigma_{XX}\bbeta \), \( \sigma_Y^2=\sigma^2+\bbeta\T\bSigma_{XX}\bbeta \),
+definite and \( \sigma^2>0 \), with inverse \( \boldsymbol{\upsigma}_{XY}=\bSigma_{XX}\bbeta \), \( \sigma_Y^2=\sigma^2+\bbeta\T\bSigma_{XX}\bbeta \),
 \( \mu_Y=\alpha+\bbeta\T\bmu_X \). So the log-likelihood is a sum of two terms with separate parameters, and
 each can be maximized on its own. The conditional term is the likelihood of a normal linear model
 with model matrix \( [\bone,\X_1] \), maximized by least squares and \( \text{SSE}/n \) (@thm-opt-mle).
@@ -99,7 +99,7 @@ with \( r=k+1 \) and mean \( \alpha\bone+\X_1\bbeta \). By @thm-ss-r2-null(a), \
 \( \gamma=\norm{(\M-\bP_1)(\alpha\bone+\X_1\bbeta)}^2/\sigma^2 \). Since \( (\M-\bP_1)\bone=\bzero \) and
 \( (\M-\bP_1)\X_1\bbeta=(\I-\bP_1)\X_1\bbeta \), this is \( \bbeta\T\X_1\T(\I-\bP_1)\X_1\bbeta/\sigma^2=\bbeta\T\W\bbeta/\sigma^2 \).
 
-(b) \( \rho^2=0 \) means \( \boldsymbol{\sigma}_{XY}=\bzero \), so \( \bbeta=\bzero \) and \( \gamma=0 \) for every design. By
+(b) \( \rho^2=0 \) means \( \boldsymbol{\upsigma}_{XY}=\bzero \), so \( \bbeta=\bzero \) and \( \gamma=0 \) for every design. By
 @lem-cor-conditioning, \( F\sim F(k,n-k-1) \) independently of the regressors, and so is
 \( R^2=kF/(kF+n-k-1) \), which is \( \mathrm{Beta}(k/2,(n-k-1)/2) \) by @thm-ss-r2-null(b). For jointly normal
 variables, zero covariance is independence (@thm-mvn-independence).

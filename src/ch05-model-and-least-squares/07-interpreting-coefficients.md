@@ -255,7 +255,7 @@ In particular the short and long coefficients agree, for all \( \y \), iff \( \X
 \end{aligned}
 \]
 *(b)* Take expectations in (a), using \( \E(\hbeta)=\bbeta \) (@thm-lm-moments), or apply
-@prp-lm-misspecified(a) with \( \boldsymbol{\delta}=\X_2\bbeta_2 \). For the last claim, if \( \X_1\T\X_2=\bzero \) then
+@prp-lm-misspecified(a) with \( \boldsymbol{\updelta}=\X_2\bbeta_2 \). For the last claim, if \( \X_1\T\X_2=\bzero \) then
 \( \boldsymbol{\Pi}=\bzero \). Conversely, if \( \boldsymbol{\Pi}\ne\bzero \), take \( \y=\X_2\mathbf{c} \) with \( \boldsymbol{\Pi}\mathbf{c}\ne\bzero \): the
 long regression gives \( \hbeta_2=\mathbf{c} \), and the two coefficients differ by \( \boldsymbol{\Pi}\mathbf{c} \).
 :::

@@ -362,7 +362,7 @@ The padded vector \( (\hbeta_1\T,\bzero\T)\T \) satisfies
 \( \X(\hbeta_1\T,\bzero\T)\T=\X_1\hbeta_1=\M\y \), because \( \C(\X_1)=\C(\X) \). So it solves the normal equations
 and satisfies \( \bT\bb=\bzero \). For the conditions: \( \rank(\bT)=p_2 \), and \( \rank(\X)=\rank(\X_1)=p_1 \), so
 \( \rank(\bT)=p-r \). If \( \bT\T\mathbf{c}=(\bzero\T,\mathbf{c}\T)\T \) were in \( \C(\X\T) \), say
-\( \X_1\T\boldsymbol{\rho}=\bzero \) and \( \X_2\T\boldsymbol{\rho}=\mathbf{c} \), then \( \boldsymbol{\rho}\perp\C(\X_1)=\C(\X)\supseteq\C(\X_2) \), so
+\( \X_1\T\boldsymbol{\uprho}=\bzero \) and \( \X_2\T\boldsymbol{\uprho}=\mathbf{c} \), then \( \boldsymbol{\uprho}\perp\C(\X_1)=\C(\X)\supseteq\C(\X_2) \), so
 \( \mathbf{c}=\bzero \). Condition (e) holds.
 :::
 

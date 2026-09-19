@@ -334,17 +334,17 @@ when \( \sigma^2 \) must be estimated.
 ::: {#exr-glh-small-F}
 [B2]
 
-Suppose the full model is wrong: \( \E(\Y)=\bmu \) with \( (\I-\M)\bmu=\boldsymbol{\delta}\ne\bzero \), but
+Suppose the full model is wrong: \( \E(\Y)=\bmu \) with \( (\I-\M)\bmu=\boldsymbol{\updelta}\ne\bzero \), but
 \( (\M-\Mo)\bmu=\bzero \). Show that the numerator and denominator of @eq-glh-F are still independent,
-that \( \E(\text{numerator})=\sigma^2 \) and \( \E(\text{denominator})=\sigma^2+\norm{\boldsymbol{\delta}}^2/(n-r) \), and
+that \( \E(\text{numerator})=\sigma^2 \) and \( \E(\text{denominator})=\sigma^2+\norm{\boldsymbol{\updelta}}^2/(n-r) \), and
 that \( \Pr(F\le c) \ge \Pr\{F(q,n-r)\le c\} \) for every \( c>0 \). Explain why an \( F \) statistic far
 *below* one, with a p-value near one, is a hint that the full model is inadequate.
 :::
 
 ::: {.solution}
 Independence and the distributions follow from @thm-qf-orthogonal-projections as in the proof of
-@thm-glh-f-test: the numerator is \( \sigma^2\chi^2(q)/q \), and \( \text{SSE}/\sigma^2\sim\chi^2(n-r,\norm{\boldsymbol{\delta}}^2/\sigma^2) \),
-with mean \( n-r+\norm{\boldsymbol{\delta}}^2/\sigma^2 \) (@thm-qf-ncchisq(b)). For the probability, condition on
+@thm-glh-f-test: the numerator is \( \sigma^2\chi^2(q)/q \), and \( \text{SSE}/\sigma^2\sim\chi^2(n-r,\norm{\boldsymbol{\updelta}}^2/\sigma^2) \),
+with mean \( n-r+\norm{\boldsymbol{\updelta}}^2/\sigma^2 \) (@thm-qf-ncchisq(b)). For the probability, condition on
 the numerator \( U \): \( F\le c \) iff \( \text{SSE}/\sigma^2\ge (n-r)U/(qc\sigma^2) \), and a noncentral
 \( \chi^2 \) exceeds any fixed value with at least the central probability (@prp-qf-ncchisq-monotone). Averaging over \( U \) gives the inequality. So omitted structure in the
 residual space makes small values of \( F \) more likely. Under the full model, \( \Pr(F\le c) \) is

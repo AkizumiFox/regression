@@ -94,8 +94,8 @@ estimable.
 
 ## The geometry of the unbiased class
 
-Fix an estimable \( \blambda\T\bbeta \) and write \( \blambda=\X\T\boldsymbol{\rho} \) for some
-\( \boldsymbol{\rho}\in\Real^n \). The coefficient vectors of its LUEs form the set
+Fix an estimable \( \blambda\T\bbeta \) and write \( \blambda=\X\T\boldsymbol{\uprho} \) for some
+\( \boldsymbol{\uprho}\in\Real^n \). The coefficient vectors of its LUEs form the set
 \[
 \mathcal A_{\blambda}=\{\mathbf{a}\in\Real^n:\X\T\mathbf{a}=\blambda\}.
 \]
@@ -104,39 +104,39 @@ This set is the key object of the chapter's first half.
 ::: {#prp-opt-lue-set}
 [The set of unbiased coefficient vectors]
 
-Let \( \blambda=\X\T\boldsymbol{\rho} \). Then:
+Let \( \blambda=\X\T\boldsymbol{\uprho} \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \mathcal A_{\blambda}=\M\boldsymbol{\rho}+\C(\X)\perpc \), an affine subspace of \( \Real^n \) of
+1. \( \mathcal A_{\blambda}=\M\boldsymbol{\uprho}+\C(\X)\perpc \), an affine subspace of \( \Real^n \) of
    dimension \( n-r \), parallel to \( \C(\X)\perpc \);
 
-2. every \( \mathbf{a}\in\mathcal A_{\blambda} \) has the same projection \( \M\mathbf{a}=\M\boldsymbol{\rho} \), and
-   \( \M\boldsymbol{\rho} \) is the only element of \( \mathcal A_{\blambda} \) that lies in \( \C(\X) \);
+2. every \( \mathbf{a}\in\mathcal A_{\blambda} \) has the same projection \( \M\mathbf{a}=\M\boldsymbol{\uprho} \), and
+   \( \M\boldsymbol{\uprho} \) is the only element of \( \mathcal A_{\blambda} \) that lies in \( \C(\X) \);
 
-3. \( \M\boldsymbol{\rho}=\X(\X\T\X)\ginv\blambda \) for every generalized inverse, and
-   \( (\M\boldsymbol{\rho})\T\Y=\blambda\T\hbeta \) for every least squares estimate \( \hbeta \).
+3. \( \M\boldsymbol{\uprho}=\X(\X\T\X)\ginv\blambda \) for every generalized inverse, and
+   \( (\M\boldsymbol{\uprho})\T\Y=\blambda\T\hbeta \) for every least squares estimate \( \hbeta \).
 :::
 :::
 
 ::: {.proof}
-(a) By @prp-opt-lue, \( \mathbf{a}\in\mathcal A_{\blambda} \) means \( \X\T\mathbf{a}=\blambda \). Now \( \X\T\mathbf{a}=\X\T\boldsymbol{\rho} \) iff \( \X\T(\mathbf{a}-\boldsymbol{\rho})=\bzero \), iff
-\( \mathbf{a}-\boldsymbol{\rho}\in\Null(\X\T)=\C(\X)\perpc \) (@lem-proj-null-colspace). So
-\( \mathcal A_{\blambda}=\boldsymbol{\rho}+\C(\X)\perpc \). Since \( \boldsymbol{\rho}-\M\boldsymbol{\rho}=(\I-\M)\boldsymbol{\rho}\in\C(\X)\perpc \),
-the same set is \( \M\boldsymbol{\rho}+\C(\X)\perpc \). Its dimension is
+(a) By @prp-opt-lue, \( \mathbf{a}\in\mathcal A_{\blambda} \) means \( \X\T\mathbf{a}=\blambda \). Now \( \X\T\mathbf{a}=\X\T\boldsymbol{\uprho} \) iff \( \X\T(\mathbf{a}-\boldsymbol{\uprho})=\bzero \), iff
+\( \mathbf{a}-\boldsymbol{\uprho}\in\Null(\X\T)=\C(\X)\perpc \) (@lem-proj-null-colspace). So
+\( \mathcal A_{\blambda}=\boldsymbol{\uprho}+\C(\X)\perpc \). Since \( \boldsymbol{\uprho}-\M\boldsymbol{\uprho}=(\I-\M)\boldsymbol{\uprho}\in\C(\X)\perpc \),
+the same set is \( \M\boldsymbol{\uprho}+\C(\X)\perpc \). Its dimension is
 \( \dim\C(\X)\perpc=n-r \).
 
-(b) If \( \mathbf{a}=\M\boldsymbol{\rho}+\bv \) with \( \bv\in\C(\X)\perpc \), then \( \M\mathbf{a}=\M\boldsymbol{\rho}+\M\bv=\M\boldsymbol{\rho} \).
-If moreover \( \mathbf{a}\in\C(\X) \), then \( \mathbf{a}=\M\mathbf{a}=\M\boldsymbol{\rho} \).
+(b) If \( \mathbf{a}=\M\boldsymbol{\uprho}+\bv \) with \( \bv\in\C(\X)\perpc \), then \( \M\mathbf{a}=\M\boldsymbol{\uprho}+\M\bv=\M\boldsymbol{\uprho} \).
+If moreover \( \mathbf{a}\in\C(\X) \), then \( \mathbf{a}=\M\mathbf{a}=\M\boldsymbol{\uprho} \).
 
-(c) By @thm-proj-M-formula, \( \M\boldsymbol{\rho}=\X(\X\T\X)\ginv\X\T\boldsymbol{\rho}=\X(\X\T\X)\ginv\blambda \).
-By @thm-proj-invariant-functions, \( \blambda\T\hbeta=\boldsymbol{\rho}\T\M\Y=(\M\boldsymbol{\rho})\T\Y \).
+(c) By @thm-proj-M-formula, \( \M\boldsymbol{\uprho}=\X(\X\T\X)\ginv\X\T\boldsymbol{\uprho}=\X(\X\T\X)\ginv\blambda \).
+By @thm-proj-invariant-functions, \( \blambda\T\hbeta=\boldsymbol{\uprho}\T\M\Y=(\M\boldsymbol{\uprho})\T\Y \).
 :::
 
 Part (c) says that least squares is itself one of the linear unbiased estimators. Its
-coefficient vector is \( \mathbf{a}_*=\M\boldsymbol{\rho} \), the one member of the class that lies in the model space.
-It does not depend on which \( \boldsymbol{\rho} \) was used to represent \( \blambda \), because every such
-\( \boldsymbol{\rho} \) has the same projection. That \( \mathbf{a}_*\T\Y \) is unbiased can also be seen directly:
-\( \E(\mathbf{a}_*\T\Y)=\boldsymbol{\rho}\T\M\X\bbeta=\boldsymbol{\rho}\T\X\bbeta=\blambda\T\bbeta \).
+coefficient vector is \( \mathbf{a}_*=\M\boldsymbol{\uprho} \), the one member of the class that lies in the model space.
+It does not depend on which \( \boldsymbol{\uprho} \) was used to represent \( \blambda \), because every such
+\( \boldsymbol{\uprho} \) has the same projection. That \( \mathbf{a}_*\T\Y \) is unbiased can also be seen directly:
+\( \E(\mathbf{a}_*\T\Y)=\boldsymbol{\uprho}\T\M\X\bbeta=\boldsymbol{\uprho}\T\X\bbeta=\blambda\T\bbeta \).
 
 The variance of any linear estimator follows from @thm-rv-linear:
 \[
@@ -283,9 +283,9 @@ the residual vector \( \he \). Show that every unbiased estimator of zero is unc
 By @prp-opt-lue with \( \blambda=\bzero \), \( \mathbf{a}\T\Y \) is unbiased for zero iff
 \( \X\T\mathbf{a}=\bzero \), iff \( \mathbf{a}\in\C(\X)\perpc \). If so, \( \mathbf{a}=(\I-\M)\mathbf{a} \) and
 \( \mathbf{a}\T\Y=\mathbf{a}\T(\I-\M)\Y=\mathbf{a}\T\he \). Conversely, \( \bw\T\he=((\I-\M)\bw)\T\Y \) has coefficient
-vector in \( \C(\X)\perpc \). For the last claim, write \( \blambda\T\hbeta=\boldsymbol{\rho}\T\M\Y \). By
+vector in \( \C(\X)\perpc \). For the last claim, write \( \blambda\T\hbeta=\boldsymbol{\uprho}\T\M\Y \). By
 @thm-rv-linear,
-\( \Cov(\boldsymbol{\rho}\T\M\Y,\mathbf{a}\T\Y)=\sigma^2\boldsymbol{\rho}\T\M\mathbf{a}=0 \), because \( \M\mathbf{a}=\bzero \).
+\( \Cov(\boldsymbol{\uprho}\T\M\Y,\mathbf{a}\T\Y)=\sigma^2\boldsymbol{\uprho}\T\M\mathbf{a}=0 \), because \( \M\mathbf{a}=\bzero \).
 :::
 
 ::: {#exr-opt-lue-matrix}

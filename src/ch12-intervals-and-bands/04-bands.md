@@ -48,7 +48,7 @@ In particular:
 ::: {.proof}
 *Step 1: from \( \mathcal L \) to a subspace of \( \C(\X) \).* The map \( \bu\mapsto\X\T\bu \) is one to one on \( \C(\X) \), since
 \( \X\T\bu=\bzero \) with \( \bu\in\C(\X) \) forces \( \bu\in\C(\X)\cap\C(\X)\perpc=\{\bzero\} \). It maps \( \C(\X) \) onto \( \C(\X\T) \), because
-\( \X\T\boldsymbol{\rho}=\X\T\M\boldsymbol{\rho} \). So \( \mathcal U=\{\bu\in\C(\X):\X\T\bu\in\mathcal L\} \) is a subspace of \( \C(\X) \) of dimension \( k \), and every
+\( \X\T\boldsymbol{\uprho}=\X\T\M\boldsymbol{\uprho} \). So \( \mathcal U=\{\bu\in\C(\X):\X\T\bu\in\mathcal L\} \) is a subspace of \( \C(\X) \) of dimension \( k \), and every
 \( \x\in\mathcal L \) is \( \X\T\bu \) for exactly one \( \bu\in\mathcal U \). For such a pair,
 \[
 \begin{aligned}

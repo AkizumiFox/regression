@@ -202,22 +202,22 @@ estimate? The answer is a first look at estimability, the subject of
 ::: {#thm-proj-invariant-functions}
 For \( \blambda\in\Real^p \), the value \( \blambda\T\hbeta \) is the same for every least
 squares estimate \( \hbeta \) (and every \( \y \)) iff \( \blambda\in\C(\X\T) \), that is, iff
-\( \blambda\T=\boldsymbol{\rho}\T\X \) for some \( \boldsymbol{\rho}\in\Real^n \). In that case
-\( \blambda\T\hbeta=\boldsymbol{\rho}\T\M\y \).
+\( \blambda\T=\boldsymbol{\uprho}\T\X \) for some \( \boldsymbol{\uprho}\in\Real^n \). In that case
+\( \blambda\T\hbeta=\boldsymbol{\uprho}\T\M\y \).
 :::
 
 ::: {.proof}
 By @thm-proj-normal-equations the least squares estimates form
 \( \hbeta+\Null(\X) \). So \( \blambda\T\hbeta \) is invariant iff \( \blambda\T\bv=0 \) for all
 \( \bv\in\Null(\X) \), that is, iff \( \blambda\in\Null(\X)\perpc=\C(\X\T) \)
-(@cor-proj-gram-colspace). If \( \blambda\T=\boldsymbol{\rho}\T\X \) then
-\( \blambda\T\hbeta=\boldsymbol{\rho}\T\X\hbeta=\boldsymbol{\rho}\T\M\y \).
+(@cor-proj-gram-colspace). If \( \blambda\T=\boldsymbol{\uprho}\T\X \) then
+\( \blambda\T\hbeta=\boldsymbol{\uprho}\T\X\hbeta=\boldsymbol{\uprho}\T\M\y \).
 :::
 
 In @exm-proj-ginverse-numeric, \( \blambda=(0,1,-1,0)\T \) is the difference
 between any row of \( \X \) from group 1, \( (1,1,0,0) \), and any row from group 2,
 \( (1,0,1,0) \). So \( \blambda\in\C(\X\T) \) and \( \hat{\beta}_1-\hat{\beta}_2 \) is invariant.
-For \( \blambda=(0,1,0,0)\T \), note that \( \boldsymbol{\rho}\T\X \) has first entry
+For \( \blambda=(0,1,0,0)\T \), note that \( \boldsymbol{\uprho}\T\X \) has first entry
 \( \sum_i\rho_i \) and remaining entries equal to the sums of \( \rho_i \) within each
 group. Matching \( (0,1,0,0) \) would need the group sums to be \( 1,0,0 \) and their
 total to be \( 0 \), which is impossible. So \( \hat{\beta}_1 \) is not invariant.

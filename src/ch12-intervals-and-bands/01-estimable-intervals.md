@@ -72,8 +72,8 @@ I(\Y)=\bigl[\,\blambda\T\hbeta-t_{n-r,\alpha/2}\,\text{se}(\blambda\T\hbeta),\ \
 :::
 
 ::: {.proof}
-(a) Write \( \blambda=\X\T\boldsymbol{\rho} \). Then \( \blambda\T\hbeta=\boldsymbol{\rho}\T\X\hbeta=\boldsymbol{\rho}\T\M\Y \) and
-\( \blambda\T\G\blambda=\boldsymbol{\rho}\T\X\G\X\T\boldsymbol{\rho}=\boldsymbol{\rho}\T\M\boldsymbol{\rho} \) by @thm-proj-M-formula. Neither
+(a) Write \( \blambda=\X\T\boldsymbol{\uprho} \). Then \( \blambda\T\hbeta=\boldsymbol{\uprho}\T\X\hbeta=\boldsymbol{\uprho}\T\M\Y \) and
+\( \blambda\T\G\blambda=\boldsymbol{\uprho}\T\X\G\X\T\boldsymbol{\uprho}=\boldsymbol{\uprho}\T\M\boldsymbol{\uprho} \) by @thm-proj-M-formula. Neither
 involves the choices, and neither does \( s \).
 
 (b) By @cor-opt-t, \( T=(\blambda\T\hbeta-\blambda\T\bbeta)/\text{se}(\blambda\T\hbeta)\sim t(n-r) \) at every
@@ -169,7 +169,7 @@ For a coefficient in a full-rank model with an intercept, @eq-proj-vif-preview g
 where \( \M_{(j)} \) projects onto the span of the other columns. The interval is short when \( \x_j \) has a large component orthogonal to the other
 regressors; collinearity lengthens it through \( 1-R_j^2 \).
 
-In general \( \blambda\T\G\blambda=\norm{\M\boldsymbol{\rho}}^2 \), with \( \blambda=\X\T\boldsymbol{\rho} \), is the smallest squared length of a
+In general \( \blambda\T\G\blambda=\norm{\M\boldsymbol{\uprho}}^2 \), with \( \blambda=\X\T\boldsymbol{\uprho} \), is the smallest squared length of a
 vector \( \mathbf{a} \) with \( \E(\mathbf{a}\T\Y)=\blambda\T\bbeta \) (@thm-opt-gauss-markov).
 
 ## Duality with tests

@@ -75,7 +75,7 @@ the minimizers are the solutions of the normal equations, and the minimum of \( 
 
 To minimize a differentiable \( f(\x) \) subject to linear constraints \( \mathbf{H}\x=\mathbf{h} \), with
 \( \mathbf{H} \) of size \( q\times n \), the method of **Lagrange multipliers** looks for stationary
-points of \( f(\x)+2\boldsymbol{\theta}\T(\mathbf{H}\x-\mathbf{h}) \) in \( (\x,\boldsymbol{\theta}) \). The factor \( 2 \) is only
+points of \( f(\x)+2\boldsymbol{\uptheta}\T(\mathbf{H}\x-\mathbf{h}) \) in \( (\x,\boldsymbol{\uptheta}) \). The factor \( 2 \) is only
 for convenience. For quadratic \( f \) the stationary point can be written down and checked
 directly.
 
@@ -91,11 +91,11 @@ Let \( \A \) be positive definite, \( \mathbf{H} \) of size \( q\times n \) with
 ::: {.proof}
 \( \mathbf{H}\A^{-1}\mathbf{H}\T \) is positive definite by @prp-mat-pd-properties(c,e), so \( \x_* \) is
 well defined, and \( \mathbf{H}\x_*=\mathbf{h} \) by direct substitution. Stationarity of the Lagrangian gives
-\( 2\A\x-2\bb+2\mathbf{H}\T\boldsymbol{\theta}=\bzero \). Indeed \( \A\x_*-\bb=-\mathbf{H}\T\boldsymbol{\theta}_* \) with
-\( \boldsymbol{\theta}_*=(\mathbf{H}\A^{-1}\mathbf{H}\T)^{-1}(\mathbf{H}\x_0-\mathbf{h}) \). For any feasible \( \x \), put \( \mathbf{d}=\x-\x_* \),
+\( 2\A\x-2\bb+2\mathbf{H}\T\boldsymbol{\uptheta}=\bzero \). Indeed \( \A\x_*-\bb=-\mathbf{H}\T\boldsymbol{\uptheta}_* \) with
+\( \boldsymbol{\uptheta}_*=(\mathbf{H}\A^{-1}\mathbf{H}\T)^{-1}(\mathbf{H}\x_0-\mathbf{h}) \). For any feasible \( \x \), put \( \mathbf{d}=\x-\x_* \),
 so that \( \mathbf{H}\mathbf{d}=\bzero \). Then
 \[
-f(\x)=f(\x_*)+2\mathbf{d}\T(\A\x_*-\bb)+\mathbf{d}\T\A\mathbf{d}=f(\x_*)-2(\mathbf{H}\mathbf{d})\T\boldsymbol{\theta}_*+\mathbf{d}\T\A\mathbf{d}
+f(\x)=f(\x_*)+2\mathbf{d}\T(\A\x_*-\bb)+\mathbf{d}\T\A\mathbf{d}=f(\x_*)-2(\mathbf{H}\mathbf{d})\T\boldsymbol{\uptheta}_*+\mathbf{d}\T\A\mathbf{d}
 =f(\x_*)+\mathbf{d}\T\A\mathbf{d} ,
 \]
 which exceeds \( f(\x_*) \) unless \( \mathbf{d}=\bzero \).

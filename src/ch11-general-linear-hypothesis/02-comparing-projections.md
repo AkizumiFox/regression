@@ -204,30 +204,30 @@ problem about independent normal coordinates.
 
 Let \( \Q=[\Q_0,\Q_1,\Q_2] \) be an orthogonal \( n\times n \) matrix whose blocks of \( r_0 \), \( q \) and
 \( n-r \) columns are orthonormal bases of \( \C(\X_0) \), of the test space and of \( \C(\X)\perpc \). Put
-\( \bz_k=\Q_k\T\Y \) and \( \boldsymbol{\eta}_k=\Q_k\T\X\bbeta \), \( k=0,1,2 \). Under @eq-opt-normal-model:
+\( \bz_k=\Q_k\T\Y \) and \( \boldsymbol{\upeta}_k=\Q_k\T\X\bbeta \), \( k=0,1,2 \). Under @eq-opt-normal-model:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \bz_0,\bz_1,\bz_2 \) are independent, \( \bz_k\sim\Normal(\boldsymbol{\eta}_k,\sigma^2\I) \), and \( \boldsymbol{\eta}_2=\bzero \);
+1. \( \bz_0,\bz_1,\bz_2 \) are independent, \( \bz_k\sim\Normal(\boldsymbol{\upeta}_k,\sigma^2\I) \), and \( \boldsymbol{\upeta}_2=\bzero \);
 
 2. \( \norm{\bz_1}^2=\text{SSE}_0-\text{SSE} \) and \( \norm{\bz_2}^2=\text{SSE} \), so
    \( F=\{\norm{\bz_1}^2/q\}/\{\norm{\bz_2}^2/(n-r)\} \);
 
-3. \( \norm{\boldsymbol{\eta}_1}^2=\sigma^2\gamma \), and \( H_0 \) holds iff \( \boldsymbol{\eta}_1=\bzero \).
+3. \( \norm{\boldsymbol{\upeta}_1}^2=\sigma^2\gamma \), and \( H_0 \) holds iff \( \boldsymbol{\upeta}_1=\bzero \).
 :::
 
 :::
 
 ::: {.proof}
 (a) \( \Q\T\Y\sim\Normal_n(\Q\T\X\bbeta,\sigma^2\Q\T\Q)=\Normal_n(\Q\T\X\bbeta,\sigma^2\I) \) by @thm-mvn-linear. Its blocks are uncorrelated, hence independent (@thm-mvn-independence). The columns of
-\( \Q_2 \) are orthogonal to \( \C(\X) \), so \( \boldsymbol{\eta}_2=\Q_2\T\X\bbeta=\bzero \). (b) By
+\( \Q_2 \) are orthogonal to \( \C(\X) \), so \( \boldsymbol{\upeta}_2=\Q_2\T\X\bbeta=\bzero \). (b) By
 @prp-proj-orthonormal-formula, \( \Q_1\Q_1\T=\M-\Mo \) and \( \Q_2\Q_2\T=\I-\M \), so
 \( \norm{\bz_1}^2=\Y\T\Q_1\Q_1\T\Y=\Y\T(\M-\Mo)\Y \) and similarly for \( \bz_2 \). (c) In the same way
-\( \norm{\boldsymbol{\eta}_1}^2=\norm{(\M-\Mo)\X\bbeta}^2 \), and @thm-glh-f-test(c) applies.
+\( \norm{\boldsymbol{\upeta}_1}^2=\norm{(\M-\Mo)\X\bbeta}^2 \), and @thm-glh-f-test(c) applies.
 :::
 
 In canonical form the problem is stripped to its essentials. One observes a \( q \)-vector \( \bz_1 \),
-normal with unknown mean \( \boldsymbol{\eta}_1 \) and covariance \( \sigma^2\I \), and wishes to test
-\( \boldsymbol{\eta}_1=\bzero \). An independent vector \( \bz_2 \) of pure noise, of dimension \( n-r \), measures
+normal with unknown mean \( \boldsymbol{\upeta}_1 \) and covariance \( \sigma^2\I \), and wishes to test
+\( \boldsymbol{\upeta}_1=\bzero \). An independent vector \( \bz_2 \) of pure noise, of dimension \( n-r \), measures
 \( \sigma^2 \). The vector \( \bz_0 \) has an unknown mean that neither hypothesis restricts, so it is of no
 use. Every hypothesis of this chapter, whether about coefficients, contrasts or whole models, is an
 instance of this problem with particular \( q \) and \( n-r \).

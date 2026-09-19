@@ -359,8 +359,8 @@ compare with the simulated variance of the residual mean square.
 :::
 
 ::: {.solution}
-With \( \A=\I-\M \) and \( \boldsymbol{\theta}=\bmu \), the terms of @thm-rv-quadform-variance involving
-\( \boldsymbol{\theta} \) vanish because \( (\I-\M)\bmu=\bzero \). The diagonal of \( \I-\M \) is \( 1-h_{ii} \), and
+With \( \A=\I-\M \) and \( \boldsymbol{\uptheta}=\bmu \), the terms of @thm-rv-quadform-variance involving
+\( \boldsymbol{\uptheta} \) vanish because \( (\I-\M)\bmu=\bzero \). The diagonal of \( \I-\M \) is \( 1-h_{ii} \), and
 \( \tr\{(\I-\M)^2\}=n-r \), which gives the formula. If the leverages are small,
 \( \sum_i(1-h_{ii})^2\approx n-r \) (it equals \( n-2r+\sum_ih_{ii}^2 \)), so
 \( \Var(\text{SSE})\approx(6+2)\sigma^4(n-r) \) and \( \Var(s^2)\approx8\sigma^4/(n-r) \), four times the

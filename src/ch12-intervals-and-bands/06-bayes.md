@@ -73,7 +73,7 @@ Put \( \nu=2a_n \) and \( \tau^2=b_n/a_n \).
 2. For a \( p\times q \) matrix \( \bLambda \) of rank \( q \), the set
    \[
 \begin{aligned}
-\bigl\{\boldsymbol{\phi}_0:\ &(\boldsymbol{\phi}_0-\bLambda\T\mathbf{m}_n)\T(\bLambda\T\V_n\bLambda)^{-1}(\boldsymbol{\phi}_0-\bLambda\T\mathbf{m}_n)\\
+\bigl\{\boldsymbol{\upphi}_0:\ &(\boldsymbol{\upphi}_0-\bLambda\T\mathbf{m}_n)\T(\bLambda\T\V_n\bLambda)^{-1}(\boldsymbol{\upphi}_0-\bLambda\T\mathbf{m}_n)\\
 &\le q\,\tau^2F_\alpha(q,\nu)\bigr\}
 \end{aligned}
 \]
@@ -299,13 +299,13 @@ shared mean correlates them. Under the frequentist model with fixed parameters t
 
 Let \( \X \) have rank \( r<p \) and take the flat prior \( \pi(\bbeta,\sigma^2)\propto1/\sigma^2 \). Show that the posterior of \( \bbeta \) is improper, but
 that for estimable \( \blambda\T\bbeta \) the posterior of \( (\blambda\T\bbeta,\sigma^2) \) can be defined by reparameterizing with \( \bgamma=\bU\T\bbeta \) and
-\( \boldsymbol{\delta}=\mathbf{N}\T\bbeta \), where the columns of \( \bU \) and \( \mathbf{N} \) are orthonormal bases of \( \C(\X\T) \) and \( \Null(\X) \), and integrating over nothing
+\( \boldsymbol{\updelta}=\mathbf{N}\T\bbeta \), where the columns of \( \bU \) and \( \mathbf{N} \) are orthonormal bases of \( \C(\X\T) \) and \( \Null(\X) \), and integrating over nothing
 but \( \bgamma \). Show that the resulting credible interval is the \( t \) interval of @thm-ci-estimable-interval with \( n-r \) degrees of freedom, provided
 the flat prior is taken as \( 1/\sigma^2 \) in \( (\bgamma,\sigma^2) \) alone.
 :::
 
 ::: {.solution}
-The likelihood depends on \( \bbeta \) only through \( \X\bbeta=\X\bU\bgamma \), since \( \X\mathbf{N}=\bzero \). So the posterior is flat in \( \boldsymbol{\delta} \), which is not
+The likelihood depends on \( \bbeta \) only through \( \X\bbeta=\X\bU\bgamma \), since \( \X\mathbf{N}=\bzero \). So the posterior is flat in \( \boldsymbol{\updelta} \), which is not
 integrable: the posterior of \( \bbeta \) is improper. In the model \( \Y\sim\Normal_n(\X\bU\bgamma,\sigma^2\I) \) the matrix \( \X\bU \) has full column rank \( r \),
 and @cor-opt-flat-prior with \( p \) replaced by \( r \) gives a proper posterior with \( t(n-r) \) marginals. An estimable \( \blambda \) lies in
 \( \C(\X\T)=\C(\bU) \), so \( \blambda=\bU\bU\T\blambda \) and \( \blambda\T\bbeta=(\bU\T\blambda)\T\bgamma \) involves \( \bgamma \) only. Its credible interval is centred at

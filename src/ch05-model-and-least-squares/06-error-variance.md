@@ -40,7 +40,7 @@ Since \( \I-\bH \) is symmetric and idempotent,
 using \( \tr(\I-\bH)=n-p \) from @prp-lm-fit-algebra(a).
 :::
 
-The computation is the case \( \boldsymbol{\theta}=\X\bbeta \) of @exm-rv-rss-bias in
+The computation is the case \( \boldsymbol{\uptheta}=\X\bbeta \) of @exm-rv-rss-bias in
 [Chapter 2](../ch02-random-vectors/index.html), specialized to full rank.
 
 The same result follows from @prp-lm-fit-moments without quadratic forms. Each residual has
@@ -208,8 +208,8 @@ For normal errors, \( \mu_4=3\sigma^4 \) and \( \Var(s^2)=2\sigma^4/(n-p) \).
 
 ::: {.proof}
 Apply @thm-rv-quadform-variance to the vector \( \be \), whose means \( \theta_i \) are all zero, with
-\( \A=\I-\bH \). The terms involving \( \boldsymbol{\theta} \) vanish (in particular \( \mu_3 \) enters only
-multiplied by \( \boldsymbol{\theta}=\bzero \), so its value is irrelevant). The diagonal of \( \A \) has entries
+\( \A=\I-\bH \). The terms involving \( \boldsymbol{\uptheta} \) vanish (in particular \( \mu_3 \) enters only
+multiplied by \( \boldsymbol{\uptheta}=\bzero \), so its value is irrelevant). The diagonal of \( \A \) has entries
 \( 1-h_{ii} \), and \( \tr(\A^2)=\tr(\A)=n-p \) because \( \A \) is idempotent. For the normal case,
 the fourth moment of a \( \Normal(0,\sigma^2) \) variable is \( 3\sigma^4 \), and
 \( \Var(s^2)=\Var(\text{SSE})/(n-p)^2 \).
@@ -274,10 +274,10 @@ Among unbiased estimators of \( \sigma^2 \), \( s^2 \) then has the smallest var
 
 ## When the mean is wrong
 
-@thm-lm-sigma2 assumed that \( \E(\Y)=\X\bbeta \). If instead \( \E(\Y)=\boldsymbol{\theta} \) is not of this
+@thm-lm-sigma2 assumed that \( \E(\Y)=\X\bbeta \). If instead \( \E(\Y)=\boldsymbol{\uptheta} \) is not of this
 form, @exm-rv-rss-bias in [Chapter 2](../ch02-random-vectors/index.html) shows that
 \[
-\E(\text{SSE})=\sigma^2(n-p)+\norm{(\I-\bH)\boldsymbol{\theta}}^2 .
+\E(\text{SSE})=\sigma^2(n-p)+\norm{(\I-\bH)\boldsymbol{\uptheta}}^2 .
 \]
 The extra term is the squared distance from the true mean vector to the nearest mean vector the
 model can produce. So an incomplete model *overestimates* \( \sigma^2 \): variation that the

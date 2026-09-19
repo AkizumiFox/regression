@@ -24,9 +24,9 @@ so by definition \( \Y\T\A\Y\sim\chi^2(r,\norm{\Q_1\T\bmu}^2) \), and
 \( \norm{\Q_1\T\bmu}^2=\bmu\T\A\bmu \).
 
 *Necessity.* Apply @thm-qf-canonical with \( \bL=\I \), so that \( \A=\Q\bLambda\Q\T \).
-Let \( \boldsymbol{\nu}=\Q\T\bmu \). Then \( \bb=\Q\T\A\bmu=\bLambda\boldsymbol{\nu} \), so \( b_j=\lambda_j\nu_j \). The
+Let \( \boldsymbol{\upnu}=\Q\T\bmu \). Then \( \bb=\Q\T\A\bmu=\bLambda\boldsymbol{\upnu} \), so \( b_j=\lambda_j\nu_j \). The
 constant left after completing squares is
-\( \bmu\T\A\bmu-\sum_{\lambda_j\ne0}\lambda_j\nu_j^2=\boldsymbol{\nu}\T\bLambda\boldsymbol{\nu}-\sum_j\lambda_j\nu_j^2=0 \).
+\( \bmu\T\A\bmu-\sum_{\lambda_j\ne0}\lambda_j\nu_j^2=\boldsymbol{\upnu}\T\bLambda\boldsymbol{\upnu}-\sum_j\lambda_j\nu_j^2=0 \).
 Hence \( \Y\T\A\Y \) has the law of \( \sum_{j\in J}\lambda_j(W_j+\nu_j)^2 \), where \( J \) indexes
 the nonzero eigenvalues. \( J \) is not empty, because a \( \chi^2(r,\gamma) \) variable with
 \( r\ge1 \) is not identically zero.

@@ -123,20 +123,20 @@ n_{ij}=\frac{n_{i\cdot}\,n_{\cdot j}}{n}\qquad\text{for all }i,j .
 A vector in the centred subspace of \( A \) takes a value \( \alpha_i \) on every observation in row
 \( i \), with \( \sum_in_{i\cdot}\alpha_i=0 \). A vector in that of \( B \) takes the value \( \beta_j \) in
 column \( j \), with \( \sum_jn_{\cdot j}\beta_j=0 \). Their inner product is
-\( \sum_{i,j}n_{ij}\alpha_i\beta_j=\boldsymbol{\alpha}\T\mathbf{N}\boldsymbol{\beta} \), with \( \mathbf{N}=(n_{ij}) \). Write
+\( \sum_{i,j}n_{ij}\alpha_i\beta_j=\boldsymbol{\upalpha}\T\mathbf{N}\boldsymbol{\upbeta} \), with \( \mathbf{N}=(n_{ij}) \). Write
 \( \br=(n_{1\cdot},\dots,n_{a\cdot})\T \) and \( \mathbf{c}=(n_{\cdot1},\dots,n_{\cdot b})\T \). The subspaces are
-orthogonal iff \( \boldsymbol{\alpha}\T\mathbf{N}\boldsymbol{\beta}=0 \) whenever \( \boldsymbol{\alpha}\T\br=0 \) and \( \mathbf{c}\T\boldsymbol{\beta}=0 \).
+orthogonal iff \( \boldsymbol{\upalpha}\T\mathbf{N}\boldsymbol{\upbeta}=0 \) whenever \( \boldsymbol{\upalpha}\T\br=0 \) and \( \mathbf{c}\T\boldsymbol{\upbeta}=0 \).
 
 If @eq-ss-proportional holds, \( \mathbf{N}=\br\mathbf{c}\T/n \) and
-\( \boldsymbol{\alpha}\T\mathbf{N}\boldsymbol{\beta}=(\boldsymbol{\alpha}\T\br)(\mathbf{c}\T\boldsymbol{\beta})/n=0 \). Conversely, let
+\( \boldsymbol{\upalpha}\T\mathbf{N}\boldsymbol{\upbeta}=(\boldsymbol{\upalpha}\T\br)(\mathbf{c}\T\boldsymbol{\upbeta})/n=0 \). Conversely, let
 \( \mathbf{E}=\mathbf{N}-\br\mathbf{c}\T/n \). Its row sums are \( \br-\br(\mathbf{c}\T\bone)/n=\bzero \) and its column sums are
-\( \mathbf{c}\T-(\bone\T\br)\mathbf{c}\T/n=\bzero\T \), since \( \bone\T\br=\mathbf{c}\T\bone=n \). So \( \boldsymbol{\alpha}\T\mathbf{E}\boldsymbol{\beta} \)
-does not change when \( \boldsymbol{\alpha} \) or \( \boldsymbol{\beta} \) is shifted by a multiple of \( \bone \). Given any
-\( \boldsymbol{\alpha} \) and \( \boldsymbol{\beta} \), shift them to \( \boldsymbol{\alpha}'=\boldsymbol{\alpha}-(\boldsymbol{\alpha}\T\br/n)\bone \) and
-\( \boldsymbol{\beta}'=\boldsymbol{\beta}-(\mathbf{c}\T\boldsymbol{\beta}/n)\bone \), which satisfy \( \boldsymbol{\alpha}'\T\br=0 \) and
-\( \mathbf{c}\T\boldsymbol{\beta}'=0 \). Then
-\( \boldsymbol{\alpha}\T\mathbf{E}\boldsymbol{\beta}=\boldsymbol{\alpha}'\T\mathbf{E}\boldsymbol{\beta}'=\boldsymbol{\alpha}'\T\mathbf{N}\boldsymbol{\beta}'-0=0 \) by assumption. As
-\( \boldsymbol{\alpha} \) and \( \boldsymbol{\beta} \) are arbitrary, \( \mathbf{E}=\bzero \).
+\( \mathbf{c}\T-(\bone\T\br)\mathbf{c}\T/n=\bzero\T \), since \( \bone\T\br=\mathbf{c}\T\bone=n \). So \( \boldsymbol{\upalpha}\T\mathbf{E}\boldsymbol{\upbeta} \)
+does not change when \( \boldsymbol{\upalpha} \) or \( \boldsymbol{\upbeta} \) is shifted by a multiple of \( \bone \). Given any
+\( \boldsymbol{\upalpha} \) and \( \boldsymbol{\upbeta} \), shift them to \( \boldsymbol{\upalpha}'=\boldsymbol{\upalpha}-(\boldsymbol{\upalpha}\T\br/n)\bone \) and
+\( \boldsymbol{\upbeta}'=\boldsymbol{\upbeta}-(\mathbf{c}\T\boldsymbol{\upbeta}/n)\bone \), which satisfy \( \boldsymbol{\upalpha}'\T\br=0 \) and
+\( \mathbf{c}\T\boldsymbol{\upbeta}'=0 \). Then
+\( \boldsymbol{\upalpha}\T\mathbf{E}\boldsymbol{\upbeta}=\boldsymbol{\upalpha}'\T\mathbf{E}\boldsymbol{\upbeta}'=\boldsymbol{\upalpha}'\T\mathbf{N}\boldsymbol{\upbeta}'-0=0 \) by assumption. As
+\( \boldsymbol{\upalpha} \) and \( \boldsymbol{\upbeta} \) are arbitrary, \( \mathbf{E}=\bzero \).
 :::
 
 Equal replication, \( n_{ij}=m \), is the common case (@exm-proj-two-factor,
@@ -307,13 +307,13 @@ estimable functions whose estimates are uncorrelated.
 [Orthogonal single-degree-of-freedom sums of squares]
 
 Let \( \blambda_1,\dots,\blambda_s \) be nonzero vectors with \( \blambda_k\T\bbeta \) estimable, so that
-\( \blambda_k=\X\T\boldsymbol{\rho}_k \), and let \( \G \) be a generalized inverse of \( \X\T\X \).
+\( \blambda_k=\X\T\boldsymbol{\uprho}_k \), and let \( \G \) be a generalized inverse of \( \X\T\X \).
 
 ::: {.enumerate options="label=(\alph*)"}
 1. The sum of squares for \( \blambda_k\T\bbeta=0 \) is
    \[
 \text{SS}_k=\frac{(\blambda_k\T\hbeta)^2}{\blambda_k\T\G\blambda_k}=\norm{\bP_{\mathbf{v}_k}\y}^2,
-   \qquad \mathbf{v}_k=\M\boldsymbol{\rho}_k ,
+   \qquad \mathbf{v}_k=\M\boldsymbol{\uprho}_k ,
 \]
    the squared length of the projection of \( \y \) onto the line spanned by \( \mathbf{v}_k \).
 
@@ -329,15 +329,15 @@ Let \( \blambda_1,\dots,\blambda_s \) be nonzero vectors with \( \blambda_k\T\bb
 
 ::: {.proof}
 (a) is @thm-ss-hypothesis with \( q=1 \) and \( \mathbf{d}=0 \): the test space is spanned by
-\( \M\boldsymbol{\rho}_k=\mathbf{v}_k \), and the projection of \( \y \) onto it has squared length
-\( (\mathbf{v}_k\T\y)^2/\mathbf{v}_k\T\mathbf{v}_k \), where \( \mathbf{v}_k\T\y=\boldsymbol{\rho}_k\T\M\y=\blambda_k\T\hbeta \) and
-\( \mathbf{v}_k\T\mathbf{v}_k=\blambda_k\T\G\blambda_k \). (b) \( \mathbf{v}_h\T\mathbf{v}_k=\boldsymbol{\rho}_h\T\M\boldsymbol{\rho}_k=\boldsymbol{\rho}_h\T\X\G\X\T\boldsymbol{\rho}_k=\blambda_h\T\G\blambda_k \)
+\( \M\boldsymbol{\uprho}_k=\mathbf{v}_k \), and the projection of \( \y \) onto it has squared length
+\( (\mathbf{v}_k\T\y)^2/\mathbf{v}_k\T\mathbf{v}_k \), where \( \mathbf{v}_k\T\y=\boldsymbol{\uprho}_k\T\M\y=\blambda_k\T\hbeta \) and
+\( \mathbf{v}_k\T\mathbf{v}_k=\blambda_k\T\G\blambda_k \). (b) \( \mathbf{v}_h\T\mathbf{v}_k=\boldsymbol{\uprho}_h\T\M\boldsymbol{\uprho}_k=\boldsymbol{\uprho}_h\T\X\G\X\T\boldsymbol{\uprho}_k=\blambda_h\T\G\blambda_k \)
 by @thm-proj-M-formula. Orthogonal nonzero vectors are independent, so
 \( \bLambda=[\blambda_1,\dots,\blambda_s] \) has rank \( s \) (because \( \X\T\mathbf{V}=\bLambda \) with
 \( \mathbf{V}=[\mathbf{v}_1,\dots,\mathbf{v}_s] \), and \( \X\T \) is one-to-one on \( \C(\X) \)). The test space of the joint
-hypothesis is \( \C(\M\bT)=\C(\mathbf{V}) \), with \( \bT=[\boldsymbol{\rho}_1,\dots,\boldsymbol{\rho}_s] \), by @thm-ss-hypothesis(b), and the projection onto a span of
+hypothesis is \( \C(\M\bT)=\C(\mathbf{V}) \), with \( \bT=[\boldsymbol{\uprho}_1,\dots,\boldsymbol{\uprho}_s] \), by @thm-ss-hypothesis(b), and the projection onto a span of
 orthogonal lines is the sum of the projections onto the lines (@thm-proj-sum). (c) With
-\( \boldsymbol{\rho}_k=\bu_k \), \( \mathbf{v}_k=\M\bu_k=\bu_k \), and \( \blambda_h\T\G\blambda_k=\bu_h\T\bu_k \).
+\( \boldsymbol{\uprho}_k=\bu_k \), \( \mathbf{v}_k=\M\bu_k=\bu_k \), and \( \blambda_h\T\G\blambda_k=\bu_h\T\bu_k \).
 :::
 
 In the one-way layout with group sizes \( n_1,\dots,n_g \), take the generalized inverse of @exr-ss-oneway-contrast.

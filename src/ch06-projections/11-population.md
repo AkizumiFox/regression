@@ -41,11 +41,11 @@ squared error \( \E(Y-a-\bb\T\mathbf{X})^2 \).
 
 ::: {#thm-proj-blp}
 Let \( \bmu_X=\E\mathbf{X} \), \( \mu_Y=\E Y \), \( \bSigma_{XX}=\Cov(\mathbf{X}) \) and
-\( \boldsymbol{\sigma}_{XY}=\Cov(\mathbf{X},Y) \), and suppose \( \bSigma_{XX} \) is positive definite. Then
+\( \boldsymbol{\upsigma}_{XY}=\Cov(\mathbf{X},Y) \), and suppose \( \bSigma_{XX} \) is positive definite. Then
 \[
 L(Y\mid\mathbf{X})=\alpha^*+\bbeta^{*\top}\mathbf{X},
 \qquad
-\bbeta^*=\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY},
+\bbeta^*=\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY},
 \qquad
 \alpha^*=\mu_Y-\bbeta^{*\top}\bmu_X .
 \]
@@ -55,7 +55,7 @@ component of \( \mathbf{X} \). Moreover
 \Var(Y)=\Var\bigl(L(Y\mid\mathbf{X})\bigr)+\E U^2,
 \qquad
 \frac{\Var\bigl(L(Y\mid\mathbf{X})\bigr)}{\Var(Y)}
-=\frac{\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY}}{\Var(Y)} .
+=\frac{\boldsymbol{\upsigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY}}{\Var(Y)} .
 \]{#eq-proj-population-pythagoras}
 
 :::
@@ -68,11 +68,11 @@ Orthogonality of \( U=Y-a-\bb\T\mathbf{X} \) to the spanning set \( \{1,X_1,\dot
 \]
 The first gives \( a=\mu_Y-\bb\T\bmu_X \). Substituting into the second and subtracting
 \( \bmu_X\E(U)=\bzero \) gives \( \Cov(\mathbf{X},Y)-\Cov(\mathbf{X})\bb=\bzero \), so
-\( \bb=\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY} \). By the projection theorem the solution is the
+\( \bb=\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY} \). By the projection theorem the solution is the
 unique minimizer. Since \( U \) has mean zero and is uncorrelated with \( \mathbf{X} \), it is
 uncorrelated with \( L(Y\mid\mathbf{X}) \), so the variances add. Finally,
 \( \Var(\bbeta^{*\top}\mathbf{X})=\bbeta^{*\top}\bSigma_{XX}\bbeta^*
-=\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY} \).
+=\boldsymbol{\upsigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY} \).
 :::
 
 The ratio in @eq-proj-population-pythagoras is the population
@@ -153,7 +153,7 @@ For large \( n \), \( \hbeta_n=\bS_{XX}^{-1}\mathbf{s}_{XY} \), where \( \bS_{XX
 sample covariances with divisor \( n \) ([Section 6.6](06-fwl.html), centring). By the strong law
 of large numbers the sample means, second moments and cross-moments converge almost
 surely to their population values. So \( \bS_{XX}\to\bSigma_{XX} \) and
-\( \mathbf{s}_{XY}\to\boldsymbol{\sigma}_{XY} \). Matrix inversion is continuous at the nonsingular
+\( \mathbf{s}_{XY}\to\boldsymbol{\upsigma}_{XY} \). Matrix inversion is continuous at the nonsingular
 \( \bSigma_{XX} \), so eventually \( \bS_{XX} \) is invertible and
 \( \hbeta_n\to\bbeta^* \). The intercept follows the same way.
 :::

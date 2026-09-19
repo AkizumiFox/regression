@@ -19,8 +19,9 @@ approved exemplar of register, density and rigour; read a few of its sections fi
 - **Every claim is true, every hypothesis stated.** Full proofs of every central result.
 - **Proofs cite only earlier results.** Forward pointers in prose ("Chapter 11 uses this") are fine.
 - **Book-wide conventions** in `NOTATION.md` (noncentrality without ½, nonnegative definite, `\T`,
-  bold upright Latin matrices and vectors: `\mathbf{a}` for a bold Latin letter without a macro,
-  `\boldsymbol{\theta}` for a bold Greek letter, never `\bm`).
+  bold upright matrices and vectors: `\mathbf{a}` for a bold Latin letter without a macro,
+  `\boldsymbol{\uptheta}` for a bold lowercase Greek letter, `\boldsymbol{\Sigma}` for capital
+  Greek; never `\bm` or `\boldsymbol{\theta}`).
 
 ## Page skeleton
 

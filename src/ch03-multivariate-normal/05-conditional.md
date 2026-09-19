@@ -144,17 +144,17 @@ correlation. They are consequences of joint normality.
 
 **One response, several predictors.**  The case used most in this book has
 a scalar response \( Y \) and a vector \( \X \) of \( k \) predictors, jointly normal, with
-\( \Var(Y)=\sigma_Y^2 \), \( \boldsymbol{\sigma}_{XY}=\Cov(\X,Y) \) and \( \bSigma_{XX}=\Cov(\X) \) positive
+\( \Var(Y)=\sigma_Y^2 \), \( \boldsymbol{\upsigma}_{XY}=\Cov(\X,Y) \) and \( \bSigma_{XX}=\Cov(\X) \) positive
 definite. @thm-mvn-conditional says
 \[
 Y=\alpha+\bbeta\T\X+e,\qquad
-\bbeta=\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY},\quad \alpha=\mu_Y-\bbeta\T\bmu_X,\quad
+\bbeta=\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY},\quad \alpha=\mu_Y-\bbeta\T\bmu_X,\quad
 e\sim\Normal(0,\sigma^2)\text{ independent of }\X,
 \]{#eq-mvn-random-x-model}
 
-with \( \sigma^2=\sigma_Y^2-\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY}
+with \( \sigma^2=\sigma_Y^2-\boldsymbol{\upsigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY}
 =\sigma_Y^2(1-\rho_{Y\cdot X}^2) \), where
-\( \rho_{Y\cdot X}^2=\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY}/\sigma_Y^2 \) is the
+\( \rho_{Y\cdot X}^2=\boldsymbol{\upsigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\upsigma}_{XY}/\sigma_Y^2 \) is the
 population squared multiple correlation (@prp-rv-multiple-correlation). So if observations \( (Y_i,\X_i) \) are drawn
 independently from a joint normal distribution, then conditionally on the predictors,
 the normal linear model with independent homoscedastic errors holds exactly.

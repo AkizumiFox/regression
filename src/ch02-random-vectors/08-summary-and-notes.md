@@ -25,7 +25,7 @@
            (@prp-rv-whitening).
 
 6. \( \E(\Y\T\A\Y)=\tr(\A\bSigma)+\bmu\T\A\bmu \) under second moments only
-           (@thm-rv-quadform-mean). Hence \( \E(\text{RSS})=\sigma^2(n-r)+\norm{(\I-\M)\boldsymbol{\theta}}^2 \)
+           (@thm-rv-quadform-mean). Hence \( \E(\text{RSS})=\sigma^2(n-r)+\norm{(\I-\M)\boldsymbol{\uptheta}}^2 \)
            (@exm-rv-rss-bias). The variance of a quadratic form needs third and fourth moments
            (@thm-rv-quadform-variance).
 

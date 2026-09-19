@@ -11,10 +11,10 @@ then proves that the \( F \) test is the best test among those that respect the 
 
 ## The likelihood ratio
 
-For a hypothesis \( H_0 \) about the parameter of a family of densities \( L(\boldsymbol{\theta};\y) \), the
+For a hypothesis \( H_0 \) about the parameter of a family of densities \( L(\boldsymbol{\uptheta};\y) \), the
 **likelihood ratio** is
 \[
-\Lambda(\y)=\frac{\sup_{\boldsymbol{\theta}\in H_0}L(\boldsymbol{\theta};\y)}{\sup_{\boldsymbol{\theta}}L(\boldsymbol{\theta};\y)} ,
+\Lambda(\y)=\frac{\sup_{\boldsymbol{\uptheta}\in H_0}L(\boldsymbol{\uptheta};\y)}{\sup_{\boldsymbol{\uptheta}}L(\boldsymbol{\uptheta};\y)} ,
 \]
 and the likelihood ratio test rejects when \( \Lambda \) is small, that is, when the best explanation the
 hypothesis can offer is much worse than the best explanation overall. In the linear model both suprema
@@ -388,11 +388,11 @@ large \( (\text{SSE}_0-\text{SSE})/\sigma_0^2 \), the statistic of @exr-glh-know
 ::: {#exr-glh-no-ump}
 [C1]
 
-In the canonical form with \( \sigma^2 \) known and \( q\ge2 \), consider testing \( \boldsymbol{\eta}_1=\bzero \) against the
-single alternative \( \boldsymbol{\eta}_1=\mathbf{a}\ne\bzero \). Show by the Neyman–Pearson lemma that the most powerful
+In the canonical form with \( \sigma^2 \) known and \( q\ge2 \), consider testing \( \boldsymbol{\upeta}_1=\bzero \) against the
+single alternative \( \boldsymbol{\upeta}_1=\mathbf{a}\ne\bzero \). Show by the Neyman–Pearson lemma that the most powerful
 level-\( \alpha \) test rejects when \( \mathbf{a}\T\bz_1>\sigma\norm{\mathbf{a}}z_\alpha \), where \( z_\alpha \) is the upper \( \alpha \) point of
 \( \Normal(0,1) \). Show that this test has power below \( \alpha \) against \( -\mathbf{a} \), and conclude that no
-uniformly most powerful test of \( \boldsymbol{\eta}_1=\bzero \) exists.
+uniformly most powerful test of \( \boldsymbol{\upeta}_1=\bzero \) exists.
 :::
 
 ::: {.solution}

@@ -363,22 +363,22 @@ where \( \tilde{\bbeta} \) solves the generalized least squares equations \( \X\
 :::
 
 ::: {.proof}
-Put \( \boldsymbol{\delta}=\V^{-1}\bv_0 \) and split the prediction error of any linear predictor:
+Put \( \boldsymbol{\updelta}=\V^{-1}\bv_0 \) and split the prediction error of any linear predictor:
 \[
-y_0-\mathbf{a}\T\Y-a_0=\underbrace{\bigl(e_0-\boldsymbol{\delta}\T\be\bigr)}_{u}
-+\underbrace{\bigl(\x_0\T\bbeta-\boldsymbol{\delta}\T\X\bbeta-(\mathbf{a}-\boldsymbol{\delta})\T\Y-a_0\bigr)}_{w}.
+y_0-\mathbf{a}\T\Y-a_0=\underbrace{\bigl(e_0-\boldsymbol{\updelta}\T\be\bigr)}_{u}
++\underbrace{\bigl(\x_0\T\bbeta-\boldsymbol{\updelta}\T\X\bbeta-(\mathbf{a}-\boldsymbol{\updelta})\T\Y-a_0\bigr)}_{w}.
 \]
-The term \( u \) is uncorrelated with \( \be \), since \( \Cov(\be,e_0-\boldsymbol{\delta}\T\be)=\sigma^2(\bv_0-\V\boldsymbol{\delta})=\bzero \). The
+The term \( u \) is uncorrelated with \( \be \), since \( \Cov(\be,e_0-\boldsymbol{\updelta}\T\be)=\sigma^2(\bv_0-\V\boldsymbol{\updelta})=\bzero \). The
 term \( w \) is a constant plus a linear function of \( \Y \), hence of \( \be \), so \( \E(uw)=0 \) and
 \( \E(y_0-\mathbf{a}\T\Y-a_0)^2=\E u^2+\E w^2 \). Only \( \E w^2 \) depends on the predictor.
 
 Unbiasedness means \( \mathbf{a}\T\X\bbeta+a_0=\x_0\T\bbeta \) for all \( \bbeta \), that is, \( a_0=0 \) and \( \X\T\mathbf{a}=\x_0 \).
-Equivalently, \( (\mathbf{a}-\boldsymbol{\delta})\T\Y \) is a linear unbiased estimator of \( \mathbf{c}\T\bbeta \), which is estimable
-because \( \x_0 \) and \( \X\T\boldsymbol{\delta} \) lie in \( \C(\X\T) \). For such predictors \( \E w=0 \), so \( \E w^2 \) is the variance of
-\( (\mathbf{a}-\boldsymbol{\delta})\T\Y \). By @cor-opt-aitken this variance is smallest when \( (\mathbf{a}-\boldsymbol{\delta})\T\Y=\mathbf{c}\T\tilde{\bbeta} \), the
+Equivalently, \( (\mathbf{a}-\boldsymbol{\updelta})\T\Y \) is a linear unbiased estimator of \( \mathbf{c}\T\bbeta \), which is estimable
+because \( \x_0 \) and \( \X\T\boldsymbol{\updelta} \) lie in \( \C(\X\T) \). For such predictors \( \E w=0 \), so \( \E w^2 \) is the variance of
+\( (\mathbf{a}-\boldsymbol{\updelta})\T\Y \). By @cor-opt-aitken this variance is smallest when \( (\mathbf{a}-\boldsymbol{\updelta})\T\Y=\mathbf{c}\T\tilde{\bbeta} \), the
 generalized least squares estimator, with variance \( \sigma^2\mathbf{c}\T(\X\T\V^{-1}\X)\ginv\mathbf{c} \). The predictor is then
-\( \boldsymbol{\delta}\T\Y+\mathbf{c}\T\tilde{\bbeta}=\x_0\T\tilde{\bbeta}+\boldsymbol{\delta}\T(\Y-\X\tilde{\bbeta}) \), which is @eq-cor-blup. Finally
-\( \E u^2=\sigma^2(v_{00}-2\boldsymbol{\delta}\T\bv_0+\boldsymbol{\delta}\T\V\boldsymbol{\delta})=\sigma^2(v_{00}-\bv_0\T\V^{-1}\bv_0) \).
+\( \boldsymbol{\updelta}\T\Y+\mathbf{c}\T\tilde{\bbeta}=\x_0\T\tilde{\bbeta}+\boldsymbol{\updelta}\T(\Y-\X\tilde{\bbeta}) \), which is @eq-cor-blup. Finally
+\( \E u^2=\sigma^2(v_{00}-2\boldsymbol{\updelta}\T\bv_0+\boldsymbol{\updelta}\T\V\boldsymbol{\updelta})=\sigma^2(v_{00}-\bv_0\T\V^{-1}\bv_0) \).
 :::
 
 The predictor is the estimated mean at the new point plus a prediction of the new error \( e_0 \) from

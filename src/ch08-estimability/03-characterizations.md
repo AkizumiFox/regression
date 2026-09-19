@@ -19,7 +19,7 @@ Let \( \X \) be \( n\times p \), let \( \G \) denote a generalized inverse of \(
 ::: {.enumerate options="label=(\alph*)"}
 1. \( \blambda\T\bbeta \) is estimable;
 
-2. \( \blambda\in\C(\X\T) \): there is \( \boldsymbol{\rho}\in\Real^n \) with \( \blambda\T=\boldsymbol{\rho}\T\X \);
+2. \( \blambda\in\C(\X\T) \): there is \( \boldsymbol{\uprho}\in\Real^n \) with \( \blambda\T=\boldsymbol{\uprho}\T\X \);
 
 3. \( \blambda\perp\Null(\X) \): \( \blambda\T\bv=0 \) whenever \( \X\bv=\bzero \);
 
@@ -67,17 +67,17 @@ estimate has a clean description.
 ::: {#prp-est-ls-estimator}
 [Least squares estimation of estimable functions]
 
-Let \( \blambda\T\bbeta \) be estimable, with \( \blambda=\X\T\boldsymbol{\rho}=\X\T\X\br \), let \( \hbeta \) be any
+Let \( \blambda\T\bbeta \) be estimable, with \( \blambda=\X\T\boldsymbol{\uprho}=\X\T\X\br \), let \( \hbeta \) be any
 least squares solution and \( \G \) any generalized inverse of \( \X\T\X \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \blambda\T\hbeta=\boldsymbol{\rho}\T\M\y=\br\T\X\T\y=\blambda\T\G\X\T\y \);
+1. \( \blambda\T\hbeta=\boldsymbol{\uprho}\T\M\y=\br\T\X\T\y=\blambda\T\G\X\T\y \);
 
 2. \( \E(\blambda\T\hbeta)=\blambda\T\bbeta \);
 
 3. if \( \Cov(\Y)=\sigma^2\I \), then
     \[
-    \Var(\blambda\T\hbeta)=\sigma^2\blambda\T\G\blambda=\sigma^2\br\T\blambda=\sigma^2\norm{\M\boldsymbol{\rho}}^2 ,
+    \Var(\blambda\T\hbeta)=\sigma^2\blambda\T\G\blambda=\sigma^2\br\T\blambda=\sigma^2\norm{\M\boldsymbol{\uprho}}^2 ,
     \]
     the same for every \( \G \);
 
@@ -97,7 +97,7 @@ matrix form \( \Cov(\bLambda\T\hbeta)=\sigma^2\bLambda\T\G\bLambda \) is part (d
 Neither depends on \( \G \), because \( \M=\X\G\X\T \) for every \( \G \) (@thm-proj-M-formula).
 The second form in (c) follows from
 \( \blambda\T\G\blambda=\br\T\X\T\X\G\X\T\X\br=\br\T\X\T\X\br=\br\T\blambda \).
-The third is \( \boldsymbol{\rho}\T\M\boldsymbol{\rho}=\norm{\M\boldsymbol{\rho}}^2 \).
+The third is \( \boldsymbol{\uprho}\T\M\boldsymbol{\uprho}=\norm{\M\boldsymbol{\uprho}}^2 \).
 :::
 
 The formula \( \sigma^2\blambda\T\G\blambda \) is the rank-deficient version of the familiar

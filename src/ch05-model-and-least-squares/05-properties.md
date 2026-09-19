@@ -321,8 +321,8 @@ shows what goes wrong without it. Two cases recur throughout the book.
 Let \( \X \) have full rank, \( \A=(\X\T\X)^{-1}\X\T \) and \( \hbeta=\A\Y \).
 
 ::: {.enumerate options="label=(\alph*)"}
-1. If \( \E(\Y)=\X\bbeta+\boldsymbol{\delta} \) for some \( \boldsymbol{\delta}\in\Real^n \), then
-   \( \E(\hbeta)=\bbeta+(\X\T\X)^{-1}\X\T\boldsymbol{\delta} \).
+1. If \( \E(\Y)=\X\bbeta+\boldsymbol{\updelta} \) for some \( \boldsymbol{\updelta}\in\Real^n \), then
+   \( \E(\hbeta)=\bbeta+(\X\T\X)^{-1}\X\T\boldsymbol{\updelta} \).
 
 2. If \( \E(\Y)=\X\bbeta \) and \( \Cov(\Y)=\bSigma \) for some covariance matrix \( \bSigma \), then
    \( \E(\hbeta)=\bbeta \) and
@@ -335,12 +335,12 @@ Let \( \X \) have full rank, \( \A=(\X\T\X)^{-1}\X\T \) and \( \hbeta=\A\Y \).
 :::
 
 ::: {.proof}
-Both are @thm-rv-linear applied to \( \A\Y \): \( \E(\A\Y)=\A\X\bbeta+\A\boldsymbol{\delta} \) and
+Both are @thm-rv-linear applied to \( \A\Y \): \( \E(\A\Y)=\A\X\bbeta+\A\boldsymbol{\updelta} \) and
 \( \Cov(\A\Y)=\A\bSigma\A\T \).
 :::
 
 Part (a) says that when the mean is misspecified, least squares estimates not
-\( \bbeta \) but \( \bbeta \) plus the coefficients from regressing the missing part \( \boldsymbol{\delta} \) on
+\( \bbeta \) but \( \bbeta \) plus the coefficients from regressing the missing part \( \boldsymbol{\updelta} \) on
 \( \X \). The most important case is an omitted regressor, which
 [Section 5.7](07-interpreting-coefficients.html) examines. Part (b) says that with the wrong
 covariance, the estimator stays unbiased but the formula \( \sigma^2(\X\T\X)^{-1} \) is wrong.

@@ -59,7 +59,7 @@ For \( \blambda\in\Real^p \) the following are equivalent:
 
 2. \( \blambda\T\bbeta \) is identifiable;
 
-3. \( \blambda\in\C(\X\T) \), that is, \( \blambda\T=\boldsymbol{\rho}\T\X \) for some \( \boldsymbol{\rho}\in\Real^n \).
+3. \( \blambda\in\C(\X\T) \), that is, \( \blambda\T=\boldsymbol{\uprho}\T\X \) for some \( \boldsymbol{\uprho}\in\Real^n \).
 :::
 
 For a \( p\times q \) matrix \( \bLambda \), \( \bLambda\T\bbeta \) is estimable iff \( \bLambda=\X\T\mathbf{P} \) for
@@ -70,7 +70,7 @@ some \( n\times q \) matrix \( \mathbf{P} \), that is, iff \( \C(\bLambda)\subse
 (a)\( \Leftrightarrow \)(c) is @lem-est-affine-unbiased: an unbiased \( \mathbf{a}\T\Y \) exists iff
 \( \X\T\mathbf{a}=\blambda \) has a solution, which is the statement \( \blambda\in\C(\X\T) \).
 (b)\( \Leftrightarrow \)(c) is @prp-est-linear-identifiable. The matrix version applies the vector
-version to each column of \( \bLambda \) and collects the vectors \( \boldsymbol{\rho} \) as the columns of \( \mathbf{P} \).
+version to each column of \( \bLambda \) and collects the vectors \( \boldsymbol{\uprho} \) as the columns of \( \mathbf{P} \).
 :::
 
 The theorem connects two different ideas. Identifiability is about what the model could
@@ -107,7 +107,7 @@ dimension \( r=\rank(\X) \). In particular:
 :::
 
 ::: {.proof}
-The first sentence is @thm-est-estimable-identifiable. For (a) take \( \boldsymbol{\rho}=\mathbf{e}_i \), the
+The first sentence is @thm-est-estimable-identifiable. For (a) take \( \boldsymbol{\uprho}=\mathbf{e}_i \), the
 \( i \)th coordinate vector. For (b), \( \X\T\X\bbeta=\X\T(\X\bbeta) \) and the rows of \( \X\T\X \) lie
 in \( \C(\X\T) \). Part (c) is the dimension count, and (d) is the case \( \C(\X\T)=\Real^p \).
 :::

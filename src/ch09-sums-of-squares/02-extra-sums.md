@@ -219,7 +219,7 @@ gives its sum of squares in terms of the least squares estimate, with no reduced
 [Sum of squares of a linear hypothesis]
 
 Let \( \bLambda \) be a \( p\times q \) matrix of rank \( q \) such that each entry of \( \bLambda\T\bbeta \)
-is estimable, so that \( \bLambda=\X\T\bT \) for some \( n\times q \) matrix \( \bT=[\boldsymbol{\rho}_1,\dots,\boldsymbol{\rho}_q] \)
+is estimable, so that \( \bLambda=\X\T\bT \) for some \( n\times q \) matrix \( \bT=[\boldsymbol{\uprho}_1,\dots,\boldsymbol{\uprho}_q] \)
 (@def-est-estimable, @thm-proj-invariant-functions). Let \( \G \) be any generalized inverse of
 \( \X\T\X \), let \( \hbeta \) be any least squares estimate, and let \( \mathbf{d}\in\Real^q \). Then:
 

@@ -349,15 +349,15 @@ the standards are so numerous that \( \hat{\beta}_0 \), \( \hat{\beta}_1 \) and 
 ::: {#exr-ci-fieller-geometry}
 [C1]
 
-In the setting of @prp-ci-fieller, let \( E_t=\{\boldsymbol{\phi}\in\Real^2:((\hat{a},\hat{b})\T-\boldsymbol{\phi})\T\mathbf{V}^{-1}((\hat{a},\hat{b})\T-\boldsymbol{\phi})\le t^2s^2\} \), an
+In the setting of @prp-ci-fieller, let \( E_t=\{\boldsymbol{\upphi}\in\Real^2:((\hat{a},\hat{b})\T-\boldsymbol{\upphi})\T\mathbf{V}^{-1}((\hat{a},\hat{b})\T-\boldsymbol{\upphi})\le t^2s^2\} \), an
 ellipse with the \( t \) constant in place of \( 2F_\alpha(2,n-r) \). Show that \( \theta_0\in\mathcal F(\Y) \) iff the line \( \{(\phi_1,\phi_2):\phi_1=\theta_0\phi_2\} \)
 meets \( E_t \). Use the picture to explain the three cases: the set is the whole line iff \( E_t \) contains the origin, and it is bounded iff \( E_t \)
 does not meet the axis \( \phi_2=0 \).
 :::
 
 ::: {.solution}
-The line is \( \{\boldsymbol{\phi}:\mathbf{c}\T\boldsymbol{\phi}=0\} \) with \( \mathbf{c}=(1,-\theta_0)\T \). By @cor-ci-shadows (with the constant \( t^2s^2 \)), the values of
-\( \mathbf{c}\T\boldsymbol{\phi} \) over \( E_t \) form the interval \( \hat{a}-\theta_0\hat{b}\pm ts\sqrt{\mathbf{c}\T\mathbf{V}\mathbf{c}} \), and
+The line is \( \{\boldsymbol{\upphi}:\mathbf{c}\T\boldsymbol{\upphi}=0\} \) with \( \mathbf{c}=(1,-\theta_0)\T \). By @cor-ci-shadows (with the constant \( t^2s^2 \)), the values of
+\( \mathbf{c}\T\boldsymbol{\upphi} \) over \( E_t \) form the interval \( \hat{a}-\theta_0\hat{b}\pm ts\sqrt{\mathbf{c}\T\mathbf{V}\mathbf{c}} \), and
 \( \mathbf{c}\T\mathbf{V}\mathbf{c}=v_{11}-2\theta_0v_{12}+\theta_0^2v_{22} \). So the line meets \( E_t \) iff this interval contains \( 0 \), which is @eq-ci-fieller. Every
 line through the origin meets \( E_t \) iff the origin is in \( E_t \), which is \( Q\le t^2s^2 \). Lines of large slope approach the axis \( \phi_2=0 \)
 (the \( \phi_1 \)-axis in these coordinates); the set is unbounded iff lines of arbitrarily large slope meet \( E_t \), iff \( E_t \) meets that axis, which by
