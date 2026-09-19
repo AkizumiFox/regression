@@ -393,8 +393,8 @@ the interaction columns, generally gives the more powerful test. In regression w
 interactions all partial types agree; the distinction matters only for terms contained in other
 terms.
 
-Chapter 17 treats empty cells, where even Type III hypotheses may be nonestimable
-(@exr-ss-empty-cell).
+[Chapter 17](../ch17-unbalanced-data/index.html) treats empty cells, where even Type III
+hypotheses may be nonestimable (@exr-ss-empty-cell, @thm-ub-empty-cells).
 
 ## Exercises
 

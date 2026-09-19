@@ -20,14 +20,17 @@ The plan is `blueprint/book.yaml` (45 chapters in 10 parts); each chapter's brie
 | 12 | ch12-intervals-and-bands | Confidence intervals, regions and prediction bands | deployed |
 | 13 | ch13-multiplicity | Multiplicity: Scheffé, Tukey, Bonferroni and the false discovery rate | deployed |
 | 14 | ch14-correlation-lack-of-fit-prediction | Correlation, lack of fit and prediction theory | deployed |
-| 15–45 | | see `blueprint/book.yaml` | not started |
+| 15 | ch15-anova-subspaces | Analysis of variance as subspace comparison | deployed |
+| 16 | ch16-multiway-layouts | Multi-way layouts and interaction | deployed |
+| 17 | ch17-unbalanced-data | Unbalanced data, cell means and empty cells | deployed |
+| 18 | ch18-covariance-and-design | Analysis of covariance and designed experiments | deployed |
+| 19–45 | | see `blueprint/book.yaml` | not started |
 
 Deployed 2026-09-19 to https://regression.akizumifox.com (site repo AkizumiFox/regression, GitHub
 Pages from `main`, DNS through Cloudflare). Republish with `./build.py deploy --push`.
-Chapters 1–10 are deployed; chapters 11–14 (Part III) are written and listed in
-`config/config.json` but not yet deployed.
+Chapters 1–18 (Parts I–IV) are deployed.
 
 ## Open forward promises
 
-Chapters 1–14 point forward to unwritten chapters in prose ("Chapter 15 uses it for the one-way analysis of variance"). Those references are plain text until the target chapter is published;
+Chapters 1–18 point forward to unwritten chapters in prose ("Chapter 32 treats random and mixed effects"). Those references are plain text until the target chapter is published;
 when a chapter is added, search `src/` for "Chapter N" and link it.

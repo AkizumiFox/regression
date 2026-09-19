@@ -236,7 +236,7 @@ The residual projection sends \( y_{ij} \) to
 The key step used the fact that every \( A \) level appears with every \( B \) level
 equally often. If cells are missing or unequally replicated, \( \bP_A\bP_B\neq\bP_0 \),
 the centred factor spaces are no longer orthogonal, and the sum of squares for
-\( A \) depends on whether \( B \) was fitted first. Chapter 17 is about
+\( A \) depends on whether \( B \) was fitted first. [Chapter 17](../ch17-unbalanced-data/index.html) is about
 that situation.
 :::
 

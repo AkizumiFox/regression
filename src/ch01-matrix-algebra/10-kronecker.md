@@ -66,8 +66,8 @@ rule shows that
 \( \I_a\otimes\bar{\mathbf{J}}_b \), \( \bar{\mathbf{J}}_a\otimes\I_b \) and \( \bar{\mathbf{J}}_a\otimes\bar{\mathbf{J}}_b \)
 replace each observation by its row mean, its column mean and the grand mean. The matrix
 \( \M=\I_a\otimes\bar{\mathbf{J}}_b+\bar{\mathbf{J}}_a\otimes\I_b-\bar{\mathbf{J}}_a\otimes\bar{\mathbf{J}}_b \) is symmetric
-and idempotent, with trace \( a+b-1=\rank(\X) \). It is the projection onto \( \C(\X) \)
-(Chapter 15). The script checks this for \( a=3 \) and
+and idempotent, with trace \( a+b-1=\rank(\X) \). It is the projection onto
+\( \C(\X) \) (@thm-tw-additive in [Chapter 16](../ch16-multiway-layouts/index.html)). The script checks this for \( a=3 \) and
 \( b=4 \), together with each part of @prp-mat-kronecker.
 :::
 

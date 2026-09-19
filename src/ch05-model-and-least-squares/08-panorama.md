@@ -41,7 +41,7 @@ the models below.
 estimator has an exact normal distribution and the residual sum of squares an exact
 chi-squared distribution (@thm-opt-sampling). This gives \( t \) and \( F \) tests and exact
 confidence regions (Chapters [11](../ch11-general-linear-hypothesis/index.html) and [12](../ch12-intervals-and-bands/index.html)), and procedures for many comparisons at once
-([Chapter 13](../ch13-multiplicity/index.html)). Analysis of variance and designed experiments (Chapters 15–18) are linear models
+([Chapter 13](../ch13-multiplicity/index.html)). Analysis of variance and designed experiments (Chapters [15](../ch15-anova-subspaces/index.html)–[18](../ch18-covariance-and-design/index.html)) are linear models
 whose columns are indicator variables, often not of full rank; their theory rests on
 [Chapter 6](../ch06-projections/index.html) and [Chapter 8](../ch08-estimability/index.html).
 

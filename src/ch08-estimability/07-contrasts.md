@@ -107,7 +107,7 @@ So a complete set of orthogonal contrasts decomposes the between-level sum of sq
 pieces. Under normality the pieces are independent, each is \( \sigma^2 \) times a noncentral \( \chi^2 \) with one degree
 of freedom, and each is independent of the residual sum of squares (@thm-qf-orthogonal-projections). Each contrast can
 therefore be tested on its own. [Chapter 9](../ch09-sums-of-squares/index.html) places this decomposition in the general
-theory of orthogonal sums of squares, and Chapter 15 uses it for the one-way analysis of variance. In a *balanced* design,
+theory of orthogonal sums of squares, and [Chapter 15](../ch15-anova-subspaces/index.html) uses it for the one-way analysis of variance (@thm-aov-orthogonal-contrasts). In a *balanced* design,
 with all \( n_k \) equal, orthogonality reduces to the ordinary \( \sum_kc_kd_k=0 \). In an unbalanced design, contrasts
 that look orthogonal on paper need not be orthogonal for the data.
 
@@ -281,7 +281,7 @@ cells, the least squares fit is \( \bar{y}_{i\cdot\cdot}+\bar{y}_{\cdot j\cdot}-
 since the terms not depending on \( i \) are multiplied by \( \sum_ic_i=0 \). The row contrast is estimated from the row means alone,
 as if factor \( B \) were absent. In an unbalanced design this is false. The row means are then contaminated by the column effects
 (@exr-est-unbalanced-rows), and the least squares estimate has to adjust for them. That adjustment is the subject of
-Chapter 17. Interaction contrasts, and their estimability when cells are empty, were treated in @prp-est-interaction.
+[Chapter 17](../ch17-unbalanced-data/index.html). Interaction contrasts, and their estimability when cells are empty, were treated in @prp-est-interaction.
 
 ## Exercises
 

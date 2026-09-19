@@ -91,7 +91,14 @@
         },
         "src/ch12-intervals-and-bands",
         "src/ch13-multiplicity",
-        "src/ch14-correlation-lack-of-fit-prediction"
+        "src/ch14-correlation-lack-of-fit-prediction",
+        {
+            "dir": "src/ch15-anova-subspaces",
+            "part": "Part IV · Rank Deficiency and Designed Structure"
+        },
+        "src/ch16-multiway-layouts",
+        "src/ch17-unbalanced-data",
+        "src/ch18-covariance-and-design"
     ],
     "macros": "latex/macros.tex",
     "templates": {

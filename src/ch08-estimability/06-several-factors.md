@@ -160,7 +160,7 @@ because the row and column sums vanish. So the contrast is estimable. Conversely
 In the interaction model the fitted value of each occupied cell is its own mean, and an empty cell has no
 estimable mean at all. The two models treat empty cells in opposite ways. The additive model fills them by
 assumption, while the interaction model declines to say anything about them. Which is appropriate is a
-substantive question, and Chapter 17 returns to it.
+substantive question, and [Chapter 17](../ch17-unbalanced-data/index.html) returns to it (@thm-ub-empty-cells).
 
 ::: {#exm-est-empty-cells}
 [Empty cells in a survey]

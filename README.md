@@ -26,7 +26,7 @@ to a list of all results and a dependency graph.
 
 ## Layout
 
-- `src/`: the written chapters (1–14), one Markdown file per section, with the figures
+- `src/`: the written chapters (1–18), one Markdown file per section, with the figures
   of each chapter beside its Markdown (`name.pdf` for print, `name.svg` for the web). `src/index.md`
   is the preface, how-to-use and notation page.
 - `config/config.json`: chapters, parts, environments, deploy target. `latex/macros.tex`: the

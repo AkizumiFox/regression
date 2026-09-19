@@ -298,7 +298,7 @@ by @thm-rv-linear. By @prp-proj-trace-rank(d) applied to \( \I-\M_{(j)} \),
 
 So among designs whose columns have given lengths, orthogonal designs minimize the variance of
 every coefficient at once. This is one reason designed experiments are built from orthogonal
-contrasts (Part IV), and why collinearity, meaning near-dependence among columns, inflates variances
+contrasts ([Part IV](../ch15-anova-subspaces/index.html)), and why collinearity, meaning near-dependence among columns, inflates variances
 (Chapter 26). @exr-opt-weighing applies the proposition to a problem of weighing objects on a balance.
 
 ## What the theorem does not say

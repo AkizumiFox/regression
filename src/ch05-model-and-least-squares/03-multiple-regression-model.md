@@ -271,7 +271,7 @@ coefficients. When \( x_2 \) is an indicator for a group, @eq-lm-interaction fit
 straight line in each group: intercept \( \beta_0 \) and slope \( \beta_1 \) in the reference
 group, intercept \( \beta_0+\beta_2 \) and slope \( \beta_1+\beta_3 \) in the other. When both
 variables are categorical, products of indicators give each combination of categories
-its own mean, the two-way layout of Chapter 16.
+its own mean, the two-way layout of [Chapter 16](../ch16-multiway-layouts/index.html) (@def-tw-interaction).
 
 Interactions change what the other coefficients mean. In @eq-lm-interaction, \( \beta_1 \)
 is the slope in \( x_1 \) *when \( x_2=0 \)*, which may be far outside the data.

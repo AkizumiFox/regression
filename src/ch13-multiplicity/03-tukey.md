@@ -302,8 +302,8 @@ for name, c in mult.items():
 
 The proof of @thm-mc-tukey used only that the \( g \) estimates are independent, with a common
 variance \( \sigma^2c \) for a known \( c \), and independent of \( s^2 \). That also holds for the levels of
-one factor in a balanced multi-way design (@exr-mc-tukey-two-way), the subject of Chapter 15 and
-Chapter 16. For correlated estimates, such as regression coefficients or adjusted means, neither
+one factor in a balanced multi-way design (@exr-mc-tukey-two-way), the subject of Chapters [15](../ch15-anova-subspaces/index.html) and
+[16](../ch16-multiway-layouts/index.html). For correlated estimates, such as regression coefficients or adjusted means, neither
 form is exact; the exact critical value for any planned family then comes from a multivariate \( t \)
 distribution (@exr-mc-multivariate-t), which standard software computes.
 

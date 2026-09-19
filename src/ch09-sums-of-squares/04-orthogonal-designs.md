@@ -101,7 +101,8 @@ by full rank, so the coefficient vector of \( \X_j \) is \( \bb_j \) in every su
 
 With uncorrelated regressors, dropping one leaves the others' estimates as they were, and each
 regressor has an order-free sum of squares. This is one reason factorial experiments are laid
-out on orthogonal arrays (Chapter 18).
+out on orthogonal arrays (Chapters [16](../ch16-multiway-layouts/index.html) and
+[18](../ch18-covariance-and-design/index.html)).
 
 ## Balanced and proportional layouts
 
@@ -169,7 +170,7 @@ Adding the logarithm of market value as a covariate destroys the orthogonality, 
 varies with both firm and year. The sum of squares for firm then depends on what else is in the
 model: it is \( 90.701 \) after year and value, and \( 88.443 \) after value
 alone. Most of the variation between firms is variation in size, which value already
-measures. This is the setting of analysis of covariance (Chapter 18).
+measures. This is the setting of analysis of covariance ([Chapter 18](../ch18-covariance-and-design/index.html), @thm-dsn-ancova).
 :::
 
 ```{.python .run #cell-orthogonal-design-grunfeld}
@@ -397,7 +398,8 @@ print(f"with the plain contrast: {contrast_ss(c1_plain):.3f} + {contrast_ss(c2):
 ```
 
 Single-degree-of-freedom sums of squares reappear in [Chapter 13](../ch13-multiplicity/index.html), where many of them are tested at
-once, and in Chapter 15, where orthogonal contrasts organize the one-way analysis of variance.
+once, and in [Chapter 15](../ch15-anova-subspaces/index.html), where orthogonal contrasts organize the one-way
+analysis of variance (@thm-aov-orthogonal-contrasts).
 
 ## Exercises
 

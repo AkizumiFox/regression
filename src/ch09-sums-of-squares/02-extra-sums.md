@@ -376,8 +376,8 @@ iff it lies in \( \C(\X\T) \) (@thm-proj-invariant-functions), which gives the l
 In the one-way layout \( \E(Y_{ij})=\mu+\alpha_i \), the constraint \( \alpha_1=\alpha_2 \) has one degree of
 freedom. The constraint \( \alpha_1=0 \) has none: it does not restrict the mean vector, and only
 picks one of the least squares solutions (@thm-est-side-conditions). Software asked to “test” a
-nonestimable hypothesis either refuses or silently tests its estimable part. Chapter 17 meets this
-with empty cells.
+nonestimable hypothesis either refuses or silently tests its estimable part. [Chapter 17](../ch17-unbalanced-data/index.html) meets this
+with empty cells (@thm-ub-empty-cells).
 
 ## Exercises
 

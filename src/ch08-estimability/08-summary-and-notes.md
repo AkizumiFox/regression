@@ -76,7 +76,7 @@ the Frisch–Waugh–Lovell theorem (@exr-est-single-dummy), and count regressor
 
 **Connectedness, empty cells and cohorts.** Connectedness of two-way designs, and its role in estimability, is treated at
 length by Searle (1971, 1987). Searle (1987) is also the standard reference for unbalanced data and empty cells, which
-Chapter 17 takes up. The age–period–cohort problem of @exm-est-apc is a well-known instance of a dependency among
+[Chapter 17](../ch17-unbalanced-data/index.html) takes up. The age–period–cohort problem of @exm-est-apc is a well-known instance of a dependency among
 variables. Holford (1983) showed which functions of the age, period and cohort effects are estimable, among them the
 second differences of @exr-est-apc-factors.
 
