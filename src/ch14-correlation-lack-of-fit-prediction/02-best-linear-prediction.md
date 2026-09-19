@@ -1,9 +1,9 @@
 # Best linear prediction
 
 With random rows, a regression is a rule for predicting the response of a new case from its
-regressors. The population theory is in place: the conditional mean \( m(\bm X)=\E(Y\mid\bm X) \) is the best
+regressors. The population theory is in place: the conditional mean \( m(\mathbf{X})=\E(Y\mid\mathbf{X}) \) is the best
 predictor (@prp-proj-conditional-expectation), the best *linear* predictor
-\( L(Y\mid\bm X)=\alpha^*+\bbeta^{*\top}\bm X \) is a projection (@thm-proj-blp, @thm-rv-blp), the two coincide
+\( L(Y\mid\mathbf{X})=\alpha^*+\bbeta^{*\top}\mathbf{X} \) is a projection (@thm-proj-blp, @thm-rv-blp), the two coincide
 for jointly normal variables (@prp-mvn-best-predictor), and least squares estimates \( L \) consistently (@prp-proj-consistency). This section asks the finite-sample questions: how large is the error of the
 estimated predictor on a new case, and how misleading is its error on the data used to fit it?
 
@@ -15,26 +15,26 @@ measures how well the best predictor can do.
 ::: {#prp-cor-best-predictor}
 [The best predictor and the correlation ratio]
 
-Let \( \E Y^2<\infty \), \( \Var(Y)>0 \), and \( m(\bm X)=\E(Y\mid\bm X) \).
+Let \( \E Y^2<\infty \), \( \Var(Y)>0 \), and \( m(\mathbf{X})=\E(Y\mid\mathbf{X}) \).
 
 ::: {.enumerate options="label=(\alph*)"}
-1. A predictor \( g(\bm X) \) with \( \E g(\bm X)^2<\infty \) equals \( m(\bm X) \) with probability one iff
-   \( \E g(\bm X)=\E Y \) and \( \Cov\bigl(h(\bm X),\,Y-g(\bm X)\bigr)=0 \) for every square-integrable \( h \).
+1. A predictor \( g(\mathbf{X}) \) with \( \E g(\mathbf{X})^2<\infty \) equals \( m(\mathbf{X}) \) with probability one iff
+   \( \E g(\mathbf{X})=\E Y \) and \( \Cov\bigl(h(\mathbf{X}),\,Y-g(\mathbf{X})\bigr)=0 \) for every square-integrable \( h \).
 
-2. For every such \( g \) with \( \Var g(\bm X)>0 \),
+2. For every such \( g \) with \( \Var g(\mathbf{X})>0 \),
    \[
-\operatorname{corr}\bigl(Y,g(\bm X)\bigr)^2\le\eta^2=\frac{\Var m(\bm X)}{\Var Y},
+\operatorname{corr}\bigl(Y,g(\mathbf{X})\bigr)^2\le\eta^2=\frac{\Var m(\mathbf{X})}{\Var Y},
 \]{#eq-cor-correlation-ratio}
 
-   with equality for \( g=m \) when \( \Var m(\bm X)>0 \). The **correlation ratio** \( \eta^2 \) exceeds the
+   with equality for \( g=m \) when \( \Var m(\mathbf{X})>0 \). The **correlation ratio** \( \eta^2 \) exceeds the
    squared multiple correlation \( \rho^2_{Y\cdot X} \) of @prp-rv-multiple-correlation by
-   \( \E\bigl(m(\bm X)-L(Y\mid\bm X)\bigr)^2/\Var Y \), so \( \eta^2=\rho^2_{Y\cdot X} \) iff \( m \) is affine.
+   \( \E\bigl(m(\mathbf{X})-L(Y\mid\mathbf{X})\bigr)^2/\Var Y \), so \( \eta^2=\rho^2_{Y\cdot X} \) iff \( m \) is affine.
 :::
 
 :::
 
 ::: {.proof}
-(a) If \( g=m \), then \( \E m(\bm X)=\E Y \) by the tower rule, and \( \E[(Y-m)h]=0 \) by
+(a) If \( g=m \), then \( \E m(\mathbf{X})=\E Y \) by the tower rule, and \( \E[(Y-m)h]=0 \) by
 @prp-proj-conditional-expectation(a), so the covariance is zero. Conversely, let \( d=g-m \). Then
 \( \E d=0 \) and, taking \( h=d \),
 \( \Var d=\Cov(d,Y-m)-\Cov(d,Y-g)=0-0 \), so \( d=0 \) with probability one.
@@ -42,7 +42,7 @@ Let \( \E Y^2<\infty \), \( \Var(Y)>0 \), and \( m(\bm X)=\E(Y\mid\bm X) \).
 (b) By (a) with \( h=g \), \( \Cov(Y,g)=\Cov(m,g) \). Cauchy–Schwarz for covariances gives
 \( \Cov(m,g)^2\le\Var m\,\Var g \), hence
 \( \operatorname{corr}(Y,g)^2=\Cov(m,g)^2/(\Var Y\,\Var g)\le\Var m/\Var Y \). For \( g=m \) the covariance is
-\( \Var m \) and equality holds. For the last claim write \( L=L(Y\mid\bm X)=L(m\mid\bm X) \) (@prp-proj-conditional-expectation(b)). The error \( m-L \) has mean zero and is uncorrelated with the
+\( \Var m \) and equality holds. For the last claim write \( L=L(Y\mid\mathbf{X})=L(m\mid\mathbf{X}) \) (@prp-proj-conditional-expectation(b)). The error \( m-L \) has mean zero and is uncorrelated with the
 affine function \( L \), so \( \Var m=\Var L+\E(m-L)^2 \). Divide by \( \Var Y \) and use
 \( \Var L/\Var Y=\rho^2_{Y\cdot X} \) (@eq-proj-population-pythagoras).
 :::
@@ -59,18 +59,18 @@ predictor leaves on the table.
 ## The error of an estimated predictor
 
 In practice \( \alpha^* \) and \( \bbeta^* \) are replaced by least squares estimates from a training sample
-\( (\bm X_i,Y_i) \), \( i=1,\dots,n \). By centring and @thm-proj-fwl these are the plug-in estimates
-\( \hbeta=\bS_{XX}^{-1}\bm s_{XY} \) and \( \hat{\alpha}=\bar Y-\hbeta\T\bar{\bm X} \), built from the sample means and
-covariances. Their performance is judged on a new case \( (\bm X_0,Y_0) \) drawn from the same
+\( (\mathbf{X}_i,Y_i) \), \( i=1,\dots,n \). By centring and @thm-proj-fwl these are the plug-in estimates
+\( \hbeta=\bS_{XX}^{-1}\mathbf{s}_{XY} \) and \( \hat{\alpha}=\bar Y-\hbeta\T\bar{\mathbf{X}} \), built from the sample means and
+covariances. Their performance is judged on a new case \( (\mathbf{X}_0,Y_0) \) drawn from the same
 distribution, independently of the training data.
 
 ::: {#prp-cor-prediction-decomposition}
 [Excess error of a fitted linear predictor]
 
-Let \( (\bm X_0,Y_0) \) have finite second moments, \( \Cov(\bm X_0)=\bSigma_{XX} \), mean \( \bmu_X \), and best linear
-predictor \( L_0=\alpha^*+\bbeta^{*\top}\bm X_0 \) with error variance \( \sigma_*^2=\E(Y_0-L_0)^2 \). Let
-\( \hat Y_0=a+\bb\T\bm X_0 \), where \( (a,\bb) \) depend only on training data independent of
-\( (\bm X_0,Y_0) \). Then, given the training data,
+Let \( (\mathbf{X}_0,Y_0) \) have finite second moments, \( \Cov(\mathbf{X}_0)=\bSigma_{XX} \), mean \( \bmu_X \), and best linear
+predictor \( L_0=\alpha^*+\bbeta^{*\top}\mathbf{X}_0 \) with error variance \( \sigma_*^2=\E(Y_0-L_0)^2 \). Let
+\( \hat Y_0=a+\bb\T\mathbf{X}_0 \), where \( (a,\bb) \) depend only on training data independent of
+\( (\mathbf{X}_0,Y_0) \). Then, given the training data,
 \[
 \begin{aligned}
 \E\bigl[(Y_0-\hat Y_0)^2\bigm|\text{training data}\bigr]
@@ -82,8 +82,8 @@ predictor \( L_0=\alpha^*+\bbeta^{*\top}\bm X_0 \) with error variance \( \sigma
 
 ::: {.proof}
 Condition on the training data, so that \( a \) and \( \bb \) are constants. Write
-\( Y_0-\hat Y_0=(Y_0-L_0)+(L_0-\hat Y_0) \). The second term is an affine function of \( \bm X_0 \), and by
-@thm-proj-blp the first has mean zero and is uncorrelated with every affine function of \( \bm X_0 \).
+\( Y_0-\hat Y_0=(Y_0-L_0)+(L_0-\hat Y_0) \). The second term is an affine function of \( \mathbf{X}_0 \), and by
+@thm-proj-blp the first has mean zero and is uncorrelated with every affine function of \( \mathbf{X}_0 \).
 So the cross term vanishes, and the mean square of the affine term is its squared mean plus its
 variance \( (\bbeta^*-\bb)\T\bSigma_{XX}(\bbeta^*-\bb) \).
 :::
@@ -105,23 +105,23 @@ freedom. For \( k=1 \), \( W_1(m,\sigma^2) \) is the law of \( \sigma^2\chi^2(m)
 ::: {#lem-cor-centred-wishart}
 [Centred cross-products]
 
-Let \( \bm X_1,\dots,\bm X_n \) (\( n\ge2 \)) be independent \( \Normal_k(\bmu,\bSigma) \) vectors with mean \( \bar{\bm X} \), and
-let \( \W=\sum_i(\bm X_i-\bar{\bm X})(\bm X_i-\bar{\bm X})\T \). Then \( \W\sim W_k(n-1,\bSigma) \), and \( \W \) is
-independent of \( \bar{\bm X} \).
+Let \( \mathbf{X}_1,\dots,\mathbf{X}_n \) (\( n\ge2 \)) be independent \( \Normal_k(\bmu,\bSigma) \) vectors with mean \( \bar{\mathbf{X}} \), and
+let \( \W=\sum_i(\mathbf{X}_i-\bar{\mathbf{X}})(\mathbf{X}_i-\bar{\mathbf{X}})\T \). Then \( \W\sim W_k(n-1,\bSigma) \), and \( \W \) is
+independent of \( \bar{\mathbf{X}} \).
 :::
 
 ::: {.proof}
-Let \( \X_1 \) be the \( n\times k \) matrix with rows \( \bm X_i\T \). Write \( \X_1=\bone\bmu\T+\Z_0\bSigma^{1/2} \), where
+Let \( \X_1 \) be the \( n\times k \) matrix with rows \( \mathbf{X}_i\T \). Write \( \X_1=\bone\bmu\T+\Z_0\bSigma^{1/2} \), where
 \( \bSigma^{1/2} \) is the symmetric square root (@thm-mat-square-root) and \( \Z_0 \) has independent standard normal
-entries. Let \( \bm O \) be an orthogonal \( n\times n \) matrix with first row \( n^{-1/2}\bone\T \), for instance the Helmert
-matrix of @exm-mat-helmert, and let \( \bm K \) consist of its last \( n-1 \) rows. From \( \bm O\T\bm O=\I \),
-\( \bm K\T\bm K=\I-n^{-1}\bone\bone\T \), so \( \W=\X_1\T\bm K\T\bm K\X_1=(\bm K\X_1)\T(\bm K\X_1) \), and \( \bm K\bone=\bzero \) gives
-\( \bm K\X_1=(\bm K\Z_0)\bSigma^{1/2} \).
+entries. Let \( \mathbf{O} \) be an orthogonal \( n\times n \) matrix with first row \( n^{-1/2}\bone\T \), for instance the Helmert
+matrix of @exm-mat-helmert, and let \( \mathbf{K} \) consist of its last \( n-1 \) rows. From \( \mathbf{O}\T\mathbf{O}=\I \),
+\( \mathbf{K}\T\mathbf{K}=\I-n^{-1}\bone\bone\T \), so \( \W=\X_1\T\mathbf{K}\T\mathbf{K}\X_1=(\mathbf{K}\X_1)\T(\mathbf{K}\X_1) \), and \( \mathbf{K}\bone=\bzero \) gives
+\( \mathbf{K}\X_1=(\mathbf{K}\Z_0)\bSigma^{1/2} \).
 
-Each column of \( \bm O\Z_0 \) is \( \Normal_n(\bzero,\bm O\bm O\T)=\Normal_n(\bzero,\I) \) by @thm-mvn-linear, and the
-columns are independent, so \( \bm O\Z_0 \) again has independent standard normal entries. Its first row is
-\( \sqrt n\,(\bar{\bm X}-\bmu)\T\bSigma^{-1/2} \), and its other rows form \( \bm K\Z_0 \). Hence the \( n-1 \) rows of
-\( \bm K\X_1 \) are independent \( \Normal_k(\bzero,\bSigma) \) vectors, independent of \( \bar{\bm X} \), and
+Each column of \( \mathbf{O}\Z_0 \) is \( \Normal_n(\bzero,\mathbf{O}\mathbf{O}\T)=\Normal_n(\bzero,\I) \) by @thm-mvn-linear, and the
+columns are independent, so \( \mathbf{O}\Z_0 \) again has independent standard normal entries. Its first row is
+\( \sqrt n\,(\bar{\mathbf{X}}-\bmu)\T\bSigma^{-1/2} \), and its other rows form \( \mathbf{K}\Z_0 \). Hence the \( n-1 \) rows of
+\( \mathbf{K}\X_1 \) are independent \( \Normal_k(\bzero,\bSigma) \) vectors, independent of \( \bar{\mathbf{X}} \), and
 \( \W\sim W_k(n-1,\bSigma) \).
 :::
 
@@ -163,8 +163,8 @@ With these two lemmas the random-design analogue of @thm-lm-moments follows at o
 ::: {#cor-cor-slope-covariance}
 [Covariance of the slopes under normal regressors]
 
-Let the rows \( (\bm X_i\T,Y_i) \) be independent draws from a \( (k+1) \)-variate normal distribution with
-\( \bSigma_{XX} \) positive definite and conditional variance \( \sigma^2=\Var(Y\mid\bm X) \), and let \( \hbeta \) be the least
+Let the rows \( (\mathbf{X}_i\T,Y_i) \) be independent draws from a \( (k+1) \)-variate normal distribution with
+\( \bSigma_{XX} \) positive definite and conditional variance \( \sigma^2=\Var(Y\mid\mathbf{X}) \), and let \( \hbeta \) be the least
 squares slopes from a fit with an intercept. If \( n\ge k+3 \),
 \[
 \E(\hbeta)=\bbeta,\qquad \Cov(\hbeta)=\frac{\sigma^2}{n-k-2}\,\bSigma_{XX}^{-1}.
@@ -184,8 +184,8 @@ with the average spread, grows quickly with \( k \).
 ::: {#thm-cor-prediction-error}
 [Prediction error under normal regressors]
 
-In the setting of @cor-cor-slope-covariance, let \( (\bm X_0,Y_0) \) be a further independent draw and
-\( \hat Y_0=\hat{\alpha}+\hbeta\T\bm X_0 \) the fitted predictor. If \( n\ge k+3 \), then
+In the setting of @cor-cor-slope-covariance, let \( (\mathbf{X}_0,Y_0) \) be a further independent draw and
+\( \hat Y_0=\hat{\alpha}+\hbeta\T\mathbf{X}_0 \) the fitted predictor. If \( n\ge k+3 \), then
 \[
 \E(Y_0-\hat Y_0)^2=\sigma^2\Bigl(1+\frac1n\Bigr)\frac{n-2}{n-k-2}.
 \]{#eq-cor-prediction-error}
@@ -193,28 +193,28 @@ In the setting of @cor-cor-slope-covariance, let \( (\bm X_0,Y_0) \) be a furthe
 :::
 
 ::: {.proof}
-Write \( \hat Y_0=\bar Y+\hbeta\T(\bm X_0-\bar{\bm X}) \), and use the model
-\( Y_i=\alpha+\bbeta\T\bm X_i+e_i \) of @eq-mvn-random-x-model for \( i=0,\dots,n \). Since
-\( \bar Y=\alpha+\bbeta\T\bar{\bm X}+\bar e \),
+Write \( \hat Y_0=\bar Y+\hbeta\T(\mathbf{X}_0-\bar{\mathbf{X}}) \), and use the model
+\( Y_i=\alpha+\bbeta\T\mathbf{X}_i+e_i \) of @eq-mvn-random-x-model for \( i=0,\dots,n \). Since
+\( \bar Y=\alpha+\bbeta\T\bar{\mathbf{X}}+\bar e \),
 \[
-Y_0-\hat Y_0=e_0-\bar e-(\hbeta-\bbeta)\T(\bm X_0-\bar{\bm X}).
+Y_0-\hat Y_0=e_0-\bar e-(\hbeta-\bbeta)\T(\mathbf{X}_0-\bar{\mathbf{X}}).
 \]
-Condition on \( \bm X_0,\dots,\bm X_n \). Then \( e_0 \), \( \bar e \) and \( \hbeta-\bbeta=\W^{-1}\sum_i(\bm X_i-\bar{\bm X})e_i \) are
+Condition on \( \mathbf{X}_0,\dots,\mathbf{X}_n \). Then \( e_0 \), \( \bar e \) and \( \hbeta-\bbeta=\W^{-1}\sum_i(\mathbf{X}_i-\bar{\mathbf{X}})e_i \) are
 normal with mean zero, and they are uncorrelated: \( e_0 \) is independent of the training errors, and
-\( \Cov(\bar e,\hbeta)=\sigma^2n^{-1}\W^{-1}\sum_i(\bm X_i-\bar{\bm X})=\bzero \). So the conditional mean square is
+\( \Cov(\bar e,\hbeta)=\sigma^2n^{-1}\W^{-1}\sum_i(\mathbf{X}_i-\bar{\mathbf{X}})=\bzero \). So the conditional mean square is
 \[
-\sigma^2\Bigl[1+\frac1n+(\bm X_0-\bar{\bm X})\T\W^{-1}(\bm X_0-\bar{\bm X})\Bigr].
+\sigma^2\Bigl[1+\frac1n+(\mathbf{X}_0-\bar{\mathbf{X}})\T\W^{-1}(\mathbf{X}_0-\bar{\mathbf{X}})\Bigr].
 \]
-Now \( \bm u=\bm X_0-\bar{\bm X}\sim\Normal_k\bigl(\bzero,(1+1/n)\bSigma_{XX}\bigr) \), and \( \bm u \) is independent of \( \W \),
-because \( \bm X_0 \) is independent of the training sample and \( \bar{\bm X} \) is independent of \( \W \) (@lem-cor-centred-wishart). Hence
-\( \E(\bm u\T\W^{-1}\bm u)=\tr\bigl[\E(\W^{-1})\E(\bm u\bm u\T)\bigr]=(1+1/n)\,k/(n-k-2) \) by @lem-cor-inverse-wishart, and
+Now \( \mathbf{u}=\mathbf{X}_0-\bar{\mathbf{X}}\sim\Normal_k\bigl(\bzero,(1+1/n)\bSigma_{XX}\bigr) \), and \( \mathbf{u} \) is independent of \( \W \),
+because \( \mathbf{X}_0 \) is independent of the training sample and \( \bar{\mathbf{X}} \) is independent of \( \W \) (@lem-cor-centred-wishart). Hence
+\( \E(\mathbf{u}\T\W^{-1}\mathbf{u})=\tr\bigl[\E(\W^{-1})\E(\mathbf{u}\mathbf{u}\T)\bigr]=(1+1/n)\,k/(n-k-2) \) by @lem-cor-inverse-wishart, and
 \[
 \E(Y_0-\hat Y_0)^2=\sigma^2\Bigl(1+\frac1n\Bigr)\Bigl(1+\frac{k}{n-k-2}\Bigr)
 =\sigma^2\Bigl(1+\frac1n\Bigr)\frac{n-2}{n-k-2}.
 \]
 :::
 
-The conditional mean square in the proof, \( \sigma^2[1+1/n+(\bm X_0-\bar{\bm X})\T\W^{-1}(\bm X_0-\bar{\bm X})] \), is the
+The conditional mean square in the proof, \( \sigma^2[1+1/n+(\mathbf{X}_0-\bar{\mathbf{X}})\T\W^{-1}(\mathbf{X}_0-\bar{\mathbf{X}})] \), is the
 variance behind the prediction interval of @thm-ci-prediction-interval, so that interval is exact
 for random regressors as well (@thm-cor-conditional). What the theorem adds is the average over
 new cases and over training designs.
@@ -350,35 +350,35 @@ residuals carry information about the new error, and a good predictor should use
 
 Let \( \Y=\X\bbeta+\be \) and \( y_0=\x_0\T\bbeta+e_0 \), with \( \E(\be)=\bzero \), \( \E(e_0)=0 \), \( \Cov(\be)=\sigma^2\V \)
 for a known positive definite \( \V \), \( \Cov(\be,e_0)=\sigma^2\bv_0 \) and \( \Var(e_0)=\sigma^2v_{00} \). Suppose
-\( \x_0\in\C(\X\T) \). A predictor \( \bm a\T\Y+a_0 \) is **unbiased** if \( \E(\bm a\T\Y+a_0-y_0)=0 \) for every
-\( \bbeta \). Among unbiased linear predictors, the mean squared error \( \E(y_0-\bm a\T\Y-a_0)^2 \) is minimized
+\( \x_0\in\C(\X\T) \). A predictor \( \mathbf{a}\T\Y+a_0 \) is **unbiased** if \( \E(\mathbf{a}\T\Y+a_0-y_0)=0 \) for every
+\( \bbeta \). Among unbiased linear predictors, the mean squared error \( \E(y_0-\mathbf{a}\T\Y-a_0)^2 \) is minimized
 by
 \[
 \hat y_0=\x_0\T\tilde{\bbeta}+\bv_0\T\V^{-1}(\Y-\X\tilde{\bbeta}),
 \]{#eq-cor-blup}
 
 where \( \tilde{\bbeta} \) solves the generalized least squares equations \( \X\T\V^{-1}\X\bb=\X\T\V^{-1}\Y \). With
-\( \bm c=\x_0-\X\T\V^{-1}\bv_0 \), its mean squared error is
-\( \sigma^2\bigl[v_{00}-\bv_0\T\V^{-1}\bv_0+\bm c\T(\X\T\V^{-1}\X)\ginv\bm c\bigr] \).
+\( \mathbf{c}=\x_0-\X\T\V^{-1}\bv_0 \), its mean squared error is
+\( \sigma^2\bigl[v_{00}-\bv_0\T\V^{-1}\bv_0+\mathbf{c}\T(\X\T\V^{-1}\X)\ginv\mathbf{c}\bigr] \).
 :::
 
 ::: {.proof}
-Put \( \bm\delta=\V^{-1}\bv_0 \) and split the prediction error of any linear predictor:
+Put \( \boldsymbol{\delta}=\V^{-1}\bv_0 \) and split the prediction error of any linear predictor:
 \[
-y_0-\bm a\T\Y-a_0=\underbrace{\bigl(e_0-\bm\delta\T\be\bigr)}_{u}
-+\underbrace{\bigl(\x_0\T\bbeta-\bm\delta\T\X\bbeta-(\bm a-\bm\delta)\T\Y-a_0\bigr)}_{w}.
+y_0-\mathbf{a}\T\Y-a_0=\underbrace{\bigl(e_0-\boldsymbol{\delta}\T\be\bigr)}_{u}
++\underbrace{\bigl(\x_0\T\bbeta-\boldsymbol{\delta}\T\X\bbeta-(\mathbf{a}-\boldsymbol{\delta})\T\Y-a_0\bigr)}_{w}.
 \]
-The term \( u \) is uncorrelated with \( \be \), since \( \Cov(\be,e_0-\bm\delta\T\be)=\sigma^2(\bv_0-\V\bm\delta)=\bzero \). The
+The term \( u \) is uncorrelated with \( \be \), since \( \Cov(\be,e_0-\boldsymbol{\delta}\T\be)=\sigma^2(\bv_0-\V\boldsymbol{\delta})=\bzero \). The
 term \( w \) is a constant plus a linear function of \( \Y \), hence of \( \be \), so \( \E(uw)=0 \) and
-\( \E(y_0-\bm a\T\Y-a_0)^2=\E u^2+\E w^2 \). Only \( \E w^2 \) depends on the predictor.
+\( \E(y_0-\mathbf{a}\T\Y-a_0)^2=\E u^2+\E w^2 \). Only \( \E w^2 \) depends on the predictor.
 
-Unbiasedness means \( \bm a\T\X\bbeta+a_0=\x_0\T\bbeta \) for all \( \bbeta \), that is, \( a_0=0 \) and \( \X\T\bm a=\x_0 \).
-Equivalently, \( (\bm a-\bm\delta)\T\Y \) is a linear unbiased estimator of \( \bm c\T\bbeta \), which is estimable
-because \( \x_0 \) and \( \X\T\bm\delta \) lie in \( \C(\X\T) \). For such predictors \( \E w=0 \), so \( \E w^2 \) is the variance of
-\( (\bm a-\bm\delta)\T\Y \). By @cor-opt-aitken this variance is smallest when \( (\bm a-\bm\delta)\T\Y=\bm c\T\tilde{\bbeta} \), the
-generalized least squares estimator, with variance \( \sigma^2\bm c\T(\X\T\V^{-1}\X)\ginv\bm c \). The predictor is then
-\( \bm\delta\T\Y+\bm c\T\tilde{\bbeta}=\x_0\T\tilde{\bbeta}+\bm\delta\T(\Y-\X\tilde{\bbeta}) \), which is @eq-cor-blup. Finally
-\( \E u^2=\sigma^2(v_{00}-2\bm\delta\T\bv_0+\bm\delta\T\V\bm\delta)=\sigma^2(v_{00}-\bv_0\T\V^{-1}\bv_0) \).
+Unbiasedness means \( \mathbf{a}\T\X\bbeta+a_0=\x_0\T\bbeta \) for all \( \bbeta \), that is, \( a_0=0 \) and \( \X\T\mathbf{a}=\x_0 \).
+Equivalently, \( (\mathbf{a}-\boldsymbol{\delta})\T\Y \) is a linear unbiased estimator of \( \mathbf{c}\T\bbeta \), which is estimable
+because \( \x_0 \) and \( \X\T\boldsymbol{\delta} \) lie in \( \C(\X\T) \). For such predictors \( \E w=0 \), so \( \E w^2 \) is the variance of
+\( (\mathbf{a}-\boldsymbol{\delta})\T\Y \). By @cor-opt-aitken this variance is smallest when \( (\mathbf{a}-\boldsymbol{\delta})\T\Y=\mathbf{c}\T\tilde{\bbeta} \), the
+generalized least squares estimator, with variance \( \sigma^2\mathbf{c}\T(\X\T\V^{-1}\X)\ginv\mathbf{c} \). The predictor is then
+\( \boldsymbol{\delta}\T\Y+\mathbf{c}\T\tilde{\bbeta}=\x_0\T\tilde{\bbeta}+\boldsymbol{\delta}\T(\Y-\X\tilde{\bbeta}) \), which is @eq-cor-blup. Finally
+\( \E u^2=\sigma^2(v_{00}-2\boldsymbol{\delta}\T\bv_0+\boldsymbol{\delta}\T\V\boldsymbol{\delta})=\sigma^2(v_{00}-\bv_0\T\V^{-1}\bv_0) \).
 :::
 
 The predictor is the estimated mean at the new point plus a prediction of the new error \( e_0 \) from
@@ -404,7 +404,7 @@ expected error on a new case, in units of \( \sigma^2 \). By what factor does th
 ::: {#exr-cor-linearized}
 [B1]
 
-For any predictor \( g(\bm X) \) with \( 0<\Var g<\infty \), let \( \tilde g=\E Y+b\,(g-\E g) \) with
+For any predictor \( g(\mathbf{X}) \) with \( 0<\Var g<\infty \), let \( \tilde g=\E Y+b\,(g-\E g) \) with
 \( b=\Cov(Y,g)/\Var g \). Show that \( \tilde g \) predicts at least as well as \( g \) and that
 \( \E(Y-\tilde g)^2=\Var(Y)\bigl(1-\operatorname{corr}(Y,g)^2\bigr) \). Conclude that among such *linearized*
 predictors, a higher squared correlation with \( Y \) means a smaller mean squared error, and that
@@ -455,7 +455,7 @@ design, so by @lem-cor-conditioning \( s^2 \) is independent of the regressors a
 ::: {#exr-cor-omitted-prediction}
 [C1]
 
-Let the rows \( (\bm X_i\T,Y_i) \) be jointly normal with \( k \) regressors, and fit only the first \( k_1<k \) of them.
+Let the rows \( (\mathbf{X}_i\T,Y_i) \) be jointly normal with \( k \) regressors, and fit only the first \( k_1<k \) of them.
 Show that the expected error on a new case is \( \sigma_1^2(1+1/n)(n-2)/(n-k_1-2) \), where \( \sigma_1^2 \) is the
 error variance of the best linear predictor from the first \( k_1 \) regressors. *Hint:* under joint
 normality the smaller model is itself a correct normal model with random regressors. For
@@ -464,8 +464,8 @@ the largest \( k_1 \) for which it is?
 :::
 
 ::: {.solution}
-The pairs \( (\bm X_{1i},Y_i) \), with \( \bm X_{1i} \) the first \( k_1 \) regressors, are jointly normal, so given
-\( \bm X_1 \) the response follows a normal linear model with \( k_1 \) regressors and error variance \( \sigma_1^2 \)
+The pairs \( (\mathbf{X}_{1i},Y_i) \), with \( \mathbf{X}_{1i} \) the first \( k_1 \) regressors, are jointly normal, so given
+\( \mathbf{X}_1 \) the response follows a normal linear model with \( k_1 \) regressors and error variance \( \sigma_1^2 \)
 (@eq-mvn-random-x-model). The fitted predictor uses only these pairs, so @thm-cor-prediction-error applies with
 \( k_1 \) and \( \sigma_1^2 \) in place of \( k \) and \( \sigma^2 \). With the numbers given, the full model has expected
 error \( 1.607\sigma^2 \) and the smaller one \( 1.2\cdot(31/30)\cdot28/24\,\sigma^2=1.447\sigma^2 \), so the smaller model

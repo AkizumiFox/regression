@@ -66,16 +66,16 @@ Let \( \hbeta=(\X\T\X)^{-1}\X\T\Y \) and \( s^2=\norm{\Y-\X\hbeta}^2/(n-p) \).
    \( T=(\blambda\T\hbeta-\blambda\T\bbeta)/\bigl(s\sqrt{\blambda\T(\X\T\X)^{-1}\blambda}\bigr) \) has the
    \( t(n-p) \) distribution and is independent of \( \X \).
 
-2. Let \( \bLambda \) be a fixed \( p\times q \) matrix of rank \( q \), let \( \bm d\in\Real^q \), and put
+2. Let \( \bLambda \) be a fixed \( p\times q \) matrix of rank \( q \), let \( \mathbf{d}\in\Real^q \), and put
    \[
-F=\frac{(\bLambda\T\hbeta-\bm d)\T\bigl[\bLambda\T(\X\T\X)^{-1}\bLambda\bigr]^{-1}(\bLambda\T\hbeta-\bm d)}{q\,s^2}.
+F=\frac{(\bLambda\T\hbeta-\mathbf{d})\T\bigl[\bLambda\T(\X\T\X)^{-1}\bLambda\bigr]^{-1}(\bLambda\T\hbeta-\mathbf{d})}{q\,s^2}.
 \]
    Given \( \X \), \( F\sim F\bigl(q,n-p,\gamma(\X)\bigr) \) with
    \[
-\gamma(\X)=\frac{(\bLambda\T\bbeta-\bm d)\T\bigl[\bLambda\T(\X\T\X)^{-1}\bLambda\bigr]^{-1}(\bLambda\T\bbeta-\bm d)}{\sigma^2}.
+\gamma(\X)=\frac{(\bLambda\T\bbeta-\mathbf{d})\T\bigl[\bLambda\T(\X\T\X)^{-1}\bLambda\bigr]^{-1}(\bLambda\T\bbeta-\mathbf{d})}{\sigma^2}.
 \]{#eq-cor-random-noncentrality}
 
-   If \( \bLambda\T\bbeta=\bm d \), then \( F\sim F(q,n-p) \) unconditionally, independently of \( \X \).
+   If \( \bLambda\T\bbeta=\mathbf{d} \), then \( F\sim F(q,n-p) \) unconditionally, independently of \( \X \).
 
 3. A confidence set whose coverage probability given \( \X \) equals \( 1-\alpha \) for almost every \( \X \)
    has unconditional coverage \( 1-\alpha \). A test whose rejection probability under the null
@@ -95,12 +95,12 @@ conditional law given \( \X \).
 (a) By @cor-opt-t with \( d=\blambda\T\bbeta \), the conditional law of \( T \) is \( t(n-p) \). It is the same
 for every design, so @lem-cor-conditioning gives the unconditional law and the independence.
 
-(b) Write \( \bm W=\bLambda\T(\X\T\X)^{-1}\bLambda \), which is positive definite because \( \bLambda \) has rank
-\( q \). By @thm-opt-sampling(a), given \( \X \), \( \bm D=\bLambda\T\hbeta-\bm d\sim\Normal_q(\bLambda\T\bbeta-\bm d,\sigma^2\bm W) \),
-so by @thm-qf-chisq(b) with \( \A=\bm W^{-1}/\sigma^2 \) (for which \( \A\cdot\sigma^2\bm W=\I \) is idempotent) the
-quadratic form \( \bm D\T\bm W^{-1}\bm D/\sigma^2 \) is \( \chi^2(q,\gamma(\X)) \). It is independent of
+(b) Write \( \mathbf{W}=\bLambda\T(\X\T\X)^{-1}\bLambda \), which is positive definite because \( \bLambda \) has rank
+\( q \). By @thm-opt-sampling(a), given \( \X \), \( \mathbf{D}=\bLambda\T\hbeta-\mathbf{d}\sim\Normal_q(\bLambda\T\bbeta-\mathbf{d},\sigma^2\mathbf{W}) \),
+so by @thm-qf-chisq(b) with \( \A=\mathbf{W}^{-1}/\sigma^2 \) (for which \( \A\cdot\sigma^2\mathbf{W}=\I \) is idempotent) the
+quadratic form \( \mathbf{D}\T\mathbf{W}^{-1}\mathbf{D}/\sigma^2 \) is \( \chi^2(q,\gamma(\X)) \). It is independent of
 \( (n-p)s^2/\sigma^2\sim\chi^2(n-p) \) by @thm-opt-sampling(b) and (c). Hence the conditional law of \( F \)
-is \( F(q,n-p,\gamma(\X)) \) (@def-qf-noncentral-f). Under \( \bLambda\T\bbeta=\bm d \) the noncentrality is
+is \( F(q,n-p,\gamma(\X)) \) (@def-qf-noncentral-f). Under \( \bLambda\T\bbeta=\mathbf{d} \) the noncentrality is
 zero for every design, and @lem-cor-conditioning applies.
 
 (c) Let \( A \) be the event that the set covers the true value, or that the test rejects. Then

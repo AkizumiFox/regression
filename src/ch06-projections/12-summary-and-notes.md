@@ -42,7 +42,7 @@
            \( \X\T\X \), which squares the condition number ([Section 6.10](10-computation.html)).
 
 10. In the population, least squares estimates the \( L^2 \) projection of \( Y \) onto
-            linear functions of \( \bm X \), whether or not the regression function is linear
+            linear functions of \( \mathbf{X} \), whether or not the regression function is linear
             (@thm-proj-blp and @prp-proj-consistency).
 
 :::

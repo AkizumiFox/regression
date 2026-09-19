@@ -1,7 +1,7 @@
 # Expectation of quadratic forms
 
 Sums of squares are quadratic forms in the response. The sample variance is
-\( (n-1)^{-1}\Y\T(\I-n^{-1}\bm J)\Y \). The residual sum of squares of a regression is
+\( (n-1)^{-1}\Y\T(\I-n^{-1}\mathbf{J})\Y \). The residual sum of squares of a regression is
 \( \Y\T(\I-\M)\Y \), where \( \M \) is the projection onto the column space of \( \X \)
 ([Chapter 6](../ch06-projections/index.html)). Test statistics are ratios of such forms. Their expectations
 follow from a short trace argument that needs no distributional assumption.
@@ -19,7 +19,7 @@ Let \( \Y \) be a \( p\times1 \) random vector with finite second moments, \( \E
 :::
 
 ::: {.proof}
-A \( 1\times1 \) matrix equals its trace, and \( \tr(\bm a\bm b\T)=\bm b\T\bm a \)
+A \( 1\times1 \) matrix equals its trace, and \( \tr(\mathbf{a}\mathbf{b}\T)=\mathbf{b}\T\mathbf{a} \)
 (@thm-mat-trace-cyclic), so \( \Y\T\A\Y=\tr(\A\Y\Y\T) \). By
 @prp-rv-expectation-linear and @prp-rv-cov-basic(b),
 \[
@@ -65,9 +65,9 @@ immediate. (c) is (a) with \( \bb=\bmu \) and \( \A=\bSigma^{-1} \), so the trac
 [Sample variance with unequal means and variances]
 
 Let \( Y_1,\dots,Y_n \) be uncorrelated with means \( \mu_i \) and variances \( \sigma_i^2 \), and let
-\( S^2=(n-1)^{-1}\Y\T\bm C\Y \) with \( \bm C=\I-n^{-1}\bm J \). Here
-\( \bSigma=\diag(\sigma_1^2,\dots,\sigma_n^2) \), so \( \tr(\bm C\bSigma)=(1-1/n)\sum_i\sigma_i^2 \), and
-\( \bmu\T\bm C\bmu=\sum_i(\mu_i-\bar{\mu})^2 \). Therefore
+\( S^2=(n-1)^{-1}\Y\T\mathbf{C}\Y \) with \( \mathbf{C}=\I-n^{-1}\mathbf{J} \). Here
+\( \bSigma=\diag(\sigma_1^2,\dots,\sigma_n^2) \), so \( \tr(\mathbf{C}\bSigma)=(1-1/n)\sum_i\sigma_i^2 \), and
+\( \bmu\T\mathbf{C}\bmu=\sum_i(\mu_i-\bar{\mu})^2 \). Therefore
 \[
 \E(S^2)=\overline{\sigma^2}+\frac{1}{n-1}\sum_{i=1}^n(\mu_i-\bar{\mu})^2,
 \qquad \overline{\sigma^2}=\frac1n\sum_{i=1}^n\sigma_i^2 .
@@ -80,20 +80,20 @@ square estimates \( \sigma^2 \) only when the mean structure is right.
 ::: {#exm-rv-rss-bias}
 [Residual sum of squares under a wrong mean]
 
-Let \( \Cov(\Y)=\sigma^2\I_n \) and \( \E(\Y)=\bm\theta \), where \( \bm\theta \) need not lie in
+Let \( \Cov(\Y)=\sigma^2\I_n \) and \( \E(\Y)=\boldsymbol{\theta} \), where \( \boldsymbol{\theta} \) need not lie in
 \( \C(\X) \). The residual sum of squares is \( \Y\T(\I-\M)\Y \), where \( \M \) is symmetric and
 idempotent of rank \( r=\rank(\X) \), so \( \tr(\I-\M)=n-r \) (@thm-mat-idempotent). By
 @cor-rv-quadform-special(b),
 \[
-\E(\text{RSS})=\sigma^2(n-r)+\norm{(\I-\M)\bm\theta}^2 .
+\E(\text{RSS})=\sigma^2(n-r)+\norm{(\I-\M)\boldsymbol{\theta}}^2 .
 \]{#eq-rv-rss-mean}
 
-If the model is right, \( \bm\theta\in\C(\X) \), the second term vanishes and
+If the model is right, \( \boldsymbol{\theta}\in\C(\X) \), the second term vanishes and
 \( \text{RSS}/(n-r) \) is unbiased for \( \sigma^2 \). If the model is wrong, the estimate is
 biased upwards by the squared distance from the true mean to the model space, divided by
 \( n-r \). For instance, fit a straight line at \( x=1,\dots,6 \) when the true mean is the parabola
 \( \theta_i=\tfrac14(x_i-3.5)^2 \) and \( \sigma^2=1 \). Then \( \sigma^2(n-r)=4 \),
-\( \norm{(\I-\M)\bm\theta}^2=2.333 \), and \( \E(\text{RSS})=6.333 \).
+\( \norm{(\I-\M)\boldsymbol{\theta}}^2=2.333 \), and \( \E(\text{RSS})=6.333 \).
 Chapter 19 studies such departures systematically.
 :::
 
@@ -144,25 +144,25 @@ assumptions. [Chapter 4](../ch04-quadratic-forms/index.html) gives the normal ca
 Let \( Y_1,\dots,Y_n \) be independent with means \( \theta_1,\dots,\theta_n \) and common central
 moments \( \sigma^2=\E(Y_i-\theta_i)^2 \), \( \mu_3=\E(Y_i-\theta_i)^3 \) and
 \( \mu_4=\E(Y_i-\theta_i)^4<\infty \). Let \( \A \) be a constant symmetric \( n\times n \) matrix, and
-let \( \bm a=(a_{11},\dots,a_{nn})\T \) be its diagonal. Then
+let \( \mathbf{a}=(a_{11},\dots,a_{nn})\T \) be its diagonal. Then
 \[
-\Var(\Y\T\A\Y)=(\mu_4-3\sigma^4)\,\bm a\T\bm a+2\sigma^4\tr(\A^2)
-+4\sigma^2\,\bm\theta\T\A^2\bm\theta+4\mu_3\,\bm\theta\T\A\bm a .
+\Var(\Y\T\A\Y)=(\mu_4-3\sigma^4)\,\mathbf{a}\T\mathbf{a}+2\sigma^4\tr(\A^2)
++4\sigma^2\,\boldsymbol{\theta}\T\A^2\boldsymbol{\theta}+4\mu_3\,\boldsymbol{\theta}\T\A\mathbf{a} .
 \]
 :::
 
 ::: {.proof}
-Write \( \Y=\bm\theta+\be \), where the \( \varepsilon_i \) are independent with mean zero. Then
+Write \( \Y=\boldsymbol{\theta}+\be \), where the \( \varepsilon_i \) are independent with mean zero. Then
 \[
-\Y\T\A\Y=q+\ell+\bm\theta\T\A\bm\theta,\qquad q=\be\T\A\be,\quad \ell=2\bb\T\be,\quad \bb=\A\bm\theta,
+\Y\T\A\Y=q+\ell+\boldsymbol{\theta}\T\A\boldsymbol{\theta},\qquad q=\be\T\A\be,\quad \ell=2\bb\T\be,\quad \bb=\A\boldsymbol{\theta},
 \]
 so \( \Var(\Y\T\A\Y)=\Var(q)+\Var(\ell)+2\Cov(q,\ell) \). We compute the three terms.
 
-*The linear term.* \( \Cov(\be)=\sigma^2\I \), so \( \Var(\ell)=4\sigma^2\bb\T\bb=4\sigma^2\bm\theta\T\A^2\bm\theta \).
+*The linear term.* \( \Cov(\be)=\sigma^2\I \), so \( \Var(\ell)=4\sigma^2\bb\T\bb=4\sigma^2\boldsymbol{\theta}\T\A^2\boldsymbol{\theta} \).
 
 *The cross term.* Since \( \E(\ell)=0 \), \( \Cov(q,\ell)=\E(q\ell)=2\sum_{i,j,k}a_{ij}b_k\E(\varepsilon_i\varepsilon_j\varepsilon_k) \).
 By independence and zero means, \( \E(\varepsilon_i\varepsilon_j\varepsilon_k) \) vanishes unless
-\( i=j=k \), when it equals \( \mu_3 \). So \( \Cov(q,\ell)=2\mu_3\sum_ia_{ii}b_i=2\mu_3\,\bm\theta\T\A\bm a \).
+\( i=j=k \), when it equals \( \mu_3 \). So \( \Cov(q,\ell)=2\mu_3\sum_ia_{ii}b_i=2\mu_3\,\boldsymbol{\theta}\T\A\mathbf{a} \).
 
 *The quadratic term.* \( \E(q^2)=\sum_{i,j,k,l}a_{ij}a_{kl}\E(\varepsilon_i\varepsilon_j\varepsilon_k\varepsilon_l) \).
 The fourth-order moment is \( \mu_4 \) if all four indices agree. It is \( \sigma^4 \) if the indices
@@ -171,19 +171,19 @@ form two distinct pairs, which happens in three patterns: \( i=j\ne k=l \), \( i
 the symmetry of \( \A \),
 \[
 \E(q^2)=\mu_4\sum_ia_{ii}^2+\sigma^4\Bigl[\sum_{i\ne k}a_{ii}a_{kk}+2\sum_{i\ne j}a_{ij}^2\Bigr]
-=\mu_4\,\bm a\T\bm a+\sigma^4\bigl[(\tr\A)^2-\bm a\T\bm a+2\tr(\A^2)-2\bm a\T\bm a\bigr],
+=\mu_4\,\mathbf{a}\T\mathbf{a}+\sigma^4\bigl[(\tr\A)^2-\mathbf{a}\T\mathbf{a}+2\tr(\A^2)-2\mathbf{a}\T\mathbf{a}\bigr],
 \]
 since \( \sum_{i,j}a_{ij}^2=\tr(\A^2) \). By @thm-rv-quadform-mean, \( \E(q)=\sigma^2\tr\A \), and
-subtracting its square gives \( \Var(q)=(\mu_4-3\sigma^4)\bm a\T\bm a+2\sigma^4\tr(\A^2) \).
+subtracting its square gives \( \Var(q)=(\mu_4-3\sigma^4)\mathbf{a}\T\mathbf{a}+2\sigma^4\tr(\A^2) \).
 Adding the three terms proves the formula.
 :::
 
 For normal errors, \( \mu_3=0 \) and \( \mu_4=3\sigma^4 \), and the formula collapses to
-\( 2\sigma^4\tr(\A^2)+4\sigma^2\bm\theta\T\A^2\bm\theta \). Both extra terms describe how
+\( 2\sigma^4\tr(\A^2)+4\sigma^2\boldsymbol{\theta}\T\A^2\boldsymbol{\theta} \). Both extra terms describe how
 non-normality leaks into second-order behaviour. The kurtosis term depends on \( \A \) only
 through its diagonal. The skewness term needs both a skewed error distribution and a
 mean that the form does not annihilate. For the residual sum of squares of a correct
-model, \( \A\bm\theta=(\I-\M)\bm\theta=\bzero \), so the skewness term disappears but the kurtosis
+model, \( \A\boldsymbol{\theta}=(\I-\M)\boldsymbol{\theta}=\bzero \), so the skewness term disappears but the kurtosis
 term remains.
 
 ::: {#exm-rv-rss-variance}
@@ -257,8 +257,8 @@ Is \( S^2 \) biased up or down when \( \phi>0 \)? What happens as \( n\to\infty 
 :::
 
 ::: {.solution}
-With \( \bm C=\I-n^{-1}\bone\bone\T \) and \( \E(\Y)=\mu\bone \),
-\( \bm C\E(\Y)=\bzero \), so \( \E(\Y\T\bm C\Y)=\tr(\bm C\bSigma)=\tr(\bSigma)-n^{-1}\bone\T\bSigma\bone \). Here
+With \( \mathbf{C}=\I-n^{-1}\bone\bone\T \) and \( \E(\Y)=\mu\bone \),
+\( \mathbf{C}\E(\Y)=\bzero \), so \( \E(\Y\T\mathbf{C}\Y)=\tr(\mathbf{C}\bSigma)=\tr(\bSigma)-n^{-1}\bone\T\bSigma\bone \). Here
 \( \tr(\bSigma)=n\sigma^2 \), and \( \bone\T\bSigma\bone \) sums all entries. There are \( n \) diagonal entries and
 \( 2(n-k) \) entries at lag \( k \), so
 \( \bone\T\bSigma\bone=\sigma^2\bigl[n+2\sum_{k=1}^{n-1}(n-k)\phi^k\bigr] \). Dividing
@@ -284,10 +284,10 @@ fourth central moment \( \mu_4 \). Use @thm-rv-quadform-variance to show that
 :::
 
 ::: {.solution}
-Take \( \A=\bm C/(n-1) \) and \( \bm\theta=\mu\bone \). Then
-\( \A\bm\theta=\bzero \), so the last two terms of @thm-rv-quadform-variance vanish. Every diagonal
-entry of \( \A \) is \( (1-1/n)/(n-1)=1/n \), so \( \bm a\T\bm a=1/n \), and
-\( \tr(\A^2)=\tr(\bm C)/(n-1)^2=1/(n-1) \). This gives the formula. Normal data have
+Take \( \A=\mathbf{C}/(n-1) \) and \( \boldsymbol{\theta}=\mu\bone \). Then
+\( \A\boldsymbol{\theta}=\bzero \), so the last two terms of @thm-rv-quadform-variance vanish. Every diagonal
+entry of \( \A \) is \( (1-1/n)/(n-1)=1/n \), so \( \mathbf{a}\T\mathbf{a}=1/n \), and
+\( \tr(\A^2)=\tr(\mathbf{C})/(n-1)^2=1/(n-1) \). This gives the formula. Normal data have
 \( \mu_4=3\sigma^4 \) and \( \Var(S^2)=2\sigma^4/(n-1) \). Heavy tails (\( \mu_4>3\sigma^4 \)) add a term of the same
 order \( 1/n \), so the normal-theory variance is wrong even in large samples.
 :::
@@ -295,8 +295,8 @@ order \( 1/n \), so the normal-theory variance is wrong even in large samples.
 ::: {#exr-rv-cov-quadforms}
 [B4]
 
-Under the conditions of @thm-rv-quadform-variance with \( \bm\theta=\bzero \), show that
-\( \Cov(\Y\T\A\Y,\Y\T\B\Y)=(\mu_4-3\sigma^4)\bm a\T\bm b+2\sigma^4\tr(\A\B) \), where \( \bm a \) and \( \bm b \) are the
+Under the conditions of @thm-rv-quadform-variance with \( \boldsymbol{\theta}=\bzero \), show that
+\( \Cov(\Y\T\A\Y,\Y\T\B\Y)=(\mu_4-3\sigma^4)\mathbf{a}\T\mathbf{b}+2\sigma^4\tr(\A\B) \), where \( \mathbf{a} \) and \( \mathbf{b} \) are the
 diagonals of the symmetric matrices \( \A \) and \( \B \). *Hint:* apply the theorem to \( \A+\B \).
 :::
 

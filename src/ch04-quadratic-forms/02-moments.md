@@ -23,14 +23,14 @@ S^2=\frac{1}{n-1}\sum_{i=1}^n(Y_i-\bar{Y})^2,\qquad
 Q=\frac{1}{2(n-1)}\sum_{i=1}^{n-1}(Y_{i+1}-Y_i)^2 ,
 \]
 the sample variance and the **mean square successive difference**. In matrix
-form \( S^2=\Y\T\bm C\Y/(n-1) \) with \( \bm C=\I-n^{-1}\bone\bone\T \), and
+form \( S^2=\Y\T\mathbf{C}\Y/(n-1) \) with \( \mathbf{C}=\I-n^{-1}\bone\bone\T \), and
 \( Q=\Y\T\bD\T\bD\Y/\{2(n-1)\} \), where \( \bD \) is the \( (n-1)\times n \) first-difference
 matrix with rows \( (\dots,-1,1,\dots) \). Both matrices annihilate \( \bone \), so both
-estimators ignore a constant mean. Since \( \tr(\bm C)=n-1 \) and
+estimators ignore a constant mean. Since \( \tr(\mathbf{C})=n-1 \) and
 \( \tr(\bD\T\bD)=\tr(\bD\bD\T)=2(n-1) \), @eq-qf-mean with \( \bSigma=\sigma^2\I \) shows
 that both are unbiased when the mean is constant.
 
-Now let the mean drift linearly, \( \mu_i=\mu_0+\theta i \). Then \( \bm C\bmu \) is the
+Now let the mean drift linearly, \( \mu_i=\mu_0+\theta i \). Then \( \mathbf{C}\bmu \) is the
 centred trend and \( \bD\bmu=\theta\bone_{n-1} \), so
 \[
 \E(S^2)=\sigma^2+\theta^2\frac{n(n+1)}{12},\qquad
@@ -78,8 +78,8 @@ have the same law, and so do \( \Y\T\A\Y \) and
 Put \( \W=\Q\T\Z \), again \( \Normal_k(\bzero,\I) \). Then
 \( \Z\T\bL\T\A\bL\Z=\W\T\bLambda\W=\sum\lambda_jW_j^2 \) and
 \( \bmu\T\A\bL\Z=\bb\T\W \), which is @eq-qf-canonical. The completed square is
-algebra. Finally, \( \bL\T\A\bL=\bH\bm F \) with \( \bm F=\A\bL \) and \( \bH=\bL\T \), and
-\( \bm F\bH=\A\bSigma \). By @prp-mat-eigen-basic(d) these two products have the same nonzero
+algebra. Finally, \( \bL\T\A\bL=\bH\mathbf{F} \) with \( \mathbf{F}=\A\bL \) and \( \bH=\bL\T \), and
+\( \mathbf{F}\bH=\A\bSigma \). By @prp-mat-eigen-basic(d) these two products have the same nonzero
 eigenvalues, with the same multiplicities.
 :::
 
@@ -88,8 +88,8 @@ is either a scaled noncentral \( \chi^2(1) \) variable, with scale \( \lambda_j 
 normal variable with mean zero, when \( \lambda_j=0 \) but \( b_j\ne0 \). Because the
 \( \lambda_j \) may be negative, \( \Y\T\A\Y \) need not be positive. The linear pieces
 are special to singular covariances. If \( \bSigma \) is positive definite, \( \bL \) can be
-taken square and nonsingular, and then \( \lambda_j=0 \) gives \( \A\bL\bm q_j=\bzero \) for
-the \( j \)th column \( \bm q_j \) of \( \Q \), so \( b_j=(\A\bL\bm q_j)\T\bmu=0 \). A linear piece
+taken square and nonsingular, and then \( \lambda_j=0 \) gives \( \A\bL\mathbf{q}_j=\bzero \) for
+the \( j \)th column \( \mathbf{q}_j \) of \( \Q \), so \( b_j=(\A\bL\mathbf{q}_j)\T\bmu=0 \). A linear piece
 needs a direction in which \( \A \) responds to the mean while the noise is absent.
 
 ::: {#cor-qf-mgf}
@@ -117,14 +117,14 @@ argument \( \lambda_jt \), and multiply by \( e^{-tb_j^2/\lambda_j} \). The expo
 [Moments of normal quadratic forms]
 
 Let \( \Y\sim\Normal_n(\bmu,\bSigma) \), let \( \A \) and \( \B \) be symmetric \( n\times n \)
-matrices, and let \( \bm K \) be an \( m\times n \) matrix. Then
+matrices, and let \( \mathbf{K} \) be an \( m\times n \) matrix. Then
 
 ::: {.enumerate options="label=(\alph*)"}
 1. \( \E(\Y\T\A\Y)=\tr(\A\bSigma)+\bmu\T\A\bmu \);
 
 2. \( \Var(\Y\T\A\Y)=2\tr\{(\A\bSigma)^2\}+4\bmu\T\A\bSigma\A\bmu \);
 
-3. \( \Cov(\bm K\Y,\Y\T\A\Y)=2\bm K\bSigma\A\bmu \);
+3. \( \Cov(\mathbf{K}\Y,\Y\T\A\Y)=2\mathbf{K}\bSigma\A\bmu \);
 
 4. \( \Cov(\Y\T\A\Y,\Y\T\B\Y)=2\tr(\A\bSigma\B\bSigma)+4\bmu\T\A\bSigma\B\bmu \).
 :::
@@ -144,9 +144,9 @@ Now \( \tr\{(\bL\T\A\bL)^2\}=\tr(\bL\T\A\bSigma\A\bL)=\tr(\A\bSigma\A\bSigma) \)
 \( 4\bmu\T\A\bSigma\A\bmu \).
 For (c), write \( \Y=\bmu+\bL\Z \) as in the proof of @thm-qf-canonical. Then
 \( \Y\T\A\Y-\E(\Y\T\A\Y)=\Z\T\bL\T\A\bL\Z-\tr(\A\bSigma)+2\bmu\T\A\bL\Z \) and
-\( \bm K\Y-\E(\bm K\Y)=\bm K\bL\Z \). Every entry of \( \E[\Z(\Z\T\bm G\Z)] \) is a sum of
+\( \mathbf{K}\Y-\E(\mathbf{K}\Y)=\mathbf{K}\bL\Z \). Every entry of \( \E[\Z(\Z\T\mathbf{G}\Z)] \) is a sum of
 third moments of a \( \Normal_k(\bzero,\I) \) vector, which vanish. So only the linear
-term contributes, and \( \E[\bm K\bL\Z\cdot2\Z\T\bL\T\A\bmu]=2\bm K\bL\bL\T\A\bmu \).
+term contributes, and \( \E[\mathbf{K}\bL\Z\cdot2\Z\T\bL\T\A\bmu]=2\mathbf{K}\bL\bL\T\A\bmu \).
 For (d), apply (b) to \( \A \), \( \B \) and \( \A+\B \), and use
 \( \Var(X+Y)=\Var X+\Var Y+2\Cov(X,Y) \).
 :::
@@ -154,14 +154,14 @@ For (d), apply (b) to \( \A \), \( \B \) and \( \A+\B \), and use
 For \( \bmu=\bzero \), part (b) can also be read off the fourth moments of a normal vector
 (@exr-mvn-fourth-moments). The variance has the same two-part structure as the mean: a pure-noise term, plus a
 term that is present only when \( \A \) responds to the mean. Part (c) shows that a
-quadratic form and a linear form are uncorrelated when \( \bm K\bSigma\A=\bm 0 \). Under
+quadratic form and a linear form are uncorrelated when \( \mathbf{K}\bSigma\A=\mathbf{0} \). Under
 normality this will turn out to give independence (@thm-qf-indep-linear).
 
 ::: {#exm-qf-drift-variance}
 [@exm-qf-drift, continued]
 
 With \( \bSigma=\sigma^2\I \) and a constant mean, @thm-qf-mean-var(b) gives
-\( \Var(S^2)=2\sigma^4\tr(\bm C^2)/(n-1)^2=2\sigma^4/(n-1) \). For \( Q \), the matrix
+\( \Var(S^2)=2\sigma^4\tr(\mathbf{C}^2)/(n-1)^2=2\sigma^4/(n-1) \). For \( Q \), the matrix
 \( \bD\bD\T \) is tridiagonal with \( 2 \) on the diagonal and \( -1 \) beside it, so
 \( \tr\{(\bD\T\bD)^2\}=\tr\{(\bD\bD\T)^2\}=4(n-1)+2(n-2)=6n-8 \) and
 \[
@@ -227,9 +227,9 @@ Let \( \Y\sim\Normal_2(\bzero,\I) \) and \( \A=\begin{psmallmatrix}0&1\\0&0\end{
 Let \( (U_i,W_i) \), \( i=1,\dots,n \), be independent copies of a bivariate normal pair with
 variances \( \sigma_U^2 \), \( \sigma_W^2 \) and covariance \( \sigma_{UW} \), and let
 \( s_{UW}=(n-1)^{-1}\sum_i(U_i-\bar{U})(W_i-\bar{W}) \). Write \( s_{UW}=\Y\T\A\Y \) for the stacked vector
-\( \Y=(\bm U\T,\bm W\T)\T \) and a symmetric \( 2n\times2n \) matrix \( \A \), and use @thm-qf-mean-var
+\( \Y=(\mathbf{U}\T,\mathbf{W}\T)\T \) and a symmetric \( 2n\times2n \) matrix \( \A \), and use @thm-qf-mean-var
 to show that \( \Var(s_{UW})=(\sigma_U^2\sigma_W^2+\sigma_{UW}^2)/(n-1) \). Check the answer against
-\( \Var(S^2) \) when \( \bm U=\bm W \).
+\( \Var(S^2) \) when \( \mathbf{U}=\mathbf{W} \).
 :::
 
 ::: {#exr-qf-kurtosis}
@@ -247,7 +247,7 @@ correlation have for heavy-tailed errors?
 
 ::: {.solution}
 In the one-way layout the between-group matrix is
-\( \A=\M-\bP_1 \) and the within-group matrix is \( \B=\I-\M \). They satisfy \( \A\B=\bm0 \), so
+\( \A=\M-\bP_1 \) and the within-group matrix is \( \B=\I-\M \). They satisfy \( \A\B=\mathbf{0} \), so
 \( \tr(\A\B)=0 \) and the covariance reduces to \( (\mu_4-3\sigma^4)\sum_ia_{ii}b_{ii} \). An observation in
 group \( \ell \) has \( a_{ii}=1/n_\ell-1/n \) and \( b_{ii}=1-1/n_\ell \), so
 \[
@@ -283,7 +283,7 @@ Let \( \Y\sim\Normal_n(\bzero,\bSigma) \). Use @cor-qf-mgf and @prp-mat-eigen-ba
 [C1]
 
 Let \( \Y\sim\Normal_n(\mu\bone,\sigma^2\I) \) with \( \mu \) and \( \sigma^2 \) unknown. Among symmetric \( \A \) with
-\( \E(\Y\T\A\Y)=\sigma^2 \) for all \( \mu \) and \( \sigma^2 \), show that \( \A=\bm C/(n-1) \), which gives \( S^2 \),
+\( \E(\Y\T\A\Y)=\sigma^2 \) for all \( \mu \) and \( \sigma^2 \), show that \( \A=\mathbf{C}/(n-1) \), which gives \( S^2 \),
 uniquely minimizes \( \Var(\Y\T\A\Y) \) at every parameter value. (Compare
 @exr-rv-best-quadratic, where the mean is known to be zero.)
 :::
@@ -291,12 +291,12 @@ uniquely minimizes \( \Var(\Y\T\A\Y) \) at every parameter value. (Compare
 ::: {.solution}
 Since \( \E(\Y\T\A\Y)=\sigma^2\tr\A+\mu^2\bone\T\A\bone \),
 unbiasedness means \( \tr\A=1 \) and \( \bone\T\A\bone=0 \). By @thm-qf-mean-var,
-\( \Var(\Y\T\A\Y)=2\sigma^4\tr(\A^2)+4\mu^2\sigma^2\norm{\A\bone}^2 \). The map \( \A\mapsto\bm C\A\bm C \) is
+\( \Var(\Y\T\A\Y)=2\sigma^4\tr(\A^2)+4\mu^2\sigma^2\norm{\A\bone}^2 \). The map \( \A\mapsto\mathbf{C}\A\mathbf{C} \) is
 an orthogonal projection for the inner product \( \tr(\A\B) \) on symmetric matrices, so
-\( \tr(\A^2)\ge\tr\{(\bm C\A\bm C)^2\} \), with equality iff \( \A=\bm C\A\bm C \). Also
-\( \tr(\bm C\A\bm C)=\tr\A-\bone\T\A\bone/n=1 \). The symmetric matrix \( \bm C\A\bm C \) has rank at most \( n-1 \).
+\( \tr(\A^2)\ge\tr\{(\mathbf{C}\A\mathbf{C})^2\} \), with equality iff \( \A=\mathbf{C}\A\mathbf{C} \). Also
+\( \tr(\mathbf{C}\A\mathbf{C})=\tr\A-\bone\T\A\bone/n=1 \). The symmetric matrix \( \mathbf{C}\A\mathbf{C} \) has rank at most \( n-1 \).
 If \( \lambda_1,\dots,\lambda_{n-1} \) are its eigenvalues on \( \bone\perpc \), the Cauchy–Schwarz inequality
 gives \( 1=(\sum\lambda_i)^2\le(n-1)\sum\lambda_i^2 \). Hence \( \tr(\A^2)\ge1/(n-1) \), with equality iff
-\( \A=\bm C\A\bm C \) and all \( \lambda_i=1/(n-1) \), that is, iff \( \A=\bm C/(n-1) \). That matrix also has
+\( \A=\mathbf{C}\A\mathbf{C} \) and all \( \lambda_i=1/(n-1) \), that is, iff \( \A=\mathbf{C}/(n-1) \). That matrix also has
 \( \A\bone=\bzero \), so it minimizes both variance terms at once.
 :::

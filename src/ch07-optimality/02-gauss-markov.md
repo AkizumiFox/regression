@@ -2,9 +2,9 @@
 
 [Section 7.1](01-linear-unbiased.html) turned the search for a best linear unbiased estimator into a
 geometric problem. The unbiased coefficient vectors form the flat
-\( \mathcal A_{\blambda}=\bm a_*+\C(\X)\perpc \), and the variance of each is \( \sigma^2 \) times its squared
+\( \mathcal A_{\blambda}=\mathbf{a}_*+\C(\X)\perpc \), and the variance of each is \( \sigma^2 \) times its squared
 length. The shortest vector in a flat parallel to \( \C(\X)\perpc \) is the one in \( \C(\X) \), and
-that vector is the least squares coefficient vector \( \bm a_* \). The Gauss–Markov theorem says exactly
+that vector is the least squares coefficient vector \( \mathbf{a}_* \). The Gauss–Markov theorem says exactly
 this, together with its matrix form and its consequences.
 
 ## The theorem
@@ -15,7 +15,7 @@ We keep the second-moment assumptions @eq-opt-model, with \( \X \) of any rank \
 ::: {#thm-opt-gauss-markov}
 [Gauss–Markov]
 
-Assume @eq-opt-model. Let \( \blambda\in\C(\X\T) \), say \( \blambda=\X\T\bm\rho \), and let
+Assume @eq-opt-model. Let \( \blambda\in\C(\X\T) \), say \( \blambda=\X\T\boldsymbol{\rho} \), and let
 \( \hbeta \) be any least squares estimate.
 
 ::: {.enumerate options="label=(\alph*)"}
@@ -24,13 +24,13 @@ Assume @eq-opt-model. Let \( \blambda\in\C(\X\T) \), say \( \blambda=\X\T\bm\rho
 \Var(\blambda\T\hbeta)=\sigma^2\blambda\T(\X\T\X)\ginv\blambda .
 \]
 
-2. For every linear unbiased estimator \( \bm a\T\Y \) of \( \blambda\T\bbeta \),
+2. For every linear unbiased estimator \( \mathbf{a}\T\Y \) of \( \blambda\T\bbeta \),
    \[
-\Var(\bm a\T\Y)=\Var(\blambda\T\hbeta)+\sigma^2\norm{(\I-\M)\bm a}^2 .
+\Var(\mathbf{a}\T\Y)=\Var(\blambda\T\hbeta)+\sigma^2\norm{(\I-\M)\mathbf{a}}^2 .
 \]{#eq-opt-gm-split}
 
 3. Consequently \( \blambda\T\hbeta \) is a BLUE of \( \blambda\T\bbeta \), and it is the only one: an LUE
-   \( \bm a\T\Y \) is a BLUE iff \( \bm a=\X(\X\T\X)\ginv\blambda \), that is, iff \( \bm a\T\y=\blambda\T\hbeta \)
+   \( \mathbf{a}\T\Y \) is a BLUE iff \( \mathbf{a}=\X(\X\T\X)\ginv\blambda \), that is, iff \( \mathbf{a}\T\y=\blambda\T\hbeta \)
    for every \( \y \).
 
 4. *(Matrix form.)* Let \( \bLambda \) be \( p\times q \) with \( \C(\bLambda)\subseteq\C(\X\T) \). For every
@@ -45,30 +45,30 @@ Assume @eq-opt-model. Let \( \blambda\in\C(\X\T) \), say \( \blambda=\X\T\bm\rho
 :::
 
 ::: {.proof}
-Put \( \bm a_*=\M\bm\rho=\X(\X\T\X)\ginv\blambda \). By @prp-opt-lue-set(c),
-\( \bm a_*\T\Y=\blambda\T\hbeta \). Since \( \bm a_*\in\mathcal A_{\blambda} \), it is an LUE by @prp-opt-lue.
+Put \( \mathbf{a}_*=\M\boldsymbol{\rho}=\X(\X\T\X)\ginv\blambda \). By @prp-opt-lue-set(c),
+\( \mathbf{a}_*\T\Y=\blambda\T\hbeta \). Since \( \mathbf{a}_*\in\mathcal A_{\blambda} \), it is an LUE by @prp-opt-lue.
 By @eq-opt-var-norm its variance is
 \[
-\sigma^2\norm{\M\bm\rho}^2=\sigma^2\bm\rho\T\M\bm\rho
-=\sigma^2\bm\rho\T\X(\X\T\X)\ginv\X\T\bm\rho=\sigma^2\blambda\T(\X\T\X)\ginv\blambda ,
+\sigma^2\norm{\M\boldsymbol{\rho}}^2=\sigma^2\boldsymbol{\rho}\T\M\boldsymbol{\rho}
+=\sigma^2\boldsymbol{\rho}\T\X(\X\T\X)\ginv\X\T\boldsymbol{\rho}=\sigma^2\blambda\T(\X\T\X)\ginv\blambda ,
 \]
 using @thm-proj-M-formula. This proves (a).
 
-For (b), let \( \bm a\T\Y \) be any LUE. Then \( \bm a\in\mathcal A_{\blambda} \), so \( \M\bm a=\bm a_* \) by
-@prp-opt-lue-set(b). The decomposition \( \bm a=\M\bm a+(\I-\M)\bm a=\bm a_*+(\I-\M)\bm a \) is orthogonal,
-so \( \norm{\bm a}^2=\norm{\bm a_*}^2+\norm{(\I-\M)\bm a}^2 \). Multiplying by \( \sigma^2 \) and using
+For (b), let \( \mathbf{a}\T\Y \) be any LUE. Then \( \mathbf{a}\in\mathcal A_{\blambda} \), so \( \M\mathbf{a}=\mathbf{a}_* \) by
+@prp-opt-lue-set(b). The decomposition \( \mathbf{a}=\M\mathbf{a}+(\I-\M)\mathbf{a}=\mathbf{a}_*+(\I-\M)\mathbf{a} \) is orthogonal,
+so \( \norm{\mathbf{a}}^2=\norm{\mathbf{a}_*}^2+\norm{(\I-\M)\mathbf{a}}^2 \). Multiplying by \( \sigma^2 \) and using
 @eq-opt-var-norm twice gives @eq-opt-gm-split.
 
 For (c), the second term of @eq-opt-gm-split is nonnegative, so \( \blambda\T\hbeta \) is a BLUE. Because
-\( \sigma^2>0 \), equality holds iff \( (\I-\M)\bm a=\bzero \), that is, iff \( \bm a\in\C(\X) \). By
-@prp-opt-lue-set(b) the only point of \( \mathcal A_{\blambda} \) in \( \C(\X) \) is \( \bm a_* \). Two linear
-statistics \( \bm a\T\y \) and \( \bm a_*\T\y \) agree for every \( \y \) iff \( \bm a=\bm a_* \).
+\( \sigma^2>0 \), equality holds iff \( (\I-\M)\mathbf{a}=\bzero \), that is, iff \( \mathbf{a}\in\C(\X) \). By
+@prp-opt-lue-set(b) the only point of \( \mathcal A_{\blambda} \) in \( \C(\X) \) is \( \mathbf{a}_* \). Two linear
+statistics \( \mathbf{a}\T\y \) and \( \mathbf{a}_*\T\y \) agree for every \( \y \) iff \( \mathbf{a}=\mathbf{a}_* \).
 
-For (d), write \( \bLambda=\X\T\bm P \) for an \( n\times q \) matrix \( \bm P \), and put
-\( \A_*=\bm P\T\M \), so that \( \A_*\Y=\bLambda\T\hbeta \) by @prp-opt-lue-set(c) applied column by
-column. Each row \( \bm a_k\T \) of an LUE matrix \( \A \) has \( \bm a_k\in\mathcal A_{\blambda_k} \), where
-\( \blambda_k \) is the \( k \)th column of \( \bLambda \). So \( \M\bm a_k=\M\bm p_k \), and hence \( \A\M=\A_* \)
-(the \( k \)th row of \( \A\M \) is \( (\M\bm a_k)\T \), since \( \M \) is symmetric). Now split the identity:
+For (d), write \( \bLambda=\X\T\mathbf{P} \) for an \( n\times q \) matrix \( \mathbf{P} \), and put
+\( \A_*=\mathbf{P}\T\M \), so that \( \A_*\Y=\bLambda\T\hbeta \) by @prp-opt-lue-set(c) applied column by
+column. Each row \( \mathbf{a}_k\T \) of an LUE matrix \( \A \) has \( \mathbf{a}_k\in\mathcal A_{\blambda_k} \), where
+\( \blambda_k \) is the \( k \)th column of \( \bLambda \). So \( \M\mathbf{a}_k=\M\mathbf{p}_k \), and hence \( \A\M=\A_* \)
+(the \( k \)th row of \( \A\M \) is \( (\M\mathbf{a}_k)\T \), since \( \M \) is symmetric). Now split the identity:
 \[
 \begin{aligned}
 \A\A\T&=\A\M\A\T+\A(\I-\M)\A\T\\
@@ -77,9 +77,9 @@ column. Each row \( \bm a_k\T \) of an LUE matrix \( \A \) has \( \bm a_k\in\mat
 \]
 using \( \M=\M\M\T \). Multiplying by \( \sigma^2 \) and using @thm-rv-linear gives
 \( \Cov(\A\Y)=\Cov(\A_*\Y)+\sigma^2\A(\I-\M)\A\T \). Also
-\( \A_*\A_*\T=\bm P\T\M\bm P=\bLambda\T(\X\T\X)\ginv\bLambda \), as in (a). The difference
+\( \A_*\A_*\T=\mathbf{P}\T\M\mathbf{P}=\bLambda\T(\X\T\X)\ginv\bLambda \), as in (a). The difference
 \( \sigma^2\A(\I-\M)\A\T=\sigma^2[\A(\I-\M)][\A(\I-\M)]\T \) is nonnegative definite. It is zero iff
-\( \A(\I-\M)=\bm 0 \), iff \( \A=\A\M=\A_* \).
+\( \A(\I-\M)=\mathbf{0} \), iff \( \A=\A\M=\A_* \).
 :::
 
 Three features of the theorem deserve comment.
@@ -98,10 +98,10 @@ covers every function for which the question makes sense.
 coefficient vector and not to the data.
 
 ::: {.idea}
-The least squares coefficient vector \( \bm a_* \) is the orthogonal projection onto \( \C(\X) \) of the
+The least squares coefficient vector \( \mathbf{a}_* \) is the orthogonal projection onto \( \C(\X) \) of the
 coefficient vector of *any* linear unbiased estimator. Projecting a coefficient vector onto
 \( \C(\X) \) keeps the estimator unbiased and removes the part that only adds noise. That part,
-\( (\I-\M)\bm a \), multiplies the residuals, and the residuals carry no information about
+\( (\I-\M)\mathbf{a} \), multiplies the residuals, and the residuals carry no information about
 \( \bbeta \).
 :::
 
@@ -117,16 +117,16 @@ and it is the form usually quoted for vector estimators.
 ::: {#cor-opt-gm-consequences}
 [Consequences of the Gauss–Markov theorem]
 
-Assume @eq-opt-model, let \( \C(\bLambda)\subseteq\C(\X\T) \), and let \( \tilde{\bm\theta}=\A\Y \) be any LUE of
-\( \bm\theta=\bLambda\T\bbeta \), with \( \hat{\bm\theta}=\bLambda\T\hbeta \).
+Assume @eq-opt-model, let \( \C(\bLambda)\subseteq\C(\X\T) \), and let \( \tilde{\boldsymbol{\theta}}=\A\Y \) be any LUE of
+\( \boldsymbol{\theta}=\bLambda\T\bbeta \), with \( \hat{\boldsymbol{\theta}}=\bLambda\T\hbeta \).
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \Var(\bb\T\tilde{\bm\theta})\ge\Var(\bb\T\hat{\bm\theta}) \) for every \( \bb\in\Real^q \); in particular
-   each coordinate of \( \hat{\bm\theta} \) has the smallest variance.
+1. \( \Var(\bb\T\tilde{\boldsymbol{\theta}})\ge\Var(\bb\T\hat{\boldsymbol{\theta}}) \) for every \( \bb\in\Real^q \); in particular
+   each coordinate of \( \hat{\boldsymbol{\theta}} \) has the smallest variance.
 
-2. \( \E\norm{\tilde{\bm\theta}-\bm\theta}^2\ge\E\norm{\hat{\bm\theta}-\bm\theta}^2 \).
+2. \( \E\norm{\tilde{\boldsymbol{\theta}}-\boldsymbol{\theta}}^2\ge\E\norm{\hat{\boldsymbol{\theta}}-\boldsymbol{\theta}}^2 \).
 
-3. \( \det\Cov(\tilde{\bm\theta})\ge\det\Cov(\hat{\bm\theta}) \).
+3. \( \det\Cov(\tilde{\boldsymbol{\theta}})\ge\det\Cov(\hat{\boldsymbol{\theta}}) \).
 
 4. If \( \rank(\X)=p \), then \( \hbeta=(\X\T\X)^{-1}\X\T\Y \) is the BLUE of \( \bbeta \), and
    \( \Cov(\tilde{\bbeta})-\sigma^2(\X\T\X)^{-1} \) is nonnegative definite for every LUE \( \tilde{\bbeta} \)
@@ -138,20 +138,20 @@ Assume @eq-opt-model, let \( \C(\bLambda)\subseteq\C(\X\T) \), and let \( \tilde
 :::
 
 ::: {.proof}
-Let \( \bm D=\Cov(\tilde{\bm\theta})-\Cov(\hat{\bm\theta})\succeq\bm 0 \) (@thm-opt-gauss-markov(d)).
-(a) \( \Var(\bb\T\tilde{\bm\theta})-\Var(\bb\T\hat{\bm\theta})=\bb\T\bm D\bb\ge0 \) by @def-mat-nnd. The
-coordinates are the case \( \bb=\bm e_k \).
+Let \( \mathbf{D}=\Cov(\tilde{\boldsymbol{\theta}})-\Cov(\hat{\boldsymbol{\theta}})\succeq\mathbf{0} \) (@thm-opt-gauss-markov(d)).
+(a) \( \Var(\bb\T\tilde{\boldsymbol{\theta}})-\Var(\bb\T\hat{\boldsymbol{\theta}})=\bb\T\mathbf{D}\bb\ge0 \) by @def-mat-nnd. The
+coordinates are the case \( \bb=\mathbf{e}_k \).
 (b) Both estimators are unbiased, so the mean squared errors are the traces of the covariance matrices,
-and \( \tr\bm D=\sum_k\bm e_k\T\bm D\bm e_k\ge0 \).
-(c) Write \( \bm C=\Cov(\hat{\bm\theta}) \). If \( \bm C \) is singular, its determinant is zero and
+and \( \tr\mathbf{D}=\sum_k\mathbf{e}_k\T\mathbf{D}\mathbf{e}_k\ge0 \).
+(c) Write \( \mathbf{C}=\Cov(\hat{\boldsymbol{\theta}}) \). If \( \mathbf{C} \) is singular, its determinant is zero and
 there is nothing to prove, because covariance matrices are nonnegative definite
-(@thm-rv-cov-nnd). Otherwise \( \bm C \) is positive definite, with a symmetric positive definite
+(@thm-rv-cov-nnd). Otherwise \( \mathbf{C} \) is positive definite, with a symmetric positive definite
 square root (@thm-mat-square-root). The matrix
-\( \bm C^{-1/2}\Cov(\tilde{\bm\theta})\bm C^{-1/2}=\I+\bm C^{-1/2}\bm D\bm C^{-1/2} \) has all
-eigenvalues at least \( 1 \): the matrix \( \bm C^{-1/2}\bm D\bm C^{-1/2} \) is nonnegative definite by
+\( \mathbf{C}^{-1/2}\Cov(\tilde{\boldsymbol{\theta}})\mathbf{C}^{-1/2}=\I+\mathbf{C}^{-1/2}\mathbf{D}\mathbf{C}^{-1/2} \) has all
+eigenvalues at least \( 1 \): the matrix \( \mathbf{C}^{-1/2}\mathbf{D}\mathbf{C}^{-1/2} \) is nonnegative definite by
 @prp-mat-pd-properties(c), so its eigenvalues are nonnegative by @thm-mat-pd-characterizations, and adding
 \( \I \) adds \( 1 \) to each of them. Its determinant
-\( \det\Cov(\tilde{\bm\theta})/\det\bm C \) is therefore at least \( 1 \).
+\( \det\Cov(\tilde{\boldsymbol{\theta}})/\det\mathbf{C} \) is therefore at least \( 1 \).
 (d) Take \( \bLambda=\I_p \), which is allowed because \( \C(\X\T)=\Real^p \), and use
 \( \Cov(\hbeta)=\sigma^2(\X\T\X)^{-1} \) (@thm-lm-moments).
 (e) Take \( \bLambda=\X\T \). Then \( \bLambda\T\hbeta=\X\hbeta=\M\Y \) (@thm-proj-ls-projection),
@@ -160,7 +160,7 @@ with covariance \( \sigma^2\M \). Its \( i \)th diagonal entry is \( \sigma^2h_{
 
 Part (b) says least squares minimizes the total mean squared error among unbiased linear estimators.
 Part (c) has a geometric meaning that [Chapter 12](../ch12-intervals-and-bands/index.html) will use. For normal errors, the confidence
-ellipsoid for \( \bm\theta \) has volume proportional to \( \sqrt{\det\Cov} \), so least squares gives the
+ellipsoid for \( \boldsymbol{\theta} \) has volume proportional to \( \sqrt{\det\Cov} \), so least squares gives the
 smallest ellipsoids.
 
 ::: {#exm-opt-gm-simulation}
@@ -242,7 +242,7 @@ Let \( \V^{1/2} \) be the symmetric positive definite square root of \( \V \) (@
 \( \Z=\V^{-1/2}\Y \) and \( \X_*=\V^{-1/2}\X \). By @thm-rv-linear, \( \E(\Z)=\X_*\bbeta \) and
 \( \Cov(\Z)=\sigma^2\I \), so \( \Z \) satisfies @eq-opt-model with model matrix \( \X_* \). Since
 \( \V^{-1/2} \) is nonsingular, \( \C(\X_*\T)=\C(\X\T\V^{-1/2})=\C(\X\T) \), so the same functions are
-estimable. The map \( \bm a\T\Y=(\V^{1/2}\bm a)\T\Z \) is a bijection between linear estimators based on
+estimable. The map \( \mathbf{a}\T\Y=(\V^{1/2}\mathbf{a})\T\Z \) is a bijection between linear estimators based on
 \( \Y \) and those based on \( \Z \). It preserves means and variances, since both sides are the same random
 variable. So a BLUE in one model is a BLUE in the other. By @thm-opt-gauss-markov applied to \( \Z \), the
 BLUE is \( \blambda\T\bb \) for any least squares solution \( \bb \) of the \( \Z \) problem. That is, \( \bb \)
@@ -493,19 +493,19 @@ distribution. So the midrange minus \( \mu \) is symmetric about zero, and it ha
 [C3]
 
 Let \( \E(\Y)=\X\bbeta \) and \( \Cov(\Y)=\sigma^2\V \) with \( \V \) positive definite. Show that an LUE
-\( \bm a\T\Y \) of \( \blambda\T\bbeta \) is a BLUE iff it is uncorrelated with every linear unbiased estimator of
+\( \mathbf{a}\T\Y \) of \( \blambda\T\bbeta \) is a BLUE iff it is uncorrelated with every linear unbiased estimator of
 zero. Deduce that \( \blambda\T\hbeta \) (ordinary least squares) is the BLUE for every estimable
 \( \blambda\T\bbeta \) iff \( \C(\V\X)\subseteq\C(\X) \), in agreement with @thm-proj-kruskal.
 :::
 
 ::: {.solution}
-Every LUE is \( \bm a\T\Y+\bu\T\Y \) with \( \bu\T\Y \) an unbiased estimator of zero, and
-\( \Var(\bm a\T\Y+t\bu\T\Y)=\Var(\bm a\T\Y)+2t\Cov(\bm a\T\Y,\bu\T\Y)+t^2\Var(\bu\T\Y) \) for every real
-\( t \). If \( \bm a\T\Y \) is a BLUE, this quadratic in \( t \) is minimized at \( t=0 \), which forces the
+Every LUE is \( \mathbf{a}\T\Y+\bu\T\Y \) with \( \bu\T\Y \) an unbiased estimator of zero, and
+\( \Var(\mathbf{a}\T\Y+t\bu\T\Y)=\Var(\mathbf{a}\T\Y)+2t\Cov(\mathbf{a}\T\Y,\bu\T\Y)+t^2\Var(\bu\T\Y) \) for every real
+\( t \). If \( \mathbf{a}\T\Y \) is a BLUE, this quadratic in \( t \) is minimized at \( t=0 \), which forces the
 covariance to vanish. Conversely, if every such covariance vanishes, the variance of every competitor is
-\( \Var(\bm a\T\Y)+\Var(\bu\T\Y)\ge\Var(\bm a\T\Y) \). By @exr-opt-unbiased-zero, the unbiased
-estimators of zero are \( \bw\T(\I-\M)\Y \). So ordinary least squares \( \bm\rho\T\M\Y \) is a BLUE for every
-\( \bm\rho \) iff \( \sigma^2\bm\rho\T\M\V(\I-\M)\bw=0 \) for all \( \bm\rho,\bw \), that is, iff
-\( \M\V(\I-\M)=\bm 0 \). Transposing, this says \( (\I-\M)\V\M=\bm 0 \), so every column of \( \V\M \) lies
+\( \Var(\mathbf{a}\T\Y)+\Var(\bu\T\Y)\ge\Var(\mathbf{a}\T\Y) \). By @exr-opt-unbiased-zero, the unbiased
+estimators of zero are \( \bw\T(\I-\M)\Y \). So ordinary least squares \( \boldsymbol{\rho}\T\M\Y \) is a BLUE for every
+\( \boldsymbol{\rho} \) iff \( \sigma^2\boldsymbol{\rho}\T\M\V(\I-\M)\bw=0 \) for all \( \boldsymbol{\rho},\bw \), that is, iff
+\( \M\V(\I-\M)=\mathbf{0} \). Transposing, this says \( (\I-\M)\V\M=\mathbf{0} \), so every column of \( \V\M \) lies
 in \( \C(\X) \). Since \( \C(\V\M)=\C(\V\X) \), this is \( \C(\V\X)\subseteq\C(\X) \).
 :::

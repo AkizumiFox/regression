@@ -17,12 +17,12 @@ If \( \A \) is \( m\times n \) and \( \B \) is \( n\times m \), then \( \tr(\A\B
 :::
 
 The two products need not have the same size. Applied repeatedly, the theorem allows
-cyclic permutations such as \( \tr(\A\B\bm C)=\tr(\bm C\A\B)=\tr(\B\bm C\A) \), but not arbitrary
+cyclic permutations such as \( \tr(\A\B\mathbf{C})=\tr(\mathbf{C}\A\B)=\tr(\B\mathbf{C}\A) \), but not arbitrary
 reorderings. Three consequences occur again and again:
 \[
 \tr(\A\T\A)=\sum_{i,j}a_{ij}^2=\norm{\A}_F^2,\qquad
 \x\T\A\x=\tr(\A\x\x\T),\qquad
-\tr(\bm P^{-1}\A\bm P)=\tr(\A).
+\tr(\mathbf{P}^{-1}\A\mathbf{P})=\tr(\A).
 \]{#eq-mat-trace-tricks}
 
 The middle one turns a scalar quadratic form into the trace of a matrix that is linear in
@@ -186,15 +186,15 @@ the block of \( (\X\T\X)^{-1} \) belonging to \( \X_1 \) is
 derives the same formula geometrically, from the Frisch–Waugh–Lovell theorem.
 
 Identity @eq-mat-leading-block is a disguised form of a result that deserves its own
-name. Rename \( \A_{11}=\B \), \( \A_{12}=\bU \), \( \A_{21}=\V\T \) and \( \A_{22}=-\bm C^{-1} \).
+name. Rename \( \A_{11}=\B \), \( \A_{12}=\bU \), \( \A_{21}=\V\T \) and \( \A_{22}=-\mathbf{C}^{-1} \).
 
 ::: {#thm-mat-woodbury}
 [Sherman–Morrison–Woodbury]
 
-Let \( \B \) (\( n\times n \)) and \( \bm C \) (\( k\times k \)) be nonsingular, and let \( \bU,\V \) be
-\( n\times k \). If \( \bm C^{-1}+\V\T\B^{-1}\bU \) is nonsingular, then so is \( \B+\bU\bm C\V\T \), and
+Let \( \B \) (\( n\times n \)) and \( \mathbf{C} \) (\( k\times k \)) be nonsingular, and let \( \bU,\V \) be
+\( n\times k \). If \( \mathbf{C}^{-1}+\V\T\B^{-1}\bU \) is nonsingular, then so is \( \B+\bU\mathbf{C}\V\T \), and
 \[
-(\B+\bU\bm C\V\T)^{-1}=\B^{-1}-\B^{-1}\bU\bigl(\bm C^{-1}+\V\T\B^{-1}\bU\bigr)^{-1}\V\T\B^{-1}.
+(\B+\bU\mathbf{C}\V\T)^{-1}=\B^{-1}-\B^{-1}\bU\bigl(\mathbf{C}^{-1}+\V\T\B^{-1}\bU\bigr)^{-1}\V\T\B^{-1}.
 \]{#eq-mat-woodbury}
 
 In particular, for vectors \( \bu,\bv \) with \( 1+\bv\T\B^{-1}\bu\ne0 \),
@@ -206,12 +206,12 @@ In particular, for vectors \( \bu,\bv \) with \( 1+\bv\T\B^{-1}\bu\ne0 \),
 
 ::: {.proof}
 Apply @thm-mat-partitioned-inverse to
-\( \bm N=\begin{psmallmatrix}\B&\bU\\\V\T&-\bm C^{-1}\end{psmallmatrix} \). Both diagonal blocks
-are nonsingular. The Schur complement of \( \B \) is \( -(\bm C^{-1}+\V\T\B^{-1}\bU) \), which is
-nonsingular by hypothesis, so \( \bm N \) is nonsingular. Then the Schur complement of the
-lower block, \( \B+\bU\bm C\V\T \), is nonsingular by the same theorem with the roles of the
+\( \mathbf{N}=\begin{psmallmatrix}\B&\bU\\\V\T&-\mathbf{C}^{-1}\end{psmallmatrix} \). Both diagonal blocks
+are nonsingular. The Schur complement of \( \B \) is \( -(\mathbf{C}^{-1}+\V\T\B^{-1}\bU) \), which is
+nonsingular by hypothesis, so \( \mathbf{N} \) is nonsingular. Then the Schur complement of the
+lower block, \( \B+\bU\mathbf{C}\V\T \), is nonsingular by the same theorem with the roles of the
 blocks exchanged, and @eq-mat-leading-block becomes @eq-mat-woodbury. For
-@eq-mat-sherman-morrison take \( k=1 \) and \( \bm C=1 \).
+@eq-mat-sherman-morrison take \( k=1 \) and \( \mathbf{C}=1 \).
 :::
 
 ::: {.idea}
@@ -286,12 +286,12 @@ relative error of \( 8\times 10^{-14} \).
 ::: {#exm-mat-equicorrelation}
 [Equicorrelation]
 
-The matrix \( \bm E=(1-\rho)\I_n+\rho\bm J_n \) has unit diagonal and every off-diagonal entry
+The matrix \( \mathbf{E}=(1-\rho)\I_n+\rho\mathbf{J}_n \) has unit diagonal and every off-diagonal entry
 equal to \( \rho \). It is the correlation matrix of exchangeable observations. Taking
 \( \B=(1-\rho)\I \) and \( \bu=\rho\bone \), \( \bv=\bone \), for \( \rho\ne1 \) and \( 1+(n-1)\rho\ne0 \),
 \[
-\bm E^{-1}=\frac{1}{1-\rho}\Bigl(\I_n-\frac{\rho}{1+(n-1)\rho}\bm J_n\Bigr),\qquad
-\det\bm E=(1-\rho)^{n-1}\bigl(1+(n-1)\rho\bigr).
+\mathbf{E}^{-1}=\frac{1}{1-\rho}\Bigl(\I_n-\frac{\rho}{1+(n-1)\rho}\mathbf{J}_n\Bigr),\qquad
+\det\mathbf{E}=(1-\rho)^{n-1}\bigl(1+(n-1)\rho\bigr).
 \]
 :::
 
@@ -302,26 +302,26 @@ equal to \( \rho \). It is the correlation matrix of exchangeable observations. 
 ::: {#exr-mat-trace-order}
 [A1]
 
-Show that \( \tr(\A\B\bm C)=\tr(\A\bm C\B) \) when \( \A,\B,\bm C \) are symmetric, and find \( 2\times2 \) matrices
+Show that \( \tr(\A\B\mathbf{C})=\tr(\A\mathbf{C}\B) \) when \( \A,\B,\mathbf{C} \) are symmetric, and find \( 2\times2 \) matrices
 for which the two traces differ.
 :::
 
 ::: {.solution}
 For symmetric matrices,
-\( \tr(\A\B\bm C)=\tr\bigl((\A\B\bm C)\T\bigr)=\tr(\bm C\B\A)=\tr(\A\bm C\B) \), using transposition and
+\( \tr(\A\B\mathbf{C})=\tr\bigl((\A\B\mathbf{C})\T\bigr)=\tr(\mathbf{C}\B\A)=\tr(\A\mathbf{C}\B) \), using transposition and
 then the cyclic property. For a counterexample take
 \( \A=\begin{psmallmatrix}0&1\\0&0\end{psmallmatrix} \),
 \( \B=\begin{psmallmatrix}0&0\\1&0\end{psmallmatrix} \) and
-\( \bm C=\begin{psmallmatrix}1&0\\0&0\end{psmallmatrix} \). Then \( \A\B\bm C=\bm C \) has trace \( 1 \),
-while \( \A\bm C=\bzero \) gives \( \tr(\A\bm C\B)=0 \).
+\( \mathbf{C}=\begin{psmallmatrix}1&0\\0&0\end{psmallmatrix} \). Then \( \A\B\mathbf{C}=\mathbf{C} \) has trace \( 1 \),
+while \( \A\mathbf{C}=\bzero \) gives \( \tr(\A\mathbf{C}\B)=0 \).
 :::
 
 ::: {#exr-mat-bordered}
 [A2]
 
-Let \( \A \) be nonsingular, \( \bm a \) a vector and \( c \) a scalar with \( s=c-\bm a\T\A^{-1}\bm a\ne0 \). Write
+Let \( \A \) be nonsingular, \( \mathbf{a} \) a vector and \( c \) a scalar with \( s=c-\mathbf{a}\T\A^{-1}\mathbf{a}\ne0 \). Write
 down the inverse and the determinant of
-\( \begin{psmallmatrix}\A&\bm a\\\bm a\T&c\end{psmallmatrix} \). Use it to update \( (\X\T\X)^{-1} \) when a
+\( \begin{psmallmatrix}\A&\mathbf{a}\\\mathbf{a}\T&c\end{psmallmatrix} \). Use it to update \( (\X\T\X)^{-1} \) when a
 column is added to \( \X \).
 :::
 
@@ -338,12 +338,12 @@ the least squares coefficients computed without observation \( i \) are
 :::
 
 ::: {.solution}
-Write \( \bm K=(\X\T\X)^{-1} \) and \( \x=\x_i \). Deleting
+Write \( \mathbf{K}=(\X\T\X)^{-1} \) and \( \x=\x_i \). Deleting
 row \( i \) turns \( \X\T\y \) into \( \X\T\y-\x y_i \), so by @exm-mat-deletion
 \[
-\hbeta_{(i)}=\Bigl(\bm K+\frac{\bm K\x\x\T\bm K}{1-h_i}\Bigr)(\X\T\y-\x y_i)
-=\hbeta-\bm K\x y_i+\frac{\bm K\x\,(\x\T\hbeta-h_iy_i)}{1-h_i}
-=\hbeta-\bm K\x\,\frac{y_i-\x\T\hbeta}{1-h_i},
+\hbeta_{(i)}=\Bigl(\mathbf{K}+\frac{\mathbf{K}\x\x\T\mathbf{K}}{1-h_i}\Bigr)(\X\T\y-\x y_i)
+=\hbeta-\mathbf{K}\x y_i+\frac{\mathbf{K}\x\,(\x\T\hbeta-h_iy_i)}{1-h_i}
+=\hbeta-\mathbf{K}\x\,\frac{y_i-\x\T\hbeta}{1-h_i},
 \]
 since \( (1-h_i)y_i-\x\T\hbeta+h_iy_i=y_i-\x\T\hbeta \).
 :::
@@ -363,10 +363,10 @@ positive definite. The identity
 multiplying by the two inverses. When \( p\gg n \), the right-hand side inverts an \( n\times n \) matrix
 instead of a \( p\times p \) one.
 For the second derivation, apply @thm-mat-woodbury with \( \B=\lambda\I_p \),
-\( \bU=\X\T \), \( \bm C=\I_n \) and \( \V=\X\T \):
-\( (\lambda\I_p+\X\T\X)^{-1}=\lambda^{-1}\I_p-\lambda^{-2}\X\T\bm W^{-1}\X \) with
-\( \bm W=\I_n+\X\X\T/\lambda \). Multiplying on the right by \( \X\T \) gives
-\( \lambda^{-1}\X\T\bigl[\I_n-\bm W^{-1}(\X\X\T/\lambda)\bigr]
-=\lambda^{-1}\X\T\bm W^{-1}\bigl[\bm W-\X\X\T/\lambda\bigr]=\lambda^{-1}\X\T\bm W^{-1}
+\( \bU=\X\T \), \( \mathbf{C}=\I_n \) and \( \V=\X\T \):
+\( (\lambda\I_p+\X\T\X)^{-1}=\lambda^{-1}\I_p-\lambda^{-2}\X\T\mathbf{W}^{-1}\X \) with
+\( \mathbf{W}=\I_n+\X\X\T/\lambda \). Multiplying on the right by \( \X\T \) gives
+\( \lambda^{-1}\X\T\bigl[\I_n-\mathbf{W}^{-1}(\X\X\T/\lambda)\bigr]
+=\lambda^{-1}\X\T\mathbf{W}^{-1}\bigl[\mathbf{W}-\X\X\T/\lambda\bigr]=\lambda^{-1}\X\T\mathbf{W}^{-1}
 =\X\T(\X\X\T+\lambda\I_n)^{-1} \).
 :::

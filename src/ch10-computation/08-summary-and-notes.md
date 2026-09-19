@@ -20,7 +20,7 @@
            one row at a time, for streaming and sparse data (@thm-cmp-givens).
 
 4. The SVD gives every least squares solution, the minimum-norm one, and the precision \( \sigma/\sigma_i \) of each
-           combination \( \bv_i\T\bbeta \) (@thm-cmp-svd-ls). Singular values are perturbed by at most \( \norm{\bm E}_2 \)
+           combination \( \bv_i\T\bbeta \) (@thm-cmp-svd-ls). Singular values are perturbed by at most \( \norm{\mathbf{E}}_2 \)
            (@prp-cmp-weyl), so rank is meaningful only relative to a tolerance (@def-cmp-numerical-rank). Truncated
            SVD trades bias for variance (@prp-cmp-tsvd).
 

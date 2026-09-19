@@ -98,28 +98,28 @@ statistic is the extra sum of squares of the group, divided by its degrees of fr
 ::: {#prp-glh-max-t}
 [The group statistic is the largest single statistic]
 
-Let \( H:\bLambda\T\bbeta=\bm d \) be testable with \( \bLambda \) of full column rank \( q \), let \( F_H \) be its statistic
-@eq-glh-general-F, and for \( \bm a\in\Real^q \), \( \bm a\ne\bzero \), let \( T(\bm a) \) be the \( t \) statistic @eq-glh-t for
-the single function \( \bm a\T\bLambda\T\bbeta=\bm a\T\bm d \). Then
+Let \( H:\bLambda\T\bbeta=\mathbf{d} \) be testable with \( \bLambda \) of full column rank \( q \), let \( F_H \) be its statistic
+@eq-glh-general-F, and for \( \mathbf{a}\in\Real^q \), \( \mathbf{a}\ne\bzero \), let \( T(\mathbf{a}) \) be the \( t \) statistic @eq-glh-t for
+the single function \( \mathbf{a}\T\bLambda\T\bbeta=\mathbf{a}\T\mathbf{d} \). Then
 \[
-qF_H=\max_{\bm a\ne\bzero}T(\bm a)^2,
+qF_H=\max_{\mathbf{a}\ne\bzero}T(\mathbf{a})^2,
 \]
-and the maximum is attained at \( \bm a\propto\W^{-1}(\bLambda\T\hbeta-\bm d) \), where \( \W=\bLambda\T\G\bLambda \). In
+and the maximum is attained at \( \mathbf{a}\propto\W^{-1}(\bLambda\T\hbeta-\mathbf{d}) \), where \( \W=\bLambda\T\G\bLambda \). In
 particular \( t_j^2\le qF_H \) for each coefficient \( \beta_j \) in a tested group \( \beta_j=0 \), \( j\in J \), with \( q=\lvert J\rvert \).
 :::
 
 ::: {.proof}
-Write \( \bu=\bLambda\T\hbeta-\bm d \). The function \( \bm a\T\bLambda\T\bbeta \) is estimable with
-\( \blambda=\bLambda\bm a\ne\bzero \) (the columns of \( \bLambda \) are independent), and
-\( \blambda\T\G\blambda=\bm a\T\W\bm a \), so \( T(\bm a)^2=(\bm a\T\bu)^2/(s^2\,\bm a\T\W\bm a) \). The matrix \( \W \) is positive
+Write \( \bu=\bLambda\T\hbeta-\mathbf{d} \). The function \( \mathbf{a}\T\bLambda\T\bbeta \) is estimable with
+\( \blambda=\bLambda\mathbf{a}\ne\bzero \) (the columns of \( \bLambda \) are independent), and
+\( \blambda\T\G\blambda=\mathbf{a}\T\W\mathbf{a} \), so \( T(\mathbf{a})^2=(\mathbf{a}\T\bu)^2/(s^2\,\mathbf{a}\T\W\mathbf{a}) \). The matrix \( \W \) is positive
 definite (@thm-ss-hypothesis(a)) and has a positive definite square root (@thm-mat-square-root). By the
-Cauchy–Schwarz inequality (@prp-mat-cauchy-schwarz) applied to \( \W^{1/2}\bm a \) and \( \W^{-1/2}\bu \),
+Cauchy–Schwarz inequality (@prp-mat-cauchy-schwarz) applied to \( \W^{1/2}\mathbf{a} \) and \( \W^{-1/2}\bu \),
 \[
-(\bm a\T\bu)^2\le(\bm a\T\W\bm a)(\bu\T\W^{-1}\bu),
+(\mathbf{a}\T\bu)^2\le(\mathbf{a}\T\W\mathbf{a})(\bu\T\W^{-1}\bu),
 \]
-with equality iff \( \W^{1/2}\bm a \) is proportional to \( \W^{-1/2}\bu \), that is, \( \bm a\propto\W^{-1}\bu \) (or \( \bu=\bzero \)).
-Dividing by \( s^2\,\bm a\T\W\bm a \) gives \( T(\bm a)^2\le\bu\T\W^{-1}\bu/s^2=qF_H \), with equality at the stated
-\( \bm a \). For the coefficient \( \beta_j \), take \( \bm a \) to be the corresponding coordinate vector.
+with equality iff \( \W^{1/2}\mathbf{a} \) is proportional to \( \W^{-1/2}\bu \), that is, \( \mathbf{a}\propto\W^{-1}\bu \) (or \( \bu=\bzero \)).
+Dividing by \( s^2\,\mathbf{a}\T\W\mathbf{a} \) gives \( T(\mathbf{a})^2\le\bu\T\W^{-1}\bu/s^2=qF_H \), with equality at the stated
+\( \mathbf{a} \). For the coefficient \( \beta_j \), take \( \mathbf{a} \) to be the corresponding coordinate vector.
 :::
 
 The proposition is the geometric heart of Scheffé's method for multiple comparisons, and it explains the two
@@ -132,7 +132,7 @@ of the group contribute nothing. This is what happened in @exm-glh-region: the N
 \( \lvert t\rvert=2.519 \), but the three-degree-of-freedom test of all regional differences was not significant.
 
 *Collinearity.* Conversely, the group can be highly significant while every member has a small \( t \). The
-direction \( \bm a \) that attains the maximum is generally not a coordinate direction. When the estimates are strongly
+direction \( \mathbf{a} \) that attains the maximum is generally not a coordinate direction. When the estimates are strongly
 correlated, the data can say clearly that *some* combination of the coefficients is nonzero without being able to
 attribute it to any single one.
 
@@ -329,10 +329,10 @@ Check the value \( 7.175 \) of @exm-glh-longley from \( t_1=-0.921 \),
 :::
 
 ::: {.solution}
-Let \( \bm D=\diag(\text{se}_1,\text{se}_2) \) and \( \bm R \) the correlation matrix of the estimates, so that the
-estimated covariance is \( \bm D\bm R\bm D \). With \( \bLambda \) selecting the two coefficients,
-\( 2F=\hat{\bbeta}_J\T(\bm D\bm R\bm D)^{-1}\hat{\bbeta}_J=\bm t\T\bm R^{-1}\bm t \), where
-\( \bm t=\bm D^{-1}\hat{\bbeta}_J \), and \( \bm R^{-1}=(1-\rho^2)^{-1}\bigl(\begin{smallmatrix}1&-\rho\\-\rho&1\end{smallmatrix}\bigr) \).
+Let \( \mathbf{D}=\diag(\text{se}_1,\text{se}_2) \) and \( \mathbf{R} \) the correlation matrix of the estimates, so that the
+estimated covariance is \( \mathbf{D}\mathbf{R}\mathbf{D} \). With \( \bLambda \) selecting the two coefficients,
+\( 2F=\hat{\bbeta}_J\T(\mathbf{D}\mathbf{R}\mathbf{D})^{-1}\hat{\bbeta}_J=\mathbf{t}\T\mathbf{R}^{-1}\mathbf{t} \), where
+\( \mathbf{t}=\mathbf{D}^{-1}\hat{\bbeta}_J \), and \( \mathbf{R}^{-1}=(1-\rho^2)^{-1}\bigl(\begin{smallmatrix}1&-\rho\\-\rho&1\end{smallmatrix}\bigr) \).
 Numerically, \( t_1^2+t_2^2=2.341 \), \( -2\rho t_1t_2=1.890 \) and \( 2(1-\rho^2)=0.589 \), so
 \( F=7.175 \), as in the example, up to the rounding of these three terms. With \( \rho=+0.840 \) the middle term
 changes sign and \( F=0.765 \), about \( (2.341-1.890)/0.589 \): the same two

@@ -23,27 +23,27 @@ need three facts about the multivariate \( t \) distribution of @def-opt-mvt.
 ::: {#lem-ci-mvt}
 [Multivariate \( t \)]
 
-Let \( \bu\sim t_\nu(\bm m,\bS) \) in \( \Real^p \), with \( \bS \) positive definite.
+Let \( \bu\sim t_\nu(\mathbf{m},\bS) \) in \( \Real^p \), with \( \bS \) positive definite.
 
 ::: {.enumerate options="label=(\alph*)"}
-1. If \( \A \) is \( q\times p \) of rank \( q \), then \( \A\bu\sim t_\nu(\A\bm m,\A\bS\A\T) \).
+1. If \( \A \) is \( q\times p \) of rank \( q \), then \( \A\bu\sim t_\nu(\A\mathbf{m},\A\bS\A\T) \).
 
-2. \( (\bu-\bm m)\T\bS^{-1}(\bu-\bm m)/p\sim F(p,\nu) \).
+2. \( (\bu-\mathbf{m})\T\bS^{-1}(\bu-\mathbf{m})/p\sim F(p,\nu) \).
 
-3. \( \bu \) has density proportional to \( \bigl\{1+(\bu-\bm m)\T\bS^{-1}(\bu-\bm m)/\nu\bigr\}^{-(\nu+p)/2} \).
+3. \( \bu \) has density proportional to \( \bigl\{1+(\bu-\mathbf{m})\T\bS^{-1}(\bu-\mathbf{m})/\nu\bigr\}^{-(\nu+p)/2} \).
 :::
 :::
 
 ::: {.proof}
-By @def-opt-mvt, \( \bu=\bm m+\Z/\sqrt{W/\nu} \) with \( \Z\sim\Normal_p(\bzero,\bS) \) and \( W\sim\chi^2(\nu) \) independent.
+By @def-opt-mvt, \( \bu=\mathbf{m}+\Z/\sqrt{W/\nu} \) with \( \Z\sim\Normal_p(\bzero,\bS) \) and \( W\sim\chi^2(\nu) \) independent.
 
-(a) \( \A\bu=\A\bm m+\A\Z/\sqrt{W/\nu} \), and \( \A\Z\sim\Normal_q(\bzero,\A\bS\A\T) \) (@thm-mvn-linear) is independent of \( W \), with
+(a) \( \A\bu=\A\mathbf{m}+\A\Z/\sqrt{W/\nu} \), and \( \A\Z\sim\Normal_q(\bzero,\A\bS\A\T) \) (@thm-mvn-linear) is independent of \( W \), with
 \( \A\bS\A\T \) positive definite.
 
-(b) \( (\bu-\bm m)\T\bS^{-1}(\bu-\bm m)=\Z\T\bS^{-1}\Z/(W/\nu) \), and \( \Z\T\bS^{-1}\Z\sim\chi^2(p) \) independently of \( W \) (@cor-qf-mahalanobis(a)).
+(b) \( (\bu-\mathbf{m})\T\bS^{-1}(\bu-\mathbf{m})=\Z\T\bS^{-1}\Z/(W/\nu) \), and \( \Z\T\bS^{-1}\Z\sim\chi^2(p) \) independently of \( W \) (@cor-qf-mahalanobis(a)).
 Divide by \( p \) and use @def-qf-noncentral-f.
 
-(c) Given \( W=w \), \( \bu\sim\Normal_p(\bm m,(\nu/w)\bS) \). Write \( D=(\bu-\bm m)\T\bS^{-1}(\bu-\bm m) \). Integrating the normal density (@thm-mvn-density)
+(c) Given \( W=w \), \( \bu\sim\Normal_p(\mathbf{m},(\nu/w)\bS) \). Write \( D=(\bu-\mathbf{m})\T\bS^{-1}(\bu-\mathbf{m}) \). Integrating the normal density (@thm-mvn-density)
 against the \( \chi^2(\nu) \) density of \( W \), and dropping factors free of \( \bu \),
 \[
 \begin{aligned}
@@ -60,31 +60,31 @@ by the substitution \( w'=w(1+D/\nu) \).
 ::: {#thm-ci-bayes-credible}
 [Credible sets and posterior predictive distribution]
 
-Let the prior be \( \text{NIG}(\bm m_0,\V_0,a_0,b_0) \), so that by @thm-opt-bayes-conjugate the posterior is \( \text{NIG}(\bm m_n,\V_n,a_n,b_n) \).
+Let the prior be \( \text{NIG}(\mathbf{m}_0,\V_0,a_0,b_0) \), so that by @thm-opt-bayes-conjugate the posterior is \( \text{NIG}(\mathbf{m}_n,\V_n,a_n,b_n) \).
 Put \( \nu=2a_n \) and \( \tau^2=b_n/a_n \).
 
 ::: {.enumerate options="label=(\alph*)"}
 1. For \( \blambda\ne\bzero \), the interval
    \[
-\blambda\T\bm m_n\ \pm\ t_{\nu,\alpha/2}\,\tau\sqrt{\blambda\T\V_n\blambda}
+\blambda\T\mathbf{m}_n\ \pm\ t_{\nu,\alpha/2}\,\tau\sqrt{\blambda\T\V_n\blambda}
 \]
    is the \( 1-\alpha \) HPD credible interval for \( \blambda\T\bbeta \); it is also equal-tailed.
 
 2. For a \( p\times q \) matrix \( \bLambda \) of rank \( q \), the set
    \[
 \begin{aligned}
-\bigl\{\bm\phi_0:\ &(\bm\phi_0-\bLambda\T\bm m_n)\T(\bLambda\T\V_n\bLambda)^{-1}(\bm\phi_0-\bLambda\T\bm m_n)\\
+\bigl\{\boldsymbol{\phi}_0:\ &(\boldsymbol{\phi}_0-\bLambda\T\mathbf{m}_n)\T(\bLambda\T\V_n\bLambda)^{-1}(\boldsymbol{\phi}_0-\bLambda\T\mathbf{m}_n)\\
 &\le q\,\tau^2F_\alpha(q,\nu)\bigr\}
 \end{aligned}
 \]
    is the \( 1-\alpha \) HPD credible region for \( \bLambda\T\bbeta \).
 
-3. Let \( \bm Y_0=\X_0\bbeta+\be_0 \) be \( k \) future observations, with \( \be_0\sim\Normal_k(\bzero,\sigma^2\I_k) \) independent of \( \Y \) and of
-   \( \bbeta \) given \( \sigma^2 \). The posterior predictive distribution of \( \bm Y_0 \) is
+3. Let \( \mathbf{Y}_0=\X_0\bbeta+\be_0 \) be \( k \) future observations, with \( \be_0\sim\Normal_k(\bzero,\sigma^2\I_k) \) independent of \( \Y \) and of
+   \( \bbeta \) given \( \sigma^2 \). The posterior predictive distribution of \( \mathbf{Y}_0 \) is
    \[
-\bm Y_0\mid\y\ \sim\ t_\nu\bigl(\X_0\bm m_n,\ \tau^2(\I_k+\X_0\V_n\X_0\T)\bigr).
+\mathbf{Y}_0\mid\y\ \sim\ t_\nu\bigl(\X_0\mathbf{m}_n,\ \tau^2(\I_k+\X_0\V_n\X_0\T)\bigr).
 \]
-   In particular, for one future observation at \( \x_0 \), the interval \( \x_0\T\bm m_n\pm t_{\nu,\alpha/2}\,\tau\sqrt{1+\x_0\T\V_n\x_0} \) has
+   In particular, for one future observation at \( \x_0 \), the interval \( \x_0\T\mathbf{m}_n\pm t_{\nu,\alpha/2}\,\tau\sqrt{1+\x_0\T\V_n\x_0} \) has
    posterior predictive probability \( 1-\alpha \).
 
 4. \( \bigl[2b_n/\chi^2_{\alpha/2}(\nu),\ 2b_n/\chi^2_{1-\alpha/2}(\nu)\bigr] \) is an equal-tailed \( 1-\alpha \) credible interval for \( \sigma^2 \).
@@ -92,24 +92,24 @@ Put \( \nu=2a_n \) and \( \tau^2=b_n/a_n \).
 :::
 
 ::: {.proof}
-By @thm-opt-bayes-conjugate and @lem-opt-nig-marginal, \( \bbeta\mid\y\sim t_\nu(\bm m_n,\tau^2\V_n) \) and \( 2b_n/\sigma^2\mid\y\sim\chi^2(\nu) \).
+By @thm-opt-bayes-conjugate and @lem-opt-nig-marginal, \( \bbeta\mid\y\sim t_\nu(\mathbf{m}_n,\tau^2\V_n) \) and \( 2b_n/\sigma^2\mid\y\sim\chi^2(\nu) \).
 
-(a) By @lem-ci-mvt(a) with \( \A=\blambda\T \), \( \blambda\T\bbeta=\blambda\T\bm m_n+\tau\sqrt{\blambda\T\V_n\blambda}\,T \) with \( T\sim t(\nu) \). The
+(a) By @lem-ci-mvt(a) with \( \A=\blambda\T \), \( \blambda\T\bbeta=\blambda\T\mathbf{m}_n+\tau\sqrt{\blambda\T\V_n\blambda}\,T \) with \( T\sim t(\nu) \). The
 \( t(\nu) \) density is symmetric and decreasing in \( \lvert x\rvert \), so the symmetric interval is both equal-tailed and HPD.
 
-(b) By @lem-ci-mvt(a), \( \bLambda\T\bbeta\mid\y\sim t_\nu(\bLambda\T\bm m_n,\tau^2\bLambda\T\V_n\bLambda) \). By (b) of the lemma the quadratic form divided
+(b) By @lem-ci-mvt(a), \( \bLambda\T\bbeta\mid\y\sim t_\nu(\bLambda\T\mathbf{m}_n,\tau^2\bLambda\T\V_n\bLambda) \). By (b) of the lemma the quadratic form divided
 by \( q\tau^2 \) is \( F(q,\nu) \), so the set has posterior probability \( 1-\alpha \). By (c) the density is a decreasing function of the quadratic
 form, so the set has the form \( \{\text{density}\ge k\} \).
 
-(c) Given \( \sigma^2 \) and \( \y \), \( \bbeta\sim\Normal_p(\bm m_n,\sigma^2\V_n) \) and \( \be_0\sim\Normal_k(\bzero,\sigma^2\I_k) \) independently, so
-\( \bm Y_0\sim\Normal_k\bigl(\X_0\bm m_n,\sigma^2(\X_0\V_n\X_0\T+\I_k)\bigr) \) (@thm-mvn-linear). Together with \( \sigma^2\mid\y\sim\text{IG}(a_n,b_n) \), this says
-that \( (\bm Y_0,\sigma^2)\mid\y \) is \( \text{NIG}\bigl(\X_0\bm m_n,\I_k+\X_0\V_n\X_0\T,a_n,b_n\bigr) \) (@def-opt-nig), the matrix being positive definite.
+(c) Given \( \sigma^2 \) and \( \y \), \( \bbeta\sim\Normal_p(\mathbf{m}_n,\sigma^2\V_n) \) and \( \be_0\sim\Normal_k(\bzero,\sigma^2\I_k) \) independently, so
+\( \mathbf{Y}_0\sim\Normal_k\bigl(\X_0\mathbf{m}_n,\sigma^2(\X_0\V_n\X_0\T+\I_k)\bigr) \) (@thm-mvn-linear). Together with \( \sigma^2\mid\y\sim\text{IG}(a_n,b_n) \), this says
+that \( (\mathbf{Y}_0,\sigma^2)\mid\y \) is \( \text{NIG}\bigl(\X_0\mathbf{m}_n,\I_k+\X_0\V_n\X_0\T,a_n,b_n\bigr) \) (@def-opt-nig), the matrix being positive definite.
 @lem-opt-nig-marginal gives the \( t_\nu \) law, and (a) of the present theorem, applied to it with \( k=1 \), gives the interval.
 
 (d) \( \Pr\{\chi^2_{1-\alpha/2}(\nu)\le2b_n/\sigma^2\le\chi^2_{\alpha/2}(\nu)\mid\y\}=1-\alpha \); invert the inequalities.
 :::
 
-The formulas mirror the frequentist ones: \( \hbeta \) becomes \( \bm m_n \), \( \G \) becomes \( \V_n=(\V_0^{-1}+\X\T\X)^{-1} \), \( s^2 \)
+The formulas mirror the frequentist ones: \( \hbeta \) becomes \( \mathbf{m}_n \), \( \G \) becomes \( \V_n=(\V_0^{-1}+\X\T\X)^{-1} \), \( s^2 \)
 becomes \( \tau^2 \), and \( n-r \) becomes \( \nu=2a_0+n \), which counts every observation plus \( 2a_0 \) "prior observations" about
 \( \sigma^2 \). The \( 1 \) in \( 1+\x_0\T\V_n\x_0 \) is again the new error.
 
@@ -124,7 +124,7 @@ of @prp-ci-sigma.
 
 ::: {.proof}
 By @cor-opt-flat-prior the posterior is \( \text{NIG}\bigl(\hbeta,(\X\T\X)^{-1},(n-p)/2,\text{SSE}/2\bigr) \). The proof of
-@thm-ci-bayes-credible used only that the posterior is normal-inverse-gamma, so its conclusions hold with \( \bm m_n=\hbeta \),
+@thm-ci-bayes-credible used only that the posterior is normal-inverse-gamma, so its conclusions hold with \( \mathbf{m}_n=\hbeta \),
 \( \V_n=(\X\T\X)^{-1}=\G \), \( \nu=n-p=n-r \), \( \tau^2=\text{SSE}/(n-p)=s^2 \) and \( 2b_n=\text{SSE} \). Substituting gives the four frequentist sets.
 :::
 
@@ -255,8 +255,8 @@ For \( \nu>2 \), find the posterior predictive mean and variance of a single fut
 :::
 
 ::: {.solution}
-From @thm-ci-bayes-credible(c), \( Y_0\mid\y=\x_0\T\bm m_n+\tau\sqrt{1+\x_0\T\V_n\x_0}\,T \) with \( T\sim t(\nu) \), so the mean is
-\( \x_0\T\bm m_n \) and the variance is \( \tau^2(1+\x_0\T\V_n\x_0)\,\nu/(\nu-2) \). The extra factor comes from the uncertainty about
+From @thm-ci-bayes-credible(c), \( Y_0\mid\y=\x_0\T\mathbf{m}_n+\tau\sqrt{1+\x_0\T\V_n\x_0}\,T \) with \( T\sim t(\nu) \), so the mean is
+\( \x_0\T\mathbf{m}_n \) and the variance is \( \tau^2(1+\x_0\T\V_n\x_0)\,\nu/(\nu-2) \). The extra factor comes from the uncertainty about
 \( \sigma^2 \): given \( \sigma^2 \) the predictive variance is \( \sigma^2(1+\x_0\T\V_n\x_0) \), and averaging over the posterior gives
 \( \E(\sigma^2\mid\y)=b_n/(a_n-1) \), which exceeds \( \tau^2=b_n/a_n \) by the factor \( a_n/(a_n-1)=\nu/(\nu-2) \).
 :::
@@ -266,13 +266,13 @@ From @thm-ci-bayes-credible(c), \( Y_0\mid\y=\x_0\T\bm m_n+\tau\sqrt{1+\x_0\T\V_
 ::: {#exr-ci-g-prior-interval}
 [B1]
 
-Under the \( g \)-prior of @prp-opt-shrinkage(c) with \( \bm m_0=\bzero \), show that the credible interval for \( \blambda\T\bbeta \) is centred at
+Under the \( g \)-prior of @prp-opt-shrinkage(c) with \( \mathbf{m}_0=\bzero \), show that the credible interval for \( \blambda\T\bbeta \) is centred at
 \( \{g/(1+g)\}\blambda\T\hbeta \) and has half-width \( t_{\nu,\alpha/2}\,\tau\sqrt{g/(1+g)}\sqrt{\blambda\T(\X\T\X)^{-1}\blambda} \). Compare it with the
 \( t \) interval as \( g\to\infty \), paying attention to \( \nu \) and \( \tau^2 \).
 :::
 
 ::: {.solution}
-With \( \V_0=g(\X\T\X)^{-1} \), \( \V_n=\{g/(1+g)\}(\X\T\X)^{-1} \) and \( \bm m_n=\{g/(1+g)\}\hbeta \) (@prp-opt-shrinkage(c)). Substitute in
+With \( \V_0=g(\X\T\X)^{-1} \), \( \V_n=\{g/(1+g)\}(\X\T\X)^{-1} \) and \( \mathbf{m}_n=\{g/(1+g)\}\hbeta \) (@prp-opt-shrinkage(c)). Substitute in
 @thm-ci-bayes-credible(a). As \( g\to\infty \) the centre and the matrix tend to those of least squares, but \( \nu=2a_0+n \) stays larger than \( n-p \) and
 \( \tau^2=b_n/a_n \) tends to \( (2b_0+\text{SSE})/(2a_0+n) \), not to \( s^2 \). The interval does not become the \( t \) interval: that needs the flat prior on
 \( \sigma^2 \) as well, with \( a_0=-p/2 \) and \( b_0=0 \) (@cor-opt-flat-prior).
@@ -299,13 +299,13 @@ shared mean correlates them. Under the frequentist model with fixed parameters t
 
 Let \( \X \) have rank \( r<p \) and take the flat prior \( \pi(\bbeta,\sigma^2)\propto1/\sigma^2 \). Show that the posterior of \( \bbeta \) is improper, but
 that for estimable \( \blambda\T\bbeta \) the posterior of \( (\blambda\T\bbeta,\sigma^2) \) can be defined by reparameterizing with \( \bgamma=\bU\T\bbeta \) and
-\( \bm\delta=\bm N\T\bbeta \), where the columns of \( \bU \) and \( \bm N \) are orthonormal bases of \( \C(\X\T) \) and \( \Null(\X) \), and integrating over nothing
+\( \boldsymbol{\delta}=\mathbf{N}\T\bbeta \), where the columns of \( \bU \) and \( \mathbf{N} \) are orthonormal bases of \( \C(\X\T) \) and \( \Null(\X) \), and integrating over nothing
 but \( \bgamma \). Show that the resulting credible interval is the \( t \) interval of @thm-ci-estimable-interval with \( n-r \) degrees of freedom, provided
 the flat prior is taken as \( 1/\sigma^2 \) in \( (\bgamma,\sigma^2) \) alone.
 :::
 
 ::: {.solution}
-The likelihood depends on \( \bbeta \) only through \( \X\bbeta=\X\bU\bgamma \), since \( \X\bm N=\bzero \). So the posterior is flat in \( \bm\delta \), which is not
+The likelihood depends on \( \bbeta \) only through \( \X\bbeta=\X\bU\bgamma \), since \( \X\mathbf{N}=\bzero \). So the posterior is flat in \( \boldsymbol{\delta} \), which is not
 integrable: the posterior of \( \bbeta \) is improper. In the model \( \Y\sim\Normal_n(\X\bU\bgamma,\sigma^2\I) \) the matrix \( \X\bU \) has full column rank \( r \),
 and @cor-opt-flat-prior with \( p \) replaced by \( r \) gives a proper posterior with \( t(n-r) \) marginals. An estimable \( \blambda \) lies in
 \( \C(\X\T)=\C(\bU) \), so \( \blambda=\bU\bU\T\blambda \) and \( \blambda\T\bbeta=(\bU\T\blambda)\T\bgamma \) involves \( \bgamma \) only. Its credible interval is centred at

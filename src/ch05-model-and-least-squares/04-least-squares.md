@@ -67,12 +67,12 @@ gradient of \( S \) is \( -2\X\T(\y-\X\bb) \) and its Hessian is \( 2\X\T\X \).
 Every minimizer of the differentiable function \( S \) is a stationary point, and the
 stationary points are the solutions of @eq-lm-normal-equations. By (a) there is exactly one, @eq-lm-beta-hat.
 
-*(c)* Put \( \bm d=\bb-\hbeta \). Then \( \y-\X\bb=\he-\X\bm d \), and
+*(c)* Put \( \mathbf{d}=\bb-\hbeta \). Then \( \y-\X\bb=\he-\X\mathbf{d} \), and
 \[
-\norm{\y-\X\bb}^2=\norm{\he}^2-2\bm d\T\X\T\he+\bm d\T\X\T\X\bm d .
+\norm{\y-\X\bb}^2=\norm{\he}^2-2\mathbf{d}\T\X\T\he+\mathbf{d}\T\X\T\X\mathbf{d} .
 \]
 The middle term vanishes because \( \X\T\he=\X\T\y-\X\T\X\hbeta=\bzero \) by the normal
-equations. The last term is positive for \( \bm d\ne\bzero \) by (a). So \( S(\bb)>S(\hbeta) \)
+equations. The last term is positive for \( \mathbf{d}\ne\bzero \) by (a). So \( S(\bb)>S(\hbeta) \)
 whenever \( \bb\ne\hbeta \).
 
 For the last statement, suppose \( \rank(\X)<p \). The vector \( \X\T\y \) lies in
@@ -105,7 +105,7 @@ share this invariance is the question of estimability, answered in
 [Chapter 8](../ch08-estimability/index.html) (@def-est-estimable and @thm-est-characterization).
 :::
 
-Least squares under known linear restrictions \( \bm H\bb=\bm h \), such as shares that add to
+Least squares under known linear restrictions \( \mathbf{H}\bb=\mathbf{h} \), such as shares that add to
 one, has a closed form found by Lagrange multipliers in @exr-mat-constrained-ls; the increase
 in the residual sum of squares it computes drives the test of the restrictions in [Chapter 11](../ch11-general-linear-hypothesis/index.html) (@thm-glh-general-f).
 
@@ -155,7 +155,7 @@ Let \( \X \) have rank \( p \), and let \( \bH \), \( \hY \) and \( \he \) be as
 3. \( \norm{\y}^2=\norm{\hY}^2+\norm{\he}^2 \), and
    \( \text{SSE}=\y\T(\I-\bH)\y=\y\T\y-\hbeta\T\X\T\y \).
 
-4. If \( \bone=\X\bm c \) for some \( \bm c \) (for example, if \( \X \) has an intercept column), then
+4. If \( \bone=\X\mathbf{c} \) for some \( \mathbf{c} \) (for example, if \( \X \) has an intercept column), then
    \( \sum_i\hat{\varepsilon}_i=0 \), the mean of the fitted values is \( \bar{y} \), and
    \[
    \sum_i(y_i-\bar{y})^2=\sum_i(\hat{y}_i-\bar{y})^2+\sum_i\hat{\varepsilon}_i^2,
@@ -177,7 +177,7 @@ symmetric. \( \bH\X=\X(\X\T\X)^{-1}\X\T\X=\X \), and then
 \( \hY\T\he=\hbeta\T\X\T\he=0 \). *(c)* \( \y=\hY+\he \) with \( \hY\T\he=0 \) gives the first
 identity. For the second, \( (\I-\bH) \) is symmetric and idempotent, so
 \( \norm{(\I-\bH)\y}^2=\y\T(\I-\bH)\y \); and
-\( \y\T\bH\y=\y\T\X\hbeta=\hbeta\T\X\T\y \). *(d)* \( \bone\T\he=\bm c\T\X\T\he=0 \) by (b). Then
+\( \y\T\bH\y=\y\T\X\hbeta=\hbeta\T\X\T\y \). *(d)* \( \bone\T\he=\mathbf{c}\T\X\T\he=0 \) by (b). Then
 \( \sum_i\hat{y}_i=\sum_iy_i \). Write \( y_i-\bar{y}=(\hat{y}_i-\bar{y})+\hat{\varepsilon}_i \). The cross
 term \( \sum_i(\hat{y}_i-\bar{y})\hat{\varepsilon}_i=\hY\T\he-\bar{y}\,\bone\T\he=0 \). *(e)* Substitute
 \( \y=\X\bbeta+\be \) into @eq-lm-beta-hat and into \( (\I-\bH)\y \), using (a).
@@ -228,16 +228,16 @@ For \( \bb=(b_0,\bb_1\T)\T \),
 \]
 \( \bT \) is nonsingular (it is upper triangular with unit diagonal), so
 \( [\bone,\X_c]=\X\bT^{-1} \) has rank \( p \) (@prp-mat-rank-product(b)), and hence
-\( \X_c \) has rank \( k \). The criterion satisfies \( \norm{\y-\X\bb}^2=\norm{\y-[\bone,\X_c]\bm a}^2 \)
-with \( \bm a=\bT\bb \), and \( \bb\mapsto\bT\bb \) is a bijection of \( \Real^p \). So \( \hbeta \)
-minimizes the left side iff \( \hat{\bm a}=\bT\hbeta \) minimizes the right side. Because
+\( \X_c \) has rank \( k \). The criterion satisfies \( \norm{\y-\X\bb}^2=\norm{\y-[\bone,\X_c]\mathbf{a}}^2 \)
+with \( \mathbf{a}=\bT\bb \), and \( \bb\mapsto\bT\bb \) is a bijection of \( \Real^p \). So \( \hbeta \)
+minimizes the left side iff \( \hat{\mathbf{a}}=\bT\hbeta \) minimizes the right side. Because
 \( \bone\T\X_c=\bzero\T \), the normal equations for \( [\bone,\X_c] \) are block diagonal,
 \[
-\begin{pmatrix}n&\bzero\T\\\bzero&\X_c\T\X_c\end{pmatrix}\hat{\bm a}
+\begin{pmatrix}n&\bzero\T\\\bzero&\X_c\T\X_c\end{pmatrix}\hat{\mathbf{a}}
 =\begin{pmatrix}n\bar{y}\\\X_c\T\y\end{pmatrix},
 \]
-giving \( \hat{a}_0=\bar{y} \) and \( \hat{\bm a}_1=(\X_c\T\X_c)^{-1}\X_c\T\y \). Undoing \( \bT \):
-\( \hbeta_1=\hat{\bm a}_1 \) and \( \hat{\beta}_0=\hat{a}_0-\bar{\x}\T\hat{\bm a}_1 \). Finally
+giving \( \hat{a}_0=\bar{y} \) and \( \hat{\mathbf{a}}_1=(\X_c\T\X_c)^{-1}\X_c\T\y \). Undoing \( \bT \):
+\( \hbeta_1=\hat{\mathbf{a}}_1 \) and \( \hat{\beta}_0=\hat{a}_0-\bar{\x}\T\hat{\mathbf{a}}_1 \). Finally
 \( \X_c\T\bone=\bzero \), so \( \X_c\T\y=\X_c\T(\y-\bar{y}\bone) \).
 :::
 

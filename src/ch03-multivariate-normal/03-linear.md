@@ -13,7 +13,7 @@ Let \( \Y\sim\Normal_n(\bmu,\bSigma) \), let \( \A \) be any \( m\times n \) mat
 :::
 
 ::: {.proof}
-For \( \bm c\in\Real^m \), \( \bm c\T(\A\Y+\bb)=(\A\T\bm c)\T\Y+\bm c\T\bb \) is a linear
+For \( \mathbf{c}\in\Real^m \), \( \mathbf{c}\T(\A\Y+\bb)=(\A\T\mathbf{c})\T\Y+\mathbf{c}\T\bb \) is a linear
 combination of \( \Y \) plus a constant, which is normal by @def-mvn and
 @lem-mvn-univariate(c). So \( \A\Y+\bb \) is normal, and its mean and
 covariance are given by @thm-rv-linear.
@@ -25,8 +25,8 @@ is a singular normal vector, and that is allowed. With a density-based
 definition, the same theorem needs \( \A \) to have full row rank and \( \bSigma \) to be
 positive definite, and the most useful cases fall outside it. The moment
 generating function gives a second proof:
-\( \E e^{\bm t\T(\A\Y+\bb)}=e^{\bm t\T\bb}M_{\Y}(\A\T\bm t)
-=\exp\{\bm t\T(\A\bmu+\bb)+\tfrac12\bm t\T\A\bSigma\A\T\bm t\} \).
+\( \E e^{\mathbf{t}\T(\A\Y+\bb)}=e^{\mathbf{t}\T\bb}M_{\Y}(\A\T\mathbf{t})
+=\exp\{\mathbf{t}\T(\A\bmu+\bb)+\tfrac12\mathbf{t}\T\A\bSigma\A\T\mathbf{t}\} \).
 
 ::: {#cor-mvn-marginals}
 [Marginal distributions]
@@ -38,7 +38,7 @@ entries, rows and columns indexed by \( I \). In particular \( Y_i\sim\Normal(\m
 :::
 
 ::: {.proof}
-\( \Y_1=\A\Y \), where the rows of \( \A \) are the coordinate vectors \( \bm e_i\T \),
+\( \Y_1=\A\Y \), where the rows of \( \A \) are the coordinate vectors \( \mathbf{e}_i\T \),
 \( i\in I \). Then \( \A\bmu=\bmu_I \) and \( \A\bSigma\A\T=\bSigma_{II} \).
 :::
 
@@ -134,7 +134,7 @@ Consequently, if also \( n_1=n_2 \), then \( \Y_1+\Y_2\sim\Normal(\bmu_1+\bmu_2,
 :::
 
 ::: {.proof}
-\( \bm a_1\T\Y_1+\bm a_2\T\Y_2 \) is a sum of independent normal variables, which is
+\( \mathbf{a}_1\T\Y_1+\mathbf{a}_2\T\Y_2 \) is a sum of independent normal variables, which is
 normal by @lem-mvn-univariate(c). Independence makes the cross-covariance
 zero. The sum is \( [\I,\I] \) applied to the stacked vector.
 :::
@@ -168,7 +168,7 @@ correlation \( -\rho \). Both components have \( \Normal(0,1) \) margins, so the
 does too, exactly. The covariance is \( \tfrac12\rho+\tfrac12(-\rho)=0 \). The pair is
 nevertheless dependent: since \( \E(Y_1^2Y_2^2)=1+2r^2 \) for a standard bivariate normal
 with correlation \( r \), the squares have correlation \( \rho^2 \), not zero. The
-direction \( \bm a=(1,1)\T/\sqrt2 \) exposes the failure of joint normality.
+direction \( \mathbf{a}=(1,1)\T/\sqrt2 \) exposes the failure of joint normality.
 \( S=(Y_1+Y_2)/\sqrt2 \) is an equal mixture of \( \Normal(0,1+\rho) \) and
 \( \Normal(0,1-\rho) \). It has variance \( 1 \) but kurtosis
 \( \E S^4=\tfrac32\{(1+\rho)^2+(1-\rho)^2\}=3(1+\rho^2) \), where a normal variable
@@ -256,7 +256,7 @@ and that it is zero with probability one iff \( m_{ii}=1 \).
 [B1]
 
 Let \( \Y\sim\Normal_n(\mu\bone,\sigma^2\I) \) and let \( \Q \) be an orthogonal matrix whose first row
-is \( n^{-1/2}\bone\T \). Show that the entries of \( \bm V=\Q\Y \) are independent, with
+is \( n^{-1/2}\bone\T \). Show that the entries of \( \mathbf{V}=\Q\Y \) are independent, with
 \( V_1\sim\Normal(\sqrt n\mu,\sigma^2) \) and \( V_i\sim\Normal(0,\sigma^2) \) for \( i\ge2 \). Show that
 \( \sum_i(Y_i-\bar{Y})^2=\sum_{i\ge2}V_i^2 \), and conclude again that \( \bar{Y} \) and \( S^2 \) are
 independent.
@@ -284,7 +284,7 @@ constant or has a density, so \( Z+W \) is not normal.
 ::: {#exr-mvn-sign-flip-directions}
 [B3]
 
-For the pair \( (Z,W) \) of @exm-mvn-sign-flip, find every \( \bm a\ne\bzero \) for which
+For the pair \( (Z,W) \) of @exm-mvn-sign-flip, find every \( \mathbf{a}\ne\bzero \) for which
 \( a_1Z+a_2W \) is normal. *Hint:* an equal mixture of \( \Normal(0,v_1) \) and \( \Normal(0,v_2) \)
 has fourth moment \( \tfrac32(v_1^2+v_2^2) \). Conclude that \( (Z,W) \) is normal along exactly two
 lines through the origin, the coordinate axes.

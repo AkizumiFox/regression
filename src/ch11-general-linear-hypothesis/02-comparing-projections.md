@@ -171,19 +171,19 @@ leave it unchanged. They form the symmetry group of the testing problem, and
 The statistic @eq-glh-F depends on \( \X \) and \( \X_0 \) only through \( \C(\X) \) and \( \C(\X_0) \).
 Where it is defined, that is, when \( (\I-\M)\y\ne\bzero \), it is unchanged when \( \y \) is replaced by
 \[
-a\,\bm H\y+\bv,\qquad a\ne0,\quad \bv\in\C(\X_0),
+a\,\mathbf{H}\y+\bv,\qquad a\ne0,\quad \bv\in\C(\X_0),
 \]
-where \( \bm H \) is any orthogonal matrix that maps \( \C(\X_0) \) onto itself and \( \C(\X) \) onto itself.
+where \( \mathbf{H} \) is any orthogonal matrix that maps \( \C(\X_0) \) onto itself and \( \C(\X) \) onto itself.
 :::
 
 ::: {.proof}
 The first claim holds because \( \M \) and \( \Mo \) are determined by the column spaces. For the second,
 the transformations can be applied one at a time. Adding \( \bv \) changes nothing, because \( \M-\Mo \)
-and \( \I-\M \) annihilate \( \C(\X_0) \). The factor \( a^2 \) cancels in the ratio. For \( \bm H \): the
-matrix \( \bm H\M\bm H\T \) is symmetric and idempotent with column space
-\( \bm H\C(\X)=\C(\X) \), so it equals \( \M \) (@thm-proj-sym-idem). Hence \( \bm H\M=\M\bm H \), and
-likewise \( \bm H\Mo=\Mo\bm H \). Then
-\( \norm{(\M-\Mo)\bm H\y}=\norm{\bm H(\M-\Mo)\y}=\norm{(\M-\Mo)\y} \), because \( \bm H \) preserves
+and \( \I-\M \) annihilate \( \C(\X_0) \). The factor \( a^2 \) cancels in the ratio. For \( \mathbf{H} \): the
+matrix \( \mathbf{H}\M\mathbf{H}\T \) is symmetric and idempotent with column space
+\( \mathbf{H}\C(\X)=\C(\X) \), so it equals \( \M \) (@thm-proj-sym-idem). Hence \( \mathbf{H}\M=\M\mathbf{H} \), and
+likewise \( \mathbf{H}\Mo=\Mo\mathbf{H} \). Then
+\( \norm{(\M-\Mo)\mathbf{H}\y}=\norm{\mathbf{H}(\M-\Mo)\y}=\norm{(\M-\Mo)\y} \), because \( \mathbf{H} \) preserves
 lengths, and the same holds for \( \I-\M \).
 :::
 
@@ -204,30 +204,30 @@ problem about independent normal coordinates.
 
 Let \( \Q=[\Q_0,\Q_1,\Q_2] \) be an orthogonal \( n\times n \) matrix whose blocks of \( r_0 \), \( q \) and
 \( n-r \) columns are orthonormal bases of \( \C(\X_0) \), of the test space and of \( \C(\X)\perpc \). Put
-\( \bz_k=\Q_k\T\Y \) and \( \bm\eta_k=\Q_k\T\X\bbeta \), \( k=0,1,2 \). Under @eq-opt-normal-model:
+\( \bz_k=\Q_k\T\Y \) and \( \boldsymbol{\eta}_k=\Q_k\T\X\bbeta \), \( k=0,1,2 \). Under @eq-opt-normal-model:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \bz_0,\bz_1,\bz_2 \) are independent, \( \bz_k\sim\Normal(\bm\eta_k,\sigma^2\I) \), and \( \bm\eta_2=\bzero \);
+1. \( \bz_0,\bz_1,\bz_2 \) are independent, \( \bz_k\sim\Normal(\boldsymbol{\eta}_k,\sigma^2\I) \), and \( \boldsymbol{\eta}_2=\bzero \);
 
 2. \( \norm{\bz_1}^2=\text{SSE}_0-\text{SSE} \) and \( \norm{\bz_2}^2=\text{SSE} \), so
    \( F=\{\norm{\bz_1}^2/q\}/\{\norm{\bz_2}^2/(n-r)\} \);
 
-3. \( \norm{\bm\eta_1}^2=\sigma^2\gamma \), and \( H_0 \) holds iff \( \bm\eta_1=\bzero \).
+3. \( \norm{\boldsymbol{\eta}_1}^2=\sigma^2\gamma \), and \( H_0 \) holds iff \( \boldsymbol{\eta}_1=\bzero \).
 :::
 
 :::
 
 ::: {.proof}
 (a) \( \Q\T\Y\sim\Normal_n(\Q\T\X\bbeta,\sigma^2\Q\T\Q)=\Normal_n(\Q\T\X\bbeta,\sigma^2\I) \) by @thm-mvn-linear. Its blocks are uncorrelated, hence independent (@thm-mvn-independence). The columns of
-\( \Q_2 \) are orthogonal to \( \C(\X) \), so \( \bm\eta_2=\Q_2\T\X\bbeta=\bzero \). (b) By
+\( \Q_2 \) are orthogonal to \( \C(\X) \), so \( \boldsymbol{\eta}_2=\Q_2\T\X\bbeta=\bzero \). (b) By
 @prp-proj-orthonormal-formula, \( \Q_1\Q_1\T=\M-\Mo \) and \( \Q_2\Q_2\T=\I-\M \), so
 \( \norm{\bz_1}^2=\Y\T\Q_1\Q_1\T\Y=\Y\T(\M-\Mo)\Y \) and similarly for \( \bz_2 \). (c) In the same way
-\( \norm{\bm\eta_1}^2=\norm{(\M-\Mo)\X\bbeta}^2 \), and @thm-glh-f-test(c) applies.
+\( \norm{\boldsymbol{\eta}_1}^2=\norm{(\M-\Mo)\X\bbeta}^2 \), and @thm-glh-f-test(c) applies.
 :::
 
 In canonical form the problem is stripped to its essentials. One observes a \( q \)-vector \( \bz_1 \),
-normal with unknown mean \( \bm\eta_1 \) and covariance \( \sigma^2\I \), and wishes to test
-\( \bm\eta_1=\bzero \). An independent vector \( \bz_2 \) of pure noise, of dimension \( n-r \), measures
+normal with unknown mean \( \boldsymbol{\eta}_1 \) and covariance \( \sigma^2\I \), and wishes to test
+\( \boldsymbol{\eta}_1=\bzero \). An independent vector \( \bz_2 \) of pure noise, of dimension \( n-r \), measures
 \( \sigma^2 \). The vector \( \bz_0 \) has an unknown mean that neither hypothesis restricts, so it is of no
 use. Every hypothesis of this chapter, whether about coefficients, contrasts or whole models, is an
 instance of this problem with particular \( q \) and \( n-r \).
@@ -238,22 +238,22 @@ The angle picture shows why normality is less important for the null distributio
 appears. Under \( H_0 \), \( (\I-\Mo)\Y=(\I-\Mo)\be \), so \( F \) is a function of the error vector alone,
 and it is a function of its *direction* only: replacing \( \be \) by \( c\be \), \( c>0 \), leaves every
 angle unchanged. Any error law under which the direction of \( \be \) behaves as it does for normal
-errors therefore gives the same null distribution. We call \( \bm U \) **uniformly distributed on the
+errors therefore gives the same null distribution. We call \( \mathbf{U} \) **uniformly distributed on the
 unit sphere** if it has the distribution of \( \Z/\norm{\Z} \) for \( \Z\sim\Normal_n(\bzero,\I) \).
 
 ::: {#prp-glh-spherical}
 [Spherical errors]
 
-Let \( \Y=\X\bbeta+\be \) with \( \X\bbeta\in\C(\X_0) \), where \( \be=R\,\bm U \) for a random variable
-\( R>0 \) and a vector \( \bm U \) uniformly distributed on the unit sphere. The variables \( R \) and
-\( \bm U \) need not be independent. Then \( F\sim F(r-r_0,n-r) \).
+Let \( \Y=\X\bbeta+\be \) with \( \X\bbeta\in\C(\X_0) \), where \( \be=R\,\mathbf{U} \) for a random variable
+\( R>0 \) and a vector \( \mathbf{U} \) uniformly distributed on the unit sphere. The variables \( R \) and
+\( \mathbf{U} \) need not be independent. Then \( F\sim F(r-r_0,n-r) \).
 :::
 
 ::: {.proof}
 Write \( g(\bv)=\{\norm{(\M-\Mo)\bv}^2/q\}/\{\norm{(\I-\M)\bv}^2/(n-r)\} \) for vectors with
 \( (\I-\M)\bv\neq\bzero \). Under \( H_0 \), \( (\M-\Mo)\Y=(\M-\Mo)\be \) and \( (\I-\M)\Y=(\I-\M)\be \),
 since both projections annihilate \( \X\bbeta\in\C(\X_0) \). So \( F=g(\be) \). Because
-\( g(c\bv)=g(\bv) \) for \( c>0 \), \( F=g(R\bm U)=g(\bm U) \). The law of \( g(\bm U) \) is the law of
+\( g(c\bv)=g(\bv) \) for \( c>0 \), \( F=g(R\mathbf{U})=g(\mathbf{U}) \). The law of \( g(\mathbf{U}) \) is the law of
 \( g(\Z/\norm{\Z})=g(\Z) \) with \( \Z\sim\Normal_n(\bzero,\I) \). By @thm-glh-f-test(d) with
 \( \sigma=1 \), that law is \( F(r-r_0,n-r) \). (The events \( \Z=\bzero \) and \( (\I-\M)\Z=\bzero \) have
 probability zero.)
@@ -395,7 +395,7 @@ The dimension is \( \rank(\M-\Mo)=r-r_0 \) (@thm-proj-nested(c)).
 
 Which of the following error vectors satisfy the hypothesis of @prp-glh-spherical?
 (i) \( \be=\sigma\Z \) with \( \sigma \) fixed; (ii) \( \be=S\Z \) with \( S \) uniform on \( (1,2) \) and independent of
-\( \Z \); (iii) \( \be \) with independent Laplace components; (iv) \( \be=\bm D\Z \) with \( \bm D \) a fixed
+\( \Z \); (iii) \( \be \) with independent Laplace components; (iv) \( \be=\mathbf{D}\Z \) with \( \mathbf{D} \) a fixed
 diagonal matrix with unequal entries; (v) \( \be=\Z/\norm{\Z}^2 \).
 :::
 
@@ -405,8 +405,8 @@ diagonal matrix with unequal entries; (v) \( \be=\Z/\norm{\Z}^2 \).
 [C1]
 
 In the canonical form, let two data vectors \( \y \) and \( \y' \) with \( \bz_2,\bz_2'\ne\bzero \) have the same
-value of \( F \). Construct \( a>0 \), \( \bv\in\C(\X_0) \) and an orthogonal \( \bm H \) of the kind allowed in
-@prp-glh-invariance such that \( \y'=a\bm H\y+\bv \). (So \( F \) is a *maximal invariant*: any statistic
+value of \( F \). Construct \( a>0 \), \( \bv\in\C(\X_0) \) and an orthogonal \( \mathbf{H} \) of the kind allowed in
+@prp-glh-invariance such that \( \y'=a\mathbf{H}\y+\bv \). (So \( F \) is a *maximal invariant*: any statistic
 unchanged by these transformations is a function of \( F \).)
 :::
 

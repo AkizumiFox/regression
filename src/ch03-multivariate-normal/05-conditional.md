@@ -23,12 +23,12 @@ Let \( \bSigma \) be nonnegative definite and partitioned as above, and let \( \
 generalized inverse of \( \bSigma_{22} \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \C(\bSigma_{21})\subseteq\C(\bSigma_{22}) \), so \( \bSigma_{21}=\bSigma_{22}\bm H \) for some
-           matrix \( \bm H \);
+1. \( \C(\bSigma_{21})\subseteq\C(\bSigma_{22}) \), so \( \bSigma_{21}=\bSigma_{22}\mathbf{H} \) for some
+           matrix \( \mathbf{H} \);
 
 2. \( \bSigma_{12}\G\bSigma_{22}=\bSigma_{12} \) and \( \bSigma_{22}\G\bSigma_{21}=\bSigma_{21} \);
 
-3. \( \bSigma_{12}\G\bSigma_{21}=\bm H\T\bSigma_{22}\bm H \), which does not depend on the
+3. \( \bSigma_{12}\G\bSigma_{21}=\mathbf{H}\T\bSigma_{22}\mathbf{H} \), which does not depend on the
            choice of \( \G \) and is nonnegative definite.
 :::
 
@@ -40,7 +40,7 @@ partial covariance matrix of \( \Y_1 \) given \( \Y_2 \) in the sense of @thm-rv
 ::: {.proof}
 By @thm-mvn-existence, \( \bSigma \) is the covariance matrix of some random vector, so
 (a) and (b) are @thm-rv-partitioned(c). For (c),
-\( \bSigma_{12}\G\bSigma_{21}=\bm H\T\bSigma_{22}\G\bSigma_{22}\bm H=\bm H\T\bSigma_{22}\bm H \).
+\( \bSigma_{12}\G\bSigma_{21}=\mathbf{H}\T\bSigma_{22}\G\bSigma_{22}\mathbf{H}=\mathbf{H}\T\bSigma_{22}\mathbf{H} \).
 :::
 
 ## The conditional distribution
@@ -85,8 +85,8 @@ for any random vector. What normality adds is that zero covariance becomes indep
 conditional distribution of \( h(\W,\Y_2) \) given \( \Y_2=\y_2 \) is the distribution of
 \( h(\W,\y_2) \) (Billingsley 1995). With
 \( h(\bw,\y_2)=\bmu_1+\B(\y_2-\bmu_2)+\bw \), this is the normal distribution @eq-mvn-conditional.
-If \( \y_2-\bmu_2=\bSigma_{22}\bm k \), then
-\( \B(\y_2-\bmu_2)=\bSigma_{12}\G\bSigma_{22}\bm k=\bSigma_{12}\bm k \), which does not
+If \( \y_2-\bmu_2=\bSigma_{22}\mathbf{k} \), then
+\( \B(\y_2-\bmu_2)=\bSigma_{12}\G\bSigma_{22}\mathbf{k}=\bSigma_{12}\mathbf{k} \), which does not
 involve \( \G \).
 
 (c) If \( \bSigma \) is positive definite, so is its principal submatrix \( \bSigma_{22} \), and
@@ -131,7 +131,7 @@ and each is an assumption of the classical linear model.
 3. *Conditioning cannot increase uncertainty.*
            \( \bSigma_{11}-\bSigma_{11\cdot2}=\bSigma_{12}\bSigma_{22}\ginv\bSigma_{21} \) is
            nonnegative definite (@lem-mvn-schur(c)), so every linear combination
-           \( \bm a\T\Y_1 \) has conditional variance at most its unconditional variance. The
+           \( \mathbf{a}\T\Y_1 \) has conditional variance at most its unconditional variance. The
            reduction is zero iff \( \bSigma_{12}=\bzero \).
 :::
 
@@ -144,17 +144,17 @@ correlation. They are consequences of joint normality.
 
 **One response, several predictors.**  The case used most in this book has
 a scalar response \( Y \) and a vector \( \X \) of \( k \) predictors, jointly normal, with
-\( \Var(Y)=\sigma_Y^2 \), \( \bm\sigma_{XY}=\Cov(\X,Y) \) and \( \bSigma_{XX}=\Cov(\X) \) positive
+\( \Var(Y)=\sigma_Y^2 \), \( \boldsymbol{\sigma}_{XY}=\Cov(\X,Y) \) and \( \bSigma_{XX}=\Cov(\X) \) positive
 definite. @thm-mvn-conditional says
 \[
 Y=\alpha+\bbeta\T\X+e,\qquad
-\bbeta=\bSigma_{XX}^{-1}\bm\sigma_{XY},\quad \alpha=\mu_Y-\bbeta\T\bmu_X,\quad
+\bbeta=\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY},\quad \alpha=\mu_Y-\bbeta\T\bmu_X,\quad
 e\sim\Normal(0,\sigma^2)\text{ independent of }\X,
 \]{#eq-mvn-random-x-model}
 
-with \( \sigma^2=\sigma_Y^2-\bm\sigma_{XY}\T\bSigma_{XX}^{-1}\bm\sigma_{XY}
+with \( \sigma^2=\sigma_Y^2-\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY}
 =\sigma_Y^2(1-\rho_{Y\cdot X}^2) \), where
-\( \rho_{Y\cdot X}^2=\bm\sigma_{XY}\T\bSigma_{XX}^{-1}\bm\sigma_{XY}/\sigma_Y^2 \) is the
+\( \rho_{Y\cdot X}^2=\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY}/\sigma_Y^2 \) is the
 population squared multiple correlation (@prp-rv-multiple-correlation). So if observations \( (Y_i,\X_i) \) are drawn
 independently from a joint normal distribution, then conditionally on the predictors,
 the normal linear model with independent homoscedastic errors holds exactly.
@@ -292,22 +292,22 @@ normality the gap is zero.
 
 ::: {#prp-mvn-best-predictor}
 Let \( \Y \) be jointly normal and partitioned as above, and let
-\( \bm m(\Y_2)=\bmu_1+\bSigma_{12}\bSigma_{22}\ginv(\Y_2-\bmu_2) \). For every function
-\( \bm g \) with \( \E\norm{\bm g(\Y_2)}^2<\infty \),
+\( \mathbf{m}(\Y_2)=\bmu_1+\bSigma_{12}\bSigma_{22}\ginv(\Y_2-\bmu_2) \). For every function
+\( \mathbf{g} \) with \( \E\norm{\mathbf{g}(\Y_2)}^2<\infty \),
 \[
-\E\norm{\Y_1-\bm g(\Y_2)}^2=\tr(\bSigma_{11\cdot2})+\E\norm{\bm m(\Y_2)-\bm g(\Y_2)}^2 .
+\E\norm{\Y_1-\mathbf{g}(\Y_2)}^2=\tr(\bSigma_{11\cdot2})+\E\norm{\mathbf{m}(\Y_2)-\mathbf{g}(\Y_2)}^2 .
 \]
-So \( \bm m(\Y_2) \) minimizes the mean squared prediction error over all predictors, it
+So \( \mathbf{m}(\Y_2) \) minimizes the mean squared prediction error over all predictors, it
 equals the best linear predictor of @thm-proj-blp (entry by entry, when
 \( \bSigma_{22} \) is positive definite), and the minimum is \( \tr(\bSigma_{11\cdot2}) \).
 :::
 
 ::: {.proof}
-\( \Y_1-\bm g(\Y_2)=\W+\bigl(\bm m(\Y_2)-\bm g(\Y_2)\bigr) \) with \( \W \) as in @thm-mvn-conditional.
+\( \Y_1-\mathbf{g}(\Y_2)=\W+\bigl(\mathbf{m}(\Y_2)-\mathbf{g}(\Y_2)\bigr) \) with \( \W \) as in @thm-mvn-conditional.
 The cross term
-\( \E\bigl[\W\T(\bm m(\Y_2)-\bm g(\Y_2))\bigr] \) vanishes, because \( \W \) has mean zero and is
+\( \E\bigl[\W\T(\mathbf{m}(\Y_2)-\mathbf{g}(\Y_2))\bigr] \) vanishes, because \( \W \) has mean zero and is
 independent of \( \Y_2 \). And \( \E\norm{\W}^2=\tr\Cov(\W)=\tr(\bSigma_{11\cdot2}) \). The
-minimizer \( \bm m \) is affine, so it is also the best affine predictor, which is the
+minimizer \( \mathbf{m} \) is affine, so it is also the best affine predictor, which is the
 best linear predictor.
 :::
 
@@ -331,8 +331,8 @@ conditional variances are smaller than the unconditional ones.
 ::: {#exr-mvn-precision-row}
 [A2]
 
-In the setting of @eq-mvn-random-x-model, let \( \bm\Omega \) be the inverse of
-\( \Cov\bigl((Y,\X\T)\T\bigr) \). Show that the row of \( \bm\Omega \) belonging to \( Y \) is
+In the setting of @eq-mvn-random-x-model, let \( \boldsymbol{\Omega} \) be the inverse of
+\( \Cov\bigl((Y,\X\T)\T\bigr) \). Show that the row of \( \boldsymbol{\Omega} \) belonging to \( Y \) is
 \( (1,-\bbeta\T)/\sigma^2 \), where \( \sigma^2=\sigma_Y^2(1-\rho_{Y\cdot X}^2) \). So the regression
 coefficients and the error variance can be read off one row of the precision matrix.
 :::
@@ -341,8 +341,8 @@ coefficients and the error variance can be read off one row of the precision mat
 Put \( Y \) first and apply
 @exr-mvn-precision-conditional with the scalar block \( Y \) and \( \Y_2=\X \). The conditional
 variance is \( \omega_{YY}^{-1}=\Var(Y\mid\X)=\sigma^2 \), and the coefficient vector of the
-conditional mean is \( -\omega_{YY}^{-1}\bm\Omega_{YX}=\bbeta\T \). Hence \( \omega_{YY}=1/\sigma^2 \) and
-\( \bm\Omega_{YX}=-\bbeta\T/\sigma^2 \). By @eq-mvn-random-x-model,
+conditional mean is \( -\omega_{YY}^{-1}\boldsymbol{\Omega}_{YX}=\bbeta\T \). Hence \( \omega_{YY}=1/\sigma^2 \) and
+\( \boldsymbol{\Omega}_{YX}=-\bbeta\T/\sigma^2 \). By @eq-mvn-random-x-model,
 \( \sigma^2=\sigma_Y^2(1-\rho_{Y\cdot X}^2) \).
 :::
 
@@ -352,7 +352,7 @@ conditional mean is \( -\omega_{YY}^{-1}\bm\Omega_{YX}=\bbeta\T \). Hence \( \om
 [B1]
 
 Suppose \( \Y_2\sim\Normal(\bmu_2,\bSigma_{22}) \) and that, given \( \Y_2=\y_2 \), \( \Y_1 \) is
-\( \Normal(\bm a+\B\y_2,\bS) \) with \( \bm a \), \( \B \) and \( \bS \) not depending on \( \y_2 \). Show that
+\( \Normal(\mathbf{a}+\B\y_2,\bS) \) with \( \mathbf{a} \), \( \B \) and \( \bS \) not depending on \( \y_2 \). Show that
 \( (\Y_1\T,\Y_2\T)\T \) is jointly normal and find its mean and covariance. Explain why
 @exm-mvn-mixture does not contradict this.
 :::
@@ -360,14 +360,14 @@ Suppose \( \Y_2\sim\Normal(\bmu_2,\bSigma_{22}) \) and that, given \( \Y_2=\y_2 
 ::: {.solution}
 Condition on \( \Y_2 \):
 \[
-\E e^{\bm t_1\T\Y_1+\bm t_2\T\Y_2}
-=\E\Bigl[e^{\bm t_2\T\Y_2}e^{\bm t_1\T(\bm a+\B\Y_2)+\frac12\bm t_1\T\bS\bm t_1}\Bigr]
-=e^{\bm t_1\T\bm a+\frac12\bm t_1\T\bS\bm t_1}\,M_{\Y_2}(\bm t_2+\B\T\bm t_1).
+\E e^{\mathbf{t}_1\T\Y_1+\mathbf{t}_2\T\Y_2}
+=\E\Bigl[e^{\mathbf{t}_2\T\Y_2}e^{\mathbf{t}_1\T(\mathbf{a}+\B\Y_2)+\frac12\mathbf{t}_1\T\bS\mathbf{t}_1}\Bigr]
+=e^{\mathbf{t}_1\T\mathbf{a}+\frac12\mathbf{t}_1\T\bS\mathbf{t}_1}\,M_{\Y_2}(\mathbf{t}_2+\B\T\mathbf{t}_1).
 \]
 Inserting \( M_{\Y_2} \) from @thm-mvn-mgf, the exponent is linear plus
-\( \tfrac12\bm t\T\bm C\bm t \) with
-\( \bm C=\begin{psmallmatrix}\bS+\B\bSigma_{22}\B\T&\B\bSigma_{22}\\\bSigma_{22}\B\T&\bSigma_{22}\end{psmallmatrix} \),
-so the pair is normal with mean \( \bigl((\bm a+\B\bmu_2)\T,\bmu_2\T\bigr)\T \) and covariance \( \bm C \). In
+\( \tfrac12\mathbf{t}\T\mathbf{C}\mathbf{t} \) with
+\( \mathbf{C}=\begin{psmallmatrix}\bS+\B\bSigma_{22}\B\T&\B\bSigma_{22}\\\bSigma_{22}\B\T&\bSigma_{22}\end{psmallmatrix} \),
+so the pair is normal with mean \( \bigl((\mathbf{a}+\B\bmu_2)\T,\bmu_2\T\bigr)\T \) and covariance \( \mathbf{C} \). In
 @exm-mvn-mixture, the conditional distribution of \( Y_2 \) given \( Y_1 \) is a mixture, not a
 normal distribution, and its variance depends on \( y_1 \).
 :::
@@ -422,17 +422,17 @@ coincides with its conditional distribution given \( (X_1,X_2) \).
 ::: {#exr-mvn-precision-conditional}
 [B5]
 
-With \( \bm\Omega=\bSigma^{-1} \) partitioned like \( \bSigma \), show that
-\( \E(\Y_1\mid\Y_2=\y_2)=\bmu_1-\bm\Omega_{11}^{-1}\bm\Omega_{12}(\y_2-\bmu_2) \) and
-\( \Cov(\Y_1\mid\Y_2)=\bm\Omega_{11}^{-1} \).
+With \( \boldsymbol{\Omega}=\bSigma^{-1} \) partitioned like \( \bSigma \), show that
+\( \E(\Y_1\mid\Y_2=\y_2)=\bmu_1-\boldsymbol{\Omega}_{11}^{-1}\boldsymbol{\Omega}_{12}(\y_2-\bmu_2) \) and
+\( \Cov(\Y_1\mid\Y_2)=\boldsymbol{\Omega}_{11}^{-1} \).
 :::
 
 ::: {.solution}
 By @thm-mat-partitioned-inverse,
-\( \bm\Omega_{11}=\bSigma_{11\cdot2}^{-1} \) and
-\( \bm\Omega_{12}=-\bSigma_{11\cdot2}^{-1}\bSigma_{12}\bSigma_{22}^{-1} \). Hence
-\( -\bm\Omega_{11}^{-1}\bm\Omega_{12}=\bSigma_{12}\bSigma_{22}^{-1} \) and
-\( \bm\Omega_{11}^{-1}=\bSigma_{11\cdot2} \). Substitute into @eq-mvn-conditional.
+\( \boldsymbol{\Omega}_{11}=\bSigma_{11\cdot2}^{-1} \) and
+\( \boldsymbol{\Omega}_{12}=-\bSigma_{11\cdot2}^{-1}\bSigma_{12}\bSigma_{22}^{-1} \). Hence
+\( -\boldsymbol{\Omega}_{11}^{-1}\boldsymbol{\Omega}_{12}=\bSigma_{12}\bSigma_{22}^{-1} \) and
+\( \boldsymbol{\Omega}_{11}^{-1}=\bSigma_{11\cdot2} \). Substitute into @eq-mvn-conditional.
 :::
 
 ### C. Going deeper

@@ -6,14 +6,14 @@ observations have covariance matrices with one. The Kronecker product expresses 
 ::: {#def-mat-kronecker}
 The **Kronecker product** of an \( m\times n \) matrix \( \A \) and a \( p\times q \) matrix \( \B \) is the
 \( mp\times nq \) block matrix \( \A\otimes\B=(a_{ij}\B) \). The **vec operator** places the \( n \) columns of
-an \( m\times n \) matrix one below another, giving a vector of length \( mn \): \( \vecop(\A)=(\bm a_1\T,\dots,\bm a_n\T)\T \).
+an \( m\times n \) matrix one below another, giving a vector of length \( mn \): \( \vecop(\A)=(\mathbf{a}_1\T,\dots,\mathbf{a}_n\T)\T \).
 :::
 
 ::: {#prp-mat-kronecker}
 For matrices of compatible sizes:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( (\A\otimes\B)(\bm C\otimes\bm D)=\A\bm C\otimes\B\bm D \) (mixed-product rule);
+1. \( (\A\otimes\B)(\mathbf{C}\otimes\mathbf{D})=\A\mathbf{C}\otimes\B\mathbf{D} \) (mixed-product rule);
 
 2. \( (\A\otimes\B)\T=\A\T\otimes\B\T \), and \( (\A\otimes\B)^{-1}=\A^{-1}\otimes\B^{-1} \) for
            nonsingular \( \A,\B \). More generally \( \A\ginv\otimes\B\ginv \) is a generalized inverse
@@ -28,25 +28,25 @@ For matrices of compatible sizes:
 5. Kronecker products of orthogonal, symmetric, idempotent, or nonnegative definite
            matrices are of the same kind;
 
-6. \( \vecop(\A\B\bm C)=(\bm C\T\otimes\A)\vecop(\B) \) and \( \tr(\A\T\B)=\vecop(\A)\T\vecop(\B) \).
+6. \( \vecop(\A\B\mathbf{C})=(\mathbf{C}\T\otimes\A)\vecop(\B) \) and \( \tr(\A\T\B)=\vecop(\A)\T\vecop(\B) \).
 :::
 
 :::
 
 ::: {.proof}
-(a) The \( (i,j) \) block of the left side is \( \sum_ka_{ik}c_{kj}\B\bm D \), which is the \( (i,j) \)
+(a) The \( (i,j) \) block of the left side is \( \sum_ka_{ik}c_{kj}\B\mathbf{D} \), which is the \( (i,j) \)
 block of the right side. (b) Transposition is direct, and the rest follows from (a), for example
 \( (\A\otimes\B)(\A\ginv\otimes\B\ginv)(\A\otimes\B)=\A\A\ginv\A\otimes\B\B\ginv\B \).
-(d) With \( \A=\bm P\bLambda\bm P\T \) and \( \B=\Q\bm M\Q\T \), (a) and (b) give
-\( \A\otimes\B=(\bm P\otimes\Q)(\bLambda\otimes\bm M)(\bm P\otimes\Q)\T \), a spectral decomposition
-because \( \bm P\otimes\Q \) is orthogonal and \( \bLambda\otimes\bm M \) is diagonal with entries \( \lambda_i\mu_j \).
+(d) With \( \A=\mathbf{P}\bLambda\mathbf{P}\T \) and \( \B=\Q\mathbf{M}\Q\T \), (a) and (b) give
+\( \A\otimes\B=(\mathbf{P}\otimes\Q)(\bLambda\otimes\mathbf{M})(\mathbf{P}\otimes\Q)\T \), a spectral decomposition
+because \( \mathbf{P}\otimes\Q \) is orthogonal and \( \bLambda\otimes\mathbf{M} \) is diagonal with entries \( \lambda_i\mu_j \).
 The determinant is the product of these. (c) The trace statement is direct. For the rank,
 by (a) \( (\A\otimes\B)(\A\ginv\otimes\B\ginv)=\A\A\ginv\otimes\B\B\ginv \) is idempotent with
 the same rank as \( \A\otimes\B \) (@prp-mat-ginverse-props(a)). Its trace is
 \( \tr(\A\A\ginv)\tr(\B\B\ginv)=\rank(\A)\rank(\B) \) by @prp-mat-idempotent-basic(b).
-(e) follows from (a), (b) and (d). (f) The \( j \)th column of \( \A\B\bm C \) is
-\( \A\B\bm c_j=\sum_kc_{kj}\A\bm b_k \), which is the \( j \)th block of
-\( (\bm C\T\otimes\A)\vecop(\B) \). The trace identity is \( \sum_{ij}a_{ij}b_{ij} \) written two ways.
+(e) follows from (a), (b) and (d). (f) The \( j \)th column of \( \A\B\mathbf{C} \) is
+\( \A\B\mathbf{c}_j=\sum_kc_{kj}\A\mathbf{b}_k \), which is the \( j \)th block of
+\( (\mathbf{C}\T\otimes\A)\vecop(\B) \). The trace identity is \( \sum_{ij}a_{ij}b_{ij} \) written two ways.
 :::
 
 The determinant formula in (d) holds for all square \( \A \) and \( \B \), not only symmetric ones. We
@@ -61,11 +61,11 @@ inside \( i \). The additive model \( \E(y_{ij})=\mu+\alpha_i+\beta_j \) has mod
 \X=\bigl[\bone_a\otimes\bone_b,\ \I_a\otimes\bone_b,\ \bone_a\otimes\I_b\bigr],
 \]
 because \( \I_a\otimes\bone_b \) has a \( 1 \) in column \( i \) exactly for the \( b \) observations in row
-\( i \). With \( \bar{\bm J}_k=k^{-1}\bm J_k \), a symmetric idempotent averaging matrix, the mixed-product
+\( i \). With \( \bar{\mathbf{J}}_k=k^{-1}\mathbf{J}_k \), a symmetric idempotent averaging matrix, the mixed-product
 rule shows that
-\( \I_a\otimes\bar{\bm J}_b \), \( \bar{\bm J}_a\otimes\I_b \) and \( \bar{\bm J}_a\otimes\bar{\bm J}_b \)
+\( \I_a\otimes\bar{\mathbf{J}}_b \), \( \bar{\mathbf{J}}_a\otimes\I_b \) and \( \bar{\mathbf{J}}_a\otimes\bar{\mathbf{J}}_b \)
 replace each observation by its row mean, its column mean and the grand mean. The matrix
-\( \M=\I_a\otimes\bar{\bm J}_b+\bar{\bm J}_a\otimes\I_b-\bar{\bm J}_a\otimes\bar{\bm J}_b \) is symmetric
+\( \M=\I_a\otimes\bar{\mathbf{J}}_b+\bar{\mathbf{J}}_a\otimes\I_b-\bar{\mathbf{J}}_a\otimes\bar{\mathbf{J}}_b \) is symmetric
 and idempotent, with trace \( a+b-1=\rank(\X) \). It is the projection onto \( \C(\X) \)
 (Chapter 15). The script checks this for \( a=3 \) and
 \( b=4 \), together with each part of @prp-mat-kronecker.

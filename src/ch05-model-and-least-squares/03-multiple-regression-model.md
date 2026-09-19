@@ -93,7 +93,7 @@ holdings. A transformation of the response changes the meaning of the error, and
 the assumptions; Chapter 22 treats this.
 
 **Polynomials.** A quadratic trend \( \E(Y_i)=\beta_0+\beta_1t_i+\beta_2t_i^2 \) uses the
-columns \( \bone \), \( \bm t \) and \( \bm t^2 \) (squared entrywise). A polynomial of degree
+columns \( \bone \), \( \mathbf{t} \) and \( \mathbf{t}^2 \) (squared entrywise). A polynomial of degree
 \( d \) in one variable needs \( d+1 \) columns.
 
 **Periodic terms.** A seasonal cycle of period one year can be written as
@@ -214,7 +214,7 @@ of their health: excellent, good, fair or poor. With excellent as the reference,
 \[
 \E(Y_i)=\beta_0+\beta_1g_i+\beta_2f_i+\beta_3q_i
 \]
-uses three indicator columns \( \bm g,\bm f,\bm q \) for good, fair and poor health. For a
+uses three indicator columns \( \mathbf{g},\mathbf{f},\mathbf{q} \) for good, fair and poor health. For a
 person in excellent health the mean is \( \beta_0 \); in good health, \( \beta_0+\beta_1 \); in
 fair health, \( \beta_0+\beta_2 \); in poor health, \( \beta_0+\beta_3 \). So \( \beta_1,\beta_2,\beta_3 \)
 are the differences in mean visits between each category and the reference.
@@ -225,8 +225,8 @@ differences of sample means. In these data they are \( 0.268 \),
 :::
 
 Why omit a category? With an indicator for *every* category the columns satisfy
-\( \bm e+\bm g+\bm f+\bm q=\bone \), where \( \bm e \) indicates excellent health. The
-model matrix \( [\bone,\bm e,\bm g,\bm f,\bm q] \) then has five columns and rank four, so it
+\( \mathbf{e}+\mathbf{g}+\mathbf{f}+\mathbf{q}=\bone \), where \( \mathbf{e} \) indicates excellent health. The
+model matrix \( [\bone,\mathbf{e},\mathbf{g},\mathbf{f},\mathbf{q}] \) then has five columns and rank four, so it
 does not have full rank. Such a model is not wrong. It describes the same set of mean
 vectors, but with one more parameter than it can identify, and the least squares
 coefficients are no longer unique. This situation is sometimes called the *dummy
@@ -337,7 +337,7 @@ change of parameters if necessary)? (a) \( \beta_0+\beta_1\sqrt{x} \); (b)
 
 For a factor with three levels and an intercept, write the model matrix rows under
 reference coding (level 3 as reference) and under effect coding. Find the nonsingular
-\( 3\times3 \) matrix \( \bm K \) with \( \X_{\text{effect}}=\X_{\text{ref}}\bm K \), and express the
+\( 3\times3 \) matrix \( \mathbf{K} \) with \( \X_{\text{effect}}=\X_{\text{ref}}\mathbf{K} \), and express the
 effect-coding coefficients in terms of the three level means \( \mu_1,\mu_2,\mu_3 \).
 :::
 
@@ -345,8 +345,8 @@ effect-coding coefficients in terms of the three level means \( \mu_1,\mu_2,\mu_
 Reference coding has rows \( (1,1,0) \), \( (1,0,1) \), \( (1,0,0) \) for levels 1, 2, 3.
 Effect coding has rows \( (1,1,0) \), \( (1,0,1) \), \( (1,-1,-1) \). Each effect-coded row is the
 reference-coded row times
-\( \bm K=\begin{psmallmatrix}1&-1&-1\\0&2&1\\0&1&2\end{psmallmatrix} \): for instance
-\( (1,0,0)\bm K=(1,-1,-1) \) and \( (1,1,0)\bm K=(1,1,0) \). \( \det\bm K=3\ne0 \). Under effect
+\( \mathbf{K}=\begin{psmallmatrix}1&-1&-1\\0&2&1\\0&1&2\end{psmallmatrix} \): for instance
+\( (1,0,0)\mathbf{K}=(1,-1,-1) \) and \( (1,1,0)\mathbf{K}=(1,1,0) \). \( \det\mathbf{K}=3\ne0 \). Under effect
 coding the level means are \( \mu_1=\alpha_0+\alpha_1 \), \( \mu_2=\alpha_0+\alpha_2 \),
 \( \mu_3=\alpha_0-\alpha_1-\alpha_2 \). Adding, \( \alpha_0=(\mu_1+\mu_2+\mu_3)/3 \), and then
 \( \alpha_k=\mu_k-\alpha_0 \) for \( k=1,2 \): deviations from the unweighted average of the means.
@@ -367,8 +367,8 @@ average value of \( x_2 \)?
 [C1]
 
 Let \( t_i=i/m \) for \( i=0,\dots,m-1 \) (one full period sampled at \( m \) equally spaced
-points, with \( m\ge 5 \)). Show that the columns \( \bone,\cos2\pi\bm t,\sin2\pi\bm t,
-\cos4\pi\bm t,\sin4\pi\bm t \) are mutually orthogonal, and find their squared lengths.
+points, with \( m\ge 5 \)). Show that the columns \( \bone,\cos2\pi\mathbf{t},\sin2\pi\mathbf{t},
+\cos4\pi\mathbf{t},\sin4\pi\mathbf{t} \) are mutually orthogonal, and find their squared lengths.
 Conclude that for a whole number of periods the harmonic coefficients are estimated
 separately from each other and from the mean. Why is this not exactly the case in
 @exm-lm-co2?

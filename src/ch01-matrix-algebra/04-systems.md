@@ -49,28 +49,28 @@ solution is unique iff \( \rank(\A)=n \), and then \( \G\bb \) is the same for e
 Any generalized inverse does three jobs for \( \A\x=\bb \). It tests consistency
 (\( \A\G\bb=\bb \)), produces one solution (\( \G\bb \)), and parametrizes all of them
 (\( \G\bb+(\I-\G\A)\bz \)). Which \( \G \) is used changes the particular solution but never
-the solution set, and a linear function \( \bm q\T\x \) is the same across solutions exactly
-when \( \bm q\in\C(\A\T) \).
+the solution set, and a linear function \( \mathbf{q}\T\x \) is the same across solutions exactly
+when \( \mathbf{q}\in\C(\A\T) \).
 :::
 
 ::: {#cor-mat-invariant}
 [Invariant linear functions]
 
-Let \( \A\x=\bb \) be consistent and let \( \bm q\in\Real^n \). The value \( \bm q\T\x \) is the same
-for every solution \( \x \) iff \( \bm q\in\C(\A\T) \), that is, iff \( \bm q\T=\bm q\T\G\A \) for one
+Let \( \A\x=\bb \) be consistent and let \( \mathbf{q}\in\Real^n \). The value \( \mathbf{q}\T\x \) is the same
+for every solution \( \x \) iff \( \mathbf{q}\in\C(\A\T) \), that is, iff \( \mathbf{q}\T=\mathbf{q}\T\G\A \) for one
 (and then every) generalized inverse \( \G \).
 :::
 
 ::: {.proof}
-By @eq-mat-general-solution, \( \bm q\T\x \) is constant over solutions iff
-\( \bm q\T(\I-\G\A)\bz=0 \) for all \( \bz \), that is, iff \( \bm q\T=\bm q\T\G\A \). That equation puts
-\( \bm q \) in \( \C(\A\T) \). Conversely, if \( \bm q=\A\T\bw \), then
-\( \bm q\T\G\A=\bw\T\A\G\A=\bw\T\A=\bm q\T \).
+By @eq-mat-general-solution, \( \mathbf{q}\T\x \) is constant over solutions iff
+\( \mathbf{q}\T(\I-\G\A)\bz=0 \) for all \( \bz \), that is, iff \( \mathbf{q}\T=\mathbf{q}\T\G\A \). That equation puts
+\( \mathbf{q} \) in \( \C(\A\T) \). Conversely, if \( \mathbf{q}=\A\T\bw \), then
+\( \mathbf{q}\T\G\A=\bw\T\A\G\A=\bw\T\A=\mathbf{q}\T \).
 :::
 
 Applied to the normal equations \( \X\T\X\bb=\X\T\y \), which are consistent by
-@prp-mat-rank-product(c), the corollary says that \( \bm q\T\hbeta \) is the same for all
-least squares solutions iff \( \bm q\in\C(\X\T\X)=\C(\X\T) \). This is the algebra behind
+@prp-mat-rank-product(c), the corollary says that \( \mathbf{q}\T\hbeta \) is the same for all
+least squares solutions iff \( \mathbf{q}\in\C(\X\T\X)=\C(\X\T) \). This is the algebra behind
 estimable functions (@thm-est-characterization).
 
 ::: {#prp-mat-min-norm}
@@ -110,7 +110,7 @@ totals have the same sum, and here both sums are \( 15 \).
 
 The listing builds three generalized inverses: \( \G_1 \) from the nonsingular submatrix in
 rows 1–4 and columns 1–4 (@thm-mat-ginverse-exists), the Moore–Penrose inverse
-\( \G_2=\A^+ \), and \( \G_3=\G_1+(\I-\G_1\A)\bm Z \) for an integer matrix \( \bm Z \)
+\( \G_2=\A^+ \), and \( \G_3=\G_1+(\I-\G_1\A)\mathbf{Z} \) for an integer matrix \( \mathbf{Z} \)
 (@prp-mat-ginverse-props(e)). They give the solutions
 \[
 \begin{aligned}  \G_1\bb&=(-2,\ 5,\ 6,\ 6,\ 0,\ 0)\T, & \norm{\G_1\bb}&=10.050,\\
@@ -173,8 +173,8 @@ for G in (G1, G2, G3):
 ::: {#exr-mat-vector-ginverse}
 [A1]
 
-Find all generalized inverses of a nonzero vector \( \bm a\in\Real^n \), regarded as an
-\( n\times1 \) matrix. Which one is \( \bm a^+ \)?
+Find all generalized inverses of a nonzero vector \( \mathbf{a}\in\Real^n \), regarded as an
+\( n\times1 \) matrix. Which one is \( \mathbf{a}^+ \)?
 :::
 
 ::: {#exr-mat-margins-min-norm}
@@ -214,24 +214,24 @@ If \( \G\A\G=\G \), then \( \rank(\G)\le\rank(\A) \) by
 @prp-mat-rank-product(a), and \( \rank(\A)\le\rank(\G) \) by
 @prp-mat-ginverse-props(a). Conversely, suppose \( \rank(\G)=\rank(\A)=r \). Since
 \( \C(\G\A)\subseteq\C(\G) \) and \( \rank(\G\A)=r \), the two column spaces coincide, so
-\( \G=\G\A\bm K \) for some \( \bm K \). Then \( \G\A\G=\G\A\G\A\bm K=\G\A\bm K=\G \), using
+\( \G=\G\A\mathbf{K} \) for some \( \mathbf{K} \). Then \( \G\A\G=\G\A\G\A\mathbf{K}=\G\A\mathbf{K}=\G \), using
 \( \A\G\A=\A \).
 :::
 
 ::: {#exr-mat-mp-factorization}
 [B2]
 
-Let \( \A=\B\bm F \) be a rank factorization. Show that
-\( \A^+=\bm F\T(\bm F\bm F\T)^{-1}(\B\T\B)^{-1}\B\T \). Deduce that \( \A^+=(\A\T\A)^{-1}\A\T \) when \( \A \)
+Let \( \A=\B\mathbf{F} \) be a rank factorization. Show that
+\( \A^+=\mathbf{F}\T(\mathbf{F}\mathbf{F}\T)^{-1}(\B\T\B)^{-1}\B\T \). Deduce that \( \A^+=(\A\T\A)^{-1}\A\T \) when \( \A \)
 has full column rank.
 :::
 
 ::: {.solution}
 Write \( \G \) for the proposed matrix. Then
-\( \A\G=\B(\B\T\B)^{-1}\B\T \) and \( \G\A=\bm F\T(\bm F\bm F\T)^{-1}\bm F \), both symmetric. Also
-\( \A\G\A=\B(\B\T\B)^{-1}\B\T\B\bm F=\A \) and
-\( \G\A\G=\bm F\T(\bm F\bm F\T)^{-1}\bm F\bm F\T(\bm F\bm F\T)^{-1}(\B\T\B)^{-1}\B\T=\G \). By uniqueness
-\( \G=\A^+ \). If \( \A \) has full column rank, take \( \B=\A \) and \( \bm F=\I \).
+\( \A\G=\B(\B\T\B)^{-1}\B\T \) and \( \G\A=\mathbf{F}\T(\mathbf{F}\mathbf{F}\T)^{-1}\mathbf{F} \), both symmetric. Also
+\( \A\G\A=\B(\B\T\B)^{-1}\B\T\B\mathbf{F}=\A \) and
+\( \G\A\G=\mathbf{F}\T(\mathbf{F}\mathbf{F}\T)^{-1}\mathbf{F}\mathbf{F}\T(\mathbf{F}\mathbf{F}\T)^{-1}(\B\T\B)^{-1}\B\T=\G \). By uniqueness
+\( \G=\A^+ \). If \( \A \) has full column rank, take \( \B=\A \) and \( \mathbf{F}=\I \).
 :::
 
 ::: {#exr-mat-independent-solutions}

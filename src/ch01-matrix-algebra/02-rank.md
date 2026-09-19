@@ -39,21 +39,21 @@ the largest number of independent columns. The number of independent rows,
 
 For every matrix \( \A \), \( \dim\C(\A\T)=\dim\C(\A) \). That is, \( \rank(\A\T)=\rank(\A) \).
 Moreover, if \( \rank(\A)=r\ge1 \) there are an \( m\times r \) matrix \( \B \) and an \( r\times n \)
-matrix \( \bm F \), both of rank \( r \), with \( \A=\B\bm F \).
+matrix \( \mathbf{F} \), both of rank \( r \), with \( \A=\B\mathbf{F} \).
 :::
 
 ::: {.proof}
 Let \( r=\rank(\A) \) and let the columns of the \( m\times r \) matrix \( \B \) be a basis of \( \C(\A) \).
-Each column \( \bm a_j \) is a combination \( \B\bm f_j \) of these, so \( \A=\B\bm F \) with
-\( \bm F=[\bm f_1,\dots,\bm f_n] \). By the transposed reading of
-@eq-mat-product-readings, every row of \( \A=\B\bm F \) is a combination of the \( r \) rows
-of \( \bm F \), so \( \dim\C(\A\T)\le r=\dim\C(\A) \). Applying this to \( \A\T \) gives the reverse
-inequality. Finally \( \rank(\bm F)\le r \) because \( \bm F \) has \( r \) rows, and
-\( r=\dim\C(\A\T)\le\dim\C(\bm F\T)=\rank(\bm F) \), so \( \rank(\bm F)=r \).
+Each column \( \mathbf{a}_j \) is a combination \( \B\mathbf{f}_j \) of these, so \( \A=\B\mathbf{F} \) with
+\( \mathbf{F}=[\mathbf{f}_1,\dots,\mathbf{f}_n] \). By the transposed reading of
+@eq-mat-product-readings, every row of \( \A=\B\mathbf{F} \) is a combination of the \( r \) rows
+of \( \mathbf{F} \), so \( \dim\C(\A\T)\le r=\dim\C(\A) \). Applying this to \( \A\T \) gives the reverse
+inequality. Finally \( \rank(\mathbf{F})\le r \) because \( \mathbf{F} \) has \( r \) rows, and
+\( r=\dim\C(\A\T)\le\dim\C(\mathbf{F}\T)=\rank(\mathbf{F}) \), so \( \rank(\mathbf{F})=r \).
 :::
 
-The factorization \( \A=\B\bm F \) is a **rank factorization**: \( \B \) has
-**full column rank** (its columns are independent) and \( \bm F \) has **full row
+The factorization \( \A=\B\mathbf{F} \) is a **rank factorization**: \( \B \) has
+**full column rank** (its columns are independent) and \( \mathbf{F} \) has **full row
 rank**. It is a convenient tool for proofs, as @prp-mat-idempotent-basic shows.
 
 ::: {#thm-mat-rank-nullity}
@@ -92,7 +92,7 @@ Let \( \A \) be \( m\times n \) and \( \B \) be \( n\times q \).
 3. \( \Null(\A\T\A)=\Null(\A) \) and \( \C(\A\T\A)=\C(\A\T) \), so
            \( \rank(\A\T\A)=\rank(\A\A\T)=\rank(\A) \).
 
-4. \( \rank(\A+\bm C)\le\rank(\A)+\rank(\bm C) \) for \( \bm C \) of the same size as \( \A \).
+4. \( \rank(\A+\mathbf{C})\le\rank(\A)+\rank(\mathbf{C}) \) for \( \mathbf{C} \) of the same size as \( \A \).
 :::
 
 :::
@@ -106,7 +106,7 @@ equals \( \A\B\bv \) for some \( \bv \). If \( \A \) has full column rank, \( \A
 then \( \norm{\A\bv}^2=\bv\T\A\T\A\bv=0 \), so \( \A\bv=\bzero \). Thus the null spaces agree, and
 by @thm-mat-rank-nullity \( \rank(\A\T\A)=\rank(\A) \). Since
 \( \C(\A\T\A)\subseteq\C(\A\T) \) and both have dimension \( \rank(\A) \), they are equal.
-Applying this to \( \A\T \) gives \( \rank(\A\A\T)=\rank(\A) \). (d) \( \C(\A+\bm C)\subseteq\C(\A)+\C(\bm C) \),
+Applying this to \( \A\T \) gives \( \rank(\A\A\T)=\rank(\A) \). (d) \( \C(\A+\mathbf{C})\subseteq\C(\A)+\C(\mathbf{C}) \),
 and the dimension of a sum is at most the sum of the dimensions.
 :::
 
@@ -127,10 +127,10 @@ where \( \A_{\cdot J} \) holds the columns in \( J \) and \( \A_{I\cdot} \) the 
 :::
 
 ::: {.proof}
-The columns in \( J \) are a basis of \( \C(\A) \), so \( \A=\A_{\cdot J}\bm F \) for some \( r\times n \)
-matrix \( \bm F \). Keeping only the rows in \( I \) gives \( \A_{I\cdot}=\A_{IJ}\bm F \). The left side
+The columns in \( J \) are a basis of \( \C(\A) \), so \( \A=\A_{\cdot J}\mathbf{F} \) for some \( r\times n \)
+matrix \( \mathbf{F} \). Keeping only the rows in \( I \) gives \( \A_{I\cdot}=\A_{IJ}\mathbf{F} \). The left side
 has rank \( r \), so by @prp-mat-rank-product(a) the \( r\times r \) matrix \( \A_{IJ} \) has rank
-\( r \) and is nonsingular. Then \( \bm F=\A_{IJ}^{-1}\A_{I\cdot} \), which gives @eq-mat-skeleton.
+\( r \) and is nonsingular. Then \( \mathbf{F}=\A_{IJ}^{-1}\A_{I\cdot} \), which gives @eq-mat-skeleton.
 :::
 
 Conversely, a nonsingular \( k\times k \) submatrix makes the \( k \) columns of \( \A \) that contain it
@@ -152,23 +152,23 @@ Show that \( \sum_{i<j}(y_i-y_j)^2=n\sum_i(y_i-\bar{y})^2 \), and write both sid
 ::: {#exr-mat-cancellation}
 [A2]
 
-Show that \( \X\T\X\B=\X\T\X\bm C \) implies \( \X\B=\X\bm C \). Deduce that \( \X\T\X\bb=\bzero \) iff
+Show that \( \X\T\X\B=\X\T\X\mathbf{C} \) implies \( \X\B=\X\mathbf{C} \). Deduce that \( \X\T\X\bb=\bzero \) iff
 \( \X\bb=\bzero \).
 :::
 
 ::: {.solution}
-Put \( \bm D=\B-\bm C \), so that \( \X\T\X\bm D=\bzero \). Then
-\( (\X\bm D)\T(\X\bm D)=\bm D\T\X\T\X\bm D=\bzero \), and by @eq-mat-frobenius a matrix
-\( \bm Z \) with \( \bm Z\T\bm Z=\bzero \) is zero. So \( \X\bm D=\bzero \). The second statement is the case
-\( \bm C=\bzero \), with the converse obvious.
+Put \( \mathbf{D}=\B-\mathbf{C} \), so that \( \X\T\X\mathbf{D}=\bzero \). Then
+\( (\X\mathbf{D})\T(\X\mathbf{D})=\mathbf{D}\T\X\T\X\mathbf{D}=\bzero \), and by @eq-mat-frobenius a matrix
+\( \mathbf{Z} \) with \( \mathbf{Z}\T\mathbf{Z}=\bzero \) is zero. So \( \X\mathbf{D}=\bzero \). The second statement is the case
+\( \mathbf{C}=\bzero \), with the converse obvious.
 :::
 
 ::: {#exr-mat-two-way-rank}
 [A3]
 
 For the additive two-way layout with two rows, three columns and one observation per cell, write
-the \( 6\times6 \) model matrix \( \X=[\bone,\bm R,\bm C] \), where \( \bm R \) and \( \bm C \) hold the row and
-column indicators. Find \( \rank(\X) \) and a basis of \( \Null(\X) \). Compare \( [\bm R,\bm C]\T \) with the
+the \( 6\times6 \) model matrix \( \X=[\bone,\mathbf{R},\mathbf{C}] \), where \( \mathbf{R} \) and \( \mathbf{C} \) hold the row and
+column indicators. Find \( \rank(\X) \) and a basis of \( \Null(\X) \). Compare \( [\mathbf{R},\mathbf{C}]\T \) with the
 matrix \( \A \) of @exm-mat-margins.
 :::
 
@@ -185,7 +185,7 @@ columns of \( \B_0 \) are a basis of \( \C(\B) \).
 ::: {.solution}
 Let the \( n\times s \) matrix \( \B_0 \), \( s=\rank(\B) \), have columns
 forming a basis of \( \C(\B) \). Then \( \C(\A\B)=\C(\A\B_0) \), so by rank–nullity
-\( \rank(\A\B)=s-\dim\Null(\A\B_0) \). The map \( \bm c\mapsto\B_0\bm c \) is one-to-one and sends
+\( \rank(\A\B)=s-\dim\Null(\A\B_0) \). The map \( \mathbf{c}\mapsto\B_0\mathbf{c} \) is one-to-one and sends
 \( \Null(\A\B_0) \) into \( \Null(\A) \), so \( \dim\Null(\A\B_0)\le\dim\Null(\A)=n-\rank(\A) \). Hence
 \( \rank(\A\B)\ge\rank(\B)-n+\rank(\A) \).
 :::
@@ -193,6 +193,6 @@ forming a basis of \( \C(\B) \). Then \( \C(\A\B)=\C(\A\B_0) \), so by rank–nu
 ::: {#exr-mat-rank-factorization}
 [B2]
 
-Show that if \( \A=\B_1\bm F_1=\B_2\bm F_2 \) are two rank factorizations, then \( \B_2=\B_1\bT \) and
-\( \bm F_2=\bT^{-1}\bm F_1 \) for a nonsingular \( \bT \).
+Show that if \( \A=\B_1\mathbf{F}_1=\B_2\mathbf{F}_2 \) are two rank factorizations, then \( \B_2=\B_1\bT \) and
+\( \mathbf{F}_2=\bT^{-1}\mathbf{F}_1 \) for a nonsingular \( \bT \).
 :::

@@ -40,7 +40,7 @@ Since \( \I-\bH \) is symmetric and idempotent,
 using \( \tr(\I-\bH)=n-p \) from @prp-lm-fit-algebra(a).
 :::
 
-The computation is the case \( \bm\theta=\X\bbeta \) of @exm-rv-rss-bias in
+The computation is the case \( \boldsymbol{\theta}=\X\bbeta \) of @exm-rv-rss-bias in
 [Chapter 2](../ch02-random-vectors/index.html), specialized to full rank.
 
 The same result follows from @prp-lm-fit-moments without quadratic forms. Each residual has
@@ -62,15 +62,15 @@ dimension of the space it lives in. For the straight line \( p=2 \), so
 [Estimated covariance and standard errors]
 
 Under the conditions of @thm-lm-sigma2, \( s^2(\X\T\X)^{-1} \) is an unbiased estimator of
-\( \Cov(\hbeta) \), and \( s^2\bm a\T(\X\T\X)^{-1}\bm a \) is an unbiased estimator of
-\( \Var(\bm a\T\hbeta) \). The **standard error** of \( \hat{\beta}_j \) is
+\( \Cov(\hbeta) \), and \( s^2\mathbf{a}\T(\X\T\X)^{-1}\mathbf{a} \) is an unbiased estimator of
+\( \Var(\mathbf{a}\T\hbeta) \). The **standard error** of \( \hat{\beta}_j \) is
 \[
 \operatorname{se}(\hat{\beta}_j)=s\sqrt{\bigl[(\X\T\X)^{-1}\bigr]_{jj}} .
 \]
 :::
 
 ::: {.proof}
-\( (\X\T\X)^{-1} \) and \( \bm a \) are constants, so the expectations are
+\( (\X\T\X)^{-1} \) and \( \mathbf{a} \) are constants, so the expectations are
 \( \E(s^2)(\X\T\X)^{-1}=\sigma^2(\X\T\X)^{-1} \) and similarly for the scalar.
 :::
 
@@ -208,8 +208,8 @@ For normal errors, \( \mu_4=3\sigma^4 \) and \( \Var(s^2)=2\sigma^4/(n-p) \).
 
 ::: {.proof}
 Apply @thm-rv-quadform-variance to the vector \( \be \), whose means \( \theta_i \) are all zero, with
-\( \A=\I-\bH \). The terms involving \( \bm\theta \) vanish (in particular \( \mu_3 \) enters only
-multiplied by \( \bm\theta=\bzero \), so its value is irrelevant). The diagonal of \( \A \) has entries
+\( \A=\I-\bH \). The terms involving \( \boldsymbol{\theta} \) vanish (in particular \( \mu_3 \) enters only
+multiplied by \( \boldsymbol{\theta}=\bzero \), so its value is irrelevant). The diagonal of \( \A \) has entries
 \( 1-h_{ii} \), and \( \tr(\A^2)=\tr(\A)=n-p \) because \( \A \) is idempotent. For the normal case,
 the fourth moment of a \( \Normal(0,\sigma^2) \) variable is \( 3\sigma^4 \), and
 \( \Var(s^2)=\Var(\text{SSE})/(n-p)^2 \).
@@ -274,10 +274,10 @@ Among unbiased estimators of \( \sigma^2 \), \( s^2 \) then has the smallest var
 
 ## When the mean is wrong
 
-@thm-lm-sigma2 assumed that \( \E(\Y)=\X\bbeta \). If instead \( \E(\Y)=\bm\theta \) is not of this
+@thm-lm-sigma2 assumed that \( \E(\Y)=\X\bbeta \). If instead \( \E(\Y)=\boldsymbol{\theta} \) is not of this
 form, @exm-rv-rss-bias in [Chapter 2](../ch02-random-vectors/index.html) shows that
 \[
-\E(\text{SSE})=\sigma^2(n-p)+\norm{(\I-\bH)\bm\theta}^2 .
+\E(\text{SSE})=\sigma^2(n-p)+\norm{(\I-\bH)\boldsymbol{\theta}}^2 .
 \]
 The extra term is the squared distance from the true mean vector to the nearest mean vector the
 model can produce. So an incomplete model *overestimates* \( \sigma^2 \): variation that the

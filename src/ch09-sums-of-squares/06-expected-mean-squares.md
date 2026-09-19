@@ -140,13 +140,13 @@ row \( i \), where \( \bar{\mu}^w=\sum_in_{i\cdot}\bar{\mu}^w_i/n \). So
 For the Type III sum of squares, the noncentrality is the sum of squares @eq-ss-hypothesis evaluated
 at the true means, divided by \( \sigma^2 \) (@exr-ss-hypothesis-noncentrality):
 \[
-\gamma=\frac{(\bLambda\T\bmu_c)\T\bigl(\bLambda\T\bm N^{-1}\bLambda\bigr)^{-1}(\bLambda\T\bmu_c)}{\sigma^2},
+\gamma=\frac{(\bLambda\T\bmu_c)\T\bigl(\bLambda\T\mathbf{N}^{-1}\bLambda\bigr)^{-1}(\bLambda\T\bmu_c)}{\sigma^2},
 \]
-where \( \bmu_c \) is the vector of \( ab \) cell means, \( \bm N=\diag(n_{ij}) \), and the columns of
+where \( \bmu_c \) is the vector of \( ab \) cell means, \( \mathbf{N}=\diag(n_{ij}) \), and the columns of
 \( \bLambda \) express the \( a-1 \) contrasts of unweighted row means. In the first, the design enters
 through the weights \( n_{ij}/n_{i\cdot} \), which also define the hypothesis. In the second, the
 hypothesis does not depend on the design, which enters only through the precision matrix
-\( \bm N^{-1} \) of the cell means.
+\( \mathbf{N}^{-1} \) of the cell means.
 
 ::: {#exm-ss-ems-simulation}
 [Checking expected mean squares by simulation]
@@ -289,7 +289,7 @@ with @exm-qf-oneway-cochran.
 In a balanced one-way layout with \( g \) groups of \( m \) observations, let
 \( Y_{ij}=\mu+a_i+\varepsilon_{ij} \), where the \( a_i \) and \( \varepsilon_{ij} \) are uncorrelated
 random variables with mean zero and variances \( \sigma_a^2 \) and \( \sigma^2 \). Show that
-\( \Cov(\Y)=\sigma^2\I+\sigma_a^2\bm Z\bm Z\T \), with \( \bm Z \) the matrix of group indicators, and use
+\( \Cov(\Y)=\sigma^2\I+\sigma_a^2\mathbf{Z}\mathbf{Z}\T \), with \( \mathbf{Z} \) the matrix of group indicators, and use
 @thm-rv-quadform-mean to show that
 \[
 \E(\text{MS}_{\text{between}})=\sigma^2+m\sigma_a^2,\qquad
@@ -300,13 +300,13 @@ squares suggest?
 :::
 
 ::: {.solution}
-\( \Y=\mu\bone+\bm Z\bm a+\be \), so \( \E(\Y)=\mu\bone \) and
-\( \Cov(\Y)=\bm Z(\sigma_a^2\I_g)\bm Z\T+\sigma^2\I \) by @thm-rv-linear. The between-groups
-projection is \( \M-\bP_1 \), where \( \M=m^{-1}\bm Z\bm Z\T \) averages within groups, and the
+\( \Y=\mu\bone+\mathbf{Z}\mathbf{a}+\be \), so \( \E(\Y)=\mu\bone \) and
+\( \Cov(\Y)=\mathbf{Z}(\sigma_a^2\I_g)\mathbf{Z}\T+\sigma^2\I \) by @thm-rv-linear. The between-groups
+projection is \( \M-\bP_1 \), where \( \M=m^{-1}\mathbf{Z}\mathbf{Z}\T \) averages within groups, and the
 within-groups projection is \( \I-\M \). The mean \( \mu\bone \) is annihilated by both. By
-@thm-rv-quadform-mean, \( \E(\Y\T(\M-\bP_1)\Y)=\tr\{(\M-\bP_1)(\sigma^2\I+\sigma_a^2\bm Z\bm Z\T)\} \).
-Now \( \bm Z\bm Z\T=m\M \), and \( (\M-\bP_1)\M=\M-\bP_1 \), so the trace is
-\( \sigma^2(g-1)+\sigma_a^2m(g-1) \). For the within-groups projection, \( (\I-\M)\bm Z=\bzero \), so the
+@thm-rv-quadform-mean, \( \E(\Y\T(\M-\bP_1)\Y)=\tr\{(\M-\bP_1)(\sigma^2\I+\sigma_a^2\mathbf{Z}\mathbf{Z}\T)\} \).
+Now \( \mathbf{Z}\mathbf{Z}\T=m\M \), and \( (\M-\bP_1)\M=\M-\bP_1 \), so the trace is
+\( \sigma^2(g-1)+\sigma_a^2m(g-1) \). For the within-groups projection, \( (\I-\M)\mathbf{Z}=\bzero \), so the
 trace is \( \sigma^2(n-g) \). Dividing by the degrees of freedom gives the two expectations. The ratio
 \( \text{MS}_{\text{between}}/\text{MS}_{\text{within}} \) has expectations that agree iff
 \( \sigma_a^2=0 \), and \( (\text{MS}_{\text{between}}-\text{MS}_{\text{within}})/m \) is unbiased for
@@ -329,17 +329,17 @@ Give an example in which \( \bbeta \) has all slopes zero but the regression mea
 ::: {#exr-ss-hypothesis-noncentrality}
 [B3]
 
-In the setting of @thm-ss-hypothesis with \( \bm d=\bzero \), show that the expected sum of squares of
+In the setting of @thm-ss-hypothesis with \( \mathbf{d}=\bzero \), show that the expected sum of squares of
 the hypothesis \( \bLambda\T\bbeta=\bzero \) is
 \( \sigma^2q+(\bLambda\T\bbeta)\T(\bLambda\T\G\bLambda)^{-1}\bLambda\T\bbeta \), so the
 noncentrality is obtained by evaluating @eq-ss-hypothesis at the true parameter.
 :::
 
 ::: {.solution}
-By @thm-ss-hypothesis(b), the sum of squares is \( \Y\T\bm K\Y \) with
-\( \bm K=\M\bT(\bLambda\T\G\bLambda)^{-1}\bT\T\M \), a projection of rank \( q \), where \( \bT \) is the
+By @thm-ss-hypothesis(b), the sum of squares is \( \Y\T\mathbf{K}\Y \) with
+\( \mathbf{K}=\M\bT(\bLambda\T\G\bLambda)^{-1}\bT\T\M \), a projection of rank \( q \), where \( \bT \) is the
 \( n\times q \) matrix with \( \bLambda=\X\T\bT \). By @thm-ss-expected-mean-squares(a) its expectation
-is \( \sigma^2q+\bbeta\T\X\T\bm K\X\bbeta \). Since \( \bT\T\M\X\bbeta=\bT\T\X\bbeta=\bLambda\T\bbeta \),
+is \( \sigma^2q+\bbeta\T\X\T\mathbf{K}\X\bbeta \). Since \( \bT\T\M\X\bbeta=\bT\T\X\bbeta=\bLambda\T\bbeta \),
 the second term is \( (\bLambda\T\bbeta)\T(\bLambda\T\G\bLambda)^{-1}\bLambda\T\bbeta \).
 :::
 
@@ -359,8 +359,8 @@ compare with the simulated variance of the residual mean square.
 :::
 
 ::: {.solution}
-With \( \A=\I-\M \) and \( \bm\theta=\bmu \), the terms of @thm-rv-quadform-variance involving
-\( \bm\theta \) vanish because \( (\I-\M)\bmu=\bzero \). The diagonal of \( \I-\M \) is \( 1-h_{ii} \), and
+With \( \A=\I-\M \) and \( \boldsymbol{\theta}=\bmu \), the terms of @thm-rv-quadform-variance involving
+\( \boldsymbol{\theta} \) vanish because \( (\I-\M)\bmu=\bzero \). The diagonal of \( \I-\M \) is \( 1-h_{ii} \), and
 \( \tr\{(\I-\M)^2\}=n-r \), which gives the formula. If the leverages are small,
 \( \sum_i(1-h_{ii})^2\approx n-r \) (it equals \( n-2r+\sum_ih_{ii}^2 \)), so
 \( \Var(\text{SSE})\approx(6+2)\sigma^4(n-r) \) and \( \Var(s^2)\approx8\sigma^4/(n-r) \), four times the

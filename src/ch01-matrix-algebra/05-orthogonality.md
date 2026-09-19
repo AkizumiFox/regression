@@ -66,7 +66,7 @@ The factorization is unique (@exr-mat-qr-unique). Numerical software computes it
 by a more stable route, but the object is the same, and [Chapter 6](../ch06-projections/index.html) and [Chapter 10](../ch10-computation/index.html)
 rely on it. Two consequences are used repeatedly. First, any orthonormal set
 \( \bu_1,\dots,\bu_r \) in \( \Real^n \) extends to an orthonormal basis: apply Gram–Schmidt to
-\( \bu_1,\dots,\bu_r,\bm e_1,\dots,\bm e_n \), discarding each vector that depends on its
+\( \bu_1,\dots,\bu_r,\mathbf{e}_1,\dots,\mathbf{e}_n \), discarding each vector that depends on its
 predecessors. Second, every subspace has an orthonormal basis.
 
 ## Orthogonal matrices
@@ -76,12 +76,12 @@ A square matrix \( \Q \) is **orthogonal** if \( \Q\T\Q=\I \). By @prp-mat-inver
 orthonormal as well as its columns.
 
 ::: {#prp-mat-orthogonal}
-Let \( \Q \) and \( \bm P \) be \( n\times n \) orthogonal matrices.
+Let \( \Q \) and \( \mathbf{P} \) be \( n\times n \) orthogonal matrices.
 
 ::: {.enumerate options="label=(\alph*)"}
 1. \( (\Q\x)\T(\Q\bv)=\x\T\bv \) and \( \norm{\Q\x}=\norm{\x} \) for all \( \x,\bv \).
 
-2. \( \Q\T \) and \( \Q\bm P \) are orthogonal.
+2. \( \Q\T \) and \( \Q\mathbf{P} \) are orthogonal.
 
 3. Every entry satisfies \( \lvert q_{ij}\rvert\le1 \), and \( \det\Q=\pm1 \).
 
@@ -92,7 +92,7 @@ Let \( \Q \) and \( \bm P \) be \( n\times n \) orthogonal matrices.
 :::
 
 ::: {.proof}
-(a) \( (\Q\x)\T\Q\bv=\x\T\Q\T\Q\bv=\x\T\bv \). (b) \( (\Q\bm P)\T\Q\bm P=\bm P\T\bm P=\I \).
+(a) \( (\Q\x)\T\Q\bv=\x\T\Q\T\Q\bv=\x\T\bv \). (b) \( (\Q\mathbf{P})\T\Q\mathbf{P}=\mathbf{P}\T\mathbf{P}=\I \).
 (c) Each column has unit length. For the determinant, see
 @prp-mat-det: \( 1=\det(\Q\T\Q)=(\det\Q)^2 \). (d) The first statement is
 \( \Q\Q\T=\I \) written in blocks. For the second, \( \Q_1\T\Q_2=\bzero \) gives
@@ -108,18 +108,18 @@ convenient coordinate system without changing its distribution.
 ::: {#exm-mat-helmert}
 [Helmert matrices]
 
-The \( n\times n \) **Helmert matrix** \( \bm H \) has first row \( n^{-1/2}\bone\T \) and, for
+The \( n\times n \) **Helmert matrix** \( \mathbf{H} \) has first row \( n^{-1/2}\bone\T \) and, for
 \( k=2,\dots,n \), \( k \)th row
 \[
-\bm h_k\T=\frac{1}{\sqrt{k(k-1)}}\bigl(\underbrace{1,\dots,1}_{k-1},\,-(k-1),\,0,\dots,0\bigr).
+\mathbf{h}_k\T=\frac{1}{\sqrt{k(k-1)}}\bigl(\underbrace{1,\dots,1}_{k-1},\,-(k-1),\,0,\dots,0\bigr).
 \]
 Each row has unit length, since \( (k-1)+(k-1)^2=k(k-1) \). Row \( k \) is orthogonal to row \( 1 \)
-because its entries sum to zero. For \( 2\le j<k \), the nonzero entries of \( \bm h_j \) sit in
-positions \( 1,\dots,j \), where \( \bm h_k \) is constant, so \( \bm h_j\T\bm h_k \) is proportional to
-the sum of the entries of \( \bm h_j \), which is zero. So \( \bm H \) is orthogonal. For
-\( \y\in\Real^n \), \( (\bm H\y)_1=\sqrt n\,\bar{y} \) and, by @prp-mat-orthogonal(a),
+because its entries sum to zero. For \( 2\le j<k \), the nonzero entries of \( \mathbf{h}_j \) sit in
+positions \( 1,\dots,j \), where \( \mathbf{h}_k \) is constant, so \( \mathbf{h}_j\T\mathbf{h}_k \) is proportional to
+the sum of the entries of \( \mathbf{h}_j \), which is zero. So \( \mathbf{H} \) is orthogonal. For
+\( \y\in\Real^n \), \( (\mathbf{H}\y)_1=\sqrt n\,\bar{y} \) and, by @prp-mat-orthogonal(a),
 \[
-\sum_{k=2}^n(\bm h_k\T\y)^2=\norm{\bm H\y}^2-n\bar{y}^2=\sum_{i=1}^n(y_i-\bar{y})^2 .
+\sum_{k=2}^n(\mathbf{h}_k\T\y)^2=\norm{\mathbf{H}\y}^2-n\bar{y}^2=\sum_{i=1}^n(y_i-\bar{y})^2 .
 \]
 The sum of squared deviations is a sum of \( n-1 \) squares of orthonormal contrasts. With
 independent normal observations this gives a short proof that the sample mean and variance
@@ -151,24 +151,24 @@ Show that every \( 2\times2 \) orthogonal matrix is either a rotation
 ::: {#exr-mat-householder}
 [B1]
 
-Let \( \bu \) be a unit vector and \( \bm H=\I-2\bu\bu\T \). Show that \( \bm H \) is symmetric and orthogonal,
-that \( \bm H\bu=-\bu \), and that \( \bm H\bv=\bv \) for \( \bv\perp\bu \). Given \( \x \) not a nonnegative multiple
-of \( \bm e_1 \), find \( \bu \) with \( \bm H\x=\norm{\x}\bm e_1 \). Explain how repeating this column by
+Let \( \bu \) be a unit vector and \( \mathbf{H}=\I-2\bu\bu\T \). Show that \( \mathbf{H} \) is symmetric and orthogonal,
+that \( \mathbf{H}\bu=-\bu \), and that \( \mathbf{H}\bv=\bv \) for \( \bv\perp\bu \). Given \( \x \) not a nonnegative multiple
+of \( \mathbf{e}_1 \), find \( \bu \) with \( \mathbf{H}\x=\norm{\x}\mathbf{e}_1 \). Explain how repeating this column by
 column produces a QR factorization.
 :::
 
 ::: {.solution}
-\( \bm H\T=\bm H \), and
-\( \bm H\T\bm H=\I-4\bu\bu\T+4\bu(\bu\T\bu)\bu\T=\I \). Also \( \bm H\bu=\bu-2\bu=-\bu \), and \( \bm H\bv=\bv \)
-when \( \bu\T\bv=0 \). Let \( \bw=\x-\norm{\x}\bm e_1\ne\bzero \) and \( \bu=\bw/\norm{\bw} \). Then
+\( \mathbf{H}\T=\mathbf{H} \), and
+\( \mathbf{H}\T\mathbf{H}=\I-4\bu\bu\T+4\bu(\bu\T\bu)\bu\T=\I \). Also \( \mathbf{H}\bu=\bu-2\bu=-\bu \), and \( \mathbf{H}\bv=\bv \)
+when \( \bu\T\bv=0 \). Let \( \bw=\x-\norm{\x}\mathbf{e}_1\ne\bzero \) and \( \bu=\bw/\norm{\bw} \). Then
 \( \bw\T\bw=2\norm{\x}^2-2\norm{\x}x_1=2\bw\T\x \), so
-\( \bm H\x=\x-2\bw(\bw\T\x)/(\bw\T\bw)=\x-\bw=\norm{\x}\bm e_1 \). Applying such a reflection \( \bm H_1 \) to
+\( \mathbf{H}\x=\x-2\bw(\bw\T\x)/(\bw\T\bw)=\x-\bw=\norm{\x}\mathbf{e}_1 \). Applying such a reflection \( \mathbf{H}_1 \) to
 the first column of \( \X \), then a reflection acting on coordinates \( 2,\dots,n \) to the second
-column of \( \bm H_1\X \), and so on, gives \( \bm H_p\cdots\bm H_1\X=\begin{psmallmatrix}\R\\\bzero\end{psmallmatrix} \)
+column of \( \mathbf{H}_1\X \), and so on, gives \( \mathbf{H}_p\cdots\mathbf{H}_1\X=\begin{psmallmatrix}\R\\\bzero\end{psmallmatrix} \)
 with \( \R \) upper triangular. Hence \( \X=\Q\R \), where \( \Q \) holds the first \( p \) columns of the orthogonal
-matrix \( \bm H_1\cdots\bm H_p \). In floating point one uses \( \bw=\x+\operatorname{sgn}(x_1)\norm{\x}\bm e_1 \)
+matrix \( \mathbf{H}_1\cdots\mathbf{H}_p \). In floating point one uses \( \bw=\x+\operatorname{sgn}(x_1)\norm{\x}\mathbf{e}_1 \)
 instead, which avoids cancellation. It gives
-\( \bm H\x=-\operatorname{sgn}(x_1)\norm{\x}\bm e_1 \), so diagonal entries of \( \R \) may come out
+\( \mathbf{H}\x=-\operatorname{sgn}(x_1)\norm{\x}\mathbf{e}_1 \), so diagonal entries of \( \R \) may come out
 negative; changing the sign of such a row of \( \R \) and of the matching column of \( \Q \) at the end
 restores the positive diagonal of @thm-mat-qr.
 :::

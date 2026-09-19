@@ -19,7 +19,7 @@ Let \( \X \) be \( n\times p \), let \( \G \) denote a generalized inverse of \(
 ::: {.enumerate options="label=(\alph*)"}
 1. \( \blambda\T\bbeta \) is estimable;
 
-2. \( \blambda\in\C(\X\T) \): there is \( \bm\rho\in\Real^n \) with \( \blambda\T=\bm\rho\T\X \);
+2. \( \blambda\in\C(\X\T) \): there is \( \boldsymbol{\rho}\in\Real^n \) with \( \blambda\T=\boldsymbol{\rho}\T\X \);
 
 3. \( \blambda\perp\Null(\X) \): \( \blambda\T\bv=0 \) whenever \( \X\bv=\bzero \);
 
@@ -67,17 +67,17 @@ estimate has a clean description.
 ::: {#prp-est-ls-estimator}
 [Least squares estimation of estimable functions]
 
-Let \( \blambda\T\bbeta \) be estimable, with \( \blambda=\X\T\bm\rho=\X\T\X\br \), let \( \hbeta \) be any
+Let \( \blambda\T\bbeta \) be estimable, with \( \blambda=\X\T\boldsymbol{\rho}=\X\T\X\br \), let \( \hbeta \) be any
 least squares solution and \( \G \) any generalized inverse of \( \X\T\X \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \blambda\T\hbeta=\bm\rho\T\M\y=\br\T\X\T\y=\blambda\T\G\X\T\y \);
+1. \( \blambda\T\hbeta=\boldsymbol{\rho}\T\M\y=\br\T\X\T\y=\blambda\T\G\X\T\y \);
 
 2. \( \E(\blambda\T\hbeta)=\blambda\T\bbeta \);
 
 3. if \( \Cov(\Y)=\sigma^2\I \), then
     \[
-    \Var(\blambda\T\hbeta)=\sigma^2\blambda\T\G\blambda=\sigma^2\br\T\blambda=\sigma^2\norm{\M\bm\rho}^2 ,
+    \Var(\blambda\T\hbeta)=\sigma^2\blambda\T\G\blambda=\sigma^2\br\T\blambda=\sigma^2\norm{\M\boldsymbol{\rho}}^2 ,
     \]
     the same for every \( \G \);
 
@@ -97,7 +97,7 @@ matrix form \( \Cov(\bLambda\T\hbeta)=\sigma^2\bLambda\T\G\bLambda \) is part (d
 Neither depends on \( \G \), because \( \M=\X\G\X\T \) for every \( \G \) (@thm-proj-M-formula).
 The second form in (c) follows from
 \( \blambda\T\G\blambda=\br\T\X\T\X\G\X\T\X\br=\br\T\X\T\X\br=\br\T\blambda \).
-The third is \( \bm\rho\T\M\bm\rho=\norm{\M\bm\rho}^2 \).
+The third is \( \boldsymbol{\rho}\T\M\boldsymbol{\rho}=\norm{\M\boldsymbol{\rho}}^2 \).
 :::
 
 The formula \( \sigma^2\blambda\T\G\blambda \) is the rank-deficient version of the familiar
@@ -255,7 +255,7 @@ Estimability is then a matter of degree, not a yes-or-no property.
 [Estimable in principle, not in practice]
 
 Take twelve equally spaced values \( t_i \) on \( [-1,1] \) and the model matrix with columns
-\( \bone \), \( \bm t \) and \( \bm t+\delta\bw \), where \( w_i=\cos(\pi t_i) \) and \( \delta \) is a small perturbation.
+\( \bone \), \( \mathbf{t} \) and \( \mathbf{t}+\delta\bw \), where \( w_i=\cos(\pi t_i) \) and \( \delta \) is a small perturbation.
 At \( \delta=0 \) the last two columns coincide. Then \( \beta_1+\beta_2 \) is estimable and \( \beta_1 \)
 is not. For \( \delta>0 \) the matrix has full rank, so everything is estimable. But
 [Figure 8.3.1](#fig-est-near) shows how the variance of \( \hat{\beta}_1 \) grows as \( \delta\to0 \):
@@ -279,7 +279,7 @@ nearly nonestimable function into a numerically nonestimable one.
 
 ::: {when-format="html"}
 ![**Figure 8.3.1.** Variances of three linear functions of \( \hbeta \) in the design with
-columns \( \bone,\bm t,\bm t+\delta\bw \). As \( \delta\to0 \), the functions that are not estimable at
+columns \( \bone,\mathbf{t},\mathbf{t}+\delta\bw \). As \( \delta\to0 \), the functions that are not estimable at
 \( \delta=0 \) (\( \beta_1 \) alone and \( \beta_1-\beta_2 \)) have variances growing like
 \( \delta^{-2} \), while \( \beta_1+\beta_2 \), which is estimable at \( \delta=0 \), is
 unaffected.](near_estimable.svg){#fig-est-near width=62%}
@@ -287,7 +287,7 @@ unaffected.](near_estimable.svg){#fig-est-near width=62%}
 
 ::: {when-format="pdf"}
 ![Variances of three linear functions of \( \hbeta \) in the design with
-columns \( \bone,\bm t,\bm t+\delta\bw \). As \( \delta\to0 \), the functions that are not estimable at
+columns \( \bone,\mathbf{t},\mathbf{t}+\delta\bw \). As \( \delta\to0 \), the functions that are not estimable at
 \( \delta=0 \) (\( \beta_1 \) alone and \( \beta_1-\beta_2 \)) have variances growing like
 \( \delta^{-2} \), while \( \beta_1+\beta_2 \), which is estimable at \( \delta=0 \), is
 unaffected.](near_estimable.pdf){width=62%}
@@ -342,8 +342,8 @@ it reports “\( \hat{\alpha}_k \)”. Do the same for the generalized inverse t
 
 ::: {.solution}
 With \( \G \) holding \( \diag(1/n_1,\dots,1/n_4) \) in its lower right block,
-\( \G\X\T\X \) has first row zero and row \( k+1 \) equal to \( (1,\bm e_k\T) \), because the row of \( \X\T\X \) for
-\( \alpha_k \) is \( n_k(1,\bm e_k\T) \). So \( \E(\hat{\alpha}_k)=\mu+\alpha_k \): the reported “effect” estimates the
+\( \G\X\T\X \) has first row zero and row \( k+1 \) equal to \( (1,\mathbf{e}_k\T) \), because the row of \( \X\T\X \) for
+\( \alpha_k \) is \( n_k(1,\mathbf{e}_k\T) \). So \( \E(\hat{\alpha}_k)=\mu+\alpha_k \): the reported “effect” estimates the
 group mean. If instead \( \alpha_4 \) is deleted, the solution sets \( \hat{\alpha}_4=0 \),
 \( \hat{\mu}=\bar{y}_4 \) and \( \hat{\alpha}_k=\bar{y}_k-\bar{y}_4 \), so \( \E(\hat{\mu})=\mu+\alpha_4 \) and
 \( \E(\hat{\alpha}_k)=\alpha_k-\alpha_4 \) for \( k\le3 \).
@@ -354,8 +354,8 @@ group mean. If instead \( \alpha_4 \) is deleted, the solution sets \( \hat{\alp
 
 Let \( \bLambda\T\bbeta \) be estimable with \( \bLambda \) of full column rank \( q \), and suppose
 \( \Cov(\Y)=\sigma^2\I \) with \( \sigma^2>0 \). Show that \( \Cov(\bLambda\T\hbeta)=\sigma^2\bLambda\T\G\bLambda \) is
-positive definite, whichever generalized inverse is used. *Hint:* write \( \bLambda=\X\T\bm P \) and
-show \( \M\bm P \) has full column rank.
+positive definite, whichever generalized inverse is used. *Hint:* write \( \bLambda=\X\T\mathbf{P} \) and
+show \( \M\mathbf{P} \) has full column rank.
 :::
 
 ### C. Going deeper
@@ -372,11 +372,11 @@ Let \( \blambda\T\bbeta \) be nonestimable. Show that as \( \G \) ranges over al
 Let \( \A=\X\T\X \) and \( \G_0 \) be one generalized inverse. By
 @prp-mat-ginverse-props(e), \( \G=\G_0+(\I-\G_0\A)\bU \) is a generalized inverse for every \( \bU \), and
 \[
-\blambda\T\G\blambda=\blambda\T\G_0\blambda+\bm u\T\bU\blambda,\qquad \bm u=(\I-\G_0\A)\T\blambda .
+\blambda\T\G\blambda=\blambda\T\G_0\blambda+\mathbf{u}\T\bU\blambda,\qquad \mathbf{u}=(\I-\G_0\A)\T\blambda .
 \]
 Because \( \blambda \) is not estimable, \( \blambda\T\G_0\A\ne\blambda\T \) (by (a)\( \Leftrightarrow \)(e) of @thm-est-characterization), so
-\( \bm u\ne\bzero \). Also \( \blambda\ne\bzero \), since \( \bzero \) is in \( \C(\X\T) \). Take
-\( \bU=t\,\bm u\blambda\T/(\norm{\bm u}^2\norm{\blambda}^2) \). Then
+\( \mathbf{u}\ne\bzero \). Also \( \blambda\ne\bzero \), since \( \bzero \) is in \( \C(\X\T) \). Take
+\( \bU=t\,\mathbf{u}\blambda\T/(\norm{\mathbf{u}}^2\norm{\blambda}^2) \). Then
 \( \blambda\T\G\blambda=\blambda\T\G_0\blambda+t \), which takes every real value as \( t \) varies.
 :::
 

@@ -3,13 +3,13 @@
 ## The inverse of a square matrix
 
 An \( n\times n \) matrix \( \A \) is **nonsingular** if there is a matrix \( \A^{-1} \) with
-\( \A\A^{-1}=\A^{-1}\A=\I_n \). The inverse is unique: if \( \B \) and \( \bm C \) both qualify, then
-\( \B=\B(\A\bm C)=(\B\A)\bm C=\bm C \).
+\( \A\A^{-1}=\A^{-1}\A=\I_n \). The inverse is unique: if \( \B \) and \( \mathbf{C} \) both qualify, then
+\( \B=\B(\A\mathbf{C})=(\B\A)\mathbf{C}=\mathbf{C} \).
 
 ::: {#prp-mat-inverse}
 For an \( n\times n \) matrix \( \A \) the following are equivalent: (a) \( \A \) is nonsingular;
 (b) \( \rank(\A)=n \); (c) \( \Null(\A)=\{\bzero\} \); (d) \( \B\A=\I \) for some \( \B \);
-(e) \( \A\bm C=\I \) for some \( \bm C \). When they hold, \( \B=\bm C=\A^{-1} \), and
+(e) \( \A\mathbf{C}=\I \) for some \( \mathbf{C} \). When they hold, \( \B=\mathbf{C}=\A^{-1} \), and
 \[
 (\A\T)^{-1}=(\A^{-1})\T,\qquad (\A\B)^{-1}=\B^{-1}\A^{-1}
 \]
@@ -19,11 +19,11 @@ for nonsingular \( \A,\B \) of the same size. A nonsingular symmetric matrix has
 ::: {.proof}
 (b)\( \Leftrightarrow \)(c) is rank–nullity. (a)\( \Rightarrow \)(d) and (a)\( \Rightarrow \)(e) are
 trivial. (d)\( \Rightarrow \)(c): \( \A\x=\bzero \) gives \( \x=\B\A\x=\bzero \). (e)\( \Rightarrow \)(b):
-\( \I=\A\bm C \) has rank \( n \), and \( \rank(\A\bm C)\le\rank(\A) \). (b)\( \Rightarrow \)(a): since
-\( \C(\A)=\Real^n \), we can solve \( \A\bm c_j=\bm e_j \) for each \( j \), giving \( \A\bm C=\I \). Then
-\( \A(\bm C\A-\I)=\bzero \), and because \( \Null(\A)=\{\bzero\} \) each column of \( \bm C\A-\I \) is
-zero. So \( \bm C\A=\I \) as well. If \( \B\A=\I \) then \( \B=\B\A\A^{-1}=\A^{-1} \), and similarly
-for \( \bm C \). The formulas are verified by multiplication:
+\( \I=\A\mathbf{C} \) has rank \( n \), and \( \rank(\A\mathbf{C})\le\rank(\A) \). (b)\( \Rightarrow \)(a): since
+\( \C(\A)=\Real^n \), we can solve \( \A\mathbf{c}_j=\mathbf{e}_j \) for each \( j \), giving \( \A\mathbf{C}=\I \). Then
+\( \A(\mathbf{C}\A-\I)=\bzero \), and because \( \Null(\A)=\{\bzero\} \) each column of \( \mathbf{C}\A-\I \) is
+zero. So \( \mathbf{C}\A=\I \) as well. If \( \B\A=\I \) then \( \B=\B\A\A^{-1}=\A^{-1} \), and similarly
+for \( \mathbf{C} \). The formulas are verified by multiplication:
 \( \A\T(\A^{-1})\T=(\A^{-1}\A)\T=\I \) and \( (\A\B)(\B^{-1}\A^{-1})=\I \). If \( \A=\A\T \), then
 \( \A^{-1}=(\A\T)^{-1}=(\A^{-1})\T \).
 :::
@@ -67,9 +67,8 @@ columns indexed by \( I \), and zeros elsewhere, is a generalized inverse of \( 
 :::
 
 ::: {.proof}
-For \( \A=\bzero \) any matrix of the right size works. Otherwise let \( \bm E_I \) and \( \bm E_J \)
-be the columns of \( \I_m \) and \( \I_n \) indexed by \( I \) and \( J \). Then \( \G=\bm E_J\A_{IJ}^{-1}\bm
-E_I\T \), \( \A\bm E_J=\A_{\cdot J} \) and \( \bm E_I\T\A=\A_{I\cdot} \). So
+For \( \A=\bzero \) any matrix of the right size works. Otherwise let \( \mathbf{E}_I \) and \( \mathbf{E}_J \)
+be the columns of \( \I_m \) and \( \I_n \) indexed by \( I \) and \( J \). Then \( \G=\mathbf{E}_J\A_{IJ}^{-1}\mathbf{E}_I\T \), \( \A\mathbf{E}_J=\A_{\cdot J} \) and \( \mathbf{E}_I\T\A=\A_{I\cdot} \). So
 \( \A\G\A=\A_{\cdot J}\A_{IJ}^{-1}\A_{I\cdot}=\A \) by @eq-mat-skeleton.
 :::
 
@@ -129,15 +128,15 @@ The **Moore–Penrose inverse** of \( \A \) is the matrix \( \A^+ \) satisfying
 \]
 :::
 
-There is at most one such matrix. If \( \G \) and \( \bm H \) both satisfy the four conditions, then
+There is at most one such matrix. If \( \G \) and \( \mathbf{H} \) both satisfy the four conditions, then
 \[
-\G=\G\A\G=\G(\A\G)\T=\G\G\T(\A\bm H\A)\T=\G(\A\G)\T(\A\bm H)\T=\G\A\G\A\bm H=\G\A\bm H ,
+\G=\G\A\G=\G(\A\G)\T=\G\G\T(\A\mathbf{H}\A)\T=\G(\A\G)\T(\A\mathbf{H})\T=\G\A\G\A\mathbf{H}=\G\A\mathbf{H} ,
 \]
-where the steps use the second and third conditions for \( \G \), the first for \( \bm H \), and the
+where the steps use the second and third conditions for \( \G \), the first for \( \mathbf{H} \), and the
 third for both. The same argument with the fourth condition in place of the third gives
 \[
-\bm H=(\bm H\A)\T\bm H=\A\T\bm H\T\bm H=(\A\G\A)\T\bm H\T\bm H=(\G\A)\T(\bm H\A)\T\bm H
-=\G\A\bm H\A\bm H=\G\A\bm H,
+\mathbf{H}=(\mathbf{H}\A)\T\mathbf{H}=\A\T\mathbf{H}\T\mathbf{H}=(\A\G\A)\T\mathbf{H}\T\mathbf{H}=(\G\A)\T(\mathbf{H}\A)\T\mathbf{H}
+=\G\A\mathbf{H}\A\mathbf{H}=\G\A\mathbf{H},
 \]
-so \( \G=\bm H \). Existence follows from the
+so \( \G=\mathbf{H} \). Existence follows from the
 singular value decomposition, which gives \( \A^+ \) explicitly (@thm-mat-svd).

@@ -20,7 +20,7 @@ standard-deviation matrices \( \bD_U \) and \( \bD_V \), the cross-correlation m
 \( \bD_U^{-1}\Cov(\bU,\V)\bD_V^{-1} \).
 :::
 
-Some books write \( \bm P_\rho \) for the correlation matrix. We use \( \R \) in this chapter, and
+Some books write \( \mathbf{P}_\rho \) for the correlation matrix. We use \( \R \) in this chapter, and
 \( \hat{\R} \) for its sample counterpart in [Section 2.7](07-sample.html).
 
 ::: {#prp-rv-correlation}
@@ -37,7 +37,7 @@ Let \( \R \) be the correlation matrix of \( \Y \).
 
 3. \( \rank(\R)=\rank(\bSigma) \). In particular, \( \R \) is positive definite iff \( \bSigma \) is.
 
-4. If \( \Y^*=\bD\Y+\bm c \) with \( \bD=\diag(d_1,\dots,d_p) \) and every \( d_i\ne0 \), then
+4. If \( \Y^*=\bD\Y+\mathbf{c} \) with \( \bD=\diag(d_1,\dots,d_p) \) and every \( d_i\ne0 \), then
            \( \rho^*_{ij}=\operatorname{sign}(d_id_j)\,\rho_{ij} \). Positive rescaling and shifting
            leave \( \R \) unchanged.
 
@@ -81,15 +81,15 @@ is a correlation matrix iff
 
 ::: {.proof}
 By @prp-rv-correlation(e) we must decide when \( \R \) is nonnegative definite. Write
-\( \bm r=(\rho_{12},\rho_{13})\T \) and let \( \R_2 \) be the lower right \( 2\times2 \) block. The
-nonsingular matrix \( \bT=\begin{psmallmatrix}1&\bzero\T\\-\bm r&\I_2\end{psmallmatrix} \) gives
+\( \mathbf{r}=(\rho_{12},\rho_{13})\T \) and let \( \R_2 \) be the lower right \( 2\times2 \) block. The
+nonsingular matrix \( \bT=\begin{psmallmatrix}1&\bzero\T\\-\mathbf{r}&\I_2\end{psmallmatrix} \) gives
 \[
-\bT\R\bT\T=\begin{pmatrix}1&\bzero\T\\\bzero&\R_2-\bm r\bm r\T\end{pmatrix},
+\bT\R\bT\T=\begin{pmatrix}1&\bzero\T\\\bzero&\R_2-\mathbf{r}\mathbf{r}\T\end{pmatrix},
 \]
-and \( \bm a\T\R\bm a=\bm b\T(\bT\R\bT\T)\bm b \) with \( \bm b=(\bT\T)^{-1}\bm a \) ranges over all
-vectors as \( \bm a \) does. So \( \R \) is nonnegative definite iff the Schur complement
+and \( \mathbf{a}\T\R\mathbf{a}=\mathbf{b}\T(\bT\R\bT\T)\mathbf{b} \) with \( \mathbf{b}=(\bT\T)^{-1}\mathbf{a} \) ranges over all
+vectors as \( \mathbf{a} \) does. So \( \R \) is nonnegative definite iff the Schur complement
 \[
-\R_2-\bm r\bm r\T=\begin{pmatrix}1-\rho_{12}^2&\rho_{23}-\rho_{12}\rho_{13}\\
+\R_2-\mathbf{r}\mathbf{r}\T=\begin{pmatrix}1-\rho_{12}^2&\rho_{23}-\rho_{12}\rho_{13}\\
 \rho_{23}-\rho_{12}\rho_{13}&1-\rho_{13}^2\end{pmatrix}
 \]
 is. A symmetric \( 2\times2 \) matrix with positive diagonal is nonnegative definite iff its
@@ -143,7 +143,7 @@ of \( \R \).
 
 ::: {.solution}
 If some \( \sigma_{ii}=0 \), the \( i \)th row of \( \bSigma \) vanishes
-(apply @thm-rv-cov-nnd(c) with \( \bm a \) the \( i \)th coordinate vector) and both sides
+(apply @thm-rv-cov-nnd(c) with \( \mathbf{a} \) the \( i \)th coordinate vector) and both sides
 are zero. Otherwise \( \det\bSigma=\det(\bD_\sigma)^2\det\R=\prod_i\sigma_{ii}\cdot\det\R \). The eigenvalues
 \( \lambda_i\ge0 \) of \( \R \) sum to \( \tr\R=p \), so by the inequality of arithmetic and geometric means
 \( \det\R=\prod_i\lambda_i\le(p^{-1}\sum_i\lambda_i)^p=1 \). Equality holds iff every \( \lambda_i=1 \), that is,

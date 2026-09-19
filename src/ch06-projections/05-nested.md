@@ -245,35 +245,35 @@ that situation.
 Reduced models often come as *constraints* on the parameters of the full model,
 for example \( \beta_2=\beta_3 \) or \( \beta_4=0 \), rather than as a smaller model matrix.
 In mean space, a constraint \( \bLambda\T\bbeta=\bzero \) on an estimable function
-\( \bLambda\T=\bm P\T\X \) restricts \( \bmu=\X\bbeta \) to the subspace
+\( \bLambda\T=\mathbf{P}\T\X \) restricts \( \bmu=\X\bbeta \) to the subspace
 \[
-\mathcal S_0=\C(\X)\cap\Null(\bm P\T)=\{\bmu\in\C(\X):\bm P\T\bmu=\bzero\}.
+\mathcal S_0=\C(\X)\cap\Null(\mathbf{P}\T)=\{\bmu\in\C(\X):\mathbf{P}\T\bmu=\bzero\}.
 \]
 To test the constraint we need the piece of \( \C(\X) \) that \( \mathcal S_0 \) removes.
 
 ::: {#thm-proj-constraint-space}
-Let \( \M \) project onto \( \C(\X) \) and let \( \bm P \) be an \( n\times q \) matrix. If
-\( \mathcal S_0=\C(\X)\cap\Null(\bm P\T) \), then
+Let \( \M \) project onto \( \C(\X) \) and let \( \mathbf{P} \) be an \( n\times q \) matrix. If
+\( \mathcal S_0=\C(\X)\cap\Null(\mathbf{P}\T) \), then
 \[
-\mathcal S_0\perpc\cap\C(\X)=\C(\M\bm P).
+\mathcal S_0\perpc\cap\C(\X)=\C(\M\mathbf{P}).
 \]
-Hence the projection onto \( \mathcal S_0 \) is \( \M-\bP_{\C(\M\bm P)} \), and
-\( \dim\mathcal S_0=r-\rank(\M\bm P) \).
+Hence the projection onto \( \mathcal S_0 \) is \( \M-\bP_{\C(\M\mathbf{P})} \), and
+\( \dim\mathcal S_0=r-\rank(\M\mathbf{P}) \).
 :::
 
 ::: {.proof}
 By @lem-proj-complement-intersection and @lem-proj-null-colspace,
-\( \mathcal S_0\perpc=\C(\X)\perpc+\Null(\bm P\T)\perpc=\C(\X)\perpc+\C(\bm P) \).
-If \( \bv\in\mathcal S_0\perpc\cap\C(\X) \), write \( \bv=\bw+\bm P\bm a \) with
-\( \bw\perp\C(\X) \). Applying \( \M \) gives \( \bv=\M\bv=\M\bm P\bm a\in\C(\M\bm P) \).
-Conversely, \( \M\bm P\bm a \) lies in \( \C(\X) \) and equals
-\( \bm P\bm a-(\I-\M)\bm P\bm a\in\C(\bm P)+\C(\X)\perpc=\mathcal S_0\perpc \). The
+\( \mathcal S_0\perpc=\C(\X)\perpc+\Null(\mathbf{P}\T)\perpc=\C(\X)\perpc+\C(\mathbf{P}) \).
+If \( \bv\in\mathcal S_0\perpc\cap\C(\X) \), write \( \bv=\bw+\mathbf{P}\mathbf{a} \) with
+\( \bw\perp\C(\X) \). Applying \( \M \) gives \( \bv=\M\bv=\M\mathbf{P}\mathbf{a}\in\C(\M\mathbf{P}) \).
+Conversely, \( \M\mathbf{P}\mathbf{a} \) lies in \( \C(\X) \) and equals
+\( \mathbf{P}\mathbf{a}-(\I-\M)\mathbf{P}\mathbf{a}\in\C(\mathbf{P})+\C(\X)\perpc=\mathcal S_0\perpc \). The
 remaining claims follow from @thm-proj-nested with the roles
 \( \C(\X_0)=\mathcal S_0 \).
 :::
 
-The subspace \( \C(\M\bm P) \) is the *test space* of the hypothesis. Its dimension
-\( \rank(\M\bm P) \) counts how many independent restrictions the constraint really
+The subspace \( \C(\M\mathbf{P}) \) is the *test space* of the hypothesis. Its dimension
+\( \rank(\M\mathbf{P}) \) counts how many independent restrictions the constraint really
 places on the mean. It can be smaller than \( q \) if some rows of the constraint are
 redundant. [Chapter 11](../ch11-general-linear-hypothesis/index.html) uses exactly this space for the
 numerator of the \( F \) statistic.
@@ -312,7 +312,7 @@ In the model \( \E(\Y)=\beta_0\bone+\beta_1\x_1+\beta_2\x_2+\beta_3\x_3 \) with 
 \( \X \), the hypothesis \( \beta_2=\beta_3 \) defines a reduced model with model matrix
 \( \X_0=[\bone,\x_1,\x_2+\x_3] \). Show that the test space \( \C(\X_0)\perpc\cap\C(\X) \) is
 spanned by \( (\I-\Mo)\x_2 \), and that \( (\I-\Mo)\x_2=-(\I-\Mo)\x_3 \). Verify that this agrees
-with @thm-proj-constraint-space for a suitable \( \bm P \).
+with @thm-proj-constraint-space for a suitable \( \mathbf{P} \).
 :::
 
 ::: {.solution}
@@ -322,9 +322,9 @@ and is orthogonal to \( \C(\X_0) \). It is nonzero, because \( \x_2\in\C(\X_0) \
 the columns of \( \X \) dependent. Since \( \x_2+\x_3\in\C(\X_0) \),
 \( (\I-\Mo)(\x_2+\x_3)=\bzero \). For @thm-proj-constraint-space, write the constraint as
 \( \blambda\T\bbeta=0 \) with \( \blambda=(0,0,1,-1)\T \), and take
-\( \bm P=\X(\X\T\X)^{-1}\blambda \), so that \( \bm P\T\X=\blambda\T \). Then \( \M\bm P=\bm P \).
-Each column of \( \X_0 \) is \( \X\bm k \) with \( \blambda\T\bm k=0 \), so \( \bm P\perp\C(\X_0) \) and
-\( \bm P \) spans the same line.
+\( \mathbf{P}=\X(\X\T\X)^{-1}\blambda \), so that \( \mathbf{P}\T\X=\blambda\T \). Then \( \M\mathbf{P}=\mathbf{P} \).
+Each column of \( \X_0 \) is \( \X\mathbf{k} \) with \( \blambda\T\mathbf{k}=0 \), so \( \mathbf{P}\perp\C(\X_0) \) and
+\( \mathbf{P} \) spans the same line.
 :::
 
 ### C. Going deeper

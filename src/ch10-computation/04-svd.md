@@ -84,27 +84,27 @@ compute \( \X=\Q_1\R \) first and then an SVD \( \R=\bU_R\bSigma\V\T \) of the t
 \( \X=(\Q_1\bU_R)\bSigma\V\T \) (@exr-cmp-rsvd). Least squares needs only \( \bU\T\y \), never \( \bU \) itself, which
 gives the count \( 2np^2+11p^3 \) of [Section 10.1](01-why-not-invert.html) (Golub and Van Loan 2013).
 
-The computed singular values are those of a nearby matrix \( \X+\bm E \) with
-\( \norm{\bm E}_2\le c\,u\norm{\X}_2 \). The next result turns this into accuracy.
+The computed singular values are those of a nearby matrix \( \X+\mathbf{E} \) with
+\( \norm{\mathbf{E}}_2\le c\,u\norm{\X}_2 \). The next result turns this into accuracy.
 
 ::: {#prp-cmp-weyl}
 [Singular values are well conditioned]
 
-For any matrices \( \A \) and \( \bm E \) of the same size and every \( k \),
+For any matrices \( \A \) and \( \mathbf{E} \) of the same size and every \( k \),
 \[
-\lvert\sigma_k(\A+\bm E)-\sigma_k(\A)\rvert\le\norm{\bm E}_2 .
+\lvert\sigma_k(\A+\mathbf{E})-\sigma_k(\A)\rvert\le\norm{\mathbf{E}}_2 .
 \]
 :::
 
 ::: {.proof}
-For any matrix \( \bm C \) and any \( \B \) of rank at most \( k-1 \), \( \sigma_k(\bm C)\le\norm{\bm C-\B}_2 \).
-When \( k-1<\rank\bm C \) this is the Eckart–Young inequality (@prp-mat-svd-norms(c)), and
-otherwise \( \sigma_k(\bm C)=0 \). Let \( \A_{k-1} \) be the truncated SVD of \( \A \) with \( k-1 \) terms, or \( \A \)
+For any matrix \( \mathbf{C} \) and any \( \B \) of rank at most \( k-1 \), \( \sigma_k(\mathbf{C})\le\norm{\mathbf{C}-\B}_2 \).
+When \( k-1<\rank\mathbf{C} \) this is the Eckart–Young inequality (@prp-mat-svd-norms(c)), and
+otherwise \( \sigma_k(\mathbf{C})=0 \). Let \( \A_{k-1} \) be the truncated SVD of \( \A \) with \( k-1 \) terms, or \( \A \)
 itself if \( \rank\A<k \), so that \( \norm{\A-\A_{k-1}}_2=\sigma_k(\A) \). Then
 \[
-\sigma_k(\A+\bm E)\le\norm{\A+\bm E-\A_{k-1}}_2\le\sigma_k(\A)+\norm{\bm E}_2 .
+\sigma_k(\A+\mathbf{E})\le\norm{\A+\mathbf{E}-\A_{k-1}}_2\le\sigma_k(\A)+\norm{\mathbf{E}}_2 .
 \]
-Exchanging the roles of \( \A \) and \( \A+\bm E \) gives the other inequality.
+Exchanging the roles of \( \A \) and \( \A+\mathbf{E} \) gives the other inequality.
 :::
 
 So a backward stable SVD computes every singular value with *absolute* error of order \( u\sigma_1 \),
@@ -135,14 +135,14 @@ choice matters, because the minimum-norm solution is not a continuous function o
 ::: {#exm-cmp-pinv-discontinuity}
 [The pseudoinverse jumps]
 
-Let \( \x_1=(1,2,3,4)\T \), let \( \bm d=(1,-1,-1,1)\T \) be orthogonal to it, and let
-\( \X_t=[\x_1,\ \x_1+t\bm d] \), with \( \y=(1,3,2,5)\T \). For every \( t\ne0 \) the column space is the
-same plane \( \spn(\x_1,\bm d) \), so the fitted values do not depend on \( t \). The coefficients do.
+Let \( \x_1=(1,2,3,4)\T \), let \( \mathbf{d}=(1,-1,-1,1)\T \) be orthogonal to it, and let
+\( \X_t=[\x_1,\ \x_1+t\mathbf{d}] \), with \( \y=(1,3,2,5)\T \). For every \( t\ne0 \) the column space is the
+same plane \( \spn(\x_1,\mathbf{d}) \), so the fitted values do not depend on \( t \). The coefficients do.
 At \( t=10^{-6} \) they are \( -249999 \) and \( 250000 \), because the
-coefficients must reproduce a fixed multiple of \( \bm d \) using the small difference
-\( t\bm d \) of the two columns. At \( t=0 \) the rank drops to one. The minimum-norm solution
+coefficients must reproduce a fixed multiple of \( \mathbf{d} \) using the small difference
+\( t\mathbf{d} \) of the two columns. At \( t=0 \) the rank drops to one. The minimum-norm solution
 jumps to \( 0.550 \) for both columns, and the fitted values jump too, because the
-\( \bm d \)-direction has disappeared from the model. Treating singular values below a tolerance as zero makes the two answers agree. Whether it should is a statistical
+\( \mathbf{d} \)-direction has disappeared from the model. Treating singular values below a tolerance as zero makes the two answers agree. Whether it should is a statistical
 question: is the difference between the columns signal, or recording error?
 :::
 

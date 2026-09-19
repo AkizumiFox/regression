@@ -31,8 +31,8 @@
            (@thm-est-side-conditions). The constrained coefficients are then particular estimable functions
            (@prp-est-side-meaning). The minimum-norm solution is itself a side condition (@prp-est-min-norm-side).
 
-7. A coding of a factor is a nonsingular matrix \( \bm K \), and its coefficients estimate \( \bm K^{-1}\bmu \), the rows of
-           \( \bm K^{-1} \) applied to the level means (@def-est-coding and @prp-est-coding).
+7. A coding of a factor is a nonsingular matrix \( \mathbf{K} \), and its coefficients estimate \( \mathbf{K}^{-1}\bmu \), the rows of
+           \( \mathbf{K}^{-1} \) applied to the level means (@def-est-coding and @prp-est-coding).
 
 8. In the additive two-way model the rank is \( a+b \) minus the number of connected components of the design, and a
            difference of levels is estimable iff the levels are connected (@thm-est-connected). In the interaction model,
@@ -54,7 +54,7 @@
 chapter does, and stresses that the estimable functions are exactly the identifiable linear ones. Agresti (2015,
 §1.4) gives a short treatment aimed at generalized linear models, where the same definitions apply to the linear predictor.
 Rencher and Schaalje (2008, ch. 12) is a detailed textbook account of the non-full-rank model: estimable functions and
-their tests, the estimators \( \bm r\T\X\T\y \) and \( \blambda\T\hbeta \), reparameterization and side conditions, with small
+their tests, the estimators \( \mathbf{r}\T\X\T\y \) and \( \blambda\T\hbeta \), reparameterization and side conditions, with small
 worked layouts. The notion of an estimable function goes back to R. C. Bose's work on the design of experiments in the
 1940s. Scheffé (1959) and Searle (1971) made it standard, and Rao (1973) treats it through generalized inverses. The
 characterization @thm-est-characterization collects conditions that are scattered through these sources. That a

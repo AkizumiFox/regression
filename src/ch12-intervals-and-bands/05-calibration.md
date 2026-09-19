@@ -15,7 +15,7 @@ hypothesis that is linear in the coefficients.
 [Fieller's confidence set for a ratio]
 
 Let \( \blambda_1,\blambda_2\in\C(\X\T) \) be linearly independent, put \( a=\blambda_1\T\bbeta \), \( b=\blambda_2\T\bbeta \), their estimates
-\( \hat{a}=\blambda_1\T\hbeta \), \( \hat{b}=\blambda_2\T\hbeta \), and \( v_{ij}=\blambda_i\T\G\blambda_j \), so that \( \bm V=(v_{ij}) \) is positive definite.
+\( \hat{a}=\blambda_1\T\hbeta \), \( \hat{b}=\blambda_2\T\hbeta \), and \( v_{ij}=\blambda_i\T\G\blambda_j \), so that \( \mathbf{V}=(v_{ij}) \) is positive definite.
 Suppose \( b\ne0 \) and let \( \theta=a/b \). With \( t=t_{n-r,\alpha/2} \), let
 \[
 \begin{aligned}
@@ -27,7 +27,7 @@ Suppose \( b\ne0 \) and let \( \theta=a/b \). With \( t=t_{n-r,\alpha/2} \), let
 ::: {.enumerate options="label=(\alph*)"}
 1. \( \mathcal F(\Y) \) is an exact \( 1-\alpha \) confidence set for \( \theta \), at every parameter value with \( b\ne0 \).
 
-2. Let \( Q=(\hat{a},\hat{b})\bm V^{-1}(\hat{a},\hat{b})\T \). Outside an event of probability zero, \( \mathcal F(\Y) \) is
+2. Let \( Q=(\hat{a},\hat{b})\mathbf{V}^{-1}(\hat{a},\hat{b})\T \). Outside an event of probability zero, \( \mathcal F(\Y) \) is
 
    - a bounded closed interval containing \( \hat{\theta}=\hat{a}/\hat{b} \), if \( \hat{b}^2>t^2s^2v_{22} \);
    - the union of two disjoint closed rays, if \( \hat{b}^2<t^2s^2v_{22} \) and \( Q>t^2s^2 \);
@@ -46,11 +46,11 @@ Suppose \( b\ne0 \) and let \( \theta=a/b \). With \( t=t_{n-r,\alpha/2} \), let
 \[
 A=\hat{b}^2-t^2s^2v_{22},\qquad B=\hat{a}\hat{b}-t^2s^2v_{12},\qquad K=\hat{a}^2-t^2s^2v_{11}.
 \]
-Expanding and using \( (\hat{a},\hat{b})\bm V^{-1}(\hat{a},\hat{b})\T=(v_{22}\hat{a}^2-2v_{12}\hat{a}\hat{b}+v_{11}\hat{b}^2)/\det\bm V \),
+Expanding and using \( (\hat{a},\hat{b})\mathbf{V}^{-1}(\hat{a},\hat{b})\T=(v_{22}\hat{a}^2-2v_{12}\hat{a}\hat{b}+v_{11}\hat{b}^2)/\det\mathbf{V} \),
 \[
 \begin{aligned}
-B^2-AK&=t^2s^2\bigl(v_{22}\hat{a}^2-2v_{12}\hat{a}\hat{b}+v_{11}\hat{b}^2-t^2s^2\det\bm V\bigr)\\
-&=t^2s^2\det(\bm V)\,(Q-t^2s^2).
+B^2-AK&=t^2s^2\bigl(v_{22}\hat{a}^2-2v_{12}\hat{a}\hat{b}+v_{11}\hat{b}^2-t^2s^2\det\mathbf{V}\bigr)\\
+&=t^2s^2\det(\mathbf{V})\,(Q-t^2s^2).
 \end{aligned}
 \]
 If \( A>0 \), then \( q(\hat{\theta})=-t^2s^2(v_{11}-2\hat{\theta} v_{12}+\hat{\theta}^2v_{22})<0 \), so the upward parabola \( q \) has two real
@@ -349,19 +349,19 @@ the standards are so numerous that \( \hat{\beta}_0 \), \( \hat{\beta}_1 \) and 
 ::: {#exr-ci-fieller-geometry}
 [C1]
 
-In the setting of @prp-ci-fieller, let \( E_t=\{\bm\phi\in\Real^2:((\hat{a},\hat{b})\T-\bm\phi)\T\bm V^{-1}((\hat{a},\hat{b})\T-\bm\phi)\le t^2s^2\} \), an
+In the setting of @prp-ci-fieller, let \( E_t=\{\boldsymbol{\phi}\in\Real^2:((\hat{a},\hat{b})\T-\boldsymbol{\phi})\T\mathbf{V}^{-1}((\hat{a},\hat{b})\T-\boldsymbol{\phi})\le t^2s^2\} \), an
 ellipse with the \( t \) constant in place of \( 2F_\alpha(2,n-r) \). Show that \( \theta_0\in\mathcal F(\Y) \) iff the line \( \{(\phi_1,\phi_2):\phi_1=\theta_0\phi_2\} \)
 meets \( E_t \). Use the picture to explain the three cases: the set is the whole line iff \( E_t \) contains the origin, and it is bounded iff \( E_t \)
 does not meet the axis \( \phi_2=0 \).
 :::
 
 ::: {.solution}
-The line is \( \{\bm\phi:\bm c\T\bm\phi=0\} \) with \( \bm c=(1,-\theta_0)\T \). By @cor-ci-shadows (with the constant \( t^2s^2 \)), the values of
-\( \bm c\T\bm\phi \) over \( E_t \) form the interval \( \hat{a}-\theta_0\hat{b}\pm ts\sqrt{\bm c\T\bm V\bm c} \), and
-\( \bm c\T\bm V\bm c=v_{11}-2\theta_0v_{12}+\theta_0^2v_{22} \). So the line meets \( E_t \) iff this interval contains \( 0 \), which is @eq-ci-fieller. Every
+The line is \( \{\boldsymbol{\phi}:\mathbf{c}\T\boldsymbol{\phi}=0\} \) with \( \mathbf{c}=(1,-\theta_0)\T \). By @cor-ci-shadows (with the constant \( t^2s^2 \)), the values of
+\( \mathbf{c}\T\boldsymbol{\phi} \) over \( E_t \) form the interval \( \hat{a}-\theta_0\hat{b}\pm ts\sqrt{\mathbf{c}\T\mathbf{V}\mathbf{c}} \), and
+\( \mathbf{c}\T\mathbf{V}\mathbf{c}=v_{11}-2\theta_0v_{12}+\theta_0^2v_{22} \). So the line meets \( E_t \) iff this interval contains \( 0 \), which is @eq-ci-fieller. Every
 line through the origin meets \( E_t \) iff the origin is in \( E_t \), which is \( Q\le t^2s^2 \). Lines of large slope approach the axis \( \phi_2=0 \)
 (the \( \phi_1 \)-axis in these coordinates); the set is unbounded iff lines of arbitrarily large slope meet \( E_t \), iff \( E_t \) meets that axis, which by
-@cor-ci-shadows with \( \bm c=(0,1)\T \) is \( \hat{b}^2\le t^2s^2v_{22} \).
+@cor-ci-shadows with \( \mathbf{c}=(0,1)\T \) is \( \hat{b}^2\le t^2s^2v_{22} \).
 :::
 
 ::: {#exr-ci-intersection}

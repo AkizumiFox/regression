@@ -20,9 +20,9 @@ So \( \Y\T\A\Y \) is independent of anything that is independent of the vector \
 [Linear and quadratic forms]
 
 Let \( \Y\sim\Normal_n(\bmu,\bSigma) \), let \( \B \) be \( m\times n \) and \( \A \) symmetric \( n\times n \).
-If \( \B\bSigma\A=\bm0 \), then \( \B\Y \) and \( \Y\T\A\Y \) are independent. Conversely, if \( \B\Y \) and
+If \( \B\bSigma\A=\mathbf{0} \), then \( \B\Y \) and \( \Y\T\A\Y \) are independent. Conversely, if \( \B\Y \) and
 \( \Y\T\A\Y \) are independent for every \( \bmu\in\Real^n \), with \( \bSigma \) fixed, then
-\( \B\bSigma\A=\bm0 \).
+\( \B\bSigma\A=\mathbf{0} \).
 :::
 
 ::: {.proof}
@@ -32,24 +32,24 @@ The vector \( (\B\Y,\A\Y) \) is a linear function of \( \Y \), hence jointly nor
 @thm-mvn-independence, and so are \( \B\Y \) and the function \( (\A\Y)\T\A\ginv(\A\Y) \) of
 \( \A\Y \), which is \( \Y\T\A\Y \) by the key idea above. Conversely, independent variables with
 finite variances are uncorrelated, so @thm-qf-mean-var(c) gives
-\( 2\B\bSigma\A\bmu=\bzero \) for every \( \bmu \), that is, \( \B\bSigma\A=\bm0 \).
+\( 2\B\bSigma\A\bmu=\bzero \) for every \( \bmu \), that is, \( \B\bSigma\A=\mathbf{0} \).
 :::
 
 ::: {#thm-qf-indep-quadratic}
 [Two quadratic forms]
 
-Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) and let \( \A,\B \) be symmetric. If \( \A\bSigma\B=\bm0 \),
-equivalently \( \B\bSigma\A=\bm0 \), then \( \Y\T\A\Y \) and \( \Y\T\B\Y \) are independent.
+Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) and let \( \A,\B \) be symmetric. If \( \A\bSigma\B=\mathbf{0} \),
+equivalently \( \B\bSigma\A=\mathbf{0} \), then \( \Y\T\A\Y \) and \( \Y\T\B\Y \) are independent.
 :::
 
 ::: {.proof}
 The two conditions are transposes of each other. As before, \( \A\Y \) and \( \B\Y \) are jointly
-normal with \( \Cov(\A\Y,\B\Y)=\A\bSigma\B=\bm0 \), hence independent, and each form is a
+normal with \( \Cov(\A\Y,\B\Y)=\A\bSigma\B=\mathbf{0} \), hence independent, and each form is a
 function of one of them.
 :::
 
 The condition is sufficient for every \( \bmu \) and every \( \bSigma \). When \( \bSigma \) is singular one
-might hope that the weaker requirement \( \bSigma\A\bSigma\B\bSigma=\bm0 \) suffices, since only
+might hope that the weaker requirement \( \bSigma\A\bSigma\B\bSigma=\mathbf{0} \) suffices, since only
 directions in \( \C(\bSigma) \) carry noise. For nonnegative definite \( \A \) and \( \B \) the two requirements
 turn out to be equivalent (@exr-qf-singular-independence). In the other direction, the
 condition is necessary under mild assumptions, a result usually credited to
@@ -61,7 +61,7 @@ matters most for sums of squares has a short proof.
 [Necessity for nonnegative definite forms]
 
 Let \( \Y\sim\Normal_n(\bzero,\I) \) and let \( \A,\B \) be nonnegative definite. If \( \Y\T\A\Y \) and
-\( \Y\T\B\Y \) are independent, then \( \A\B=\bm0 \).
+\( \Y\T\B\Y \) are independent, then \( \A\B=\mathbf{0} \).
 :::
 
 ::: {.proof}
@@ -70,8 +70,8 @@ Independence makes the covariance zero, and by @thm-qf-mean-var(d) the covarianc
 \[
 \tr(\A\B)=\tr(\A^{1/2}\A^{1/2}\B^{1/2}\B^{1/2})=\tr\bigl\{(\A^{1/2}\B^{1/2})\T(\A^{1/2}\B^{1/2})\bigr\},
 \]
-the sum of squares of the entries of \( \A^{1/2}\B^{1/2} \). So \( \A^{1/2}\B^{1/2}=\bm0 \), and
-\( \A\B=\A^{1/2}(\A^{1/2}\B^{1/2})\B^{1/2}=\bm0 \).
+the sum of squares of the entries of \( \A^{1/2}\B^{1/2} \). So \( \A^{1/2}\B^{1/2}=\mathbf{0} \), and
+\( \A\B=\A^{1/2}(\A^{1/2}\B^{1/2})\B^{1/2}=\mathbf{0} \).
 :::
 
 For nonnegative definite forms in a standard normal vector, then, zero correlation and
@@ -87,7 +87,7 @@ projections onto mutually orthogonal subspaces.
 [Independent projections]
 
 Let \( \Y\sim\Normal_n(\bmu,\sigma^2\I) \), and let \( \bP_1,\dots,\bP_k \) be symmetric idempotent
-matrices with \( \bP_i\bP_j=\bm0 \) for \( i\ne j \), and ranks \( r_1,\dots,r_k \). Then
+matrices with \( \bP_i\bP_j=\mathbf{0} \) for \( i\ne j \), and ranks \( r_1,\dots,r_k \). Then
 \( \bP_1\Y,\dots,\bP_k\Y \) are mutually independent normal vectors,
 \( \bP_i\Y\sim\Normal_n(\bP_i\bmu,\sigma^2\bP_i) \), and the sums of squares
 \[
@@ -100,7 +100,7 @@ are mutually independent.
 ::: {.proof}
 Stack the vectors \( \bP_i\Y \) into one \( nk \)-vector. It is a linear function of \( \Y \), so it is
 normal, and the covariance between blocks \( i \) and \( j \) is
-\( \bP_i(\sigma^2\I)\bP_j\T=\sigma^2\bP_i\bP_j \). This is \( \bm 0 \) for \( i\ne j \) and \( \sigma^2\bP_i \)
+\( \bP_i(\sigma^2\I)\bP_j\T=\sigma^2\bP_i\bP_j \). This is \( \mathbf{0} \) for \( i\ne j \) and \( \sigma^2\bP_i \)
 for \( i=j \). By the block form of @thm-mvn-independence the blocks are mutually
 independent, and functions of them, the squared lengths, are then mutually independent.
 Their laws are @thm-qf-chisq(a).
@@ -129,10 +129,10 @@ and sample variance \( S^2=(n-1)^{-1}\sum_i(Y_i-\bar{Y})^2 \). Then
 
 ::: {.proof}
 Here \( \Y\sim\Normal_n(\mu\bone,\sigma^2\I) \). Let \( \bP_1=n^{-1}\bone\bone\T \) and
-\( \bm C=\I-\bP_1 \). Both are symmetric and idempotent, \( \bP_1\bm C=\bm0 \), and
-\( \rank(\bm C)=\tr(\bm C)=n-1 \). Since \( \bP_1\Y=\bar{Y}\bone \) and \( \norm{\bm C\Y}^2=(n-1)S^2 \),
+\( \mathbf{C}=\I-\bP_1 \). Both are symmetric and idempotent, \( \bP_1\mathbf{C}=\mathbf{0} \), and
+\( \rank(\mathbf{C})=\tr(\mathbf{C})=n-1 \). Since \( \bP_1\Y=\bar{Y}\bone \) and \( \norm{\mathbf{C}\Y}^2=(n-1)S^2 \),
 @thm-qf-orthogonal-projections gives (a), which @exm-mvn-mean-deviations obtained
-directly, and, because \( \bm C\mu\bone=\bzero \), also (b).
+directly, and, because \( \mathbf{C}\mu\bone=\bzero \), also (b).
 For (c), \( X=\sqrt n(\bar{Y}-\mu_0)/\sigma\sim\Normal(\delta,1) \) and \( V=(n-1)S^2/\sigma^2\sim\chi^2(n-1) \)
 are independent, and \( T=X/\sqrt{V/(n-1)} \). Apply @def-qf-noncentral-t.
 :::
@@ -162,7 +162,7 @@ and the noncentrality is zero iff \( \bP_0\bmu=\bmu \).
 ::: {.proof}
 Transposing \( \bP\bP_0=\bP_0 \) gives \( \bP_0\bP=\bP_0 \). Hence \( (\bP-\bP_0)^2=\bP-2\bP_0+\bP_0=\bP-\bP_0 \),
 so \( \bP-\bP_0 \) is symmetric idempotent with rank \( \tr(\bP)-\tr(\bP_0)=r-r_0 \). Also
-\( (\bP-\bP_0)(\I-\bP)=\bP-\bP-\bP_0+\bP_0=\bm0 \), and \( \I-\bP \) is symmetric idempotent of rank
+\( (\bP-\bP_0)(\I-\bP)=\bP-\bP-\bP_0+\bP_0=\mathbf{0} \), and \( \I-\bP \) is symmetric idempotent of rank
 \( n-r \). By @thm-qf-orthogonal-projections the numerator and denominator sums of squares
 are independent, with \( \sigma^{-2} \) times them distributed as
 \( \chi^2(r-r_0,\norm{(\bP-\bP_0)\bmu}^2/\sigma^2) \) and \( \chi^2(n-r,\norm{(\I-\bP)\bmu}^2/\sigma^2) \).
@@ -256,20 +256,20 @@ degrees of freedom grows. The dot is the curvature test of @exm-qf-curvature.](f
 
 In @exm-qf-drift let \( \Y\sim\Normal_n(\mu\bone,\sigma^2\I) \) with \( n\ge3 \). Use
 @thm-qf-mean-var(d) to show that \( \Cov(S^2,Q)=\Var(S^2) \), and deduce that \( S^2 \) and \( Q \) are
-dependent with correlation \( \{2(n-1)/(3n-4)\}^{1/2} \). Which linear forms \( \bm a\T\Y \) are independent of
+dependent with correlation \( \{2(n-1)/(3n-4)\}^{1/2} \). Which linear forms \( \mathbf{a}\T\Y \) are independent of
 \( Q \) for every mean vector \( \bmu\in\Real^n \)?
 :::
 
 ::: {.solution}
 With \( \bSigma=\sigma^2\I \), part (d) of
 @thm-qf-mean-var gives
-\( \Cov(S^2,Q)=2\sigma^4\tr(\bm C\bD\T\bD)/\{2(n-1)^2\} \). Since \( \bD\bone=\bzero \), \( \bm C\bD\T\bD=\bD\T\bD \),
+\( \Cov(S^2,Q)=2\sigma^4\tr(\mathbf{C}\bD\T\bD)/\{2(n-1)^2\} \). Since \( \bD\bone=\bzero \), \( \mathbf{C}\bD\T\bD=\bD\T\bD \),
 whose trace is \( 2(n-1) \), so \( \Cov(S^2,Q)=2\sigma^4/(n-1)=\Var(S^2) \). The mean terms vanish because
-\( \bm C\bmu=\bD\bmu=\bzero \). Using \( \Var(Q) \) from @exm-qf-drift-variance, the correlation is
+\( \mathbf{C}\bmu=\bD\bmu=\bzero \). Using \( \Var(Q) \) from @exm-qf-drift-variance, the correlation is
 \( \{\Var(S^2)/\Var(Q)\}^{1/2}=\{2(n-1)/(3n-4)\}^{1/2} \), which is nonzero, so the forms are dependent.
-By @thm-qf-indep-linear, \( \bm a\T\Y \) is independent of \( Q \) for every \( \bmu \) iff
-\( \bm a\T\bD\T\bD=\bzero\T \). Multiplying by \( \bm a \) gives \( \norm{\bD\bm a}^2=0 \), so \( \bD\bm a=\bzero \) and
-\( \bm a \) is a multiple of \( \bone \); conversely such \( \bm a \) work. The only such linear forms are the
+By @thm-qf-indep-linear, \( \mathbf{a}\T\Y \) is independent of \( Q \) for every \( \bmu \) iff
+\( \mathbf{a}\T\bD\T\bD=\bzero\T \). Multiplying by \( \mathbf{a} \) gives \( \norm{\bD\mathbf{a}}^2=0 \), so \( \bD\mathbf{a}=\bzero \) and
+\( \mathbf{a} \) is a multiple of \( \bone \); conversely such \( \mathbf{a} \) work. The only such linear forms are the
 multiples of \( \bar{Y} \).
 :::
 
@@ -297,24 +297,24 @@ matrices, and \( \A \) and \( \B \) are indefinite.
 [B2]
 
 Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) and let \( \A,\B \) be nonnegative definite with
-\( \bSigma\A\bSigma\B\bSigma=\bm0 \). Show that \( \A\bSigma\B=\bm0 \), so that \( \Y\T\A\Y \) and \( \Y\T\B\Y \) are
+\( \bSigma\A\bSigma\B\bSigma=\mathbf{0} \). Show that \( \A\bSigma\B=\mathbf{0} \), so that \( \Y\T\A\Y \) and \( \Y\T\B\Y \) are
 independent. Show by an example that the implication can fail when \( \A \) is not nonnegative definite.
 :::
 
 ::: {.solution}
 Write \( \A=\R\R\T \) and \( \B=\bS\bS\T \), for instance
 with symmetric square roots, and \( \bSigma=\bL\bL\T \) with \( \bL \) of full column rank. Cancelling \( \bL \) on
-both sides of \( \bL(\bL\T\A\bL)(\bL\T\B\bL)\bL\T=\bm0 \) gives \( \bL\T\A\bL\bL\T\B\bL=\bm0 \). The trace
+both sides of \( \bL(\bL\T\A\bL)(\bL\T\B\bL)\bL\T=\mathbf{0} \) gives \( \bL\T\A\bL\bL\T\B\bL=\mathbf{0} \). The trace
 of this matrix is
 \[
 \tr(\bL\T\R\R\T\bL\bL\T\bS\bS\T\bL)=\tr\{(\R\T\bSigma\bS)(\R\T\bSigma\bS)\T\}=\norm{\R\T\bSigma\bS}_F^2,
 \]
-so \( \R\T\bSigma\bS=\bm0 \). Hence \( \A\bSigma\B=\R(\R\T\bSigma\bS)\bS\T=\bm0 \), and
+so \( \R\T\bSigma\bS=\mathbf{0} \). Hence \( \A\bSigma\B=\R(\R\T\bSigma\bS)\bS\T=\mathbf{0} \), and
 @thm-qf-indep-quadratic applies. For nonnegative definite matrices the two conditions are
-therefore equivalent, since \( \A\bSigma\B=\bm0 \) trivially implies \( \bSigma\A\bSigma\B\bSigma=\bm0 \).
+therefore equivalent, since \( \A\bSigma\B=\mathbf{0} \) trivially implies \( \bSigma\A\bSigma\B\bSigma=\mathbf{0} \).
 Without nonnegative definiteness the argument breaks at the trace step. Take \( \bSigma=\diag(1,0) \),
-\( \A=\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix} \) and \( \B=\I_2 \). Then \( \bSigma\A\bSigma=\bm0 \), so
-\( \bSigma\A\bSigma\B\bSigma=\bm0 \), but \( \A\bSigma\B=\begin{psmallmatrix}0&0\\1&0\end{psmallmatrix}\ne\bm0 \).
+\( \A=\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix} \) and \( \B=\I_2 \). Then \( \bSigma\A\bSigma=\mathbf{0} \), so
+\( \bSigma\A\bSigma\B\bSigma=\mathbf{0} \), but \( \A\bSigma\B=\begin{psmallmatrix}0&0\\1&0\end{psmallmatrix}\ne\mathbf{0} \).
 With \( \bmu=(0,m)\T \) and \( m\ne0 \) we have \( Y_2=m \) with probability one, so the forms are \( 2mY_1 \) and
 \( Y_1^2+m^2 \). The second is a nonconstant function of the first, so they are dependent.
 :::
@@ -332,7 +332,7 @@ Let \( \Y\sim\Normal_n(\X\bbeta,\sigma^2\I) \) with \( \X \) of full column rank
 Here \( \M \) is symmetric and idempotent with \( \tr\M=\tr\{(\X\T\X)^{-1}\X\T\X\}=p \),
 and \( \M\X=\X \). So \( (n-p)s^2/\sigma^2=\norm{(\I-\M)\Y}^2/\sigma^2\sim\chi^2(n-p) \) by
 @thm-qf-chisq(a), because \( (\I-\M)\X\bbeta=\bzero \). With \( \B=(\X\T\X)^{-1}\X\T \),
-\( \B(\sigma^2\I)(\I-\M)=\sigma^2(\X\T\X)^{-1}(\X\T-\X\T\M)=\bm0 \), so \( \hbeta=\B\Y \) is independent of
+\( \B(\sigma^2\I)(\I-\M)=\sigma^2(\X\T\X)^{-1}(\X\T-\X\T\M)=\mathbf{0} \), so \( \hbeta=\B\Y \) is independent of
 \( s^2 \) (@thm-qf-indep-linear). Since \( \hbeta\sim\Normal_p(\bbeta,\sigma^2(\X\T\X)^{-1}) \), the
 variable \( X=(\hat{\beta}_j-b)/(\sigma\sqrt{v_{jj}}) \) is \( \Normal\bigl((\beta_j-b)/(\sigma\sqrt{v_{jj}}),1\bigr) \).
 The statistic is \( X/\sqrt{V/(n-p)} \) with \( V=(n-p)s^2/\sigma^2 \), and @def-qf-noncentral-t applies.

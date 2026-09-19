@@ -3,13 +3,13 @@
 ## Moment generating functions of random vectors
 
 The moment generating function of a random vector \( \Y\in\Real^n \) is
-\( M_{\Y}(\bm t)=\E\exp(\bm t\T\Y) \), and @thm-rv-mgf proves the two
+\( M_{\Y}(\mathbf{t})=\E\exp(\mathbf{t}\T\Y) \), and @thm-rv-mgf proves the two
 properties we need when it is finite on a neighbourhood of \( \bzero \).
 *Uniqueness*: two random vectors whose moment generating functions are finite
 and equal near \( \bzero \) have the same distribution. *Factorization*: two blocks
-\( \Y_1 \), \( \Y_2 \) are independent iff \( M_{\Y}(\bm t)=M_{\Y_1}(\bm t_1)M_{\Y_2}(\bm t_2) \) near
+\( \Y_1 \), \( \Y_2 \) are independent iff \( M_{\Y}(\mathbf{t})=M_{\Y_1}(\mathbf{t}_1)M_{\Y_2}(\mathbf{t}_2) \) near
 \( \bzero \). The second extends to \( k \) blocks by induction. If \( M_{\Y} \) is the product of the
-\( k \) block functions, setting \( \bm t_1=\bzero \) shows that \( (\Y_2,\dots,\Y_k) \) has the product
+\( k \) block functions, setting \( \mathbf{t}_1=\bzero \) shows that \( (\Y_2,\dots,\Y_k) \) has the product
 of the last \( k-1 \), so \( \Y_1 \) is independent of \( (\Y_2,\dots,\Y_k) \), whose blocks are
 mutually independent by the induction hypothesis. The converse is immediate.
 
@@ -18,8 +18,8 @@ mutually independent by the induction hypothesis. The converse is immediate.
 
 A random vector \( \Y \) is \( \Normal_n(\bmu,\bSigma) \) iff
 \[
-M_{\Y}(\bm t)=\exp\bigl(\bm t\T\bmu+\tfrac12\bm t\T\bSigma\bm t\bigr)
-\qquad\text{for every }\bm t\in\Real^n .
+M_{\Y}(\mathbf{t})=\exp\bigl(\mathbf{t}\T\bmu+\tfrac12\mathbf{t}\T\bSigma\mathbf{t}\bigr)
+\qquad\text{for every }\mathbf{t}\in\Real^n .
 \]{#eq-mvn-mgf}
 
 Consequently the distribution of a normal vector is determined by its mean vector
@@ -28,17 +28,17 @@ and covariance matrix.
 
 ::: {.proof}
 Suppose \( \Y \) is normal with mean \( \bmu \) and covariance \( \bSigma \). By
-@eq-mvn-linear-combination, \( \bm t\T\Y\sim\Normal(\bm t\T\bmu,\bm t\T\bSigma\bm t) \),
-and \( M_{\Y}(\bm t) \) is the moment generating function of this scalar evaluated at
+@eq-mvn-linear-combination, \( \mathbf{t}\T\Y\sim\Normal(\mathbf{t}\T\bmu,\mathbf{t}\T\bSigma\mathbf{t}) \),
+and \( M_{\Y}(\mathbf{t}) \) is the moment generating function of this scalar evaluated at
 \( s=1 \). @lem-mvn-univariate(a) gives @eq-mvn-mgf.
 
 Conversely, suppose @eq-mvn-mgf holds for a symmetric \( \bSigma \). Fix
-\( \bm a \). The moment generating function of \( \bm a\T\Y \) at \( s \) is
-\( M_{\Y}(s\bm a)=\exp\{(\bm a\T\bmu)s+\tfrac12(\bm a\T\bSigma\bm a)s^2\} \). The
-coefficient \( \bm a\T\bSigma\bm a \) is nonnegative, since otherwise this function
+\( \mathbf{a} \). The moment generating function of \( \mathbf{a}\T\Y \) at \( s \) is
+\( M_{\Y}(s\mathbf{a})=\exp\{(\mathbf{a}\T\bmu)s+\tfrac12(\mathbf{a}\T\bSigma\mathbf{a})s^2\} \). The
+coefficient \( \mathbf{a}\T\bSigma\mathbf{a} \) is nonnegative, since otherwise this function
 would tend to zero as \( s\to\pm\infty \), whereas every random variable \( X \) has
 \( \E e^{sX}+\E e^{-sX}\ge\E e^{s\lvert X\rvert}\ge1 \). By
-@lem-mvn-univariate(b), \( \bm a\T\Y\sim\Normal(\bm a\T\bmu,\bm a\T\bSigma\bm a) \).
+@lem-mvn-univariate(b), \( \mathbf{a}\T\Y\sim\Normal(\mathbf{a}\T\bmu,\mathbf{a}\T\bSigma\mathbf{a}) \).
 So \( \Y \) is normal, and matching means and variances of all linear combinations
 shows \( \E\Y=\bmu \) and \( \Cov(\Y)=\bSigma \).
 
@@ -57,8 +57,8 @@ books take this representation as the definition
 definitions agree.
 
 The moment generating function also encodes moments. Differentiating
-@eq-mvn-mgf at \( \bm t=\bzero \) gives \( \partial M_{\Y}/\partial\bm t=\bmu \)
-and \( \partial^2M_{\Y}/\partial\bm t\,\partial\bm t\T=\bSigma+\bmu\bmu\T=\E(\Y\Y\T) \).
+@eq-mvn-mgf at \( \mathbf{t}=\bzero \) gives \( \partial M_{\Y}/\partial\mathbf{t}=\bmu \)
+and \( \partial^2M_{\Y}/\partial\mathbf{t}\,\partial\mathbf{t}\T=\bSigma+\bmu\bmu\T=\E(\Y\Y\T) \).
 Higher derivatives give the fourth moments needed for variances of quadratic
 forms in [Chapter 4](../ch04-quadratic-forms/index.html) (@exr-mvn-fourth-moments).
 
@@ -163,12 +163,12 @@ probability exactly \( 1-\alpha \).
 :::
 
 ::: {.proof}
-Put \( \Z=\bSigma^{-1/2}(\Y-\bmu) \). For every \( \bm a \),
-\( \bm a\T\Z=(\bSigma^{-1/2}\bm a)\T\Y-\bm a\T\bSigma^{-1/2}\bmu \) is a linear combination of \( \Y \)
+Put \( \Z=\bSigma^{-1/2}(\Y-\bmu) \). For every \( \mathbf{a} \),
+\( \mathbf{a}\T\Z=(\bSigma^{-1/2}\mathbf{a})\T\Y-\mathbf{a}\T\bSigma^{-1/2}\bmu \) is a linear combination of \( \Y \)
 minus a constant, hence normal by @def-mvn, so \( \Z \) is normal. Its mean is zero and its
 covariance is \( \I \) (@prp-rv-whitening(a)). By
 @thm-mvn-mgf its moment generating function is
-\( \exp(\tfrac12\bm t\T\bm t)=\prod_i\exp(\tfrac12t_i^2) \), which factorizes, so its entries
+\( \exp(\tfrac12\mathbf{t}\T\mathbf{t})=\prod_i\exp(\tfrac12t_i^2) \), which factorizes, so its entries
 are independent standard normals.
 \( \Delta^2(\Y)=\Z\T\Z=\sum_iZ_i^2 \) is a sum of \( n \) independent squared standard normals,
 which is the definition of \( \chi^2(n) \).
@@ -242,13 +242,13 @@ correlation.
 :::
 
 ::: {.solution}
-The quadratic part is \( \y\T\bm P\y \) with
-\( \bm P=\begin{psmallmatrix}2&1\\1&1\end{psmallmatrix} \), which is positive definite with
-\( \det\bm P=1 \). Matching \( (\y-\bmu)\T\bm P(\y-\bmu)=\y\T\bm P\y-2\bmu\T\bm P\y+\bmu\T\bm P\bmu \)
-with the linear terms requires \( \bm P\bmu=(2,1)\T \), so \( \bmu=(1,0)\T \) and
-\( \bmu\T\bm P\bmu=2 \). The exponent is \( -\tfrac12(\y-\bmu)\T\bm P(\y-\bmu)+1 \). By
+The quadratic part is \( \y\T\mathbf{P}\y \) with
+\( \mathbf{P}=\begin{psmallmatrix}2&1\\1&1\end{psmallmatrix} \), which is positive definite with
+\( \det\mathbf{P}=1 \). Matching \( (\y-\bmu)\T\mathbf{P}(\y-\bmu)=\y\T\mathbf{P}\y-2\bmu\T\mathbf{P}\y+\bmu\T\mathbf{P}\bmu \)
+with the linear terms requires \( \mathbf{P}\bmu=(2,1)\T \), so \( \bmu=(1,0)\T \) and
+\( \bmu\T\mathbf{P}\bmu=2 \). The exponent is \( -\tfrac12(\y-\bmu)\T\mathbf{P}(\y-\bmu)+1 \). By
 @thm-mvn-density(b) this is the \( \Normal_2(\bmu,\bSigma) \) density with
-\( \bSigma=\bm P^{-1}=\begin{psmallmatrix}1&-1\\-1&2\end{psmallmatrix} \) provided
+\( \bSigma=\mathbf{P}^{-1}=\begin{psmallmatrix}1&-1\\-1&2\end{psmallmatrix} \) provided
 \( k e=(2\pi)^{-1}(\det\bSigma)^{-1/2}=(2\pi)^{-1} \). So \( k=e^{-1}/(2\pi) \), and the correlation
 is \( -1/\sqrt2 \).
 :::
@@ -266,22 +266,22 @@ principal axes and half-lengths of the ellipse \( \Delta^2=c^2 \), show that its
 ::: {#exr-mvn-fourth-moments}
 [B1]
 
-Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) and \( \bm X=\Y-\bmu \). Expand the moment generating
-function of \( \bm X \) in a power series to show that all odd-order moments of \( \bm X \) vanish and
+Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) and \( \mathbf{X}=\Y-\bmu \). Expand the moment generating
+function of \( \mathbf{X} \) in a power series to show that all odd-order moments of \( \mathbf{X} \) vanish and
 \[
 \E(X_iX_jX_kX_l)=\sigma_{ij}\sigma_{kl}+\sigma_{ik}\sigma_{jl}+\sigma_{il}\sigma_{jk}.
 \]
-Deduce that \( \Var(\bm X\T\A\bm X)=2\tr(\A\bSigma\A\bSigma) \) for symmetric \( \A \).
+Deduce that \( \Var(\mathbf{X}\T\A\mathbf{X})=2\tr(\A\bSigma\A\bSigma) \) for symmetric \( \A \).
 :::
 
 ::: {.solution}
 By @thm-mvn-mgf,
-\( M_{\bm X}(\bm t)=\exp(\tfrac12\bm t\T\bSigma\bm t)=\sum_{m\ge0}(\bm t\T\bSigma\bm t)^m/(2^mm!) \), a
-series containing only terms of even degree in \( \bm t \). Mixed moments of order \( d \) are the
+\( M_{\mathbf{X}}(\mathbf{t})=\exp(\tfrac12\mathbf{t}\T\bSigma\mathbf{t})=\sum_{m\ge0}(\mathbf{t}\T\bSigma\mathbf{t})^m/(2^mm!) \), a
+series containing only terms of even degree in \( \mathbf{t} \). Mixed moments of order \( d \) are the
 \( d \)th partial derivatives at \( \bzero \), which come from the degree-\( d \) terms, so odd-order moments
-vanish. The degree-four term is \( p(\bm t)=\tfrac18(\bm t\T\bSigma\bm t)^2=T(\bm t,\bm t,\bm t,\bm t) \), where
-\( T(\bu,\bv,\bw,\bm x)=\tfrac18(\bu\T\bSigma\bv)(\bw\T\bSigma\bm x) \) is \( 4 \)-linear. Differentiating
-\( T(\bm t,\bm t,\bm t,\bm t) \) once in each of the directions \( \bm e_i,\bm e_j,\bm e_k,\bm e_l \) gives
+vanish. The degree-four term is \( p(\mathbf{t})=\tfrac18(\mathbf{t}\T\bSigma\mathbf{t})^2=T(\mathbf{t},\mathbf{t},\mathbf{t},\mathbf{t}) \), where
+\( T(\bu,\bv,\bw,\mathbf{x})=\tfrac18(\bu\T\bSigma\bv)(\bw\T\bSigma\mathbf{x}) \) is \( 4 \)-linear. Differentiating
+\( T(\mathbf{t},\mathbf{t},\mathbf{t},\mathbf{t}) \) once in each of the directions \( \mathbf{e}_i,\mathbf{e}_j,\mathbf{e}_k,\mathbf{e}_l \) gives
 the sum of \( T \) over the \( 24 \) ways of placing these four vectors in the four slots. This
 holds whether or not the indices are distinct, since it is the product rule applied to a
 multilinear form. A placement contributes \( \tfrac18\sigma_{ab}\sigma_{cd} \), where the first two
@@ -291,29 +291,29 @@ from \( 8 \) placements (choose which pair goes first, and the order within each
 gives the formula.
 Then, for symmetric \( \A \),
 \[
-\E(\bm X\T\A\bm X)^2=\sum_{i,j,k,l}a_{ij}a_{kl}\E(X_iX_jX_kX_l)
+\E(\mathbf{X}\T\A\mathbf{X})^2=\sum_{i,j,k,l}a_{ij}a_{kl}\E(X_iX_jX_kX_l)
 =(\tr\A\bSigma)^2+2\tr(\A\bSigma\A\bSigma),
 \]
-and subtracting \( (\E\bm X\T\A\bm X)^2=(\tr\A\bSigma)^2 \) gives the variance.
+and subtracting \( (\E\mathbf{X}\T\A\mathbf{X})^2=(\tr\A\bSigma)^2 \) gives the variance.
 :::
 
 ::: {#exr-mvn-singular-density}
 [B2]
 
 Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) with \( \rank(\bSigma)=r<n \), and use the notation of @prp-mvn-rank-representation.
-Show that \( \bm V=\Q\T(\Y-\bmu) \) has a density on \( \Real^r \),
+Show that \( \mathbf{V}=\Q\T(\Y-\bmu) \) has a density on \( \Real^r \),
 and that this density can be written as
 \( (2\pi)^{-r/2}(\lambda_1\cdots\lambda_r)^{-1/2}\exp\{-\tfrac12(\y-\bmu)\T\bSigma^{+}(\y-\bmu)\} \)
-with \( \y=\bmu+\Q\bm v \), where \( \bSigma^+=\Q\bLambda^{-1}\Q\T \) is the Moore–Penrose inverse.
+with \( \y=\bmu+\Q\mathbf{v} \), where \( \bSigma^+=\Q\bLambda^{-1}\Q\T \) is the Moore–Penrose inverse.
 :::
 
 ::: {#exr-mvn-noncentral-mahalanobis}
 [B3]
 
-Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) with \( \bSigma \) positive definite and let \( \bm\nu \) be a fixed
-vector. Show that \( (\Y-\bm\nu)\T\bSigma^{-1}(\Y-\bm\nu) \) has the noncentral chi-squared
+Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) with \( \bSigma \) positive definite and let \( \boldsymbol{\nu} \) be a fixed
+vector. Show that \( (\Y-\boldsymbol{\nu})\T\bSigma^{-1}(\Y-\boldsymbol{\nu}) \) has the noncentral chi-squared
 distribution \( \chi^2(n,\gamma) \) with
-\( \gamma=(\bmu-\bm\nu)\T\bSigma^{-1}(\bmu-\bm\nu) \), in the convention of
+\( \gamma=(\bmu-\boldsymbol{\nu})\T\bSigma^{-1}(\bmu-\boldsymbol{\nu}) \), in the convention of
 @def-qf-noncentral-chisq, and find its mean.
 :::
 

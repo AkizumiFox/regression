@@ -24,9 +24,9 @@ so by definition \( \Y\T\A\Y\sim\chi^2(r,\norm{\Q_1\T\bmu}^2) \), and
 \( \norm{\Q_1\T\bmu}^2=\bmu\T\A\bmu \).
 
 *Necessity.* Apply @thm-qf-canonical with \( \bL=\I \), so that \( \A=\Q\bLambda\Q\T \).
-Let \( \bm\nu=\Q\T\bmu \). Then \( \bb=\Q\T\A\bmu=\bLambda\bm\nu \), so \( b_j=\lambda_j\nu_j \). The
+Let \( \boldsymbol{\nu}=\Q\T\bmu \). Then \( \bb=\Q\T\A\bmu=\bLambda\boldsymbol{\nu} \), so \( b_j=\lambda_j\nu_j \). The
 constant left after completing squares is
-\( \bmu\T\A\bmu-\sum_{\lambda_j\ne0}\lambda_j\nu_j^2=\bm\nu\T\bLambda\bm\nu-\sum_j\lambda_j\nu_j^2=0 \).
+\( \bmu\T\A\bmu-\sum_{\lambda_j\ne0}\lambda_j\nu_j^2=\boldsymbol{\nu}\T\bLambda\boldsymbol{\nu}-\sum_j\lambda_j\nu_j^2=0 \).
 Hence \( \Y\T\A\Y \) has the law of \( \sum_{j\in J}\lambda_j(W_j+\nu_j)^2 \), where \( J \) indexes
 the nonzero eigenvalues. \( J \) is not empty, because a \( \chi^2(r,\gamma) \) variable with
 \( r\ge1 \) is not identically zero.
@@ -80,7 +80,7 @@ Let \( \Y\sim\Normal_n(\bmu,\bSigma) \) and let \( \A \) be symmetric.
 
 2. *(Positive definite \( \bSigma \).)* If \( \bSigma \) is positive definite, then
            \( \Y\T\A\Y \) has a \( \chi^2(r,\gamma) \) distribution for some \( r\ge1 \) and \( \gamma\ge0 \)
-           iff \( \A\bSigma \) is idempotent and \( \A\ne\bm0 \). In that case
+           iff \( \A\bSigma \) is idempotent and \( \A\ne\mathbf{0} \). In that case
            \( r=\rank(\A)=\tr(\A\bSigma) \) and \( \gamma=\bmu\T\A\bmu \).
 
 3. *(Any \( \bSigma \).)* If
@@ -107,28 +107,28 @@ with \( \A=\bP \), using \( \bP\T\bP=\bP \) to write \( \Y\T\bP\Y=\norm{\bP\Y}^2
 @thm-qf-chisq-identity, \( \Y\T\A\Y \) is noncentral chi-squared iff \( \B \) is
 idempotent and nonzero. Now \( \B^2=\bSigma^{1/2}\A\bSigma\A\bSigma^{1/2} \), so \( \B^2=\B \)
 iff \( \A\bSigma\A=\A \) (multiply by \( \bSigma^{-1/2} \) on both sides) iff
-\( \A\bSigma\A\bSigma=\A\bSigma \) (multiply by \( \bSigma \) or \( \bSigma^{-1} \) on the right). Also \( \B\ne\bm 0 \) iff \( \A\ne\bm 0 \).
+\( \A\bSigma\A\bSigma=\A\bSigma \) (multiply by \( \bSigma \) or \( \bSigma^{-1} \) on the right). Also \( \B\ne\mathbf{0} \) iff \( \A\ne\mathbf{0} \).
 The degrees of freedom are \( \rank(\B)=\rank(\A) \), which equals
 \( \tr(\B)=\tr(\A\bSigma) \), and the noncentrality is
 \( \bmu\T\bSigma^{-1/2}\B\bSigma^{-1/2}\bmu=\bmu\T\A\bmu \).
 
 (c) Take \( \bL \) of size \( n\times k \) with full column rank \( k=\rank(\bSigma) \) and
 \( \bL\bL\T=\bSigma \), for instance \( \bL=\bU_1\bD_1^{1/2} \) from the eigenvectors \( \bU_1 \)
-for the positive eigenvalues \( \bD_1 \) of \( \bSigma \). (If \( \bSigma=\bm 0 \) the claim is
+for the positive eigenvalues \( \bD_1 \) of \( \bSigma \). (If \( \bSigma=\mathbf{0} \) the claim is
 trivial.) As in @thm-qf-canonical, \( \Y\overset{d}{=}\bmu+\bL\Z \) with
 \( \Z\sim\Normal_k(\bzero,\I) \). Since \( \bL \) has full column rank, \( \bL\T \) has full row rank, so
-\( \bL\bm G\bL\T=\bL\bH\bL\T \) implies \( \bm G=\bH \), and \( \bL\bm g=\bL\bm h \) implies
-\( \bm g=\bm h \). Put \( \B=\bL\T\A\bL \) and \( \bm c=\bL\T\A\bmu \). Condition (i) reads
-\( \bL\B^2\bL\T=\bL\B\bL\T \), so \( \B^2=\B \). Condition (ii) reads \( \bL\B\bm c=\bL\bm c \), so
-\( \B\bm c=\bm c \). Condition (iii) reads \( \bm c\T\bm c=\bmu\T\A\bmu \). Hence
+\( \bL\mathbf{G}\bL\T=\bL\bH\bL\T \) implies \( \mathbf{G}=\bH \), and \( \bL\mathbf{g}=\bL\mathbf{h} \) implies
+\( \mathbf{g}=\mathbf{h} \). Put \( \B=\bL\T\A\bL \) and \( \mathbf{c}=\bL\T\A\bmu \). Condition (i) reads
+\( \bL\B^2\bL\T=\bL\B\bL\T \), so \( \B^2=\B \). Condition (ii) reads \( \bL\B\mathbf{c}=\bL\mathbf{c} \), so
+\( \B\mathbf{c}=\mathbf{c} \). Condition (iii) reads \( \mathbf{c}\T\mathbf{c}=\bmu\T\A\bmu \). Hence
 \[
-(\bmu+\bL\Z)\T\A(\bmu+\bL\Z)=\bmu\T\A\bmu+2\bm c\T\Z+\Z\T\B\Z
-=(\Z+\bm c)\T\B(\Z+\bm c),
+(\bmu+\bL\Z)\T\A(\bmu+\bL\Z)=\bmu\T\A\bmu+2\mathbf{c}\T\Z+\Z\T\B\Z
+=(\Z+\mathbf{c})\T\B(\Z+\mathbf{c}),
 \]
-because \( (\Z+\bm c)\T\B(\Z+\bm c)=\Z\T\B\Z+2\bm c\T\B\Z+\bm c\T\B\bm c \) and
-\( \B\bm c=\bm c \). Now \( \Z+\bm c\sim\Normal_k(\bm c,\I) \), and @thm-qf-chisq-identity
-gives the law \( \chi^2(\rank\B,\bm c\T\B\bm c) \), where \( \rank\B=\tr\B=\tr(\A\bSigma) \) and
-\( \bm c\T\B\bm c=\bm c\T\bm c=\bmu\T\A\bmu \). If \( \B=\bm 0 \), then \( \bm c=\B\bm c=\bzero \) and
+because \( (\Z+\mathbf{c})\T\B(\Z+\mathbf{c})=\Z\T\B\Z+2\mathbf{c}\T\B\Z+\mathbf{c}\T\B\mathbf{c} \) and
+\( \B\mathbf{c}=\mathbf{c} \). Now \( \Z+\mathbf{c}\sim\Normal_k(\mathbf{c},\I) \), and @thm-qf-chisq-identity
+gives the law \( \chi^2(\rank\B,\mathbf{c}\T\B\mathbf{c}) \), where \( \rank\B=\tr\B=\tr(\A\bSigma) \) and
+\( \mathbf{c}\T\B\mathbf{c}=\mathbf{c}\T\mathbf{c}=\bmu\T\A\bmu \). If \( \B=\mathbf{0} \), then \( \mathbf{c}=\B\mathbf{c}=\bzero \) and
 the form is identically \( 0 \), which is \( \chi^2(0) \). If \( \A\bSigma\A=\A \), all three
 conditions follow by substitution. If \( \A\bSigma \) is idempotent and \( \bmu=\bSigma\bv \),
 then (i) follows from multiplying \( \A\bSigma\A\bSigma=\A\bSigma \) by \( \bSigma \) on the left,
@@ -242,10 +242,10 @@ for independent observations does not.](quadform_chisq.pdf){width=100%}
 ## Forms that are not chi-squared
 
 Most quadratic forms fail the conditions of @thm-qf-chisq. The ordinary sum of
-squares about the mean, \( \Y\T\bm C\Y \) with \( \bm C=\I-n^{-1}\bone\bone\T \), is an example as
-soon as the observations are correlated. Then \( \bm C\bSigma \) is not idempotent, and by
+squares about the mean, \( \Y\T\mathbf{C}\Y \) with \( \mathbf{C}=\I-n^{-1}\bone\bone\T \), is an example as
+soon as the observations are correlated. Then \( \mathbf{C}\bSigma \) is not idempotent, and by
 @thm-qf-canonical the law is that of \( \sum_j\lambda_j(W_j+\nu_j)^2 \), with weights
-\( \lambda_j \) equal to the nonzero eigenvalues of \( \bm C\bSigma \). In
+\( \lambda_j \) equal to the nonzero eigenvalues of \( \mathbf{C}\bSigma \). In
 @exm-qf-gls-centring these range from \( 0.259 \) to
 \( 1.832 \). Two practical ways to handle such a law are the following.
 
@@ -266,7 +266,7 @@ against simulation.
 \( 2a^2\nu \), this gives \( a=v/(2m) \) and \( \nu=2m^2/v \), with \( \nu \) usually not an integer
 (Satterthwaite 1946; Patnaik 1949).
 
-In @exm-qf-gls-centring, the simulated \( 95 \)th percentile of \( \Y\T\bm C\Y \) is
+In @exm-qf-gls-centring, the simulated \( 95 \)th percentile of \( \Y\T\mathbf{C}\Y \) is
 \( 26.51 \). The exact tail probability beyond it is
 \( 0.0490 \), and the approximation with \( a=2.488 \) and
 \( \nu=4.68 \) gives \( 0.0484 \). Treating the observations as
@@ -311,7 +311,7 @@ Let \( \Y\sim\Normal_n(\bzero,\I) \) with \( n\ge2 \), and \( \A=\alpha\I+\beta\
 
 ::: {.solution}
 \( \A \) has eigenvalue \( \alpha+n\beta \) on \( \bone \) and \( \alpha \)
-on \( \bone\perpc \). By @thm-qf-chisq-identity, the form is chi-squared iff \( \A\ne\bm0 \) and both
+on \( \bone\perpc \). By @thm-qf-chisq-identity, the form is chi-squared iff \( \A\ne\mathbf{0} \) and both
 eigenvalues lie in \( \{0,1\} \). The three solutions are \( (1,0) \), giving \( \norm{\Y}^2\sim\chi^2(n) \);
 \( (0,1/n) \), giving \( n\bar{Y}^2\sim\chi^2(1) \); and \( (1,-1/n) \), giving \( \sum(Y_i-\bar{Y})^2\sim\chi^2(n-1) \).
 :::
@@ -378,7 +378,7 @@ probability one. Since \( \bmu\in\C(\bSigma) \), also \( \Y\in\C(\bSigma) \), so
 ::: {#exr-qf-satterthwaite}
 [B4]
 
-Let \( \Y\sim\Normal_n(\bzero,\bSigma) \) with \( \bSigma \) positive definite, and let \( \A\ne\bm 0 \) be
+Let \( \Y\sim\Normal_n(\bzero,\bSigma) \) with \( \bSigma \) positive definite, and let \( \A\ne\mathbf{0} \) be
 nonnegative definite. Show that the two-moment approximation \( a\chi^2(\nu) \) to \( \Y\T\A\Y \) has
 \( \nu=\{\tr(\A\bSigma)\}^2/\tr\{(\A\bSigma)^2\} \), and that \( \nu\le\rank(\A) \), with equality iff all
 nonzero eigenvalues of \( \A\bSigma \) are equal.

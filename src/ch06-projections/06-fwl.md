@@ -44,9 +44,9 @@ Under the assumptions above:
 \X\bb=\X_1\bb_1+\X_2\bb_2=\tilde{\X}_1\bb_1+(\M_2\X_1\bb_1+\X_2\bb_2),
 \]
 with the second term in \( \C(\X_2) \). So \( \C(\X)\subseteq\C(\tilde{\X}_1)+\C(\X_2) \).
-(b) If \( \tilde{\X}_1\bm a=\bzero \), then \( \X_1\bm a=\M_2\X_1\bm a=\X_2\bm c \) for some
-\( \bm c \), so \( \X(\bm a\T,-\bm c\T)\T=\bzero \). Full column rank of \( \X \) forces
-\( \bm a=\bzero \).
+(b) If \( \tilde{\X}_1\mathbf{a}=\bzero \), then \( \X_1\mathbf{a}=\M_2\X_1\mathbf{a}=\X_2\mathbf{c} \) for some
+\( \mathbf{c} \), so \( \X(\mathbf{a}\T,-\mathbf{c}\T)\T=\bzero \). Full column rank of \( \X \) forces
+\( \mathbf{a}=\bzero \).
 (c) Combine (a) with @thm-proj-sum and @thm-proj-M-formula.
 :::
 
@@ -79,10 +79,10 @@ symmetric and idempotent,
       =\M_2\y+\X_1\tilde{\bb}-\M_2\X_1\tilde{\bb}
       =\X_1\tilde{\bb}+\M_2(\y-\X_1\tilde{\bb}).
 \]
-The last term lies in \( \C(\X_2) \), so it equals \( \X_2\bm c \) with
-\( \bm c=(\X_2\T\X_2)^{-1}\X_2\T(\y-\X_1\tilde{\bb}) \). Thus
-\( \M\y=\X_1\tilde{\bb}+\X_2\bm c \). Because \( \X \) has full column rank, the coefficient
-vector representing \( \M\y \) is unique, so \( \hbeta_1=\tilde{\bb} \) and \( \hbeta_2=\bm c \).
+The last term lies in \( \C(\X_2) \), so it equals \( \X_2\mathbf{c} \) with
+\( \mathbf{c}=(\X_2\T\X_2)^{-1}\X_2\T(\y-\X_1\tilde{\bb}) \). Thus
+\( \M\y=\X_1\tilde{\bb}+\X_2\mathbf{c} \). Because \( \X \) has full column rank, the coefficient
+vector representing \( \M\y \) is unique, so \( \hbeta_1=\tilde{\bb} \) and \( \hbeta_2=\mathbf{c} \).
 This proves (a) and (c). For (b),
 \( \y-\M\y=(\I-\M_2)\y-\tilde{\M}_1\y=\tilde{\y}-\tilde{\X}_1\tilde{\bb} \), which is the
 residual of the regression of \( \tilde{\y} \) on \( \tilde{\X}_1 \), because
@@ -239,12 +239,12 @@ disguise. Suppose units \( k=1,\dots,K \) are observed repeatedly: firms over ye
 patients over visits, schools over cohorts. The analyst wants the effect of
 time-varying regressors \( \X_1 \) while allowing each unit its own intercept:
 \[
-\E(\Y)=\X_1\bbeta_1+\bm D\bm\alpha ,
+\E(\Y)=\X_1\bbeta_1+\mathbf{D}\boldsymbol{\alpha} ,
 \]
-where \( \bm D \) is the \( n\times K \) matrix of unit indicators. Fitting this directly means a
+where \( \mathbf{D} \) is the \( n\times K \) matrix of unit indicators. Fitting this directly means a
 regression with \( K \) extra columns, and \( K \) may be in the thousands.
 
-FWL with \( \X_2=\bm D \) removes that burden. The projection onto \( \C(\bm D) \) replaces each
+FWL with \( \X_2=\mathbf{D} \) removes that burden. The projection onto \( \C(\mathbf{D}) \) replaces each
 entry by its unit's average (@exm-proj-oneway-M), so \( \I-\M_D \) subtracts unit means.
 Therefore \( \hbeta_1 \) is the least squares coefficient from regressing the
 *within-unit deviations* \( y_{kt}-\bar{y}_{k\cdot} \) on
@@ -359,15 +359,15 @@ squared partial correlation equals \( t^2/(t^2+n-p) \).
 :::
 
 ::: {.solution}
-Write \( \tilde{\bm x}=\tilde{\x}_j \) and
-\( \tilde{\bm y}=\tilde{\y} \). Both have mean zero because \( \bone\in\C(\X_{(j)}) \), so their
-correlation is \( r=\tilde{\bm x}\T\tilde{\bm y}/(\norm{\tilde{\bm x}}\norm{\tilde{\bm y}}) \).
-By FWL, \( \hat{\beta}_j=\tilde{\bm x}\T\tilde{\bm y}/\norm{\tilde{\bm x}}^2 \), and the full-model
+Write \( \tilde{\mathbf{x}}=\tilde{\x}_j \) and
+\( \tilde{\mathbf{y}}=\tilde{\y} \). Both have mean zero because \( \bone\in\C(\X_{(j)}) \), so their
+correlation is \( r=\tilde{\mathbf{x}}\T\tilde{\mathbf{y}}/(\norm{\tilde{\mathbf{x}}}\norm{\tilde{\mathbf{y}}}) \).
+By FWL, \( \hat{\beta}_j=\tilde{\mathbf{x}}\T\tilde{\mathbf{y}}/\norm{\tilde{\mathbf{x}}}^2 \), and the full-model
 residual sum of squares equals that of the residualized regression:
-\( \text{SSE}=\norm{\tilde{\bm y}}^2-(\tilde{\bm x}\T\tilde{\bm y})^2/\norm{\tilde{\bm x}}^2
-=\norm{\tilde{\bm y}}^2(1-r^2) \). Hence
+\( \text{SSE}=\norm{\tilde{\mathbf{y}}}^2-(\tilde{\mathbf{x}}\T\tilde{\mathbf{y}})^2/\norm{\tilde{\mathbf{x}}}^2
+=\norm{\tilde{\mathbf{y}}}^2(1-r^2) \). Hence
 \[
-t^2=\frac{\hat{\beta}_j^2\,(n-p)\norm{\tilde{\bm x}}^2}{\text{SSE}}
+t^2=\frac{\hat{\beta}_j^2\,(n-p)\norm{\tilde{\mathbf{x}}}^2}{\text{SSE}}
 =\frac{(n-p)\,r^2}{1-r^2},
 \]
 and solving gives \( r^2=t^2/(t^2+n-p) \).

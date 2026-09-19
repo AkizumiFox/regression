@@ -23,12 +23,12 @@ Let \( \bT \) be an \( m\times m \) nonsingular upper triangular matrix with \( 
            \( \begin{psmallmatrix}\bT_+\\\bzero\T\end{psmallmatrix} \), with \( \bT_+ \) upper triangular and
            \( \bT_+\T\bT_+=\A+\bz\bz\T \).
 
-2. (*Deleting a row.*) Let \( \bm a \) solve \( \bT\T\bm a=\bz \). The matrix \( \A-\bz\bz\T \) is positive
-           definite iff \( \norm{\bm a}<1 \). In that case put \( \alpha=(1-\norm{\bm a}^2)^{1/2} \). Choose
-           rotations \( \bm G_m,\dots,\bm G_1 \), with \( \bm G_k \) acting on coordinates \( k \) and \( m+1 \), such
-           that \( \bm G_1\cdots\bm G_m(\bm a\T,\alpha)\T=(\bzero\T,1)\T \). Then
+2. (*Deleting a row.*) Let \( \mathbf{a} \) solve \( \bT\T\mathbf{a}=\bz \). The matrix \( \A-\bz\bz\T \) is positive
+           definite iff \( \norm{\mathbf{a}}<1 \). In that case put \( \alpha=(1-\norm{\mathbf{a}}^2)^{1/2} \). Choose
+           rotations \( \mathbf{G}_m,\dots,\mathbf{G}_1 \), with \( \mathbf{G}_k \) acting on coordinates \( k \) and \( m+1 \), such
+           that \( \mathbf{G}_1\cdots\mathbf{G}_m(\mathbf{a}\T,\alpha)\T=(\bzero\T,1)\T \). Then
            \[
-           \bm G_1\cdots\bm G_m\begin{pmatrix}\bT\\\bzero\T\end{pmatrix}=\begin{pmatrix}\bT_-\\\bz\T\end{pmatrix}
+           \mathbf{G}_1\cdots\mathbf{G}_m\begin{pmatrix}\bT\\\bzero\T\end{pmatrix}=\begin{pmatrix}\bT_-\\\bz\T\end{pmatrix}
            \]
            with \( \bT_- \) upper triangular and \( \bT_-\T\bT_-=\A-\bz\bz\T \).
 
@@ -41,23 +41,23 @@ Let \( \bT \) be an \( m\times m \) nonsingular upper triangular matrix with \( 
 ::: {.proof}
 (a) is @thm-cmp-givens(c).
 
-(b) \( \A-\bz\bz\T=\bT\T(\I-\bm a\bm a\T)\bT \). The matrix \( \I-\bm a\bm a\T \) has eigenvalue
-\( 1-\norm{\bm a}^2 \) on \( \bm a \) and \( 1 \) on \( \bm a\perpc \). So it is positive definite iff \( \norm{\bm a}<1 \), and then
-so is \( \A-\bz\bz\T \) (@prp-mat-pd-properties(c)). The rotations exist: \( \bm G_m \) combines \( a_m \) with
-\( \alpha \) and leaves \( 0 \) in position \( m \) and \( (a_m^2+\alpha^2)^{1/2} \) in position \( m+1 \). Then \( \bm G_{m-1} \)
+(b) \( \A-\bz\bz\T=\bT\T(\I-\mathbf{a}\mathbf{a}\T)\bT \). The matrix \( \I-\mathbf{a}\mathbf{a}\T \) has eigenvalue
+\( 1-\norm{\mathbf{a}}^2 \) on \( \mathbf{a} \) and \( 1 \) on \( \mathbf{a}\perpc \). So it is positive definite iff \( \norm{\mathbf{a}}<1 \), and then
+so is \( \A-\bz\bz\T \) (@prp-mat-pd-properties(c)). The rotations exist: \( \mathbf{G}_m \) combines \( a_m \) with
+\( \alpha \) and leaves \( 0 \) in position \( m \) and \( (a_m^2+\alpha^2)^{1/2} \) in position \( m+1 \). Then \( \mathbf{G}_{m-1} \)
 does the same with \( a_{m-1} \), and so on (@thm-cmp-givens(a)). The final vector has norm
-\( (\norm{\bm a}^2+\alpha^2)^{1/2}=1 \) and is zero except in the last position. That entry is positive,
+\( (\norm{\mathbf{a}}^2+\alpha^2)^{1/2}=1 \) and is zero except in the last position. That entry is positive,
 so it is \( 1 \).
 
 Apply the same rotations, in the same order, to \( \begin{psmallmatrix}\bT\\\bzero\T\end{psmallmatrix} \).
-Before \( \bm G_k \) is applied, the extra row is zero in columns \( 1,\dots,k \), because it has only been
+Before \( \mathbf{G}_k \) is applied, the extra row is zero in columns \( 1,\dots,k \), because it has only been
 mixed with rows \( k+1,\dots,m \) of \( \bT \), which are zero there. Row \( k \) of \( \bT \) is zero in columns
-\( 1,\dots,k-1 \). So \( \bm G_k \) produces a new row \( k \) that is zero before column \( k \), and the result is
-\( \begin{psmallmatrix}\bT_-\\\bw\T\end{psmallmatrix} \) with \( \bT_- \) upper triangular. Write \( \bm G=\bm G_1\cdots\bm G_m \),
+\( 1,\dots,k-1 \). So \( \mathbf{G}_k \) produces a new row \( k \) that is zero before column \( k \), and the result is
+\( \begin{psmallmatrix}\bT_-\\\bw\T\end{psmallmatrix} \) with \( \bT_- \) upper triangular. Write \( \mathbf{G}=\mathbf{G}_1\cdots\mathbf{G}_m \),
 which is orthogonal. Then
 \[
-\bz=\bT\T\bm a=\begin{pmatrix}\bT\\\bzero\T\end{pmatrix}\T\begin{pmatrix}\bm a\\\alpha\end{pmatrix}
-=\Bigl(\bm G\begin{pmatrix}\bT\\\bzero\T\end{pmatrix}\Bigr)\T\bm G\begin{pmatrix}\bm a\\\alpha\end{pmatrix}
+\bz=\bT\T\mathbf{a}=\begin{pmatrix}\bT\\\bzero\T\end{pmatrix}\T\begin{pmatrix}\mathbf{a}\\\alpha\end{pmatrix}
+=\Bigl(\mathbf{G}\begin{pmatrix}\bT\\\bzero\T\end{pmatrix}\Bigr)\T\mathbf{G}\begin{pmatrix}\mathbf{a}\\\alpha\end{pmatrix}
 =\begin{pmatrix}\bT_-\\\bw\T\end{pmatrix}\T\begin{pmatrix}\bzero\\1\end{pmatrix}=\bw ,
 \]
 and in the same way \( \bT\T\bT=\bT_-\T\bT_-+\bw\bw\T \). Hence \( \bT_-\T\bT_-=\A-\bz\bz\T \).
@@ -65,10 +65,10 @@ and in the same way \( \bT\T\bT=\bT_-\T\bT_-+\bw\bw\T \). Hence \( \bT_-\T\bT_-=
 (c) The rotations act on rows of length at most \( m \), and there are \( m \) of them.
 :::
 
-If \( \A=\X\T\X \) and \( \bz=\x_{(i)} \), then \( \norm{\bm a}^2=\bz\T\A^{-1}\bz \) is the leverage \( h_{ii} \)
+If \( \A=\X\T\X \) and \( \bz=\x_{(i)} \), then \( \norm{\mathbf{a}}^2=\bz\T\A^{-1}\bz \) is the leverage \( h_{ii} \)
 (@def-proj-leverage): a case can be deleted exactly when the others still determine every coefficient.
 Downdating the augmented triangle of \( [\X,\y] \) (@prp-cmp-augmented) gives the fit without case \( i \), with
-the square root of the new SSE in the corner. Downdating is less stable than updating: \( 1-\norm{\bm a}^2 \)
+the square root of the new SSE in the corner. Downdating is less stable than updating: \( 1-\norm{\mathbf{a}}^2 \)
 cancels when \( h_{ii}\approx1 \), and the relative error can reach about \( u/(1-h_{ii}) \) (Stewart 1979).
 
 ```{.python .run #cell-updating-rotations}
@@ -108,11 +108,11 @@ def downdate(T, z):
     return T                                      # on exit w equals z
 ```
 
-The alternative, **recursive least squares** (Plackett 1950), updates \( \bm K=(\X\T\X)^{-1} \) by the
+The alternative, **recursive least squares** (Plackett 1950), updates \( \mathbf{K}=(\X\T\X)^{-1} \) by the
 Sherman–Morrison formula (@thm-mat-woodbury, @exm-mat-deletion): adding \( (\x,y) \) gives
 \[
-\bm K_+=\bm K-\frac{\bm K\x\x\T\bm K}{1+\x\T\bm K\x},\qquad
-\hbeta_+=\hbeta+\frac{\bm K\x\,(y-\x\T\hbeta)}{1+\x\T\bm K\x}.
+\mathbf{K}_+=\mathbf{K}-\frac{\mathbf{K}\x\x\T\mathbf{K}}{1+\x\T\mathbf{K}\x},\qquad
+\hbeta_+=\hbeta+\frac{\mathbf{K}\x\,(y-\x\T\hbeta)}{1+\x\T\mathbf{K}\x}.
 \]
 It also costs \( O(p^2) \), but it carries an explicit inverse of the cross-product matrix, with its \( \kappa^2 \)
 sensitivity, and nothing corrects its accumulated errors (@exm-cmp-moving-window).
@@ -201,20 +201,20 @@ Changing the columns of \( \X \) is a Gram–Schmidt step, or its reverse.
 [Adding a column]
 
 Let \( \X=\Q_1\R \) be a thin QR factorization of a full-column-rank \( \X \), and let \( \bz\notin\C(\X) \).
-Put \( \br=\Q_1\T\bz \), \( \bw=\bz-\Q_1\br \), \( \rho=\norm{\bw} \) and \( \bm q=\bw/\rho \). Then
+Put \( \br=\Q_1\T\bz \), \( \bw=\bz-\Q_1\br \), \( \rho=\norm{\bw} \) and \( \mathbf{q}=\bw/\rho \). Then
 \[
-[\X,\bz]=[\Q_1,\bm q]\begin{pmatrix}\R&\br\\\bzero\T&\rho\end{pmatrix}
+[\X,\bz]=[\Q_1,\mathbf{q}]\begin{pmatrix}\R&\br\\\bzero\T&\rho\end{pmatrix}
 \]
-is a thin QR factorization. The residual sum of squares falls by \( (\bm q\T\y)^2 \) when \( \bz \) is added,
-and the coefficient of \( \bz \) in the enlarged model is \( \bm q\T\y/\rho=\bw\T\y/\bw\T\bw \).
+is a thin QR factorization. The residual sum of squares falls by \( (\mathbf{q}\T\y)^2 \) when \( \bz \) is added,
+and the coefficient of \( \bz \) in the enlarged model is \( \mathbf{q}\T\y/\rho=\bw\T\y/\bw\T\bw \).
 :::
 
 ::: {.proof}
-\( \bw=(\I-\M)\bz\ne\bzero \) because \( \bz\notin\C(\X) \), and \( \bm q \) is a unit vector orthogonal to \( \C(\Q_1) \).
-The product of the factors is \( [\Q_1\R,\ \Q_1\br+\rho\bm q]=[\X,\bz] \). By @prp-cmp-qr-quantities(d), applied
+\( \bw=(\I-\M)\bz\ne\bzero \) because \( \bz\notin\C(\X) \), and \( \mathbf{q} \) is a unit vector orthogonal to \( \C(\Q_1) \).
+The product of the factors is \( [\Q_1\R,\ \Q_1\br+\rho\mathbf{q}]=[\X,\bz] \). By @prp-cmp-qr-quantities(d), applied
 to the enlarged factorization, the new column's sequential sum of squares is the square of its
-coordinate \( \bm q\T\y \). The last row of the triangular system of @prp-cmp-qr-quantities(a) reads
-\( \rho b_z=\bm q\T\y \). This is also the Frisch–Waugh–Lovell coefficient \( \bw\T\y/\bw\T\bw \) of @thm-proj-fwl.
+coordinate \( \mathbf{q}\T\y \). The last row of the triangular system of @prp-cmp-qr-quantities(a) reads
+\( \rho b_z=\mathbf{q}\T\y \). This is also the Frisch–Waugh–Lovell coefficient \( \bw\T\y/\bw\T\bw \) of @thm-proj-fwl.
 :::
 
 If \( \bz \) is nearly in \( \C(\X) \), the computed \( \bw \) loses orthogonality to \( \Q_1 \); repeating the step once
@@ -334,20 +334,20 @@ requires this to be below \( 1 \). By @prp-cmp-loo(c),
 ::: {#exr-cmp-delete-column}
 [B2]
 
-Let \( \X=\Q_1\R \) and let \( \X_{-j} \) be \( \X \) without column \( j \). Show that \( \X_{-j}=\Q_1\bm H \), where \( \bm H \) is \( \R \)
+Let \( \X=\Q_1\R \) and let \( \X_{-j} \) be \( \X \) without column \( j \). Show that \( \X_{-j}=\Q_1\mathbf{H} \), where \( \mathbf{H} \) is \( \R \)
 without column \( j \), which is upper Hessenberg in its last \( p-j \) columns. Show that \( p-j \) rotations of
-adjacent rows reduce \( \bm H \) to \( \begin{psmallmatrix}\R_{-j}\\\bzero\T\end{psmallmatrix} \), and that \( \R_{-j} \) is the
+adjacent rows reduce \( \mathbf{H} \) to \( \begin{psmallmatrix}\R_{-j}\\\bzero\T\end{psmallmatrix} \), and that \( \R_{-j} \) is the
 triangle of \( \X_{-j} \). How much does the residual sum of squares rise?
 :::
 
 ::: {.solution}
-Columns of \( \X \) are \( \Q_1 \) times columns of \( \R \), so deleting a column of both gives \( \X_{-j}=\Q_1\bm H \).
-Column \( k\ge j \) of \( \bm H \) is column \( k+1 \) of \( \R \), which has nonzeros down to row \( k+1 \): one below the
+Columns of \( \X \) are \( \Q_1 \) times columns of \( \R \), so deleting a column of both gives \( \X_{-j}=\Q_1\mathbf{H} \).
+Column \( k\ge j \) of \( \mathbf{H} \) is column \( k+1 \) of \( \R \), which has nonzeros down to row \( k+1 \): one below the
 diagonal. Rotate rows \( j,j+1 \) to zero entry \( (j+1,j) \). This mixes two rows that are zero before column
 \( j \), so nothing earlier fills in. Continue with rows \( (j+1,j+2) \) and so on. After \( p-j \) rotations,
-\( \bm G\bm H=\begin{psmallmatrix}\R_{-j}\\\bzero\T\end{psmallmatrix} \) with \( \R_{-j} \) upper triangular, and
-\( \X_{-j}=(\Q_1\bm G\T)\begin{psmallmatrix}\R_{-j}\\\bzero\T\end{psmallmatrix} \), where \( \Q_1\bm G\T \) has orthonormal
-columns. Apply the same rotations to \( \bm c_1=\Q_1\T\y \). The last entry of the rotated vector is the
+\( \mathbf{G}\mathbf{H}=\begin{psmallmatrix}\R_{-j}\\\bzero\T\end{psmallmatrix} \) with \( \R_{-j} \) upper triangular, and
+\( \X_{-j}=(\Q_1\mathbf{G}\T)\begin{psmallmatrix}\R_{-j}\\\bzero\T\end{psmallmatrix} \), where \( \Q_1\mathbf{G}\T \) has orthonormal
+columns. Apply the same rotations to \( \mathbf{c}_1=\Q_1\T\y \). The last entry of the rotated vector is the
 coordinate of \( \y \) along the direction that has dropped out of the model, and its square is the rise in the
 residual sum of squares. This is the partial sum of squares of column \( j \) (@def-ss-partial).
 :::

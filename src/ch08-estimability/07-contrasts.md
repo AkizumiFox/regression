@@ -56,7 +56,7 @@ reported.
 Each contrast defines a direction in the observation space, and its estimate is the component of \( \y \) along that
 direction. With \( \bD=\diag(n_1,\dots,n_g) \) and \( \Z \) the indicator matrix, put
 \[
-\bu_{\bm c}=\Z\bD^{-1}\bm c ,
+\bu_{\mathbf{c}}=\Z\bD^{-1}\mathbf{c} ,
 \]{#eq-est-contrast-vector}
 
 the vector whose entries equal \( c_k/n_k \) for the observations at level \( k \).
@@ -64,23 +64,23 @@ the vector whose entries equal \( c_k/n_k \) for the observations at level \( k 
 ::: {#prp-est-contrast-ss}
 [Contrasts as projections]
 
-Let \( \bm c \) and \( \bm d \) be contrasts, and write \( \hat{\psi}_{\bm c}=\bm c\T\hat{\bmu} \). Then:
+Let \( \mathbf{c} \) and \( \mathbf{d} \) be contrasts, and write \( \hat{\psi}_{\mathbf{c}}=\mathbf{c}\T\hat{\bmu} \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \hat{\psi}_{\bm c}=\bu_{\bm c}\T\y \), and \( \bu_{\bm c} \) is a nonzero vector in \( \C(\Z)\cap\bone\perpc \);
+1. \( \hat{\psi}_{\mathbf{c}}=\bu_{\mathbf{c}}\T\y \), and \( \bu_{\mathbf{c}} \) is a nonzero vector in \( \C(\Z)\cap\bone\perpc \);
 
 2. the **sum of squares for the contrast**,
     \[
-    \operatorname{SS}(\bm c)=\frac{\hat{\psi}_{\bm c}^2}{\sum_kc_k^2/n_k},
+    \operatorname{SS}(\mathbf{c})=\frac{\hat{\psi}_{\mathbf{c}}^2}{\sum_kc_k^2/n_k},
     \]
-    equals \( \norm{\bP\y}^2 \), where \( \bP \) is the orthogonal projection onto the line spanned by \( \bu_{\bm c} \);
+    equals \( \norm{\bP\y}^2 \), where \( \bP \) is the orthogonal projection onto the line spanned by \( \bu_{\mathbf{c}} \);
 
-3. \( \Cov(\hat{\psi}_{\bm c},\hat{\psi}_{\bm d})=\sigma^2\sum_kc_kd_k/n_k=\sigma^2\bu_{\bm c}\T\bu_{\bm d} \) when \( \Cov(\Y)=\sigma^2\I \), so
+3. \( \Cov(\hat{\psi}_{\mathbf{c}},\hat{\psi}_{\mathbf{d}})=\sigma^2\sum_kc_kd_k/n_k=\sigma^2\bu_{\mathbf{c}}\T\bu_{\mathbf{d}} \) when \( \Cov(\Y)=\sigma^2\I \), so
            orthogonal contrasts have uncorrelated estimates and orthogonal vectors \( \bu \);
 
-4. if \( \bm c_1,\dots,\bm c_{g-1} \) are pairwise orthogonal contrasts, then
+4. if \( \mathbf{c}_1,\dots,\mathbf{c}_{g-1} \) are pairwise orthogonal contrasts, then
     \[
-    \sum_{j=1}^{g-1}\operatorname{SS}(\bm c_j)=\sum_{k=1}^gn_k(\bar{y}_k-\bar{y})^2 ,
+    \sum_{j=1}^{g-1}\operatorname{SS}(\mathbf{c}_j)=\sum_{k=1}^gn_k(\bar{y}_k-\bar{y})^2 ,
     \]
     the sum of squares between levels.
 :::
@@ -88,18 +88,18 @@ Let \( \bm c \) and \( \bm d \) be contrasts, and write \( \hat{\psi}_{\bm c}=\b
 :::
 
 ::: {.proof}
-(a) \( \hat{\bmu}=\bD^{-1}\Z\T\y \) (@eq-est-indicator-facts), so \( \bm c\T\hat{\bmu}=(\Z\bD^{-1}\bm c)\T\y \). Clearly
-\( \bu_{\bm c}\in\C(\Z) \), and \( \bone\T\bu_{\bm c}=\bone\T\Z\bD^{-1}\bm c=(n_1,\dots,n_g)\bD^{-1}\bm c=\sum_kc_k=0 \). It is nonzero because
-\( \Z\bD^{-1} \) has full column rank and \( \bm c\ne\bzero \).
-(b) By @exm-proj-line, \( \norm{\bP\y}^2=(\bu_{\bm c}\T\y)^2/\norm{\bu_{\bm c}}^2 \), and
-\( \norm{\bu_{\bm c}}^2=\bm c\T\bD^{-1}\Z\T\Z\bD^{-1}\bm c=\bm c\T\bD^{-1}\bm c=\sum_kc_k^2/n_k \).
-(c) @thm-rv-linear gives \( \Cov(\bu_{\bm c}\T\Y,\bu_{\bm d}\T\Y)=\sigma^2\bu_{\bm c}\T\bu_{\bm d} \), and the same computation as in (b)
-gives \( \bu_{\bm c}\T\bu_{\bm d}=\bm c\T\bD^{-1}\bm d \).
+(a) \( \hat{\bmu}=\bD^{-1}\Z\T\y \) (@eq-est-indicator-facts), so \( \mathbf{c}\T\hat{\bmu}=(\Z\bD^{-1}\mathbf{c})\T\y \). Clearly
+\( \bu_{\mathbf{c}}\in\C(\Z) \), and \( \bone\T\bu_{\mathbf{c}}=\bone\T\Z\bD^{-1}\mathbf{c}=(n_1,\dots,n_g)\bD^{-1}\mathbf{c}=\sum_kc_k=0 \). It is nonzero because
+\( \Z\bD^{-1} \) has full column rank and \( \mathbf{c}\ne\bzero \).
+(b) By @exm-proj-line, \( \norm{\bP\y}^2=(\bu_{\mathbf{c}}\T\y)^2/\norm{\bu_{\mathbf{c}}}^2 \), and
+\( \norm{\bu_{\mathbf{c}}}^2=\mathbf{c}\T\bD^{-1}\Z\T\Z\bD^{-1}\mathbf{c}=\mathbf{c}\T\bD^{-1}\mathbf{c}=\sum_kc_k^2/n_k \).
+(c) @thm-rv-linear gives \( \Cov(\bu_{\mathbf{c}}\T\Y,\bu_{\mathbf{d}}\T\Y)=\sigma^2\bu_{\mathbf{c}}\T\bu_{\mathbf{d}} \), and the same computation as in (b)
+gives \( \bu_{\mathbf{c}}\T\bu_{\mathbf{d}}=\mathbf{c}\T\bD^{-1}\mathbf{d} \).
 (d) The space \( \C(\Z)\cap\bone\perpc \) has dimension \( g-1 \) (@thm-proj-nested(c), with \( \C(\bone)\subseteq\C(\Z) \)). By (a) and (c)
-the vectors \( \bu_{\bm c_1},\dots,\bu_{\bm c_{g-1}} \) are \( g-1 \) nonzero, mutually orthogonal vectors in it, so they form an
+the vectors \( \bu_{\mathbf{c}_1},\dots,\bu_{\mathbf{c}_{g-1}} \) are \( g-1 \) nonzero, mutually orthogonal vectors in it, so they form an
 orthogonal basis. By @thm-proj-sum the sum of the projections onto the lines they span is the projection onto that
 space, which is \( \M-n^{-1}\bone\bone\T \) (@thm-proj-nested(b)). Applying it to \( \y \) and using Pythagoras gives
-\( \sum_j\operatorname{SS}(\bm c_j)=\norm{(\M-n^{-1}\bone\bone\T)\y}^2 \). The vector \( (\M-n^{-1}\bone\bone\T)\y \) has entry
+\( \sum_j\operatorname{SS}(\mathbf{c}_j)=\norm{(\M-n^{-1}\bone\bone\T)\y}^2 \). The vector \( (\M-n^{-1}\bone\bone\T)\y \) has entry
 \( \bar{y}_k-\bar{y} \) at every observation of level \( k \).
 :::
 
@@ -115,10 +115,10 @@ that look orthogonal on paper need not be orthogonal for the data.
 
 The Helmert matrix of @exm-mat-helmert has rows proportional to
 \[
-\bm h_k=(\underbrace{1,\dots,1}_{k-1},\,-(k-1),\,0,\dots,0),\qquad k=2,\dots,g .
+\mathbf{h}_k=(\underbrace{1,\dots,1}_{k-1},\,-(k-1),\,0,\dots,0),\qquad k=2,\dots,g .
 \]
-The contrast \( \bm h_k\T\bmu \) compares level \( k \) with the average of the levels before it, since it is \( (k-1) \) times
-\( \tfrac1{k-1}\sum_{l<k}\mu_l-\mu_k \). The \( \bm h_k \) are mutually orthogonal in the ordinary sense, so in a balanced design they
+The contrast \( \mathbf{h}_k\T\bmu \) compares level \( k \) with the average of the levels before it, since it is \( (k-1) \) times
+\( \tfrac1{k-1}\sum_{l<k}\mu_l-\mu_k \). The \( \mathbf{h}_k \) are mutually orthogonal in the ordinary sense, so in a balanced design they
 are orthogonal contrasts. They suit factors whose levels are added in a meaningful order, such as successive refinements of a
 treatment, where each new level is compared with everything before it.
 
@@ -126,23 +126,23 @@ treatment, where each new level is compared with everything before it.
 
 When the levels of a factor are ordered and equally spaced, such as doses \( 0,10,20,30 \) or the seven points of a party
 scale, the natural questions are about the *shape* of the sequence of means. Is there a linear trend? Curvature? Give the levels scores \( s_k=k \). Apply Gram–Schmidt (@prp-proj-gram-schmidt)
-to the vectors \( \bone,\bm s,\bm s^{2},\dots,\bm s^{g-1} \) in \( \Real^g \), where \( \bm s^{j} \) has entries
-\( s_k^j \). This gives orthogonal vectors \( \bm p_0,\dots,\bm p_{g-1} \), and \( \bm p_j \) is a polynomial of degree \( j \) in the score.
-For \( j\ge1 \), \( \bm p_j\perp\bone \), so \( \bm p_j \) is a contrast. Rescaled to integers, the first three for \( g=7 \) are
+to the vectors \( \bone,\mathbf{s},\mathbf{s}^{2},\dots,\mathbf{s}^{g-1} \) in \( \Real^g \), where \( \mathbf{s}^{j} \) has entries
+\( s_k^j \). This gives orthogonal vectors \( \mathbf{p}_0,\dots,\mathbf{p}_{g-1} \), and \( \mathbf{p}_j \) is a polynomial of degree \( j \) in the score.
+For \( j\ge1 \), \( \mathbf{p}_j\perp\bone \), so \( \mathbf{p}_j \) is a contrast. Rescaled to integers, the first three for \( g=7 \) are
 \[
 \text{linear }(-3,-2,-1,0,1,2,3),\quad
 \text{quadratic }(5,0,-3,-4,-3,0,5),\quad
 \text{cubic }(-1,1,1,0,-1,-1,1).
 \]
-By construction \( \bm p_j \) is orthogonal to every polynomial of degree less than \( j \). So if the level means follow a polynomial of degree
+By construction \( \mathbf{p}_j \) is orthogonal to every polynomial of degree less than \( j \). So if the level means follow a polynomial of degree
 \( d \) in the score, every contrast of degree above \( d \) is zero. The linear contrast measures the trend, the quadratic the
 curvature beyond it, and so on. This is the reason for their use.
 
 With unequal group sizes the classical integer contrasts are no longer orthogonal for the design. The fix follows
 @prp-est-contrast-ss(c). Orthogonality is needed in the inner product \( \sum_kc_kd_k/n_k \), which suggests setting
-\( \bm c_j=\bD\bm p_j \), where now the \( \bm p_j \) are orthogonal polynomials in the weighted inner product \( \sum_kn_kp_kq_k \).
+\( \mathbf{c}_j=\bD\mathbf{p}_j \), where now the \( \mathbf{p}_j \) are orthogonal polynomials in the weighted inner product \( \sum_kn_kp_kq_k \).
 Then \( \sum_kc_{jk}=\sum_kn_kp_{jk}=0 \), and \( \sum_kc_{jk}c_{lk}/n_k=\sum_kn_kp_{jk}p_{lk}=0 \) for \( j\ne l \). In observation
-space, \( \bu_{\bm c_j}=\Z\bm p_j \) is the polynomial of degree \( j \) in each observation's score, orthogonalized over the observations.
+space, \( \bu_{\mathbf{c}_j}=\Z\mathbf{p}_j \) is the polynomial of degree \( j \) in each observation's score, orthogonalized over the observations.
 The weighted linear contrast gives exactly the regression sum of squares of \( \y \) on the score (@exr-est-linear-trend).
 
 ::: {#exm-est-party-trend}
@@ -213,35 +213,35 @@ for name, C in [("unweighted", C_unw), ("weighted", C_wtd)]:
 
 ## Coding matrices are not contrast matrices
 
-[Section 8.5](05-factor-coding.html) coded a factor by an intercept and the columns \( \Z\bm C \). When the columns of \( \bm C \) are
+[Section 8.5](05-factor-coding.html) coded a factor by an intercept and the columns \( \Z\mathbf{C} \). When the columns of \( \mathbf{C} \) are
 contrasts, as for Helmert or polynomial coding, it is tempting to read the coefficient of column \( j \) as the estimate of the
-contrast \( \bm c_j\T\bmu \). That reading is wrong in general. By @prp-est-coding(b) the coefficients are the rows of
-\( \bm K^{-1} \), with \( \bm K=[\bone,\bm C] \), applied to \( \hat{\bmu} \). The rows of \( \bm K^{-1} \) and the columns of \( \bm K \) are related
+contrast \( \mathbf{c}_j\T\bmu \). That reading is wrong in general. By @prp-est-coding(b) the coefficients are the rows of
+\( \mathbf{K}^{-1} \), with \( \mathbf{K}=[\bone,\mathbf{C}] \), applied to \( \hat{\bmu} \). The rows of \( \mathbf{K}^{-1} \) and the columns of \( \mathbf{K} \) are related
 simply only when the columns are orthogonal.
 
 ::: {#prp-est-coding-dual}
 [Orthogonal codings]
 
-If the columns of \( \bm K=[\bone_g,\bm c_1,\dots,\bm c_{g-1}] \) are mutually orthogonal, then the coefficients of the coded model are
+If the columns of \( \mathbf{K}=[\bone_g,\mathbf{c}_1,\dots,\mathbf{c}_{g-1}] \) are mutually orthogonal, then the coefficients of the coded model are
 \[
-\hat{\gamma}_0=\frac1g\sum_k\bar{y}_k,\qquad \hat{\gamma}_j=\frac{\bm c_j\T\hat{\bmu}}{\bm c_j\T\bm c_j},\quad j=1,\dots,g-1 ,
+\hat{\gamma}_0=\frac1g\sum_k\bar{y}_k,\qquad \hat{\gamma}_j=\frac{\mathbf{c}_j\T\hat{\bmu}}{\mathbf{c}_j\T\mathbf{c}_j},\quad j=1,\dots,g-1 ,
 \]
 whatever the group sizes.
 :::
 
 ::: {.proof}
-With orthogonal columns, \( \bm K\T\bm K=\diag(g,\bm c_1\T\bm c_1,\dots,\bm c_{g-1}\T\bm c_{g-1}) \), so
-\( \bm K^{-1}=(\bm K\T\bm K)^{-1}\bm K\T \). Apply @prp-est-coding(b).
+With orthogonal columns, \( \mathbf{K}\T\mathbf{K}=\diag(g,\mathbf{c}_1\T\mathbf{c}_1,\dots,\mathbf{c}_{g-1}\T\mathbf{c}_{g-1}) \), so
+\( \mathbf{K}^{-1}=(\mathbf{K}\T\mathbf{K})^{-1}\mathbf{K}\T \). Apply @prp-est-coding(b).
 :::
 
-The orthogonality required here is the plain one, \( \bm c_j\T\bm c_l=0 \), not the design orthogonality of
-@def-est-contrast, because \( \hat{\bgamma}=\bm K^{-1}\hat{\bmu} \) is pure algebra and does not involve the \( n_k \). Helmert coding, in the usual software
-convention, uses the columns \( \bm c_j=-\bm h_{j+1} \), which compare level \( j+1 \) with the levels before it, and
-\( \bm c_j\T\bm c_j=j(j+1) \). In the party data the first three Helmert coefficients are \( 0.1408 \),
+The orthogonality required here is the plain one, \( \mathbf{c}_j\T\mathbf{c}_l=0 \), not the design orthogonality of
+@def-est-contrast, because \( \hat{\bgamma}=\mathbf{K}^{-1}\hat{\bmu} \) is pure algebra and does not involve the \( n_k \). Helmert coding, in the usual software
+convention, uses the columns \( \mathbf{c}_j=-\mathbf{h}_{j+1} \), which compare level \( j+1 \) with the levels before it, and
+\( \mathbf{c}_j\T\mathbf{c}_j=j(j+1) \). In the party data the first three Helmert coefficients are \( 0.1408 \),
 \( 0.0698 \) and \( 0.1271 \), while the contrasts themselves are
 \( 0.2817 \), \( 0.4187 \) and \( 1.5253 \), larger by the factors \( 2 \),
 \( 6 \) and \( 12 \). For a non-orthogonal coding there is no such shortcut. Reference coding has
-\( \bm c_j=\bm e_{j+1} \), yet its coefficients are \( \mu_{j+1}-\mu_1 \), not \( \mu_{j+1} \).
+\( \mathbf{c}_j=\mathbf{e}_{j+1} \), yet its coefficients are \( \mu_{j+1}-\mu_1 \), not \( \mu_{j+1} \).
 
 ```{.python .run #cell-contrasts-helmert}
 def helmert(g):
@@ -263,8 +263,8 @@ print("ratio:       ", np.round(psi / gamma[1:], 1))   # = c_k' c_k = k(k+1)
 
 ::: {.warning}
 A coefficient from a contrast-coded regression estimates a contrast only up to a scale factor, and only when the coding
-columns are orthogonal. To test or report a contrast, compute \( \bm c\T\hat{\bmu} \) and its variance @eq-est-contrast-var directly,
-or read it from the coded fit using \( \bm K^{-1} \). Do not read it off the coefficient table.
+columns are orthogonal. To test or report a contrast, compute \( \mathbf{c}\T\hat{\bmu} \) and its variance @eq-est-contrast-var directly,
+or read it from the coded fit using \( \mathbf{K}^{-1} \). Do not read it off the coefficient table.
 :::
 
 ## Contrasts in the two-way additive model
@@ -297,7 +297,7 @@ Check that they are mutually orthogonal and that the quadratic contrast vanishes
 ::: {#exr-est-helmert-balance}
 [A2]
 
-Show that the Helmert contrasts \( \bm h_2,\dots,\bm h_g \) are orthogonal for the design iff \( n_1=n_2=\dots=n_{g-1} \), whatever
+Show that the Helmert contrasts \( \mathbf{h}_2,\dots,\mathbf{h}_g \) are orthogonal for the design iff \( n_1=n_2=\dots=n_{g-1} \), whatever
 \( n_g \) is. *Hint:* compute \( \sum_kh_{jk}h_{lk}/n_k \) for \( j<l \).
 :::
 
@@ -306,17 +306,17 @@ Show that the Helmert contrasts \( \bm h_2,\dots,\bm h_g \) are orthogonal for t
 ::: {#exr-est-max-contrast}
 [B1]
 
-Show that for every contrast \( \bm c \), \( \operatorname{SS}(\bm c)\le\sum_kn_k(\bar{y}_k-\bar{y})^2 \), with equality when
+Show that for every contrast \( \mathbf{c} \), \( \operatorname{SS}(\mathbf{c})\le\sum_kn_k(\bar{y}_k-\bar{y})^2 \), with equality when
 \( c_k=n_k(\bar{y}_k-\bar{y}) \). This fact is the basis of Scheffé's method in [Chapter 13](../ch13-multiplicity/index.html) (@thm-mc-scheffe).
 :::
 
 ::: {.solution}
-By @prp-est-contrast-ss(b), \( \operatorname{SS}(\bm c)=\norm{\bP\y}^2 \) with \( \bP \) projecting onto a line inside
+By @prp-est-contrast-ss(b), \( \operatorname{SS}(\mathbf{c})=\norm{\bP\y}^2 \) with \( \bP \) projecting onto a line inside
 \( \mathcal S=\C(\Z)\cap\bone\perpc \). Let \( \bP_{\mathcal S}=\M-n^{-1}\bone\bone\T \). Because the line lies in \( \mathcal S \),
 \( \bP\y=\bP\bP_{\mathcal S}\y \) (@thm-proj-nested(a)), and so
 \( \norm{\bP\y}^2\le\norm{\bP_{\mathcal S}\y}^2=\sum_kn_k(\bar{y}_k-\bar{y})^2 \). Equality holds when the line contains
-\( \bP_{\mathcal S}\y \), whose entries are \( \bar{y}_k-\bar{y} \) at level \( k \). That vector is \( \bu_{\bm c} \) for
-\( c_k=n_k(\bar{y}_k-\bar{y}) \), and this \( \bm c \) is a contrast because \( \sum_kn_k(\bar{y}_k-\bar{y})=0 \).
+\( \bP_{\mathcal S}\y \), whose entries are \( \bar{y}_k-\bar{y} \) at level \( k \). That vector is \( \bu_{\mathbf{c}} \) for
+\( c_k=n_k(\bar{y}_k-\bar{y}) \), and this \( \mathbf{c} \) is a contrast because \( \sum_kn_k(\bar{y}_k-\bar{y})=0 \).
 :::
 
 ::: {#exr-est-unbalanced-rows}
@@ -334,16 +334,16 @@ every row contrast and every \( \bbeta \) iff the proportions \( n_{ij}/n_{i\cdo
 [C1]
 
 Let \( \x \) be the \( n \)-vector giving each observation's score \( s_k \). Show that the sum of squares of the weighted linear contrast
-\( \bm c_1=\bD\bm p_1 \) equals the regression sum of squares \( \norm{(\M_1-n^{-1}\bone\bone\T)\y}^2 \) of the simple regression of \( \y \)
+\( \mathbf{c}_1=\bD\mathbf{p}_1 \) equals the regression sum of squares \( \norm{(\M_1-n^{-1}\bone\bone\T)\y}^2 \) of the simple regression of \( \y \)
 on \( \x \) with intercept, where \( \M_1 \) projects onto \( \C([\bone,\x]) \). Conclude that the remaining weighted contrasts together
 measure the lack of fit of the straight line to the level means.
 :::
 
 ::: {.solution}
-In the weighted inner product, \( \bm p_1 \) is \( \bm s \) minus its
-weighted mean, \( \bm s-\bar{s}_w\bone \) with \( \bar{s}_w=\sum_kn_ks_k/n \), up to scale. Then \( \bu_{\bm c_1}=\Z\bD^{-1}\bD\bm p_1=\Z\bm p_1 \), whose
+In the weighted inner product, \( \mathbf{p}_1 \) is \( \mathbf{s} \) minus its
+weighted mean, \( \mathbf{s}-\bar{s}_w\bone \) with \( \bar{s}_w=\sum_kn_ks_k/n \), up to scale. Then \( \bu_{\mathbf{c}_1}=\Z\bD^{-1}\bD\mathbf{p}_1=\Z\mathbf{p}_1 \), whose
 entries are \( s_k-\bar{s}_w \). That is \( \x-\bar{x}\bone \), the centred score vector. By @prp-est-contrast-ss(b),
-\( \operatorname{SS}(\bm c_1) \) is the squared length of the projection of \( \y \) onto the line spanned by \( \x-\bar{x}\bone \). By
+\( \operatorname{SS}(\mathbf{c}_1) \) is the squared length of the projection of \( \y \) onto the line spanned by \( \x-\bar{x}\bone \). By
 @exm-proj-simple-nested this line is \( \C([\bone,\x])\cap\bone\perpc \), and the projection onto it is \( \M_1-n^{-1}\bone\bone\T \). The
 remaining weighted contrasts span the orthogonal complement of that line in \( \C(\Z)\cap\bone\perpc \), which is
 \( \C(\Z)\cap\C([\bone,\x])\perpc \). Their total sum of squares is \( \norm{(\M-\M_1)\y}^2 \), the reduction in residual sum of squares

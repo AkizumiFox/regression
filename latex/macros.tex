@@ -13,8 +13,11 @@
 \let\M\relax \let\Q\relax \let\R\relax \let\T\relax \let\V\relax \let\W\relax
 \let\X\relax \let\Y\relax \let\Z\relax \let\norm\relax
 
-% Bold vectors and matrices: bold italic, Latin and Greek alike
-\newcommand{\vect}[1]{\boldsymbol{#1}}
+% Bold vectors and matrices: Latin letters bold upright (\mathbf), Greek letters bold
+% (\boldsymbol; \mathbf cannot embolden Greek in pdflatex). In the text write \mathbf{a} for
+% a bold Latin symbol without a macro and \boldsymbol{\theta} for a bold Greek one.
+% \bm is kept only so older text still compiles; do not use it.
+\newcommand{\vect}[1]{\mathbf{#1}}
 \providecommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\Y}{\vect{Y}}
 \newcommand{\y}{\vect{y}}
@@ -28,11 +31,11 @@
 \newcommand{\bw}{\vect{w}}
 \newcommand{\bz}{\vect{z}}
 \newcommand{\br}{\vect{r}}
-\newcommand{\be}{\vect{\varepsilon}}
-\newcommand{\bbeta}{\vect{\beta}}
-\newcommand{\bgamma}{\vect{\gamma}}
-\newcommand{\bmu}{\vect{\mu}}
-\newcommand{\blambda}{\vect{\lambda}}
+\newcommand{\be}{\boldsymbol{\varepsilon}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\bgamma}{\boldsymbol{\gamma}}
+\newcommand{\bmu}{\boldsymbol{\mu}}
+\newcommand{\blambda}{\boldsymbol{\lambda}}
 \newcommand{\bzero}{\vect{0}}
 \newcommand{\bone}{\vect{1}}
 \newcommand{\I}{\vect{I}}
@@ -51,8 +54,8 @@
 \newcommand{\bS}{\vect{S}}
 \newcommand{\bT}{\vect{T}}
 \newcommand{\bU}{\vect{U}}
-\newcommand{\bSigma}{\vect{\Sigma}}
-\newcommand{\bLambda}{\vect{\Lambda}}
+\newcommand{\bSigma}{\boldsymbol{\Sigma}}
+\newcommand{\bLambda}{\boldsymbol{\Lambda}}
 \newcommand{\hbeta}{\hat{\bbeta}}
 \newcommand{\hY}{\hat{\Y}}
 \newcommand{\he}{\hat{\be}}

@@ -68,14 +68,14 @@ If \( \sum_kc_k=0 \), then for all real \( x_1,\dots,x_g \),
 \[
 \Bigl\lvert\sum_kc_kx_k\Bigr\rvert\le\frac12\sum_k\lvert c_k\rvert\,\bigl(\max_kx_k-\min_kx_k\bigr),
 \]
-with equality when \( \bm c \) is a multiple of a pairwise difference \( \bm e_k-\bm e_l \) and \( x_k \), \( x_l \) are the
+with equality when \( \mathbf{c} \) is a multiple of a pairwise difference \( \mathbf{e}_k-\mathbf{e}_l \) and \( x_k \), \( x_l \) are the
 largest and smallest of the \( x \)'s.
 :::
 
 ::: {.proof}
 Let \( a=\tfrac12(\max_kx_k+\min_kx_k) \). Because \( \sum_kc_k=0 \),
 \( \sum_kc_kx_k=\sum_kc_k(x_k-a) \), and \( \lvert x_k-a\rvert\le\tfrac12(\max_kx_k-\min_kx_k) \) for every \( k \).
-The triangle inequality gives the bound. For \( \bm c=\bm e_k-\bm e_l \), the left side is
+The triangle inequality gives the bound. For \( \mathbf{c}=\mathbf{e}_k-\mathbf{e}_l \), the left side is
 \( \lvert x_k-x_l\rvert \) and the right side is the range, which agree when \( x_k,x_l \) are the extremes.
 :::
 
@@ -388,7 +388,7 @@ contrasts in general.
 
 Let \( \blambda_1,\dots,\blambda_k\in\C(\X\T) \) be chosen in advance, with \( t \) statistics
 \( T_j=(\blambda_j\T\hbeta-\blambda_j\T\bbeta)/\text{se}(\blambda_j\T\hbeta) \). Show that
-\( (T_1,\dots,T_k)=\bm Z/(s/\sigma) \), where \( \bm Z\sim\Normal_k(\bzero,\R) \) is independent of \( s \), and
+\( (T_1,\dots,T_k)=\mathbf{Z}/(s/\sigma) \), where \( \mathbf{Z}\sim\Normal_k(\bzero,\R) \) is independent of \( s \), and
 \( \R \) is the correlation matrix with entries
 \( \blambda_i\T\G\blambda_j/\sqrt{\blambda_i\T\G\blambda_i\cdot\blambda_j\T\G\blambda_j} \). Deduce that the
 constant \( c \) with \( \Pr(\max_j\lvert T_j\rvert\le c)=1-\alpha \) depends only on \( \R \) and \( \nu \), and

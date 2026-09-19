@@ -5,15 +5,15 @@
 For a differentiable scalar function \( f \) of \( \x\in\Real^n \), the **gradient**
 \( \partial f/\partial\x \) is the column vector with entries \( \partial f/\partial x_i \), and the
 **Hessian** \( \partial^2f/\partial\x\,\partial\x\T \) is the \( n\times n \) matrix of second
-derivatives. For a vector-valued \( \bm g(\x)\in\Real^m \), the \( m\times n \) *Jacobian*
-\( \partial\bm g/\partial\x\T \) has \( (i,j) \) entry \( \partial g_i/\partial x_j \).
+derivatives. For a vector-valued \( \mathbf{g}(\x)\in\Real^m \), the \( m\times n \) *Jacobian*
+\( \partial\mathbf{g}/\partial\x\T \) has \( (i,j) \) entry \( \partial g_i/\partial x_j \).
 
 ::: {#thm-mat-quadform-derivative}
 [Derivatives of linear and quadratic forms]
 
-Let \( \bm a\in\Real^n \), let \( \A \) be \( n\times n \) and \( \B \) be \( m\times n \). Then
+Let \( \mathbf{a}\in\Real^n \), let \( \A \) be \( n\times n \) and \( \B \) be \( m\times n \). Then
 \[
-\frac{\partial(\bm a\T\x)}{\partial\x}=\bm a,\qquad
+\frac{\partial(\mathbf{a}\T\x)}{\partial\x}=\mathbf{a},\qquad
 \frac{\partial(\B\x)}{\partial\x\T}=\B,\qquad
 \frac{\partial(\x\T\A\x)}{\partial\x}=(\A+\A\T)\x,\qquad
 \frac{\partial^2(\x\T\A\x)}{\partial\x\,\partial\x\T}=\A+\A\T .
@@ -22,12 +22,12 @@ In particular \( \partial(\x\T\A\x)/\partial\x=2\A\x \) when \( \A \) is symmetr
 :::
 
 ::: {.proof}
-The first two are immediate from \( \bm a\T\x=\sum_ia_ix_i \) and \( (\B\x)_i=\sum_jb_{ij}x_j \). For the
+The first two are immediate from \( \mathbf{a}\T\x=\sum_ia_ix_i \) and \( (\B\x)_i=\sum_jb_{ij}x_j \). For the
 quadratic form, expand
 \[
-(\x+\bm h)\T\A(\x+\bm h)=\x\T\A\x+\bm h\T(\A+\A\T)\x+\bm h\T\A\bm h .
+(\x+\mathbf{h})\T\A(\x+\mathbf{h})=\x\T\A\x+\mathbf{h}\T(\A+\A\T)\x+\mathbf{h}\T\A\mathbf{h} .
 \]
-The middle term is linear in \( \bm h \) and the last is \( O(\norm{\bm h}^2) \), so \( (\A+\A\T)\x \) is
+The middle term is linear in \( \mathbf{h} \) and the last is \( O(\norm{\mathbf{h}}^2) \), so \( (\A+\A\T)\x \) is
 the gradient. The gradient is linear in \( \x \) with matrix \( \A+\A\T \), which is the Hessian by
 the second formula.
 :::
@@ -73,36 +73,36 @@ the minimizers are the solutions of the normal equations, and the minimum of \( 
 
 ## Constrained minimization
 
-To minimize a differentiable \( f(\x) \) subject to linear constraints \( \bm H\x=\bm h \), with
-\( \bm H \) of size \( q\times n \), the method of **Lagrange multipliers** looks for stationary
-points of \( f(\x)+2\bm\theta\T(\bm H\x-\bm h) \) in \( (\x,\bm\theta) \). The factor \( 2 \) is only
+To minimize a differentiable \( f(\x) \) subject to linear constraints \( \mathbf{H}\x=\mathbf{h} \), with
+\( \mathbf{H} \) of size \( q\times n \), the method of **Lagrange multipliers** looks for stationary
+points of \( f(\x)+2\boldsymbol{\theta}\T(\mathbf{H}\x-\mathbf{h}) \) in \( (\x,\boldsymbol{\theta}) \). The factor \( 2 \) is only
 for convenience. For quadratic \( f \) the stationary point can be written down and checked
 directly.
 
 ::: {#prp-mat-lagrange}
-Let \( \A \) be positive definite, \( \bm H \) of size \( q\times n \) with full row rank, and
-\( f(\x)=\x\T\A\x-2\bb\T\x \). The unique minimizer of \( f \) subject to \( \bm H\x=\bm h \) is
+Let \( \A \) be positive definite, \( \mathbf{H} \) of size \( q\times n \) with full row rank, and
+\( f(\x)=\x\T\A\x-2\bb\T\x \). The unique minimizer of \( f \) subject to \( \mathbf{H}\x=\mathbf{h} \) is
 \[
-\x_*=\x_0-\A^{-1}\bm H\T\bigl(\bm H\A^{-1}\bm H\T\bigr)^{-1}(\bm H\x_0-\bm h),
+\x_*=\x_0-\A^{-1}\mathbf{H}\T\bigl(\mathbf{H}\A^{-1}\mathbf{H}\T\bigr)^{-1}(\mathbf{H}\x_0-\mathbf{h}),
 \qquad \x_0=\A^{-1}\bb .
 \]
 :::
 
 ::: {.proof}
-\( \bm H\A^{-1}\bm H\T \) is positive definite by @prp-mat-pd-properties(c,e), so \( \x_* \) is
-well defined, and \( \bm H\x_*=\bm h \) by direct substitution. Stationarity of the Lagrangian gives
-\( 2\A\x-2\bb+2\bm H\T\bm\theta=\bzero \). Indeed \( \A\x_*-\bb=-\bm H\T\bm\theta_* \) with
-\( \bm\theta_*=(\bm H\A^{-1}\bm H\T)^{-1}(\bm H\x_0-\bm h) \). For any feasible \( \x \), put \( \bm d=\x-\x_* \),
-so that \( \bm H\bm d=\bzero \). Then
+\( \mathbf{H}\A^{-1}\mathbf{H}\T \) is positive definite by @prp-mat-pd-properties(c,e), so \( \x_* \) is
+well defined, and \( \mathbf{H}\x_*=\mathbf{h} \) by direct substitution. Stationarity of the Lagrangian gives
+\( 2\A\x-2\bb+2\mathbf{H}\T\boldsymbol{\theta}=\bzero \). Indeed \( \A\x_*-\bb=-\mathbf{H}\T\boldsymbol{\theta}_* \) with
+\( \boldsymbol{\theta}_*=(\mathbf{H}\A^{-1}\mathbf{H}\T)^{-1}(\mathbf{H}\x_0-\mathbf{h}) \). For any feasible \( \x \), put \( \mathbf{d}=\x-\x_* \),
+so that \( \mathbf{H}\mathbf{d}=\bzero \). Then
 \[
-f(\x)=f(\x_*)+2\bm d\T(\A\x_*-\bb)+\bm d\T\A\bm d=f(\x_*)-2(\bm H\bm d)\T\bm\theta_*+\bm d\T\A\bm d
-=f(\x_*)+\bm d\T\A\bm d ,
+f(\x)=f(\x_*)+2\mathbf{d}\T(\A\x_*-\bb)+\mathbf{d}\T\A\mathbf{d}=f(\x_*)-2(\mathbf{H}\mathbf{d})\T\boldsymbol{\theta}_*+\mathbf{d}\T\A\mathbf{d}
+=f(\x_*)+\mathbf{d}\T\A\mathbf{d} ,
 \]
-which exceeds \( f(\x_*) \) unless \( \bm d=\bzero \).
+which exceeds \( f(\x_*) \) unless \( \mathbf{d}=\bzero \).
 :::
 
 With \( \A=\X\T\X \) and \( \bb=\X\T\y \), this is least squares subject to a linear hypothesis
-\( \bm H\bbeta=\bm h \), the starting point of [Chapter 11](../ch11-general-linear-hypothesis/index.html).
+\( \mathbf{H}\bbeta=\mathbf{h} \), the starting point of [Chapter 11](../ch11-general-linear-hypothesis/index.html).
 
 ## Derivatives with respect to matrices and scalars
 
@@ -131,17 +131,17 @@ scalar function \( f \) of an \( m\times n \) matrix \( \W \) with functionally 
 (a) \( \tr(\A\W)=\sum_{i,j}a_{ji}w_{ij} \). (c) Differentiate \( \A\A^{-1}=\I \) by the product rule to
 get \( \dot{\A}\A^{-1}+\A\,\partial\A^{-1}/\partial t=\bzero \). For the determinant,
 \( \A(t+h)=\A(t)\bigl(\I+h\A^{-1}\dot{\A}+o(h)\bigr) \). In the permutation expansion of
-\( \det(\I+h\bm C) \) only the diagonal product contributes terms of first order in \( h \), so
-\( \det(\I+h\bm C)=1+h\tr\bm C+O(h^2) \). Hence
+\( \det(\I+h\mathbf{C}) \) only the diagonal product contributes terms of first order in \( h \), so
+\( \det(\I+h\mathbf{C})=1+h\tr\mathbf{C}+O(h^2) \). Hence
 \( \det\A(t+h)=\det\A(t)\bigl(1+h\tr(\A^{-1}\dot{\A})+o(h)\bigr) \), and taking logarithms gives the
-formula. (b) Apply (c) with \( \A(t)=\W+t\bm e_i\bm e_j\T \). Then
-\( \tr(\W^{-1}\bm e_i\bm e_j\T)=\bm e_j\T\W^{-1}\bm e_i \), the \( (j,i) \) entry of \( \W^{-1} \).
+formula. (b) Apply (c) with \( \A(t)=\W+t\mathbf{e}_i\mathbf{e}_j\T \). Then
+\( \tr(\W^{-1}\mathbf{e}_i\mathbf{e}_j\T)=\mathbf{e}_j\T\W^{-1}\mathbf{e}_i \), the \( (j,i) \) entry of \( \W^{-1} \).
 :::
 
 When \( \W \) is constrained to be symmetric, \( w_{ij} \) and \( w_{ji} \) are the same variable, so
 the derivatives with respect to off-diagonal entries double. Some books (Rencher and Schaalje 2008)
 report formulas of the type \( 2\W^{-1}-\diag(\W^{-1}) \) for this reason. The
-simplest way to avoid the issue is to differentiate along a symmetric direction \( \W+t\bm E \),
+simplest way to avoid the issue is to differentiate along a symmetric direction \( \W+t\mathbf{E} \),
 as in (c). This is the convenient route for the normal likelihoods of
 Chapter 32. The listing checks the gradient formulas against central finite
 differences, and the script also checks part (c) and @prp-mat-quadratic-min. The largest
@@ -188,8 +188,8 @@ for name, (numeric, formula) in checks.items():
 ::: {#exr-mat-clustered}
 [A1]
 
-Observations fall in \( a \) clusters of size \( b \), and \( \bSigma=\sigma^2\,\I_a\otimes\bm E_b \), where
-\( \bm E_b=(1-\rho)\I_b+\rho\bm J_b \). Find the eigenvalues, determinant and inverse of \( \bSigma \) using
+Observations fall in \( a \) clusters of size \( b \), and \( \bSigma=\sigma^2\,\I_a\otimes\mathbf{E}_b \), where
+\( \mathbf{E}_b=(1-\rho)\I_b+\rho\mathbf{J}_b \). Find the eigenvalues, determinant and inverse of \( \bSigma \) using
 @prp-mat-kronecker, @exm-mat-equicorrelation and @exm-mat-equicorrelation-eigen.
 :::
 
@@ -206,14 +206,14 @@ Use @prp-mat-quadratic-min to show that
 ::: {#exr-mat-constrained-ls}
 [B1]
 
-Let \( \X \) have full column rank, \( \hbeta=(\X\T\X)^{-1}\X\T\y \), and let \( \bm H \) be \( q\times p \) with full row
-rank. Show that the minimizer of \( \norm{\y-\X\bb}^2 \) subject to \( \bm H\bb=\bm h \) is
+Let \( \X \) have full column rank, \( \hbeta=(\X\T\X)^{-1}\X\T\y \), and let \( \mathbf{H} \) be \( q\times p \) with full row
+rank. Show that the minimizer of \( \norm{\y-\X\bb}^2 \) subject to \( \mathbf{H}\bb=\mathbf{h} \) is
 \[
-\hbeta_H=\hbeta-(\X\T\X)^{-1}\bm H\T\bm W^{-1}(\bm H\hbeta-\bm h),\qquad
-\bm W=\bm H(\X\T\X)^{-1}\bm H\T,
+\hbeta_H=\hbeta-(\X\T\X)^{-1}\mathbf{H}\T\mathbf{W}^{-1}(\mathbf{H}\hbeta-\mathbf{h}),\qquad
+\mathbf{W}=\mathbf{H}(\X\T\X)^{-1}\mathbf{H}\T,
 \]
 and that the increase in the residual sum of squares is
-\( (\bm H\hbeta-\bm h)\T\bm W^{-1}(\bm H\hbeta-\bm h) \).
+\( (\mathbf{H}\hbeta-\mathbf{h})\T\mathbf{W}^{-1}(\mathbf{H}\hbeta-\mathbf{h}) \).
 :::
 
 ::: {.solution}
@@ -221,10 +221,10 @@ Apply @prp-mat-lagrange with \( \A=\X\T\X \) and
 \( \bb=\X\T\y \). Since \( \norm{\y-\X\bb}^2=\y\T\y+f(\bb) \) and \( \x_0=\hbeta \), this gives \( \hbeta_H \). By
 completing the square as in @prp-mat-quadratic-min,
 \( \norm{\y-\X\bb}^2=\norm{\y-\X\hbeta}^2+(\bb-\hbeta)\T\X\T\X(\bb-\hbeta) \) for every \( \bb \). With
-\( \bb-\hbeta=-(\X\T\X)^{-1}\bm H\T\bm W^{-1}(\bm H\hbeta-\bm h) \), the increase is
+\( \bb-\hbeta=-(\X\T\X)^{-1}\mathbf{H}\T\mathbf{W}^{-1}(\mathbf{H}\hbeta-\mathbf{h}) \), the increase is
 \[
-(\bm H\hbeta-\bm h)\T\bm W^{-1}\bm H(\X\T\X)^{-1}\bm H\T\bm W^{-1}(\bm H\hbeta-\bm h)
-=(\bm H\hbeta-\bm h)\T\bm W^{-1}(\bm H\hbeta-\bm h).
+(\mathbf{H}\hbeta-\mathbf{h})\T\mathbf{W}^{-1}\mathbf{H}(\X\T\X)^{-1}\mathbf{H}\T\mathbf{W}^{-1}(\mathbf{H}\hbeta-\mathbf{h})
+=(\mathbf{H}\hbeta-\mathbf{h})\T\mathbf{W}^{-1}(\mathbf{H}\hbeta-\mathbf{h}).
 \]
 This quadratic form is the numerator of the \( F \) statistic in [Chapter 11](../ch11-general-linear-hypothesis/index.html) (@thm-glh-general-f).
 :::

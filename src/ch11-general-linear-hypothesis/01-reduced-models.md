@@ -23,8 +23,8 @@ mean lies in a smaller subspace.
 [Reduced model and linear hypothesis]
 
 Let \( \X_0 \) be an \( n\times p_0 \) matrix with \( \C(\X_0)\subseteq\C(\X) \) and
-\( r_0=\rank(\X_0)<r \). The **reduced model** is \( \E(\Y)=\X_0\bm c \),
-\( \bm c\in\Real^{p_0} \). Inside the full model it corresponds to the **linear hypothesis**
+\( r_0=\rank(\X_0)<r \). The **reduced model** is \( \E(\Y)=\X_0\mathbf{c} \),
+\( \mathbf{c}\in\Real^{p_0} \). Inside the full model it corresponds to the **linear hypothesis**
 \[
 H_0:\ \X\bbeta\in\C(\X_0)
 \qquad\text{against}\qquad
@@ -56,7 +56,7 @@ The most common reduced models come from three operations on \( \X \):
   mean.
 
 - *Fixing a component.* Moving a known multiple of a column into an offset, for example testing
-  that a slope equals \( 1 \), gives a reduced model of the form \( \E(\Y)=\X_0\bm c+\X\bb_0 \)
+  that a slope equals \( 1 \), gives a reduced model of the form \( \E(\Y)=\X_0\mathbf{c}+\X\bb_0 \)
   with \( \bb_0 \) known. It is handled by subtracting \( \X\bb_0 \) from the data
   ([Section 11.3](03-testable-hypotheses.html)).
 
@@ -102,7 +102,7 @@ F\sim F(r-r_0,\ n-r,\ \gamma),\qquad
 \gamma=\frac{\norm{(\M-\Mo)\X\bbeta}^2}{\sigma^2};
 \]{#eq-glh-noncentrality}
 
-3. \( \gamma=\norm{(\I-\Mo)\X\bbeta}^2/\sigma^2=\min_{\bm c}\norm{\X\bbeta-\X_0\bm c}^2/\sigma^2 \),
+3. \( \gamma=\norm{(\I-\Mo)\X\bbeta}^2/\sigma^2=\min_{\mathbf{c}}\norm{\X\bbeta-\X_0\mathbf{c}}^2/\sigma^2 \),
    the squared distance from the mean vector to the reduced model space in units of
    \( \sigma^2 \). In particular \( \gamma=0 \) iff \( H_0 \) holds;
 
@@ -128,9 +128,9 @@ point in \( \C(\X_0) \) (@thm-proj-projection-theorem). Its length is therefore 
 :::
 
 Part (d) is what makes a test possible. The reduced model is a *composite* hypothesis: it
-leaves \( \bm c \) and \( \sigma^2 \) unspecified. Yet the null distribution of \( F \) is the same at
-every point of it. The unknown coefficients cancel because \( (\M-\Mo)\X_0\bm c=\bzero \) and
-\( (\I-\M)\X_0\bm c=\bzero \), and the unknown scale cancels in the ratio. A statistic with this
+leaves \( \mathbf{c} \) and \( \sigma^2 \) unspecified. Yet the null distribution of \( F \) is the same at
+every point of it. The unknown coefficients cancel because \( (\M-\Mo)\X_0\mathbf{c}=\bzero \) and
+\( (\I-\M)\X_0\mathbf{c}=\bzero \), and the unknown scale cancels in the ratio. A statistic with this
 property is called *pivotal* under the hypothesis.
 
 Part (c) says what the test detects. The alternative is measured by one number, the squared
@@ -296,7 +296,7 @@ better model may exist.
 [A1]
 
 Show that the \( F \) statistic @eq-glh-F does not change when \( \y \) is replaced by
-\( a\y+\X_0\bm c \) for any \( a\ne0 \) and any vector \( \bm c \). Interpret the result for the
+\( a\y+\X_0\mathbf{c} \) for any \( a\ne0 \) and any vector \( \mathbf{c} \). Interpret the result for the
 region test of @exm-glh-region when murder rates are expressed per million instead of per 100,000.
 :::
 
@@ -334,17 +334,17 @@ when \( \sigma^2 \) must be estimated.
 ::: {#exr-glh-small-F}
 [B2]
 
-Suppose the full model is wrong: \( \E(\Y)=\bmu \) with \( (\I-\M)\bmu=\bm\delta\ne\bzero \), but
+Suppose the full model is wrong: \( \E(\Y)=\bmu \) with \( (\I-\M)\bmu=\boldsymbol{\delta}\ne\bzero \), but
 \( (\M-\Mo)\bmu=\bzero \). Show that the numerator and denominator of @eq-glh-F are still independent,
-that \( \E(\text{numerator})=\sigma^2 \) and \( \E(\text{denominator})=\sigma^2+\norm{\bm\delta}^2/(n-r) \), and
+that \( \E(\text{numerator})=\sigma^2 \) and \( \E(\text{denominator})=\sigma^2+\norm{\boldsymbol{\delta}}^2/(n-r) \), and
 that \( \Pr(F\le c) \ge \Pr\{F(q,n-r)\le c\} \) for every \( c>0 \). Explain why an \( F \) statistic far
 *below* one, with a p-value near one, is a hint that the full model is inadequate.
 :::
 
 ::: {.solution}
 Independence and the distributions follow from @thm-qf-orthogonal-projections as in the proof of
-@thm-glh-f-test: the numerator is \( \sigma^2\chi^2(q)/q \), and \( \text{SSE}/\sigma^2\sim\chi^2(n-r,\norm{\bm\delta}^2/\sigma^2) \),
-with mean \( n-r+\norm{\bm\delta}^2/\sigma^2 \) (@thm-qf-ncchisq(b)). For the probability, condition on
+@thm-glh-f-test: the numerator is \( \sigma^2\chi^2(q)/q \), and \( \text{SSE}/\sigma^2\sim\chi^2(n-r,\norm{\boldsymbol{\delta}}^2/\sigma^2) \),
+with mean \( n-r+\norm{\boldsymbol{\delta}}^2/\sigma^2 \) (@thm-qf-ncchisq(b)). For the probability, condition on
 the numerator \( U \): \( F\le c \) iff \( \text{SSE}/\sigma^2\ge (n-r)U/(qc\sigma^2) \), and a noncentral
 \( \chi^2 \) exceeds any fixed value with at least the central probability (@prp-qf-ncchisq-monotone). Averaging over \( U \) gives the inequality. So omitted structure in the
 residual space makes small values of \( F \) more likely. Under the full model, \( \Pr(F\le c) \) is

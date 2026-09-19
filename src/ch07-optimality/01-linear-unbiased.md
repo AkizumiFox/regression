@@ -41,22 +41,22 @@ Several such functions at once are collected as \( \bLambda\T\bbeta \), where \(
 Let \( \blambda\in\Real^p \).
 
 ::: {.enumerate options="label=(\alph*)"}
-1. A **linear estimator** is a statistic of the form \( c+\bm a\T\Y \), with a constant
-   \( c\in\Real \) and a constant vector \( \bm a\in\Real^n \) (constant means not depending on
+1. A **linear estimator** is a statistic of the form \( c+\mathbf{a}\T\Y \), with a constant
+   \( c\in\Real \) and a constant vector \( \mathbf{a}\in\Real^n \) (constant means not depending on
    \( \Y \) or on the parameters).
 
 2. A linear estimator is a **linear unbiased estimator** (LUE) of \( \blambda\T\bbeta \) if
-   \( \E(c+\bm a\T\Y)=\blambda\T\bbeta \) for every \( \bbeta\in\Real^p \) and every \( \sigma^2>0 \).
+   \( \E(c+\mathbf{a}\T\Y)=\blambda\T\bbeta \) for every \( \bbeta\in\Real^p \) and every \( \sigma^2>0 \).
 
-3. An LUE \( c+\bm a\T\Y \) of \( \blambda\T\bbeta \) is a **best linear unbiased estimator**
-   (BLUE) if \( \Var(c+\bm a\T\Y)\le\Var(d+\bb\T\Y) \) for every LUE \( d+\bb\T\Y \) of
+3. An LUE \( c+\mathbf{a}\T\Y \) of \( \blambda\T\bbeta \) is a **best linear unbiased estimator**
+   (BLUE) if \( \Var(c+\mathbf{a}\T\Y)\le\Var(d+\bb\T\Y) \) for every LUE \( d+\bb\T\Y \) of
    \( \blambda\T\bbeta \), for every \( \bbeta \) and every \( \sigma^2>0 \).
 
-4. For \( q \) functions \( \bLambda\T\bbeta \), a **linear estimator** is \( \bm c+\A\Y \) with a
-   constant \( q\times n \) matrix \( \A \) and \( \bm c\in\Real^q \). It is an LUE of \( \bLambda\T\bbeta \)
+4. For \( q \) functions \( \bLambda\T\bbeta \), a **linear estimator** is \( \mathbf{c}+\A\Y \) with a
+   constant \( q\times n \) matrix \( \A \) and \( \mathbf{c}\in\Real^q \). It is an LUE of \( \bLambda\T\bbeta \)
    if each coordinate is an LUE of the corresponding coordinate of \( \bLambda\T\bbeta \), and a BLUE
-   if \( \Cov(\B\Y+\bm d)-\Cov(\A\Y+\bm c) \) is nonnegative definite for every LUE
-   \( \B\Y+\bm d \) (@def-mat-nnd).
+   if \( \Cov(\B\Y+\mathbf{d})-\Cov(\A\Y+\mathbf{c}) \) is nonnegative definite for every LUE
+   \( \B\Y+\mathbf{d} \) (@def-mat-nnd).
 :::
 :::
 
@@ -67,17 +67,17 @@ first result (@prp-opt-lue) turns unbiasedness into linear equations.
 ::: {#prp-opt-lue}
 [Unbiasedness as a linear equation]
 
-The linear estimator \( c+\bm a\T\Y \) is an LUE of \( \blambda\T\bbeta \) iff \( c=0 \) and
-\( \X\T\bm a=\blambda \). Consequently \( \blambda\T\bbeta \) has an LUE iff
+The linear estimator \( c+\mathbf{a}\T\Y \) is an LUE of \( \blambda\T\bbeta \) iff \( c=0 \) and
+\( \X\T\mathbf{a}=\blambda \). Consequently \( \blambda\T\bbeta \) has an LUE iff
 \( \blambda\in\C(\X\T) \).
 :::
 
 ::: {.proof}
-By @thm-rv-linear, \( \E(c+\bm a\T\Y)=c+\bm a\T\X\bbeta \). This equals \( \blambda\T\bbeta \)
-for all \( \bbeta \) iff the affine function \( \bbeta\mapsto c+(\X\T\bm a-\blambda)\T\bbeta \) vanishes
+By @thm-rv-linear, \( \E(c+\mathbf{a}\T\Y)=c+\mathbf{a}\T\X\bbeta \). This equals \( \blambda\T\bbeta \)
+for all \( \bbeta \) iff the affine function \( \bbeta\mapsto c+(\X\T\mathbf{a}-\blambda)\T\bbeta \) vanishes
 identically. Putting \( \bbeta=\bzero \) gives \( c=0 \). Putting \( \bbeta \) equal to each coordinate vector
-in turn then gives \( \X\T\bm a=\blambda \). The converse is immediate. An LUE therefore exists iff
-the equation \( \X\T\bm a=\blambda \) has a solution, that is, iff \( \blambda\in\C(\X\T) \).
+in turn then gives \( \X\T\mathbf{a}=\blambda \). The converse is immediate. An LUE therefore exists iff
+the equation \( \X\T\mathbf{a}=\blambda \) has a solution, that is, iff \( \blambda\in\C(\X\T) \).
 :::
 
 So the constant \( c \) is always zero, and from now on we drop it. A linear function
@@ -94,53 +94,53 @@ estimable.
 
 ## The geometry of the unbiased class
 
-Fix an estimable \( \blambda\T\bbeta \) and write \( \blambda=\X\T\bm\rho \) for some
-\( \bm\rho\in\Real^n \). The coefficient vectors of its LUEs form the set
+Fix an estimable \( \blambda\T\bbeta \) and write \( \blambda=\X\T\boldsymbol{\rho} \) for some
+\( \boldsymbol{\rho}\in\Real^n \). The coefficient vectors of its LUEs form the set
 \[
-\mathcal A_{\blambda}=\{\bm a\in\Real^n:\X\T\bm a=\blambda\}.
+\mathcal A_{\blambda}=\{\mathbf{a}\in\Real^n:\X\T\mathbf{a}=\blambda\}.
 \]
 This set is the key object of the chapter's first half.
 
 ::: {#prp-opt-lue-set}
 [The set of unbiased coefficient vectors]
 
-Let \( \blambda=\X\T\bm\rho \). Then:
+Let \( \blambda=\X\T\boldsymbol{\rho} \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \mathcal A_{\blambda}=\M\bm\rho+\C(\X)\perpc \), an affine subspace of \( \Real^n \) of
+1. \( \mathcal A_{\blambda}=\M\boldsymbol{\rho}+\C(\X)\perpc \), an affine subspace of \( \Real^n \) of
    dimension \( n-r \), parallel to \( \C(\X)\perpc \);
 
-2. every \( \bm a\in\mathcal A_{\blambda} \) has the same projection \( \M\bm a=\M\bm\rho \), and
-   \( \M\bm\rho \) is the only element of \( \mathcal A_{\blambda} \) that lies in \( \C(\X) \);
+2. every \( \mathbf{a}\in\mathcal A_{\blambda} \) has the same projection \( \M\mathbf{a}=\M\boldsymbol{\rho} \), and
+   \( \M\boldsymbol{\rho} \) is the only element of \( \mathcal A_{\blambda} \) that lies in \( \C(\X) \);
 
-3. \( \M\bm\rho=\X(\X\T\X)\ginv\blambda \) for every generalized inverse, and
-   \( (\M\bm\rho)\T\Y=\blambda\T\hbeta \) for every least squares estimate \( \hbeta \).
+3. \( \M\boldsymbol{\rho}=\X(\X\T\X)\ginv\blambda \) for every generalized inverse, and
+   \( (\M\boldsymbol{\rho})\T\Y=\blambda\T\hbeta \) for every least squares estimate \( \hbeta \).
 :::
 :::
 
 ::: {.proof}
-(a) By @prp-opt-lue, \( \bm a\in\mathcal A_{\blambda} \) means \( \X\T\bm a=\blambda \). Now \( \X\T\bm a=\X\T\bm\rho \) iff \( \X\T(\bm a-\bm\rho)=\bzero \), iff
-\( \bm a-\bm\rho\in\Null(\X\T)=\C(\X)\perpc \) (@lem-proj-null-colspace). So
-\( \mathcal A_{\blambda}=\bm\rho+\C(\X)\perpc \). Since \( \bm\rho-\M\bm\rho=(\I-\M)\bm\rho\in\C(\X)\perpc \),
-the same set is \( \M\bm\rho+\C(\X)\perpc \). Its dimension is
+(a) By @prp-opt-lue, \( \mathbf{a}\in\mathcal A_{\blambda} \) means \( \X\T\mathbf{a}=\blambda \). Now \( \X\T\mathbf{a}=\X\T\boldsymbol{\rho} \) iff \( \X\T(\mathbf{a}-\boldsymbol{\rho})=\bzero \), iff
+\( \mathbf{a}-\boldsymbol{\rho}\in\Null(\X\T)=\C(\X)\perpc \) (@lem-proj-null-colspace). So
+\( \mathcal A_{\blambda}=\boldsymbol{\rho}+\C(\X)\perpc \). Since \( \boldsymbol{\rho}-\M\boldsymbol{\rho}=(\I-\M)\boldsymbol{\rho}\in\C(\X)\perpc \),
+the same set is \( \M\boldsymbol{\rho}+\C(\X)\perpc \). Its dimension is
 \( \dim\C(\X)\perpc=n-r \).
 
-(b) If \( \bm a=\M\bm\rho+\bv \) with \( \bv\in\C(\X)\perpc \), then \( \M\bm a=\M\bm\rho+\M\bv=\M\bm\rho \).
-If moreover \( \bm a\in\C(\X) \), then \( \bm a=\M\bm a=\M\bm\rho \).
+(b) If \( \mathbf{a}=\M\boldsymbol{\rho}+\bv \) with \( \bv\in\C(\X)\perpc \), then \( \M\mathbf{a}=\M\boldsymbol{\rho}+\M\bv=\M\boldsymbol{\rho} \).
+If moreover \( \mathbf{a}\in\C(\X) \), then \( \mathbf{a}=\M\mathbf{a}=\M\boldsymbol{\rho} \).
 
-(c) By @thm-proj-M-formula, \( \M\bm\rho=\X(\X\T\X)\ginv\X\T\bm\rho=\X(\X\T\X)\ginv\blambda \).
-By @thm-proj-invariant-functions, \( \blambda\T\hbeta=\bm\rho\T\M\Y=(\M\bm\rho)\T\Y \).
+(c) By @thm-proj-M-formula, \( \M\boldsymbol{\rho}=\X(\X\T\X)\ginv\X\T\boldsymbol{\rho}=\X(\X\T\X)\ginv\blambda \).
+By @thm-proj-invariant-functions, \( \blambda\T\hbeta=\boldsymbol{\rho}\T\M\Y=(\M\boldsymbol{\rho})\T\Y \).
 :::
 
 Part (c) says that least squares is itself one of the linear unbiased estimators. Its
-coefficient vector is \( \bm a_*=\M\bm\rho \), the one member of the class that lies in the model space.
-It does not depend on which \( \bm\rho \) was used to represent \( \blambda \), because every such
-\( \bm\rho \) has the same projection. That \( \bm a_*\T\Y \) is unbiased can also be seen directly:
-\( \E(\bm a_*\T\Y)=\bm\rho\T\M\X\bbeta=\bm\rho\T\X\bbeta=\blambda\T\bbeta \).
+coefficient vector is \( \mathbf{a}_*=\M\boldsymbol{\rho} \), the one member of the class that lies in the model space.
+It does not depend on which \( \boldsymbol{\rho} \) was used to represent \( \blambda \), because every such
+\( \boldsymbol{\rho} \) has the same projection. That \( \mathbf{a}_*\T\Y \) is unbiased can also be seen directly:
+\( \E(\mathbf{a}_*\T\Y)=\boldsymbol{\rho}\T\M\X\bbeta=\boldsymbol{\rho}\T\X\bbeta=\blambda\T\bbeta \).
 
 The variance of any linear estimator follows from @thm-rv-linear:
 \[
-\Var(\bm a\T\Y)=\bm a\T(\sigma^2\I)\bm a=\sigma^2\norm{\bm a}^2 .
+\Var(\mathbf{a}\T\Y)=\mathbf{a}\T(\sigma^2\I)\mathbf{a}=\sigma^2\norm{\mathbf{a}}^2 .
 \]{#eq-opt-var-norm}
 
 Under the second-moment assumptions, then, the variance of a linear estimator is \( \sigma^2 \)
@@ -149,16 +149,16 @@ vector in the affine set \( \mathcal A_{\blambda} \).
 
 ::: {.idea}
 The linear unbiased estimators of \( \blambda\T\bbeta \) correspond to the points of a flat
-\( \mathcal A_{\blambda}=\bm a_*+\C(\X)\perpc \) in \( \Real^n \). The variance of each is
+\( \mathcal A_{\blambda}=\mathbf{a}_*+\C(\X)\perpc \) in \( \Real^n \). The variance of each is
 \( \sigma^2 \) times its squared distance from the origin. The question "which LUE is best?"
 is a nearest-point problem, the same kind of problem that least squares solves in
 [Chapter 6](../ch06-projections/index.html), now posed in the space of coefficient vectors.
 :::
 
-A second description of the class is useful too. Every \( \bm a\in\mathcal A_{\blambda} \) is
-\( \bm a_*+(\I-\M)\bw \) for some \( \bw \), so every LUE has the form
+A second description of the class is useful too. Every \( \mathbf{a}\in\mathcal A_{\blambda} \) is
+\( \mathbf{a}_*+(\I-\M)\bw \) for some \( \bw \), so every LUE has the form
 \[
-\bm a\T\Y=\blambda\T\hbeta+\bw\T(\I-\M)\Y=\blambda\T\hbeta+\bw\T\he .
+\mathbf{a}\T\Y=\blambda\T\hbeta+\bw\T(\I-\M)\Y=\blambda\T\hbeta+\bw\T\he .
 \]{#eq-opt-lue-residual}
 
 An LUE is the least squares estimate plus a linear function of the residuals. The linear functions
@@ -187,9 +187,9 @@ regressor values \( x=1,2,2.5,3,4,5,5.5,7,8,9,10.5,12 \), for which
    takes \( (\bar{Y}_{\text{high}}-\bar{Y}_{\text{low}})/(\bar{x}_{\text{high}}-\bar{x}_{\text{low}}) \).
 :::
 
-Each coefficient vector satisfies \( \bone\T\bm a=0 \) and \( \x\T\bm a=1 \), which is the condition
-\( \X\T\bm a=\blambda \) of @prp-opt-lue. So all three are unbiased, whatever the distribution of
-the errors. By @eq-opt-var-norm their variances are \( \sigma^2\norm{\bm a}^2 \):
+Each coefficient vector satisfies \( \bone\T\mathbf{a}=0 \) and \( \x\T\mathbf{a}=1 \), which is the condition
+\( \X\T\mathbf{a}=\blambda \) of @prp-opt-lue. So all three are unbiased, whatever the distribution of
+the errors. By @eq-opt-var-norm their variances are \( \sigma^2\norm{\mathbf{a}}^2 \):
 \[
 0.00729\,\sigma^2,\qquad 0.01653\,\sigma^2,\qquad 0.01008\,\sigma^2 .
 \]
@@ -256,7 +256,7 @@ squares. [Section 7.4](04-minimum-variance.html) shows that under normality this
 
 In the location model \( Y_i=\mu+\varepsilon_i \) (\( \X=\bone \)), show that the LUEs of \( \mu \) are
 the weighted averages \( \sum_ia_iY_i \) with \( \sum_ia_i=1 \). Identify \( \mathcal A_{\blambda} \) and
-\( \bm a_* \) and find the LUE of smallest variance directly.
+\( \mathbf{a}_* \) and find the LUE of smallest variance directly.
 :::
 
 ::: {#exr-opt-oneway-lue}
@@ -273,19 +273,19 @@ projection onto \( \C(\X) \).
 ::: {#exr-opt-unbiased-zero}
 [B1]
 
-A linear estimator \( \bm a\T\Y \) is an **unbiased estimator of zero** if \( \E(\bm a\T\Y)=0 \) for every
-\( \bbeta \). Show that this holds iff \( \bm a\in\C(\X)\perpc \), iff \( \bm a\T\Y \) is a linear function of
+A linear estimator \( \mathbf{a}\T\Y \) is an **unbiased estimator of zero** if \( \E(\mathbf{a}\T\Y)=0 \) for every
+\( \bbeta \). Show that this holds iff \( \mathbf{a}\in\C(\X)\perpc \), iff \( \mathbf{a}\T\Y \) is a linear function of
 the residual vector \( \he \). Show that every unbiased estimator of zero is uncorrelated with
 \( \blambda\T\hbeta \) for every estimable \( \blambda\T\bbeta \).
 :::
 
 ::: {.solution}
-By @prp-opt-lue with \( \blambda=\bzero \), \( \bm a\T\Y \) is unbiased for zero iff
-\( \X\T\bm a=\bzero \), iff \( \bm a\in\C(\X)\perpc \). If so, \( \bm a=(\I-\M)\bm a \) and
-\( \bm a\T\Y=\bm a\T(\I-\M)\Y=\bm a\T\he \). Conversely, \( \bw\T\he=((\I-\M)\bw)\T\Y \) has coefficient
-vector in \( \C(\X)\perpc \). For the last claim, write \( \blambda\T\hbeta=\bm\rho\T\M\Y \). By
+By @prp-opt-lue with \( \blambda=\bzero \), \( \mathbf{a}\T\Y \) is unbiased for zero iff
+\( \X\T\mathbf{a}=\bzero \), iff \( \mathbf{a}\in\C(\X)\perpc \). If so, \( \mathbf{a}=(\I-\M)\mathbf{a} \) and
+\( \mathbf{a}\T\Y=\mathbf{a}\T(\I-\M)\Y=\mathbf{a}\T\he \). Conversely, \( \bw\T\he=((\I-\M)\bw)\T\Y \) has coefficient
+vector in \( \C(\X)\perpc \). For the last claim, write \( \blambda\T\hbeta=\boldsymbol{\rho}\T\M\Y \). By
 @thm-rv-linear,
-\( \Cov(\bm\rho\T\M\Y,\bm a\T\Y)=\sigma^2\bm\rho\T\M\bm a=0 \), because \( \M\bm a=\bzero \).
+\( \Cov(\boldsymbol{\rho}\T\M\Y,\mathbf{a}\T\Y)=\sigma^2\boldsymbol{\rho}\T\M\mathbf{a}=0 \), because \( \M\mathbf{a}=\bzero \).
 :::
 
 ::: {#exr-opt-lue-matrix}
@@ -293,7 +293,7 @@ vector in \( \C(\X)\perpc \). For the last claim, write \( \blambda\T\hbeta=\bm\
 
 Let \( \bLambda \) be \( p\times q \) with \( \C(\bLambda)\subseteq\C(\X\T) \). Show that \( \A\Y \) is an LUE of
 \( \bLambda\T\bbeta \) iff \( \A\X=\bLambda\T \), and that the set of such \( \A \) is
-\( \{\bLambda\T(\X\T\X)\ginv\X\T+\bm W(\I-\M):\bm W\in\Real^{q\times n}\} \).
+\( \{\bLambda\T(\X\T\X)\ginv\X\T+\mathbf{W}(\I-\M):\mathbf{W}\in\Real^{q\times n}\} \).
 :::
 
 ### C. Going deeper

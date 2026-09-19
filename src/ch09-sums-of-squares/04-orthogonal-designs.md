@@ -123,20 +123,20 @@ n_{ij}=\frac{n_{i\cdot}\,n_{\cdot j}}{n}\qquad\text{for all }i,j .
 A vector in the centred subspace of \( A \) takes a value \( \alpha_i \) on every observation in row
 \( i \), with \( \sum_in_{i\cdot}\alpha_i=0 \). A vector in that of \( B \) takes the value \( \beta_j \) in
 column \( j \), with \( \sum_jn_{\cdot j}\beta_j=0 \). Their inner product is
-\( \sum_{i,j}n_{ij}\alpha_i\beta_j=\bm\alpha\T\bm N\bm\beta \), with \( \bm N=(n_{ij}) \). Write
-\( \br=(n_{1\cdot},\dots,n_{a\cdot})\T \) and \( \bm c=(n_{\cdot1},\dots,n_{\cdot b})\T \). The subspaces are
-orthogonal iff \( \bm\alpha\T\bm N\bm\beta=0 \) whenever \( \bm\alpha\T\br=0 \) and \( \bm c\T\bm\beta=0 \).
+\( \sum_{i,j}n_{ij}\alpha_i\beta_j=\boldsymbol{\alpha}\T\mathbf{N}\boldsymbol{\beta} \), with \( \mathbf{N}=(n_{ij}) \). Write
+\( \br=(n_{1\cdot},\dots,n_{a\cdot})\T \) and \( \mathbf{c}=(n_{\cdot1},\dots,n_{\cdot b})\T \). The subspaces are
+orthogonal iff \( \boldsymbol{\alpha}\T\mathbf{N}\boldsymbol{\beta}=0 \) whenever \( \boldsymbol{\alpha}\T\br=0 \) and \( \mathbf{c}\T\boldsymbol{\beta}=0 \).
 
-If @eq-ss-proportional holds, \( \bm N=\br\bm c\T/n \) and
-\( \bm\alpha\T\bm N\bm\beta=(\bm\alpha\T\br)(\bm c\T\bm\beta)/n=0 \). Conversely, let
-\( \bm E=\bm N-\br\bm c\T/n \). Its row sums are \( \br-\br(\bm c\T\bone)/n=\bzero \) and its column sums are
-\( \bm c\T-(\bone\T\br)\bm c\T/n=\bzero\T \), since \( \bone\T\br=\bm c\T\bone=n \). So \( \bm\alpha\T\bm E\bm\beta \)
-does not change when \( \bm\alpha \) or \( \bm\beta \) is shifted by a multiple of \( \bone \). Given any
-\( \bm\alpha \) and \( \bm\beta \), shift them to \( \bm\alpha'=\bm\alpha-(\bm\alpha\T\br/n)\bone \) and
-\( \bm\beta'=\bm\beta-(\bm c\T\bm\beta/n)\bone \), which satisfy \( \bm\alpha'\T\br=0 \) and
-\( \bm c\T\bm\beta'=0 \). Then
-\( \bm\alpha\T\bm E\bm\beta=\bm\alpha'\T\bm E\bm\beta'=\bm\alpha'\T\bm N\bm\beta'-0=0 \) by assumption. As
-\( \bm\alpha \) and \( \bm\beta \) are arbitrary, \( \bm E=\bzero \).
+If @eq-ss-proportional holds, \( \mathbf{N}=\br\mathbf{c}\T/n \) and
+\( \boldsymbol{\alpha}\T\mathbf{N}\boldsymbol{\beta}=(\boldsymbol{\alpha}\T\br)(\mathbf{c}\T\boldsymbol{\beta})/n=0 \). Conversely, let
+\( \mathbf{E}=\mathbf{N}-\br\mathbf{c}\T/n \). Its row sums are \( \br-\br(\mathbf{c}\T\bone)/n=\bzero \) and its column sums are
+\( \mathbf{c}\T-(\bone\T\br)\mathbf{c}\T/n=\bzero\T \), since \( \bone\T\br=\mathbf{c}\T\bone=n \). So \( \boldsymbol{\alpha}\T\mathbf{E}\boldsymbol{\beta} \)
+does not change when \( \boldsymbol{\alpha} \) or \( \boldsymbol{\beta} \) is shifted by a multiple of \( \bone \). Given any
+\( \boldsymbol{\alpha} \) and \( \boldsymbol{\beta} \), shift them to \( \boldsymbol{\alpha}'=\boldsymbol{\alpha}-(\boldsymbol{\alpha}\T\br/n)\bone \) and
+\( \boldsymbol{\beta}'=\boldsymbol{\beta}-(\mathbf{c}\T\boldsymbol{\beta}/n)\bone \), which satisfy \( \boldsymbol{\alpha}'\T\br=0 \) and
+\( \mathbf{c}\T\boldsymbol{\beta}'=0 \). Then
+\( \boldsymbol{\alpha}\T\mathbf{E}\boldsymbol{\beta}=\boldsymbol{\alpha}'\T\mathbf{E}\boldsymbol{\beta}'=\boldsymbol{\alpha}'\T\mathbf{N}\boldsymbol{\beta}'-0=0 \) by assumption. As
+\( \boldsymbol{\alpha} \) and \( \boldsymbol{\beta} \) are arbitrary, \( \mathbf{E}=\bzero \).
 :::
 
 Equal replication, \( n_{ij}=m \), is the common case (@exm-proj-two-factor,
@@ -213,19 +213,19 @@ A polynomial regression in a single variable \( x \), with distinct values
 \]
 where \( \x^k \) is the vector with entries \( x_i^k \). The decomposition of interest is that of the chain (@thm-ss-decomposition(e)). Its \( k \)th subspace,
 \( \mathcal P_{k-1}\perpc\cap\mathcal P_k \), is a line. Applying Gram–Schmidt (@prp-proj-gram-schmidt) to \( \bone,\x,\x^2,\dots \) produces
-unit vectors \( \bm q_0,\bm q_1,\dots,\bm q_d \) with
-\( \spn(\bm q_0,\dots,\bm q_k)=\mathcal P_k \) for every \( k \). So \( \bm q_k \) spans that line. The
-vectors \( \bm q_k \), evaluated at the design points, are the **orthogonal polynomials** of the
+unit vectors \( \mathbf{q}_0,\mathbf{q}_1,\dots,\mathbf{q}_d \) with
+\( \spn(\mathbf{q}_0,\dots,\mathbf{q}_k)=\mathcal P_k \) for every \( k \). So \( \mathbf{q}_k \) spans that line. The
+vectors \( \mathbf{q}_k \), evaluated at the design points, are the **orthogonal polynomials** of the
 design. Three consequences follow at once.
 
 1. The sequential sum of squares for degree \( k \), the drop in residual sum of squares from degree
-   \( k-1 \) to degree \( k \), is \( (\bm q_k\T\y)^2 \), with one degree of freedom.
+   \( k-1 \) to degree \( k \), is \( (\mathbf{q}_k\T\y)^2 \), with one degree of freedom.
 
-2. The columns \( \bm q_1,\dots,\bm q_d \) are orthogonal and centred, so as separate terms they form
+2. The columns \( \mathbf{q}_1,\dots,\mathbf{q}_d \) are orthogonal and centred, so as separate terms they form
    an orthogonal design (@thm-ss-orthogonal-design), and their sums of squares do not depend on
    the order of entry.
 
-3. The coefficient of \( \bm q_k \) is \( \bm q_k\T\y \) in every fit that includes it
+3. The coefficient of \( \mathbf{q}_k \) is \( \mathbf{q}_k\T\y \) in every fit that includes it
    (@cor-ss-orthogonal-coefficients). Raising the degree never changes the lower coefficients.
 
 For equally spaced \( x \) the orthogonal polynomials have integer multiples that are widely
@@ -240,7 +240,7 @@ Chapter 42.
 
 The annual flow of the Nile at Aswan was recorded for the \( 100 \) years 1871–1970. How
 much of its variation is a smooth trend? The listing builds the orthonormal polynomials
-\( \bm q_0,\dots,\bm q_4 \) for the years by a QR factorization of the matrix of powers, and reads
+\( \mathbf{q}_0,\dots,\mathbf{q}_4 \) for the years by a QR factorization of the matrix of powers, and reads
 off the sequential sums of squares (in units of \( (10^8\,\text{m}^3)^2 \)):
 
 | Degree | 1 | 2 | 3 | 4 |
@@ -262,18 +262,18 @@ the linear column entered after the quadratic and cubic ones receives \( 74751 \
 quadratic fits, but \( -117.3 \) in the cubic and quartic ones. It survives the
 quadratic term because the years are symmetric about their mean, which makes odd and even
 centred powers orthogonal (@exr-ss-symmetric-design), but not the cubic term. The coefficient of
-\( \bm q_1 \) is \( -783.5 \) in every fit.
+\( \mathbf{q}_1 \) is \( -783.5 \) in every fit.
 :::
 
 ::: {when-format="html"}
-![**Figure 9.4.1.** (a) The orthonormal polynomials \( \bm q_1,\bm q_2,\bm q_3 \) for the years
+![**Figure 9.4.1.** (a) The orthonormal polynomials \( \mathbf{q}_1,\mathbf{q}_2,\mathbf{q}_3 \) for the years
 1871–1970. (b) The Nile flow with the nested least squares fits of degrees 1, 2 and 3. The
 quadratic and cubic fits nearly coincide, because the cubic sum of squares is
 tiny.](orthogonal_poly.svg){#fig-ss-nile width=100%}
 :::
 
 ::: {when-format="pdf"}
-![(a) The orthonormal polynomials \( \bm q_1,\bm q_2,\bm q_3 \) for the years
+![(a) The orthonormal polynomials \( \mathbf{q}_1,\mathbf{q}_2,\mathbf{q}_3 \) for the years
 1871–1970. (b) The Nile flow with the nested least squares fits of degrees 1, 2 and 3. The
 quadratic and cubic fits nearly coincide, because the cubic sum of squares is
 tiny.](orthogonal_poly.pdf){width=100%}
@@ -307,17 +307,17 @@ estimable functions whose estimates are uncorrelated.
 [Orthogonal single-degree-of-freedom sums of squares]
 
 Let \( \blambda_1,\dots,\blambda_s \) be nonzero vectors with \( \blambda_k\T\bbeta \) estimable, so that
-\( \blambda_k=\X\T\bm\rho_k \), and let \( \G \) be a generalized inverse of \( \X\T\X \).
+\( \blambda_k=\X\T\boldsymbol{\rho}_k \), and let \( \G \) be a generalized inverse of \( \X\T\X \).
 
 ::: {.enumerate options="label=(\alph*)"}
 1. The sum of squares for \( \blambda_k\T\bbeta=0 \) is
    \[
-\text{SS}_k=\frac{(\blambda_k\T\hbeta)^2}{\blambda_k\T\G\blambda_k}=\norm{\bP_{\bm v_k}\y}^2,
-   \qquad \bm v_k=\M\bm\rho_k ,
+\text{SS}_k=\frac{(\blambda_k\T\hbeta)^2}{\blambda_k\T\G\blambda_k}=\norm{\bP_{\mathbf{v}_k}\y}^2,
+   \qquad \mathbf{v}_k=\M\boldsymbol{\rho}_k ,
 \]
-   the squared length of the projection of \( \y \) onto the line spanned by \( \bm v_k \).
+   the squared length of the projection of \( \y \) onto the line spanned by \( \mathbf{v}_k \).
 
-2. \( \bm v_h\T\bm v_k=\blambda_h\T\G\blambda_k \). If \( \blambda_h\T\G\blambda_k=0 \) for all \( h\neq k \),
+2. \( \mathbf{v}_h\T\mathbf{v}_k=\blambda_h\T\G\blambda_k \). If \( \blambda_h\T\G\blambda_k=0 \) for all \( h\neq k \),
    the lines are mutually orthogonal, and \( \sum_k\text{SS}_k \) is the sum of squares for the joint
    hypothesis \( \blambda_1\T\bbeta=\dots=\blambda_s\T\bbeta=0 \), on \( s \) degrees of freedom.
 
@@ -328,22 +328,22 @@ Let \( \blambda_1,\dots,\blambda_s \) be nonzero vectors with \( \blambda_k\T\bb
 :::
 
 ::: {.proof}
-(a) is @thm-ss-hypothesis with \( q=1 \) and \( \bm d=0 \): the test space is spanned by
-\( \M\bm\rho_k=\bm v_k \), and the projection of \( \y \) onto it has squared length
-\( (\bm v_k\T\y)^2/\bm v_k\T\bm v_k \), where \( \bm v_k\T\y=\bm\rho_k\T\M\y=\blambda_k\T\hbeta \) and
-\( \bm v_k\T\bm v_k=\blambda_k\T\G\blambda_k \). (b) \( \bm v_h\T\bm v_k=\bm\rho_h\T\M\bm\rho_k=\bm\rho_h\T\X\G\X\T\bm\rho_k=\blambda_h\T\G\blambda_k \)
+(a) is @thm-ss-hypothesis with \( q=1 \) and \( \mathbf{d}=0 \): the test space is spanned by
+\( \M\boldsymbol{\rho}_k=\mathbf{v}_k \), and the projection of \( \y \) onto it has squared length
+\( (\mathbf{v}_k\T\y)^2/\mathbf{v}_k\T\mathbf{v}_k \), where \( \mathbf{v}_k\T\y=\boldsymbol{\rho}_k\T\M\y=\blambda_k\T\hbeta \) and
+\( \mathbf{v}_k\T\mathbf{v}_k=\blambda_k\T\G\blambda_k \). (b) \( \mathbf{v}_h\T\mathbf{v}_k=\boldsymbol{\rho}_h\T\M\boldsymbol{\rho}_k=\boldsymbol{\rho}_h\T\X\G\X\T\boldsymbol{\rho}_k=\blambda_h\T\G\blambda_k \)
 by @thm-proj-M-formula. Orthogonal nonzero vectors are independent, so
-\( \bLambda=[\blambda_1,\dots,\blambda_s] \) has rank \( s \) (because \( \X\T\bm V=\bLambda \) with
-\( \bm V=[\bm v_1,\dots,\bm v_s] \), and \( \X\T \) is one-to-one on \( \C(\X) \)). The test space of the joint
-hypothesis is \( \C(\M\bT)=\C(\bm V) \), with \( \bT=[\bm\rho_1,\dots,\bm\rho_s] \), by @thm-ss-hypothesis(b), and the projection onto a span of
+\( \bLambda=[\blambda_1,\dots,\blambda_s] \) has rank \( s \) (because \( \X\T\mathbf{V}=\bLambda \) with
+\( \mathbf{V}=[\mathbf{v}_1,\dots,\mathbf{v}_s] \), and \( \X\T \) is one-to-one on \( \C(\X) \)). The test space of the joint
+hypothesis is \( \C(\M\bT)=\C(\mathbf{V}) \), with \( \bT=[\boldsymbol{\rho}_1,\dots,\boldsymbol{\rho}_s] \), by @thm-ss-hypothesis(b), and the projection onto a span of
 orthogonal lines is the sum of the projections onto the lines (@thm-proj-sum). (c) With
-\( \bm\rho_k=\bu_k \), \( \bm v_k=\M\bu_k=\bu_k \), and \( \blambda_h\T\G\blambda_k=\bu_h\T\bu_k \).
+\( \boldsymbol{\rho}_k=\bu_k \), \( \mathbf{v}_k=\M\bu_k=\bu_k \), and \( \blambda_h\T\G\blambda_k=\bu_h\T\bu_k \).
 :::
 
 In the one-way layout with group sizes \( n_1,\dots,n_g \), take the generalized inverse of @exr-ss-oneway-contrast.
 A contrast \( \sum_ic_i\alpha_i \) with \( \sum_ic_i=0 \) (@def-est-contrast)
 is estimated by \( \sum_ic_i\bar{y}_i \), and \( \blambda\T\G\blambda=\sum_ic_i^2/n_i \). So two
-contrasts \( \bm c \) and \( \bm c' \) give orthogonal sums of squares iff
+contrasts \( \mathbf{c} \) and \( \mathbf{c}' \) give orthogonal sums of squares iff
 \[
 \sum_{i=1}^g\frac{c_ic_i'}{n_i}=0 ,
 \]
@@ -358,13 +358,13 @@ Consider the \( 944 \) self-placements of @exm-ss-anes-types by education alone.
 are \( 313 \), \( 277 \) and \( 354 \), and the group means are \( 4.476 \),
 \( 4.357 \) and \( 4.167 \). The between-groups sum of squares is
 \( 16.306 \) on two degrees of freedom. The contrast of college against graduate,
-\( \bm c_2=(0,1,-1) \), has sum of squares \( 5.653 \). The contrast of high school against
-the other two, weighted by their sizes, \( \bm c_1=(1,-0.439,-0.561) \), is orthogonal
-to \( \bm c_2 \) in the sense above, and has sum of squares \( 10.652 \). The two add up to
+\( \mathbf{c}_2=(0,1,-1) \), has sum of squares \( 5.653 \). The contrast of high school against
+the other two, weighted by their sizes, \( \mathbf{c}_1=(1,-0.439,-0.561) \), is orthogonal
+to \( \mathbf{c}_2 \) in the sense above, and has sum of squares \( 10.652 \). The two add up to
 the between-groups sum of squares, up to rounding. The more obvious contrast \( (1,-\tfrac12,-\tfrac12) \),
 high school against the plain average of the others, has sum of squares \( 9.534 \),
-and together with \( \bm c_2 \) it gives \( 15.187 \): with unequal group sizes it is not
-orthogonal to \( \bm c_2 \).
+and together with \( \mathbf{c}_2 \) it gives \( 15.187 \): with unequal group sizes it is not
+orthogonal to \( \mathbf{c}_2 \).
 :::
 
 ```{.python .run #cell-single-df-contrasts}
@@ -460,7 +460,7 @@ fails.
 [B3]
 
 In a one-way layout with \( g \) groups of equal size \( m \), show that the Helmert contrasts
-\( \bm c_k=(1,\dots,1,-(k-1),0,\dots,0) \), with \( k-1 \) leading ones, \( k=2,\dots,g \), are mutually
+\( \mathbf{c}_k=(1,\dots,1,-(k-1),0,\dots,0) \), with \( k-1 \) leading ones, \( k=2,\dots,g \), are mutually
 orthogonal, and write the between-groups sum of squares as a sum of \( g-1 \) single-degree-of-freedom
 sums of squares. What goes wrong with unequal group sizes?
 :::
@@ -472,25 +472,25 @@ sums of squares. What goes wrong with unequal group sizes?
 
 Suppose the design points are symmetric about their mean: after sorting,
 \( x_i-\bar{x}=-(x_{n+1-i}-\bar{x}) \). Show that every odd power of the centred variable is orthogonal
-to every even power (including the zeroth), that \( \bm q_k \) is an even or odd vector according to
+to every even power (including the zeroth), that \( \mathbf{q}_k \) is an even or odd vector according to
 the parity of \( k \), and explain the pattern of raw coefficients in @exm-ss-nile-polynomials.
 :::
 
 ::: {.solution}
-Let \( \bm t \) have entries \( t_i=x_i-\bar{x} \) and let \( \bm J \) be the reversal permutation, so that
-\( \bm J\bm t=-\bm t \). A vector \( \bu \) is even if \( \bm J\bu=\bu \) and odd if \( \bm J\bu=-\bu \). Powers
-\( \bm t^k \) have the parity of \( k \), and an even vector \( \bu \) and an odd vector \( \bv \) are
-orthogonal because \( \bu\T\bv=(\bm J\bu)\T(\bm J\bv)=-\bu\T\bv \). Gram–Schmidt on
-\( \bone,\bm t,\bm t^2,\dots \) subtracts from \( \bm t^k \) only its projections on the earlier
-\( \bm q_j \) of the same parity, by induction, so \( \bm q_k \) has the parity of \( k \). Hence the
-column \( \bm t \) is orthogonal to the column \( \bm t^2 \) and to \( \bone \), and adding the quadratic
+Let \( \mathbf{t} \) have entries \( t_i=x_i-\bar{x} \) and let \( \mathbf{J} \) be the reversal permutation, so that
+\( \mathbf{J}\mathbf{t}=-\mathbf{t} \). A vector \( \bu \) is even if \( \mathbf{J}\bu=\bu \) and odd if \( \mathbf{J}\bu=-\bu \). Powers
+\( \mathbf{t}^k \) have the parity of \( k \), and an even vector \( \bu \) and an odd vector \( \bv \) are
+orthogonal because \( \bu\T\bv=(\mathbf{J}\bu)\T(\mathbf{J}\bv)=-\bu\T\bv \). Gram–Schmidt on
+\( \bone,\mathbf{t},\mathbf{t}^2,\dots \) subtracts from \( \mathbf{t}^k \) only its projections on the earlier
+\( \mathbf{q}_j \) of the same parity, by induction, so \( \mathbf{q}_k \) has the parity of \( k \). Hence the
+column \( \mathbf{t} \) is orthogonal to the column \( \mathbf{t}^2 \) and to \( \bone \), and adding the quadratic
 term does not change the linear coefficient (@cor-ss-orthogonal-coefficients, applied to the terms
-\( \bm t \) and \( \bm t^2-\bar{\bm t^2}\bone \)). The cubic column is odd and not orthogonal to \( \bm t \),
+\( \mathbf{t} \) and \( \mathbf{t}^2-\bar{\mathbf{t}^2}\bone \)). The cubic column is odd and not orthogonal to \( \mathbf{t} \),
 so it changes the linear coefficient. The quartic column is even. By @thm-ss-adding(b), adding it
 changes the cubic fit's coefficients by \( -\bL\hat{\gamma} \) with
-\( \bL=(\X\T\X)^{-1}\X\T\bm t^4 \), where \( \X=[\bone,\bm t,\bm t^2,\bm t^3] \). Inner products
+\( \bL=(\X\T\X)^{-1}\X\T\mathbf{t}^4 \), where \( \X=[\bone,\mathbf{t},\mathbf{t}^2,\mathbf{t}^3] \). Inner products
 between odd and even columns vanish, so \( \X\T\X \) and its inverse do not link the odd and even
-columns, and the entries of \( \X\T\bm t^4 \) for the odd columns are zero. Hence the rows of \( \bL \) for
-\( \bm t \) and \( \bm t^3 \) vanish, and the linear coefficient is unchanged.
+columns, and the entries of \( \X\T\mathbf{t}^4 \) for the odd columns are zero. Hence the rows of \( \bL \) for
+\( \mathbf{t} \) and \( \mathbf{t}^3 \) vanish, and the linear coefficient is unchanged.
 :::
 

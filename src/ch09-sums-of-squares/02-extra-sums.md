@@ -59,34 +59,34 @@ the columns of \( \tilde{\X}_2 \) lie in \( \C(\X) \) and are orthogonal to \( \
 ## Adding regressors to a fitted model
 
 Suppose \( \E(\Y)=\X\bbeta \) has been fitted and we add the columns of an \( n\times t \) matrix
-\( \bm Z \), giving \( \E(\Y)=\X\bbeta+\bm Z\bgamma \) with model matrix \( \W=[\X,\bm Z] \). Only a
+\( \mathbf{Z} \), giving \( \E(\Y)=\X\bbeta+\mathbf{Z}\bgamma \) with model matrix \( \W=[\X,\mathbf{Z}] \). Only a
 \( t\times t \) matrix has to be inverted.
 
 ::: {#thm-ss-adding}
 [Adding regressors]
 
-Let \( \W=[\X,\bm Z] \) have full column rank \( p+t \), let \( \bm C=(\X\T\X)^{-1} \),
-\( \hbeta=\bm C\X\T\y \), and \( \R=\I-\X\bm C\X\T \). Then:
+Let \( \W=[\X,\mathbf{Z}] \) have full column rank \( p+t \), let \( \mathbf{C}=(\X\T\X)^{-1} \),
+\( \hbeta=\mathbf{C}\X\T\y \), and \( \R=\I-\X\mathbf{C}\X\T \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \bm Z\T\R\bm Z \) is positive definite;
+1. \( \mathbf{Z}\T\R\mathbf{Z} \) is positive definite;
 
 2. the least squares coefficients of the enlarged model are
    \[
-\hat{\bgamma}=(\bm Z\T\R\bm Z)^{-1}\bm Z\T\R\y,\qquad
-\hbeta_W=\hbeta-\bL\hat{\bgamma},\qquad \bL=\bm C\X\T\bm Z ;
+\hat{\bgamma}=(\mathbf{Z}\T\R\mathbf{Z})^{-1}\mathbf{Z}\T\R\y,\qquad
+\hbeta_W=\hbeta-\bL\hat{\bgamma},\qquad \bL=\mathbf{C}\X\T\mathbf{Z} ;
 \]
 
 3. the residual sum of squares falls by
    \[
-\text{SS}(\bm Z\mid\X)=\y\T\R\bm Z(\bm Z\T\R\bm Z)^{-1}\bm Z\T\R\y=\hat{\bgamma}\T\bm Z\T\R\y
-=\hat{\bgamma}\T(\bm Z\T\R\bm Z)\hat{\bgamma} ;
+\text{SS}(\mathbf{Z}\mid\X)=\y\T\R\mathbf{Z}(\mathbf{Z}\T\R\mathbf{Z})^{-1}\mathbf{Z}\T\R\y=\hat{\bgamma}\T\mathbf{Z}\T\R\y
+=\hat{\bgamma}\T(\mathbf{Z}\T\R\mathbf{Z})\hat{\bgamma} ;
 \]
 
-4. if \( \Cov(\Y)=\sigma^2\I \), then \( \Cov(\hat{\bgamma})=\sigma^2(\bm Z\T\R\bm Z)^{-1} \),
+4. if \( \Cov(\Y)=\sigma^2\I \), then \( \Cov(\hat{\bgamma})=\sigma^2(\mathbf{Z}\T\R\mathbf{Z})^{-1} \),
    \( \Cov(\hbeta_W,\hat{\bgamma})=-\bL\Cov(\hat{\bgamma}) \) and
    \[
-\Cov(\hbeta_W)=\sigma^2\bigl[\bm C+\bL(\bm Z\T\R\bm Z)^{-1}\bL\T\bigr].
+\Cov(\hbeta_W)=\sigma^2\bigl[\mathbf{C}+\bL(\mathbf{Z}\T\R\mathbf{Z})^{-1}\bL\T\bigr].
 \]
 :::
 
@@ -94,34 +94,34 @@ Let \( \W=[\X,\bm Z] \) have full column rank \( p+t \), let \( \bm C=(\X\T\X)^{
 
 ::: {.proof}
 (a) \( \R \) is the symmetric idempotent residual projection of the model \( \X \), so
-\( \bm a\T\bm Z\T\R\bm Z\bm a=\norm{\R\bm Z\bm a}^2\ge0 \). If \( \R\bm Z\bm a=\bzero \), then
-\( \bm Z\bm a\in\C(\X) \), say \( \bm Z\bm a=\X\bb \), so \( \W(-\bb\T,\bm a\T)\T=\bzero \) and full
-column rank forces \( \bm a=\bzero \).
+\( \mathbf{a}\T\mathbf{Z}\T\R\mathbf{Z}\mathbf{a}=\norm{\R\mathbf{Z}\mathbf{a}}^2\ge0 \). If \( \R\mathbf{Z}\mathbf{a}=\bzero \), then
+\( \mathbf{Z}\mathbf{a}\in\C(\X) \), say \( \mathbf{Z}\mathbf{a}=\X\bb \), so \( \W(-\bb\T,\mathbf{a}\T)\T=\bzero \) and full
+column rank forces \( \mathbf{a}=\bzero \).
 
-(b) Apply the Frisch–Waugh–Lovell theorem (@thm-proj-fwl) with \( \X_1=\bm Z \) and
-\( \X_2=\X \). Then \( \M_2=\I-\R \) and \( \tilde{\X}_1=\R\bm Z \), so part (a) of that theorem gives
-\( \hat{\bgamma}=(\bm Z\T\R\R\bm Z)^{-1}\bm Z\T\R\y \), which is the stated formula because \( \R \) is
+(b) Apply the Frisch–Waugh–Lovell theorem (@thm-proj-fwl) with \( \X_1=\mathbf{Z} \) and
+\( \X_2=\X \). Then \( \M_2=\I-\R \) and \( \tilde{\X}_1=\R\mathbf{Z} \), so part (a) of that theorem gives
+\( \hat{\bgamma}=(\mathbf{Z}\T\R\R\mathbf{Z})^{-1}\mathbf{Z}\T\R\y \), which is the stated formula because \( \R \) is
 symmetric and idempotent. Part (c) of the theorem gives
-\( \hbeta_W=\bm C\X\T(\y-\bm Z\hat{\bgamma})=\hbeta-\bL\hat{\bgamma} \).
+\( \hbeta_W=\mathbf{C}\X\T(\y-\mathbf{Z}\hat{\bgamma})=\hbeta-\bL\hat{\bgamma} \).
 
 (c) By @lem-ss-residualized, the extra sum of squares is the squared length of the projection of
-\( \y \) onto \( \C(\R\bm Z) \), which is
-\( \y\T\R\bm Z(\bm Z\T\R\bm Z)^{-1}\bm Z\T\R\y \) by @thm-proj-M-formula. Substituting (b) gives the
+\( \y \) onto \( \C(\R\mathbf{Z}) \), which is
+\( \y\T\R\mathbf{Z}(\mathbf{Z}\T\R\mathbf{Z})^{-1}\mathbf{Z}\T\R\y \) by @thm-proj-M-formula. Substituting (b) gives the
 other two forms.
 
 (d) Both \( \hat{\bgamma} \) and \( \hbeta \) are linear in \( \y \), and by @thm-rv-linear
 \[
-\Cov(\hat{\bgamma})=\sigma^2(\bm Z\T\R\bm Z)^{-1}\bm Z\T\R\R\bm Z(\bm Z\T\R\bm Z)^{-1}=\sigma^2(\bm Z\T\R\bm Z)^{-1},
+\Cov(\hat{\bgamma})=\sigma^2(\mathbf{Z}\T\R\mathbf{Z})^{-1}\mathbf{Z}\T\R\R\mathbf{Z}(\mathbf{Z}\T\R\mathbf{Z})^{-1}=\sigma^2(\mathbf{Z}\T\R\mathbf{Z})^{-1},
 \qquad
-\Cov(\hbeta,\hat{\bgamma})=\sigma^2\bm C\X\T\R\bm Z(\bm Z\T\R\bm Z)^{-1}=\bzero ,
+\Cov(\hbeta,\hat{\bgamma})=\sigma^2\mathbf{C}\X\T\R\mathbf{Z}(\mathbf{Z}\T\R\mathbf{Z})^{-1}=\bzero ,
 \]
-since \( \X\T\R=\bzero \). With \( \Cov(\hbeta)=\sigma^2\bm C \) (@thm-lm-moments), the formula
+since \( \X\T\R=\bzero \). With \( \Cov(\hbeta)=\sigma^2\mathbf{C} \) (@thm-lm-moments), the formula
 \( \hbeta_W=\hbeta-\bL\hat{\bgamma} \) gives
 \( \Cov(\hbeta_W,\hat{\bgamma})=-\bL\Cov(\hat{\bgamma}) \) and
 \( \Cov(\hbeta_W)=\Cov(\hbeta)+\bL\Cov(\hat{\bgamma})\bL\T \).
 :::
 
-Since \( \bL(\bm Z\T\R\bm Z)^{-1}\bL\T \) is nonnegative definite, part (d) shows that *adding
+Since \( \bL(\mathbf{Z}\T\R\mathbf{Z})^{-1}\bL\T \) is nonnegative definite, part (d) shows that *adding
 regressors never decreases the variances of the coefficients already in the model*, when both
 models are correct (compare @exr-mat-adding-regressors, and see @exr-ss-no-variance-change). Chapter 26 measures this price of adjustment as
 variance inflation. In computation one updates a QR factorization instead of using these formulas
@@ -132,7 +132,7 @@ variance inflation. In computation one updates a QR factorization instead of usi
 
 In the state data, fit the murder rate on single parenthood first:
 \( \hat{y}=-8.2146+0.5147\,x_{\text{single}} \), with residual sum of squares
-\( 121.92 \). Now add \( \bm Z=[\x_{\text{poverty}},\x_{\text{urban}}] \). The listing computes
+\( 121.92 \). Now add \( \mathbf{Z}=[\x_{\text{poverty}},\x_{\text{urban}}] \). The listing computes
 \( \hat{\bgamma}=(0.2538,\,0.0046) \) from the old residual projection alone, and
 corrects the old coefficients to \( -9.0946 \) and \( 0.3980 \). These agree with a fresh fit of
 the enlarged model. The residual sum of squares falls by \( 19.96 \), on \( 2 \) degrees of
@@ -188,7 +188,7 @@ for the residual projection of \( \X_{(j)} \). By @thm-mat-partitioned-inverse t
 \( (\X\T\X)^{-1} \) is the inverse of the Schur complement
 \( \x_j\T\x_j-\x_j\T\X_{(j)}(\X_{(j)}\T\X_{(j)})^{-1}\X_{(j)}\T\x_j=\x_j\T\R\x_j \), so
 \( \x_j\T\R\x_j=1/c_{jj} \). Now apply @thm-ss-adding with \( \X_{(j)} \) as the old model and
-\( \bm Z=\x_j \): then \( \hat{\gamma}=\hat{\beta}_j \), and part (c) gives
+\( \mathbf{Z}=\x_j \): then \( \hat{\gamma}=\hat{\beta}_j \), and part (c) gives
 \( \text{SS}(\x_j\mid\X_{(j)})=\hat{\beta}_j^2\,\x_j\T\R\x_j=\hat{\beta}_j^2/c_{jj} \). The
 definition of \( t_j \) gives the last form.
 :::
@@ -219,9 +219,9 @@ gives its sum of squares in terms of the least squares estimate, with no reduced
 [Sum of squares of a linear hypothesis]
 
 Let \( \bLambda \) be a \( p\times q \) matrix of rank \( q \) such that each entry of \( \bLambda\T\bbeta \)
-is estimable, so that \( \bLambda=\X\T\bT \) for some \( n\times q \) matrix \( \bT=[\bm\rho_1,\dots,\bm\rho_q] \)
+is estimable, so that \( \bLambda=\X\T\bT \) for some \( n\times q \) matrix \( \bT=[\boldsymbol{\rho}_1,\dots,\boldsymbol{\rho}_q] \)
 (@def-est-estimable, @thm-proj-invariant-functions). Let \( \G \) be any generalized inverse of
-\( \X\T\X \), let \( \hbeta \) be any least squares estimate, and let \( \bm d\in\Real^q \). Then:
+\( \X\T\X \), let \( \hbeta \) be any least squares estimate, and let \( \mathbf{d}\in\Real^q \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
 1. \( \bLambda\T\hbeta \) and \( \bLambda\T\G\bLambda \) do not depend on the choices of \( \hbeta \)
@@ -231,10 +231,10 @@ is estimable, so that \( \bLambda=\X\T\bT \) for some \( n\times q \) matrix \( 
    complement in \( \C(\X) \) equal to \( \C(\M\bT) \), of dimension \( q \), and the projection onto
    \( \C(\M\bT) \) is \( \M\bT(\bLambda\T\G\bLambda)^{-1}\bT\T\M \);
 
-3. the minimum of \( \norm{\y-\X\bb}^2 \) over \( \{\bb:\bLambda\T\bb=\bm d\} \) exceeds
+3. the minimum of \( \norm{\y-\X\bb}^2 \) over \( \{\bb:\bLambda\T\bb=\mathbf{d}\} \) exceeds
    \( \text{SSE} \) by
    \[
-\text{SS}_H=(\bLambda\T\hbeta-\bm d)\T(\bLambda\T\G\bLambda)^{-1}(\bLambda\T\hbeta-\bm d).
+\text{SS}_H=(\bLambda\T\hbeta-\mathbf{d})\T(\bLambda\T\G\bLambda)^{-1}(\bLambda\T\hbeta-\mathbf{d}).
 \]{#eq-ss-hypothesis}
 
 :::
@@ -253,22 +253,22 @@ identifies its orthogonal complement in \( \C(\X) \) as \( \C(\M\bT) \). The col
 independent, so @thm-proj-M-formula gives the projection
 \( \M\bT(\bT\T\M\bT)^{-1}\bT\T\M \), and \( \bT\T\M\bT=\bLambda\T\G\bLambda \) by (a).
 
-(c) First let \( \bm d=\bzero \). Minimizing over \( \bLambda\T\bb=\bzero \) is minimizing
+(c) First let \( \mathbf{d}=\bzero \). Minimizing over \( \bLambda\T\bb=\bzero \) is minimizing
 \( \norm{\y-\bmu}^2 \) over \( \bmu\in\mathcal S_0 \), so by @eq-proj-extra-ss the excess over
 \( \text{SSE} \) is the squared length of the projection of \( \y \) onto
 \( \C(\X)\ominus\mathcal S_0=\C(\M\bT) \), where \( \ominus \) denotes the orthogonal complement
 within \( \C(\X) \). By (b) this is
 \( \y\T\M\bT(\bLambda\T\G\bLambda)^{-1}\bT\T\M\y \), and \( \bT\T\M\y=\bLambda\T\hbeta \). For
-general \( \bm d \), the rows of \( \bLambda\T \) are independent, so there is a \( \bb_0 \) with
-\( \bLambda\T\bb_0=\bm d \). Substituting \( \bb=\bb_0+\bb_* \) turns the problem into minimizing
+general \( \mathbf{d} \), the rows of \( \bLambda\T \) are independent, so there is a \( \bb_0 \) with
+\( \bLambda\T\bb_0=\mathbf{d} \). Substituting \( \bb=\bb_0+\bb_* \) turns the problem into minimizing
 \( \norm{\y_*-\X\bb_*}^2 \) subject to \( \bLambda\T\bb_*=\bzero \), with \( \y_*=\y-\X\bb_0 \). The
 data \( \y_* \) have the same residual sum of squares as \( \y \), and \( \hbeta-\bb_0 \) is a least
 squares estimate for them, since \( \X(\hbeta-\bb_0)=\M\y_* \). Applying the case
-\( \bm d=\bzero \) to \( \y_* \) gives @eq-ss-hypothesis, because
-\( \bLambda\T(\hbeta-\bb_0)=\bLambda\T\hbeta-\bm d \).
+\( \mathbf{d}=\bzero \) to \( \y_* \) gives @eq-ss-hypothesis, because
+\( \bLambda\T(\hbeta-\bb_0)=\bLambda\T\hbeta-\mathbf{d} \).
 :::
 
-In @eq-ss-hypothesis, \( \bLambda\T\hbeta-\bm d \) measures how far the estimate is from the
+In @eq-ss-hypothesis, \( \bLambda\T\hbeta-\mathbf{d} \) measures how far the estimate is from the
 hypothesis, and \( \sigma^2\bLambda\T\G\bLambda \) is the covariance of \( \bLambda\T\hbeta \) ([Chapter 7](../ch07-optimality/index.html)), so
 \( \text{SS}_H/\sigma^2 \) is the squared Mahalanobis length of the discrepancy
 (@prp-mvn-mahalanobis). No reduced model has to be fitted.
@@ -279,19 +279,19 @@ classical restricted least squares estimator.
 ::: {#thm-ss-restricted}
 [Restricted least squares]
 
-Let \( \X \) have full column rank, \( \bm C=(\X\T\X)^{-1} \), and let \( \bLambda \) (\( p\times q \)) have
-rank \( q \). For any \( \bm d\in\Real^q \), the unique minimizer of \( \norm{\y-\X\bb}^2 \) subject to
-\( \bLambda\T\bb=\bm d \) is
+Let \( \X \) have full column rank, \( \mathbf{C}=(\X\T\X)^{-1} \), and let \( \bLambda \) (\( p\times q \)) have
+rank \( q \). For any \( \mathbf{d}\in\Real^q \), the unique minimizer of \( \norm{\y-\X\bb}^2 \) subject to
+\( \bLambda\T\bb=\mathbf{d} \) is
 \[
-\hbeta_H=\hbeta-\bm C\bLambda(\bLambda\T\bm C\bLambda)^{-1}(\bLambda\T\hbeta-\bm d),
+\hbeta_H=\hbeta-\mathbf{C}\bLambda(\bLambda\T\mathbf{C}\bLambda)^{-1}(\bLambda\T\hbeta-\mathbf{d}),
 \]
 and \( \norm{\y-\X\hbeta_H}^2=\text{SSE}+\norm{\X(\hbeta-\hbeta_H)}^2 \), where the last term equals
-\( \text{SS}_H \) of @eq-ss-hypothesis with \( \G=\bm C \).
+\( \text{SS}_H \) of @eq-ss-hypothesis with \( \G=\mathbf{C} \).
 :::
 
 ::: {.proof}
-\( \bLambda\T\bm C\bLambda \) is positive definite because \( \bm C \) is and \( \bLambda \) has full
-column rank, and \( \bLambda\T\hbeta_H=\bLambda\T\hbeta-(\bLambda\T\hbeta-\bm d)=\bm d \). For any
+\( \bLambda\T\mathbf{C}\bLambda \) is positive definite because \( \mathbf{C} \) is and \( \bLambda \) has full
+column rank, and \( \bLambda\T\hbeta_H=\bLambda\T\hbeta-(\bLambda\T\hbeta-\mathbf{d})=\mathbf{d} \). For any
 \( \bb \), @eq-proj-distance-split with \( \bu=\X\bb \) gives
 \( \norm{\y-\X\bb}^2=\text{SSE}+\norm{\X(\hbeta-\bb)}^2 \). Every feasible \( \bb \) has the form
 \( \hbeta_H+\bv \) with \( \bLambda\T\bv=\bzero \), and then
@@ -299,11 +299,11 @@ column rank, and \( \bLambda\T\hbeta_H=\bLambda\T\hbeta-(\bLambda\T\hbeta-\bm d)
 \norm{\X(\hbeta-\bb)}^2=\norm{\X(\hbeta-\hbeta_H)}^2-2(\hbeta-\hbeta_H)\T\X\T\X\bv+\norm{\X\bv}^2 .
 \]
 The cross term vanishes:
-\( (\hbeta-\hbeta_H)\T\X\T\X\bv=(\bLambda\T\hbeta-\bm d)\T(\bLambda\T\bm C\bLambda)^{-1}\bLambda\T\bm C\X\T\X\bv
-=(\bLambda\T\hbeta-\bm d)\T(\bLambda\T\bm C\bLambda)^{-1}\bLambda\T\bv=0 \). So the objective is
+\( (\hbeta-\hbeta_H)\T\X\T\X\bv=(\bLambda\T\hbeta-\mathbf{d})\T(\bLambda\T\mathbf{C}\bLambda)^{-1}\bLambda\T\mathbf{C}\X\T\X\bv
+=(\bLambda\T\hbeta-\mathbf{d})\T(\bLambda\T\mathbf{C}\bLambda)^{-1}\bLambda\T\bv=0 \). So the objective is
 \( \text{SSE}+\norm{\X(\hbeta-\hbeta_H)}^2+\norm{\X\bv}^2 \), minimized exactly when
 \( \X\bv=\bzero \), that is, \( \bv=\bzero \). Finally
-\( \norm{\X(\hbeta-\hbeta_H)}^2=(\bLambda\T\hbeta-\bm d)\T(\bLambda\T\bm C\bLambda)^{-1}\bLambda\T\bm C\X\T\X\bm C\bLambda(\bLambda\T\bm C\bLambda)^{-1}(\bLambda\T\hbeta-\bm d) \),
+\( \norm{\X(\hbeta-\hbeta_H)}^2=(\bLambda\T\hbeta-\mathbf{d})\T(\bLambda\T\mathbf{C}\bLambda)^{-1}\bLambda\T\mathbf{C}\X\T\X\mathbf{C}\bLambda(\bLambda\T\mathbf{C}\bLambda)^{-1}(\bLambda\T\hbeta-\mathbf{d}) \),
 which simplifies to \( \text{SS}_H \).
 :::
 
@@ -369,7 +369,7 @@ the stacked matrix \( [\bLambda,\X\T]\T \). By rank–nullity (@thm-mat-rank-nul
 The dimension formula for a sum of subspaces ([Section 6.2](../ch06-projections/02-subspaces.html))
 gives \( \rank[\bLambda,\X\T]=\dim\bigl(\C(\bLambda)+\C(\X\T)\bigr)=\rank\bLambda+r-\dim\bigl(\C(\bLambda)\cap\C(\X\T)\bigr) \).
 Substituting, \( \dim\mathcal S_0=r-\dim\bigl(\C(\bLambda)\cap\C(\X\T)\bigr) \). The degrees of freedom
-of the extra sum of squares are \( r-\dim\mathcal S_0 \). A combination \( \bLambda\bm a \) is estimable
+of the extra sum of squares are \( r-\dim\mathcal S_0 \). A combination \( \bLambda\mathbf{a} \) is estimable
 iff it lies in \( \C(\X\T) \) (@thm-proj-invariant-functions), which gives the last statement.
 :::
 
@@ -416,23 +416,23 @@ more than quadruples the sum of squares for urbanization.
 
 In @thm-ss-restricted with \( \Cov(\Y)=\sigma^2\I \), show that
 \[
-\Cov(\hbeta_H)=\sigma^2\bigl[\bm C-\bm C\bLambda(\bLambda\T\bm C\bLambda)^{-1}\bLambda\T\bm C\bigr],
+\Cov(\hbeta_H)=\sigma^2\bigl[\mathbf{C}-\mathbf{C}\bLambda(\bLambda\T\mathbf{C}\bLambda)^{-1}\bLambda\T\mathbf{C}\bigr],
 \]
 that \( \Cov(\hbeta)-\Cov(\hbeta_H) \) is nonnegative definite, and that \( \E(\hbeta_H)=\bbeta \) when
 the constraint is true. What is \( \E(\hbeta_H) \) when it is false?
 :::
 
 ::: {.solution}
-Write \( \bm K=\bm C\bLambda(\bLambda\T\bm C\bLambda)^{-1} \), so \( \hbeta_H=(\I-\bm K\bLambda\T)\hbeta+\bm K\bm d \).
-By @thm-rv-linear and \( \Cov(\hbeta)=\sigma^2\bm C \),
-\( \Cov(\hbeta_H)=\sigma^2(\I-\bm K\bLambda\T)\bm C(\I-\bLambda\bm K\T) \). Expanding and using
-\( \bLambda\T\bm C\bLambda(\bLambda\T\bm C\bLambda)^{-1}=\I \), the two cross terms and the last term
-all equal \( \bm K\bLambda\T\bm C=\bm C\bLambda(\bLambda\T\bm C\bLambda)^{-1}\bLambda\T\bm C \), with
+Write \( \mathbf{K}=\mathbf{C}\bLambda(\bLambda\T\mathbf{C}\bLambda)^{-1} \), so \( \hbeta_H=(\I-\mathbf{K}\bLambda\T)\hbeta+\mathbf{K}\mathbf{d} \).
+By @thm-rv-linear and \( \Cov(\hbeta)=\sigma^2\mathbf{C} \),
+\( \Cov(\hbeta_H)=\sigma^2(\I-\mathbf{K}\bLambda\T)\mathbf{C}(\I-\bLambda\mathbf{K}\T) \). Expanding and using
+\( \bLambda\T\mathbf{C}\bLambda(\bLambda\T\mathbf{C}\bLambda)^{-1}=\I \), the two cross terms and the last term
+all equal \( \mathbf{K}\bLambda\T\mathbf{C}=\mathbf{C}\bLambda(\bLambda\T\mathbf{C}\bLambda)^{-1}\bLambda\T\mathbf{C} \), with
 signs \( -,-,+ \), which gives the formula. The difference
-\( \sigma^2\bm C\bLambda(\bLambda\T\bm C\bLambda)^{-1}\bLambda\T\bm C \) is of the form
-\( \bm B\bm A\bm B\T \) with \( \bm A \) positive definite, hence nonnegative definite. Finally
-\( \E(\hbeta_H)=\bbeta-\bm K(\bLambda\T\bbeta-\bm d) \), which is \( \bbeta \) iff
-\( \bLambda\T\bbeta=\bm d \). A false constraint buys the smaller variance at the price of a bias.
+\( \sigma^2\mathbf{C}\bLambda(\bLambda\T\mathbf{C}\bLambda)^{-1}\bLambda\T\mathbf{C} \) is of the form
+\( \mathbf{B}\mathbf{A}\mathbf{B}\T \) with \( \mathbf{A} \) positive definite, hence nonnegative definite. Finally
+\( \E(\hbeta_H)=\bbeta-\mathbf{K}(\bLambda\T\bbeta-\mathbf{d}) \), which is \( \bbeta \) iff
+\( \bLambda\T\bbeta=\mathbf{d} \). A false constraint buys the smaller variance at the price of a bias.
 :::
 
 ::: {#exr-ss-oneway-contrast}
@@ -462,12 +462,12 @@ gives \( \X\T\X\G\X\T\X=\X\T\X \). With \( \blambda=(0,1,-1,0,\dots,0)\T \),
 
 Using @exr-ss-max-single and @lem-ss-residualized, show that
 \[
-\text{SS}(\X_2\mid\X_1)=\max_{\bm a}\frac{(\bm a\T\tilde{\X}_2\T\y)^2}{\bm a\T\tilde{\X}_2\T\tilde{\X}_2\bm a},
+\text{SS}(\X_2\mid\X_1)=\max_{\mathbf{a}}\frac{(\mathbf{a}\T\tilde{\X}_2\T\y)^2}{\mathbf{a}\T\tilde{\X}_2\T\tilde{\X}_2\mathbf{a}},
 \]
-the maximum being over \( \bm a \) with \( \tilde{\X}_2\bm a\neq\bzero \). Deduce that the extra sum of
+the maximum being over \( \mathbf{a} \) with \( \tilde{\X}_2\mathbf{a}\neq\bzero \). Deduce that the extra sum of
 squares of a block is at least that of any single column of the block, given \( \X_1 \), and that
 the sum of squares of an estimable hypothesis \( \bLambda\T\bbeta=\bzero \) equals
-\( \max_{\bm a}(\bm a\T\bLambda\T\hbeta)^2/(\bm a\T\bLambda\T\G\bLambda\bm a) \).
+\( \max_{\mathbf{a}}(\mathbf{a}\T\bLambda\T\hbeta)^2/(\mathbf{a}\T\bLambda\T\G\bLambda\mathbf{a}) \).
 :::
 
 ::: {#exr-ss-no-variance-change}
@@ -476,8 +476,8 @@ the sum of squares of an estimable hypothesis \( \bLambda\T\bbeta=\bzero \) equa
 @exr-mat-adding-regressors gives the matrix inequality behind the remark after @thm-ss-adding.
 Using part (d) of that theorem instead, show that
 \( \Var(\hat{\beta}_{W,j})=\Var(\hat{\beta}_j) \) iff the \( j \)th row of \( \bL \) is zero, and
-that this holds for every \( j \) iff \( \X\T\bm Z=\bzero \). Show that when
-\( \X\T\bm Z=\bzero \) the estimates \( \hbeta \) do not change at all.
+that this holds for every \( j \) iff \( \X\T\mathbf{Z}=\bzero \). Show that when
+\( \X\T\mathbf{Z}=\bzero \) the estimates \( \hbeta \) do not change at all.
 :::
 
 ::: {#exr-ss-two-way-constraints}

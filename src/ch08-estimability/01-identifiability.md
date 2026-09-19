@@ -365,7 +365,7 @@ suitable multiples of the three standard relations centres the three sequences, 
 stated vector. It is not a combination of the other three, because those are constant on each factor's
 effects and this one is linear and nonconstant. To see that there are no more, check that the
 matrix has rank \( 1+(A-1)+(P-1)+(C-1)-1 \). This rank check can be done directly or numerically for the
-design of @exm-est-apc. A function \( \sum_a d_a\alpha_a \) is identifiable iff \( \bm d \) is orthogonal to
+design of @exm-est-apc. A function \( \sum_a d_a\alpha_a \) is identifiable iff \( \mathbf{d} \) is orthogonal to
 all four null vectors, that is, iff \( \sum_a d_a=0 \) and \( \sum_a d_a\,a=0 \). A second difference
 satisfies both. A linear trend \( \sum_a(a-\bar{a})\alpha_a \) fails the second condition.
 :::

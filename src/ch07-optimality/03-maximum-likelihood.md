@@ -218,9 +218,9 @@ appear in the likelihood. A simple and general way to eliminate them is to maxim
 ::: {#def-opt-profile}
 [Profile likelihood]
 
-Let the parameter be \( \bm\theta=(\psi,\bm\eta) \), where \( \psi \) is of interest and \( \bm\eta \) is a nuisance
+Let the parameter be \( \boldsymbol{\theta}=(\psi,\boldsymbol{\eta}) \), where \( \psi \) is of interest and \( \boldsymbol{\eta} \) is a nuisance
 parameter. The **profile log-likelihood** of \( \psi \) is
-\( \ell_p(\psi)=\sup_{\bm\eta}\ell(\psi,\bm\eta) \).
+\( \ell_p(\psi)=\sup_{\boldsymbol{\eta}}\ell(\psi,\boldsymbol{\eta}) \).
 :::
 
 The profile log-likelihood is maximized at the MLE of \( \psi \), with maximum \( \ell_{\max} \). The drop
@@ -258,25 +258,25 @@ and the profile log-likelihood of \( \psi=\blambda\T\bbeta \), with \( (\bbeta,\
 :::
 
 ::: {.proof}
-Write \( \blambda=\X\T\bm\rho \) and \( \bm c=\M\bm\rho \). Then \( \bm c\ne\bzero \), since \( \X\T\bm c=\X\T\bm\rho=\blambda\ne\bzero \),
-and \( \norm{\bm c}^2=\blambda\T(\X\T\X)\ginv\blambda \) as in the proof of @thm-opt-gauss-markov(a). For any
+Write \( \blambda=\X\T\boldsymbol{\rho} \) and \( \mathbf{c}=\M\boldsymbol{\rho} \). Then \( \mathbf{c}\ne\bzero \), since \( \X\T\mathbf{c}=\X\T\boldsymbol{\rho}=\blambda\ne\bzero \),
+and \( \norm{\mathbf{c}}^2=\blambda\T(\X\T\X)\ginv\blambda \) as in the proof of @thm-opt-gauss-markov(a). For any
 \( \bb \), @eq-proj-distance-split gives
 \( \norm{\y-\X\bb}^2=\text{SSE}+\norm{\X\hbeta-\X\bb}^2 \). Put \( \bu=\X(\hbeta-\bb)\in\C(\X) \). The constraint
-\( \blambda\T\bb=\psi \) reads \( \bm\rho\T\X(\hbeta-\bb)=\blambda\T\hbeta-\psi=:\delta \), that is,
-\( \bm\rho\T\bu=\delta \). Since \( \bu\in\C(\X) \), \( \bm\rho\T\bu=\bm\rho\T\M\bu=\bm c\T\bu \). By the Cauchy–Schwarz
-inequality, \( \lvert\delta\rvert=\lvert\bm c\T\bu\rvert\le\norm{\bm c}\norm{\bu} \), so
-\( \norm{\bu}^2\ge\delta^2/\norm{\bm c}^2 \). Equality holds for \( \bu=\delta\bm c/\norm{\bm c}^2 \), which lies in
+\( \blambda\T\bb=\psi \) reads \( \boldsymbol{\rho}\T\X(\hbeta-\bb)=\blambda\T\hbeta-\psi=:\delta \), that is,
+\( \boldsymbol{\rho}\T\bu=\delta \). Since \( \bu\in\C(\X) \), \( \boldsymbol{\rho}\T\bu=\boldsymbol{\rho}\T\M\bu=\mathbf{c}\T\bu \). By the Cauchy–Schwarz
+inequality, \( \lvert\delta\rvert=\lvert\mathbf{c}\T\bu\rvert\le\norm{\mathbf{c}}\norm{\bu} \), so
+\( \norm{\bu}^2\ge\delta^2/\norm{\mathbf{c}}^2 \). Equality holds for \( \bu=\delta\mathbf{c}/\norm{\mathbf{c}}^2 \), which lies in
 \( \C(\X) \) and so equals \( \X(\hbeta-\bb) \) for some \( \bb \). That \( \bb \) satisfies the constraint. This proves @eq-opt-constrained-sse.
 Maximizing over \( \sigma^2 \) as in the proof of @thm-opt-mle, with SSE replaced by
 \( \text{SSE}(\psi) \), gives \( \ell_p(\psi)=-\frac n2\{\log(2\pi\,\text{SSE}(\psi)/n)+1\} \). Hence
 \[
 \begin{aligned}
 2\{\ell_{\max}-\ell_p(\psi)\}&=n\log\frac{\text{SSE}(\psi)}{\text{SSE}}
-=n\log\Bigl(1+\frac{\delta^2}{\norm{\bm c}^2\,\text{SSE}}\Bigr)\\
+=n\log\Bigl(1+\frac{\delta^2}{\norm{\mathbf{c}}^2\,\text{SSE}}\Bigr)\\
 &=n\log\Bigl(1+\frac{t(\psi)^2}{n-r}\Bigr),
 \end{aligned}
 \]
-since \( \delta^2/(\norm{\bm c}^2\,\text{SSE})=t(\psi)^2/(n-r) \).
+since \( \delta^2/(\norm{\mathbf{c}}^2\,\text{SSE})=t(\psi)^2/(n-r) \).
 :::
 
 Two consequences show up immediately. First, any procedure based on the profile likelihood of
@@ -450,7 +450,7 @@ Let \( \Q_2 \) be an \( n\times(n-r) \) matrix whose columns are an orthonormal 
 :::
 
 ::: {.solution}
-\( \Q_2\T\X=\bm0 \), so \( \Z=\Q_2\T\be\sim\Normal_{n-r}(\bzero,\sigma^2\Q_2\T\Q_2)=\Normal_{n-r}(\bzero,\sigma^2\I) \)
+\( \Q_2\T\X=\mathbf{0} \), so \( \Z=\Q_2\T\be\sim\Normal_{n-r}(\bzero,\sigma^2\Q_2\T\Q_2)=\Normal_{n-r}(\bzero,\sigma^2\I) \)
 by @thm-mvn-linear. Also \( \Q_2\Q_2\T=\I-\M \) (@prp-proj-orthonormal-formula), so
 \( \norm{\Z}^2=\Y\T\Q_2\Q_2\T\Y=\Y\T(\I-\M)\Y=\text{SSE} \). The log-likelihood of \( \Z \) is
 \( -\frac{n-r}2\log(2\pi\sigma^2)-\norm{\Z}^2/(2\sigma^2) \), which is the function \( g \) of the proof of

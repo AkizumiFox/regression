@@ -8,7 +8,7 @@ the simpler model cannot explain splits orthogonally into a piece in the *test s
 piece in the residual space. The \( F \) statistic compares the squared lengths of the two
 pieces, per dimension. Normality turns the comparison into an exact test. This chapter
 derives that test in the three forms met in practice, as a comparison of fitted models, as a
-statement about estimable functions \( \bLambda\T\bbeta=\bm d \), and as a likelihood ratio.
+statement about estimable functions \( \bLambda\T\bbeta=\mathbf{d} \), and as a likelihood ratio.
 It shows that the Wald and score tests are the same test in disguise, and proves that no
 invariant test is more powerful. It then studies power, which depends on the unknown
 parameters only through one noncentrality, and ends with the \( t \) test, the overall

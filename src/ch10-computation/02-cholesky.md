@@ -135,12 +135,12 @@ The first identity and uniqueness make \( \R \) the Cholesky factor of \( \X\T\X
 \( \R\T\R\hbeta=\R\T\bz \) for the solution of the normal equations, so \( \R\hbeta=\bz \).
 
 For (b), and for the rest of (a), let \( \Q=\Z\bT^{-1} \). Then
-\( \Q\T\Q=\bT^{-\top}\Z\T\Z\bT^{-1}=\I \), so the columns \( \bm q_1,\dots,\bm q_{p+1} \) of \( \Q \) are
+\( \Q\T\Q=\bT^{-\top}\Z\T\Z\bT^{-1}=\I \), so the columns \( \mathbf{q}_1,\dots,\mathbf{q}_{p+1} \) of \( \Q \) are
 orthonormal, and \( \Z=\Q\bT \). Because \( \bT \) is upper triangular with nonzero diagonal, the
-first \( k \) columns of \( \X \) span the same subspace as \( \bm q_1,\dots,\bm q_k \). The last column of
-\( \Z=\Q\bT \) reads \( \y=\sum_{j\le p}z_j\bm q_j+d\,\bm q_{p+1} \). By
+first \( k \) columns of \( \X \) span the same subspace as \( \mathbf{q}_1,\dots,\mathbf{q}_k \). The last column of
+\( \Z=\Q\bT \) reads \( \y=\sum_{j\le p}z_j\mathbf{q}_j+d\,\mathbf{q}_{p+1} \). By
 @prp-proj-orthonormal-formula the projection of \( \y \) onto the span of the first \( k \) columns
-is \( \sum_{j\le k}z_j\bm q_j \), and the residual sum of squares is
+is \( \sum_{j\le k}z_j\mathbf{q}_j \), and the residual sum of squares is
 \( \norm{\y}^2-\sum_{j\le k}z_j^2=d^2+\sum_{j>k}z_j^2 \). With \( k=p \) this is \( d^2 \), which
 completes (a). Taking differences gives the rest of (b).
 
@@ -166,7 +166,7 @@ augmented factorization (@prp-cmp-augmented) gives the coefficients
 \( 509 \), and the solution agrees with a QR solution to a relative difference of
 \( 2\times 10^{-14} \). The largest leverage is \( 0.260 \), and
 \( \log_{10}\det(\X\T\X)=11.14 \). The script also checks the standard errors
-\( s\,\norm{\bm e_j\T\R^{-1}} \) against statsmodels.
+\( s\,\norm{\mathbf{e}_j\T\R^{-1}} \) against statsmodels.
 :::
 
 ```{.python .run #cell-cholesky-data}
@@ -296,23 +296,23 @@ variation is small. Three algorithms are in common use:
 ::: {#prp-cmp-welford}
 [Updating means and centred cross-products]
 
-For vectors \( \x_1,\x_2,\dots \) in \( \Real^q \) let \( \bm m_k \) be the mean of the first \( k \) and
-\( \bm C_k=\sum_{i\le k}(\x_i-\bm m_k)(\x_i-\bm m_k)\T \). With \( \bm d_k=\x_k-\bm m_{k-1} \),
+For vectors \( \x_1,\x_2,\dots \) in \( \Real^q \) let \( \mathbf{m}_k \) be the mean of the first \( k \) and
+\( \mathbf{C}_k=\sum_{i\le k}(\x_i-\mathbf{m}_k)(\x_i-\mathbf{m}_k)\T \). With \( \mathbf{d}_k=\x_k-\mathbf{m}_{k-1} \),
 \[
-\bm m_k=\bm m_{k-1}+\frac{\bm d_k}{k},\qquad
-\bm C_k=\bm C_{k-1}+\frac{k-1}{k}\,\bm d_k\bm d_k\T .
+\mathbf{m}_k=\mathbf{m}_{k-1}+\frac{\mathbf{d}_k}{k},\qquad
+\mathbf{C}_k=\mathbf{C}_{k-1}+\frac{k-1}{k}\,\mathbf{d}_k\mathbf{d}_k\T .
 \]
 :::
 
 ::: {.proof}
-The first identity is \( k\bm m_k=(k-1)\bm m_{k-1}+\x_k \). For the second, write
-\( \bm C_k=\sum_{i\le k}\x_i\x_i\T-k\,\bm m_k\bm m_k\T \) and put \( \bm m=\bm m_{k-1} \),
-\( \bm d=\bm d_k \). Then
+The first identity is \( k\mathbf{m}_k=(k-1)\mathbf{m}_{k-1}+\x_k \). For the second, write
+\( \mathbf{C}_k=\sum_{i\le k}\x_i\x_i\T-k\,\mathbf{m}_k\mathbf{m}_k\T \) and put \( \mathbf{m}=\mathbf{m}_{k-1} \),
+\( \mathbf{d}=\mathbf{d}_k \). Then
 \[
-\bm C_k-\bm C_{k-1}=\x_k\x_k\T-k\,\bm m_k\bm m_k\T+(k-1)\bm m\bm m\T .
+\mathbf{C}_k-\mathbf{C}_{k-1}=\x_k\x_k\T-k\,\mathbf{m}_k\mathbf{m}_k\T+(k-1)\mathbf{m}\mathbf{m}\T .
 \]
-Substituting \( \x_k=\bm m+\bm d \) and \( k\bm m_k\bm m_k\T=k\bm m\bm m\T+\bm m\bm d\T+\bm d\bm m\T+\bm d\bm d\T/k \),
-all the terms in \( \bm m \) cancel and \( \bm d\bm d\T(1-1/k) \) remains.
+Substituting \( \x_k=\mathbf{m}+\mathbf{d} \) and \( k\mathbf{m}_k\mathbf{m}_k\T=k\mathbf{m}\mathbf{m}\T+\mathbf{m}\mathbf{d}\T+\mathbf{d}\mathbf{m}\T+\mathbf{d}\mathbf{d}\T/k \),
+all the terms in \( \mathbf{m} \) cancel and \( \mathbf{d}\mathbf{d}\T(1-1/k) \) remains.
 :::
 
 The update adds a *centred* rank-one term, so it never subtracts large quantities. It is the
@@ -415,14 +415,14 @@ factorization of an uncentred cross-product matrix inherits its cancellation.
 ::: {#exr-cmp-se-from-R}
 [B1]
 
-Show that the standard error of \( \hat\beta_j \) is \( s\,\norm{\bm e_j\T\R^{-1}} \), where
+Show that the standard error of \( \hat\beta_j \) is \( s\,\norm{\mathbf{e}_j\T\R^{-1}} \), where
 \( s^2=\text{SSE}/(n-p) \) (@thm-lm-sigma2). Show that all \( p \) standard errors cost \( p^3/3+O(p^2) \)
 flops, and all \( n \) leverages \( np^2+O(np) \) flops. Why is computing \( \M \) itself a bad idea?
 :::
 
 ::: {.solution}
 By @thm-lm-moments the estimated variance of \( \hat\beta_j \) is \( s^2[(\X\T\X)^{-1}]_{jj} \), and
-\( [(\X\T\X)^{-1}]_{jj}=\bm e_j\T\R^{-1}\R^{-\top}\bm e_j=\norm{\bm e_j\T\R^{-1}}^2 \). The inverse of a
+\( [(\X\T\X)^{-1}]_{jj}=\mathbf{e}_j\T\R^{-1}\R^{-\top}\mathbf{e}_j=\norm{\mathbf{e}_j\T\R^{-1}}^2 \). The inverse of a
 triangular matrix is triangular, and column \( j \) of \( \R^{-1} \) is found by back substitution on
 its leading \( j\times j \) block, at about \( j^2 \) flops. The total is \( \sum_jj^2\approx p^3/3 \). Each
 leverage is a triangular solve with \( \R\T \) (\( p^2 \) flops) and a squared norm. The projection
@@ -433,11 +433,11 @@ needed.
 ::: {#exr-cmp-pooling}
 [B2]
 
-Two groups of observations have sizes \( n_a,n_b \), means \( \bm m_a,\bm m_b \) and centred
-cross-product matrices \( \bm C_a,\bm C_b \). Show that the pooled data have centred
+Two groups of observations have sizes \( n_a,n_b \), means \( \mathbf{m}_a,\mathbf{m}_b \) and centred
+cross-product matrices \( \mathbf{C}_a,\mathbf{C}_b \). Show that the pooled data have centred
 cross-product matrix
 \[
-\bm C=\bm C_a+\bm C_b+\frac{n_an_b}{n_a+n_b}(\bm m_a-\bm m_b)(\bm m_a-\bm m_b)\T .
+\mathbf{C}=\mathbf{C}_a+\mathbf{C}_b+\frac{n_an_b}{n_a+n_b}(\mathbf{m}_a-\mathbf{m}_b)(\mathbf{m}_a-\mathbf{m}_b)\T .
 \]
 Show that @prp-cmp-welford is the special case \( n_b=1 \), and explain how the formula allows
 cross-products to be computed in parallel on separate blocks of data.
@@ -450,8 +450,8 @@ cross-products to be computed in parallel on separate blocks of data.
 
 Let \( \A \) be nonnegative definite of rank \( r \). Show that the Cholesky recursion with
 *symmetric pivoting*, which at step \( j \) moves the largest remaining diagonal entry of the
-current Schur complement to position \( j \), produces a permutation \( \bm\Pi \) and
-\( \bm\Pi\T\A\bm\Pi=\R\T\R \) with \( \R=\begin{psmallmatrix}\R_{11}&\R_{12}\\\bzero&\bzero\end{psmallmatrix} \)
+current Schur complement to position \( j \), produces a permutation \( \boldsymbol{\Pi} \) and
+\( \boldsymbol{\Pi}\T\A\boldsymbol{\Pi}=\R\T\R \) with \( \R=\begin{psmallmatrix}\R_{11}&\R_{12}\\\bzero&\bzero\end{psmallmatrix} \)
 and \( \R_{11} \) an \( r\times r \) nonsingular upper triangle. (Use @prp-mat-pd-properties(a).)
 How is this related to the pivoted QR of [Section 10.7](07-rank-revealing.html)?
 :::

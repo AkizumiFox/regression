@@ -409,13 +409,13 @@ Let \( \G_0 \) be a generalized inverse of \( \A \).
 ::: {.solution}
 *Parts a,b.* For (a), multiply out:
 \( \A\bigl[\G_0+(\I-\G_0\A)\bU+\V(\I-\A\G_0)\bigr]\A
-=\A\G_0\A+(\A-\A\G_0\A)\bU\A+\A\V(\A-\A\G_0\A)=\A \). For (b), put \( \bm\Delta=\G-\G_0 \),
-so that \( \A\bm\Delta\A=\A-\A=\bzero \). With \( \bU=\bm\Delta \) and \( \V=\G_0\A\bm\Delta \),
+=\A\G_0\A+(\A-\A\G_0\A)\bU\A+\A\V(\A-\A\G_0\A)=\A \). For (b), put \( \boldsymbol{\Delta}=\G-\G_0 \),
+so that \( \A\boldsymbol{\Delta}\A=\A-\A=\bzero \). With \( \bU=\boldsymbol{\Delta} \) and \( \V=\G_0\A\boldsymbol{\Delta} \),
 \[
-(\I-\G_0\A)\bm\Delta+\G_0\A\bm\Delta(\I-\A\G_0)
-=\bm\Delta-\G_0\A\bm\Delta+\G_0\A\bm\Delta-\G_0(\A\bm\Delta\A)\G_0=\bm\Delta ,
+(\I-\G_0\A)\boldsymbol{\Delta}+\G_0\A\boldsymbol{\Delta}(\I-\A\G_0)
+=\boldsymbol{\Delta}-\G_0\A\boldsymbol{\Delta}+\G_0\A\boldsymbol{\Delta}-\G_0(\A\boldsymbol{\Delta}\A)\G_0=\boldsymbol{\Delta} ,
 \]
-so the formula reproduces \( \G_0+\bm\Delta=\G \).
+so the formula reproduces \( \G_0+\boldsymbol{\Delta}=\G \).
 :::
 
 ::: {#exr-proj-penrose}

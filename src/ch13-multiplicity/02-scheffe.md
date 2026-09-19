@@ -17,23 +17,23 @@ Throughout this section the model is the normal linear model @eq-opt-normal-mode
 
 An estimable function is a linear function of the mean vector, and a linear function of
 \( \bmu\in\C(\X) \) can be represented by a vector of \( \C(\X) \). If \( \blambda\T\bbeta \) is
-estimable, then \( \blambda=\X\T\bm\rho \) for some vector
-\( \bm\rho\in\Real^n \) (@thm-est-characterization), and with \( \bv=\M\bm\rho \),
+estimable, then \( \blambda=\X\T\boldsymbol{\rho} \) for some vector
+\( \boldsymbol{\rho}\in\Real^n \) (@thm-est-characterization), and with \( \bv=\M\boldsymbol{\rho} \),
 \[
-\blambda\T\bbeta=\bm\rho\T\X\bbeta=\bv\T\bmu,\qquad
-\blambda\T\hbeta=\bm\rho\T\M\Y=\bv\T\Y,\qquad
-\blambda\T\G\blambda=\bm\rho\T\X\G\X\T\bm\rho=\bm\rho\T\M\bm\rho=\norm{\bv}^2 .
+\blambda\T\bbeta=\boldsymbol{\rho}\T\X\bbeta=\bv\T\bmu,\qquad
+\blambda\T\hbeta=\boldsymbol{\rho}\T\M\Y=\bv\T\Y,\qquad
+\blambda\T\G\blambda=\boldsymbol{\rho}\T\X\G\X\T\boldsymbol{\rho}=\boldsymbol{\rho}\T\M\boldsymbol{\rho}=\norm{\bv}^2 .
 \]{#eq-mc-function-vector}
 
 The second identity is @thm-proj-invariant-functions, and the third uses \( \M=\X\G\X\T \) (@thm-proj-M-formula).
-The vector \( \bv \) does not depend on the choice of \( \bm\rho \), since two
-choices differ by some \( \bm\delta \) with \( \X\T\bm\delta=\bzero \), hence \( \M\bm\delta=\bzero \). So the
+The vector \( \bv \) does not depend on the choice of \( \boldsymbol{\rho} \), since two
+choices differ by some \( \boldsymbol{\delta} \) with \( \X\T\boldsymbol{\delta}=\bzero \), hence \( \M\boldsymbol{\delta}=\bzero \). So the
 estimate is the inner product of \( \bv \) with the data, the estimand its inner product with the
 mean, and the standard error is \( s\norm{\bv} \).
 
 A *family* of estimable functions closed under linear combination is then a subspace
 \( \mathcal V\subseteq\C(\X) \). It is usually described in one of two ways. If the family is
-\( \{\blambda\T\bbeta:\blambda\in\C(\bLambda)\} \) for a \( p\times q \) matrix \( \bLambda=\X\T\bT \), then \( \bv=\M\bT\bm a \)
+\( \{\blambda\T\bbeta:\blambda\in\C(\bLambda)\} \) for a \( p\times q \) matrix \( \bLambda=\X\T\bT \), then \( \bv=\M\bT\mathbf{a} \)
 and \( \mathcal V=\C(\M\bT) \), the test space of \( \bLambda\T\bbeta=\bzero \) (@thm-proj-constraint-space); if
 \( \bLambda \) has rank \( q \), so does \( \M\bT \), because \( \X\T\M\bT=\bLambda \). If instead the family is the set of
 functions about which a reduced model \( \C(\X_0)\subseteq\C(\X) \) makes a claim, those vanishing on
@@ -88,14 +88,14 @@ Assume @eq-opt-normal-model with \( r<n \), and let \( 0<\alpha<1 \).
    \blambda\T\hbeta+\sqrt{qF_\alpha(q,\nu)}\;\text{se}(\blambda\T\hbeta)\Bigr].
    \]{#eq-mc-scheffe-interval}
 
-   Moreover, with \( \bm\theta=\bLambda\T\bbeta \), \( \hat{\bm\theta}=\bLambda\T\hbeta \) and
+   Moreover, with \( \boldsymbol{\theta}=\bLambda\T\bbeta \), \( \hat{\boldsymbol{\theta}}=\bLambda\T\hbeta \) and
    \( \W=\bLambda\T\G\bLambda \),
    \[
    \max_{\blambda\in\C(\bLambda),\ \blambda\ne\bzero}\frac{(\blambda\T\hbeta-\blambda\T\bbeta)^2}{\text{se}(\blambda\T\hbeta)^2}
-   =\frac{(\hat{\bm\theta}-\bm\theta)\T\W^{-1}(\hat{\bm\theta}-\bm\theta)}{s^2},
+   =\frac{(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})\T\W^{-1}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})}{s^2},
    \]{#eq-mc-scheffe-max}
 
-   attained at \( \blambda=\bLambda\W^{-1}(\hat{\bm\theta}-\bm\theta) \).
+   attained at \( \blambda=\bLambda\W^{-1}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta}) \).
 :::
 
 :::
@@ -104,7 +104,7 @@ Assume @eq-opt-normal-model with \( r<n \), and let \( 0<\alpha<1 \).
 *(a)* The first equality is @lem-mc-projection-max with \( \bu=\Y-\bmu \). The map \( \bv\mapsto\X\T\bv \) is
 one to one on \( \C(\X) \) (Step 1 of the proof of @thm-ci-working-hotelling), so
 \( \mathcal L=\{\X\T\bv:\bv\in\mathcal V\} \) is a subspace of \( \C(\X\T) \) of dimension \( q \). For
-\( \x=\X\T\bv \), @eq-mc-function-vector with \( \bm\rho=\bv \) gives
+\( \x=\X\T\bv \), @eq-mc-function-vector with \( \boldsymbol{\rho}=\bv \) gives
 \( \x\T\hbeta-\x\T\bbeta=\bv\T(\Y-\bmu) \) and \( \x\T\G\x=\norm{\bv}^2 \). So the event in the display is
 the event @eq-ci-wh-band with \( k=q \), and it has probability exactly \( 1-\alpha \) by
 @thm-ci-working-hotelling. That event is also the event that the maximum is at most
@@ -112,15 +112,15 @@ the event @eq-ci-wh-band with \( k=q \), and it has probability exactly \( 1-\al
 distribution function of \( F(q,\nu) \).
 
 *(b)* Write \( \bLambda=\X\T\bT \) and \( \mathcal V=\C(\M\bT) \), of dimension \( q \). Every
-\( \blambda\in\C(\bLambda) \) is \( \bLambda\bm a=\X\T(\bT\bm a) \), and by @eq-mc-function-vector
+\( \blambda\in\C(\bLambda) \) is \( \bLambda\mathbf{a}=\X\T(\bT\mathbf{a}) \), and by @eq-mc-function-vector
 \( \blambda\T\hbeta-\blambda\T\bbeta=\bv\T\Y-\bv\T\bmu \) and \( \text{se}(\blambda\T\hbeta)=s\norm{\bv} \)
-with \( \bv=\M\bT\bm a\in\mathcal V \). As \( \bm a \) ranges over \( \Real^q \), \( \bv \) ranges over all of
+with \( \bv=\M\bT\mathbf{a}\in\mathcal V \). As \( \mathbf{a} \) ranges over \( \Real^q \), \( \bv \) ranges over all of
 \( \mathcal V \). So the event in (b) is the event in (a).
-Finally, @eq-mc-scheffe-max is @prp-glh-max-t for the hypothesis \( \bLambda\T\bbeta=\bm\theta \), which is
-testable because \( \bm\theta \) is the true value: its statistic @eq-glh-general-F is
-\( (\hat{\bm\theta}-\bm\theta)\T\W^{-1}(\hat{\bm\theta}-\bm\theta)/(q\,s^2) \), and each \( T(\bm a)^2 \) is the ratio on the
-left of @eq-mc-scheffe-max at \( \blambda=\bLambda\bm a \), so the maximum is attained at
-\( \bm a\propto\W^{-1}(\hat{\bm\theta}-\bm\theta) \).
+Finally, @eq-mc-scheffe-max is @prp-glh-max-t for the hypothesis \( \bLambda\T\bbeta=\boldsymbol{\theta} \), which is
+testable because \( \boldsymbol{\theta} \) is the true value: its statistic @eq-glh-general-F is
+\( (\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})\T\W^{-1}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta})/(q\,s^2) \), and each \( T(\mathbf{a})^2 \) is the ratio on the
+left of @eq-mc-scheffe-max at \( \blambda=\bLambda\mathbf{a} \), so the maximum is attained at
+\( \mathbf{a}\propto\W^{-1}(\hat{\boldsymbol{\theta}}-\boldsymbol{\theta}) \).
 :::
 
 The coverage is exact, not a bound: some function in the family, depending on the data, always lies
@@ -129,11 +129,11 @@ dropped first. For \( q=1 \) the multiplier is \( t_{\nu,\alpha/2} \), since \( 
 and the interval is that of @thm-ci-estimable-interval.
 
 Part (b) is the observation-space form of a fact met twice already. [Section 11.6](../ch11-general-linear-hypothesis/06-coefficients.html)
-proved @eq-mc-scheffe-max, with \( \bm d \) in place of \( \bm\theta \), as the statement that a group \( F \)
+proved @eq-mc-scheffe-max, with \( \mathbf{d} \) in place of \( \boldsymbol{\theta} \), as the statement that a group \( F \)
 statistic is the largest single \( t \) statistic in the group, and [Section 12.2](../ch12-intervals-and-bands/02-ellipsoids.html)
 showed that the intervals @eq-mc-scheffe-interval are the *shadows* of the confidence ellipsoid for
-\( \bm\theta=\bLambda\T\bbeta \) (@thm-ci-ellipsoid). The ellipsoid covers \( \bm\theta \) iff every shadow covers
-the corresponding \( \bm a\T\bm\theta \), which is why an infinite family costs no more than one ellipsoid.
+\( \boldsymbol{\theta}=\bLambda\T\bbeta \) (@thm-ci-ellipsoid). The ellipsoid covers \( \boldsymbol{\theta} \) iff every shadow covers
+the corresponding \( \mathbf{a}\T\boldsymbol{\theta} \), which is why an infinite family costs no more than one ellipsoid.
 The coverage statement itself is the Working–Hotelling band of @thm-ci-working-hotelling for the
 subspace \( \mathcal L=\C(\bLambda) \): a band for a regression surface and a family of intervals for
 estimable functions are one object, written in the coordinates of \( \C(\X\T) \) or of \( \C(\X) \).
@@ -218,29 +218,29 @@ print(f"F = {F:.2f};  largest |t| over all combinations = {t_star:.3f} = sqrt(3F
 
 ## Scheffé's method is the F test
 
-Let \( \bm d\in\Real^q \) and consider the hypothesis \( \bLambda\T\bbeta=\bm d \), with \( \bLambda \) as in @thm-mc-scheffe(b).
+Let \( \mathbf{d}\in\Real^q \) and consider the hypothesis \( \bLambda\T\bbeta=\mathbf{d} \), with \( \bLambda \) as in @thm-mc-scheffe(b).
 Because \( \bLambda\T \) has rank \( q \), the hypothesis is consistent for every
-\( \bm d \). By @thm-glh-general-f its \( F \) statistic is
+\( \mathbf{d} \). By @thm-glh-general-f its \( F \) statistic is
 \[
-F=\frac{(\hat{\bm\theta}-\bm d)\T\W^{-1}(\hat{\bm\theta}-\bm d)}{q\,s^2} .
+F=\frac{(\hat{\boldsymbol{\theta}}-\mathbf{d})\T\W^{-1}(\hat{\boldsymbol{\theta}}-\mathbf{d})}{q\,s^2} .
 \]
 The hypothesis implies a single-degree-of-freedom statement for every
-\( \blambda=\bLambda\bm a \) in the family, namely \( \blambda\T\bbeta=\bm a\T\bm d \). Call such a statement
+\( \blambda=\bLambda\mathbf{a} \) in the family, namely \( \blambda\T\bbeta=\mathbf{a}\T\mathbf{d} \). Call such a statement
 **Scheffé-rejected** if its hypothesized value lies outside the Scheffé interval @eq-mc-scheffe-interval.
 
 ::: {#cor-mc-scheffe-f}
 [The \( F \) test and Scheffé's intervals]
 
-In the setting of @thm-mc-scheffe(b), for every \( \bm d\in\Real^q \):
+In the setting of @thm-mc-scheffe(b), for every \( \mathbf{d}\in\Real^q \):
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \displaystyle\max_{\bm a\ne\bzero}\frac{(\bm a\T\hat{\bm\theta}-\bm a\T\bm d)^2}{s^2\,\bm a\T\W\bm a}=qF \),
-   attained at \( \bm a=\W^{-1}(\hat{\bm\theta}-\bm d) \);
+1. \( \displaystyle\max_{\mathbf{a}\ne\bzero}\frac{(\mathbf{a}\T\hat{\boldsymbol{\theta}}-\mathbf{a}\T\mathbf{d})^2}{s^2\,\mathbf{a}\T\W\mathbf{a}}=qF \),
+   attained at \( \mathbf{a}=\W^{-1}(\hat{\boldsymbol{\theta}}-\mathbf{d}) \);
 
-2. the level-\( \alpha \) \( F \) test rejects \( \bLambda\T\bbeta=\bm d \) iff at least one statement
-   \( \blambda\T\bbeta=\bm a\T\bm d \), \( \blambda=\bLambda\bm a \), is Scheffé-rejected;
+2. the level-\( \alpha \) \( F \) test rejects \( \bLambda\T\bbeta=\mathbf{d} \) iff at least one statement
+   \( \blambda\T\bbeta=\mathbf{a}\T\mathbf{d} \), \( \blambda=\bLambda\mathbf{a} \), is Scheffé-rejected;
 
-3. if \( \bLambda\T\bbeta=\bm d \) is true, the probability that any of these statements is
+3. if \( \bLambda\T\bbeta=\mathbf{d} \) is true, the probability that any of these statements is
    Scheffé-rejected is exactly \( \alpha \). For any \( \bbeta \), the probability of Scheffé-rejecting at
    least one *true* statement \( \blambda\T\bbeta=c \), \( \blambda\in\C(\bLambda) \), is at most \( \alpha \).
 :::
@@ -248,10 +248,10 @@ In the setting of @thm-mc-scheffe(b), for every \( \bm d\in\Real^q \):
 :::
 
 ::: {.proof}
-*(a)* For \( \blambda=\bLambda\bm a \), the ratio is \( (\bm a\T\bm w)^2/(s^2\bm a\T\W\bm a) \) with
-\( \bm w=\hat{\bm\theta}-\bm d \), and its maximum is \( \bm w\T\W^{-1}\bm w/s^2=qF \), attained at \( \bm a=\W^{-1}\bm w \), by
+*(a)* For \( \blambda=\bLambda\mathbf{a} \), the ratio is \( (\mathbf{a}\T\mathbf{w})^2/(s^2\mathbf{a}\T\W\mathbf{a}) \) with
+\( \mathbf{w}=\hat{\boldsymbol{\theta}}-\mathbf{d} \), and its maximum is \( \mathbf{w}\T\W^{-1}\mathbf{w}/s^2=qF \), attained at \( \mathbf{a}=\W^{-1}\mathbf{w} \), by
 @cor-mat-generalized-rayleigh(c) with \( \W \) positive definite (@thm-ss-hypothesis(a)); this is the maximum
-identity of [Section 11.6](../ch11-general-linear-hypothesis/06-coefficients.html). *(b)* The statement for \( \bm a \) is Scheffé-rejected iff its squared
+identity of [Section 11.6](../ch11-general-linear-hypothesis/06-coefficients.html). *(b)* The statement for \( \mathbf{a} \) is Scheffé-rejected iff its squared
 \( t \) statistic exceeds \( qF_\alpha(q,\nu) \), so some statement is rejected iff the maximum in (a)
 exceeds \( qF_\alpha(q,\nu) \), that is, iff \( F>F_\alpha(q,\nu) \). *(c)* The first claim follows from (b)
 and the exact level of the \( F \) test (@thm-glh-general-f). The second is @prp-mc-intervals-to-tests(a)
@@ -286,7 +286,7 @@ In the one-way model \( \E(y_{kj})=\mu+\alpha_k \) with \( g \) levels, \( n_k\g
 \( \nu=n-g \). Scheffé's intervals are
 \[
 \sum_kc_k\bar{y}_k\;\pm\;\sqrt{(g-1)F_\alpha(g-1,n-g)}\;s\Bigl(\sum_k\frac{c_k^2}{n_k}\Bigr)^{1/2}
-\qquad\text{for every contrast }\bm c,
+\qquad\text{for every contrast }\mathbf{c},
 \]{#eq-mc-scheffe-contrasts}
 
 with simultaneous coverage exactly \( 1-\alpha \), balanced or not. The most significant contrast

@@ -25,11 +25,11 @@ variance.
 ::: {#def-rv-expectation}
 [Expectation of a random matrix]
 
-A **random matrix** \( \bm Z=(Z_{ij}) \) is an \( m\times k \) array of random variables. If
-every \( Z_{ij} \) has a finite expectation, the **expectation** of \( \bm Z \) is the
+A **random matrix** \( \mathbf{Z}=(Z_{ij}) \) is an \( m\times k \) array of random variables. If
+every \( Z_{ij} \) has a finite expectation, the **expectation** of \( \mathbf{Z} \) is the
 \( m\times k \) matrix of expectations,
 \[
-\E(\bm Z)=\bigl(\E(Z_{ij})\bigr).
+\E(\mathbf{Z})=\bigl(\E(Z_{ij})\bigr).
 \]
 A random vector is the case \( k=1 \).
 :::
@@ -40,30 +40,30 @@ over at once.
 ::: {#prp-rv-expectation-linear}
 [Linearity of expectation]
 
-Let \( \bm Z \) and \( \bm Z_2 \) be \( m\times k \) random matrices with integrable entries, and let
-\( \A \) (\( l\times m \)), \( \B \) (\( k\times s \)) and \( \bm C \) (\( l\times s \)) be constant matrices. Then
+Let \( \mathbf{Z} \) and \( \mathbf{Z}_2 \) be \( m\times k \) random matrices with integrable entries, and let
+\( \A \) (\( l\times m \)), \( \B \) (\( k\times s \)) and \( \mathbf{C} \) (\( l\times s \)) be constant matrices. Then
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \E(\A\bm Z\B+\bm C)=\A\,\E(\bm Z)\,\B+\bm C \);
+1. \( \E(\A\mathbf{Z}\B+\mathbf{C})=\A\,\E(\mathbf{Z})\,\B+\mathbf{C} \);
 
-2. \( \E(\bm Z+\bm Z_2)=\E(\bm Z)+\E(\bm Z_2) \) and \( \E(\bm Z\T)=\E(\bm Z)\T \);
+2. \( \E(\mathbf{Z}+\mathbf{Z}_2)=\E(\mathbf{Z})+\E(\mathbf{Z}_2) \) and \( \E(\mathbf{Z}\T)=\E(\mathbf{Z})\T \);
 
-3. if \( m=k \), then \( \E\tr(\bm Z)=\tr\E(\bm Z) \).
+3. if \( m=k \), then \( \E\tr(\mathbf{Z})=\tr\E(\mathbf{Z}) \).
 :::
 
 :::
 
 ::: {.proof}
-The \( (i,j) \) entry of \( \A\bm Z\B+\bm C \) is
+The \( (i,j) \) entry of \( \A\mathbf{Z}\B+\mathbf{C} \) is
 \( \sum_{r}\sum_{t}a_{ir}Z_{rt}b_{tj}+c_{ij} \), a finite linear combination of integrable
 random variables with constant coefficients. Its expectation is
 \( \sum_r\sum_t a_{ir}\E(Z_{rt})b_{tj}+c_{ij} \), which is the \( (i,j) \) entry of
-\( \A\E(\bm Z)\B+\bm C \). Parts (b) and (c) are the same argument applied to \( Z_{ij}+Z_{2,ij} \),
+\( \A\E(\mathbf{Z})\B+\mathbf{C} \). Parts (b) and (c) are the same argument applied to \( Z_{ij}+Z_{2,ij} \),
 to \( Z_{ji} \), and to \( \sum_iZ_{ii} \).
 :::
 
 Two warnings go with this proposition. The multipliers must be constant: if \( \A \) is random,
-\( \E(\A\bm Z) \) is generally not \( \E(\A)\E(\bm Z) \). And the expectation of a product of
+\( \E(\A\mathbf{Z}) \) is generally not \( \E(\A)\E(\mathbf{Z}) \). And the expectation of a product of
 random matrices is generally not the product of expectations. It is when every entry of
 the first is independent of every entry of the second, because then
 \( \E(Z_{ir}W_{rj})=\E(Z_{ir})\E(W_{rj}) \) for each term.
@@ -98,7 +98,7 @@ matrix that is usually not symmetric even when \( p=q \).
 [Elementary properties]
 
 Let \( \Y \), \( \bU \), \( \V \) have finite second moments, with \( \bmu=\E(\Y) \) and
-\( \bSigma=\Cov(\Y) \), and let \( \bm a \), \( \bb \) be constant vectors of matching sizes. Then:
+\( \bSigma=\Cov(\Y) \), and let \( \mathbf{a} \), \( \bb \) be constant vectors of matching sizes. Then:
 
 ::: {.enumerate options="label=(\alph*)"}
 1. \( \bSigma \) is symmetric;
@@ -108,23 +108,23 @@ Let \( \Y \), \( \bU \), \( \V \) have finite second moments, with \( \bmu=\E(\Y
 
 3. \( \Cov(\V,\bU)=\Cov(\bU,\V)\T \);
 
-4. \( \Cov(\bU+\bm a,\V+\bb)=\Cov(\bU,\V) \);
+4. \( \Cov(\bU+\mathbf{a},\V+\bb)=\Cov(\bU,\V) \);
 
-5. \( \E\bigl[(\Y-\bm a)(\Y-\bm a)\T\bigr]=\bSigma+(\bmu-\bm a)(\bmu-\bm a)\T \), and hence
-           \( \E\norm{\Y-\bm a}^2=\tr(\bSigma)+\norm{\bmu-\bm a}^2 \).
+5. \( \E\bigl[(\Y-\mathbf{a})(\Y-\mathbf{a})\T\bigr]=\bSigma+(\bmu-\mathbf{a})(\bmu-\mathbf{a})\T \), and hence
+           \( \E\norm{\Y-\mathbf{a}}^2=\tr(\bSigma)+\norm{\bmu-\mathbf{a}}^2 \).
 :::
 
 :::
 
 ::: {.proof}
-(a) and (c) hold because \( (\bm u\bm v\T)\T=\bm v\bm u\T \) and expectation commutes with
+(a) and (c) hold because \( (\mathbf{u}\mathbf{v}\T)\T=\mathbf{v}\mathbf{u}\T \) and expectation commutes with
 transposition. For (b), expand
 \( (\bU-\bmu_U)(\V-\bmu_V)\T=\bU\V\T-\bU\bmu_V\T-\bmu_U\V\T+\bmu_U\bmu_V\T \) and take
 expectations with @prp-rv-expectation-linear. The two middle terms each give
 \( -\bmu_U\bmu_V\T \). (d) holds because adding a constant does not change the centred
-vectors. For (e), write \( \Y-\bm a=(\Y-\bmu)+(\bmu-\bm a) \) and expand. The cross terms
+vectors. For (e), write \( \Y-\mathbf{a}=(\Y-\bmu)+(\bmu-\mathbf{a}) \) and expand. The cross terms
 contain the factor \( \E(\Y-\bmu)=\bzero \) and vanish. The trace identity follows from
-\( \norm{\bm v}^2=\tr(\bm v\bm v\T) \) and @prp-rv-expectation-linear(c).
+\( \norm{\mathbf{v}}^2=\tr(\mathbf{v}\mathbf{v}\T) \) and @prp-rv-expectation-linear(c).
 :::
 
 Part (e) is the vector form of “mean squared error equals variance plus squared
@@ -168,9 +168,9 @@ combination of \( \Y \) does not vary at all.
 ::: {#exr-rv-expected-gram}
 [A1]
 
-Let \( \bm Z \) be an \( n\times p \) random matrix whose entries are independent, with mean \( 0 \) and
-variance \( \sigma^2 \). Show that \( \E(\bm Z\T\bm Z)=n\sigma^2\I_p \) and \( \E(\bm Z\bm Z\T)=p\sigma^2\I_n \). For a
-constant \( p\times p \) matrix \( \B \), find \( \E(\bm Z\B\bm Z\T) \).
+Let \( \mathbf{Z} \) be an \( n\times p \) random matrix whose entries are independent, with mean \( 0 \) and
+variance \( \sigma^2 \). Show that \( \E(\mathbf{Z}\T\mathbf{Z})=n\sigma^2\I_p \) and \( \E(\mathbf{Z}\mathbf{Z}\T)=p\sigma^2\I_n \). For a
+constant \( p\times p \) matrix \( \B \), find \( \E(\mathbf{Z}\B\mathbf{Z}\T) \).
 :::
 
 ### B. Practice
@@ -199,7 +199,7 @@ marginal probabilities, as in @exm-rv-pairwise.
 ::: {#exr-rv-best-constant-matrix}
 [B2]
 
-Show that \( \E\bigl[(\Y-\bm a)(\Y-\bm a)\T\bigr]-\Cov(\Y) \) is nonnegative definite for every constant
-\( \bm a \), with equality iff \( \bm a=\bmu \). Deduce that \( \bm a=\bmu \) minimizes
-\( \E\bigl[(\Y-\bm a)\T\bm N(\Y-\bm a)\bigr] \) for every positive definite \( \bm N \).
+Show that \( \E\bigl[(\Y-\mathbf{a})(\Y-\mathbf{a})\T\bigr]-\Cov(\Y) \) is nonnegative definite for every constant
+\( \mathbf{a} \), with equality iff \( \mathbf{a}=\bmu \). Deduce that \( \mathbf{a}=\bmu \) minimizes
+\( \E\bigl[(\Y-\mathbf{a})\T\mathbf{N}(\Y-\mathbf{a})\bigr] \) for every positive definite \( \mathbf{N} \).
 :::

@@ -16,7 +16,7 @@
 3. \( \E(\Y\T\A\Y)=\tr(\A\bSigma)+\bmu\T\A\bmu \) for any distribution. Under normality
            \[
 \Var(\Y\T\A\Y)=2\tr\{(\A\bSigma)^2\}+4\bmu\T\A\bSigma\A\bmu,\qquad
-          \Cov(\bm K\Y,\Y\T\A\Y)=2\bm K\bSigma\A\bmu
+          \Cov(\mathbf{K}\Y,\Y\T\A\Y)=2\mathbf{K}\bSigma\A\bmu
 \]
            (@thm-qf-mean-var).
 
@@ -30,8 +30,8 @@
            \( \A\bSigma \) be idempotent. For projections,
            \( \norm{\bP\Y}^2/\sigma^2\sim\chi^2(\rank\bP,\norm{\bP\bmu}^2/\sigma^2) \) (@thm-qf-chisq).
 
-6. \( \B\Y \) and \( \Y\T\A\Y \) are independent if \( \B\bSigma\A=\bm0 \), and \( \Y\T\A\Y \) and
-           \( \Y\T\B\Y \) are independent if \( \A\bSigma\B=\bm0 \), because a quadratic form is a function
+6. \( \B\Y \) and \( \Y\T\A\Y \) are independent if \( \B\bSigma\A=\mathbf{0} \), and \( \Y\T\A\Y \) and
+           \( \Y\T\B\Y \) are independent if \( \A\bSigma\B=\mathbf{0} \), because a quadratic form is a function
            of \( \A\Y \) (@thm-qf-indep-linear and @thm-qf-indep-quadratic).
 
 7. Projections of a spherical normal vector onto mutually orthogonal subspaces are
@@ -81,13 +81,13 @@ who derived the exact distribution of its ratio to \( S^2 \).
 
 **Independence and Cochran's theorem.**  Cochran (1934) proved the
 decomposition theorem that bears his name, in the context of the analysis of covariance.
-The necessity of \( \A\bSigma\B=\bm0 \) for independence of two forms is attributed to
+The necessity of \( \A\bSigma\B=\mathbf{0} \) for independence of two forms is attributed to
 Craig (1943). Its full proof for arbitrary symmetric matrices and arbitrary means
 turned out to be subtle, and Driscoll and Gundberg (1986) trace the flawed and correct
 arguments. Searle (1971) gives general proofs of the independence and Cochran
 theorems in the style most linear-models texts follow. For nonnegative definite \( \A \) and \( \B \),
-the condition \( \bSigma\A\bSigma\B\bSigma=\bm0 \) of Christensen (2020, Theorem 1.3.8)
-is in fact equivalent to \( \A\bSigma\B=\bm0 \) (@exr-qf-singular-independence), so that
+the condition \( \bSigma\A\bSigma\B\bSigma=\mathbf{0} \) of Christensen (2020, Theorem 1.3.8)
+is in fact equivalent to \( \A\bSigma\B=\mathbf{0} \) (@exr-qf-singular-independence), so that
 theorem adds nothing to @thm-qf-indep-quadratic even for singular \( \bSigma \), whereas his
 Theorem 1.3.9, for general symmetric \( \A \) and \( \B \), does. That the independence of \( \bar{Y} \) and
 \( S^2 \) characterizes the normal distribution was shown by Lukacs (1942).

@@ -61,12 +61,12 @@ split the total between them.
 ::: {#cor-lm-linear-functions}
 [Linear functions of the coefficients]
 
-Under the assumptions of @thm-lm-moments(b), let \( \bm a\in\Real^p \) and let \( \bm L \) be a
+Under the assumptions of @thm-lm-moments(b), let \( \mathbf{a}\in\Real^p \) and let \( \mathbf{L} \) be a
 constant \( q\times p \) matrix. Then
 \[
-\E(\bm a\T\hbeta)=\bm a\T\bbeta,\qquad \Var(\bm a\T\hbeta)=\sigma^2\bm a\T(\X\T\X)^{-1}\bm a,
+\E(\mathbf{a}\T\hbeta)=\mathbf{a}\T\bbeta,\qquad \Var(\mathbf{a}\T\hbeta)=\sigma^2\mathbf{a}\T(\X\T\X)^{-1}\mathbf{a},
 \]
-and \( \Cov(\bm L\hbeta)=\sigma^2\bm L(\X\T\X)^{-1}\bm L\T \).
+and \( \Cov(\mathbf{L}\hbeta)=\sigma^2\mathbf{L}(\X\T\X)^{-1}\mathbf{L}\T \).
 In particular, the estimated mean response at a design point \( \x_0 \),
 \( \hat{\mu}_0=\x_0\T\hbeta \), is unbiased for \( \mu_0=\x_0\T\bbeta \) with
 \( \Var(\hat{\mu}_0)=\sigma^2\x_0\T(\X\T\X)^{-1}\x_0 \), and
@@ -74,14 +74,14 @@ In particular, the estimated mean response at a design point \( \x_0 \),
 :::
 
 ::: {.proof}
-Apply @thm-rv-linear to \( \bm L\hbeta \), with covariance
-\( \bm L\,\Cov(\hbeta)\bm L\T \), and take \( \bm L=\bm a\T \), \( \bm L=\x_0\T \) and \( \bm L=\bm e_j\T \).
+Apply @thm-rv-linear to \( \mathbf{L}\hbeta \), with covariance
+\( \mathbf{L}\,\Cov(\hbeta)\mathbf{L}\T \), and take \( \mathbf{L}=\mathbf{a}\T \), \( \mathbf{L}=\x_0\T \) and \( \mathbf{L}=\mathbf{e}_j\T \).
 :::
 
 Linear functions of \( \bbeta \) are what applications usually need: a single coefficient,
 the difference between two coefficients, the mean response at a new design point, or
 the change in mean response between two profiles. [Chapter 7](../ch07-optimality/index.html) shows that for every such
-function, \( \bm a\T\hbeta \) has the smallest variance among all linear unbiased estimators
+function, \( \mathbf{a}\T\hbeta \) has the smallest variance among all linear unbiased estimators
 (the Gauss–Markov theorem, @thm-opt-gauss-markov).
 
 ## Fitted values and residuals
@@ -321,8 +321,8 @@ shows what goes wrong without it. Two cases recur throughout the book.
 Let \( \X \) have full rank, \( \A=(\X\T\X)^{-1}\X\T \) and \( \hbeta=\A\Y \).
 
 ::: {.enumerate options="label=(\alph*)"}
-1. If \( \E(\Y)=\X\bbeta+\bm\delta \) for some \( \bm\delta\in\Real^n \), then
-   \( \E(\hbeta)=\bbeta+(\X\T\X)^{-1}\X\T\bm\delta \).
+1. If \( \E(\Y)=\X\bbeta+\boldsymbol{\delta} \) for some \( \boldsymbol{\delta}\in\Real^n \), then
+   \( \E(\hbeta)=\bbeta+(\X\T\X)^{-1}\X\T\boldsymbol{\delta} \).
 
 2. If \( \E(\Y)=\X\bbeta \) and \( \Cov(\Y)=\bSigma \) for some covariance matrix \( \bSigma \), then
    \( \E(\hbeta)=\bbeta \) and
@@ -335,12 +335,12 @@ Let \( \X \) have full rank, \( \A=(\X\T\X)^{-1}\X\T \) and \( \hbeta=\A\Y \).
 :::
 
 ::: {.proof}
-Both are @thm-rv-linear applied to \( \A\Y \): \( \E(\A\Y)=\A\X\bbeta+\A\bm\delta \) and
+Both are @thm-rv-linear applied to \( \A\Y \): \( \E(\A\Y)=\A\X\bbeta+\A\boldsymbol{\delta} \) and
 \( \Cov(\A\Y)=\A\bSigma\A\T \).
 :::
 
 Part (a) says that when the mean is misspecified, least squares estimates not
-\( \bbeta \) but \( \bbeta \) plus the coefficients from regressing the missing part \( \bm\delta \) on
+\( \bbeta \) but \( \bbeta \) plus the coefficients from regressing the missing part \( \boldsymbol{\delta} \) on
 \( \X \). The most important case is an omitted regressor, which
 [Section 5.7](07-interpreting-coefficients.html) examines. Part (b) says that with the wrong
 covariance, the estimator stays unbiased but the formula \( \sigma^2(\X\T\X)^{-1} \) is wrong.
@@ -390,14 +390,14 @@ Equality in the second step needs every \( x_i\in\{a,b\} \), and in the first st
 
 In @exm-lm-money, write the variances of \( \hat{\beta}_2-\hat{\beta}_3 \) and \( \hat{\beta}_2+\hat{\beta}_3 \),
 the difference and the sum of the two interest-rate coefficients, in terms of the entries of
-\( \bm G=(\X\T\X)^{-1} \). Show that if \( \hat{\beta}_2 \) and \( \hat{\beta}_3 \) are negatively correlated, the
+\( \mathbf{G}=(\X\T\X)^{-1} \). Show that if \( \hat{\beta}_2 \) and \( \hat{\beta}_3 \) are negatively correlated, the
 difference is estimated *less* precisely, and the sum *more* precisely, than they would be
 if the two estimates were uncorrelated. The two rate columns have sample
 correlation \( 0.80 \). Which combination would you expect to be better determined?
 :::
 
 ::: {.solution}
-With \( \bm a=(0,0,1,\mp1)\T \) and indices counting the intercept as the first coefficient,
+With \( \mathbf{a}=(0,0,1,\mp1)\T \) and indices counting the intercept as the first coefficient,
 @cor-lm-linear-functions gives \( \Var(\hat{\beta}_2\mp\hat{\beta}_3)=\sigma^2(g_{33}+g_{44}\mp2g_{34}) \),
 and \( \Cov(\hat{\beta}_2,\hat{\beta}_3)=\sigma^2g_{34} \). If \( g_{34}<0 \), the variance of the difference
 exceeds \( \sigma^2(g_{33}+g_{44})=\Var(\hat{\beta}_2)+\Var(\hat{\beta}_3) \), and that of the sum falls below it.

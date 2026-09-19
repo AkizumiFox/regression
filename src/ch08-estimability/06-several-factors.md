@@ -222,7 +222,7 @@ with model matrix \( [\Z,\x] \), and the **separate lines** model
 with model matrix \( [\Z,\Z\circ\x] \), where \( \Z\circ\x \) multiplies each indicator column entrywise by \( \x \), so its
 \( k \)th column is \( \x \) on level \( k \) and zero elsewhere. The same models can be written with an intercept and any coding
 of the factor. For example, the separate lines model in reference coding has columns
-\( \bone,\ \Z\bm C,\ \x,\ (\Z\bm C)\circ\x \). The coefficients of the last block are then differences of slopes from the reference
+\( \bone,\ \Z\mathbf{C},\ \x,\ (\Z\mathbf{C})\circ\x \). The coefficients of the last block are then differences of slopes from the reference
 level, and the column space is unchanged.
 
 By @exr-est-ancova-identifiable, the common slope \( \theta \) is identifiable iff \( \x\notin\C(\Z) \), that is, iff \( x \)
@@ -331,7 +331,7 @@ is \( x-c \) times the indicator of \( x>c \). The model
 \E(y)=\beta_0+\beta_1x+\beta_2(x-c)_+
 \]
 is a continuous line with a bend at \( c \): slope \( \beta_1 \) to the left of \( c \) and \( \beta_1+\beta_2 \) to the right. Adding the
-indicator \( \bm 1\{x>c\} \) itself allows a jump at \( c \) as well. With the bend point known, these are ordinary linear models, and
+indicator \( \mathbf{1}\{x>c\} \) itself allows a jump at \( c \) as well. With the bend point known, these are ordinary linear models, and
 all of this chapter applies. For example, \( \beta_2 \) is identifiable iff the data contain values of \( x \) on both sides of
 \( c \) (strictly below and strictly above) and at least three distinct values of \( x \) in all (@exr-est-broken). When \( c \) is unknown the model is nonlinear in
 \( c \). Such piecewise linear terms are the simplest splines, the subject of Part IX.

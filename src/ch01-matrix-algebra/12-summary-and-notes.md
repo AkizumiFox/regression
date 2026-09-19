@@ -14,8 +14,8 @@
            (@def-mat-ginverse, @thm-mat-ginverse-exists, @prp-mat-nonsingular-submatrix and @def-mat-moore-penrose).
 
 3. \( \A\x=\bb \) is consistent iff \( \A\A\ginv\bb=\bb \), and then its solutions are
-           \( \A\ginv\bb+(\I-\A\ginv\A)\bz \). A linear function \( \bm q\T\x \) is the same for all
-           solutions iff \( \bm q\in\C(\A\T) \) (@thm-mat-consistency and @cor-mat-invariant).
+           \( \A\ginv\bb+(\I-\A\ginv\A)\bz \). A linear function \( \mathbf{q}\T\x \) is the same for all
+           solutions iff \( \mathbf{q}\in\C(\A\T) \) (@thm-mat-consistency and @cor-mat-invariant).
 
 4. Orthogonal matrices preserve lengths and angles. Gram–Schmidt gives the QR
            factorization, and \( \Real^n=\C(\A\T)\dirsum\Null(\A) \) (@prp-mat-orthogonal, @thm-mat-qr and @prp-mat-complement).
@@ -43,7 +43,7 @@
            idempotent and mutually orthogonal
            (@prp-mat-idempotent-basic, @thm-mat-idempotent and @thm-mat-idempotent-sum).
 
-10. Kronecker products factor balanced designs. \( \vecop(\A\B\bm C)=(\bm C\T\otimes\A)\vecop(\B) \)
+10. Kronecker products factor balanced designs. \( \vecop(\A\B\mathbf{C})=(\mathbf{C}\T\otimes\A)\vecop(\B) \)
             (@prp-mat-kronecker).
 
 11. \( \partial(\x\T\A\x)/\partial\x=(\A+\A\T)\x \). Quadratic functions with nonnegative definite

@@ -2,16 +2,16 @@
 
 The population squared multiple correlation
 \[
-\rho^2_{Y\cdot X}=\frac{\bm\sigma_{XY}\T\bSigma_{XX}^{-1}\bm\sigma_{XY}}{\sigma_Y^2}
+\rho^2_{Y\cdot X}=\frac{\boldsymbol{\sigma}_{XY}\T\bSigma_{XX}^{-1}\boldsymbol{\sigma}_{XY}}{\sigma_Y^2}
 \]
-is the largest squared correlation between \( Y \) and a linear combination of \( \bm X \) (@prp-rv-multiple-correlation). [Section 9.5](../ch09-sums-of-squares/05-r-squared.html) studied its sample
+is the largest squared correlation between \( Y \) and a linear combination of \( \mathbf{X} \) (@prp-rv-multiple-correlation). [Section 9.5](../ch09-sums-of-squares/05-r-squared.html) studied its sample
 counterpart \( R^2 \) for a fixed design (@thm-ss-r2-max-correlation, @thm-ss-r2-null). With random rows,
 \( R^2 \) estimates \( \rho^2_{Y\cdot X} \). This section finds its exact distribution under multivariate normality,
 and uses it to test \( \rho^2_{Y\cdot X}=0 \), to build an interval and to measure the bias.
 
-Throughout, \( (\bm X_i\T,Y_i) \), \( i=1,\dots,n \), are independent draws from a \( (k+1) \)-variate normal
+Throughout, \( (\mathbf{X}_i\T,Y_i) \), \( i=1,\dots,n \), are independent draws from a \( (k+1) \)-variate normal
 distribution with \( \bSigma_{XX} \) positive definite and \( \sigma_Y^2>0 \), and \( n\ge k+2 \). By
-@eq-mvn-random-x-model, \( Y_i=\alpha+\bbeta\T\bm X_i+e_i \) with independent \( e_i\sim\Normal(0,\sigma^2) \) independent of the
+@eq-mvn-random-x-model, \( Y_i=\alpha+\bbeta\T\mathbf{X}_i+e_i \) with independent \( e_i\sim\Normal(0,\sigma^2) \) independent of the
 regressors, where
 \[
 \sigma^2=\sigma_Y^2\bigl(1-\rho^2_{Y\cdot X}\bigr),\quad
@@ -24,12 +24,12 @@ The ratio on the right is the population *signal-to-noise ratio*. We write \( \r
 
 ## The sample multiple correlation as an estimator
 
-Let \( \bS_{XX} \), \( \bm s_{XY} \) and \( s_Y^2 \) be the sample covariances, with any common divisor. The fit with an
+Let \( \bS_{XX} \), \( \mathbf{s}_{XY} \) and \( s_Y^2 \) be the sample covariances, with any common divisor. The fit with an
 intercept has \( \text{SSR}=\hbeta\T\W\hbeta \), where \( \W \) is the centred cross-product matrix of the
-regressors and \( \hbeta=\W^{-1}\sum_i(\bm X_i-\bar{\bm X})(Y_i-\bar Y) \) (@thm-proj-fwl with \( \X_2=\bone \)). Dividing by
+regressors and \( \hbeta=\W^{-1}\sum_i(\mathbf{X}_i-\bar{\mathbf{X}})(Y_i-\bar Y) \) (@thm-proj-fwl with \( \X_2=\bone \)). Dividing by
 \( \text{SST} \) gives
 \[
-R^2=\frac{\bm s_{XY}\T\bS_{XX}^{-1}\bm s_{XY}}{s_Y^2},
+R^2=\frac{\mathbf{s}_{XY}\T\bS_{XX}^{-1}\mathbf{s}_{XY}}{s_Y^2},
 \]{#eq-cor-r2-plugin}
 
 the population formula with sample moments in place of population moments. Under normality it is
@@ -44,15 +44,15 @@ estimate of \( \rho^2_{Y\cdot X} \) is \( R^2 \).
 :::
 
 ::: {.proof}
-The joint density of a row factorizes as \( f(\bm x;\bmu_X,\bSigma_{XX})\,f(y\mid\bm x;\alpha,\bbeta,\sigma^2) \), a normal
+The joint density of a row factorizes as \( f(\mathbf{x};\bmu_X,\bSigma_{XX})\,f(y\mid\mathbf{x};\alpha,\bbeta,\sigma^2) \), a normal
 density for the regressors times the conditional normal density of @thm-mvn-conditional. The map
 from \( (\bmu,\bSigma) \) to \( (\bmu_X,\bSigma_{XX},\alpha,\bbeta,\sigma^2) \) is one-to-one onto the set where \( \bSigma_{XX} \) is positive
-definite and \( \sigma^2>0 \), with inverse \( \bm\sigma_{XY}=\bSigma_{XX}\bbeta \), \( \sigma_Y^2=\sigma^2+\bbeta\T\bSigma_{XX}\bbeta \),
+definite and \( \sigma^2>0 \), with inverse \( \boldsymbol{\sigma}_{XY}=\bSigma_{XX}\bbeta \), \( \sigma_Y^2=\sigma^2+\bbeta\T\bSigma_{XX}\bbeta \),
 \( \mu_Y=\alpha+\bbeta\T\bmu_X \). So the log-likelihood is a sum of two terms with separate parameters, and
 each can be maximized on its own. The conditional term is the likelihood of a normal linear model
 with model matrix \( [\bone,\X_1] \), maximized by least squares and \( \text{SSE}/n \) (@thm-opt-mle).
 
-In the marginal term the quadratic form is minimized over \( \bmu_X \) at \( \bar{\bm x} \), leaving
+In the marginal term the quadratic form is minimized over \( \bmu_X \) at \( \bar{\mathbf{x}} \), leaving
 \( -\tfrac n2\bigl[\log\det\bSigma_{XX}+\tr(\bSigma_{XX}^{-1}\bS)\bigr] \) with \( \bS=\W/n \) positive definite. If
 \( \lambda_1,\dots,\lambda_k>0 \) are the eigenvalues of \( \bS^{1/2}\bSigma_{XX}^{-1}\bS^{1/2} \), then
 \[
@@ -80,7 +80,7 @@ Under the assumptions above, let \( F=\dfrac{n-k-1}{k}\,\dfrac{R^2}{1-R^2} \) an
 
 2. If \( \rho^2=0 \), then \( F\sim F(k,n-k-1) \) and \( R^2\sim\mathrm{Beta}\bigl(\tfrac k2,\tfrac{n-k-1}2\bigr) \), independently of
    the regressors. The overall \( F \) test of the regression is an exact size-\( \alpha \) test of
-   \( \rho^2=0 \), which under joint normality is the hypothesis that \( Y \) is independent of \( \bm X \).
+   \( \rho^2=0 \), which under joint normality is the hypothesis that \( Y \) is independent of \( \mathbf{X} \).
 
 3. If \( \rho^2>0 \), then \( \gamma=\lambda V \) with \( V\sim\chi^2(n-1) \), and for \( 0<c<1 \)
    \[
@@ -99,14 +99,14 @@ with \( r=k+1 \) and mean \( \alpha\bone+\X_1\bbeta \). By @thm-ss-r2-null(a), \
 \( \gamma=\norm{(\M-\bP_1)(\alpha\bone+\X_1\bbeta)}^2/\sigma^2 \). Since \( (\M-\bP_1)\bone=\bzero \) and
 \( (\M-\bP_1)\X_1\bbeta=(\I-\bP_1)\X_1\bbeta \), this is \( \bbeta\T\X_1\T(\I-\bP_1)\X_1\bbeta/\sigma^2=\bbeta\T\W\bbeta/\sigma^2 \).
 
-(b) \( \rho^2=0 \) means \( \bm\sigma_{XY}=\bzero \), so \( \bbeta=\bzero \) and \( \gamma=0 \) for every design. By
+(b) \( \rho^2=0 \) means \( \boldsymbol{\sigma}_{XY}=\bzero \), so \( \bbeta=\bzero \) and \( \gamma=0 \) for every design. By
 @lem-cor-conditioning, \( F\sim F(k,n-k-1) \) independently of the regressors, and so is
 \( R^2=kF/(kF+n-k-1) \), which is \( \mathrm{Beta}(k/2,(n-k-1)/2) \) by @thm-ss-r2-null(b). For jointly normal
 variables, zero covariance is independence (@thm-mvn-independence).
 
-(c) By the proof of @lem-cor-centred-wishart, \( \W=(\bm K\X_1)\T(\bm K\X_1) \), where the \( n-1 \) rows of
-\( \bm K\X_1 \) are independent \( \Normal_k(\bzero,\bSigma_{XX}) \). So \( \bm K\X_1\bbeta \) has independent
-\( \Normal(0,\bbeta\T\bSigma_{XX}\bbeta) \) entries, and \( \bbeta\T\W\bbeta=\norm{\bm K\X_1\bbeta}^2=(\bbeta\T\bSigma_{XX}\bbeta)\,V \) with
+(c) By the proof of @lem-cor-centred-wishart, \( \W=(\mathbf{K}\X_1)\T(\mathbf{K}\X_1) \), where the \( n-1 \) rows of
+\( \mathbf{K}\X_1 \) are independent \( \Normal_k(\bzero,\bSigma_{XX}) \). So \( \mathbf{K}\X_1\bbeta \) has independent
+\( \Normal(0,\bbeta\T\bSigma_{XX}\bbeta) \) entries, and \( \bbeta\T\W\bbeta=\norm{\mathbf{K}\X_1\bbeta}^2=(\bbeta\T\bSigma_{XX}\bbeta)\,V \) with
 \( V\sim\chi^2(n-1) \). By @eq-cor-signal-noise, \( \gamma=\lambda V \). Since \( R^2\le c \) iff
 \( F\le(n-k-1)c/(k(1-c)) \), taking expectations of the conditional probability from (a) gives @eq-cor-r2-mixture.
 
@@ -240,8 +240,8 @@ the \( (1,1) \) entry of \( \R^{-1} \). Show that \( R^2=1-1/r^{YY} \), and that
 
 ::: {.solution}
 @eq-cor-r2-plugin is unchanged when every variable is standardized, so
-\( R^2=\bm r_{XY}\T\R_{XX}^{-1}\bm r_{XY} \). By @thm-mat-partitioned-inverse, the leading entry of \( \R^{-1} \) is the inverse of
-the Schur complement \( 1-\bm r_{XY}\T\R_{XX}^{-1}\bm r_{XY}=1-R^2 \), so \( r^{YY}=1/(1-R^2) \). By
+\( R^2=\mathbf{r}_{XY}\T\R_{XX}^{-1}\mathbf{r}_{XY} \). By @thm-mat-partitioned-inverse, the leading entry of \( \R^{-1} \) is the inverse of
+the Schur complement \( 1-\mathbf{r}_{XY}\T\R_{XX}^{-1}\mathbf{r}_{XY}=1-R^2 \), so \( r^{YY}=1/(1-R^2) \). By
 @thm-mat-block-determinant(b), \( \det\R=\det\R_{XX}\,(1-R^2) \).
 :::
 
@@ -249,7 +249,7 @@ the Schur complement \( 1-\bm r_{XY}\T\R_{XX}^{-1}\bm r_{XY}=1-R^2 \), so \( r^{
 [B2]
 
 Show that \( R^2 \) is unchanged if \( Y \) is replaced by \( aY+b \) with \( a\ne0 \), or the regressors by
-\( \B\T\bm X+\bm c \) with \( \B \) nonsingular. Show that \( \rho^2_{Y\cdot X} \) has the same invariance.
+\( \B\T\mathbf{X}+\mathbf{c} \) with \( \B \) nonsingular. Show that \( \rho^2_{Y\cdot X} \) has the same invariance.
 :::
 
 ::: {#exr-cor-r2-consistent}
@@ -273,7 +273,7 @@ null the covariance matrix is block diagonal; use the proof of @prp-cor-mvn-mle 
 ::: {.solution}
 With \( \bS \) the covariance matrix of the rows with divisor \( n \), the maximized log-likelihood of a
 \( (k+1) \)-variate normal sample is \( -\tfrac n2[\log\det\bS+(k+1)(1+\log2\pi)] \), by the argument in the proof of
-@prp-cor-mvn-mle applied to all \( k+1 \) variables. Under the null, \( Y \) and \( \bm X \) are independent, the
+@prp-cor-mvn-mle applied to all \( k+1 \) variables. Under the null, \( Y \) and \( \mathbf{X} \) are independent, the
 likelihood factorizes, and the maximum is the same expression with \( \log(s_Y^2\det\bS_{XX}) \) in place of
 \( \log\det\bS \). The likelihood ratio is therefore
 \( \bigl(\det\bS/(s_Y^2\det\bS_{XX})\bigr)^{n/2}=(1-R^2)^{n/2} \), by @thm-mat-block-determinant(b) as in @exr-cor-r2-inverse-correlation. It is a decreasing function of \( R^2 \), hence of \( F \).

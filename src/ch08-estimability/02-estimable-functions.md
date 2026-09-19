@@ -15,38 +15,38 @@ no assumption on \( \Cov(\Y) \) is needed until variances are computed.
 [Estimable function]
 
 A linear function \( \blambda\T\bbeta \), \( \blambda\in\Real^p \), is **estimable** if there is a vector
-\( \bm a\in\Real^n \) such that
+\( \mathbf{a}\in\Real^n \) such that
 \[
-\E(\bm a\T\Y)=\blambda\T\bbeta\qquad\text{for every }\bbeta\in\Real^p .
+\E(\mathbf{a}\T\Y)=\blambda\T\bbeta\qquad\text{for every }\bbeta\in\Real^p .
 \]
 A vector \( \bLambda\T\bbeta \) of linear functions, with \( \bLambda \) a \( p\times q \) matrix, is
 estimable if each of its \( q \) components is. Equivalently, there is an \( n\times q \) matrix \( \A \)
 with \( \E(\A\T\Y)=\bLambda\T\bbeta \) for all \( \bbeta \).
 :::
 
-The statistic \( \bm a\T\Y \) is a **linear unbiased estimator** of \( \blambda\T\bbeta \). The
+The statistic \( \mathbf{a}\T\Y \) is a **linear unbiased estimator** of \( \blambda\T\bbeta \). The
 requirement “for every \( \bbeta \)” is essential. For a single fixed \( \bbeta \), almost any
 statistic can be made unbiased by adding a constant. What the definition demands is one
 statistic that is centred correctly whatever the true coefficients are. [Chapter 7](../ch07-optimality/index.html)
 asked which linear unbiased estimator is best (@def-opt-blue). Here we ask only whether there
 is one.
 
-One might allow an *affine* estimator \( a_0+\bm a\T\Y \). This gains nothing, as
+One might allow an *affine* estimator \( a_0+\mathbf{a}\T\Y \). This gains nothing, as
 [Chapter 7](../ch07-optimality/index.html) already showed.
 
 ::: {#lem-est-affine-unbiased}
-The statistic \( a_0+\bm a\T\Y \) is unbiased for \( \blambda\T\bbeta \), for every \( \bbeta \), iff
-\( a_0=0 \) and \( \X\T\bm a=\blambda \).
+The statistic \( a_0+\mathbf{a}\T\Y \) is unbiased for \( \blambda\T\bbeta \), for every \( \bbeta \), iff
+\( a_0=0 \) and \( \X\T\mathbf{a}=\blambda \).
 :::
 
 ::: {.proof}
 This is @prp-opt-lue, proved in [Chapter 7](../ch07-optimality/index.html) by evaluating the
-expectation \( a_0+\bm a\T\X\bbeta \) at \( \bbeta=\bzero \) and at the coordinate vectors.
+expectation \( a_0+\mathbf{a}\T\X\bbeta \) at \( \bbeta=\bzero \) and at the coordinate vectors.
 :::
 
 So the linear unbiased estimators of \( \blambda\T\bbeta \) correspond exactly to the solutions
-\( \bm a \) of the linear system \( \X\T\bm a=\blambda \). There is at least one iff the system is
-consistent, and when it is, the solutions form the affine subspace \( \bm a_0+\Null(\X\T) \)
+\( \mathbf{a} \) of the linear system \( \X\T\mathbf{a}=\blambda \). There is at least one iff the system is
+consistent, and when it is, the solutions form the affine subspace \( \mathbf{a}_0+\Null(\X\T) \)
 (@thm-mat-consistency).
 
 ## Estimable is the same as identifiable
@@ -59,18 +59,18 @@ For \( \blambda\in\Real^p \) the following are equivalent:
 
 2. \( \blambda\T\bbeta \) is identifiable;
 
-3. \( \blambda\in\C(\X\T) \), that is, \( \blambda\T=\bm\rho\T\X \) for some \( \bm\rho\in\Real^n \).
+3. \( \blambda\in\C(\X\T) \), that is, \( \blambda\T=\boldsymbol{\rho}\T\X \) for some \( \boldsymbol{\rho}\in\Real^n \).
 :::
 
-For a \( p\times q \) matrix \( \bLambda \), \( \bLambda\T\bbeta \) is estimable iff \( \bLambda=\X\T\bm P \) for
-some \( n\times q \) matrix \( \bm P \), that is, iff \( \C(\bLambda)\subseteq\C(\X\T) \).
+For a \( p\times q \) matrix \( \bLambda \), \( \bLambda\T\bbeta \) is estimable iff \( \bLambda=\X\T\mathbf{P} \) for
+some \( n\times q \) matrix \( \mathbf{P} \), that is, iff \( \C(\bLambda)\subseteq\C(\X\T) \).
 :::
 
 ::: {.proof}
-(a)\( \Leftrightarrow \)(c) is @lem-est-affine-unbiased: an unbiased \( \bm a\T\Y \) exists iff
-\( \X\T\bm a=\blambda \) has a solution, which is the statement \( \blambda\in\C(\X\T) \).
+(a)\( \Leftrightarrow \)(c) is @lem-est-affine-unbiased: an unbiased \( \mathbf{a}\T\Y \) exists iff
+\( \X\T\mathbf{a}=\blambda \) has a solution, which is the statement \( \blambda\in\C(\X\T) \).
 (b)\( \Leftrightarrow \)(c) is @prp-est-linear-identifiable. The matrix version applies the vector
-version to each column of \( \bLambda \) and collects the vectors \( \bm\rho \) as the columns of \( \bm P \).
+version to each column of \( \bLambda \) and collects the vectors \( \boldsymbol{\rho} \) as the columns of \( \mathbf{P} \).
 :::
 
 The theorem connects two different ideas. Identifiability is about what the model could
@@ -107,7 +107,7 @@ dimension \( r=\rank(\X) \). In particular:
 :::
 
 ::: {.proof}
-The first sentence is @thm-est-estimable-identifiable. For (a) take \( \bm\rho=\bm e_i \), the
+The first sentence is @thm-est-estimable-identifiable. For (a) take \( \boldsymbol{\rho}=\mathbf{e}_i \), the
 \( i \)th coordinate vector. For (b), \( \X\T\X\bbeta=\X\T(\X\bbeta) \) and the rows of \( \X\T\X \) lie
 in \( \C(\X\T) \). Part (c) is the dimension count, and (d) is the case \( \C(\X\T)=\Real^p \).
 :::
@@ -182,25 +182,25 @@ for name, x0 in new_points.items():
 
 An estimable function usually has many linear unbiased estimators. In
 @exm-est-fixed-ratio, the mean at the blend dose \( (40,20) \) is estimated without bias by the
-average of the two plots that received exactly that dose, \( \bm a_1\T\Y \) with
-\( \bm a_1 \) putting weight \( \tfrac12 \) on each. It is also estimated without bias by the value of
+average of the two plots that received exactly that dose, \( \mathbf{a}_1\T\Y \) with
+\( \mathbf{a}_1 \) putting weight \( \tfrac12 \) on each. It is also estimated without bias by the value of
 any least squares fit at that dose. If \( \Cov(\Y)=\sigma^2\I \), the first estimator has
-variance \( \sigma^2\norm{\bm a_1}^2=0.500\,\sigma^2 \), while the least squares
+variance \( \sigma^2\norm{\mathbf{a}_1}^2=0.500\,\sigma^2 \), while the least squares
 estimator has variance \( 0.100\,\sigma^2 \), five times smaller, because it uses
 all ten plots.
 
-The least squares estimator can be written in the same form. If \( \bm a \) is any solution of
-\( \X\T\bm a=\blambda \), then @thm-proj-invariant-functions gives
+The least squares estimator can be written in the same form. If \( \mathbf{a} \) is any solution of
+\( \X\T\mathbf{a}=\blambda \), then @thm-proj-invariant-functions gives
 \[
-\blambda\T\hbeta=\bm a\T\X\hbeta=\bm a\T\M\y=(\M\bm a)\T\y ,
+\blambda\T\hbeta=\mathbf{a}\T\X\hbeta=\mathbf{a}\T\M\y=(\M\mathbf{a})\T\y ,
 \]{#eq-est-ls-as-linear}
 
 for every least squares solution \( \hbeta \). So the least squares estimator is the linear
-unbiased estimator whose coefficient vector is the projection \( \M\bm a \) of any one coefficient
-vector onto \( \C(\X) \). It is unbiased, because \( \X\T\M\bm a=\X\T\bm a=\blambda \).
-Every solution of \( \X\T\bm a=\blambda \) has the form \( \M\bm a+\bw \) with
+unbiased estimator whose coefficient vector is the projection \( \M\mathbf{a} \) of any one coefficient
+vector onto \( \C(\X) \). It is unbiased, because \( \X\T\M\mathbf{a}=\X\T\mathbf{a}=\blambda \).
+Every solution of \( \X\T\mathbf{a}=\blambda \) has the form \( \M\mathbf{a}+\bw \) with
 \( \bw\in\Null(\X\T)=\C(\X)\perpc \), and Pythagoras gives
-\( \norm{\M\bm a+\bw}^2=\norm{\M\bm a}^2+\norm{\bw}^2 \). This is the
+\( \norm{\M\mathbf{a}+\bw}^2=\norm{\M\mathbf{a}}^2+\norm{\bw}^2 \). This is the
 Gauss–Markov theorem in its simplest form: among linear unbiased estimators of an estimable
 function, least squares has the smallest variance when \( \Cov(\Y)=\sigma^2\I \).
 [Chapter 7](../ch07-optimality/index.html) states and proves it in general (@thm-opt-gauss-markov).
@@ -242,7 +242,7 @@ comes with a standard error that is equally arbitrary ([Section 8.3](03-characte
 In @exm-est-fixed-ratio, decide which of the following are estimable: \( \beta_1-2\beta_2 \);
 \( 2\beta_1+\beta_2 \); the mean yield at \( (N,P)=(100,50) \); the mean yield at \( (0,10) \); the
 difference between the mean yields at \( (60,30) \) and \( (20,10) \). For the estimable ones give a
-vector \( \bm a \) with \( \X\T\bm a=\blambda \).
+vector \( \mathbf{a} \) with \( \X\T\mathbf{a}=\blambda \).
 :::
 
 ::: {#exr-est-two-points}
@@ -258,25 +258,25 @@ their least squares estimator?
 ::: {#exr-est-ls-unique-in-C}
 [B1]
 
-Let \( \blambda\T\bbeta \) be estimable and let \( \bm a^*=\M\bm a \) as in @eq-est-ls-as-linear.
-Show that \( \bm a^* \) does not depend on which solution \( \bm a \) of \( \X\T\bm a=\blambda \) is used,
-that \( \bm a^*=\X\G\blambda \) for any generalized inverse \( \G \) of \( \X\T\X \), and that
-\( \norm{\bm a^*}^2=\blambda\T\G\blambda \).
+Let \( \blambda\T\bbeta \) be estimable and let \( \mathbf{a}^*=\M\mathbf{a} \) as in @eq-est-ls-as-linear.
+Show that \( \mathbf{a}^* \) does not depend on which solution \( \mathbf{a} \) of \( \X\T\mathbf{a}=\blambda \) is used,
+that \( \mathbf{a}^*=\X\G\blambda \) for any generalized inverse \( \G \) of \( \X\T\X \), and that
+\( \norm{\mathbf{a}^*}^2=\blambda\T\G\blambda \).
 :::
 
 ::: {.solution}
 Two solutions differ by a vector of
-\( \Null(\X\T)=\C(\X)\perpc \), which \( \M \) sends to \( \bzero \), so \( \M\bm a \) is the same for both. With
-\( \M=\X\G\X\T \) (@thm-proj-M-formula), \( \M\bm a=\X\G\X\T\bm a=\X\G\blambda \). Finally,
-\( \norm{\M\bm a}^2=\bm a\T\M\bm a=\bm a\T\X\G\X\T\bm a=\blambda\T\G\blambda \).
+\( \Null(\X\T)=\C(\X)\perpc \), which \( \M \) sends to \( \bzero \), so \( \M\mathbf{a} \) is the same for both. With
+\( \M=\X\G\X\T \) (@thm-proj-M-formula), \( \M\mathbf{a}=\X\G\X\T\mathbf{a}=\X\G\blambda \). Finally,
+\( \norm{\M\mathbf{a}}^2=\mathbf{a}\T\M\mathbf{a}=\mathbf{a}\T\X\G\X\T\mathbf{a}=\blambda\T\G\blambda \).
 :::
 
 ::: {#exr-est-vector-estimable}
 [B2]
 
-Show that \( \bLambda\T\bbeta \) is estimable iff \( \bLambda\T\bm b_1=\bLambda\T\bm b_2 \) whenever
-\( \X\bm b_1=\X\bm b_2 \), and that in that case \( \bLambda\T\hbeta=\bm P\T\M\y \) for any \( \bm P \) with
-\( \X\T\bm P=\bLambda \). Show also that \( \bm P\T\M \) does not depend on the choice of \( \bm P \).
+Show that \( \bLambda\T\bbeta \) is estimable iff \( \bLambda\T\mathbf{b}_1=\bLambda\T\mathbf{b}_2 \) whenever
+\( \X\mathbf{b}_1=\X\mathbf{b}_2 \), and that in that case \( \bLambda\T\hbeta=\mathbf{P}\T\M\y \) for any \( \mathbf{P} \) with
+\( \X\T\mathbf{P}=\bLambda \). Show also that \( \mathbf{P}\T\M \) does not depend on the choice of \( \mathbf{P} \).
 :::
 
 ::: {#exr-est-design-planning}

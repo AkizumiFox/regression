@@ -18,7 +18,9 @@ approved exemplar of register, density and rigour; read a few of its sections fi
   `tools/check_numbers.py` from then on.
 - **Every claim is true, every hypothesis stated.** Full proofs of every central result.
 - **Proofs cite only earlier results.** Forward pointers in prose ("Chapter 11 uses this") are fine.
-- **Book-wide conventions** in `NOTATION.md` (noncentrality without ½, nonnegative definite, `\T`).
+- **Book-wide conventions** in `NOTATION.md` (noncentrality without ½, nonnegative definite, `\T`,
+  bold upright Latin matrices and vectors: `\mathbf{a}` for a bold Latin letter without a macro,
+  `\boldsymbol{\theta}` for a bold Greek letter, never `\bm`).
 
 ## Page skeleton
 

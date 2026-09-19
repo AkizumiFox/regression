@@ -66,7 +66,7 @@ with projections \( \bP_1,\dots,\bP_k \) and dimensions \( r_1,\dots,r_k \). The
 
 5. the subspaces \( \mathcal W_j=\mathcal V_1\dirsum\dots\dirsum\mathcal V_j \) form a chain
    \( \mathcal W_1\subseteq\dots\subseteq\mathcal W_k=\C(\X) \) with projections
-   \( \bm N_j=\bP_1+\dots+\bP_j \), and \( \bP_j=\bm N_j-\bm N_{j-1} \) (with \( \bm N_0=\bzero \)).
+   \( \mathbf{N}_j=\bP_1+\dots+\bP_j \), and \( \bP_j=\mathbf{N}_j-\mathbf{N}_{j-1} \) (with \( \mathbf{N}_0=\bzero \)).
    Conversely, every chain \( \{\bzero\}=\mathcal W_0\subseteq\mathcal W_1\subseteq\dots\subseteq\mathcal W_k=\C(\X) \)
    gives an analysis of variance decomposition with \( \mathcal V_j=\mathcal W_{j-1}\perpc\cap\mathcal W_j \).
 :::
@@ -93,11 +93,11 @@ is thus orthogonal to every \( \bP_i \).
 the subspaces are, so \( \bU \) has orthonormal columns. It has
 \( r_1+\dots+r_k+(n-r)=n \) of them, so it is square and hence orthogonal.
 
-(e) The \( \bm N_j \) are projections onto \( \mathcal W_j \) by @thm-proj-sum, and the chain is
+(e) The \( \mathbf{N}_j \) are projections onto \( \mathcal W_j \) by @thm-proj-sum, and the chain is
 nested by construction. Conversely, given a chain, @thm-proj-nested(b) shows that
-\( \bm N_j-\bm N_{j-1} \) is the projection onto \( \mathcal V_j=\mathcal W_{j-1}\perpc\cap\mathcal W_j \).
+\( \mathbf{N}_j-\mathbf{N}_{j-1} \) is the projection onto \( \mathcal V_j=\mathcal W_{j-1}\perpc\cap\mathcal W_j \).
 For \( i<j \) we have \( \mathcal V_i\subseteq\mathcal W_i\subseteq\mathcal W_{j-1} \), which is
-orthogonal to \( \mathcal V_j \). The projections telescope to \( \bm N_k=\M \), so by
+orthogonal to \( \mathcal V_j \). The projections telescope to \( \mathbf{N}_k=\M \), so by
 @thm-proj-sum the orthogonal sum of the \( \mathcal V_j \) is \( \C(\M)=\C(\X) \).
 :::
 

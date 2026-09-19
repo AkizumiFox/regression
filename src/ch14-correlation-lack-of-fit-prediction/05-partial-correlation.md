@@ -13,15 +13,15 @@ is the \( t \) test of a regression coefficient.
 ::: {#def-cor-sample-partial}
 [Sample partial correlation]
 
-Let \( \y,\x\in\Real^n \), let \( \Z \) be an \( n\times q \) matrix, and let \( \bm D=[\bone,\Z] \) have rank \( q+1<n \). With
-\( \M_D \) the projection onto \( \C(\bm D) \), put \( \tilde{\y}=(\I-\M_D)\y \) and \( \tilde{\x}=(\I-\M_D)\x \), and suppose both are
+Let \( \y,\x\in\Real^n \), let \( \Z \) be an \( n\times q \) matrix, and let \( \mathbf{D}=[\bone,\Z] \) have rank \( q+1<n \). With
+\( \M_D \) the projection onto \( \C(\mathbf{D}) \), put \( \tilde{\y}=(\I-\M_D)\y \) and \( \tilde{\x}=(\I-\M_D)\x \), and suppose both are
 nonzero. The **sample partial correlation** of \( \y \) and \( \x \) given \( \Z \) is
 \[
 r_{yx\cdot Z}=\frac{\tilde{\y}\T\tilde{\x}}{\norm{\tilde{\y}}\,\norm{\tilde{\x}}} .
 \]
 :::
 
-Both residual vectors have mean zero, because \( \bone\in\C(\bm D) \), so \( r_{yx\cdot Z} \) is the ordinary sample
+Both residual vectors have mean zero, because \( \bone\in\C(\mathbf{D}) \), so \( r_{yx\cdot Z} \) is the ordinary sample
 correlation of the two residual vectors. With \( q=0 \) it is the ordinary correlation of \( \y \) and \( \x \).
 
 ## Its distribution
@@ -34,7 +34,7 @@ alone leaves \( n-1 \).
 
 Let \( \Z \) be a random \( n\times q \) matrix with \( \rank[\bone,\Z]=q+1 \) with probability one, and \( n\ge q+3 \).
 Suppose that, given \( \Z \), the rows \( (y_i,x_i) \) are independent bivariate normal vectors with means
-\( \bm a+\B\bz_{(i)} \), affine in the \( i \)th row \( \bz_{(i)} \) of \( \Z \), and a common covariance matrix with correlation \( \rho \).
+\( \mathbf{a}+\B\bz_{(i)} \), affine in the \( i \)th row \( \bz_{(i)} \) of \( \Z \), and a common covariance matrix with correlation \( \rho \).
 Then \( r_{yx\cdot Z} \) has the same distribution as the sample correlation of \( n-q \) independent bivariate
 normal pairs with correlation \( \rho \), and it is independent of \( \Z \).
 
@@ -44,21 +44,21 @@ correlation.
 :::
 
 ::: {.proof}
-Fix \( \Z \) and write \( \bm D=[\bone,\Z] \). Let \( \bm K \) be an \( (n-q-1)\times n \) matrix whose rows form an orthonormal
-basis of \( \C(\bm D)\perpc \), so that \( \bm K\bm D=\bzero \) and \( \bm K\T\bm K=\I-\M_D \). Then
-\( \tilde{\y}\T\tilde{\x}=\y\T(\I-\M_D)\x=(\bm K\y)\T(\bm K\x) \), and similarly for the squared lengths, so
+Fix \( \Z \) and write \( \mathbf{D}=[\bone,\Z] \). Let \( \mathbf{K} \) be an \( (n-q-1)\times n \) matrix whose rows form an orthonormal
+basis of \( \C(\mathbf{D})\perpc \), so that \( \mathbf{K}\mathbf{D}=\bzero \) and \( \mathbf{K}\T\mathbf{K}=\I-\M_D \). Then
+\( \tilde{\y}\T\tilde{\x}=\y\T(\I-\M_D)\x=(\mathbf{K}\y)\T(\mathbf{K}\x) \), and similarly for the squared lengths, so
 \[
-r_{yx\cdot Z}=\frac{(\bm K\y)\T(\bm K\x)}{\norm{\bm K\y}\,\norm{\bm K\x}} .
+r_{yx\cdot Z}=\frac{(\mathbf{K}\y)\T(\mathbf{K}\x)}{\norm{\mathbf{K}\y}\,\norm{\mathbf{K}\x}} .
 \]
-Stack the pairs as the \( n\times2 \) matrix \( [\y,\x] \). Given \( \Z \), \( [\y,\x]=\bm D\bm A+\bm E \) for a \( (q+1)\times2 \) matrix of
-coefficients \( \bm A \), where \( \bm E \) has independent \( \Normal_2(\bzero,\bm C) \) rows. Hence \( \bm K[\y,\x]=\bm K\bm E \). Writing
-\( \bm E=\bm E_0\bm C^{1/2} \) with independent standard normal entries in \( \bm E_0 \), each column of \( \bm K\bm E_0 \) is
-\( \Normal(\bzero,\bm K\bm K\T)=\Normal(\bzero,\I_{n-q-1}) \) (@thm-mvn-linear), so the \( n-q-1 \) rows of \( \bm K\bm E \) are independent
-\( \Normal_2(\bzero,\bm C) \) vectors. Thus, given \( \Z \), \( r_{yx\cdot Z} \) is the *uncentred* correlation of \( m=n-q-1 \)
-independent \( \Normal_2(\bzero,\bm C) \) pairs.
+Stack the pairs as the \( n\times2 \) matrix \( [\y,\x] \). Given \( \Z \), \( [\y,\x]=\mathbf{D}\mathbf{A}+\mathbf{E} \) for a \( (q+1)\times2 \) matrix of
+coefficients \( \mathbf{A} \), where \( \mathbf{E} \) has independent \( \Normal_2(\bzero,\mathbf{C}) \) rows. Hence \( \mathbf{K}[\y,\x]=\mathbf{K}\mathbf{E} \). Writing
+\( \mathbf{E}=\mathbf{E}_0\mathbf{C}^{1/2} \) with independent standard normal entries in \( \mathbf{E}_0 \), each column of \( \mathbf{K}\mathbf{E}_0 \) is
+\( \Normal(\bzero,\mathbf{K}\mathbf{K}\T)=\Normal(\bzero,\I_{n-q-1}) \) (@thm-mvn-linear), so the \( n-q-1 \) rows of \( \mathbf{K}\mathbf{E} \) are independent
+\( \Normal_2(\bzero,\mathbf{C}) \) vectors. Thus, given \( \Z \), \( r_{yx\cdot Z} \) is the *uncentred* correlation of \( m=n-q-1 \)
+independent \( \Normal_2(\bzero,\mathbf{C}) \) pairs.
 
 The same argument with \( q=0 \) and \( \Z \) absent shows that the ordinary sample correlation of \( m+1 \)
-bivariate normal pairs is the uncentred correlation of \( m \) independent \( \Normal_2(\bzero,\bm C) \) pairs. So the
+bivariate normal pairs is the uncentred correlation of \( m \) independent \( \Normal_2(\bzero,\mathbf{C}) \) pairs. So the
 conditional law of \( r_{yx\cdot Z} \) is that of an ordinary correlation from \( m+1=n-q \) pairs, whatever \( \Z \) is,
 and @lem-cor-conditioning gives the unconditional statement.
 
@@ -120,8 +120,8 @@ In the population, a zero partial correlation and a zero regression coefficient 
 ::: {#prp-cor-partial-coefficient}
 [Partial correlation and the regression coefficient]
 
-Let \( (Y,X,\bm Z) \) have finite second moments, with \( \Cov\bigl((\bm Z\T,X)\T\bigr) \) positive definite, and let
-\( \beta_X \) be the coefficient of \( X \) in the best linear predictor of \( Y \) from \( (\bm Z,X) \). Then
+Let \( (Y,X,\mathbf{Z}) \) have finite second moments, with \( \Cov\bigl((\mathbf{Z}\T,X)\T\bigr) \) positive definite, and let
+\( \beta_X \) be the coefficient of \( X \) in the best linear predictor of \( Y \) from \( (\mathbf{Z},X) \). Then
 \[
 \beta_X=\frac{\sigma_{yx\cdot Z}}{\sigma_{xx\cdot Z}}=\rho_{yx\cdot Z}\sqrt{\frac{\sigma_{yy\cdot Z}}{\sigma_{xx\cdot Z}}} ,
 \]
@@ -129,13 +129,13 @@ so \( \beta_X=0 \) iff \( \rho_{yx\cdot Z}=0 \).
 :::
 
 ::: {.proof}
-Let \( e_X=X-L(X\mid\bm Z) \) and \( e_Y=Y-L(Y\mid\bm Z) \) be the prediction errors of @prp-mvn-partial-meaning(a),
-with \( \Var(e_X)=\sigma_{xx\cdot Z}>0 \) and \( \Cov(e_Y,e_X)=\sigma_{yx\cdot Z} \). The affine span of \( (\bm Z,X) \) is the orthogonal
-sum, in \( L^2 \), of the affine span of \( \bm Z \) and the line spanned by \( e_X \), which is orthogonal to it. By the
+Let \( e_X=X-L(X\mid\mathbf{Z}) \) and \( e_Y=Y-L(Y\mid\mathbf{Z}) \) be the prediction errors of @prp-mvn-partial-meaning(a),
+with \( \Var(e_X)=\sigma_{xx\cdot Z}>0 \) and \( \Cov(e_Y,e_X)=\sigma_{yx\cdot Z} \). The affine span of \( (\mathbf{Z},X) \) is the orthogonal
+sum, in \( L^2 \), of the affine span of \( \mathbf{Z} \) and the line spanned by \( e_X \), which is orthogonal to it. By the
 population version of @thm-proj-sum, projecting \( Y \) onto the sum projects it onto each piece:
-\( L(Y\mid\bm Z,X)=L(Y\mid\bm Z)+\bigl(\Cov(Y,e_X)/\Var(e_X)\bigr)e_X \). Since \( L(Y\mid\bm Z) \) is orthogonal to \( e_X \),
+\( L(Y\mid\mathbf{Z},X)=L(Y\mid\mathbf{Z})+\bigl(\Cov(Y,e_X)/\Var(e_X)\bigr)e_X \). Since \( L(Y\mid\mathbf{Z}) \) is orthogonal to \( e_X \),
 \( \Cov(Y,e_X)=\Cov(e_Y,e_X)=\sigma_{yx\cdot Z} \). The coefficient of \( X \) in this expression comes only from the last
-term, because \( e_X=X-(\text{affine function of }\bm Z) \); it is \( \sigma_{yx\cdot Z}/\sigma_{xx\cdot Z} \).
+term, because \( e_X=X-(\text{affine function of }\mathbf{Z}) \); it is \( \sigma_{yx\cdot Z}/\sigma_{xx\cdot Z} \).
 :::
 
 This is the Frisch–Waugh–Lovell theorem in the population, and the sample version is

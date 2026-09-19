@@ -4,14 +4,14 @@
 
 ::: {.idea}
 
-1. \( \Y \) is multivariate normal when every linear combination \( \bm a\T\Y \) is normal,
+1. \( \Y \) is multivariate normal when every linear combination \( \mathbf{a}\T\Y \) is normal,
            constants included (@def-mvn). The definition covers singular covariance
            matrices, which regression needs for fitted values and residuals.
 
 2. \( \bmu+\A\Z \), with \( \Z \) standard normal, is \( \Normal(\bmu,\A\A\T) \). Every mean and
            every nonnegative definite covariance occurs (@thm-mvn-existence).
 
-3. The moment generating function is \( \exp(\bm t\T\bmu+\tfrac12\bm t\T\bSigma\bm t) \), so
+3. The moment generating function is \( \exp(\mathbf{t}\T\bmu+\tfrac12\mathbf{t}\T\bSigma\mathbf{t}) \), so
            a normal distribution is determined by \( \bmu \) and \( \bSigma \) (@thm-mvn-mgf).
            When \( \bSigma \) is positive definite there is a density whose contours are the
            ellipsoids of constant Mahalanobis distance, and \( \Delta^2(\Y)\sim\chi^2(n) \)

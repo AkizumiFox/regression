@@ -31,20 +31,20 @@ Assume @eq-opt-normal-model with \( r=\rank(\X)<n \). Let \( \bLambda \) be \( p
 :::
 
 ::: {.proof}
-Write \( \bLambda=\X\T\bm P \) for an \( n\times q \) matrix \( \bm P \). As in the proof of @thm-opt-gauss-markov(d),
-\( \bLambda\T\hbeta=\bm P\T\M\Y \) for every least squares estimate \( \hbeta \).
+Write \( \bLambda=\X\T\mathbf{P} \) for an \( n\times q \) matrix \( \mathbf{P} \). As in the proof of @thm-opt-gauss-markov(d),
+\( \bLambda\T\hbeta=\mathbf{P}\T\M\Y \) for every least squares estimate \( \hbeta \).
 
-(a) By @thm-mvn-linear, \( \bm P\T\M\Y \) is normal with mean \( \bm P\T\M\X\bbeta=\bm P\T\X\bbeta=\bLambda\T\bbeta \) and
-covariance \( \sigma^2\bm P\T\M\M\T\bm P=\sigma^2\bm P\T\M\bm P=\sigma^2\bLambda\T(\X\T\X)\ginv\bLambda \), by @thm-proj-M-formula.
-The special cases are \( \bLambda=\X\T \), with \( \bm P=\I \), and \( \bLambda=\I_p \) in full rank.
+(a) By @thm-mvn-linear, \( \mathbf{P}\T\M\Y \) is normal with mean \( \mathbf{P}\T\M\X\bbeta=\mathbf{P}\T\X\bbeta=\bLambda\T\bbeta \) and
+covariance \( \sigma^2\mathbf{P}\T\M\M\T\mathbf{P}=\sigma^2\mathbf{P}\T\M\mathbf{P}=\sigma^2\bLambda\T(\X\T\X)\ginv\bLambda \), by @thm-proj-M-formula.
+The special cases are \( \bLambda=\X\T \), with \( \mathbf{P}=\I \), and \( \bLambda=\I_p \) in full rank.
 
 (b) \( \text{SSE}=\Y\T(\I-\M)\Y \), and \( \I-\M \) is symmetric and idempotent of rank \( n-r \)
 (@thm-proj-sym-idem and @prp-proj-trace-rank). By @thm-qf-chisq(a),
 \( \text{SSE}/\sigma^2\sim\chi^2\bigl(n-r,\norm{(\I-\M)\X\bbeta}^2/\sigma^2\bigr) \), and the noncentrality is zero
-because \( (\I-\M)\X=\bm0 \).
+because \( (\I-\M)\X=\mathbf{0} \).
 
 (c) Apply @thm-qf-indep-linear with \( \B=\M \), \( \A=\I-\M \) and \( \bSigma=\sigma^2\I \). Then
-\( \B\bSigma\A=\sigma^2\M(\I-\M)=\bm0 \), so \( \M\Y \) and \( \Y\T(\I-\M)\Y \) are independent. Functions of independent
+\( \B\bSigma\A=\sigma^2\M(\I-\M)=\mathbf{0} \), so \( \M\Y \) and \( \Y\T(\I-\M)\Y \) are independent. Functions of independent
 random vectors are independent.
 
 (d) A \( \chi^2(k) \) variable has mean \( k \) and variance \( 2k \) (@thm-qf-ncchisq(b) with \( \gamma=0 \)). So
@@ -88,8 +88,8 @@ where \( t_{n-r,\alpha/2} \) is the upper \( \alpha/2 \) point of \( t(n-r) \).
 :::
 
 ::: {.proof}
-Put \( c^2=\blambda\T(\X\T\X)\ginv\blambda \). Then \( c>0 \), since \( c^2=\norm{\M\bm\rho}^2 \) with
-\( \X\T\M\bm\rho=\blambda\ne\bzero \). By @thm-opt-sampling(a),
+Put \( c^2=\blambda\T(\X\T\X)\ginv\blambda \). Then \( c>0 \), since \( c^2=\norm{\M\boldsymbol{\rho}}^2 \) with
+\( \X\T\M\boldsymbol{\rho}=\blambda\ne\bzero \). By @thm-opt-sampling(a),
 \( Z=(\blambda\T\hbeta-d)/(\sigma c)\sim\Normal(\delta,1) \). By (b), \( V=(n-r)s^2/\sigma^2\sim\chi^2(n-r) \), and by
 (c) \( Z \) and \( V \) are independent. Now \( T_d=Z/\sqrt{V/(n-r)} \), which is \( t(n-r,\delta) \) by @def-qf-noncentral-t.
 With \( d=\blambda\T\bbeta \), \( \delta=0 \), and @eq-opt-t-interval restates
@@ -113,37 +113,37 @@ dependent, so a generalized inverse is needed.
 ::: {#cor-opt-quadratic}
 [A chi-squared pivot for several functions]
 
-In the setting of @thm-opt-sampling, let \( \bm W=\bLambda\T(\X\T\X)\ginv\bLambda \), let \( \bm W\ginv \) be any generalized
-inverse of \( \bm W \), and put \( \bm D=\bLambda\T\hbeta-\bLambda\T\bbeta \). Then
+In the setting of @thm-opt-sampling, let \( \mathbf{W}=\bLambda\T(\X\T\X)\ginv\bLambda \), let \( \mathbf{W}\ginv \) be any generalized
+inverse of \( \mathbf{W} \), and put \( \mathbf{D}=\bLambda\T\hbeta-\bLambda\T\bbeta \). Then
 \[
-Q=\frac{\bm D\T\bm W\ginv\bm D}{\sigma^2}\sim\chi^2\bigl(\rank(\bLambda)\bigr),
+Q=\frac{\mathbf{D}\T\mathbf{W}\ginv\mathbf{D}}{\sigma^2}\sim\chi^2\bigl(\rank(\bLambda)\bigr),
 \]
-\( Q \) does not depend on the choice of \( \bm W\ginv \) (with probability one), and \( Q \) is independent of SSE. Consequently
+\( Q \) does not depend on the choice of \( \mathbf{W}\ginv \) (with probability one), and \( Q \) is independent of SSE. Consequently
 \[
-\frac{\bm D\T\bm W\ginv\bm D/\rank(\bLambda)}{s^2}\sim F\bigl(\rank(\bLambda),\ n-r\bigr).
+\frac{\mathbf{D}\T\mathbf{W}\ginv\mathbf{D}/\rank(\bLambda)}{s^2}\sim F\bigl(\rank(\bLambda),\ n-r\bigr).
 \]
 :::
 
 ::: {.proof}
-By @thm-opt-sampling(a), \( \bm D\sim\Normal_q(\bzero,\sigma^2\bm W) \). The quadratic form is unchanged if
-\( \bm W\ginv \) is replaced by its symmetric part \( \frac12(\bm W\ginv+\bm W^{-\top}) \), which is again a generalized
-inverse of the symmetric matrix \( \bm W \) (@prp-mat-ginverse-props(d)). So we may assume \( \bm W\ginv \) symmetric.
+By @thm-opt-sampling(a), \( \mathbf{D}\sim\Normal_q(\bzero,\sigma^2\mathbf{W}) \). The quadratic form is unchanged if
+\( \mathbf{W}\ginv \) is replaced by its symmetric part \( \frac12(\mathbf{W}\ginv+\mathbf{W}^{-\top}) \), which is again a generalized
+inverse of the symmetric matrix \( \mathbf{W} \) (@prp-mat-ginverse-props(d)). So we may assume \( \mathbf{W}\ginv \) symmetric.
 Apply @thm-qf-chisq(c) with
-\( \bSigma=\sigma^2\bm W \), \( \bmu=\bzero \) and \( \A=\bm W\ginv/\sigma^2 \). Conditions (ii) and (iii) hold trivially because
+\( \bSigma=\sigma^2\mathbf{W} \), \( \bmu=\bzero \) and \( \A=\mathbf{W}\ginv/\sigma^2 \). Conditions (ii) and (iii) hold trivially because
 \( \bmu=\bzero \). Condition (i) is
-\( \bSigma\A\bSigma\A\bSigma=\sigma^2\bm W\bm W\ginv\bm W\bm W\ginv\bm W=\sigma^2\bm W=\bSigma\A\bSigma \), by two uses of
-\( \bm W\bm W\ginv\bm W=\bm W \). So \( Q\sim\chi^2(\tr(\A\bSigma)) \), where \( \tr(\A\bSigma)=\tr(\bm W\ginv\bm W)=\rank(\bm W) \),
-because \( \bm W\ginv\bm W \) is idempotent with the same rank as \( \bm W \) (@prp-mat-ginverse-props(a)), and the trace
+\( \bSigma\A\bSigma\A\bSigma=\sigma^2\mathbf{W}\mathbf{W}\ginv\mathbf{W}\mathbf{W}\ginv\mathbf{W}=\sigma^2\mathbf{W}=\bSigma\A\bSigma \), by two uses of
+\( \mathbf{W}\mathbf{W}\ginv\mathbf{W}=\mathbf{W} \). So \( Q\sim\chi^2(\tr(\A\bSigma)) \), where \( \tr(\A\bSigma)=\tr(\mathbf{W}\ginv\mathbf{W})=\rank(\mathbf{W}) \),
+because \( \mathbf{W}\ginv\mathbf{W} \) is idempotent with the same rank as \( \mathbf{W} \) (@prp-mat-ginverse-props(a)), and the trace
 of an idempotent matrix is its rank (@prp-mat-idempotent-basic).
 
-It remains to show \( \rank(\bm W)=\rank(\bLambda) \). With \( \bLambda=\X\T\bm P \),
-\( \bm W=\bm P\T\M\bm P=(\M\bm P)\T(\M\bm P) \), so \( \rank\bm W=\rank(\M\bm P) \). Also \( \bLambda=\X\T\bm P=\X\T\M\bm P \). If
-\( \X\T\M\bm P\bu=\bzero \), then \( \M\bm P\bu\in\C(\X)\cap\C(\X)\perpc=\{\bzero\} \), so \( \X\T \) is one-to-one on \( \C(\M\bm P) \)
-and \( \rank\bLambda=\rank(\M\bm P) \).
+It remains to show \( \rank(\mathbf{W})=\rank(\bLambda) \). With \( \bLambda=\X\T\mathbf{P} \),
+\( \mathbf{W}=\mathbf{P}\T\M\mathbf{P}=(\M\mathbf{P})\T(\M\mathbf{P}) \), so \( \rank\mathbf{W}=\rank(\M\mathbf{P}) \). Also \( \bLambda=\X\T\mathbf{P}=\X\T\M\mathbf{P} \). If
+\( \X\T\M\mathbf{P}\bu=\bzero \), then \( \M\mathbf{P}\bu\in\C(\X)\cap\C(\X)\perpc=\{\bzero\} \), so \( \X\T \) is one-to-one on \( \C(\M\mathbf{P}) \)
+and \( \rank\bLambda=\rank(\M\mathbf{P}) \).
 
-For invariance: \( \bm D\in\C(\bm W) \) with probability one by @thm-rv-cov-nnd(d). If \( \bm D=\bm W\bu \), then
-\( \bm D\T\bm W\ginv\bm D=\bu\T\bm W\bm W\ginv\bm W\bu=\bu\T\bm W\bu \), whatever \( \bm W\ginv \) is. Independence follows from
-@thm-opt-sampling(c), since \( \bm D \) is a function of \( \M\Y \). The \( F \) ratio is then a ratio of independent chi-squared
+For invariance: \( \mathbf{D}\in\C(\mathbf{W}) \) with probability one by @thm-rv-cov-nnd(d). If \( \mathbf{D}=\mathbf{W}\bu \), then
+\( \mathbf{D}\T\mathbf{W}\ginv\mathbf{D}=\bu\T\mathbf{W}\mathbf{W}\ginv\mathbf{W}\bu=\bu\T\mathbf{W}\bu \), whatever \( \mathbf{W}\ginv \) is. Independence follows from
+@thm-opt-sampling(c), since \( \mathbf{D} \) is a function of \( \M\Y \). The \( F \) ratio is then a ratio of independent chi-squared
 variables divided by their degrees of freedom (@def-qf-noncentral-f).
 :::
 
@@ -239,9 +239,9 @@ Let the errors be independent with mean zero, variance \( \sigma^2 \), third mom
 :::
 
 ::: {.proof}
-Apply @thm-rv-quadform-variance to \( \text{SSE}=\Y\T(\I-\M)\Y \), with \( \bm\theta=\X\bbeta \) and \( \A=\I-\M \), whose
-diagonal entries are \( 1-h_{ii} \). The terms \( 4\sigma^2\bm\theta\T\A^2\bm\theta \) and \( 4\mu_3\bm\theta\T\A\bm a \) vanish
-because \( \A\bm\theta=(\I-\M)\X\bbeta=\bzero \), and \( \tr(\A^2)=\tr(\A)=n-r \).
+Apply @thm-rv-quadform-variance to \( \text{SSE}=\Y\T(\I-\M)\Y \), with \( \boldsymbol{\theta}=\X\bbeta \) and \( \A=\I-\M \), whose
+diagonal entries are \( 1-h_{ii} \). The terms \( 4\sigma^2\boldsymbol{\theta}\T\A^2\boldsymbol{\theta} \) and \( 4\mu_3\boldsymbol{\theta}\T\A\mathbf{a} \) vanish
+because \( \A\boldsymbol{\theta}=(\I-\M)\X\bbeta=\bzero \), and \( \tr(\A^2)=\tr(\A)=n-r \).
 :::
 
 The factor \( \mu_4-3\sigma^4 \) is \( \sigma^4 \) times the excess kurtosis. For normal errors it vanishes and we recover

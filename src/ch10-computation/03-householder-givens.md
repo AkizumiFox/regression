@@ -19,8 +19,8 @@ choosing its sign so that no cancellation occurs.
 [Householder vector]
 
 Let \( \x\in\Real^m \), \( \x\ne\bzero \), let \( \alpha=-\operatorname{sign}(x_1)\norm{\x} \) (with
-\( \operatorname{sign}(0)=1 \)), and let \( \bv=\x-\alpha\bm e_1 \). Then \( \bv\ne\bzero \), and
-\( \bH=\I-2\bv\bv\T/(\bv\T\bv) \) satisfies \( \bH\x=\alpha\bm e_1 \). The first entry
+\( \operatorname{sign}(0)=1 \)), and let \( \bv=\x-\alpha\mathbf{e}_1 \). Then \( \bv\ne\bzero \), and
+\( \bH=\I-2\bv\bv\T/(\bv\T\bv) \) satisfies \( \bH\x=\alpha\mathbf{e}_1 \). The first entry
 \( v_1=x_1-\alpha \) is a sum of two numbers of the same sign, so
 \( \lvert v_1\rvert=\lvert x_1\rvert+\norm{\x} \). Applying \( \bH \) to a vector \( \bw \) as
 \( \bw-2\bv(\bv\T\bw)/(\bv\T\bv) \) costs about \( 4m \) flops, and \( \bH \) is never formed.
@@ -30,12 +30,12 @@ Let \( \x\in\Real^m \), \( \x\ne\bzero \), let \( \alpha=-\operatorname{sign}(x_
 \( \alpha \) and \( x_1 \) have opposite signs (or \( x_1=0 \)), so \( v_1=x_1-\alpha \) adds two numbers of
 the same sign and \( \lvert v_1\rvert=\lvert x_1\rvert+\norm{\x}>0 \). Next,
 \( \bv\T\x=\norm{\x}^2-\alpha x_1 \) and \( \bv\T\bv=\norm{\x}^2-2\alpha x_1+\alpha^2=2(\norm{\x}^2-\alpha x_1) \),
-using \( \alpha^2=\norm{\x}^2 \). Hence \( 2\bv\T\x/\bv\T\bv=1 \) and \( \bH\x=\x-\bv=\alpha\bm e_1 \).
+using \( \alpha^2=\norm{\x}^2 \). Hence \( 2\bv\T\x/\bv\T\bv=1 \) and \( \bH\x=\x-\bv=\alpha\mathbf{e}_1 \).
 :::
 
 The opposite sign choice, \( \alpha=+\operatorname{sign}(x_1)\norm{\x} \), also gives a reflection
 onto the axis. But then \( v_1=x_1-\alpha \) subtracts two nearly equal numbers whenever \( \x \) is
-nearly parallel to \( \bm e_1 \). This is the cancellation of
+nearly parallel to \( \mathbf{e}_1 \). This is the cancellation of
 [Section 10.1](01-why-not-invert.html), and it can make \( \bv \) inaccurate in every digit.
 
 ::: {#thm-cmp-householder}
@@ -148,16 +148,16 @@ coordinates.
 [Least squares from QR]
 
 Let \( \X=\Q\begin{psmallmatrix}\R\\\bzero\end{psmallmatrix} \) with \( \Q \) orthogonal and \( \rank\X=p \),
-and partition \( \bm c=\Q\T\y \) as \( (\bm c_1\T,\bm c_2\T)\T \) with \( \bm c_1\in\Real^p \). Then:
+and partition \( \mathbf{c}=\Q\T\y \) as \( (\mathbf{c}_1\T,\mathbf{c}_2\T)\T \) with \( \mathbf{c}_1\in\Real^p \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \hbeta \) is the solution of the triangular system \( \R\bb=\bm c_1 \), and
-           \( \text{SSE}=\norm{\bm c_2}^2 \);
+1. \( \hbeta \) is the solution of the triangular system \( \R\bb=\mathbf{c}_1 \), and
+           \( \text{SSE}=\norm{\mathbf{c}_2}^2 \);
 
-2. \( \hY=\Q\begin{psmallmatrix}\bm c_1\\\bzero\end{psmallmatrix} \) and
-           \( \he=\Q\begin{psmallmatrix}\bzero\\\bm c_2\end{psmallmatrix} \);
+2. \( \hY=\Q\begin{psmallmatrix}\mathbf{c}_1\\\bzero\end{psmallmatrix} \) and
+           \( \he=\Q\begin{psmallmatrix}\bzero\\\mathbf{c}_2\end{psmallmatrix} \);
 
-3. \( (\X\T\X)^{-1}=\R^{-1}\R^{-\top} \) and \( h_{ii}=\norm{\bm e_i\T\Q_1}^2 \);
+3. \( (\X\T\X)^{-1}=\R^{-1}\R^{-\top} \) and \( h_{ii}=\norm{\mathbf{e}_i\T\Q_1}^2 \);
 
 4. \( c_k^2 \) is the drop in residual sum of squares when column \( k \) is added to columns
            \( 1,\dots,k-1 \), the sequential sum of squares of @def-ss-sequential.
@@ -167,20 +167,20 @@ and partition \( \bm c=\Q\T\y \) as \( (\bm c_1\T,\bm c_2\T)\T \) with \( \bm c_
 
 ::: {.proof}
 (a) With \( \Q_1 \) the first \( p \) columns of \( \Q \), \( \X=\Q_1\R \) is a thin QR factorization
-and \( \bm c_1=\Q_1\T\y \), so \( \R\hbeta=\bm c_1 \) and \( \text{SSE}=\norm{\y}^2-\norm{\bm c_1}^2 \)
-are @eq-proj-qr-ls. What the full \( \Q \) adds is \( \norm{\bm c}=\norm{\y} \), hence
-\( \text{SSE}=\norm{\bm c_2}^2 \).
-(b) \( \X\hbeta=\Q\begin{psmallmatrix}\R\hbeta\\\bzero\end{psmallmatrix}=\Q\begin{psmallmatrix}\bm c_1\\\bzero\end{psmallmatrix} \),
-and \( \y=\Q\bm c \).
+and \( \mathbf{c}_1=\Q_1\T\y \), so \( \R\hbeta=\mathbf{c}_1 \) and \( \text{SSE}=\norm{\y}^2-\norm{\mathbf{c}_1}^2 \)
+are @eq-proj-qr-ls. What the full \( \Q \) adds is \( \norm{\mathbf{c}}=\norm{\y} \), hence
+\( \text{SSE}=\norm{\mathbf{c}_2}^2 \).
+(b) \( \X\hbeta=\Q\begin{psmallmatrix}\R\hbeta\\\bzero\end{psmallmatrix}=\Q\begin{psmallmatrix}\mathbf{c}_1\\\bzero\end{psmallmatrix} \),
+and \( \y=\Q\mathbf{c} \).
 (c) \( \X\T\X=\R\T\Q_1\T\Q_1\R=\R\T\R \), and the leverage formula is @eq-proj-qr-ls.
 (d) The first \( k \) columns of \( \X \) equal the first \( k \) columns of \( \Q \) times the leading
 \( k\times k \) block of \( \R \), which is nonsingular. So they span the same subspace as
-\( \bm q_1,\dots,\bm q_k \), and the squared length of the projection of \( \y \) onto it is
-\( \sum_{j\le k}(\bm q_j\T\y)^2=\sum_{j\le k}c_j^2 \) (@prp-proj-orthonormal-formula).
+\( \mathbf{q}_1,\dots,\mathbf{q}_k \), and the squared length of the projection of \( \y \) onto it is
+\( \sum_{j\le k}(\mathbf{q}_j\T\y)^2=\sum_{j\le k}c_j^2 \) (@prp-proj-orthonormal-formula).
 :::
 
-Part (d) is the QR form of @prp-cmp-augmented(b): by uniqueness of the triangle, \( \bm c_1 \) equals
-the vector \( \bz \) of that proposition up to signs. The vector \( \bm c_2 \) replaces the \( n \) correlated
+Part (d) is the QR form of @prp-cmp-augmented(b): by uniqueness of the triangle, \( \mathbf{c}_1 \) equals
+the vector \( \bz \) of that proposition up to signs. The vector \( \mathbf{c}_2 \) replaces the \( n \) correlated
 residuals by \( n-p \) uncorrelated ones with the same sum of squares (@exr-cmp-uncorrelated-residuals).
 
 ::: {#exm-cmp-state-qr}
@@ -228,12 +228,12 @@ when an existing factorization must be modified.
 
 ::: {.enumerate options="label=(\alph*)"}
 1. For \( (a,b)\ne(0,0) \) let \( r=(a^2+b^2)^{1/2} \), \( c=a/r \) and \( s=b/r \). The rotation
-           \( \bm G=\begin{psmallmatrix}c&s\\-s&c\end{psmallmatrix} \) is orthogonal and
-           \( \bm G(a,b)\T=(r,0)\T \). Embedded in rows \( i \) and \( k \) of the identity, it changes only
+           \( \mathbf{G}=\begin{psmallmatrix}c&s\\-s&c\end{psmallmatrix} \) is orthogonal and
+           \( \mathbf{G}(a,b)\T=(r,0)\T \). Embedded in rows \( i \) and \( k \) of the identity, it changes only
            rows \( i \) and \( k \) of a matrix it multiplies, at \( 6 \) flops per column.
 
 2. Zeroing the subdiagonal of \( \X \) column by column, each entry against the row above it,
-           produces \( \bm G\X=\begin{psmallmatrix}\R\\\bzero\end{psmallmatrix} \) with \( \bm G \) orthogonal. It takes
+           produces \( \mathbf{G}\X=\begin{psmallmatrix}\R\\\bzero\end{psmallmatrix} \) with \( \mathbf{G} \) orthogonal. It takes
            \( np-p(p+1)/2 \) rotations and \( 3np^2-p^3 \) flops to leading order.
 
 3. (Row-wise QR.) Let \( \R \) be upper triangular and \( \x\in\Real^p \). There are \( p \) rotations, the
@@ -250,7 +250,7 @@ when an existing factorization must be modified.
 :::
 
 ::: {.proof}
-(a) \( c^2+s^2=1 \) gives \( \bm G\T\bm G=\I \). Also \( ca+sb=(a^2+b^2)/r=r \) and \( -sa+cb=0 \).
+(a) \( c^2+s^2=1 \) gives \( \mathbf{G}\T\mathbf{G}=\I \). Also \( ca+sb=(a^2+b^2)/r=r \) and \( -sa+cb=0 \).
 Each column of the product needs four multiplications and two additions.
 (b) When entry \( (i,j) \) is zeroed against row \( i-1 \), working upwards from row \( n \), both rows are
 already zero in columns \( 1,\dots,j-1 \), so no earlier zero is destroyed. Column \( j \) needs \( n-j \)
@@ -259,9 +259,9 @@ rotations, each acting on \( p-j+1 \) columns, so the count is
 (c) Before rotation \( k \), the new row is zero in columns \( 1,\dots,k-1 \), and so is row \( k \) of
 \( \R \). The rotation chosen by (a) to zero the \( k \)th entry of the new row keeps both rows zero in
 those columns. After \( p \) rotations the new row is zero, and row \( k \) of \( \R \) has been replaced by a
-row that is zero before column \( k \). With \( \bm G \) the product of the rotations,
+row that is zero before column \( k \). With \( \mathbf{G} \) the product of the rotations,
 \[
-\R_+\T\R_+=\begin{pmatrix}\R\\\x\T\end{pmatrix}\T\bm G\T\bm G\begin{pmatrix}\R\\\x\T\end{pmatrix}=\R\T\R+\x\x\T .
+\R_+\T\R_+=\begin{pmatrix}\R\\\x\T\end{pmatrix}\T\mathbf{G}\T\mathbf{G}\begin{pmatrix}\R\\\x\T\end{pmatrix}=\R\T\R+\x\x\T .
 \]
 Rotation \( k \) acts on \( p-k+1 \) columns, which gives \( \sum_k6(p-k+1)\approx3p^2 \). In the augmented
 case, apply \( p \) rotations to the augmented \( (p+1)\times(p+1) \) triangle \( \bT \) and the row
@@ -320,7 +320,7 @@ underflow. Square-root-free "fast" variants (Gentleman 1973) matter less on mode
 ## Gram–Schmidt revisited
 
 Gram–Schmidt (@thm-mat-qr) also computes a QR factorization, at \( 2np^2 \) flops, and forms
-\( \Q_1 \) explicitly, which gives leverages directly. The classical form computes \( r_{kj}=\bm q_k\T\x_j \) from the *original* column; the modified form
+\( \Q_1 \) explicitly, which gives leverages directly. The classical form computes \( r_{kj}=\mathbf{q}_k\T\x_j \) from the *original* column; the modified form
 subtracts each new direction from all remaining columns at once. The two agree in exact arithmetic
 and differ greatly in floating point.
 
@@ -387,7 +387,7 @@ streaming, updating and sparse data.
 [A1]
 
 Find the Householder vector and \( \alpha \) of @lem-cmp-reflector for \( \x=(3,4)\T \), and verify
-\( \bH\x=\alpha\bm e_1 \). For \( \x=(1,10^{-9})\T \), compute \( v_1 \) with both sign choices in
+\( \bH\x=\alpha\mathbf{e}_1 \). For \( \x=(1,10^{-9})\T \), compute \( v_1 \) with both sign choices in
 double precision, and explain what goes wrong with the unstable one.
 :::
 
@@ -408,22 +408,22 @@ choice.
 [B1]
 
 In the setting of @prp-cmp-qr-quantities, let \( \Q=[\Q_1,\Q_2] \). Show that under the linear model
-with \( \Cov(\be)=\sigma^2\I \), the vector \( \bm c_2=\Q_2\T\y \) has mean \( \bzero \) and covariance
-\( \sigma^2\I_{n-p} \), and that \( \he=\Q_2\bm c_2 \). Under normality, deduce from \( \bm c_2 \) alone that
+with \( \Cov(\be)=\sigma^2\I \), the vector \( \mathbf{c}_2=\Q_2\T\y \) has mean \( \bzero \) and covariance
+\( \sigma^2\I_{n-p} \), and that \( \he=\Q_2\mathbf{c}_2 \). Under normality, deduce from \( \mathbf{c}_2 \) alone that
 \( \text{SSE}/\sigma^2\sim\chi^2(n-p) \) independently of \( \hbeta \) (compare @thm-opt-sampling). Is
-\( \bm c_2 \) unique?
+\( \mathbf{c}_2 \) unique?
 :::
 
 ::: {.solution}
 \( \Q_2\T\X=\bzero \), because \( \Q\T\X=\begin{psmallmatrix}\R\\\bzero\end{psmallmatrix} \). So
-\( \bm c_2=\Q_2\T\X\bbeta+\Q_2\T\be=\Q_2\T\be \), with mean \( \bzero \) and covariance
+\( \mathbf{c}_2=\Q_2\T\X\bbeta+\Q_2\T\be=\Q_2\T\be \), with mean \( \bzero \) and covariance
 \( \sigma^2\Q_2\T\Q_2=\sigma^2\I \). By @prp-cmp-qr-quantities(b),
-\( \he=\Q\begin{psmallmatrix}\bzero\\\bm c_2\end{psmallmatrix}=\Q_2\bm c_2 \). Under normality,
-\( \Q\T\be\sim\Normal_n(\bzero,\sigma^2\I) \) (@thm-mvn-linear), so \( \bm c_1-\R\bbeta=\Q_1\T\be \) and
-\( \bm c_2=\Q_2\T\be \) are independent normal vectors with identity covariance times \( \sigma^2 \).
-Then \( \text{SSE}/\sigma^2=\norm{\bm c_2/\sigma}^2\sim\chi^2(n-p) \), and
-\( \hbeta=\R^{-1}\bm c_1 \) is a function of \( \bm c_1 \) alone. \( \bm c_2 \) is not unique: \( \Q_2 \) can be
-replaced by \( \Q_2\bm O \) for any orthogonal \( \bm O \), which changes \( \bm c_2 \) but not its length or its
+\( \he=\Q\begin{psmallmatrix}\bzero\\\mathbf{c}_2\end{psmallmatrix}=\Q_2\mathbf{c}_2 \). Under normality,
+\( \Q\T\be\sim\Normal_n(\bzero,\sigma^2\I) \) (@thm-mvn-linear), so \( \mathbf{c}_1-\R\bbeta=\Q_1\T\be \) and
+\( \mathbf{c}_2=\Q_2\T\be \) are independent normal vectors with identity covariance times \( \sigma^2 \).
+Then \( \text{SSE}/\sigma^2=\norm{\mathbf{c}_2/\sigma}^2\sim\chi^2(n-p) \), and
+\( \hbeta=\R^{-1}\mathbf{c}_1 \) is a function of \( \mathbf{c}_1 \) alone. \( \mathbf{c}_2 \) is not unique: \( \Q_2 \) can be
+replaced by \( \Q_2\mathbf{O} \) for any orthogonal \( \mathbf{O} \), which changes \( \mathbf{c}_2 \) but not its length or its
 distribution.
 :::
 
@@ -456,7 +456,7 @@ Show that, in exact arithmetic, Householder QR (@thm-cmp-householder) applied to
 \( \begin{psmallmatrix}\bzero_{p\times p}\\\X\end{psmallmatrix} \) produces the same \( \R \) as modified
 Gram–Schmidt applied to \( \X \) up to the signs of its rows, and that with the sign convention of
 @lem-cmp-reflector its reflection vectors are
-\( \bv_j=\begin{psmallmatrix}\bm e_j\\\bm q_j\end{psmallmatrix}/\sqrt2 \). This is the
+\( \bv_j=\begin{psmallmatrix}\mathbf{e}_j\\\mathbf{q}_j\end{psmallmatrix}/\sqrt2 \). This is the
 observation of Björck and Paige (1992), who take \( \alpha=+\norm{\x} \) and so obtain
-\( \begin{psmallmatrix}-\bm e_j\\\bm q_j\end{psmallmatrix}/\sqrt2 \).
+\( \begin{psmallmatrix}-\mathbf{e}_j\\\mathbf{q}_j\end{psmallmatrix}/\sqrt2 \).
 :::

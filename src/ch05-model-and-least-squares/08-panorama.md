@@ -32,7 +32,7 @@ the models below.
 | Normal linear model | exact tests, intervals, multiple comparisons, designed experiments | Chapters [11](../ch11-general-linear-hypothesis/index.html)–18 |
 | Departures from the assumptions | diagnostics, transformations, resampling, measurement error, causation | Chapters 19–25 |
 | Many regressors | collinearity, shrinkage, \( p>n \), selection, boosting | Chapters 26–30 |
-| General covariance and random effects | \( \Cov(\be)=\sigma^2\V \); \( \Y=\X\bbeta+\bm Z\bm b+\be \) | Chapters 31–33 |
+| General covariance and random effects | \( \Cov(\be)=\sigma^2\V \); \( \Y=\X\bbeta+\mathbf{Z}\mathbf{b}+\be \) | Chapters 31–33 |
 | Generalized linear models | non-normal distribution and a link | Chapters 34–41 |
 | Nonparametric and additive models | smooth functions in the predictor | Chapters 42–44 |
 | Distributional regression | regressors act on more than the mean | Chapter 45 |
@@ -60,9 +60,9 @@ predictors and treat boosting.
 in a different inner product ([Section 6.9](../ch06-projections/09-inner-products.html)). Linear
 mixed models write the response as
 \[
-\Y=\X\bbeta+\bm Z\bm b+\be,
+\Y=\X\bbeta+\mathbf{Z}\mathbf{b}+\be,
 \]
-where \( \bm b \) is a vector of random effects shared by related cases, such as repeated
+where \( \mathbf{b} \) is a vector of random effects shared by related cases, such as repeated
 measurements on one person or pupils in one school (Chapters 32–33). The RAND data of
 @exm-lm-health-coding, with the same people observed in several years, are of this kind.
 

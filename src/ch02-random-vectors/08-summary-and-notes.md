@@ -14,10 +14,10 @@
 
 3. Affine maps: \( \E(\A\Y+\bb)=\A\bmu+\bb \), \( \Cov(\A\Y+\bb)=\A\bSigma\A\T \),
            \( \Cov(\A\bU,\B\V)=\A\Cov(\bU,\V)\B\T \) (@thm-rv-linear). In particular
-           \( \Var(\bm a\T\Y)=\bm a\T\bSigma\bm a \).
+           \( \Var(\mathbf{a}\T\Y)=\mathbf{a}\T\bSigma\mathbf{a} \).
 
-4. Covariance matrices are exactly the nonnegative definite matrices. \( \bSigma\bm a=\bzero \)
-           iff \( \bm a\T\Y \) is constant with probability one, and \( \Y \) lives in the flat
+4. Covariance matrices are exactly the nonnegative definite matrices. \( \bSigma\mathbf{a}=\bzero \)
+           iff \( \mathbf{a}\T\Y \) is constant with probability one, and \( \Y \) lives in the flat
            \( \bmu+\C(\bSigma) \) (@thm-rv-cov-nnd).
 
 5. Whitening by \( \W \) with \( \W\bSigma\W\T=\I \) is unique up to an orthogonal factor.
@@ -25,7 +25,7 @@
            (@prp-rv-whitening).
 
 6. \( \E(\Y\T\A\Y)=\tr(\A\bSigma)+\bmu\T\A\bmu \) under second moments only
-           (@thm-rv-quadform-mean). Hence \( \E(\text{RSS})=\sigma^2(n-r)+\norm{(\I-\M)\bm\theta}^2 \)
+           (@thm-rv-quadform-mean). Hence \( \E(\text{RSS})=\sigma^2(n-r)+\norm{(\I-\M)\boldsymbol{\theta}}^2 \)
            (@exm-rv-rss-bias). The variance of a quadratic form needs third and fourth moments
            (@thm-rv-quadform-variance).
 

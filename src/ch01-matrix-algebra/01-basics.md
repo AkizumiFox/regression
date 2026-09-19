@@ -12,12 +12,12 @@ squares, get only the minimum here. [Chapter 6](../ch06-projections/index.html) 
 ## Conventions
 
 An \( m\times n \) matrix \( \A=(a_{ij}) \) has \( m \) rows and \( n \) columns. We write
-\( \A=[\bm a_1,\dots,\bm a_n] \) for its columns and \( \bm a_{(i)}\T \) for its \( i \)th row. A
+\( \A=[\mathbf{a}_1,\dots,\mathbf{a}_n] \) for its columns and \( \mathbf{a}_{(i)}\T \) for its \( i \)th row. A
 **vector** is always a column, so \( \x\in\Real^n \) is an \( n\times1 \) matrix and \( \x\T \) is
 a row. Bold upright letters denote vectors and matrices, and italic letters denote
 scalars. The special matrices we use constantly are the identity \( \I_n \), the zero matrix
-\( \bzero \), the vector of ones \( \bone_n \), the matrix of ones \( \bm J_n=\bone_n\bone_n\T \), and
-the coordinate vectors \( \bm e_1,\dots,\bm e_n \), the columns of \( \I_n \). Subscripts giving
+\( \bzero \), the vector of ones \( \bone_n \), the matrix of ones \( \mathbf{J}_n=\bone_n\bone_n\T \), and
+the coordinate vectors \( \mathbf{e}_1,\dots,\mathbf{e}_n \), the columns of \( \I_n \). Subscripts giving
 sizes are dropped when the size is clear. \( \diag(d_1,\dots,d_n) \) is the diagonal matrix
 with the given diagonal entries. A square matrix is **symmetric** if \( \A\T=\A \),
 *upper triangular* if \( a_{ij}=0 \) for \( i>j \), and *lower triangular* if
@@ -35,9 +35,9 @@ If \( \A \) is \( m\times n \) and \( \B \) is \( n\times q \), the \( (i,j) \) 
 \( \sum_k a_{ik}b_{kj} \). Three equivalent readings of the product carry most of the
 arguments in this book:
 \[
-\A\bb=\sum_{j=1}^n b_j\bm a_j,\qquad
+\A\bb=\sum_{j=1}^n b_j\mathbf{a}_j,\qquad
 \A\B=[\A\bb_1,\dots,\A\bb_q],\qquad
-\A\B=\sum_{k=1}^n\bm a_k\bm b_{(k)}\T .
+\A\B=\sum_{k=1}^n\mathbf{a}_k\mathbf{b}_{(k)}\T .
 \]{#eq-mat-product-readings}
 
 The first says that \( \A\bb \) combines the columns of \( \A \), with weights taken from
@@ -65,7 +65,7 @@ and the **Euclidean norm** is \( \norm{\bu}=(\bu\T\bu)^{1/2} \). The entries of 
 the inner products of the columns of \( \A \), and those of \( \A\A\T \) are the inner products of
 its rows. In particular
 \[
-\sum_{i,j}a_{ij}^2=\sum_j\norm{\bm a_j}^2 ,
+\sum_{i,j}a_{ij}^2=\sum_j\norm{\mathbf{a}_j}^2 ,
 \]{#eq-mat-frobenius}
 
 so \( \A\T\A=\bzero \) forces every column to be zero, that is, \( \A=\bzero \). The square root of
@@ -97,8 +97,8 @@ transpose \( \x\T\A\T\x \), so
 \]{#eq-mat-symmetrize}
 
 Every quadratic form therefore has a symmetric matrix, and that matrix is unique: if
-\( \x\T\bS\x=0 \) for all \( \x \) with \( \bS \) symmetric, then taking \( \x=\bm e_i \) gives
-\( s_{ii}=0 \), and \( \x=\bm e_i+\bm e_j \) gives \( 2s_{ij}=0 \). From now on we always take the matrix
+\( \x\T\bS\x=0 \) for all \( \x \) with \( \bS \) symmetric, then taking \( \x=\mathbf{e}_i \) gives
+\( s_{ii}=0 \), and \( \x=\mathbf{e}_i+\mathbf{e}_j \) gives \( 2s_{ij}=0 \). From now on we always take the matrix
 in a quadratic form to be symmetric.
 
 ::: {#exm-mat-centring}
@@ -107,11 +107,11 @@ in a quadratic form to be symmetric.
 The sum of squared deviations of \( \y\in\Real^n \) from its mean is
 \[
 \sum_{i=1}^n(y_i-\bar{y})^2=\y\T\y-n\bar{y}^2
-=\y\T\Bigl(\I_n-\tfrac1n\bm J_n\Bigr)\y ,
+=\y\T\Bigl(\I_n-\tfrac1n\mathbf{J}_n\Bigr)\y ,
 \]
-because \( n\bar{y}^2=(\bone\T\y)^2/n=\y\T\bm J_n\y/n \). The **centring matrix**
-\( \I_n-n^{-1}\bm J_n \) is symmetric and satisfies
-\( (\I_n-n^{-1}\bm J_n)^2=\I_n-n^{-1}\bm J_n \), because \( \bm J_n^2=n\bm J_n \). Every sum of squares
+because \( n\bar{y}^2=(\bone\T\y)^2/n=\y\T\mathbf{J}_n\y/n \). The **centring matrix**
+\( \I_n-n^{-1}\mathbf{J}_n \) is symmetric and satisfies
+\( (\I_n-n^{-1}\mathbf{J}_n)^2=\I_n-n^{-1}\mathbf{J}_n \), because \( \mathbf{J}_n^2=n\mathbf{J}_n \). Every sum of squares
 in an analysis of variance is a quadratic form whose matrix has these two properties
 ([Section 1.9](09-idempotent.html)).
 :::

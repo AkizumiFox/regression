@@ -170,8 +170,8 @@ projection is \( \check{\X}_j\bbeta_j \). The columns of \( \check{\X}_j \) are 
 \( \C(\tilde{\X}_j) \) by @lem-ss-residualized. As in (a), \( \X_j\bbeta_j \) projects to
 \( \tilde{\X}_j\bbeta_j \). A later term projects to
 \( \tilde{\X}_j(\tilde{\X}_j\T\tilde{\X}_j)^{-1}\tilde{\X}_j\T\X_l\bbeta_l \) by @thm-proj-M-formula.
-Adding, \( (\M_j-\M_{j-1})\bmu=\tilde{\X}_j\bm v \), where \( \bm v \) is the vector in the display, and
-this is zero iff \( \bm v=\bzero \) because \( \tilde{\X}_j \) has independent columns.
+Adding, \( (\M_j-\M_{j-1})\bmu=\tilde{\X}_j\mathbf{v} \), where \( \mathbf{v} \) is the vector in the display, and
+this is zero iff \( \mathbf{v}=\bzero \) because \( \tilde{\X}_j \) has independent columns.
 :::
 
 So a sequential sum of squares answers the question “does \( \X_j \) matter?” only if the terms
@@ -241,7 +241,7 @@ where bars denote unweighted averages. The four arrays lie in the mutually ortho
 subspaces (for the unweighted inner product on arrays) of constants, row effects summing to
 zero, column effects summing to zero, and arrays with all row and column sums zero, of
 dimensions \( 1,a-1,b-1,(a-1)(b-1) \). Sum-to-zero coding spans exactly these: the columns
-\( \bm u_i-\bm u_1 \) (\( i=2,\dots,a \)), where \( \bm u_i \) indicates row \( i \), give all row effects
+\( \mathbf{u}_i-\mathbf{u}_1 \) (\( i=2,\dots,a \)), where \( \mathbf{u}_i \) indicates row \( i \), give all row effects
 \( \alpha_i \) with \( \sum_i\alpha_i=0 \); similarly for \( B \); and the \( (a-1)(b-1) \) products are
 linearly independent arrays with zero row and column sums, so they span that subspace. Deleting
 the columns of \( A \) removes exactly the row-effect component, so the reduced model is

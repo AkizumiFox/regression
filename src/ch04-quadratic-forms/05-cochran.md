@@ -14,7 +14,7 @@ that one count of ranks does all of it.
 
 The matrix algebra behind this was done in [Chapter 1](../ch01-matrix-algebra/index.html). For symmetric
 matrices, any two of the three properties “each \( \A_i \) is idempotent”,
-“\( \A_i\A_j=\bm0 \) for \( i\ne j \)” and “the sum is idempotent” imply the third, and
+“\( \A_i\A_j=\mathbf{0} \) for \( i\ne j \)” and “the sum is idempotent” imply the third, and
 symmetric matrices that add to \( \I \) with ranks adding to \( n \) are idempotent and mutually
 orthogonal (@thm-mat-idempotent-sum). The next theorem adds the rank count for a sum that
 is idempotent but not necessarily \( \I \), which is what nested models need.
@@ -27,7 +27,7 @@ Let \( \A_1,\dots,\A_k \) be symmetric \( n\times n \) matrices and \( \A=\sum_i
 ::: {.enumerate options="label=(\alph*)"}
 1. each \( \A_i \) is idempotent;
 
-2. \( \A_i\A_j=\bm0 \) for all \( i\ne j \);
+2. \( \A_i\A_j=\mathbf{0} \) for all \( i\ne j \);
 
 3. \( \A \) is idempotent;
 
@@ -51,7 +51,7 @@ its column space, so \( \A\A_i=\A_i \), and transposing, \( \A_i\A=\A_i \). Henc
 \( \A_i=\A\A_i\A=\Q\B_i\Q\T \) with \( \B_i=\Q\T\A_i\Q \). The \( r\times r \) matrices \( \B_i \) are symmetric,
 satisfy \( \sum_i\B_i=\Q\T\A\Q=\I_r \), and have \( \rank(\B_i)=r_i \) because \( \Q \) has orthonormal
 columns. By the last statement of @thm-mat-idempotent-sum, \( \B_i^2=\B_i \) and
-\( \B_i\B_j=\bm0 \) for \( i\ne j \), and multiplying by \( \Q \) on the left and \( \Q\T \) on the right
+\( \B_i\B_j=\mathbf{0} \) for \( i\ne j \), and multiplying by \( \Q \) on the left and \( \Q\T \) on the right
 transfers both identities to the \( \A_i \).
 :::
 
@@ -72,7 +72,7 @@ Let \( \Y\sim\Normal_n(\bmu,\sigma^2\I) \), and let \( \A_1,\dots,\A_k \) be sym
 
 3. each \( \A_i \) is idempotent;
 
-4. \( \A_i\A_j=\bm0 \) for all \( i\ne j \).
+4. \( \A_i\A_j=\mathbf{0} \) for all \( i\ne j \).
 :::
 
 :::
@@ -82,7 +82,7 @@ Condition (c) of @thm-qf-cochran-algebra holds by assumption, so that theorem sh
 that (ii), (iii) and (iv) are equivalent, and each implies the other two. If (iii) and (iv)
 hold, @thm-qf-orthogonal-projections gives (i). If (i) holds, apply
 @thm-qf-chisq-identity to \( \sigma^{-1}\Y\sim\Normal_n(\sigma^{-1}\bmu,\I) \). Each \( \A_i \)
-with \( r_i\ge1 \) is idempotent, and an \( \A_i \) of rank zero is \( \bm0 \). This is (iii).
+with \( r_i\ge1 \) is idempotent, and an \( \A_i \) of rank zero is \( \mathbf{0} \). This is (iii).
 :::
 
 In words: *if the degrees of freedom add up, the sums of squares are independent
@@ -160,7 +160,7 @@ cumulant (@exr-qf-kurtosis). The second is the spherical covariance \( \sigma^2\
 have matrices \( \V^{1/2}\A_i\V^{1/2} \). Their ranks are those of the \( \A_i \), so the rank count is
 unchanged. What changes is the condition on the sum: \( \V^{1/2}\A\V^{1/2} \) is idempotent iff
 \( \A\V\A=\A \) (for example \( \sum_i\A_i=\V^{-1} \)), and conditions (iii) and (iv) become
-\( \A_i\V\A_i=\A_i \) and \( \A_i\V\A_j=\bm0 \). These are the generalized least squares decompositions
+\( \A_i\V\A_i=\A_i \) and \( \A_i\V\A_j=\mathbf{0} \). These are the generalized least squares decompositions
 of Chapter 31.
 :::
 
@@ -183,7 +183,7 @@ Let \( \A_1=\diag(2,0) \) and \( \A_2=\diag(-1,1) \), so that \( \A_1+\A_2=\I_2 
 ::: {.solution}
 The sum \( \I_2 \) is idempotent, but every one of the conditions
 (ii)–(iv) fails. The ranks are \( 1 \) and \( 2 \), which add to \( 3\ne2 \). Neither matrix is idempotent, since
-\( \A_1^2=\diag(4,0) \) and \( \A_2^2=\I_2 \). And \( \A_1\A_2=\diag(-2,0)\ne\bm0 \). The forms are \( 2Y_1^2 \), which is
+\( \A_1^2=\diag(4,0) \) and \( \A_2^2=\I_2 \). And \( \A_1\A_2=\diag(-2,0)\ne\mathbf{0} \). The forms are \( 2Y_1^2 \), which is
 twice a \( \chi^2(1) \) variable, and \( Y_2^2-Y_1^2 \), the difference of two independent \( \chi^2(1) \) variables,
 which takes negative values. Neither is chi-squared. They are dependent, because
 \[
@@ -207,7 +207,7 @@ independent, with degrees of freedom \( 1 \), \( a-1 \), \( b-1 \) and \( (a-1)(
 [B2]
 
 Let \( \bP_1,\dots,\bP_m \) be symmetric idempotent with
-\( \C(\bP_1)\subset\C(\bP_2)\subset\dots\subset\C(\bP_m) \), and put \( \bP_0=\bm0 \), \( \bP_{m+1}=\I \). Show
+\( \C(\bP_1)\subset\C(\bP_2)\subset\dots\subset\C(\bP_m) \), and put \( \bP_0=\mathbf{0} \), \( \bP_{m+1}=\I \). Show
 that the matrices \( \bP_i-\bP_{i-1} \), \( i=1,\dots,m+1 \), satisfy the conditions of
 @thm-qf-cochran, so that the sequential sums of squares
 \( \norm{(\bP_i-\bP_{i-1})\Y}^2 \) are independent noncentral chi-squared variables when
@@ -229,7 +229,7 @@ By @thm-qf-chisq-identity, \( \A \) and \( \A_1 \) are idempotent,
 with ranks \( r \) and \( r_1 \). If \( \A\bv=\bzero \), then
 \( 0=\bv\T\A_1\bv+\bv\T\A_2\bv \) with both terms nonnegative, so \( \norm{\A_1\bv}^2=\bv\T\A_1\bv=0 \).
 Thus \( \Null(\A)\subseteq\Null(\A_1) \), hence \( \C(\A_1)\subseteq\C(\A) \) and \( \A\A_1=\A_1=\A_1\A \). Then
-\( \A_2^2=(\A-\A_1)^2=\A-2\A_1+\A_1=\A_2 \), so \( \A_2 \) is idempotent, and \( \A_1\A_2=\A_1\A-\A_1=\bm0 \). By
+\( \A_2^2=(\A-\A_1)^2=\A-2\A_1+\A_1=\A_2 \), so \( \A_2 \) is idempotent, and \( \A_1\A_2=\A_1\A-\A_1=\mathbf{0} \). By
 @thm-qf-orthogonal-projections, \( Q_1 \) and \( Q_2 \) are independent and
 \( Q_2\sim\chi^2(\tr\A_2)=\chi^2(r-r_1) \).
 :::

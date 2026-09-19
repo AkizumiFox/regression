@@ -223,8 +223,8 @@ that centring the regressor, a reparameterization, reduces the condition number 
 :::
 
 ::: {.solution}
-Write \( \x=c\bone+\bm d \) with \( \bm d\perp\bone \) and
-\( \norm{\bm d}^2=ns^2 \). Then
+Write \( \x=c\bone+\mathbf{d} \) with \( \mathbf{d}\perp\bone \) and
+\( \norm{\mathbf{d}}^2=ns^2 \). Then
 \( \X\T\X=n\begin{psmallmatrix}1&c\\c&c^2+s^2\end{psmallmatrix} \). The matrix in parentheses
 has trace \( T=1+c^2+s^2 \) and determinant \( s^2 \), so its eigenvalues are
 \( \lambda_{\pm}=\bigl(T\pm\sqrt{T^2-4s^2}\bigr)/2 \), with \( \lambda_+\lambda_-=s^2 \) and
@@ -233,7 +233,7 @@ has trace \( T=1+c^2+s^2 \) and determinant \( s^2 \), so its eigenvalues are
 \kappa(\X)^2=\frac{\lambda_+}{\lambda_-}=\frac{\lambda_+^2}{s^2}\;\ge\;\frac{T^2}{4s^2}
 \;\to\;\infty\quad\text{as } c\to\infty .
 \]
-After centring, \( \X=[\bone,\bm d] \) has orthogonal columns of lengths \( \sqrt n \) and
+After centring, \( \X=[\bone,\mathbf{d}] \) has orthogonal columns of lengths \( \sqrt n \) and
 \( s\sqrt n \), so its singular values are these lengths and
 \( \kappa=\max(1,s)/\min(1,s) \).
 :::

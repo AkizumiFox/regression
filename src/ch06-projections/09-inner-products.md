@@ -160,12 +160,12 @@ print("GLS via P_V equals OLS on whitened data:", np.allclose(beta_gls, beta_whi
 ## Weighted least squares
 
 The simplest non-Euclidean geometry is a diagonal one. If the errors are uncorrelated
-with variances \( \sigma^2/w_i \), then \( \V^{-1}=\bm W=\diag(w_1,\dots,w_n) \), and GLS
+with variances \( \sigma^2/w_i \), then \( \V^{-1}=\mathbf{W}=\diag(w_1,\dots,w_n) \), and GLS
 minimizes \( \sum_i w_i(y_i-\x_{(i)}\T\bb)^2 \). Observations believed to be noisier get
 less weight in the distance. Whitening multiplies row \( i \) of \( \X \) and \( \y \) by
-\( \sqrt{w_i} \). The fitted values are \( \bP_{\X,\bm W}\y \), and the natural leverages are
-the diagonal entries of \( \bP_{\X,\bm W} \). These equal the diagonal of the orthogonal
-projection onto \( \C(\bm W^{1/2}\X) \) and still sum to \( \rank(\X) \)
+\( \sqrt{w_i} \). The fitted values are \( \bP_{\X,\mathbf{W}}\y \), and the natural leverages are
+the diagonal entries of \( \bP_{\X,\mathbf{W}} \). These equal the diagonal of the orthogonal
+projection onto \( \C(\mathbf{W}^{1/2}\X) \) and still sum to \( \rank(\X) \)
 (@exr-proj-wls-leverage).
 
 ::: {#exm-proj-engel}
@@ -323,6 +323,6 @@ dimension, so some \( \bv\in\Null(\bP) \) is not orthogonal to \( \C(\bP) \). Ch
 
 For weighted least squares, \( \V=\diag(1/w_1,\dots,1/w_n) \) with \( w_i>0 \). Show that the
 diagonal entries of \( \bP_{\X,\V^{-1}} \) equal those of the orthogonal projection onto
-\( \C(\bm W^{1/2}\X) \), where \( \bm W=\diag(w_i) \), and that they sum to \( \rank(\X) \). Interpret
+\( \C(\mathbf{W}^{1/2}\X) \), where \( \mathbf{W}=\diag(w_i) \), and that they sum to \( \rank(\X) \). Interpret
 them as leverages.
 :::

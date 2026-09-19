@@ -12,19 +12,19 @@ alternative: each test looks in some directions and is blind in others.
 ::: {#prp-cor-augmented-test}
 [Testing against any larger model]
 
-Let \( \Y\sim\Normal_n(\bm\theta,\sigma^2\I) \), let \( \X \) have rank \( r \), and let \( \Z \) be a fixed matrix, chosen without
+Let \( \Y\sim\Normal_n(\boldsymbol{\theta},\sigma^2\I) \), let \( \X \) have rank \( r \), and let \( \Z \) be a fixed matrix, chosen without
 reference to \( \Y \), with \( \C(\X)\subseteq\C(\Z) \) and \( \rank(\Z)=s \), \( r<s<n \). Let \( \M \) and \( \M_Z \) be the two projections and
 \[
 F=\frac{\bigl[\text{SSE}(\X)-\text{SSE}(\Z)\bigr]/(s-r)}{\text{SSE}(\Z)/(n-s)} .
 \]
 
 ::: {.enumerate options="label=(\alph*)"}
-1. If \( \bm\theta\in\C(\X) \), then \( F\sim F(s-r,n-s) \).
+1. If \( \boldsymbol{\theta}\in\C(\X) \), then \( F\sim F(s-r,n-s) \).
 
-2. If \( \bm\theta\in\C(\Z) \), then \( F\sim F\bigl(s-r,n-s,\norm{(\I-\M)\bm\theta}^2/\sigma^2\bigr) \).
+2. If \( \boldsymbol{\theta}\in\C(\Z) \), then \( F\sim F\bigl(s-r,n-s,\norm{(\I-\M)\boldsymbol{\theta}}^2/\sigma^2\bigr) \).
 
 3. In general \( F=\dfrac{U/(s-r)}{V/(n-s)} \) with independent \( U\sim\chi^2(s-r,\gamma_1) \) and \( V\sim\chi^2(n-s,\gamma_2) \), where
-   \( \gamma_1=\norm{(\M_Z-\M)\bm\theta}^2/\sigma^2 \) and \( \gamma_2=\norm{(\I-\M_Z)\bm\theta}^2/\sigma^2 \). For every \( c>0 \),
+   \( \gamma_1=\norm{(\M_Z-\M)\boldsymbol{\theta}}^2/\sigma^2 \) and \( \gamma_2=\norm{(\I-\M_Z)\boldsymbol{\theta}}^2/\sigma^2 \). For every \( c>0 \),
    \( \Pr(F>c) \) is strictly increasing in \( \gamma_1 \) and strictly decreasing in \( \gamma_2 \).
 :::
 
@@ -51,7 +51,7 @@ orthogonal to \( \C(\Z) \) gives power *below* the level (@exr-cor-lof-below-lev
 
 Without exact replicates, the natural substitute is to group rows that are *nearly* identical. A
 cluster analysis of the standardized rows of \( \X \) forms \( g \) clusters of near replicates, with indicator
-matrix \( \bm D \). Testing \( \X \) against \( \Z=[\X,\bm D] \) allows each cluster its own shift
+matrix \( \mathbf{D} \). Testing \( \X \) against \( \Z=[\X,\mathbf{D}] \) allows each cluster its own shift
 from the fitted plane. This is the near-replicate test studied by Christensen (1989); Shillington (1979) proposed a variant
 based on the cluster averages of the regressors, and Christensen (1991) characterized the kinds of lack
 of fit each detects. With exact replicates all reduce to the pure-error test.
@@ -99,7 +99,7 @@ F=\frac{\bigl[\text{SSE}(\X)-\text{SSE}([\X,\W])\bigr]/q}{\text{SSE}([\X,\W])/(n
 ::: {.proof}
 Let \( \tilde{\W}=(\I-\M)\W \), which has rank \( q \), and let \( \bP \) project onto \( \C(\tilde{\W}) \). As in
 @lem-proj-fwl-split, \( \C([\X,\W])=\C(\X)\dirsum\C(\tilde{\W}) \) with orthogonal summands, so the projection onto
-\( \C([\X,\W]) \) is \( \M+\bP \). With \( \he=(\I-\M)\Y \), and since \( \bP\M=\bm0 \),
+\( \C([\X,\W]) \) is \( \M+\bP \). With \( \he=(\I-\M)\Y \), and since \( \bP\M=\mathbf{0} \),
 \[
 \begin{aligned}
 \text{SSE}(\X)-\text{SSE}([\X,\W])&=\norm{\bP\Y}^2=\norm{\bP\he}^2,\\
@@ -138,12 +138,12 @@ the model misses, the smoothed residuals keep it and \( T \) is large.
 [The smoother statistic is pivotal]
 
 If \( \Y\sim\Normal_n(\X\bbeta,\sigma^2\I) \), the distribution of \( T \) in @eq-cor-smoother-statistic depends only on \( \X \) and \( \bS \),
-not on \( \bbeta \) or \( \sigma^2 \). It equals the distribution of \( \norm{\bS(\I-\M)\bm u}^2/\norm{(\I-\M)\bm u}^2 \) with
-\( \bm u\sim\Normal_n(\bzero,\I) \).
+not on \( \bbeta \) or \( \sigma^2 \). It equals the distribution of \( \norm{\bS(\I-\M)\mathbf{u}}^2/\norm{(\I-\M)\mathbf{u}}^2 \) with
+\( \mathbf{u}\sim\Normal_n(\bzero,\I) \).
 :::
 
 ::: {.proof}
-\( \he=(\I-\M)\Y=(\I-\M)\be \), and \( \be=\sigma\bm u \) with \( \bm u\sim\Normal_n(\bzero,\I) \). The factor \( \sigma^2 \) cancels in the ratio.
+\( \he=(\I-\M)\Y=(\I-\M)\be \), and \( \be=\sigma\mathbf{u} \) with \( \mathbf{u}\sim\Normal_n(\bzero,\I) \). The factor \( \sigma^2 \) cancels in the ratio.
 :::
 
 So the null distribution of \( T \) can be simulated as precisely as desired, from the design alone, and the
@@ -160,7 +160,7 @@ And exactness depends, as for every test in this section, on normal homoscedasti
 [Is the three-variable model adequate?]
 
 Return to the stack loss data with air flow, water temperature and acid concentration, \( n=21 \) and
-\( r=4 \). Ward clustering of the standardized rows into \( 8 \) clusters and testing \( \X \) against \( [\X,\bm D] \) gives
+\( r=4 \). Ward clustering of the standardized rows into \( 8 \) clusters and testing \( \X \) against \( [\X,\mathbf{D}] \) gives
 \( F=1.43 \) on \( 7 \) and \( 10 \) degrees of freedom (\( p \)-value \( 0.292 \)). Adding the squares of the three
 regressors gives \( F=1.92 \) on \( 3 \) and \( 14 \) (\( p \)-value \( 0.172 \)). The rainbow test with the
 \( 11 \) cases of smallest leverage as the central subset gives \( F=1.04 \) on \( 10 \) and \( 7 \)
@@ -331,7 +331,7 @@ which look in all directions informally, remain indispensable (Chapter 20).
 
 A regression with an intercept and two regressors has \( n=30 \) cases, whose rows are grouped into \( 8 \) clusters
 of near replicates. Assuming no combination of cluster indicators lies in \( \C(\X) \) except the constant,
-give the degrees of freedom of the near-replicate test of \( \X \) against \( [\X,\bm D] \).
+give the degrees of freedom of the near-replicate test of \( \X \) against \( [\X,\mathbf{D}] \).
 :::
 
 ### B. Practice
@@ -362,13 +362,13 @@ matrix \( \X_c \) have rank \( r \). Show that \( \Z=\begin{psmallmatrix}\X_c&\b
 ::: {#exr-cor-lof-below-level}
 [B3]
 
-In @prp-cor-augmented-test, suppose \( \bm\theta=\X\bbeta+\bm\delta \) with \( \bm\delta\ne\bzero \) orthogonal to \( \C(\Z) \). Show that the
+In @prp-cor-augmented-test, suppose \( \boldsymbol{\theta}=\X\bbeta+\boldsymbol{\delta} \) with \( \boldsymbol{\delta}\ne\bzero \) orthogonal to \( \C(\Z) \). Show that the
 power of the test is strictly less than its size.
 :::
 
 ::: {.solution}
-Here \( (\M_Z-\M)\bm\theta=\M_Z\bm\delta-\M\bm\delta=\bzero \), since \( \bm\delta\perp\C(\Z)\supseteq\C(\X) \), so \( \gamma_1=0 \), while
-\( \gamma_2=\norm{\bm\delta}^2/\sigma^2>0 \). By part (c), \( \Pr(F>c) \) is strictly smaller than its value at \( \gamma_2=0 \), which is the
+Here \( (\M_Z-\M)\boldsymbol{\theta}=\M_Z\boldsymbol{\delta}-\M\boldsymbol{\delta}=\bzero \), since \( \boldsymbol{\delta}\perp\C(\Z)\supseteq\C(\X) \), so \( \gamma_1=0 \), while
+\( \gamma_2=\norm{\boldsymbol{\delta}}^2/\sigma^2>0 \). By part (c), \( \Pr(F>c) \) is strictly smaller than its value at \( \gamma_2=0 \), which is the
 size by part (a).
 :::
 

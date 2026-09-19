@@ -19,11 +19,11 @@ Let \( \A \) be \( n\times n \) with eigenvalues \( \lambda_1,\dots,\lambda_n \)
 2. If \( \A\x=\lambda\x \), then \( f(\A)\x=f(\lambda)\x \) for every polynomial \( f \). If
            \( \A \) is nonsingular, \( \A^{-1}\x=\lambda^{-1}\x \).
 
-3. \( \A \) and \( \bm P^{-1}\A\bm P \) have the same characteristic polynomial for nonsingular \( \bm P \).
+3. \( \A \) and \( \mathbf{P}^{-1}\A\mathbf{P} \) have the same characteristic polynomial for nonsingular \( \mathbf{P} \).
 
-4. If \( \bm C \) is \( m\times n \) and \( \bm D \) is \( n\times m \), then
-           \( \lambda^n\det(\lambda\I_m-\bm C\bm D)=\lambda^m\det(\lambda\I_n-\bm D\bm C) \). So \( \bm C\bm D \) and
-           \( \bm D\bm C \) have the same nonzero eigenvalues, with the same multiplicities.
+4. If \( \mathbf{C} \) is \( m\times n \) and \( \mathbf{D} \) is \( n\times m \), then
+           \( \lambda^n\det(\lambda\I_m-\mathbf{C}\mathbf{D})=\lambda^m\det(\lambda\I_n-\mathbf{D}\mathbf{C}) \). So \( \mathbf{C}\mathbf{D} \) and
+           \( \mathbf{D}\mathbf{C} \) have the same nonzero eigenvalues, with the same multiplicities.
 :::
 
 :::
@@ -36,9 +36,9 @@ expansion of \( \det(\lambda\I-\A) \), only the product of diagonal entries
 \( \prod_i(\lambda-a_{ii}) \) contains \( \lambda^{n-1} \), because every other term omits at least
 two diagonal entries. Its coefficient is \( -\sum a_{ii} \).
 (b) \( \A^k\x=\lambda^k\x \) by induction, and \( \x=\A^{-1}\A\x=\lambda\A^{-1}\x \) with
-\( \lambda\ne0 \). (c) \( \det(\lambda\I-\bm P^{-1}\A\bm P)=\det(\bm P^{-1}(\lambda\I-\A)\bm P)=\det(\lambda\I-\A) \).
+\( \lambda\ne0 \). (c) \( \det(\lambda\I-\mathbf{P}^{-1}\A\mathbf{P})=\det(\mathbf{P}^{-1}(\lambda\I-\A)\mathbf{P})=\det(\lambda\I-\A) \).
 (d) For \( \lambda\ne0 \), @thm-mat-block-determinant(c) gives
-\( \det(\I_m-\lambda^{-1}\bm C\bm D)=\det(\I_n-\lambda^{-1}\bm D\bm C) \). Multiplying by \( \lambda^{m+n} \)
+\( \det(\I_m-\lambda^{-1}\mathbf{C}\mathbf{D})=\det(\I_n-\lambda^{-1}\mathbf{D}\mathbf{C}) \). Multiplying by \( \lambda^{m+n} \)
 gives the identity for \( \lambda\ne0 \). Both sides are polynomials, so it holds for all
 \( \lambda \).
 :::
@@ -52,13 +52,13 @@ eigenvalues matter in statistics is symmetric.
 [Spectral theorem]
 
 Let \( \A \) be an \( n\times n \) symmetric matrix. Then all eigenvalues of \( \A \) are real, and
-there is an orthogonal matrix \( \Q=[\bm q_1,\dots,\bm q_n] \) with
+there is an orthogonal matrix \( \Q=[\mathbf{q}_1,\dots,\mathbf{q}_n] \) with
 \[
-\A=\Q\bLambda\Q\T=\sum_{i=1}^n\lambda_i\bm q_i\bm q_i\T,\qquad
+\A=\Q\bLambda\Q\T=\sum_{i=1}^n\lambda_i\mathbf{q}_i\mathbf{q}_i\T,\qquad
 \bLambda=\diag(\lambda_1,\dots,\lambda_n).
 \]{#eq-mat-spectral}
 
-The columns of \( \Q \) are an orthonormal basis of eigenvectors, \( \A\bm q_i=\lambda_i\bm q_i \).
+The columns of \( \Q \) are an orthonormal basis of eigenvectors, \( \A\mathbf{q}_i=\lambda_i\mathbf{q}_i \).
 Eigenvectors belonging to distinct eigenvalues are orthogonal.
 :::
 
@@ -71,15 +71,15 @@ conjugate is \( \bz\T\A\bar{\bz}=(\bz\T\A\bar{\bz})\T=\bar{\bz}\T\A\bz=s \) by s
 vector, so there is a real eigenvector.
 
 *Diagonalization.* By induction on \( n \), the case \( n=1 \) being trivial. Let
-\( \bm q_1 \) be a real unit eigenvector for \( \lambda_1 \) and extend it to an orthogonal matrix
-\( [\bm q_1,\Q_2] \) ([Section 1.5](05-orthogonality.html)). Since
-\( \Q_2\T\A\bm q_1=\lambda_1\Q_2\T\bm q_1=\bzero \) and \( \A \) is symmetric,
+\( \mathbf{q}_1 \) be a real unit eigenvector for \( \lambda_1 \) and extend it to an orthogonal matrix
+\( [\mathbf{q}_1,\Q_2] \) ([Section 1.5](05-orthogonality.html)). Since
+\( \Q_2\T\A\mathbf{q}_1=\lambda_1\Q_2\T\mathbf{q}_1=\bzero \) and \( \A \) is symmetric,
 \[
-[\bm q_1,\Q_2]\T\A[\bm q_1,\Q_2]=\begin{pmatrix}\lambda_1&\bzero\T\\\bzero&\Q_2\T\A\Q_2\end{pmatrix}.
+[\mathbf{q}_1,\Q_2]\T\A[\mathbf{q}_1,\Q_2]=\begin{pmatrix}\lambda_1&\bzero\T\\\bzero&\Q_2\T\A\Q_2\end{pmatrix}.
 \]
 The \( (n-1)\times(n-1) \) block is symmetric, so by induction
-\( \Q_2\T\A\Q_2=\bm P\bLambda_2\bm P\T \) with \( \bm P \) orthogonal. Then
-\( \Q=[\bm q_1,\Q_2\bm P] \) is orthogonal (@prp-mat-orthogonal(b)) and
+\( \Q_2\T\A\Q_2=\mathbf{P}\bLambda_2\mathbf{P}\T \) with \( \mathbf{P} \) orthogonal. Then
+\( \Q=[\mathbf{q}_1,\Q_2\mathbf{P}] \) is orthogonal (@prp-mat-orthogonal(b)) and
 \( \Q\T\A\Q=\diag(\lambda_1,\bLambda_2) \).
 
 *Orthogonality.* If \( \A\bu=\lambda\bu \) and \( \A\bv=\mu\bv \), then
@@ -96,7 +96,7 @@ Let \( \A=\Q\bLambda\Q\T \) be symmetric.
 
 ::: {.enumerate options="label=(\alph*)"}
 1. \( \rank(\A) \) counts the nonzero eigenvalues. \( \C(\A) \) is spanned by the
-           \( \bm q_i \) with \( \lambda_i\ne0 \), and \( \Null(\A) \) by those with \( \lambda_i=0 \).
+           \( \mathbf{q}_i \) with \( \lambda_i\ne0 \), and \( \Null(\A) \) by those with \( \lambda_i=0 \).
 
 2. \( \A^k=\Q\bLambda^k\Q\T \) for \( k=1,2,\dots \). If \( \A \) is nonsingular,
            \( \A^{-1}=\Q\bLambda^{-1}\Q\T \), and \( \A^+=\Q\bLambda^+\Q\T \) in general, where
@@ -110,7 +110,7 @@ Let \( \A=\Q\bLambda\Q\T \) be symmetric.
 
 ::: {.proof}
 Multiplying by the nonsingular \( \Q \) and \( \Q\T \) changes neither rank
-(@prp-mat-rank-product(b)) nor, after the change of variable \( \x=\Q\bm c \), the
+(@prp-mat-rank-product(b)) nor, after the change of variable \( \x=\Q\mathbf{c} \), the
 structure of null spaces and eigenspaces. So each statement reduces to the diagonal
 matrix \( \bLambda \), where it is immediate. For (b), \( \Q\T\Q=\I \) collapses the middle factors,
 and the four Penrose conditions for \( \Q\bLambda^+\Q\T \) reduce to those for \( \bLambda^+ \).
@@ -119,8 +119,8 @@ and the four Penrose conditions for \( \Q\bLambda^+\Q\T \) reduce to those for \
 ::: {#exm-mat-equicorrelation-eigen}
 [Eigenvalues of the equicorrelation matrix]
 
-For \( \bm E=(1-\rho)\I+\rho\bm J_n \) of @exm-mat-equicorrelation,
-\( \bm E\bone=(1+(n-1)\rho)\bone \), and \( \bm E\bv=(1-\rho)\bv \) for every \( \bv\perp\bone \). So the
+For \( \mathbf{E}=(1-\rho)\I+\rho\mathbf{J}_n \) of @exm-mat-equicorrelation,
+\( \mathbf{E}\bone=(1+(n-1)\rho)\bone \), and \( \mathbf{E}\bv=(1-\rho)\bv \) for every \( \bv\perp\bone \). So the
 eigenvalues are \( 1+(n-1)\rho \) once and \( 1-\rho \) with multiplicity \( n-1 \), with
 eigenvectors \( \bone/\sqrt n \) and the last \( n-1 \) rows of the Helmert matrix
 (@exm-mat-helmert). The determinant and inverse found earlier follow at once from
@@ -170,31 +170,31 @@ indices) is nonnegative.
 
 ::: {.proof}
 Write \( \A=\Q\bLambda\Q\T \).
-(a)\( \Rightarrow \)(b): \( \lambda_i=\bm q_i\T\A\bm q_i>0 \).
+(a)\( \Rightarrow \)(b): \( \lambda_i=\mathbf{q}_i\T\A\mathbf{q}_i>0 \).
 (b)\( \Rightarrow \)(c): \( \B=\bLambda^{1/2}\Q\T \) is nonsingular.
 (c)\( \Rightarrow \)(a): \( \x\T\B\T\B\x=\norm{\B\x}^2 \), which is positive for \( \x\neq\bzero \) by full
 column rank. (d)\( \Rightarrow \)(c) is immediate, with \( \B=\bL\T \).
 
 (a)\( \Rightarrow \)(d), by induction on \( n \). Write
-\( \A=\begin{psmallmatrix}a&\bb\T\\\bb&\A_2\end{psmallmatrix} \). Then \( a=\bm e_1\T\A\bm e_1>0 \).
+\( \A=\begin{psmallmatrix}a&\bb\T\\\bb&\A_2\end{psmallmatrix} \). Then \( a=\mathbf{e}_1\T\A\mathbf{e}_1>0 \).
 The Schur complement \( \A_2-\bb\bb\T/a \) is positive definite: for \( \bv\ne\bzero \), put
 \( \x=(-\bb\T\bv/a,\ \bv\T)\T \) and expand to get
 \( \x\T\A\x=\bv\T(\A_2-\bb\bb\T/a)\bv>0 \). By induction
 \( \A_2-\bb\bb\T/a=\bL_2\bL_2\T \), and
 \( \bL=\begin{psmallmatrix}\sqrt a&\bzero\T\\\bb/\sqrt a&\bL_2\end{psmallmatrix} \) satisfies
-\( \bL\bL\T=\A \). For uniqueness, if \( \bL\bL\T=\bm K\bm K\T \), then
-\( \bm K^{-1}\bL=\bm K\T(\bL\T)^{-1} \) is both lower and upper triangular, hence diagonal, say
-\( \bD \). From \( \bm K^{-1}\bL=\bD \) and \( \bL\bL\T=\bm K\bm K\T \) we get \( \bD\bD\T=\I \), so \( \bD=\I \)
+\( \bL\bL\T=\A \). For uniqueness, if \( \bL\bL\T=\mathbf{K}\mathbf{K}\T \), then
+\( \mathbf{K}^{-1}\bL=\mathbf{K}\T(\bL\T)^{-1} \) is both lower and upper triangular, hence diagonal, say
+\( \bD \). From \( \mathbf{K}^{-1}\bL=\bD \) and \( \bL\bL\T=\mathbf{K}\mathbf{K}\T \) we get \( \bD\bD\T=\I \), so \( \bD=\I \)
 because its diagonal is positive.
 
-(a)\( \Rightarrow \)(e): \( \A_{[k]}=\bm E\T\A\bm E \) with \( \bm E=[\bm e_1,\dots,\bm e_k] \) is positive definite,
-since \( \x\T\A_{[k]}\x=(\bm E\x)\T\A(\bm E\x) \). By (b) and @prp-mat-eigen-basic(a) its
+(a)\( \Rightarrow \)(e): \( \A_{[k]}=\mathbf{E}\T\A\mathbf{E} \) with \( \mathbf{E}=[\mathbf{e}_1,\dots,\mathbf{e}_k] \) is positive definite,
+since \( \x\T\A_{[k]}\x=(\mathbf{E}\x)\T\A(\mathbf{E}\x) \). By (b) and @prp-mat-eigen-basic(a) its
 determinant is positive.
 (e)\( \Rightarrow \)(a), by induction on \( n \). The block \( \A_{[n-1]} \) satisfies (e) and so is positive
-definite, so by (a)\( \Rightarrow \)(d), which is already proved, \( \A_{[n-1]}=\bL\bL\T \). Write \( \A=\begin{psmallmatrix}\A_{[n-1]}&\bm c\\\bm c\T&d\end{psmallmatrix} \) and
-\( s=d-\bm c\T\A_{[n-1]}^{-1}\bm c \). By @thm-mat-block-determinant(b),
+definite, so by (a)\( \Rightarrow \)(d), which is already proved, \( \A_{[n-1]}=\bL\bL\T \). Write \( \A=\begin{psmallmatrix}\A_{[n-1]}&\mathbf{c}\\\mathbf{c}\T&d\end{psmallmatrix} \) and
+\( s=d-\mathbf{c}\T\A_{[n-1]}^{-1}\mathbf{c} \). By @thm-mat-block-determinant(b),
 \( s=\det\A/\det\A_{[n-1]}>0 \). With
-\( \bT=\begin{psmallmatrix}\I&\A_{[n-1]}^{-1}\bm c\\\bzero\T&1\end{psmallmatrix} \), a direct check gives
+\( \bT=\begin{psmallmatrix}\I&\A_{[n-1]}^{-1}\mathbf{c}\\\bzero\T&1\end{psmallmatrix} \), a direct check gives
 \( \A=\bT\T\diag(\A_{[n-1]},s)\bT=\B\T\B \) with \( \B=\diag(\bL\T,\sqrt s)\,\bT \) nonsingular,
 so \( \A \) is positive definite by (c)\( \Rightarrow \)(a).
 
@@ -240,7 +240,7 @@ Let \( \A \) be \( n\times n \) nonnegative definite.
 ::: {.proof}
 (b) Write \( \A=\B\T\B \) by @thm-mat-pd-characterizations(c\( ' \)). Then \( \x\T\A\x=\norm{\B\x}^2 \),
 which vanishes iff \( \B\x=\bzero \), which implies \( \A\x=\bzero \).
-(a) \( a_{ii}=\bm e_i\T\A\bm e_i\ge0 \). If \( a_{ii}=0 \) then \( \A\bm e_i=\bzero \) by (b), so column \( i \)
+(a) \( a_{ii}=\mathbf{e}_i\T\A\mathbf{e}_i\ge0 \). If \( a_{ii}=0 \) then \( \A\mathbf{e}_i=\bzero \) by (b), so column \( i \)
 is zero, and row \( i \) by symmetry.
 (c) \( \x\T\B\T\A\B\x=(\B\x)\T\A(\B\x) \) is nonnegative, and when \( \A \) is positive definite it is
 zero only if \( \B\x=\bzero \).
@@ -249,8 +249,8 @@ zero only if \( \B\x=\bzero \).
 @eq-mat-partitioned-inverse has \( \A_{22\cdot1}^{-1} \) as a principal submatrix, which is
 positive definite by (d). The other Schur complement follows by symmetry of the argument.
 (f) By @thm-mat-square-root below, \( \B=\B^{1/2}\B^{1/2} \). Then
-\( \bm C=\B^{-1/2}\A\B^{-1/2}\succeq\I \) by (c), so every eigenvalue of \( \bm C \) is at least \( 1 \)
-and every eigenvalue of \( \bm C^{-1}=\B^{1/2}\A^{-1}\B^{1/2} \) is at most \( 1 \). So
+\( \mathbf{C}=\B^{-1/2}\A\B^{-1/2}\succeq\I \) by (c), so every eigenvalue of \( \mathbf{C} \) is at least \( 1 \)
+and every eigenvalue of \( \mathbf{C}^{-1}=\B^{1/2}\A^{-1}\B^{1/2} \) is at most \( 1 \). So
 \( \I\succeq\B^{1/2}\A^{-1}\B^{1/2} \), and multiplying on both sides by \( \B^{-1/2} \) gives
 \( \B^{-1}\succeq\A^{-1} \) by (c).
 :::
@@ -269,13 +269,13 @@ matrix \( \B \) with \( \B^2=\A \), namely
 
 ::: {.proof}
 \( \A^{1/2} \) is symmetric with nonnegative eigenvalues and \( (\Q\bLambda^{1/2}\Q\T)^2=\Q\bLambda\Q\T \).
-Its column space is spanned by the \( \bm q_i \) with \( \lambda_i>0 \), as is \( \C(\A) \)
+Its column space is spanned by the \( \mathbf{q}_i \) with \( \lambda_i>0 \), as is \( \C(\A) \)
 (@cor-mat-spectral-consequences(a)). For uniqueness, let \( \B \) be nonnegative definite with
-\( \B^2=\A \), and write \( \B=\bm P\bm\Delta\bm P\T \) with \( \bm\Delta=\diag(\delta_i) \), \( \delta_i\ge0 \).
-Then \( \A=\bm P\bm\Delta^2\bm P\T \). Let \( \A\bv=\lambda\bv \) and expand \( \bv=\sum_ic_i\bm p_i \).
-Comparing \( \A\bv=\sum_ic_i\delta_i^2\bm p_i \) with \( \lambda\bv \) gives \( c_i(\delta_i^2-\lambda)=0 \), so
-\( c_i\ne0 \) only if \( \delta_i=\sqrt\lambda \). Hence \( \B\bv=\sum_ic_i\delta_i\bm p_i=\sqrt\lambda\,\bv \).
-Applying this to each \( \bm q_j \) gives \( \B\Q=\Q\bLambda^{1/2} \), that is, \( \B=\A^{1/2} \).
+\( \B^2=\A \), and write \( \B=\mathbf{P}\boldsymbol{\Delta}\mathbf{P}\T \) with \( \boldsymbol{\Delta}=\diag(\delta_i) \), \( \delta_i\ge0 \).
+Then \( \A=\mathbf{P}\boldsymbol{\Delta}^2\mathbf{P}\T \). Let \( \A\bv=\lambda\bv \) and expand \( \bv=\sum_ic_i\mathbf{p}_i \).
+Comparing \( \A\bv=\sum_ic_i\delta_i^2\mathbf{p}_i \) with \( \lambda\bv \) gives \( c_i(\delta_i^2-\lambda)=0 \), so
+\( c_i\ne0 \) only if \( \delta_i=\sqrt\lambda \). Hence \( \B\bv=\sum_ic_i\delta_i\mathbf{p}_i=\sqrt\lambda\,\bv \).
+Applying this to each \( \mathbf{q}_j \) gives \( \B\Q=\Q\bLambda^{1/2} \), that is, \( \B=\A^{1/2} \).
 The last statement is @cor-mat-spectral-consequences(b).
 :::
 
@@ -285,24 +285,24 @@ The last statement is @cor-mat-spectral-consequences(b).
 [Rayleigh quotient]
 
 Let \( \A \) be symmetric with eigenvalues \( \lambda_1\ge\dots\ge\lambda_n \) and orthonormal
-eigenvectors \( \bm q_1,\dots,\bm q_n \). For every \( \x\ne\bzero \),
+eigenvectors \( \mathbf{q}_1,\dots,\mathbf{q}_n \). For every \( \x\ne\bzero \),
 \[
 \lambda_n\le\frac{\x\T\A\x}{\x\T\x}\le\lambda_1 ,
 \]{#eq-mat-rayleigh}
 
-with equality on the right at \( \x=\bm q_1 \) and on the left at \( \x=\bm q_n \). More generally, the
-maximum of \( \x\T\A\x/\x\T\x \) over nonzero \( \x \) orthogonal to \( \bm q_1,\dots,\bm q_{k-1} \) is
-\( \lambda_k \), attained at \( \bm q_k \).
+with equality on the right at \( \x=\mathbf{q}_1 \) and on the left at \( \x=\mathbf{q}_n \). More generally, the
+maximum of \( \x\T\A\x/\x\T\x \) over nonzero \( \x \) orthogonal to \( \mathbf{q}_1,\dots,\mathbf{q}_{k-1} \) is
+\( \lambda_k \), attained at \( \mathbf{q}_k \).
 :::
 
 ::: {.proof}
-Put \( \bm c=\Q\T\x \), so that \( \x\T\x=\bm c\T\bm c \) and
+Put \( \mathbf{c}=\Q\T\x \), so that \( \x\T\x=\mathbf{c}\T\mathbf{c} \) and
 \[
 \frac{\x\T\A\x}{\x\T\x}=\frac{\sum_i\lambda_ic_i^2}{\sum_ic_i^2},
 \]
 a weighted average of the eigenvalues with weights \( c_i^2/\sum_jc_j^2 \). It lies between the
 smallest and largest eigenvalue, and equals \( \lambda_1 \) when all weight is on \( c_1 \), that is,
-at \( \x=\bm q_1 \). The condition \( \x\perp\bm q_1,\dots,\bm q_{k-1} \) means \( c_1=\dots=c_{k-1}=0 \),
+at \( \x=\mathbf{q}_1 \). The condition \( \x\perp\mathbf{q}_1,\dots,\mathbf{q}_{k-1} \) means \( c_1=\dots=c_{k-1}=0 \),
 so the average is then over \( \lambda_k,\dots,\lambda_n \), whose largest member is \( \lambda_k \).
 :::
 
@@ -317,7 +317,7 @@ narrowest.
 
 ::: {when-format="html"}
 ![**Figure 1.7.1.** The Rayleigh quotient of a \( 2\times2 \) symmetric matrix. (a) The level set
-\( \x\T\A\x=1 \), an ellipse with axes along the orthonormal eigenvectors \( \bm q_1,\bm q_2 \),
+\( \x\T\A\x=1 \), an ellipse with axes along the orthonormal eigenvectors \( \mathbf{q}_1,\mathbf{q}_2 \),
 and the unit circle. (b) The quotient \( \bu\T\A\bu \) along the unit circle. Its maximum
 \( \lambda_1 \) and minimum \( \lambda_2 \) are attained at the eigenvector directions
 (@thm-mat-extremal-rayleigh).](rayleigh.svg){#fig-mat-rayleigh width=100%}
@@ -325,7 +325,7 @@ and the unit circle. (b) The quotient \( \bu\T\A\bu \) along the unit circle. It
 
 ::: {when-format="pdf"}
 ![The Rayleigh quotient of a \( 2\times2 \) symmetric matrix. (a) The level set
-\( \x\T\A\x=1 \), an ellipse with axes along the orthonormal eigenvectors \( \bm q_1,\bm q_2 \),
+\( \x\T\A\x=1 \), an ellipse with axes along the orthonormal eigenvectors \( \mathbf{q}_1,\mathbf{q}_2 \),
 and the unit circle. (b) The quotient \( \bu\T\A\bu \) along the unit circle. Its maximum
 \( \lambda_1 \) and minimum \( \lambda_2 \) are attained at the eigenvector directions
 (@thm-mat-extremal-rayleigh).](rayleigh.pdf){width=100%}
@@ -340,10 +340,10 @@ Let \( \A \) be symmetric and \( \B \) positive definite, both \( n\times n \).
 1. \( \max_{\x\ne\bzero}\x\T\A\x/\x\T\B\x \) is the largest eigenvalue of \( \B^{-1}\A \),
            which has the same eigenvalues as the symmetric \( \B^{-1/2}\A\B^{-1/2} \).
 
-2. There is a nonsingular \( \bm P \) with \( \bm P\T\B\bm P=\I \) and \( \bm P\T\A\bm P \) diagonal.
+2. There is a nonsingular \( \mathbf{P} \) with \( \mathbf{P}\T\B\mathbf{P}=\I \) and \( \mathbf{P}\T\A\mathbf{P} \) diagonal.
 
-3. For \( \bm a\in\Real^n \),
-           \( \max_{\x\ne\bzero}(\bm a\T\x)^2/\x\T\B\x=\bm a\T\B^{-1}\bm a \), attained at \( \x=\B^{-1}\bm a \).
+3. For \( \mathbf{a}\in\Real^n \),
+           \( \max_{\x\ne\bzero}(\mathbf{a}\T\x)^2/\x\T\B\x=\mathbf{a}\T\B^{-1}\mathbf{a} \), attained at \( \x=\B^{-1}\mathbf{a} \).
 :::
 
 :::
@@ -353,9 +353,9 @@ Substitute \( \x=\B^{-1/2}\bz \). The quotient in (a) becomes
 \( \bz\T\B^{-1/2}\A\B^{-1/2}\bz/\bz\T\bz \), to which @thm-mat-extremal-rayleigh applies, and
 \( \B^{-1}\A=\B^{-1/2}(\B^{-1/2}\A\B^{-1/2})\B^{1/2} \) is similar to it
 (@prp-mat-eigen-basic(c)). For (b), if \( \B^{-1/2}\A\B^{-1/2}=\Q\bLambda\Q\T \), take
-\( \bm P=\B^{-1/2}\Q \). For (c), the matrix \( \A=\bm a\bm a\T \) has
-\( \B^{-1/2}\bm a\bm a\T\B^{-1/2} \) of rank at most one, whose only nonzero eigenvalue is its trace
-\( \bm a\T\B^{-1}\bm a \). Substituting \( \x=\B^{-1}\bm a \) attains it.
+\( \mathbf{P}=\B^{-1/2}\Q \). For (c), the matrix \( \A=\mathbf{a}\mathbf{a}\T \) has
+\( \B^{-1/2}\mathbf{a}\mathbf{a}\T\B^{-1/2} \) of rank at most one, whose only nonzero eigenvalue is its trace
+\( \mathbf{a}\T\B^{-1}\mathbf{a} \). Substituting \( \x=\B^{-1}\mathbf{a} \) attains it.
 :::
 
 Part (c) is the Cauchy–Schwarz inequality in the inner product \( \x\T\B\bv \). It is the
@@ -429,13 +429,13 @@ uniquely at \( \bSigma=\bS \). *Hint:* write \( g \) in terms of the eigenvalues
 :::
 
 ::: {.solution}
-Let \( \bm M=\bS^{-1/2}\bSigma\bS^{-1/2} \), which is positive
-definite with eigenvalues \( \mu_1,\dots,\mu_p>0 \). Then \( \det\bSigma=\det\bS\det\bm M \) and
-\( \tr(\bSigma^{-1}\bS)=\tr(\bS^{1/2}\bSigma^{-1}\bS^{1/2})=\tr(\bm M^{-1}) \). So
+Let \( \mathbf{M}=\bS^{-1/2}\bSigma\bS^{-1/2} \), which is positive
+definite with eigenvalues \( \mu_1,\dots,\mu_p>0 \). Then \( \det\bSigma=\det\bS\det\mathbf{M} \) and
+\( \tr(\bSigma^{-1}\bS)=\tr(\bS^{1/2}\bSigma^{-1}\bS^{1/2})=\tr(\mathbf{M}^{-1}) \). So
 \[
 g(\bSigma)=-\log\det\bS-\sum_{i=1}^p\Bigl(\log\mu_i+\frac1{\mu_i}\Bigr).
 \]
 The function \( \mu\mapsto\log\mu+1/\mu \) has derivative \( (\mu-1)/\mu^2 \) and a unique minimum at
-\( \mu=1 \). So \( g \) is maximized iff every \( \mu_i=1 \), that is, \( \bm M=\I \) and \( \bSigma=\bS \). The maximum
+\( \mu=1 \). So \( g \) is maximized iff every \( \mu_i=1 \), that is, \( \mathbf{M}=\I \) and \( \bSigma=\bS \). The maximum
 is \( -\log\det\bS-p \).
 :::

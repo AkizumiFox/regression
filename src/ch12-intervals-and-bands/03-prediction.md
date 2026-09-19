@@ -129,10 +129,10 @@ print(f"largest leverage in the data: {h.max():.4f}")
 ::: {#prp-ci-new-leverage}
 [Leverage of a new point]
 
-Let \( \x_0=\X\T\bm\rho\in\C(\X\T) \) and \( h_0=\x_0\T\G\x_0 \).
+Let \( \x_0=\X\T\boldsymbol{\rho}\in\C(\X\T) \) and \( h_0=\x_0\T\G\x_0 \).
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( h_0=\min\{\norm{\bm a}^2:\ \X\T\bm a=\x_0\} \), and the minimum is attained only at \( \bm a=\M\bm\rho \).
+1. \( h_0=\min\{\norm{\mathbf{a}}^2:\ \X\T\mathbf{a}=\x_0\} \), and the minimum is attained only at \( \mathbf{a}=\M\boldsymbol{\rho} \).
 
 2. If \( \X=[\bone,\X_1] \) has full column rank, \( \x_0=(1,\x_{01}\T)\T \), \( \bar{\x} \) is the vector of column means of
    \( \X_1 \) and \( \tilde{\X}_1=\X_1-\bone\bar{\x}\T \), then
@@ -140,23 +140,23 @@ Let \( \x_0=\X\T\bm\rho\in\C(\X\T) \) and \( h_0=\x_0\T\G\x_0 \).
 h_0=\frac1n+(\x_{01}-\bar{\x})\T\bigl(\tilde{\X}_1\T\tilde{\X}_1\bigr)^{-1}(\x_{01}-\bar{\x}).
 \]
 
-3. If further columns are added, \( \X_+=[\X,\bm Z] \), and \( \x_{0+}=(\x_0\T,\bm z_0\T)\T\in\C(\X_+\T) \), then the leverage of
+3. If further columns are added, \( \X_+=[\X,\mathbf{Z}] \), and \( \x_{0+}=(\x_0\T,\mathbf{z}_0\T)\T\in\C(\X_+\T) \), then the leverage of
    \( \x_{0+} \) in the enlarged model is at least \( h_0 \).
 :::
 :::
 
 ::: {.proof}
-(a) Let \( \X\T\bm a=\x_0 \). Then \( \X\T\M\bm a=\X\T\bm a=\x_0=\X\T\M\bm\rho \), so \( \M\bm a-\M\bm\rho \) lies in \( \C(\X) \) and is
-orthogonal to \( \C(\X) \); hence \( \M\bm a=\M\bm\rho \). By Pythagoras,
-\( \norm{\bm a}^2=\norm{\M\bm\rho}^2+\norm{(\I-\M)\bm a}^2\ge\norm{\M\bm\rho}^2 \), with equality iff \( \bm a=\M\bm\rho \), and
-\( \norm{\M\bm\rho}^2=\bm\rho\T\X\G\X\T\bm\rho=h_0 \) by @thm-proj-M-formula.
+(a) Let \( \X\T\mathbf{a}=\x_0 \). Then \( \X\T\M\mathbf{a}=\X\T\mathbf{a}=\x_0=\X\T\M\boldsymbol{\rho} \), so \( \M\mathbf{a}-\M\boldsymbol{\rho} \) lies in \( \C(\X) \) and is
+orthogonal to \( \C(\X) \); hence \( \M\mathbf{a}=\M\boldsymbol{\rho} \). By Pythagoras,
+\( \norm{\mathbf{a}}^2=\norm{\M\boldsymbol{\rho}}^2+\norm{(\I-\M)\mathbf{a}}^2\ge\norm{\M\boldsymbol{\rho}}^2 \), with equality iff \( \mathbf{a}=\M\boldsymbol{\rho} \), and
+\( \norm{\M\boldsymbol{\rho}}^2=\boldsymbol{\rho}\T\X\G\X\T\boldsymbol{\rho}=h_0 \) by @thm-proj-M-formula.
 
 (b) \( \X=[\bone,\tilde{\X}_1]\A \) with \( \A=\begin{pmatrix}1&\bar{\x}\T\\\bzero&\I\end{pmatrix} \), which is invertible. Since
 \( \bone\T\tilde{\X}_1=\bzero\T \), \( \X\T\X=\A\T\diag\bigl(n,\tilde{\X}_1\T\tilde{\X}_1\bigr)\A \), and so
 \( h_0=\bw\T\diag\bigl(1/n,(\tilde{\X}_1\T\tilde{\X}_1)^{-1}\bigr)\bw \) with \( \bw=\A^{-\top}\x_0 \). Solving \( \A\T\bw=\x_0 \) gives
 \( \bw=(1,(\x_{01}-\bar{\x})\T)\T \).
 
-(c) Every \( \bm a \) with \( \X_+\T\bm a=\x_{0+} \) also satisfies \( \X\T\bm a=\x_0 \). A minimum over a smaller set is at least as large,
+(c) Every \( \mathbf{a} \) with \( \X_+\T\mathbf{a}=\x_{0+} \) also satisfies \( \X\T\mathbf{a}=\x_0 \). A minimum over a smaller set is at least as large,
 so (a), applied to both models, gives the claim.
 :::
 
@@ -331,18 +331,18 @@ interval for their difference \( Y_{01}-Y_{02} \). Show that when \( \x_{01}=\x_
 
 In @prp-ci-new-leverage(c), let \( \X \) have full column rank and add a single column \( \bz\notin\C(\X) \). Show that the new leverage is
 \[
-h_{0+}=h_0+\frac{(z_0-\bm k\T\x_0)^2}{\norm{(\I-\M)\bz}^2},\qquad \bm k=(\X\T\X)^{-1}\X\T\bz .
+h_{0+}=h_0+\frac{(z_0-\mathbf{k}\T\x_0)^2}{\norm{(\I-\M)\bz}^2},\qquad \mathbf{k}=(\X\T\X)^{-1}\X\T\bz .
 \]
-So the leverage is unchanged iff \( z_0 \) equals the value \( \bm k\T\x_0 \) predicted for it by the other regressors.
+So the leverage is unchanged iff \( z_0 \) equals the value \( \mathbf{k}\T\x_0 \) predicted for it by the other regressors.
 :::
 
 ::: {.solution}
-Use @prp-ci-new-leverage(a) for the enlarged model. Write \( \x_0=\X\T\bm\rho \) and split any feasible \( \bm a \) as
-\( \bm a=\M\bm a+\bm b \) with \( \bm b\perp\C(\X) \). The constraint \( \X\T\bm a=\x_0 \) forces \( \M\bm a=\M\bm\rho \), as in the proof
-of the proposition. The constraint \( \bz\T\bm a=z_0 \) then reads \( \bz\T\M\bm\rho+\bz\T\bm b=z_0 \), and
-\( \bz\T\M\bm\rho=\bz\T\X(\X\T\X)^{-1}\X\T\bm\rho=\bm k\T\x_0 \). Since \( \bm b\perp\C(\X) \), \( \bz\T\bm b=((\I-\M)\bz)\T\bm b \), and by the
-Cauchy–Schwarz inequality the shortest \( \bm b \) with \( ((\I-\M)\bz)\T\bm b=z_0-\bm k\T\x_0 \) is a multiple of \( (\I-\M)\bz \), with
-\( \norm{\bm b}^2=(z_0-\bm k\T\x_0)^2/\norm{(\I-\M)\bz}^2 \). Adding \( \norm{\M\bm\rho}^2=h_0 \) gives the formula.
+Use @prp-ci-new-leverage(a) for the enlarged model. Write \( \x_0=\X\T\boldsymbol{\rho} \) and split any feasible \( \mathbf{a} \) as
+\( \mathbf{a}=\M\mathbf{a}+\mathbf{b} \) with \( \mathbf{b}\perp\C(\X) \). The constraint \( \X\T\mathbf{a}=\x_0 \) forces \( \M\mathbf{a}=\M\boldsymbol{\rho} \), as in the proof
+of the proposition. The constraint \( \bz\T\mathbf{a}=z_0 \) then reads \( \bz\T\M\boldsymbol{\rho}+\bz\T\mathbf{b}=z_0 \), and
+\( \bz\T\M\boldsymbol{\rho}=\bz\T\X(\X\T\X)^{-1}\X\T\boldsymbol{\rho}=\mathbf{k}\T\x_0 \). Since \( \mathbf{b}\perp\C(\X) \), \( \bz\T\mathbf{b}=((\I-\M)\bz)\T\mathbf{b} \), and by the
+Cauchy–Schwarz inequality the shortest \( \mathbf{b} \) with \( ((\I-\M)\bz)\T\mathbf{b}=z_0-\mathbf{k}\T\x_0 \) is a multiple of \( (\I-\M)\bz \), with
+\( \norm{\mathbf{b}}^2=(z_0-\mathbf{k}\T\x_0)^2/\norm{(\I-\M)\bz}^2 \). Adding \( \norm{\M\boldsymbol{\rho}}^2=h_0 \) gives the formula.
 :::
 
 ::: {#exr-ci-through-origin}
@@ -364,15 +364,15 @@ nothing to estimate. The interval is only as good as that assertion: if the true
 ::: {#exr-ci-random-x0}
 [B4]
 
-Suppose the new regressor vector \( \bm X_0 \) is random, independent of the pair \( (\Y,\varepsilon_0) \), and always lies in \( \C(\X\T) \). Show that the
-prediction interval of @thm-ci-prediction-interval, computed at the realized \( \bm X_0 \), still covers \( Y_0 \) with probability exactly
+Suppose the new regressor vector \( \mathbf{X}_0 \) is random, independent of the pair \( (\Y,\varepsilon_0) \), and always lies in \( \C(\X\T) \). Show that the
+prediction interval of @thm-ci-prediction-interval, computed at the realized \( \mathbf{X}_0 \), still covers \( Y_0 \) with probability exactly
 \( 1-\alpha \).
 :::
 
 ::: {.solution}
-Condition on \( \bm X_0=\x_0 \). By independence, given this event \( (\Y,\varepsilon_0) \) has its unconditional distribution, so
+Condition on \( \mathbf{X}_0=\x_0 \). By independence, given this event \( (\Y,\varepsilon_0) \) has its unconditional distribution, so
 @thm-ci-prediction-interval applies and the conditional coverage is \( 1-\alpha \) for every \( \x_0 \). Averaging over the distribution of
-\( \bm X_0 \) gives \( 1-\alpha \).
+\( \mathbf{X}_0 \) gives \( 1-\alpha \).
 :::
 
 ### C. Going deeper
@@ -381,7 +381,7 @@ Condition on \( \bm X_0=\x_0 \). By independence, given this event \( (\Y,\varep
 [C1]
 
 Let \( k \) new observations be made at the rows of a \( k\times p \) matrix \( \X_0 \) whose rows lie in \( \C(\X\T) \), with errors independent of each
-other and of \( \Y \). Show that \( \bm D=\bm Y_0-\X_0\hbeta\sim\Normal_k\bigl(\bzero,\sigma^2(\I_k+\X_0\G\X_0\T)\bigr) \), independent of
+other and of \( \Y \). Show that \( \mathbf{D}=\mathbf{Y}_0-\X_0\hbeta\sim\Normal_k\bigl(\bzero,\sigma^2(\I_k+\X_0\G\X_0\T)\bigr) \), independent of
 \( s^2 \), and deduce that the intervals
 \[
 \x_{0j}\T\hbeta\ \pm\ \sqrt{k\,F_\alpha(k,n-r)}\ s\sqrt{1+h_{0j}},\qquad j=1,\dots,k,
@@ -390,9 +390,9 @@ contain all \( k \) new observations simultaneously with probability at least \(
 :::
 
 ::: {.solution}
-Normality, the mean and the covariance follow as in @thm-ci-prediction-interval, and \( \bm S=\I_k+\X_0\G\X_0\T \) is positive definite. So
-\( \bm D\T\bm S^{-1}\bm D/(k s^2)\sim F(k,n-r) \) (@cor-qf-mahalanobis and @def-qf-noncentral-f). By @lem-ci-cauchy-schwarz with
-\( \bm a=\vect{e}_j \), the event \( \bm D\T\bm S^{-1}\bm D\le k s^2F_\alpha \) implies \( \lvert D_j\rvert\le\sqrt{kF_\alpha}\,s\sqrt{S_{jj}} \) for
+Normality, the mean and the covariance follow as in @thm-ci-prediction-interval, and \( \mathbf{S}=\I_k+\X_0\G\X_0\T \) is positive definite. So
+\( \mathbf{D}\T\mathbf{S}^{-1}\mathbf{D}/(k s^2)\sim F(k,n-r) \) (@cor-qf-mahalanobis and @def-qf-noncentral-f). By @lem-ci-cauchy-schwarz with
+\( \mathbf{a}=\vect{e}_j \), the event \( \mathbf{D}\T\mathbf{S}^{-1}\mathbf{D}\le k s^2F_\alpha \) implies \( \lvert D_j\rvert\le\sqrt{kF_\alpha}\,s\sqrt{S_{jj}} \) for
 every \( j \), and \( S_{jj}=1+h_{0j} \). [Chapter 13](../ch13-multiplicity/index.html) compares this with Bonferroni's method, which is shorter when \( k \) is small.
 :::
 

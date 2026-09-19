@@ -11,7 +11,7 @@ A chapter that needs a new symbol adds it here and there before using it.
 | `\hY`, `\he` | fitted values, residuals |
 | `\A, \B, \G, \M, \Q, \R, \V, \bP, \bD, \bL, \bS, \bT, \bU, \bH` | bold matrices (`\bH` is the hat matrix, written `\bH` in Ch. 5 before Ch. 6 renames it `\M`; locally, `\bH_{\G}=\G\X\T\X` in Ch. 8 and a Householder reflection in Ch. 10) |
 | `\bu, \bv, \bw, \bz, \bb, \br, \bmu, \bgamma, \blambda, \bzero, \bone` | bold vectors |
-| `\bSigma`, `\bLambda`, `\bm{...}` | bold Greek; `\bm` for anything else |
+| `\bSigma`, `\bLambda`, `\mathbf{a}`, `\boldsymbol{\theta}` | Latin matrices and vectors are **bold upright** (`\mathbf`); Greek ones are bold (`\boldsymbol`). For a bold symbol without a macro write `\mathbf{a}` (Latin) or `\boldsymbol{\theta}` (Greek); never `\bm` |
 | `\I` | identity. `\M` the orthogonal projection onto C(X), `\Mo` onto a reduced model |
 | `\T` | transpose, rendered with `\top`. Never `^T`, `'` or `\mathsf{T}` |
 | `\ginv` | generalized inverse, `\A\ginv` means A⁻ (any matrix with A A⁻ A = A) |

@@ -14,23 +14,23 @@ each layer buys a different part of the theory.
 
 ## The regression function
 
-Let \( Y \) be a response with finite variance and \( \bm X \) a random vector of
+Let \( Y \) be a response with finite variance and \( \mathbf{X} \) a random vector of
 regressors, defined on the same probability space. We need only elementary
-properties of conditional expectation: the tower property \( \E[\E(Y\mid\bm X)]=\E(Y) \), and
-\( \E[g(\bm X)Y\mid\bm X]=g(\bm X)\E(Y\mid\bm X) \) for functions \( g \) of the regressors.
+properties of conditional expectation: the tower property \( \E[\E(Y\mid\mathbf{X})]=\E(Y) \), and
+\( \E[g(\mathbf{X})Y\mid\mathbf{X}]=g(\mathbf{X})\E(Y\mid\mathbf{X}) \) for functions \( g \) of the regressors.
 
 ::: {#def-lm-regression-function}
 [Regression function]
 
-The **regression function** of \( Y \) on \( \bm X \) is the conditional mean
+The **regression function** of \( Y \) on \( \mathbf{X} \) is the conditional mean
 \[
-m(\bm x)=\E(Y\mid\bm X=\bm x).
+m(\mathbf{x})=\E(Y\mid\mathbf{X}=\mathbf{x}).
 \]
-The **error** is \( \varepsilon=Y-m(\bm X) \), so that \( Y=m(\bm X)+\varepsilon \).
+The **error** is \( \varepsilon=Y-m(\mathbf{X}) \), so that \( Y=m(\mathbf{X})+\varepsilon \).
 :::
 
-The decomposition \( Y=m(\bm X)+\varepsilon \) looks like a model, but it is not one.
-It holds for every pair \( (\bm X,Y) \) with \( \E Y^2<\infty \), and the error it defines
+The decomposition \( Y=m(\mathbf{X})+\varepsilon \) looks like a model, but it is not one.
+It holds for every pair \( (\mathbf{X},Y) \) with \( \E Y^2<\infty \), and the error it defines
 has two properties that are often listed as "assumptions" even though they are
 automatic.
 
@@ -40,30 +40,30 @@ automatic.
 Let \( \E Y^2<\infty \), and let \( m \) and \( \varepsilon \) be as in @def-lm-regression-function.
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \E(\varepsilon\mid\bm X)=0 \), and hence \( \E(\varepsilon)=0 \).
+1. \( \E(\varepsilon\mid\mathbf{X})=0 \), and hence \( \E(\varepsilon)=0 \).
 
-2. \( \E[\varepsilon\,g(\bm X)]=0 \) for every function \( g \) with \( \E g(\bm X)^2<\infty \). In
+2. \( \E[\varepsilon\,g(\mathbf{X})]=0 \) for every function \( g \) with \( \E g(\mathbf{X})^2<\infty \). In
    particular \( \varepsilon \) is uncorrelated with every such function of the regressors.
 
 3. For every such \( g \),
    \[
-   \E\bigl[(Y-g(\bm X))^2\bigr]=\E(\varepsilon^2)+\E\bigl[(m(\bm X)-g(\bm X))^2\bigr].
+   \E\bigl[(Y-g(\mathbf{X}))^2\bigr]=\E(\varepsilon^2)+\E\bigl[(m(\mathbf{X})-g(\mathbf{X}))^2\bigr].
    \]
-   So \( m(\bm X) \) is the best predictor of \( Y \) from \( \bm X \) in mean squared
+   So \( m(\mathbf{X}) \) is the best predictor of \( Y \) from \( \mathbf{X} \) in mean squared
    error, and it is the only one up to events of probability zero.
 :::
 
 :::
 
 ::: {.proof}
-*(a)* \( \E(\varepsilon\mid\bm X)=\E(Y\mid\bm X)-m(\bm X)=0 \), and the tower property gives
-\( \E(\varepsilon)=\E[\E(\varepsilon\mid\bm X)]=0 \). *(b)* The product \( \varepsilon g(\bm X) \) is integrable
-by the Cauchy–Schwarz inequality, because \( \E\varepsilon^2\le 2\E Y^2+2\E m(\bm X)^2 \) and
-\( \E m(\bm X)^2\le\E Y^2 \) by Jensen's inequality for conditional expectations. Then
-\( \E[\varepsilon g(\bm X)]=\E\bigl[g(\bm X)\E(\varepsilon\mid\bm X)\bigr]=0 \). *(c)* Write
-\( Y-g(\bm X)=\varepsilon+(m(\bm X)-g(\bm X)) \) and expand the square. The cross term is
-\( 2\E[\varepsilon\,(m(\bm X)-g(\bm X))] \), which is zero by (b) applied to the function
-\( m-g \). The second term on the right is zero only if \( g(\bm X)=m(\bm X) \) with
+*(a)* \( \E(\varepsilon\mid\mathbf{X})=\E(Y\mid\mathbf{X})-m(\mathbf{X})=0 \), and the tower property gives
+\( \E(\varepsilon)=\E[\E(\varepsilon\mid\mathbf{X})]=0 \). *(b)* The product \( \varepsilon g(\mathbf{X}) \) is integrable
+by the Cauchy–Schwarz inequality, because \( \E\varepsilon^2\le 2\E Y^2+2\E m(\mathbf{X})^2 \) and
+\( \E m(\mathbf{X})^2\le\E Y^2 \) by Jensen's inequality for conditional expectations. Then
+\( \E[\varepsilon g(\mathbf{X})]=\E\bigl[g(\mathbf{X})\E(\varepsilon\mid\mathbf{X})\bigr]=0 \). *(c)* Write
+\( Y-g(\mathbf{X})=\varepsilon+(m(\mathbf{X})-g(\mathbf{X})) \) and expand the square. The cross term is
+\( 2\E[\varepsilon\,(m(\mathbf{X})-g(\mathbf{X}))] \), which is zero by (b) applied to the function
+\( m-g \). The second term on the right is zero only if \( g(\mathbf{X})=m(\mathbf{X}) \) with
 probability one.
 :::
 
@@ -87,14 +87,14 @@ than from the conditional mean. Chapter 24 and Chapter 25 take this up.
 ## What the linear model adds
 
 A linear regression model makes claims about \( m \) and about the errors that
-\( \E Y^2<\infty \) does not guarantee. Write \( \bm x_{(i)} \) for the regressors of case
+\( \E Y^2<\infty \) does not guarantee. Write \( \mathbf{x}_{(i)} \) for the regressors of case
 \( i \), already transformed into the columns the model uses (a constant \( 1 \), the
 regressors themselves, their squares, indicators of categories, and so on;
 [Section 5.3](03-multiple-regression-model.html) gives many examples). The
 assumptions come in four layers.
 
 ::: {.enumerate options="label=(L\arabic*)"}
-1. **Linearity.** \( \E(Y_i)=\bm x_{(i)}\T\bbeta \) for an unknown \( \bbeta\in\Real^p \). The
+1. **Linearity.** \( \E(Y_i)=\mathbf{x}_{(i)}\T\bbeta \) for an unknown \( \bbeta\in\Real^p \). The
    regression function belongs to a fixed \( p \)-dimensional family of functions.
 
 2. **Constant variance.** \( \Var(Y_i)=\sigma^2 \) for every \( i \), with \( \sigma^2 \) unknown.
@@ -164,11 +164,11 @@ The layers (L1)–(L4) were written with \( \E(Y_i) \) and \( \Var(Y_i) \), as i
 regressors were constants. In a designed experiment they are. The experimenter
 chooses the temperatures, doses or fertilizer levels, and only the responses are random.
 In an observational study the regressors are measured on units drawn from a
-population, so the pairs \( (\bm x_{(i)},Y_i) \) are random together.
+population, so the pairs \( (\mathbf{x}_{(i)},Y_i) \) are random together.
 
 This book's convention, like that of most linear-model theory, is to treat the
 regressors as fixed, and to read (L1)–(L4) in the random case as statements
-*conditional on the regressors*: \( \E(Y_i\mid\X)=\bm x_{(i)}\T\bbeta \),
+*conditional on the regressors*: \( \E(Y_i\mid\X)=\mathbf{x}_{(i)}\T\bbeta \),
 \( \Var(Y_i\mid\X)=\sigma^2 \), and so on, where \( \X \) collects all the regressors. There
 are two reasons for this choice.
 
@@ -302,15 +302,15 @@ What are \( \bbeta \) and \( \sigma^2 \)?
 [B1]
 
 Under the conditions of @prp-lm-error-decomposition, show that
-\( \Var(Y)=\Var\bigl(m(\bm X)\bigr)+\E\bigl[\Var(Y\mid\bm X)\bigr] \) and that
-\( \E(\varepsilon^2)=\E[\Var(Y\mid\bm X)] \). The ratio
-\( \eta^2=\Var(m(\bm X))/\Var(Y) \) is the proportion of the variance of \( Y \) that the
+\( \Var(Y)=\Var\bigl(m(\mathbf{X})\bigr)+\E\bigl[\Var(Y\mid\mathbf{X})\bigr] \) and that
+\( \E(\varepsilon^2)=\E[\Var(Y\mid\mathbf{X})] \). The ratio
+\( \eta^2=\Var(m(\mathbf{X}))/\Var(Y) \) is the proportion of the variance of \( Y \) that the
 regression function explains. Compute it for the distribution of @exr-lm-hetero-tautology.
 :::
 
 ::: {.solution}
 The first identity is the scalar case of @prp-rv-total-covariance. For the second,
-\( \E(\varepsilon^2\mid\bm X)=\E[(Y-m(\bm X))^2\mid\bm X]=\Var(Y\mid\bm X) \); take expectations.
+\( \E(\varepsilon^2\mid\mathbf{X})=\E[(Y-m(\mathbf{X}))^2\mid\mathbf{X}]=\Var(Y\mid\mathbf{X}) \); take expectations.
 In @exr-lm-hetero-tautology, \( m(X)=X^2 \) takes the value \( 1 \) with probability
 \( 2/3 \) and \( 0 \) with probability \( 1/3 \), so \( \Var(m(X))=2/9 \). Also
 \( \E[\Var(Y\mid X)]=\E(X^2)=2/3 \). Hence \( \Var(Y)=8/9 \) and \( \eta^2=1/4 \).

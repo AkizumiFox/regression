@@ -48,7 +48,7 @@ In particular:
 ::: {.proof}
 *Step 1: from \( \mathcal L \) to a subspace of \( \C(\X) \).* The map \( \bu\mapsto\X\T\bu \) is one to one on \( \C(\X) \), since
 \( \X\T\bu=\bzero \) with \( \bu\in\C(\X) \) forces \( \bu\in\C(\X)\cap\C(\X)\perpc=\{\bzero\} \). It maps \( \C(\X) \) onto \( \C(\X\T) \), because
-\( \X\T\bm\rho=\X\T\M\bm\rho \). So \( \mathcal U=\{\bu\in\C(\X):\X\T\bu\in\mathcal L\} \) is a subspace of \( \C(\X) \) of dimension \( k \), and every
+\( \X\T\boldsymbol{\rho}=\X\T\M\boldsymbol{\rho} \). So \( \mathcal U=\{\bu\in\C(\X):\X\T\bu\in\mathcal L\} \) is a subspace of \( \C(\X) \) of dimension \( k \), and every
 \( \x\in\mathcal L \) is \( \X\T\bu \) for exactly one \( \bu\in\mathcal U \). For such a pair,
 \[
 \begin{aligned}
@@ -213,8 +213,8 @@ coefficients lie in the ellipse.
 
 ::: {.solution}
 Put \( \bu=(\hat{\beta}_0-b_0,\hat{\beta}_1-b_1)\T \) and \( \W=(\X\T\X)^{-1} \). The line \( b_0+b_1x \) is inside the band at \( x \) iff
-\( \lvert(1,x)\bu\rvert\le w_2\,s\sqrt{(1,x)\W(1,x)\T} \). By scale invariance this holds for all \( x \) iff it holds for all \( \bm a=(a_1,a_2)\T \) with
-\( a_1\ne0 \), and by continuity iff it holds for all \( \bm a \). By @lem-ci-cauchy-schwarz that is \( \bu\T\W^{-1}\bu\le w_2^2s^2 \), which is the
+\( \lvert(1,x)\bu\rvert\le w_2\,s\sqrt{(1,x)\W(1,x)\T} \). By scale invariance this holds for all \( x \) iff it holds for all \( \mathbf{a}=(a_1,a_2)\T \) with
+\( a_1\ne0 \), and by continuity iff it holds for all \( \mathbf{a} \). By @lem-ci-cauchy-schwarz that is \( \bu\T\W^{-1}\bu\le w_2^2s^2 \), which is the
 ellipse. At each \( x \), the upper edge of the band is the maximum of \( b_0+b_1x \) over the ellipse (@cor-ci-shadows), so the band is the envelope.
 :::
 

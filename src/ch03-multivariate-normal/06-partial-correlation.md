@@ -121,7 +121,7 @@ and denominator by \( \sqrt{\sigma_{11\cdot S}\sigma_{22\cdot S}} \) gives the s
 ::: {#prp-mvn-precision}
 [Partial correlations from the precision matrix]
 
-Let \( \bSigma \) be positive definite and \( \bm\Omega=\bSigma^{-1}=(\omega_{ij}) \). The partial
+Let \( \bSigma \) be positive definite and \( \boldsymbol{\Omega}=\bSigma^{-1}=(\omega_{ij}) \). The partial
 correlation of \( Y_i \) and \( Y_j \) given all the other entries of \( \Y \) is
 \[
 \rho_{ij\cdot\text{rest}}=-\frac{\omega_{ij}}{\sqrt{\omega_{ii}\,\omega_{jj}}},
@@ -132,7 +132,7 @@ and the conditional variance of \( Y_i \) given all the others is \( 1/\omega_{i
 ::: {.proof}
 Permute \( \Y \) so that \( (Y_i,Y_j) \) comes first. By @thm-mvn-conditional(c) (a statement
 about matrices, valid whether or not \( \Y \) is normal), the leading \( 2\times2 \) block of
-\( \bm\Omega \) is \( \bSigma_{11\cdot2}^{-1} \). Inverting,
+\( \boldsymbol{\Omega} \) is \( \bSigma_{11\cdot2}^{-1} \). Inverting,
 \[
 \bSigma_{11\cdot2}=\begin{pmatrix}\omega_{ii}&\omega_{ij}\\\omega_{ij}&\omega_{jj}\end{pmatrix}^{-1}
 =\frac{1}{\omega_{ii}\omega_{jj}-\omega_{ij}^2}
@@ -166,11 +166,11 @@ For data, replace \( \bSigma \) by the sample covariance matrix. Because the emp
 distribution of the rows is a probability distribution in its own right
 ([Section 6.11](../ch06-projections/11-population.html)), all the identities above hold exactly for the sample
 versions. In particular, for two variables \( \y,\x \) and conditioning variables collected with
-an intercept in \( \bm Z \), the following numbers are *identical*:
+an intercept in \( \mathbf{Z} \), the following numbers are *identical*:
 
 ::: {.enumerate options="label=(\arabic*)"}
 1. the correlation of the residuals of \( \y \) and of \( \x \) after least squares regression
-           on \( \bm Z \);
+           on \( \mathbf{Z} \);
 
 2. the recursion @eq-mvn-partial-recursion applied to sample correlations
            (one conditioning variable) or repeatedly (several);
@@ -179,7 +179,7 @@ an intercept in \( \bm Z \), the following numbers are *identical*:
            correlation matrix of \( (\y,\x,\text{conditioning variables}) \);
 
 4. \( \operatorname{sign}(t)\sqrt{t^2/(t^2+n-p)} \), where \( t \) is the \( t \) statistic of \( \x \) in the
-           regression of \( \y \) on \( [\bm Z,\x] \) with \( p \) columns (@exr-proj-partial-correlation).
+           regression of \( \y \) on \( [\mathbf{Z},\x] \) with \( p \) columns (@exr-proj-partial-correlation).
 :::
 
 ::: {#exm-mvn-longley}
@@ -314,7 +314,7 @@ and the coefficient of \( Y_1 \) for predicting \( Y_j \), each from all the oth
 ::: {.solution}
 Put \( Y_1 \) first. By
 @exr-mvn-precision-conditional with a scalar first block, the coefficient vector of the
-best linear predictor of \( Y_1 \) from the rest is \( -\bm\Omega_{12}/\omega_{11} \), whose \( j \)th entry is
+best linear predictor of \( Y_1 \) from the rest is \( -\boldsymbol{\Omega}_{12}/\omega_{11} \), whose \( j \)th entry is
 \( -\omega_{1j}/\omega_{11} \). Likewise the coefficient of \( Y_1 \) in the predictor of \( Y_j \) is
 \( -\omega_{j1}/\omega_{jj} \). Their product is \( \omega_{1j}^2/(\omega_{11}\omega_{jj}) \), which is
 \( \rho_{1j\cdot\text{rest}}^2 \) by @prp-mvn-precision.
@@ -323,7 +323,7 @@ best linear predictor of \( Y_1 \) from the rest is \( -\bm\Omega_{12}/\omega_{1
 ::: {#exr-mvn-sample-precision}
 [B3]
 
-Let \( \bm D \) be an \( n\times k \) data matrix whose columns are centred, and let \( \bS=\bm D\T\bm D \).
+Let \( \mathbf{D} \) be an \( n\times k \) data matrix whose columns are centred, and let \( \bS=\mathbf{D}\T\mathbf{D} \).
 Show, using @thm-proj-fwl and the partitioned inverse, that
 \( -w_{12}/\sqrt{w_{11}w_{22}} \), computed from \( \bS^{-1}=(w_{ij}) \), equals the correlation of the
 residuals of columns \( 1 \) and \( 2 \) after regression on the remaining columns.

@@ -17,9 +17,9 @@
    spherically symmetric error law (@prp-glh-angle, @prp-glh-invariance, @prp-glh-canonical,
    @prp-glh-spherical).
 
-3. A constraint \( \bLambda\T\bbeta=\bm d \) is a hypothesis about the data only if it is estimable and consistent.
+3. A constraint \( \bLambda\T\bbeta=\mathbf{d} \) is a hypothesis about the data only if it is estimable and consistent.
    Nonestimable constraints cannot be tested at all. For a testable hypothesis,
-   \( (\bLambda\T\hbeta-\bm d)\T[\bLambda\T(\X\T\X)\ginv\bLambda]\ginv(\bLambda\T\hbeta-\bm d) \) is the extra sum of squares of
+   \( (\bLambda\T\hbeta-\mathbf{d})\T[\bLambda\T(\X\T\X)\ginv\bLambda]\ginv(\bLambda\T\hbeta-\mathbf{d}) \) is the extra sum of squares of
    the reduced model with offset \( \X\bb_0 \), whatever the rank of \( \X \) or \( \bLambda \), and restricted least
    squares has a closed form through any generalized inverse (@def-glh-testable, @prp-glh-nonestimable,
    @thm-glh-general-f, @prp-glh-restricted-ls).

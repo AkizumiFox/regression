@@ -9,10 +9,10 @@ answer does not depend on the algorithm. Combined with backward stability throug
 
 Throughout this section \( \X \) is \( n\times p \) with full column rank, \( \hbeta=\X^+\y \) is its least squares
 solution (assumed nonzero) and \( \he=\y-\X\hbeta \) its residual. Write
-\( \kappa=\kappa(\X)=\sigma_1/\sigma_p \). The perturbed data are \( \tilde{\X}=\X+\bm E \) and
-\( \tilde{\y}=\y+\bm f \), with
+\( \kappa=\kappa(\X)=\sigma_1/\sigma_p \). The perturbed data are \( \tilde{\X}=\X+\mathbf{E} \) and
+\( \tilde{\y}=\y+\mathbf{f} \), with
 \[
-\norm{\bm E}_2\le\epsilon\norm{\X}_2,\qquad\norm{\bm f}\le\epsilon\norm{\y}.
+\norm{\mathbf{E}}_2\le\epsilon\norm{\X}_2,\qquad\norm{\mathbf{f}}\le\epsilon\norm{\y}.
 \]{#eq-cmp-normwise}
 
 The solution and residual for the perturbed data are \( \tilde{\bb} \) and \( \tilde{\be} \). A single
@@ -40,22 +40,22 @@ To first order in \( \epsilon \), the coefficient bound is \( \epsilon\bigl(2\ka
 :::
 
 ::: {.proof}
-By @prp-cmp-weyl, \( \sigma_p(\tilde{\X})\ge\sigma_p-\norm{\bm E}_2\ge\sigma_p(1-\kappa\epsilon)>0 \), so
+By @prp-cmp-weyl, \( \sigma_p(\tilde{\X})\ge\sigma_p-\norm{\mathbf{E}}_2\ge\sigma_p(1-\kappa\epsilon)>0 \), so
 \( \tilde{\X} \) has full column rank and \( \tilde{\X}^+\tilde{\X}=\I \). Hence
 \[
 \tilde{\bb}-\hbeta=\tilde{\X}^+\tilde{\y}-\tilde{\X}^+\tilde{\X}\hbeta=\tilde{\X}^+(\tilde{\y}-\tilde{\X}\hbeta)
-=\tilde{\X}^+(\he+\bm f-\bm E\hbeta).
+=\tilde{\X}^+(\he+\mathbf{f}-\mathbf{E}\hbeta).
 \]
 The residual term simplifies because \( \X\T\he=\bzero \):
-\( \tilde{\X}^+\he=(\tilde{\X}\T\tilde{\X})^{-1}(\X+\bm E)\T\he=(\tilde{\X}\T\tilde{\X})^{-1}\bm E\T\he \).
+\( \tilde{\X}^+\he=(\tilde{\X}\T\tilde{\X})^{-1}(\X+\mathbf{E})\T\he=(\tilde{\X}\T\tilde{\X})^{-1}\mathbf{E}\T\he \).
 So
 \[
-\tilde{\bb}-\hbeta=\tilde{\X}^+(\bm f-\bm E\hbeta)+(\tilde{\X}\T\tilde{\X})^{-1}\bm E\T\he .
+\tilde{\bb}-\hbeta=\tilde{\X}^+(\mathbf{f}-\mathbf{E}\hbeta)+(\tilde{\X}\T\tilde{\X})^{-1}\mathbf{E}\T\he .
 \]{#eq-cmp-exact-perturbation}
 
 Now \( \norm{\tilde{\X}^+}_2=1/\sigma_p(\tilde{\X}) \) and \( \norm{(\tilde{\X}\T\tilde{\X})^{-1}}_2=1/\sigma_p(\tilde{\X})^2 \)
 (@thm-mat-svd). Also \( \norm{\y}\le\norm{\X\hbeta}+\norm{\he}\le\sigma_1\norm{\hbeta}+\norm{\he} \), so
-\( \norm{\bm f-\bm E\hbeta}\le\epsilon(\norm{\y}+\sigma_1\norm{\hbeta})\le\epsilon\sigma_1\norm{\hbeta}(2+\eta) \).
+\( \norm{\mathbf{f}-\mathbf{E}\hbeta}\le\epsilon(\norm{\y}+\sigma_1\norm{\hbeta})\le\epsilon\sigma_1\norm{\hbeta}(2+\eta) \).
 Therefore
 \[
 \norm{\tilde{\bb}-\hbeta}\le\frac{\epsilon\sigma_1\norm{\hbeta}(2+\eta)}{\sigma_p(1-\kappa\epsilon)}
@@ -64,11 +64,11 @@ Therefore
 Dividing by \( \norm{\hbeta} \) and using \( \norm{\he}=\eta\sigma_1\norm{\hbeta} \) gives @eq-cmp-perturbation.
 
 For the residual, \( \tilde{\be}=(\I-\tilde{\M})\tilde{\y} \), where \( \tilde{\M} \) projects onto \( \C(\tilde{\X}) \).
-Write \( \tilde{\y}=\tilde{\X}\hbeta+(\bm f-\bm E\hbeta)+\he \). The first term is annihilated by
-\( \I-\tilde{\M} \), and \( \tilde{\M}\he=(\tilde{\X}^+)\T\tilde{\X}\T\he=(\tilde{\X}^+)\T\bm E\T\he \) as before.
+Write \( \tilde{\y}=\tilde{\X}\hbeta+(\mathbf{f}-\mathbf{E}\hbeta)+\he \). The first term is annihilated by
+\( \I-\tilde{\M} \), and \( \tilde{\M}\he=(\tilde{\X}^+)\T\tilde{\X}\T\he=(\tilde{\X}^+)\T\mathbf{E}\T\he \) as before.
 So
 \[
-\tilde{\be}-\he=(\I-\tilde{\M})(\bm f-\bm E\hbeta)-(\tilde{\X}^+)\T\bm E\T\he .
+\tilde{\be}-\he=(\I-\tilde{\M})(\mathbf{f}-\mathbf{E}\hbeta)-(\tilde{\X}^+)\T\mathbf{E}\T\he .
 \]
 The first term has norm at most \( \epsilon(\norm{\y}+\sigma_1\norm{\hbeta})\le\epsilon(1+\kappa)\norm{\y} \),
 because \( \norm{\hbeta}=\norm{\X^+\y}\le\norm{\y}/\sigma_p \). The second has norm at most
@@ -80,7 +80,7 @@ bound @eq-cmp-residual-perturbation.
 The exact identity @eq-cmp-exact-perturbation shows where each term comes from. Perturbing the data
 along \( \C(\X) \) moves the solution through \( \tilde{\X}^+ \), with amplification \( 1/\sigma_p \). This is the
 familiar \( \kappa \) of linear systems (@eq-mat-perturbation). The second term is new. A perturbation
-\( \bm E \) that tilts a column of \( \X \) towards the residual direction changes the subspace, and the
+\( \mathbf{E} \) that tilts a column of \( \X \) towards the residual direction changes the subspace, and the
 residual, however large, then "leaks" into the solution through \( (\tilde{\X}\T\tilde{\X})^{-1} \), with
 amplification \( 1/\sigma_p^2 \). The residuals themselves, and hence the fitted values, are only
 \( \kappa \)-sensitive.
@@ -302,9 +302,9 @@ values never \( \kappa^2 \)-sensitive, even though coefficients can be?
 
 ::: {.solution}
 \( \tilde{\X}\tilde{\bb}=\tilde{\y}-\tilde{\be} \) and \( \X\hbeta=\y-\he \), so the difference is
-\( \bm f-(\tilde{\be}-\he) \), with norm at most
+\( \mathbf{f}-(\tilde{\be}-\he) \), with norm at most
 \( \epsilon\norm{\y}+\epsilon(1+2\kappa/(1-\kappa\epsilon))\norm{\y} \). The \( \kappa^2 \) term in the coefficients
-comes from \( (\tilde{\X}\T\tilde{\X})^{-1}\bm E\T\he \), a change of coordinates *within* the slightly
+comes from \( (\tilde{\X}\T\tilde{\X})^{-1}\mathbf{E}\T\he \), a change of coordinates *within* the slightly
 rotated column space. Multiplying by \( \tilde{\X} \) turns the factor \( 1/\sigma_p^2 \) into \( 1/\sigma_p \). A
 direction that the columns barely span is a direction in which large coefficient changes produce only
 small changes in the fit.
@@ -314,7 +314,7 @@ small changes in the fit.
 [B2]
 
 Show that for consistent data (\( \he=\bzero \)) the bound reduces to
-\( 2\kappa\epsilon/(1-\kappa\epsilon) \). Construct a perturbation \( \bm f \) of \( \y \) alone that changes \( \hbeta \) by a
+\( 2\kappa\epsilon/(1-\kappa\epsilon) \). Construct a perturbation \( \mathbf{f} \) of \( \y \) alone that changes \( \hbeta \) by a
 relative amount \( \kappa\epsilon \), so that the bound is attained up to a factor of two.
 :::
 
@@ -324,7 +324,7 @@ relative amount \( \kappa\epsilon \), so that the bound is attained up to a fact
 [C1]
 
 Take data with \( \hbeta=\bv_p \) and \( \he\ne\bzero \), and the perturbation
-\( \bm E=\epsilon\sigma_1\,\he\bv_p\T/\norm{\he} \), with \( \bm f=\bzero \). Use @eq-cmp-exact-perturbation to
+\( \mathbf{E}=\epsilon\sigma_1\,\he\bv_p\T/\norm{\he} \), with \( \mathbf{f}=\bzero \). Use @eq-cmp-exact-perturbation to
 show that, to first order in \( \epsilon \), \( \tilde{\bb}-\hbeta=\epsilon\sigma_1\norm{\he}\sigma_p^{-2}\bv_p \), so that
 the relative change is \( \epsilon\kappa^2\eta \). Compare with the first-order bound
 \( \epsilon\bigl(2\kappa+\kappa(\kappa+1)\eta\bigr) \).

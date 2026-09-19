@@ -27,13 +27,13 @@ match.
 
 ::: {.proof}
 If the blocks are independent, every cross-covariance is zero. Conversely, suppose
-\( \bSigma_{ij}=\bzero \) for \( i\ne j \), and partition \( \bm t \) to match. Then
+\( \bSigma_{ij}=\bzero \) for \( i\ne j \), and partition \( \mathbf{t} \) to match. Then
 \[
-\bm t\T\bmu+\tfrac12\bm t\T\bSigma\bm t
-=\sum_{i=1}^k\Bigl(\bm t_i\T\bmu_i+\tfrac12\bm t_i\T\bSigma_{ii}\bm t_i\Bigr),
+\mathbf{t}\T\bmu+\tfrac12\mathbf{t}\T\bSigma\mathbf{t}
+=\sum_{i=1}^k\Bigl(\mathbf{t}_i\T\bmu_i+\tfrac12\mathbf{t}_i\T\bSigma_{ii}\mathbf{t}_i\Bigr),
 \]
-because all the cross terms \( \bm t_i\T\bSigma_{ij}\bm t_j \) vanish. Exponentiating,
-@thm-mvn-mgf gives \( M_{\Y}(\bm t)=\prod_iM_i(\bm t_i) \), where \( M_i \) is the
+because all the cross terms \( \mathbf{t}_i\T\bSigma_{ij}\mathbf{t}_j \) vanish. Exponentiating,
+@thm-mvn-mgf gives \( M_{\Y}(\mathbf{t})=\prod_iM_i(\mathbf{t}_i) \), where \( M_i \) is the
 moment generating function of \( \Normal(\bmu_i,\bSigma_{ii}) \). By
 @cor-mvn-marginals that is the distribution of \( \Y_i \), so \( M_i=M_{\Y_i} \).
 The factorization property of [Section 3.2](02-mgf-density.html) gives mutual independence. Part (b) is the cases
@@ -71,12 +71,12 @@ quadratic forms that are not written as squared lengths (@thm-qf-indep-linear).
 
 Let \( \Y\sim\Normal_n(\mu\bone,\sigma^2\I) \), so that \( Y_1,\dots,Y_n \) is a random sample
 from \( \Normal(\mu,\sigma^2) \). The mean is \( \bar{Y}=n^{-1}\bone\T\Y \), and the vector of
-deviations is \( \bm d=(\I-n^{-1}\bone\bone\T)\Y \). As in @exm-rv-centering,
+deviations is \( \mathbf{d}=(\I-n^{-1}\bone\bone\T)\Y \). As in @exm-rv-centering,
 \[
-\Cov(\bar{Y},\bm d)=\sigma^2n^{-1}\bone\T(\I-n^{-1}\bone\bone\T)=\bzero\T ,
+\Cov(\bar{Y},\mathbf{d})=\sigma^2n^{-1}\bone\T(\I-n^{-1}\bone\bone\T)=\bzero\T ,
 \]
-By @cor-mvn-AY-BY, \( \bar{Y} \) is independent of \( \bm d \), and so of every function
-of the deviations: the sample variance \( S^2=\norm{\bm d}^2/(n-1) \), the range, the
+By @cor-mvn-AY-BY, \( \bar{Y} \) is independent of \( \mathbf{d} \), and so of every function
+of the deviations: the sample variance \( S^2=\norm{\mathbf{d}}^2/(n-1) \), the range, the
 sample skewness. The distribution of \( (n-1)S^2/\sigma^2 \) is found in @cor-qf-sample-variance.
 The computation used \( \Cov(\Y)=\sigma^2\I \) only through
 \( \bSigma\bone\in\spn(\bone) \), which is the precise condition for the conclusion

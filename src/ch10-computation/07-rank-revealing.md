@@ -14,10 +14,10 @@ first \( k-1 \) chosen columns have been removed. **Column pivoting** (Businger 
 moves the trailing column of largest norm, the one least explained by the columns already chosen,
 into position \( k \) before reflecting. The result is
 \[
-\X\bm\Pi=\Q\begin{pmatrix}\R\\\bzero\end{pmatrix},\qquad
+\X\boldsymbol{\Pi}=\Q\begin{pmatrix}\R\\\bzero\end{pmatrix},\qquad
 \R=\begin{pmatrix}\R_{11}&\R_{12}\\\bzero&\R_{22}\end{pmatrix},
 \]
-with \( \bm\Pi \) a permutation matrix, \( \R_{11} \) the leading \( k\times k \) block and \( \R_{22} \) the trailing
+with \( \boldsymbol{\Pi} \) a permutation matrix, \( \R_{11} \) the leading \( k\times k \) block and \( \R_{22} \) the trailing
 \( (p-k)\times(p-k) \) block, for any \( k \). We need one fact about submatrices.
 
 ::: {#lem-cmp-column-subset}
@@ -41,7 +41,7 @@ For rows, apply this to \( \X\T \), which has the same singular values.
 ::: {#thm-cmp-rank-revealing}
 [Column-pivoted QR]
 
-Let \( \X \) be \( n\times p \) with \( n\ge p \), and let \( \X\bm\Pi=\Q\begin{psmallmatrix}\R\\\bzero\end{psmallmatrix} \) be
+Let \( \X \) be \( n\times p \) with \( n\ge p \), and let \( \X\boldsymbol{\Pi}=\Q\begin{psmallmatrix}\R\\\bzero\end{psmallmatrix} \) be
 computed by Householder QR (@thm-cmp-householder) with column pivoting.
 
 ::: {.enumerate options="label=(\alph*)"}
@@ -56,8 +56,8 @@ computed by Householder QR (@thm-cmp-householder) with column pivoting.
            \]
 
 3. In exact arithmetic, if \( \rank\X=r \), then \( r_{kk}\ne0 \) for \( k\le r \) and \( \R_{22}=\bzero \) for
-           \( k=r \). The first \( r \) columns of \( \X\bm\Pi \) are a basis of \( \C(\X) \), and
-           \( \X\bm\Pi=\Q\begin{psmallmatrix}\R_{11}&\R_{12}\\\bzero&\bzero\end{psmallmatrix} \) with \( \R_{11} \)
+           \( k=r \). The first \( r \) columns of \( \X\boldsymbol{\Pi} \) are a basis of \( \C(\X) \), and
+           \( \X\boldsymbol{\Pi}=\Q\begin{psmallmatrix}\R_{11}&\R_{12}\\\bzero&\bzero\end{psmallmatrix} \) with \( \R_{11} \)
            nonsingular.
 
 4. The cost is that of the unpivoted factorization, \( 2np^2-2p^3/3 \) flops, plus \( O(np) \) for keeping track of
@@ -75,20 +75,20 @@ norm at most \( \lvert r_{kk}\rvert \). The reflections at steps \( k,\dots,p \)
 they preserve this norm, and at the end the segment is \( (r_{kj},\dots,r_{jj},0,\dots,0)\T \). Hence
 \( \sum_{i=k}^jr_{ij}^2\le r_{kk}^2 \). With \( j=k+1 \) this gives \( r_{k+1,k+1}^2\le r_{kk}^2 \).
 
-(b) \( \X\bm\Pi \) has the same singular values as \( \X \), because \( \bm\Pi \) is orthogonal. The matrix
+(b) \( \X\boldsymbol{\Pi} \) has the same singular values as \( \X \), because \( \boldsymbol{\Pi} \) is orthogonal. The matrix
 \( \Q\begin{psmallmatrix}\R_{11}&\R_{12}\\\bzero&\bzero\\\bzero&\bzero\end{psmallmatrix} \) has rank at most \( k \) and differs from
-\( \X\bm\Pi \) by \( \Q\begin{psmallmatrix}\bzero&\bzero\\\bzero&\R_{22}\\\bzero&\bzero\end{psmallmatrix} \), whose norm is
+\( \X\boldsymbol{\Pi} \) by \( \Q\begin{psmallmatrix}\bzero&\bzero\\\bzero&\R_{22}\\\bzero&\bzero\end{psmallmatrix} \), whose norm is
 \( \norm{\R_{22}}_2 \). The Eckart–Young inequality (@prp-mat-svd-norms(c)) gives
 \( \sigma_{k+1}(\X)\le\norm{\R_{22}}_2 \). Next,
 \( \norm{\R_{22}}_2\le\norm{\R_{22}}_F\le\sqrt{p-k}\max_j\norm{\text{column }j\text{ of }\R_{22}} \), and by (a) with
 \( k+1 \) in place of \( k \), each column of \( \R_{22} \) has norm at most \( \lvert r_{k+1,k+1}\rvert \). Finally, the first
-\( k \) columns of \( \X\bm\Pi \) equal \( \Q_1\begin{psmallmatrix}\R_{11}\\\bzero\end{psmallmatrix} \), so their singular values are
+\( k \) columns of \( \X\boldsymbol{\Pi} \) equal \( \Q_1\begin{psmallmatrix}\R_{11}\\\bzero\end{psmallmatrix} \), so their singular values are
 those of \( \R_{11} \). Then @lem-cmp-column-subset gives \( \sigma_k(\R_{11})\le\sigma_k(\X) \).
 
 (c) Because \( \R_{11} \) is triangular, \( \rank\R=k+\rank\R_{22} \) whenever \( r_{11},\dots,r_{kk} \) are nonzero (subtract
 multiples of the first \( k \) columns from the others to clear \( \R_{12} \)). Also \( \rank\R=\rank\X=r \). So while
 \( k<r \), \( \R_{22}\ne\bzero \), some trailing column is nonzero, and the next pivot \( r_{k+1,k+1} \) is nonzero. At
-\( k=r \), \( \rank\R_{22}=0 \). The first \( r \) columns of \( \X\bm\Pi \) are \( \Q_1 \) times the independent columns
+\( k=r \), \( \rank\R_{22}=0 \). The first \( r \) columns of \( \X\boldsymbol{\Pi} \) are \( \Q_1 \) times the independent columns
 \( \begin{psmallmatrix}\R_{11}\\\bzero\end{psmallmatrix} \), so they are independent, and there are \( r=\dim\C(\X) \) of them.
 
 (d) The norms of the trailing column segments are updated at each step by subtracting \( r_{kj}^2 \), at
@@ -171,11 +171,11 @@ print(f"smallest |r_kk| = {np.abs(RK[-1, -1]):.3f},  smallest singular value = {
 ## Basic solutions and aliased columns
 
 Suppose pivoted QR finds numerical rank \( r<p \), so that
-\( \X\bm\Pi\approx\Q\begin{psmallmatrix}\R_{11}&\R_{12}\\\bzero&\bzero\end{psmallmatrix} \). Write
-\( \Q\T\y=(\bm c_1\T,\bm c_2\T)\T \) with \( \bm c_1\in\Real^r \), and split the permuted coefficients as
+\( \X\boldsymbol{\Pi}\approx\Q\begin{psmallmatrix}\R_{11}&\R_{12}\\\bzero&\bzero\end{psmallmatrix} \). Write
+\( \Q\T\y=(\mathbf{c}_1\T,\mathbf{c}_2\T)\T \) with \( \mathbf{c}_1\in\Real^r \), and split the permuted coefficients as
 \( (\bb_1,\bb_2) \). As in @prp-cmp-qr-quantities, the least squares estimates are the solutions of
 \[
-\R_{11}\bb_1+\R_{12}\bb_2=\bm c_1 ,
+\R_{11}\bb_1+\R_{12}\bb_2=\mathbf{c}_1 ,
 \]
 with \( \bb_2 \) free. Setting \( \bb_2=\bzero \) gives the **basic solution**, which simply drops the last
 \( p-r \) pivoted columns. It has at most \( r \) nonzero coefficients. It differs from the minimum-norm solution
@@ -311,8 +311,8 @@ Find the pivot order, \( \R \), and the rank. Give the basic solution for \( \y=
 
 ::: {.solution}
 The norms are \( \sqrt2,\sqrt2,2 \), so \( \x_3 \) is chosen first, with \( \lvert r_{11}\rvert=2 \) and
-\( \bm q_1=\x_3/2 \). Then \( \bm q_1\T\x_1=\bm q_1\T\x_2=1 \), and the remainders are
-\( \x_1-\bm q_1=(\tfrac12,\tfrac12,-\tfrac12,-\tfrac12)\T \) and \( \x_2-\bm q_1 \), its negative. Both have norm \( 1 \),
+\( \mathbf{q}_1=\x_3/2 \). Then \( \mathbf{q}_1\T\x_1=\mathbf{q}_1\T\x_2=1 \), and the remainders are
+\( \x_1-\mathbf{q}_1=(\tfrac12,\tfrac12,-\tfrac12,-\tfrac12)\T \) and \( \x_2-\mathbf{q}_1 \), its negative. Both have norm \( 1 \),
 so the tie goes to \( \x_1 \), with \( \lvert r_{22}\rvert=1 \). The remainder of \( \x_2 \) is then zero, so
 \( r_{33}=0 \) and the rank is \( 2 \). The pivot order is \( (3,1,2) \), and up to signs
 \( \R=\begin{psmallmatrix}2&1&1\\0&1&-1\\0&0&0\end{psmallmatrix} \). The basic solution regresses \( \y \) on
@@ -332,7 +332,7 @@ example gives the basic solution that drops the intercept?
 :::
 
 ::: {.solution}
-Both satisfy \( \R_{11}\bb_1+\R_{12}\bb_2=\bm c_1 \), so both are least squares estimates (@prp-cmp-qr-quantities),
+Both satisfy \( \R_{11}\bb_1+\R_{12}\bb_2=\mathbf{c}_1 \), so both are least squares estimates (@prp-cmp-qr-quantities),
 and by @thm-proj-ls-projection both have fitted values \( \M\y \). The minimum-norm solution lies in
 \( \C(\X\T)=\Null(\X)\perpc \) (@thm-cmp-svd-ls(b)). The basic solution has zeros in the positions of the dropped
 columns. A null vector with a nonzero entry in one of those positions is generally not orthogonal to it.
@@ -354,7 +354,7 @@ of pivots proves ill-conditioning.
 ::: {#exr-cmp-kahan-null}
 [C1]
 
-For Kahan's matrix \( \bm K_m(c) \), find a vector \( \x \) with \( \norm{\x}=1 \) and \( \norm{\bm K_m\x} \) exponentially small in \( m \)
-when \( c \) is fixed. (Solve \( \bm K_m\x=\bm e_m\,s^{m-1} \) by back substitution and examine the growth of the entries.) Why
+For Kahan's matrix \( \mathbf{K}_m(c) \), find a vector \( \x \) with \( \norm{\x}=1 \) and \( \norm{\mathbf{K}_m\x} \) exponentially small in \( m \)
+when \( c \) is fixed. (Solve \( \mathbf{K}_m\x=\mathbf{e}_m\,s^{m-1} \) by back substitution and examine the growth of the entries.) Why
 does column pivoting not detect this?
 :::

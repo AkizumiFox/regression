@@ -97,12 +97,12 @@ from probability theory, used here without proof (see van der Vaart 1998, chapte
 ::: {.remark}
 [Three limit theorems]
 
-(i) *Central limit theorem.* If \( \bm W_1,\bm W_2,\dots \) are independent copies of a random vector with
-mean \( \bmu \) and covariance matrix \( \bm\Gamma \), then \( \sqrt n(\bar{\bm W}_n-\bmu)\to\Normal(\bzero,\bm\Gamma) \) in distribution.
-(ii) *Slutsky's lemma.* If \( \bm U_n\to\bm U \) in distribution and \( \bm V_n\to\bm c \) in probability, then
-\( \bm U_n+\bm V_n\to\bm U+\bm c \), and \( V_nU_n\to cU \) for scalars. (iii) *Delta method.* If
-\( \sqrt n(\bm T_n-\bm\theta)\to\Normal(\bzero,\bm\Gamma) \) and \( g \) is differentiable at \( \bm\theta \) with gradient
-\( \nabla g \), then \( \sqrt n\bigl(g(\bm T_n)-g(\bm\theta)\bigr)\to\Normal\bigl(0,\nabla g\T\bm\Gamma\nabla g\bigr) \).
+(i) *Central limit theorem.* If \( \mathbf{W}_1,\mathbf{W}_2,\dots \) are independent copies of a random vector with
+mean \( \bmu \) and covariance matrix \( \boldsymbol{\Gamma} \), then \( \sqrt n(\bar{\mathbf{W}}_n-\bmu)\to\Normal(\bzero,\boldsymbol{\Gamma}) \) in distribution.
+(ii) *Slutsky's lemma.* If \( \mathbf{U}_n\to\mathbf{U} \) in distribution and \( \mathbf{V}_n\to\mathbf{c} \) in probability, then
+\( \mathbf{U}_n+\mathbf{V}_n\to\mathbf{U}+\mathbf{c} \), and \( V_nU_n\to cU \) for scalars. (iii) *Delta method.* If
+\( \sqrt n(\mathbf{T}_n-\boldsymbol{\theta})\to\Normal(\bzero,\boldsymbol{\Gamma}) \) and \( g \) is differentiable at \( \boldsymbol{\theta} \) with gradient
+\( \nabla g \), then \( \sqrt n\bigl(g(\mathbf{T}_n)-g(\boldsymbol{\theta})\bigr)\to\Normal\bigl(0,\nabla g\T\boldsymbol{\Gamma}\nabla g\bigr) \).
 :::
 
 The limiting variance of \( r \) needs fourth moments of the bivariate normal distribution.
@@ -114,7 +114,7 @@ Let \( (X,Y) \) be bivariate normal with means \( 0 \), variances \( 1 \) and co
 \( \E X^4=3 \), \( \E X^3Y=3\rho \) and \( \E X^2Y^2=1+2\rho^2 \). Consequently the covariance matrix of
 \( (X^2,Y^2,XY) \) is
 \[
-\bm\Gamma=\begin{pmatrix}2&2\rho^2&2\rho\\2\rho^2&2&2\rho\\2\rho&2\rho&1+\rho^2\end{pmatrix}.
+\boldsymbol{\Gamma}=\begin{pmatrix}2&2\rho^2&2\rho\\2\rho^2&2&2\rho\\2\rho&2\rho&1+\rho^2\end{pmatrix}.
 \]
 :::
 
@@ -142,16 +142,16 @@ does not depend on \( \rho \): \( \tanh^{-1} \) is a variance-stabilizing transf
 
 ::: {.proof}
 The correlation is unchanged by the maps \( X\mapsto a+bX \), \( Y\mapsto c+dY \) with \( b,d>0 \), so we may assume
-\( \E X=\E Y=0 \) and \( \Var X=\Var Y=1 \). Let \( \bar{\bm W}_n \) be the average of \( \bm W_i=(X_i^2,Y_i^2,X_iY_i) \), whose
-mean is \( \bm\theta=(1,1,\rho) \) and whose covariance is \( \bm\Gamma \) of @lem-cor-bivariate-moments. With divisor \( n \),
+\( \E X=\E Y=0 \) and \( \Var X=\Var Y=1 \). Let \( \bar{\mathbf{W}}_n \) be the average of \( \mathbf{W}_i=(X_i^2,Y_i^2,X_iY_i) \), whose
+mean is \( \boldsymbol{\theta}=(1,1,\rho) \) and whose covariance is \( \boldsymbol{\Gamma} \) of @lem-cor-bivariate-moments. With divisor \( n \),
 the sample variances and covariance are
-\( \bar{\bm W}_n-(\bar X^2,\bar Y^2,\bar X\bar Y) \). Since \( \sqrt n\,\bar X \) converges in distribution and \( \bar X\to0 \) in
+\( \bar{\mathbf{W}}_n-(\bar X^2,\bar Y^2,\bar X\bar Y) \). Since \( \sqrt n\,\bar X \) converges in distribution and \( \bar X\to0 \) in
 probability, \( \sqrt n\,\bar X^2\to0 \) in probability, and similarly for the other two products, so by
 Slutsky's lemma the centring does not affect the limit. The divisor cancels in \( r=g(\text{sample moments}) \),
-where \( g(a,b,c)=c/\sqrt{ab} \), and \( \nabla g(\bm\theta)=(-\rho/2,-\rho/2,1) \). By the central limit theorem and the
+where \( g(a,b,c)=c/\sqrt{ab} \), and \( \nabla g(\boldsymbol{\theta})=(-\rho/2,-\rho/2,1) \). By the central limit theorem and the
 delta method, \( \sqrt n(r-\rho) \) is asymptotically normal with variance
 \[
-\nabla g\T\bm\Gamma\nabla g
+\nabla g\T\boldsymbol{\Gamma}\nabla g
 =\frac{\rho^2}{4}(2+2+4\rho^2)-2\cdot\frac{\rho}{2}(2\rho+2\rho)+(1+\rho^2)
 =\rho^2+\rho^4-4\rho^2+1+\rho^2=(1-\rho^2)^2 .
 \]

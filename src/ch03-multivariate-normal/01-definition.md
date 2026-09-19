@@ -61,21 +61,21 @@ normal moment generating function with the added parameters. Apply (b).
 [Multivariate normal distribution]
 
 A random vector \( \Y=(Y_1,\dots,Y_n)\T \) has a **multivariate normal
-distribution** if \( \bm a\T\Y \) has a univariate normal distribution (possibly
-degenerate) for every \( \bm a\in\Real^n \). Such a \( \Y \) is also said to be
+distribution** if \( \mathbf{a}\T\Y \) has a univariate normal distribution (possibly
+degenerate) for every \( \mathbf{a}\in\Real^n \). Such a \( \Y \) is also said to be
 **jointly normal**, and its entries are said to be jointly normal random
 variables.
 :::
 
-Taking \( \bm a \) to be a coordinate vector shows that each \( Y_i \) is normal, so
+Taking \( \mathbf{a} \) to be a coordinate vector shows that each \( Y_i \) is normal, so
 \( \E Y_i^2<\infty \). By the Cauchy–Schwarz inequality every product \( Y_iY_j \) is
 integrable, so the mean vector \( \bmu=\E\Y \) and the covariance matrix
 \( \bSigma=\Cov(\Y) \) of @def-rv-mean-cov exist. By @thm-rv-linear,
-\( \E(\bm a\T\Y)=\bm a\T\bmu \) and \( \Var(\bm a\T\Y)=\bm a\T\bSigma\bm a \), and a normal
+\( \E(\mathbf{a}\T\Y)=\mathbf{a}\T\bmu \) and \( \Var(\mathbf{a}\T\Y)=\mathbf{a}\T\bSigma\mathbf{a} \), and a normal
 variable is determined by its mean and variance. Hence
 \[
-\bm a\T\Y\sim\Normal\bigl(\bm a\T\bmu,\ \bm a\T\bSigma\bm a\bigr)
-\qquad\text{for every }\bm a\in\Real^n .
+\mathbf{a}\T\Y\sim\Normal\bigl(\mathbf{a}\T\bmu,\ \mathbf{a}\T\bSigma\mathbf{a}\bigr)
+\qquad\text{for every }\mathbf{a}\in\Real^n .
 \]{#eq-mvn-linear-combination}
 
 We write \( \Y\sim\Normal_n(\bmu,\bSigma) \). The notation claims that the joint
@@ -110,9 +110,9 @@ nonnegative definite.
 :::
 
 ::: {.proof}
-(a) \( \bm a\T\Z=\sum_i a_iZ_i \) is a sum of independent normal variables
+(a) \( \mathbf{a}\T\Z=\sum_i a_iZ_i \) is a sum of independent normal variables
 \( a_iZ_i\sim\Normal(0,a_i^2) \), which is normal by @lem-mvn-univariate(c).
-(b) \( \bm a\T\Y=\bm a\T\bmu+(\A\T\bm a)\T\Z \) is a constant plus a linear
+(b) \( \mathbf{a}\T\Y=\mathbf{a}\T\bmu+(\A\T\mathbf{a})\T\Z \) is a constant plus a linear
 combination of \( \Z \), hence normal by (a). Its moments come from
 @thm-rv-linear: \( \E\Y=\bmu \) and \( \Cov(\Y)=\A\I\A\T=\A\A\T \).
 (c) By @thm-mat-square-root a nonnegative definite \( \bSigma \) has a symmetric
@@ -194,12 +194,12 @@ normal vector in \( \Real^3 \) from a \( 3\times2 \) factor. Every draw lies on 
 @def-mvn describes a joint distribution entirely through its
 one-dimensional projections. That this loses no information is a general fact
 about random vectors, the Cramér–Wold device proved with characteristic
-functions in @prp-rv-cramer-wold: if \( \bm a\T\Y \) and \( \bm a\T\W \) have the same
-distribution for every \( \bm a\in\Real^n \), then \( \Y \) and \( \W \) have the same
+functions in @prp-rv-cramer-wold: if \( \mathbf{a}\T\Y \) and \( \mathbf{a}\T\W \) have the same
+distribution for every \( \mathbf{a}\in\Real^n \), then \( \Y \) and \( \W \) have the same
 distribution. We do not need it in this generality. For normal vectors the
 moment generating function is finite everywhere, and the next section runs the
 same argument with it. The device explains why the definition is natural. It also
-warns that all directions \( \bm a \) matter. Normality of the \( n \) coordinate
+warns that all directions \( \mathbf{a} \) matter. Normality of the \( n \) coordinate
 variables, which are only \( n \) directions, is not enough
 ([Section 3.3](03-linear.html#sec-mvn-normal-marginals) and @exr-mvn-sign-flip-directions).
 
@@ -212,7 +212,7 @@ variables, which are only \( n \) directions, is not enough
 
 Let \( Y_1,\dots,Y_n \) be independent with \( Y_i\sim\Normal(\mu_i,\sigma_i^2) \). Show directly from
 @def-mvn that \( \Y=(Y_1,\dots,Y_n)\T \) is multivariate normal, and find its mean and
-covariance. Show also that a constant vector \( \bm c \) is \( \Normal_n(\bm c,\bzero) \).
+covariance. Show also that a constant vector \( \mathbf{c} \) is \( \Normal_n(\mathbf{c},\bzero) \).
 :::
 
 ::: {#exr-mvn-cholesky}

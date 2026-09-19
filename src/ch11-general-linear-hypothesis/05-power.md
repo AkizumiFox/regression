@@ -13,7 +13,7 @@ that should not be made.
 ::: {#thm-glh-power}
 [Power of the \( F \) test]
 
-Assume @eq-opt-normal-model with \( r<n \), and let \( H:\bLambda\T\bbeta=\bm d \) be testable with \( q=\rank(\bLambda) \)
+Assume @eq-opt-normal-model with \( r<n \), and let \( H:\bLambda\T\bbeta=\mathbf{d} \) be testable with \( q=\rank(\bLambda) \)
 (or let \( H \) be a reduced model with \( q=r-r_0 \)). The probability that the level-\( \alpha \) \( F \) test rejects is
 \[
 \pi(\gamma)=\Pr\bigl\{F(q,n-r,\gamma)>F_\alpha(q,n-r)\bigr\},
@@ -30,8 +30,8 @@ reduced model. Moreover:
 2. \( \sigma^2\gamma \) is the squared distance from the mean vector \( \X\bbeta \) to the set of mean vectors
    allowed by \( H \):
    \[
-\sigma^2\gamma=\min_{\bLambda\T\bb=\bm d}\norm{\X\bbeta-\X\bb}^2
-=\min_{\bLambda\T\bb=\bm d}\sum_{i=1}^n\bigl(\x_{(i)}\T\bbeta-\x_{(i)}\T\bb\bigr)^2 .
+\sigma^2\gamma=\min_{\bLambda\T\bb=\mathbf{d}}\norm{\X\bbeta-\X\bb}^2
+=\min_{\bLambda\T\bb=\mathbf{d}}\sum_{i=1}^n\bigl(\x_{(i)}\T\bbeta-\x_{(i)}\T\bb\bigr)^2 .
 \]
 
 3. If further observations are added, with the same \( \bbeta \), \( \sigma^2 \) and hypothesis, the noncentrality does
@@ -44,9 +44,9 @@ reduced model. Moreover:
 The distribution of \( F_H \) is @thm-glh-general-f(c), which gives @eq-glh-power. (a) is @thm-qf-f-power
 with \( c=F_\alpha(q,n-r) \). For (b), @thm-glh-general-f(b) applied to the data vector \( \X\bbeta \), for which
 \( \bbeta \) is a least squares estimate and the residual sum of squares is zero, shows that
-\( \min_{\bLambda\T\bb=\bm d}\norm{\X\bbeta-\X\bb}^2=(\bLambda\T\bbeta-\bm d)\T\W\ginv(\bLambda\T\bbeta-\bm d)=\sigma^2\gamma \).
+\( \min_{\bLambda\T\bb=\mathbf{d}}\norm{\X\bbeta-\X\bb}^2=(\bLambda\T\bbeta-\mathbf{d})\T\W\ginv(\bLambda\T\bbeta-\mathbf{d})=\sigma^2\gamma \).
 For (c), adding rows to \( \X \) enlarges \( \C(\X\T) \), so \( H \) remains testable (the constraint
-set \( \{\bb:\bLambda\T\bb=\bm d\} \) is unchanged), and the sum in (b) acquires extra nonnegative terms for every
+set \( \{\bb:\bLambda\T\bb=\mathbf{d}\} \) is unchanged), and the sum in (b) acquires extra nonnegative terms for every
 \( \bb \). The minimum of a larger function over the same set is at least as large. Replicating the design
 \( k \) times multiplies every sum of squares in (b) by \( k \), and hence the minimum.
 :::
@@ -71,7 +71,7 @@ power tables, which are widely used in the behavioural sciences.
 Before the data are collected, @eq-glh-power turns the question "how many observations?" into
 arithmetic. One specifies the smallest departure worth detecting, a guess at \( \sigma \), the level and the
 desired power, and solves for \( n \). The difficulty is the first ingredient. A departure is a whole
-vector \( \bLambda\T\bbeta-\bm d \), and different vectors of the same apparent size give different \( \gamma \). For
+vector \( \bLambda\T\bbeta-\mathbf{d} \), and different vectors of the same apparent size give different \( \gamma \). For
 the comparison of group means there is a clean way out.
 
 ::: {#prp-glh-least-favourable}
@@ -187,11 +187,11 @@ Power calculations are also useful *after* a nonsignificant result, provided the
 by the scientific question and not by the data. For the region test of @exm-glh-region, consider the
 alternative in which the Northeast differs from the other three regions by \( \delta \) murders per 100,000,
 with everything else as in the reduced model. The mean vector is then
-\( \X_0\bm c+\delta\,\bm d_N \), where \( \bm d_N \) is the Northeast indicator, and by @thm-glh-f-test(c),
+\( \X_0\mathbf{c}+\delta\,\mathbf{d}_N \), where \( \mathbf{d}_N \) is the Northeast indicator, and by @thm-glh-f-test(c),
 \[
-\gamma=\frac{\delta^2\norm{(\I-\Mo)\bm d_N}^2}{\sigma^2}.
+\gamma=\frac{\delta^2\norm{(\I-\Mo)\mathbf{d}_N}^2}{\sigma^2}.
 \]
-There are \( 9 \) Northeast states, but \( \norm{(\I-\Mo)\bm d_N}^2=5.76 \) only: the
+There are \( 9 \) Northeast states, but \( \norm{(\I-\Mo)\mathbf{d}_N}^2=5.76 \) only: the
 covariates already account for part of the Northeast's distinctiveness, and only the rest counts as
 evidence about regions. Setting \( \sigma \) at \( s=1.423 \) as a planning value, the power of the
 \( 5\% \) test is
@@ -343,6 +343,6 @@ as @prp-glh-observed-power predicts.
 
 In the sensitivity calculation, let \( n_N \) be the number of Northeast states and \( R^2_N \) the coefficient of
 determination from regressing the Northeast indicator on the reduced model's columns (which include \( \bone \)).
-Show that \( \norm{(\I-\Mo)\bm d_N}^2=n_N(1-n_N/n)(1-R^2_N) \). Interpret each factor, and relate the formula to @eq-proj-vif-preview.
+Show that \( \norm{(\I-\Mo)\mathbf{d}_N}^2=n_N(1-n_N/n)(1-R^2_N) \). Interpret each factor, and relate the formula to @eq-proj-vif-preview.
 :::
 

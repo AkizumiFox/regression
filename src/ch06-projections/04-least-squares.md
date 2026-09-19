@@ -202,22 +202,22 @@ estimate? The answer is a first look at estimability, the subject of
 ::: {#thm-proj-invariant-functions}
 For \( \blambda\in\Real^p \), the value \( \blambda\T\hbeta \) is the same for every least
 squares estimate \( \hbeta \) (and every \( \y \)) iff \( \blambda\in\C(\X\T) \), that is, iff
-\( \blambda\T=\bm{\rho}\T\X \) for some \( \bm\rho\in\Real^n \). In that case
-\( \blambda\T\hbeta=\bm\rho\T\M\y \).
+\( \blambda\T=\boldsymbol{\rho}\T\X \) for some \( \boldsymbol{\rho}\in\Real^n \). In that case
+\( \blambda\T\hbeta=\boldsymbol{\rho}\T\M\y \).
 :::
 
 ::: {.proof}
 By @thm-proj-normal-equations the least squares estimates form
 \( \hbeta+\Null(\X) \). So \( \blambda\T\hbeta \) is invariant iff \( \blambda\T\bv=0 \) for all
 \( \bv\in\Null(\X) \), that is, iff \( \blambda\in\Null(\X)\perpc=\C(\X\T) \)
-(@cor-proj-gram-colspace). If \( \blambda\T=\bm\rho\T\X \) then
-\( \blambda\T\hbeta=\bm\rho\T\X\hbeta=\bm\rho\T\M\y \).
+(@cor-proj-gram-colspace). If \( \blambda\T=\boldsymbol{\rho}\T\X \) then
+\( \blambda\T\hbeta=\boldsymbol{\rho}\T\X\hbeta=\boldsymbol{\rho}\T\M\y \).
 :::
 
 In @exm-proj-ginverse-numeric, \( \blambda=(0,1,-1,0)\T \) is the difference
 between any row of \( \X \) from group 1, \( (1,1,0,0) \), and any row from group 2,
 \( (1,0,1,0) \). So \( \blambda\in\C(\X\T) \) and \( \hat{\beta}_1-\hat{\beta}_2 \) is invariant.
-For \( \blambda=(0,1,0,0)\T \), note that \( \bm\rho\T\X \) has first entry
+For \( \blambda=(0,1,0,0)\T \), note that \( \boldsymbol{\rho}\T\X \) has first entry
 \( \sum_i\rho_i \) and remaining entries equal to the sums of \( \rho_i \) within each
 group. Matching \( (0,1,0,0) \) would need the group sums to be \( 1,0,0 \) and their
 total to be \( 0 \), which is impossible. So \( \hat{\beta}_1 \) is not invariant.
@@ -227,7 +227,7 @@ total to be \( 0 \), which is impossible. So \( \hat{\beta}_1 \) is not invarian
 
 Imposing \( \beta_0=0 \) or \( \beta_1=0 \) does not add information about the data.
 It picks one point from the affine set \( \hbeta+\Null(\X) \). A side condition
-\( \bm c\T\bbeta=0 \) picks exactly one point iff \( \bm c\notin\C(\X\T) \). A condition
+\( \mathbf{c}\T\bbeta=0 \) picks exactly one point iff \( \mathbf{c}\notin\C(\X\T) \). A condition
 inside \( \C(\X\T) \) would constrain the fitted values and change the model rather
 than just its coordinates. @thm-est-side-conditions makes this precise.
 :::
@@ -264,11 +264,11 @@ these statements survive when \( \Cov(\Y)=\sigma^2\V \) for a general positive d
 ::: {#exr-proj-side-conditions}
 [B2]
 
-Let \( \rank(\X)=r<p \) and let \( \bm C \) be a \( (p-r)\times p \) matrix. Show that the
-constrained problem “minimize \( \norm{\y-\X\bb} \) subject to \( \bm C\bb=\bzero \)” has a
+Let \( \rank(\X)=r<p \) and let \( \mathbf{C} \) be a \( (p-r)\times p \) matrix. Show that the
+constrained problem “minimize \( \norm{\y-\X\bb} \) subject to \( \mathbf{C}\bb=\bzero \)” has a
 unique solution for every \( \y \), and that its fitted values are \( \M\y \), iff
-\( \rank\begin{psmallmatrix}\X\\\bm C\end{psmallmatrix}=p \). Show that the condition implies
-\( \C(\bm C\T)\cap\C(\X\T)=\{\bzero\} \), and interpret: the constraints must not restrict
+\( \rank\begin{psmallmatrix}\X\\\mathbf{C}\end{psmallmatrix}=p \). Show that the condition implies
+\( \C(\mathbf{C}\T)\cap\C(\X\T)=\{\bzero\} \), and interpret: the constraints must not restrict
 any estimable function.
 :::
 
@@ -279,6 +279,6 @@ any estimable function.
 
 Suppose \( \X\T\y\neq\bzero \). Show that every least squares estimate \( \bb \) can be written as
 \( \G\X\T\y \) for some generalized inverse \( \G \) of \( \A=\X\T\X \). *Hint:* with
-\( \bm c=\X\T\y \), try \( \G=\G_0+(\bb-\G_0\bm c)\bm c\T/(\bm c\T\bm c) \). What goes wrong when
+\( \mathbf{c}=\X\T\y \), try \( \G=\G_0+(\bb-\G_0\mathbf{c})\mathbf{c}\T/(\mathbf{c}\T\mathbf{c}) \). What goes wrong when
 \( \X\T\y=\bzero \)?
 :::

@@ -22,7 +22,7 @@ Let \( \A \) be \( n\times n \) and idempotent of rank \( r \).
 
 4. An idempotent matrix that is nonsingular equals \( \I \).
 
-5. \( \bm P^{-1}\A\bm P \) is idempotent for nonsingular \( \bm P \), and \( \A\T \) is idempotent.
+5. \( \mathbf{P}^{-1}\A\mathbf{P} \) is idempotent for nonsingular \( \mathbf{P} \), and \( \A\T \) is idempotent.
 :::
 
 :::
@@ -30,16 +30,16 @@ Let \( \A \) be \( n\times n \) and idempotent of rank \( r \).
 ::: {.proof}
 (a) If \( \A\x=\lambda\x \) with \( \x\ne\bzero \), then \( \lambda\x=\A\x=\A^2\x=\lambda^2\x \), so
 \( \lambda^2=\lambda \).
-(b) If \( r=0 \) both sides vanish. Otherwise take a rank factorization \( \A=\B\bm F \)
-(@thm-mat-row-col-rank). Then \( \B\bm F\B\bm F=\B\bm F \). Since \( \B \) has full column rank
-and \( \bm F \) has full row rank, \( \B \) has a left inverse and \( \bm F \) a right inverse
-([Section 1.3](03-inverses.html)), and cancelling them gives \( \bm F\B=\I_r \). So
-\( \tr(\A)=\tr(\B\bm F)=\tr(\bm F\B)=r \) by @thm-mat-trace-cyclic.
+(b) If \( r=0 \) both sides vanish. Otherwise take a rank factorization \( \A=\B\mathbf{F} \)
+(@thm-mat-row-col-rank). Then \( \B\mathbf{F}\B\mathbf{F}=\B\mathbf{F} \). Since \( \B \) has full column rank
+and \( \mathbf{F} \) has full row rank, \( \B \) has a left inverse and \( \mathbf{F} \) a right inverse
+([Section 1.3](03-inverses.html)), and cancelling them gives \( \mathbf{F}\B=\I_r \). So
+\( \tr(\A)=\tr(\B\mathbf{F})=\tr(\mathbf{F}\B)=r \) by @thm-mat-trace-cyclic.
 (c) The first two claims are one-line expansions. \( \C(\I-\A)\subseteq\Null(\A) \) because
 \( \A(\I-\A)=\bzero \), and \( \bv\in\Null(\A) \) gives \( \bv=(\I-\A)\bv \). The rank statement is then
 rank–nullity.
 (d) Multiply \( \A^2=\A \) by \( \A^{-1} \).
-(e) \( (\bm P^{-1}\A\bm P)^2=\bm P^{-1}\A^2\bm P \) and \( (\A\T)^2=(\A^2)\T \).
+(e) \( (\mathbf{P}^{-1}\A\mathbf{P})^2=\mathbf{P}^{-1}\A^2\mathbf{P} \) and \( (\A\T)^2=(\A^2)\T \).
 :::
 
 By (c), every \( \x \) splits as \( \A\x+(\I-\A)\x \) with the first part in \( \C(\A) \) and the second in
@@ -101,11 +101,11 @@ Any two of these imply the third. Moreover, if \( \A=\I_n \) and
 (ii) and (iii) imply (i): \( \A^2=\sum_i\A_i^2+\sum_{i\ne j}\A_i\A_j=\sum_i\A_i=\A \).
 
 (i) and (ii) imply (iii): By @thm-mat-idempotent(c), \( \norm{\x}^2\ge\x\T\A\x \) for all
-\( \x \). Fix \( j \) and take \( \x=\A_j\bm y \), so that \( \A_j\x=\x \) and \( \x\T\A_j\x=\norm{\x}^2 \). Then
+\( \x \). Fix \( j \) and take \( \x=\A_j\mathbf{y} \), so that \( \A_j\x=\x \) and \( \x\T\A_j\x=\norm{\x}^2 \). Then
 \[
 \norm{\x}^2\ge\x\T\A\x=\norm{\x}^2+\sum_{i\ne j}\x\T\A_i\x=\norm{\x}^2+\sum_{i\ne j}\norm{\A_i\x}^2 .
 \]
-So \( \A_i\A_j\bm y=\A_i\x=\bzero \) for every \( i\ne j \) and every \( \bm y \).
+So \( \A_i\A_j\mathbf{y}=\A_i\x=\bzero \) for every \( i\ne j \) and every \( \mathbf{y} \).
 
 (i) and (iii) imply (ii): By (iii), \( \A\A_i=\A_i^2 \). Using \( \A^2=\A \),
 \( \A_i^2=\A\A_i=\A^2\A_i=\A\A_i^2=\A_i^3 \). The eigenvalues of the symmetric \( \A_i \) therefore
@@ -146,6 +146,6 @@ Let \( \A \) be idempotent. Show that \( \A \) is symmetric iff \( \C(\A)\perp\N
 ::: {.solution}
 Suppose \( \A \) is symmetric. For \( \bu=\A\x\in\C(\A) \) and
 \( \bv\in\Null(\A) \), \( \bu\T\bv=\x\T\A\bv=0 \). Conversely, suppose \( \C(\A)\perp\Null(\A) \). For all
-\( \x,\bm y \), \( (\I-\A)\bm y\in\Null(\A) \), so \( \x\T\A\T(\I-\A)\bm y=0 \). Hence \( \A\T(\I-\A)=\bzero \), that is,
+\( \x,\mathbf{y} \), \( (\I-\A)\mathbf{y}\in\Null(\A) \), so \( \x\T\A\T(\I-\A)\mathbf{y}=0 \). Hence \( \A\T(\I-\A)=\bzero \), that is,
 \( \A\T=\A\T\A \). The right side is symmetric, so \( \A\T \) is symmetric, and so is \( \A \).
 :::

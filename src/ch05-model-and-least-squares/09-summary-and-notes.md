@@ -4,7 +4,7 @@
 
 ::: {.idea}
 
-1. The regression function \( m(\bm x)=\E(Y\mid\bm X=\bm x) \) is the best predictor in mean
+1. The regression function \( m(\mathbf{x})=\E(Y\mid\mathbf{X}=\mathbf{x}) \) is the best predictor in mean
    squared error, and its error is automatically uncorrelated with every function of the
    regressors (@prp-lm-error-decomposition). A regression model is a claim about \( m \) and
    about the distribution around it, made in layers: linearity, constant variance,
@@ -26,7 +26,7 @@
    (@prp-lm-indicator-means).
 
 5. Under the second-moment assumptions, \( \hbeta \) is unbiased with covariance
-   \( \sigma^2(\X\T\X)^{-1} \), and so is every linear function \( \bm a\T\hbeta \)
+   \( \sigma^2(\X\T\X)^{-1} \), and so is every linear function \( \mathbf{a}\T\hbeta \)
    (@thm-lm-moments, @cor-lm-linear-functions). Unbiasedness needs only the mean assumption;
    a wrong mean produces bias and a wrong covariance produces the sandwich formula
    (@prp-lm-misspecified).

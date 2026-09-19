@@ -11,12 +11,12 @@ columns of the model, and marks where the slogan stops being true.
 ::: {#def-lm-coefficient-interpretation}
 [Interpretation of a coefficient]
 
-In a linear model \( \E(Y\mid\bm x)=\beta_0+\beta_1x_1+\dots+\beta_kx_k \), suppose the regressor
+In a linear model \( \E(Y\mid\mathbf{x})=\beta_0+\beta_1x_1+\dots+\beta_kx_k \), suppose the regressor
 \( x_j \) enters the model only through its own column, so that no other column is a
-function of \( x_j \). For any two regressor profiles \( \bm x \) and \( \bm x' \) that agree in every
+function of \( x_j \). For any two regressor profiles \( \mathbf{x} \) and \( \mathbf{x}' \) that agree in every
 regressor except the \( j \)th, and have \( x_j'=x_j+1 \),
 \[
-\E(Y\mid\bm x')-\E(Y\mid\bm x)=\beta_j .
+\E(Y\mid\mathbf{x}')-\E(Y\mid\mathbf{x})=\beta_j .
 \]{#eq-lm-partial-effect}
 
 The coefficient \( \beta_j \) is the **partial effect** of \( x_j \) *in this model*: the difference in
@@ -53,38 +53,38 @@ changes the coefficients in a predictable way and leaves the fit untouched.
 ::: {#prp-lm-reparameterization}
 [Reparameterization]
 
-Let \( \X \) be \( n\times p \) of rank \( p \), let \( \bm K \) be a nonsingular \( p\times p \) matrix, and put
-\( \bm Z=\X\bm K \). Then \( \bm Z \) has rank \( p \), and the least squares estimates from the two
+Let \( \X \) be \( n\times p \) of rank \( p \), let \( \mathbf{K} \) be a nonsingular \( p\times p \) matrix, and put
+\( \mathbf{Z}=\X\mathbf{K} \). Then \( \mathbf{Z} \) has rank \( p \), and the least squares estimates from the two
 model matrices are related by
 \[
-\hbeta_Z=\bm K^{-1}\hbeta_X .
+\hbeta_Z=\mathbf{K}^{-1}\hbeta_X .
 \]
 The fitted values, residuals, SSE and \( s^2 \) are the same for both, and the estimated
-covariance matrices satisfy \( s^2(\bm Z\T\bm Z)^{-1}=\bm K^{-1}\bigl[s^2(\X\T\X)^{-1}\bigr](\bm K^{-1})\T \).
+covariance matrices satisfy \( s^2(\mathbf{Z}\T\mathbf{Z})^{-1}=\mathbf{K}^{-1}\bigl[s^2(\X\T\X)^{-1}\bigr](\mathbf{K}^{-1})\T \).
 :::
 
 ::: {.proof}
-\( \rank(\bm Z)=\rank(\X)=p \) by @prp-mat-rank-product(b). Then
+\( \rank(\mathbf{Z})=\rank(\X)=p \) by @prp-mat-rank-product(b). Then
 \[
 \begin{aligned}
-\hbeta_Z&=(\bm K\T\X\T\X\bm K)^{-1}\bm K\T\X\T\y\\
-&=\bm K^{-1}(\X\T\X)^{-1}(\bm K\T)^{-1}\bm K\T\X\T\y=\bm K^{-1}\hbeta_X,
+\hbeta_Z&=(\mathbf{K}\T\X\T\X\mathbf{K})^{-1}\mathbf{K}\T\X\T\y\\
+&=\mathbf{K}^{-1}(\X\T\X)^{-1}(\mathbf{K}\T)^{-1}\mathbf{K}\T\X\T\y=\mathbf{K}^{-1}\hbeta_X,
 \end{aligned}
 \]
-and \( \bm Z\hbeta_Z=\X\bm K\bm K^{-1}\hbeta_X=\X\hbeta_X \). Equal fitted values give equal residuals,
-SSE and \( s^2 \). The covariance identity follows from \( (\bm Z\T\bm Z)^{-1}=\bm K^{-1}(\X\T\X)^{-1}(\bm K^{-1})\T \).
+and \( \mathbf{Z}\hbeta_Z=\X\mathbf{K}\mathbf{K}^{-1}\hbeta_X=\X\hbeta_X \). Equal fitted values give equal residuals,
+SSE and \( s^2 \). The covariance identity follows from \( (\mathbf{Z}\T\mathbf{Z})^{-1}=\mathbf{K}^{-1}(\X\T\X)^{-1}(\mathbf{K}^{-1})\T \).
 :::
 
-With \( \bm K=\diag(1,c_1,\dots,c_k) \), measuring \( x_j \) in units \( 1/c_j \) times as large divides its
+With \( \mathbf{K}=\diag(1,c_1,\dots,c_k) \), measuring \( x_j \) in units \( 1/c_j \) times as large divides its
 coefficient and its standard error by \( c_j \), and leaves everything else alone. Centring,
 effect coding of a factor (@exr-lm-effect-coding) and many other changes of coding are also of the
-form \( \X\bm K \). [Section 6.7](../ch06-projections/07-reparameterization.html) shows that what
+form \( \X\mathbf{K} \). [Section 6.7](../ch06-projections/07-reparameterization.html) shows that what
 really stays fixed is the column space of \( \X \).
 
 **The intercept and centring.** The intercept \( \beta_0 \) is the mean response at the profile
 where every regressor is zero. That profile may be impossible (zero income) or far outside the
 data (an August sea temperature of \( 0 \)°C in @exm-lm-elnino). If the regressors are centred,
-the intercept becomes the mean response at the average profile \( \bar{\bm x} \), and its
+the intercept becomes the mean response at the average profile \( \bar{\mathbf{x}} \), and its
 estimate is \( \bar{y} \) (@prp-lm-centred). Centring does not change the slopes. It makes the
 intercept interpretable, and it makes \( \hat{\beta}_0 \) uncorrelated with the slopes
 (@exr-lm-centred-uncorrelated). With interactions or polynomials, centring also changes
@@ -232,13 +232,13 @@ model matrix as \( \X=[\X_1,\X_2] \), with \( \hbeta=(\hbeta_1\T,\hbeta_2\T)\T \
 ::: {#prp-lm-omitted}
 [Omitted regressors]
 
-Let \( \X=[\X_1,\X_2] \) have full rank, and let \( \bm\Pi=(\X_1\T\X_1)^{-1}\X_1\T\X_2 \) be the
+Let \( \X=[\X_1,\X_2] \) have full rank, and let \( \boldsymbol{\Pi}=(\X_1\T\X_1)^{-1}\X_1\T\X_2 \) be the
 coefficient matrix from regressing each column of \( \X_2 \) on \( \X_1 \). Then:
 
 ::: {.enumerate options="label=(\alph*)"}
-1. for every data vector \( \y \), \( \tilde{\bbeta}_1=\hbeta_1+\bm\Pi\hbeta_2 \);
+1. for every data vector \( \y \), \( \tilde{\bbeta}_1=\hbeta_1+\boldsymbol{\Pi}\hbeta_2 \);
 
-2. if \( \E(\Y)=\X_1\bbeta_1+\X_2\bbeta_2 \), then \( \E(\tilde{\bbeta}_1)=\bbeta_1+\bm\Pi\bbeta_2 \).
+2. if \( \E(\Y)=\X_1\bbeta_1+\X_2\bbeta_2 \), then \( \E(\tilde{\bbeta}_1)=\bbeta_1+\boldsymbol{\Pi}\bbeta_2 \).
 :::
 
 In particular the short and long coefficients agree, for all \( \y \), iff \( \X_1\T\X_2=\bzero \).
@@ -251,17 +251,17 @@ In particular the short and long coefficients agree, for all \( \y \), iff \( \X
 \begin{aligned}
 \tilde{\bbeta}_1&=(\X_1\T\X_1)^{-1}\X_1\T\y\\
 &=\hbeta_1+(\X_1\T\X_1)^{-1}\X_1\T\X_2\hbeta_2+(\X_1\T\X_1)^{-1}\X_1\T\he
-=\hbeta_1+\bm\Pi\hbeta_2 .
+=\hbeta_1+\boldsymbol{\Pi}\hbeta_2 .
 \end{aligned}
 \]
 *(b)* Take expectations in (a), using \( \E(\hbeta)=\bbeta \) (@thm-lm-moments), or apply
-@prp-lm-misspecified(a) with \( \bm\delta=\X_2\bbeta_2 \). For the last claim, if \( \X_1\T\X_2=\bzero \) then
-\( \bm\Pi=\bzero \). Conversely, if \( \bm\Pi\ne\bzero \), take \( \y=\X_2\bm c \) with \( \bm\Pi\bm c\ne\bzero \): the
-long regression gives \( \hbeta_2=\bm c \), and the two coefficients differ by \( \bm\Pi\bm c \).
+@prp-lm-misspecified(a) with \( \boldsymbol{\delta}=\X_2\bbeta_2 \). For the last claim, if \( \X_1\T\X_2=\bzero \) then
+\( \boldsymbol{\Pi}=\bzero \). Conversely, if \( \boldsymbol{\Pi}\ne\bzero \), take \( \y=\X_2\mathbf{c} \) with \( \boldsymbol{\Pi}\mathbf{c}\ne\bzero \): the
+long regression gives \( \hbeta_2=\mathbf{c} \), and the two coefficients differ by \( \boldsymbol{\Pi}\mathbf{c} \).
 :::
 
 Part (b) is the **omitted-variable bias** formula. The short regression does not estimate
-\( \bbeta_1 \) but \( \bbeta_1+\bm\Pi\bbeta_2 \). Each omitted regressor contributes its own
+\( \bbeta_1 \) but \( \bbeta_1+\boldsymbol{\Pi}\bbeta_2 \). Each omitted regressor contributes its own
 coefficient times its association with the included ones. The bias is zero if the omitted
 regressors have no effect or are uncorrelated with the included ones, in the sense
 \( \X_1\T\X_2=\bzero \); otherwise it is there, and it can have either sign. Part (a) says the same
@@ -332,12 +332,12 @@ standardized slope is the correlation \( r \).
 :::
 
 ::: {.solution}
-Let \( \X_c \) be the centred regressors and \( \bm D=\diag(s_{x_1},\dots,s_{x_k}) \). The standardized
-regressors are \( \X_c\bm D^{-1} \) and the standardized response is \( (\y-\bar{y}\bone)/s_y \). By
+Let \( \X_c \) be the centred regressors and \( \mathbf{D}=\diag(s_{x_1},\dots,s_{x_k}) \). The standardized
+regressors are \( \X_c\mathbf{D}^{-1} \) and the standardized response is \( (\y-\bar{y}\bone)/s_y \). By
 @prp-lm-centred the slopes of \( \y \) on \( \X_c \) are \( \hbeta_1 \). Dividing the response by \( s_y \)
 divides them by \( s_y \), since least squares is linear in the response; replacing \( \X_c \) by
-\( \X_c\bm D^{-1} \) multiplies them by \( \bm D \) (@prp-lm-reparameterization with \( \bm K=\bm D^{-1} \)). The
-result is \( \bm D\hbeta_1/s_y \), whose entries are \( \hat{\beta}_js_{x_j}/s_y \). For one regressor this is
+\( \X_c\mathbf{D}^{-1} \) multiplies them by \( \mathbf{D} \) (@prp-lm-reparameterization with \( \mathbf{K}=\mathbf{D}^{-1} \)). The
+result is \( \mathbf{D}\hbeta_1/s_y \), whose entries are \( \hat{\beta}_js_{x_j}/s_y \). For one regressor this is
 \( (S_{xy}/S_{xx})\sqrt{S_{xx}/S_{yy}}=r \), as in @eq-lm-toward-mean.
 :::
 

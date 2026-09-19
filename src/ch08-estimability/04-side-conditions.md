@@ -34,8 +34,8 @@ Then:
 3. the least squares estimate in the new model is \( \hat{\bgamma}=(\Z\T\Z)^{-1}\Z\T\y=\bU\hbeta \) for every least
            squares solution \( \hbeta \) of the old one;
 
-4. \( \blambda\T\bbeta \) is estimable iff \( \blambda=\bU\T\bm c \) for some \( \bm c\in\Real^r \), which is then
-           unique, and in that case \( \blambda\T\hbeta=\bm c\T\hat{\bgamma} \);
+4. \( \blambda\T\bbeta \) is estimable iff \( \blambda=\bU\T\mathbf{c} \) for some \( \mathbf{c}\in\Real^r \), which is then
+           unique, and in that case \( \blambda\T\hbeta=\mathbf{c}\T\hat{\bgamma} \);
 
 5. conversely, if \( \Z \) is any \( n\times r \) matrix of full column rank with \( \C(\Z)=\C(\X) \), then
            \( \X=\Z\bU \) for a unique \( \bU \), and \( \bU \) has rank \( r \) and estimable rows.
@@ -45,16 +45,16 @@ Then:
 
 ::: {.proof}
 Since \( \C(\bU\T)\subseteq\C(\X\T) \) and both have dimension \( r \), \( \C(\bU\T)=\C(\X\T) \). The matrix
-\( \bm Q=\bU\T(\bU\bU\T)^{-1}\bU \) is symmetric and idempotent with column space \( \C(\bU\T) \), so it is the
-orthogonal projection onto \( \C(\X\T) \) (@thm-proj-sym-idem). Hence \( \I-\bm Q \) projects onto
-\( \C(\X\T)\perpc=\Null(\X) \), and \( \X(\I-\bm Q)=\bzero \), that is, \( \X=\X\bm Q=\Z\bU \).
+\( \mathbf{Q}=\bU\T(\bU\bU\T)^{-1}\bU \) is symmetric and idempotent with column space \( \C(\bU\T) \), so it is the
+orthogonal projection onto \( \C(\X\T) \) (@thm-proj-sym-idem). Hence \( \I-\mathbf{Q} \) projects onto
+\( \C(\X\T)\perpc=\Null(\X) \), and \( \X(\I-\mathbf{Q})=\bzero \), that is, \( \X=\X\mathbf{Q}=\Z\bU \).
 (a) Now \( r=\rank(\X)=\rank(\Z\bU)\le\rank(\Z)\le r \), so \( \Z \) has full column rank.
 \( \C(\Z)\subseteq\C(\X) \) because \( \Z=\X(\cdot) \), and \( \C(\X)\subseteq\C(\Z) \) because \( \X=\Z\bU \).
 (b) \( \X\bbeta=\Z(\bU\bbeta) \), and \( \bbeta\mapsto\bU\bbeta \) maps \( \Real^p \) onto \( \Real^r \) because \( \bU \)
 has full row rank. So both models describe \( \C(\X) \).
 (c) \( \Z\hat{\bgamma}=\M\y=\X\hbeta=\Z(\bU\hbeta) \) by @thm-proj-ls-projection, and \( \Z \) has full column rank.
-(d) \( \blambda \) is estimable iff \( \blambda\in\C(\X\T)=\C(\bU\T) \). The vector \( \bm c \) is unique because
-\( \bU\T \) has full column rank, and \( \blambda\T\hbeta=\bm c\T\bU\hbeta=\bm c\T\hat{\bgamma} \).
+(d) \( \blambda \) is estimable iff \( \blambda\in\C(\X\T)=\C(\bU\T) \). The vector \( \mathbf{c} \) is unique because
+\( \bU\T \) has full column rank, and \( \blambda\T\hbeta=\mathbf{c}\T\bU\hbeta=\mathbf{c}\T\hat{\bgamma} \).
 (e) Each column of \( \X \) lies in \( \C(\Z) \), so \( \X=\Z\bU \) with \( \bU=(\Z\T\Z)^{-1}\Z\T\X \), unique because
 \( \Z \) has full column rank. Then \( \bU\bbeta=(\Z\T\Z)^{-1}\Z\T(\X\bbeta) \) is a linear function of \( \X\bbeta \), so each
 row of \( \bU \) is estimable. Finally \( r=\rank(\X)\le\rank(\bU)\le r \).
@@ -69,8 +69,8 @@ combination of their estimates. Everything in the full-rank theory of
 @thm-lm-moments and the variance estimator of @thm-lm-sigma2, with \( p \) replaced by \( r \).
 
 For the one-way layout with \( \bbeta=(\mu,\alpha_1,\dots,\alpha_g)\T \), two choices of \( \bU \) stand out.
-The rows \( (1,\bm e_k\T) \), \( k=1,\dots,g \), give \( \bgamma=(\mu+\alpha_1,\dots,\mu+\alpha_g)\T \), the
-cell means, and \( \Z \) is the indicator matrix. The rows \( (1,\bm e_1\T) \) and \( (0,\bm e_k\T-\bm e_1\T) \),
+The rows \( (1,\mathbf{e}_k\T) \), \( k=1,\dots,g \), give \( \bgamma=(\mu+\alpha_1,\dots,\mu+\alpha_g)\T \), the
+cell means, and \( \Z \) is the indicator matrix. The rows \( (1,\mathbf{e}_1\T) \) and \( (0,\mathbf{e}_k\T-\mathbf{e}_1\T) \),
 \( k=2,\dots,g \), give the first group's mean and the differences from it. This is the reference coding of
 [Section 8.5](05-factor-coding.html).
 
@@ -167,7 +167,7 @@ Suppose \( \bT \) satisfies the conditions of @thm-est-side-conditions, and let
 \( \bP_{\bT}=(\X\T\X+\bT\T\bT)^{-1}\X\T\X \). For each \( \bbeta \), \( \bP_{\bT}\bbeta \) is the unique vector
 \( \bb \) with \( \X\bb=\X\bbeta \) and \( \bT\bb=\bzero \). The matrix \( \bP_{\bT} \) is idempotent, with range
 \( \Null(\bT) \) and null space \( \Null(\X) \). Every row of \( \bP_{\bT} \) lies in \( \C(\X\T) \). So each
-constrained coefficient \( \bm e_j\T\bP_{\bT}\bbeta \) is an estimable function of the original parameters,
+constrained coefficient \( \mathbf{e}_j\T\bP_{\bT}\bbeta \) is an estimable function of the original parameters,
 and \( \hbeta_{\bT} \) estimates it without bias.
 :::
 
@@ -361,9 +361,9 @@ directly.
 The padded vector \( (\hbeta_1\T,\bzero\T)\T \) satisfies
 \( \X(\hbeta_1\T,\bzero\T)\T=\X_1\hbeta_1=\M\y \), because \( \C(\X_1)=\C(\X) \). So it solves the normal equations
 and satisfies \( \bT\bb=\bzero \). For the conditions: \( \rank(\bT)=p_2 \), and \( \rank(\X)=\rank(\X_1)=p_1 \), so
-\( \rank(\bT)=p-r \). If \( \bT\T\bm c=(\bzero\T,\bm c\T)\T \) were in \( \C(\X\T) \), say
-\( \X_1\T\bm\rho=\bzero \) and \( \X_2\T\bm\rho=\bm c \), then \( \bm\rho\perp\C(\X_1)=\C(\X)\supseteq\C(\X_2) \), so
-\( \bm c=\bzero \). Condition (e) holds.
+\( \rank(\bT)=p-r \). If \( \bT\T\mathbf{c}=(\bzero\T,\mathbf{c}\T)\T \) were in \( \C(\X\T) \), say
+\( \X_1\T\boldsymbol{\rho}=\bzero \) and \( \X_2\T\boldsymbol{\rho}=\mathbf{c} \), then \( \boldsymbol{\rho}\perp\C(\X_1)=\C(\X)\supseteq\C(\X_2) \), so
+\( \mathbf{c}=\bzero \). Condition (e) holds.
 :::
 
 ::: {#exr-est-two-way-reparameterization}

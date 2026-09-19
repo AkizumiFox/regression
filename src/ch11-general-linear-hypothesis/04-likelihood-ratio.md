@@ -11,10 +11,10 @@ then proves that the \( F \) test is the best test among those that respect the 
 
 ## The likelihood ratio
 
-For a hypothesis \( H_0 \) about the parameter of a family of densities \( L(\bm\theta;\y) \), the
+For a hypothesis \( H_0 \) about the parameter of a family of densities \( L(\boldsymbol{\theta};\y) \), the
 **likelihood ratio** is
 \[
-\Lambda(\y)=\frac{\sup_{\bm\theta\in H_0}L(\bm\theta;\y)}{\sup_{\bm\theta}L(\bm\theta;\y)} ,
+\Lambda(\y)=\frac{\sup_{\boldsymbol{\theta}\in H_0}L(\boldsymbol{\theta};\y)}{\sup_{\boldsymbol{\theta}}L(\boldsymbol{\theta};\y)} ,
 \]
 and the likelihood ratio test rejects when \( \Lambda \) is small, that is, when the best explanation the
 hypothesis can offer is much worse than the best explanation overall. In the linear model both suprema
@@ -25,13 +25,13 @@ calibration.
 ::: {#thm-glh-lrt}
 [The \( F \) test is the likelihood ratio test]
 
-Assume @eq-opt-normal-model with \( r<n \), and let \( H:\bLambda\T\bbeta=\bm d \) be testable with
-\( q=\rank(\bLambda) \). Let \( \text{SSE}_H=\min_{\bLambda\T\bb=\bm d}\norm{\y-\X\bb}^2 \) and suppose
+Assume @eq-opt-normal-model with \( r<n \), and let \( H:\bLambda\T\bbeta=\mathbf{d} \) be testable with
+\( q=\rank(\bLambda) \). Let \( \text{SSE}_H=\min_{\bLambda\T\bb=\mathbf{d}}\norm{\y-\X\bb}^2 \) and suppose
 \( \text{SSE}>0 \), which holds with probability one. Then:
 
 ::: {.enumerate options="label=(\alph*)"}
 1. under \( H \) the likelihood is maximized at any minimizer \( \hbeta_H \) of \( \norm{\y-\X\bb}^2 \) subject
-   to \( \bLambda\T\bb=\bm d \) (for \( \bLambda \) of full column rank, the estimate of
+   to \( \bLambda\T\bb=\mathbf{d} \) (for \( \bLambda \) of full column rank, the estimate of
    @prp-glh-restricted-ls; compare @thm-ss-restricted), with \( \tilde{\sigma}^2_H=\text{SSE}_H/n \);
 
 2. the likelihood ratio is
@@ -49,14 +49,14 @@ The same holds for a reduced model \( \E(\Y)\in\C(\X_0) \), with \( q=r-r_0 \) a
 
 ::: {.proof}
 (a) By @thm-glh-general-f(b), \( H \) holds iff \( \E(\Y)\in\X\bb_0+\mathcal S_0 \). Maximizing the likelihood
-over \( H \) is therefore maximizing it in the linear model \( \Y-\X\bb_0\sim\Normal_n(\bm m,\sigma^2\I) \),
-\( \bm m\in\mathcal S_0 \). By @thm-opt-mle applied to that model (with any matrix whose columns span
+over \( H \) is therefore maximizing it in the linear model \( \Y-\X\bb_0\sim\Normal_n(\mathbf{m},\sigma^2\I) \),
+\( \mathbf{m}\in\mathcal S_0 \). By @thm-opt-mle applied to that model (with any matrix whose columns span
 \( \mathcal S_0 \)), the maximizing mean is the least squares fit and the maximizing variance is its
 residual sum of squares divided by \( n \). That fit is \( \bP_{\mathcal S_0}(\y-\X\bb_0) \), so the
 maximizing mean of \( \Y \) is \( \X\bb_0+\bP_{\mathcal S_0}(\y-\X\bb_0) \), the point of
 \( \X\bb_0+\mathcal S_0 \) nearest to \( \y \). As shown in the proof of @thm-glh-general-f(b), no rank
 condition on \( \bLambda \) is needed for this. That point is \( \X\bb \) exactly for the minimizers \( \bb \) of
-\( \norm{\y-\X\bb}^2 \) subject to \( \bLambda\T\bb=\bm d \), so it is \( \X\hbeta_H \), and its residual sum of
+\( \norm{\y-\X\bb}^2 \) subject to \( \bLambda\T\bb=\mathbf{d} \), so it is \( \X\hbeta_H \), and its residual sum of
 squares is \( \text{SSE}_H \). This needs \( \text{SSE}_H>0 \), which follows from
 \( \text{SSE}_H\ge\text{SSE}>0 \).
 
@@ -77,24 +77,24 @@ should be used.
 ## Wald and score statistics
 
 Two other large-sample recipes are in wide use. The **Wald statistic** measures the estimated departure
-\( \bLambda\T\hbeta-\bm d \) against its estimated covariance, both computed at the unrestricted
+\( \bLambda\T\hbeta-\mathbf{d} \) against its estimated covariance, both computed at the unrestricted
 maximum likelihood estimate. The **score statistic**, also called the Lagrange multiplier statistic,
 measures the gradient of the log-likelihood at the *restricted* maximum likelihood estimate against the
 information there. In the linear model, with \( \bLambda \) of full column rank \( q \) and the maximum
 likelihood variance estimates \( \hat{\sigma}^2=\text{SSE}/n \) and \( \tilde{\sigma}^2_H=\text{SSE}_H/n \), they are
 \[
-\text{Wald}=\frac{(\bLambda\T\hbeta-\bm d)\T(\bLambda\T\G\bLambda)^{-1}(\bLambda\T\hbeta-\bm d)}{\hat{\sigma}^2}
+\text{Wald}=\frac{(\bLambda\T\hbeta-\mathbf{d})\T(\bLambda\T\G\bLambda)^{-1}(\bLambda\T\hbeta-\mathbf{d})}{\hat{\sigma}^2}
 \]
 and
 \[
-\text{Score}=\bm U\T\Bigl(\frac{\X\T\X}{\tilde{\sigma}^2_H}\Bigr)\ginv\bm U=\tilde{\sigma}^2_H\,\bm U\T(\X\T\X)\ginv\bm U,
+\text{Score}=\mathbf{U}\T\Bigl(\frac{\X\T\X}{\tilde{\sigma}^2_H}\Bigr)\ginv\mathbf{U}=\tilde{\sigma}^2_H\,\mathbf{U}\T(\X\T\X)\ginv\mathbf{U},
 \]
-where \( \bm U=\X\T(\y-\X\hbeta_H)/\tilde{\sigma}^2_H \). Here \( \bm U \) is the gradient of the log-likelihood @eq-opt-normal-model with respect to \( \bbeta \) at
+where \( \mathbf{U}=\X\T(\y-\X\hbeta_H)/\tilde{\sigma}^2_H \). Here \( \mathbf{U} \) is the gradient of the log-likelihood @eq-opt-normal-model with respect to \( \bbeta \) at
 \( (\hbeta_H,\tilde{\sigma}^2_H) \), and \( \X\T\X/\tilde{\sigma}^2_H \) is the corresponding block of the
 Fisher information. The gradient with respect to \( \sigma^2 \) vanishes at the restricted maximum, and the
 information matrix is block diagonal, because \( \E\{\X\T(\Y-\X\bbeta)\}=\bzero \). So the \( \sigma^2 \)
 coordinates contribute nothing, and the formula is the full score statistic. The generalized inverse
-is harmless because \( \bm U\in\C(\X\T)=\C(\X\T\X) \).
+is harmless because \( \mathbf{U}\in\C(\X\T)=\C(\X\T\X) \).
 
 ::: {#prp-glh-trinity}
 [Wald, likelihood ratio and score]
@@ -120,7 +120,7 @@ for the Wald, likelihood ratio and score tests respectively.
 With \( \hat{\sigma}^2=\text{SSE}/n \), \( \text{Wald}=n\,\text{SS}_H/\text{SSE}=nu \) by @eq-glh-general-F. For the
 score, \( \X\T\y=\X\T\X\hbeta \), so \( \X\T(\y-\X\hbeta_H)=\X\T\X(\hbeta-\hbeta_H) \) and
 \[
-\bm U\T(\X\T\X)\ginv\bm U\cdot\tilde{\sigma}^2_H
+\mathbf{U}\T(\X\T\X)\ginv\mathbf{U}\cdot\tilde{\sigma}^2_H
 =\frac{(\hbeta-\hbeta_H)\T\X\T\X(\X\T\X)\ginv\X\T\X(\hbeta-\hbeta_H)}{\tilde{\sigma}^2_H}
 =\frac{\norm{\X(\hbeta-\hbeta_H)}^2}{\tilde{\sigma}^2_H}.
 \]
@@ -257,10 +257,10 @@ A test is a measurable function \( \phi \) of the data with values in \( [0,1] \
 rejecting. It is **invariant** if \( \phi(g(\y))=\phi(\y) \) for all \( \y \) and all \( g \) in the set \( \mathcal G \) of
 maps
 \[
-g(\y)=a\bm H\y+\bv,\qquad a>0,\quad \bv\in\C(\X_0),\quad
-\bm H\text{ orthogonal with }\bm H\C(\X_0)=\C(\X_0),\ \bm H\C(\X)=\C(\X).
+g(\y)=a\mathbf{H}\y+\bv,\qquad a>0,\quad \bv\in\C(\X_0),\quad
+\mathbf{H}\text{ orthogonal with }\mathbf{H}\C(\X_0)=\C(\X_0),\ \mathbf{H}\C(\X)=\C(\X).
 \]
-For a testable hypothesis with \( \bm d\ne\bzero \), the same applies to the data \( \y-\X\bb_0 \), with
+For a testable hypothesis with \( \mathbf{d}\ne\bzero \), the same applies to the data \( \y-\X\bb_0 \), with
 \( \C(\X_0) \) replaced by \( \mathcal S_0 \).
 
 ::: {#thm-glh-ump-invariant}
@@ -281,16 +281,16 @@ Use the canonical coordinates \( \bz_k=\Q_k\T\y \) of @prp-glh-canonical, and le
 
 *Step 1: an invariant test depends on \( \y \) only through \( F \).* Let \( \y,\y'\in\mathcal Y \) with
 \( F(\y)=F(\y') \). Put \( a=\norm{\bz_2'}/\norm{\bz_2}>0 \). Equality of the \( F \) values gives
-\( \norm{\bz_1'}=a\norm{\bz_1} \). Choose orthogonal matrices \( \bm O_1 \) (\( q\times q \)) and \( \bm O_2 \)
-(\( (n-r)\times(n-r) \)) with \( \bm O_1(a\bz_1)=\bz_1' \) and \( \bm O_2(a\bz_2)=\bz_2' \). This is possible because the
-vectors in each pair have equal lengths, and if \( \bz_1=\bzero \) then \( \bz_1'=\bzero \) and \( \bm O_1=\I \) will do. Put
+\( \norm{\bz_1'}=a\norm{\bz_1} \). Choose orthogonal matrices \( \mathbf{O}_1 \) (\( q\times q \)) and \( \mathbf{O}_2 \)
+(\( (n-r)\times(n-r) \)) with \( \mathbf{O}_1(a\bz_1)=\bz_1' \) and \( \mathbf{O}_2(a\bz_2)=\bz_2' \). This is possible because the
+vectors in each pair have equal lengths, and if \( \bz_1=\bzero \) then \( \bz_1'=\bzero \) and \( \mathbf{O}_1=\I \) will do. Put
 \[
-\bm H=\Q_0\Q_0\T+\Q_1\bm O_1\Q_1\T+\Q_2\bm O_2\Q_2\T,\qquad \bv=\Q_0(\bz_0'-a\bz_0).
+\mathbf{H}=\Q_0\Q_0\T+\Q_1\mathbf{O}_1\Q_1\T+\Q_2\mathbf{O}_2\Q_2\T,\qquad \bv=\Q_0(\bz_0'-a\bz_0).
 \]
-\( \bm H \) is orthogonal, maps \( \C(\X_0)=\C(\Q_0) \) and \( \C(\X)=\C([\Q_0,\Q_1]) \) onto themselves, and
-\( \bv\in\C(\X_0) \). The canonical coordinates of \( a\bm H\y+\bv \) are \( a\bz_0+\bz_0'-a\bz_0=\bz_0' \),
-\( a\bm O_1\bz_1=\bz_1' \) and \( a\bm O_2\bz_2=\bz_2' \), so \( a\bm H\y+\bv=\y' \) and \( \phi(\y')=\phi(\y) \). Now fix, for
-each \( f\ge0 \), the point \( \y_f=\sqrt{qf/(n-r)}\,\Q_1\bm e_1+\Q_2\bm e_1 \), where \( \bm e_1 \) denotes a first coordinate
+\( \mathbf{H} \) is orthogonal, maps \( \C(\X_0)=\C(\Q_0) \) and \( \C(\X)=\C([\Q_0,\Q_1]) \) onto themselves, and
+\( \bv\in\C(\X_0) \). The canonical coordinates of \( a\mathbf{H}\y+\bv \) are \( a\bz_0+\bz_0'-a\bz_0=\bz_0' \),
+\( a\mathbf{O}_1\bz_1=\bz_1' \) and \( a\mathbf{O}_2\bz_2=\bz_2' \), so \( a\mathbf{H}\y+\bv=\y' \) and \( \phi(\y')=\phi(\y) \). Now fix, for
+each \( f\ge0 \), the point \( \y_f=\sqrt{qf/(n-r)}\,\Q_1\mathbf{e}_1+\Q_2\mathbf{e}_1 \), where \( \mathbf{e}_1 \) denotes a first coordinate
 vector, and put \( \psi(f)=\phi(\y_f) \). Then \( F(\y_f)=f \), so \( \phi(\y)=\psi(F(\y)) \) for every \( \y\in\mathcal Y \).
 The map \( f\mapsto\y_f \) is continuous, so \( \psi \) is measurable.
 
@@ -388,21 +388,21 @@ large \( (\text{SSE}_0-\text{SSE})/\sigma_0^2 \), the statistic of @exr-glh-know
 ::: {#exr-glh-no-ump}
 [C1]
 
-In the canonical form with \( \sigma^2 \) known and \( q\ge2 \), consider testing \( \bm\eta_1=\bzero \) against the
-single alternative \( \bm\eta_1=\bm a\ne\bzero \). Show by the Neyman–Pearson lemma that the most powerful
-level-\( \alpha \) test rejects when \( \bm a\T\bz_1>\sigma\norm{\bm a}z_\alpha \), where \( z_\alpha \) is the upper \( \alpha \) point of
-\( \Normal(0,1) \). Show that this test has power below \( \alpha \) against \( -\bm a \), and conclude that no
-uniformly most powerful test of \( \bm\eta_1=\bzero \) exists.
+In the canonical form with \( \sigma^2 \) known and \( q\ge2 \), consider testing \( \boldsymbol{\eta}_1=\bzero \) against the
+single alternative \( \boldsymbol{\eta}_1=\mathbf{a}\ne\bzero \). Show by the Neyman–Pearson lemma that the most powerful
+level-\( \alpha \) test rejects when \( \mathbf{a}\T\bz_1>\sigma\norm{\mathbf{a}}z_\alpha \), where \( z_\alpha \) is the upper \( \alpha \) point of
+\( \Normal(0,1) \). Show that this test has power below \( \alpha \) against \( -\mathbf{a} \), and conclude that no
+uniformly most powerful test of \( \boldsymbol{\eta}_1=\bzero \) exists.
 :::
 
 ::: {.solution}
-The likelihood ratio of \( \Normal(\bm a,\sigma^2\I) \) to \( \Normal(\bzero,\sigma^2\I) \) at \( \bz_1 \) is
-\( \exp\{(\bm a\T\bz_1-\norm{\bm a}^2/2)/\sigma^2\} \), increasing in \( \bm a\T\bz_1 \). Under the null,
-\( \bm a\T\bz_1\sim\Normal(0,\sigma^2\norm{\bm a}^2) \), which gives the critical value, and the Neyman–Pearson
+The likelihood ratio of \( \Normal(\mathbf{a},\sigma^2\I) \) to \( \Normal(\bzero,\sigma^2\I) \) at \( \bz_1 \) is
+\( \exp\{(\mathbf{a}\T\bz_1-\norm{\mathbf{a}}^2/2)/\sigma^2\} \), increasing in \( \mathbf{a}\T\bz_1 \). Under the null,
+\( \mathbf{a}\T\bz_1\sim\Normal(0,\sigma^2\norm{\mathbf{a}}^2) \), which gives the critical value, and the Neyman–Pearson
 argument of Step 3 of the proof of @thm-glh-ump-invariant shows that this test is most powerful. Against
-\( -\bm a \), \( \bm a\T\bz_1\sim\Normal(-\norm{\bm a}^2,\sigma^2\norm{\bm a}^2) \), so the power is
-\( \Pr\{Z>z_\alpha+\norm{\bm a}/\sigma\}<\alpha \). A uniformly most powerful test would have to be most powerful
-against both \( \bm a \) and \( -\bm a \). The most powerful tests against these two alternatives are
+\( -\mathbf{a} \), \( \mathbf{a}\T\bz_1\sim\Normal(-\norm{\mathbf{a}}^2,\sigma^2\norm{\mathbf{a}}^2) \), so the power is
+\( \Pr\{Z>z_\alpha+\norm{\mathbf{a}}/\sigma\}<\alpha \). A uniformly most powerful test would have to be most powerful
+against both \( \mathbf{a} \) and \( -\mathbf{a} \). The most powerful tests against these two alternatives are
 essentially unique and different, so no single test can be both.
 :::
 

@@ -22,15 +22,15 @@ all constant. Then
 :::
 
 More generally, if \( \bU \) and \( \V \) have finite second moments and \( \A \), \( \B \), \( \bb \),
-\( \bm c \) are constants of conformable sizes, then
-\( \Cov(\A\bU+\bb,\,\B\V+\bm c)=\A\,\Cov(\bU,\V)\,\B\T \).
+\( \mathbf{c} \) are constants of conformable sizes, then
+\( \Cov(\A\bU+\bb,\,\B\V+\mathbf{c})=\A\,\Cov(\bU,\V)\,\B\T \).
 :::
 
 ::: {.proof}
 (a) is @prp-rv-expectation-linear(a). For the general statement, the centred
 vectors are \( \A\bU+\bb-\E(\A\bU+\bb)=\A(\bU-\E\bU) \) and similarly \( \B(\V-\E\V) \). Hence
 \[
-\Cov(\A\bU+\bb,\B\V+\bm c)
+\Cov(\A\bU+\bb,\B\V+\mathbf{c})
 =\E\bigl[\A(\bU-\E\bU)(\V-\E\V)\T\B\T\bigr]
 =\A\,\E\bigl[(\bU-\E\bU)(\V-\E\V)\T\bigr]\B\T ,
 \]
@@ -38,14 +38,14 @@ again by @prp-rv-expectation-linear(a). Parts (c) and (b) are the cases
 \( \bU=\V=\Y \), and \( \B=\A \) in (b).
 :::
 
-For a single linear combination, \( \A=\bm a\T \) is a row vector, and (b) and (c) give
+For a single linear combination, \( \A=\mathbf{a}\T \) is a row vector, and (b) and (c) give
 \[
-\Var(\bm a\T\Y)=\bm a\T\bSigma\bm a=\sum_{i=1}^p\sum_{j=1}^p a_ia_j\sigma_{ij},
+\Var(\mathbf{a}\T\Y)=\mathbf{a}\T\bSigma\mathbf{a}=\sum_{i=1}^p\sum_{j=1}^p a_ia_j\sigma_{ij},
 \qquad
-\Cov(\bm a\T\Y,\bb\T\Y)=\bm a\T\bSigma\bb .
+\Cov(\mathbf{a}\T\Y,\bb\T\Y)=\mathbf{a}\T\bSigma\bb .
 \]{#eq-rv-linear-combination}
 
-Every variance and covariance enters \( \Var(\bm a\T\Y) \), weighted by the products of the
+Every variance and covariance enters \( \Var(\mathbf{a}\T\Y) \), weighted by the products of the
 coefficients. Conversely, \( \bSigma \) is determined by the variances of linear
 combinations, because \( \sigma_{ij}=\tfrac12[\Var(Y_i+Y_j)-\Var(Y_i)-\Var(Y_j)] \).
 
@@ -78,13 +78,13 @@ in each argument; note that the two cross terms are transposes of each other, no
 ::: {#exm-rv-centering}
 [Centring a sample]
 
-Let \( \Y \) be \( n\times1 \) with \( \Cov(\Y)=\sigma^2\I_n \), and write \( \bm J=\bone\bone\T \). The mean is
-\( \bar{Y}=n^{-1}\bone\T\Y \), and the vector of deviations is \( \bm d=(\I-n^{-1}\bm J)\Y \). The
-matrix \( \I-n^{-1}\bm J \) is symmetric and idempotent, so @thm-rv-linear gives
+Let \( \Y \) be \( n\times1 \) with \( \Cov(\Y)=\sigma^2\I_n \), and write \( \mathbf{J}=\bone\bone\T \). The mean is
+\( \bar{Y}=n^{-1}\bone\T\Y \), and the vector of deviations is \( \mathbf{d}=(\I-n^{-1}\mathbf{J})\Y \). The
+matrix \( \I-n^{-1}\mathbf{J} \) is symmetric and idempotent, so @thm-rv-linear gives
 \[
-\Cov(\bm d)=\sigma^2(\I-n^{-1}\bm J),
+\Cov(\mathbf{d})=\sigma^2(\I-n^{-1}\mathbf{J}),
 \qquad
-\Cov(\bar{Y},\bm d)=\sigma^2 n^{-1}\bone\T(\I-n^{-1}\bm J)=\bzero\T .
+\Cov(\bar{Y},\mathbf{d})=\sigma^2 n^{-1}\bone\T(\I-n^{-1}\mathbf{J})=\bzero\T .
 \]
 The deviations have variances \( \sigma^2(1-1/n) \) and are negatively correlated, with
 correlation \( -1/(n-1) \) between each pair, because they are forced to sum to zero. And each
@@ -96,8 +96,8 @@ independent (@exm-mvn-mean-deviations), which is the first half of @cor-qf-sampl
 
 A variance cannot be negative, and by @eq-rv-linear-combination this simple
 fact constrains the whole matrix. Recall from @def-mat-nnd that a symmetric
-\( \bSigma \) is nonnegative definite if \( \bm a\T\bSigma\bm a\ge0 \) for all \( \bm a \), and positive
-definite if in addition \( \bm a\T\bSigma\bm a>0 \) for \( \bm a\ne\bzero \).
+\( \bSigma \) is nonnegative definite if \( \mathbf{a}\T\bSigma\mathbf{a}\ge0 \) for all \( \mathbf{a} \), and positive
+definite if in addition \( \mathbf{a}\T\bSigma\mathbf{a}>0 \) for \( \mathbf{a}\ne\bzero \).
 
 ::: {#thm-rv-cov-nnd}
 [Covariance matrices]
@@ -110,7 +110,7 @@ Let \( \Y \) have finite second moments, mean \( \bmu \) and covariance matrix \
 2. Conversely, every \( p\times p \) nonnegative definite matrix is the covariance matrix
            of some random vector.
 
-3. For a constant \( \bm a \), \( \bSigma\bm a=\bzero \) iff \( \bm a\T\Y=\bm a\T\bmu \) with
+3. For a constant \( \mathbf{a} \), \( \bSigma\mathbf{a}=\bzero \) iff \( \mathbf{a}\T\Y=\mathbf{a}\T\bmu \) with
            probability one.
 
 4. \( \Pr(\Y-\bmu\in\C(\bSigma))=1 \). If \( \mathcal S \) is any subspace with
@@ -123,7 +123,7 @@ constant with probability one. Then \( \Y \) lies, with probability one, in the 
 :::
 
 ::: {.proof}
-(a) \( \bSigma \) is symmetric, and \( \bm a\T\bSigma\bm a=\Var(\bm a\T\Y)\ge0 \) by @eq-rv-linear-combination.
+(a) \( \bSigma \) is symmetric, and \( \mathbf{a}\T\bSigma\mathbf{a}=\Var(\mathbf{a}\T\Y)\ge0 \) by @eq-rv-linear-combination.
 
 (b) Let \( \bSigma \) be nonnegative definite and let \( \bSigma^{1/2} \) be its symmetric
 nonnegative definite square root (@thm-mat-square-root). Let \( \Z \) have independent
@@ -131,31 +131,31 @@ components with mean \( 0 \) and variance \( 1 \), for instance independent stan
 variables, so that \( \Cov(\Z)=\I \). Then
 \( \Cov(\bSigma^{1/2}\Z)=\bSigma^{1/2}\I\bSigma^{1/2}=\bSigma \).
 
-(c) If \( \bSigma\bm a=\bzero \), the random variable \( \bm a\T(\Y-\bmu) \) has mean zero and
-variance \( \bm a\T\bSigma\bm a=0 \), so it is zero with probability one. Conversely, if
-\( \bm a\T(\Y-\bmu)=0 \) with probability one, then
-\( \bSigma\bm a=\E\bigl[(\Y-\bmu)\,(\Y-\bmu)\T\bm a\bigr]=\bzero \).
+(c) If \( \bSigma\mathbf{a}=\bzero \), the random variable \( \mathbf{a}\T(\Y-\bmu) \) has mean zero and
+variance \( \mathbf{a}\T\bSigma\mathbf{a}=0 \), so it is zero with probability one. Conversely, if
+\( \mathbf{a}\T(\Y-\bmu)=0 \) with probability one, then
+\( \bSigma\mathbf{a}=\E\bigl[(\Y-\bmu)\,(\Y-\bmu)\T\mathbf{a}\bigr]=\bzero \).
 
-(d) Let \( \bm a_1,\dots,\bm a_s \) be a basis of \( \Null(\bSigma) \). By (c), each event
-\( \{\bm a_j\T(\Y-\bmu)=0\} \) has probability one, and so does their intersection. On that
+(d) Let \( \mathbf{a}_1,\dots,\mathbf{a}_s \) be a basis of \( \Null(\bSigma) \). By (c), each event
+\( \{\mathbf{a}_j\T(\Y-\bmu)=0\} \) has probability one, and so does their intersection. On that
 intersection \( \Y-\bmu \) is orthogonal to \( \Null(\bSigma) \). Because \( \bSigma \) is symmetric,
 \( \Null(\bSigma) \) is the orthogonal complement of \( \C(\bSigma) \), and so \( \Y-\bmu\in\C(\bSigma) \).
 Now let \( \mathcal S \) be a subspace with \( \Pr(\Y-\bmu\in\mathcal S)=1 \). For every
-\( \bm a\in\mathcal S\perpc \) we have \( \bm a\T(\Y-\bmu)=0 \) with probability one, hence
-\( \bm a\in\Null(\bSigma)=\C(\bSigma)\perpc \) by (c). So
+\( \mathbf{a}\in\mathcal S\perpc \) we have \( \mathbf{a}\T(\Y-\bmu)=0 \) with probability one, hence
+\( \mathbf{a}\in\Null(\bSigma)=\C(\bSigma)\perpc \) by (c). So
 \( \mathcal S\perpc\subseteq\C(\bSigma)\perpc \), and taking orthogonal complements gives
 \( \C(\bSigma)\subseteq\mathcal S \). The final statements follow, with
 \( \dim\C(\bSigma)=\rank(\bSigma) \). For minimality among all flats, suppose
-\( \Pr(\Y\in\bm c+\mathcal S)=1 \) for a vector \( \bm c \) and a subspace \( \mathcal S \). Every
-\( \bm a\in\mathcal S\perpc \) has \( \bm a\T(\Y-\bm c)=0 \) with probability one, and taking
-expectations gives \( \bm a\T(\bmu-\bm c)=0 \). Hence \( \bmu-\bm c\in\mathcal S \), so
-\( \bm c+\mathcal S=\bmu+\mathcal S \), and the subspace case applies.
+\( \Pr(\Y\in\mathbf{c}+\mathcal S)=1 \) for a vector \( \mathbf{c} \) and a subspace \( \mathcal S \). Every
+\( \mathbf{a}\in\mathcal S\perpc \) has \( \mathbf{a}\T(\Y-\mathbf{c})=0 \) with probability one, and taking
+expectations gives \( \mathbf{a}\T(\bmu-\mathbf{c})=0 \). Hence \( \bmu-\mathbf{c}\in\mathcal S \), so
+\( \mathbf{c}+\mathcal S=\bmu+\mathcal S \), and the subspace case applies.
 :::
 
 A covariance matrix is therefore positive definite exactly when no linear combination of
 the components is degenerate. Singular covariance matrices are not pathological. They
 arise whenever the components satisfy an exact linear constraint, as with the deviations of
-@exm-rv-centering, whose covariance matrix has rank \( n-1 \) because \( \bone\T\bm d=0 \). The
+@exm-rv-centering, whose covariance matrix has rank \( n-1 \) because \( \bone\T\mathbf{d}=0 \). The
 residual vector of a regression is another case: it is orthogonal to every column of \( \X \),
 and when \( \Cov(\Y)=\sigma^2\I \) its covariance matrix has rank \( n-\rank(\X) \)
 ([Section 2.2](02-linear.html#sec-rv-linear-model), [Chapter 6](../ch06-projections/index.html)).
@@ -164,17 +164,17 @@ and when \( \Cov(\Y)=\sigma^2\I \) its covariance matrix has rank \( n-\rank(\X)
 [Multinomial counts]
 
 In \( m \) independent trials, each outcome falls into one of \( k \) categories with
-probabilities \( \bm\pi=(\pi_1,\dots,\pi_k)\T \), where \( \sum_j\pi_j=1 \). Let \( \bm Z_t \) be the indicator
+probabilities \( \boldsymbol{\pi}=(\pi_1,\dots,\pi_k)\T \), where \( \sum_j\pi_j=1 \). Let \( \mathbf{Z}_t \) be the indicator
 vector of trial \( t \), with a single \( 1 \) in the position of its category. Then
-\( \E(\bm Z_t)=\bm\pi \), and \( \bm Z_t\bm Z_t\T=\diag(\bm Z_t) \) because the indicator has only one
-nonzero entry. So \( \Cov(\bm Z_t)=\diag(\bm\pi)-\bm\pi\bm\pi\T \). The count vector
-\( \Y=\sum_t\bm Z_t \) is a sum of independent vectors, and @prp-rv-sums(c) gives
+\( \E(\mathbf{Z}_t)=\boldsymbol{\pi} \), and \( \mathbf{Z}_t\mathbf{Z}_t\T=\diag(\mathbf{Z}_t) \) because the indicator has only one
+nonzero entry. So \( \Cov(\mathbf{Z}_t)=\diag(\boldsymbol{\pi})-\boldsymbol{\pi}\boldsymbol{\pi}\T \). The count vector
+\( \Y=\sum_t\mathbf{Z}_t \) is a sum of independent vectors, and @prp-rv-sums(c) gives
 \[
-\bSigma=\Cov(\Y)=m\bigl(\diag(\bm\pi)-\bm\pi\bm\pi\T\bigr).
+\bSigma=\Cov(\Y)=m\bigl(\diag(\boldsymbol{\pi})-\boldsymbol{\pi}\boldsymbol{\pi}\T\bigr).
 \]
-Because \( \bSigma\bone=m(\bm\pi-\bm\pi\,\bm\pi\T\bone)=\bzero \), the matrix is singular, and
+Because \( \bSigma\bone=m(\boldsymbol{\pi}-\boldsymbol{\pi}\,\boldsymbol{\pi}\T\bone)=\bzero \), the matrix is singular, and
 @thm-rv-cov-nnd(c) recovers the constraint \( \bone\T\Y=m \). For \( m=20 \) and
-\( \bm\pi=(0.5,0.3,0.2)\T \) the eigenvalues are \( 7.762 \), \( 4.638 \)
+\( \boldsymbol{\pi}=(0.5,0.3,0.2)\T \) the eigenvalues are \( 7.762 \), \( 4.638 \)
 and \( 0 \). All \( 5000 \) simulated count vectors lie in the plane
 \( \bmu+\C(\bSigma)=\{\y:\bone\T\y=m\} \).
 :::
@@ -184,8 +184,8 @@ Linear maps cannot increase the rank of a covariance matrix, since
 degenerate directions. If \( \Y=(Z,Z)\T \) with \( \Var(Z)=1 \), then \( \bSigma \) has all entries equal
 to \( 1 \) and is singular, while \( \A=(1,0) \) gives \( \Var(\A\Y)=1>0 \). By @thm-rv-linear, the
 covariance matrix of \( \A\Y \) is \( \A\bSigma\A\T \). If \( \bSigma \) is positive definite and \( \A \) has
-full row rank \( k\le p \), then for \( \bm b\neq\bzero \) the vector \( \A\T\bm b \) is nonzero and
-\( \bm b\T\A\bSigma\A\T\bm b>0 \). So \( \A\bSigma\A\T \) is positive definite. If \( k>p \), then
+full row rank \( k\le p \), then for \( \mathbf{b}\neq\bzero \) the vector \( \A\T\mathbf{b} \) is nonzero and
+\( \mathbf{b}\T\A\bSigma\A\T\mathbf{b}>0 \). So \( \A\bSigma\A\T \) is positive definite. If \( k>p \), then
 \( \A\bSigma\A\T \) has rank at most \( p \) and is singular. A vector of more than \( p \) linear
 combinations of \( p \) variables always satisfies a linear constraint.
 
@@ -380,7 +380,7 @@ Write \( \W=\Q\bSigma^{-1/2} \). By
 \E\norm{(\W-\I)(\Y-\bmu)}^2=\tr\bigl((\W-\I)\bSigma(\W-\I)\T\bigr)
 =\tr(\W\bSigma\W\T)-2\tr(\W\bSigma)+\tr(\bSigma)=p+\tr(\bSigma)-2\tr(\Q\bSigma^{1/2}).
 \]
-Let \( \bSigma^{1/2}=\bm\Gamma\bLambda^{1/2}\bm\Gamma\T \) and \( \G=\bm\Gamma\T\Q\bm\Gamma \), which is orthogonal, so each
+Let \( \bSigma^{1/2}=\boldsymbol{\Gamma}\bLambda^{1/2}\boldsymbol{\Gamma}\T \) and \( \G=\boldsymbol{\Gamma}\T\Q\boldsymbol{\Gamma} \), which is orthogonal, so each
 \( \lvert g_{ii}\rvert\le1 \). Then
 \( \tr(\Q\bSigma^{1/2})=\tr(\G\bLambda^{1/2})=\sum_ig_{ii}\lambda_i^{1/2}\le\sum_i\lambda_i^{1/2} \). Since every
 \( \lambda_i>0 \), equality forces every \( g_{ii}=1 \). An orthogonal matrix with unit diagonal is \( \I \),
@@ -391,20 +391,20 @@ because each column has norm one. So \( \G=\I \), which means \( \Q=\I \).
 [B4]
 
 Let \( \bSigma=\Cov(\Y) \) have rank \( r \), with spectral decomposition
-\( \bSigma=\bm\Gamma_r\bLambda_r\bm\Gamma_r\T \), where \( \bm\Gamma_r\T\bm\Gamma_r=\I_r \) and \( \bLambda_r \) holds the positive
-eigenvalues. Show that \( \Z=\bLambda_r^{-1/2}\bm\Gamma_r\T(\Y-\bmu) \) has \( \Cov(\Z)=\I_r \) and that
-\( \Y=\bmu+\bm\Gamma_r\bLambda_r^{1/2}\Z \) with probability one. Show that
+\( \bSigma=\boldsymbol{\Gamma}_r\bLambda_r\boldsymbol{\Gamma}_r\T \), where \( \boldsymbol{\Gamma}_r\T\boldsymbol{\Gamma}_r=\I_r \) and \( \bLambda_r \) holds the positive
+eigenvalues. Show that \( \Z=\bLambda_r^{-1/2}\boldsymbol{\Gamma}_r\T(\Y-\bmu) \) has \( \Cov(\Z)=\I_r \) and that
+\( \Y=\bmu+\boldsymbol{\Gamma}_r\bLambda_r^{1/2}\Z \) with probability one. Show that
 \( (\Y-\bmu)\T\bSigma^{+}(\Y-\bmu)=\norm{\Z}^2 \), where \( \bSigma^+ \) is the Moore–Penrose inverse, and that its
 expectation is \( r \).
 :::
 
 ::: {.solution}
 By @thm-rv-linear,
-\( \Cov(\Z)=\bLambda_r^{-1/2}\bm\Gamma_r\T\bm\Gamma_r\bLambda_r\bm\Gamma_r\T\bm\Gamma_r\bLambda_r^{-1/2}=\I_r \). By
-@thm-rv-cov-nnd(d), \( \Y-\bmu\in\C(\bSigma)=\C(\bm\Gamma_r) \) with probability one, and on that event
-\( \Y-\bmu=\bm\Gamma_r\bm\Gamma_r\T(\Y-\bmu)=\bm\Gamma_r\bLambda_r^{1/2}\Z \). The Moore–Penrose inverse is
-\( \bSigma^+=\bm\Gamma_r\bLambda_r^{-1}\bm\Gamma_r\T \), so
-\( (\Y-\bmu)\T\bSigma^+(\Y-\bmu)=\norm{\bLambda_r^{-1/2}\bm\Gamma_r\T(\Y-\bmu)}^2=\norm{\Z}^2 \), with expectation
+\( \Cov(\Z)=\bLambda_r^{-1/2}\boldsymbol{\Gamma}_r\T\boldsymbol{\Gamma}_r\bLambda_r\boldsymbol{\Gamma}_r\T\boldsymbol{\Gamma}_r\bLambda_r^{-1/2}=\I_r \). By
+@thm-rv-cov-nnd(d), \( \Y-\bmu\in\C(\bSigma)=\C(\boldsymbol{\Gamma}_r) \) with probability one, and on that event
+\( \Y-\bmu=\boldsymbol{\Gamma}_r\boldsymbol{\Gamma}_r\T(\Y-\bmu)=\boldsymbol{\Gamma}_r\bLambda_r^{1/2}\Z \). The Moore–Penrose inverse is
+\( \bSigma^+=\boldsymbol{\Gamma}_r\bLambda_r^{-1}\boldsymbol{\Gamma}_r\T \), so
+\( (\Y-\bmu)\T\bSigma^+(\Y-\bmu)=\norm{\bLambda_r^{-1/2}\boldsymbol{\Gamma}_r\T(\Y-\bmu)}^2=\norm{\Z}^2 \), with expectation
 \( \tr\Cov(\Z)=r \).
 :::
 

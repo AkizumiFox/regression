@@ -18,8 +18,8 @@
    the variances of the old coefficients. For one column it equals \( t_j^2s^2 \)
    (@def-ss-extra, @thm-ss-adding, @cor-ss-single-column).
 
-4. The sum of squares of an estimable hypothesis \( \bLambda\T\bbeta=\bm d \) is
-   \( (\bLambda\T\hbeta-\bm d)\T(\bLambda\T\G\bLambda)^{-1}(\bLambda\T\hbeta-\bm d) \), whatever the rank.
+4. The sum of squares of an estimable hypothesis \( \bLambda\T\bbeta=\mathbf{d} \) is
+   \( (\bLambda\T\hbeta-\mathbf{d})\T(\bLambda\T\G\bLambda)^{-1}(\bLambda\T\hbeta-\mathbf{d}) \), whatever the rank.
    A nonestimable constraint restricts only through its estimable part
    (@thm-ss-hypothesis, @thm-ss-restricted, @prp-ss-effective-df).
 
