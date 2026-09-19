@@ -1,0 +1,223 @@
+# The Ultimate Regression Textbook — single source of truth.
+# sources: list of [DAG node, sections or "all"]. Node ids refer to blueprint/dag.json.
+# cut: DAG nodes dropped as redundant, with the node that subsumes them (null = no replacement needed).
+# exemptions: hard DAG edges that the ordering is allowed to cross, each with its justification.
+
+title: "Regression: From Projection to Distribution"
+subtitle: "A unified treatment of linear, generalized, mixed, additive and distributional regression"
+
+cut:
+  SA: R2
+  CB: R2
+  F1: null
+
+exemptions:
+  - edge: [R8, R12]
+    why: "Rencher 12 is split. §12.1–12.6 (estimability, reparameterization, side conditions) needs only least squares; only §12.7–12.8 (testable hypotheses) uses Rencher 8, and it is placed in ch. 11 alongside it."
+  - edge: [C4, C5]
+    why: "Scheffé, Tukey and Bonferroni are simultaneous inference on estimable functions and need only the general linear hypothesis (Christensen 3). Christensen merely illustrates them with one-way ANOVA; Agresti §3.5 uses the same placement."
+  - edge: [A4, A9]
+    why: "Agresti 9 is split. §9.2–9.3 (linear mixed models) is Gaussian and needs no GLM machinery; §9.4–9.6 (GLMMs, GEE) goes to ch. 40, after Agresti 4."
+  - edge: [F5, F7]
+    why: "Fahrmeir 7 is split. §7.1–7.4 (linear mixed models) needs Fahrmeir 4 only; §7.5–7.6 (generalized linear mixed models) goes to ch. 40, after Fahrmeir 5."
+
+parts:
+  - num: I
+    title: "Apparatus"
+    drops: null
+    model: "The mathematical tools: matrices, random vectors, the normal distribution, quadratic forms."
+  - num: II
+    title: "The Linear Model as a Projection"
+    drops: null
+    model: "y = Xβ + ε, E[ε] = 0, Cov(ε) = σ²I, rank(X) = p — and then without the rank condition for estimation."
+  - num: III
+    title: "Exact Inference under Normality"
+    drops: "adds ε ~ N(0, σ²I)"
+    model: "Finite-sample tests, intervals and prediction."
+  - num: IV
+    title: "Rank Deficiency and Designed Structure"
+    drops: "drops rank(X) = p"
+    model: "Estimability, analysis of variance, designed experiments."
+  - num: V
+    title: "When the Assumptions Fail"
+    drops: "audits every assumption"
+    model: "What breaks, how you see it, and what inference survives."
+  - num: VI
+    title: "Trading Bias for Variance"
+    drops: "drops unbiasedness"
+    model: "Shrinkage, selection, regularization, high dimensions."
+  - num: VII
+    title: "Relaxing the Covariance"
+    drops: "drops Cov(ε) = σ²I"
+    model: "Generalized least squares, general Gauss–Markov, mixed models."
+  - num: VIII
+    title: "Beyond the Normal Response"
+    drops: "drops normality of y"
+    model: "Exponential families and generalized linear models."
+  - num: IX
+    title: "Relaxing Linearity"
+    drops: "drops the linear predictor"
+    model: "Polynomials, splines, smoothing, additive structure."
+  - num: X
+    title: "Modeling the Whole Distribution"
+    drops: "drops modeling only the mean"
+    model: "Quantile regression and distributional (GAMLSS) models."
+
+chapters:
+  # ---------------- Part I ----------------
+  - {num: 1, part: I, slug: matrix-algebra, pages: 45, title: "Matrix Algebra for Linear Models",
+     note: "Reference chapter: skim, then return when later chapters send you back.",
+     sources: [[R2, "§2.1–2.14 (emphasis §2.6, 2.8, 2.10, 2.13, 2.14)"], [CA, "all (framing)"]],
+     outline: ["Vectors, matrices and the operations we use", "Rank, column space and null space", "Inverses and generalized inverses", "Systems of equations and consistency", "Orthogonality and orthogonal matrices", "Eigenvalues, the spectral theorem and positive definiteness", "Idempotent matrices", "Trace, determinants and partitioned matrices", "Vector and matrix calculus"]}
+  - {num: 2, part: I, slug: random-vectors, pages: 30,
+     title: "Random Vectors: Expectation and Covariance Operators",
+     sources: [[R3, all], [S1, "§1.4–1.6"]],
+     outline: ["Mean vectors and covariance matrices", "Linear and affine transformations", "Expectation of quadratic forms", "Correlation matrices", "Moments of partitioned random vectors"]}
+  - {num: 3, part: I, slug: multivariate-normal, pages: 35, title: "The Multivariate Normal Distribution",
+     sources: [[R4, all], [S2, "all (moment-generating-function proofs)"], [C1, "§1.2 (multivariate normal)"]],
+     outline: ["Definition through linear combinations", "Moment generating function and density", "Linear transformations and marginals", "Independence and zero covariance", "Conditional distributions", "Partial correlation"]}
+  - {num: 4, part: I, slug: quadratic-forms, pages: 40, title: "Quadratic Forms and Their Distributions",
+     sources: [[R5, all], [S2, "§2.4"], [C1, "§1.3 (distributions of quadratic forms)"]],
+     outline: ["Noncentral chi-squared, t and F distributions", "Mean and variance of quadratic forms", "When a quadratic form is chi-squared", "Independence of quadratic forms and linear forms", "Cochran's theorem"]}
+
+  # ---------------- Part II ----------------
+  - {num: 5, part: II, slug: model-and-least-squares, pages: 75, title: "The Model, Least Squares and the Normal Equations",
+     sources: [[R1, all], [R6, all], [R7, "§7.1–7.7"], [N1, all], [N2, all], [A1, all], [F2, "§2.1–2.2 (panorama)"], [F3, "§3.1–3.2 (applied examples)"]],
+     outline: ["What a regression model claims", "Simple linear regression as a warm-up", "The multiple linear regression model", "Least squares and the normal equations", "Properties of the estimator under second-moment assumptions", "Estimating σ²", "Interpreting coefficients", "A panorama of regression models to come"]}
+  - {num: 6, part: II, slug: projections, pages: 70, title: "Projections: The Geometry of Least Squares",
+     sources: [[A2, "§2.2–2.3 (on-ramp)"], [C2, "§2.2–2.3"], [CA, "all"], [SB, "all"]],
+     outline: ["Least squares as a nearest-point problem", "The subspaces we need", "Orthogonal projection", "Least squares via projection", "Nested models and sequential projection", "The Frisch–Waugh–Lovell theorem", "Reparameterization, centering and R²", "Leverage as geometry", "Other inner products", "Computation", "Notes and sources", "Exercises"]}
+  - {num: 7, part: II, slug: optimality, pages: 70, title: "Optimality: Gauss–Markov, Maximum Likelihood and Minimum Variance",
+     sources: [[C2, "§2.3–2.6"], [S3, "§3.2–3.6"], [A2, "§2.7"], [R7, "§7.3, 7.6"]],
+     outline: ["Linear unbiased estimation", "The Gauss–Markov theorem", "Maximum likelihood under normality", "Sufficiency, completeness and minimum variance unbiased estimation", "Sampling distributions of the estimates", "Bayesian thread I: the conjugate normal linear model"]}
+  - {num: 8, part: II, slug: estimability, pages: 75, title: "Estimability, Identifiability and Indicator Variables",
+     sources: [[C2, "§2.1"], [R12, "§12.1–12.6"], [N4, all], [A1, "§1.4"]],
+     outline: ["Identifiability", "Estimable functions", "Characterizations of estimability", "Reparameterization and side conditions", "Indicator variables and factor coding", "Contrasts"]}
+  - {num: 9, part: II, slug: sums-of-squares, pages: 65, title: "Sums of Squares and Orthogonal Decomposition",
+     sources: [[A2, "§2.3–2.4"], [C3, "§3.6"], [S3, "§3.7–3.9"]],
+     outline: ["Decomposing the total sum of squares", "Sequential and partial sums of squares", "Orthogonal designs", "Coefficient of determination and its limits", "Expected mean squares"]}
+  - {num: 10, part: II, slug: computation, pages: 60, title: "Computation: QR, SVD and Conditioning",
+     sources: [[S11, "§11.2–11.4, 11.7, 11.10"]],
+     outline: ["Why not invert XᵀX", "Cholesky factorization", "Householder and Givens QR", "The singular value decomposition", "Conditioning and perturbation bounds", "Updating and downdating", "Rank-revealing factorizations"]}
+
+  # ---------------- Part III ----------------
+  - {num: 11, part: III, slug: general-linear-hypothesis, pages: 70, title: "Testing Models: The General Linear Hypothesis",
+     sources: [[R8, "§8.1–8.5"], [S4, all], [C3, "§3.1–3.3"], [R12, "§12.7–12.8"], [A3, "§3.1–3.2"], [N3, "§3.1–3.4"]],
+     outline: ["Testing reduced models", "The F statistic as a comparison of projections", "Testable hypotheses Λᵀβ = d", "Likelihood ratio derivation", "Power and noncentrality", "Testing single coefficients"]}
+  - {num: 12, part: III, slug: intervals-and-bands, pages: 55, title: "Confidence Intervals, Regions and Prediction Bands",
+     sources: [[S5, all], [R8, "§8.6–8.7"], [N3, "§3.8"], [S6, "§6.1–6.5"]],
+     outline: ["Intervals for estimable functions", "Confidence ellipsoids", "Prediction intervals", "Simultaneous bands for the regression line and surface", "Inverse prediction and calibration", "Bayesian thread II: credible intervals and predictive distributions"]}
+  - {num: 13, part: III, slug: multiplicity, pages: 45, title: "Multiplicity: Scheffé, Tukey, Bonferroni and the False Discovery Rate",
+     sources: [[A3, "§3.5"], [C5, "§5.1–5.5, 5.7"]],
+     outline: ["The multiple testing problem", "Scheffé's projection method", "Tukey's studentized range", "Bonferroni and Holm", "False discovery rate control", "Choosing a procedure"]}
+  - {num: 14, part: III, slug: correlation-lack-of-fit-prediction, pages: 60, title: "Correlation, Lack of Fit and Prediction Theory",
+     sources: [[C6, "§6.3–6.7"], [R10, all], [A3, "§3.3–3.4"]],
+     outline: ["Random regressors and conditional inference", "Best linear prediction", "Multiple and partial correlation", "Testing lack of fit with replicates", "Near-replicate and nonparametric lack-of-fit tests"]}
+
+  # ---------------- Part IV ----------------
+  - {num: 15, part: IV, slug: anova-subspaces, pages: 55, title: "Analysis of Variance as Subspace Comparison",
+     sources: [[C4, all], [R13, "§13.1–13.4, 13.6"], [S8, "§8.1–8.3"], [R12, "§12.7"]],
+     outline: ["The one-way layout as a linear model", "Estimable contrasts", "The ANOVA table from projections", "Orthogonal contrasts", "Balanced and unbalanced one-way layouts"]}
+  - {num: 16, part: IV, slug: multiway-layouts, pages: 60, title: "Multi-Way Layouts and Interaction",
+     sources: [[R14, "§14.1–14.4, 14.6–14.7"], [C7, all], [S8, "§8.4–8.6"]],
+     outline: ["Two-way additive models", "Interaction and its interpretation", "Balanced two-way layouts via orthogonal projections", "Higher-way layouts", "Nested factors"]}
+  - {num: 17, part: IV, slug: unbalanced-data, pages: 35, title: "Unbalanced Data, Cell Means and Empty Cells",
+     sources: [[R15, all], [C7, "§7.5–7.6"]],
+     outline: ["The cell-means model", "Types of sums of squares and what they test", "Constrained models", "Empty cells and estimability"]}
+  - {num: 18, part: IV, slug: covariance-and-design, pages: 60, title: "Analysis of Covariance and Designed Experiments",
+     sources: [[R16, all], [C8, all], [C9, all]],
+     outline: ["Analysis of covariance as a projection problem", "Adjusted treatment means", "Heterogeneous slopes", "Randomized blocks, Latin squares and incomplete blocks", "Missing observations in designed experiments"]}
+
+  # ---------------- Part V ----------------
+  - {num: 19, part: V, slug: theory-of-departures, pages: 40, title: "What Goes Wrong: A Theory of Departures",
+     sources: [[S9, all]],
+     outline: ["Bias from underfitting and overfitting", "Incorrect covariance structure", "Effects of non-normality on inference", "Outliers and their effect on the estimator", "Random explanatory variables", "Collinearity previewed"]}
+  - {num: 20, part: V, slug: residuals-leverage-influence, pages: 50, title: "Residuals, Leverage and Influence",
+     sources: [[S10, "§10.2, 10.6"], [C12, "§12.1, 12.5–12.6"], [N8, all], [R9, all]],
+     outline: ["Kinds of residuals", "Leverage and the hat matrix", "Deletion diagnostics", "Cook's distance, DFFITS, DFBETAS", "Masking and swamping", "Robust fitting as a diagnostic"]}
+  - {num: 21, part: V, slug: nonnormality-heteroscedasticity-serial, pages: 60, title: "Non-Normality, Heteroscedasticity and Serial Correlation",
+     sources: [[N5, all], [N6, all], [N7, "§7.1–7.3"], [S10, "§10.4–10.5"], [C12, "§12.2–12.4"]],
+     outline: ["Checking normality", "Detecting heteroscedasticity", "Weighted least squares", "Heteroscedasticity-consistent covariance estimators", "Serial correlation and the Durbin–Watson test", "Autoregressive errors"]}
+  - {num: 22, part: V, slug: transformations, pages: 45, title: "Transformations",
+     sources: [[N9, all], [S10, "§10.3"], [C12, "§12.7"]],
+     outline: ["Transforming the response", "Box–Cox", "Transforming regressors", "Variance-stabilizing transformations", "Interpreting a transformed model"]}
+  - {num: 23, part: V, slug: resampling-inference, pages: 40, new: true, title: "Bootstrap and Permutation Inference",
+     sources: [[N5, "§5.4 (pointer only)"]],
+     outline: ["Resampling cases versus resampling residuals", "The wild bootstrap", "Bootstrap confidence intervals", "Permutation tests for linear hypotheses", "Freedman–Lane and related schemes", "When resampling fails"]}
+  - {num: 24, part: V, slug: errors-in-variables, pages: 35, new: true, title: "Errors in Variables",
+     sources: [[S9, "§9.6 (random regressors, pointer)"]],
+     outline: ["Attenuation bias", "The classical measurement error model", "Reliability ratios and method of moments correction", "Instrumental variables", "Regression calibration and SIMEX"]}
+  - {num: 25, part: V, slug: causal-interpretation, pages: 45, new: true, title: "Causal Interpretation of Coefficients",
+     sources: [],
+     outline: ["Prediction versus intervention", "Potential outcomes and the regression coefficient", "Confounding and directed acyclic graphs", "Adjustment sets and the back-door criterion", "Bad controls: mediators and colliders", "Regression adjustment in randomized experiments"]}
+
+  # ---------------- Part VI ----------------
+  - {num: 26, part: VI, slug: collinearity, pages: 40, title: "Collinearity: Diagnosis and Consequences",
+     sources: [[S9, "§9.7"], [S10, "§10.7"], [C13, "§13.1–13.2"], [N10, all]],
+     outline: ["What collinearity does to variance", "Variance inflation factors", "Condition indices and variance decomposition", "Collinearity and prediction"]}
+  - {num: 27, part: VI, slug: shrinkage, pages: 50, title: "Shrinkage: Ridge, Principal Components and the Lasso",
+     sources: [[C13, "§13.3–13.5"], [N12, all], [F4, "§4.2 (ridge, lasso)"]],
+     outline: ["Mean squared error and the bias–variance tradeoff", "Ridge regression", "Principal component regression", "The lasso", "Stein's paradox and James–Stein estimation"]}
+  - {num: 28, part: VI, slug: high-dimensional, pages: 45, new: true, title: "High-Dimensional Regression: p > n",
+     sources: [],
+     note: "Agresti §11.2 touches p > n only briefly and relies on his Bayesian chapter; cited in Notes and sources, not used as a source.",
+     outline: ["Minimum-norm interpolation", "Restricted eigenvalue conditions", "Prediction and estimation bounds for the lasso", "Support recovery", "Post-selection and debiased inference"]}
+  - {num: 29, part: VI, slug: model-selection, pages: 60, title: "Model Selection and Prediction",
+     sources: [[S12, all], [C14, all], [N11, all], [F3, "§3.4"]],
+     outline: ["Prediction error and optimism", "Mallows' Cp, AIC and BIC", "Cross-validation", "All subsets and stepwise search", "Selection bias and honest inference"]}
+  - {num: 30, part: VI, slug: regularization-boosting, pages: 35, title: "Regularization and Boosting",
+     sources: [[F4, "§4.2–4.3"]],
+     outline: ["Penalized least squares in general", "Elastic net and group penalties", "Componentwise boosting", "Boosting as regularization"]}
+
+  # ---------------- Part VII ----------------
+  - {num: 31, part: VII, slug: general-gauss-markov, pages: 45, title: "The General Gauss–Markov Model",
+     sources: [[C10, all], [C2, "§2.7"], [S3, "§3.10"], [R7, "§7.8"]],
+     outline: ["Generalized least squares", "When ordinary least squares is BLUE", "Singular covariance matrices", "Estimated covariance: feasible GLS"]}
+  - {num: 32, part: VII, slug: linear-mixed-models, pages: 70, title: "Random Effects and Linear Mixed Models",
+     sources: [[R17, all], [A9, "§9.2–9.3"], [F7, "§7.1–7.4"], [N7, "§7.4–7.5"]],
+     outline: ["Random effects", "The linear mixed model", "BLUP and Henderson's equations", "Maximum likelihood and REML", "Inference for fixed effects and variance components", "Bayesian thread III: mixed models as hierarchical models"]}
+  - {num: 33, part: VII, slug: clustered-longitudinal-splitplot, pages: 50, title: "Clustered, Longitudinal and Split-Plot Data",
+     sources: [[C11, all], [N7, "§7.6–7.7"], [F7, "§7.7"], [R18, "§18.1–18.2"]],
+     outline: ["Split-plot designs", "Repeated measures", "Covariance models for longitudinal data", "Growth curves"]}
+
+  # ---------------- Part VIII ----------------
+  - {num: 34, part: VIII, slug: exponential-families-glm, pages: 50, title: "Exponential Families and the Generalized Linear Model",
+     sources: [[A4, "§4.1–4.5"], [F5, "§5.4"], [R18, "§18.3"]],
+     outline: ["Exponential dispersion families", "Link functions", "Likelihood equations", "Iteratively reweighted least squares", "Deviance and asymptotic inference"]}
+  - {num: 35, part: VIII, slug: binary-responses, pages: 45, title: "Binary Responses",
+     sources: [[A5, all], [F5, "§5.1"]],
+     outline: ["Logistic regression", "Probit and complementary log–log links", "Separation", "Goodness of fit", "Case–control sampling"]}
+  - {num: 36, part: VIII, slug: multinomial-ordinal, pages: 40, title: "Multinomial and Ordinal Responses",
+     sources: [[A6, all], [F6, "§6.2–6.3"]],
+     outline: ["Baseline-category logits", "Cumulative logit models", "Proportional odds and its checks", "Sequential models"]}
+  - {num: 37, part: VIII, slug: counts, pages: 45, title: "Counts",
+     sources: [[A7, all], [F5, "§5.2"]],
+     outline: ["Poisson regression", "Offsets and rates", "Poisson–multinomial connections", "Negative binomial models", "Zero inflation"]}
+  - {num: 38, part: VIII, slug: quasi-likelihood, pages: 30, title: "Quasi-Likelihood and Overdispersion",
+     sources: [[A8, all], [F5, "§5.5"]],
+     outline: ["Variance functions", "Quasi-likelihood estimating equations", "Sandwich covariance estimation", "Overdispersion"]}
+  - {num: 39, part: VIII, slug: glms-in-practice-bayes, pages: 45, title: "GLMs in Practice; the Bayesian Thread",
+     sources: [[F5, "§5.3, 5.6–5.8"], [F6, "§6.1, 6.4–6.6"], [A10, all], [R11, all]],
+     outline: ["Model building for GLMs", "Diagnostics for GLMs", "Bayesian linear models revisited", "Bayesian GLMs and MCMC", "Priors as regularizers"]}
+  - {num: 40, part: VIII, slug: glmm-gee, pages: 40, title: "GLMMs and Generalized Estimating Equations",
+     sources: [[A9, "§9.4–9.6"], [F7, "§7.5–7.6"]],
+     outline: ["Marginal versus conditional models", "Generalized linear mixed models", "Integrated likelihood approximations", "Generalized estimating equations", "Working correlation"]}
+  - {num: 41, part: VIII, slug: missing-data, pages: 40, new: true, title: "Missing Data",
+     sources: [[C9, "§9.3 (missing observations, pointer)"]],
+     outline: ["Missingness mechanisms: MCAR, MAR, MNAR", "Complete-case analysis and when it is valid", "Likelihood-based inference under MAR", "The EM algorithm", "Multiple imputation and Rubin's rules", "Sensitivity analysis"]}
+
+  # ---------------- Part IX ----------------
+  - {num: 42, part: IX, slug: polynomials-piecewise, pages: 40, title: "Polynomials, Piecewise Fits and the Road to Splines",
+     sources: [[S7, "§7.1–7.2"], [S6, "§6.6"], [F2, "§2.5"]],
+     outline: ["Polynomial regression and its instability", "Orthogonal polynomials", "Piecewise polynomials", "Regression splines and truncated power bases"]}
+  - {num: 43, part: IX, slug: smoothing, pages: 75, title: "Smoothing: Kernels, Splines and Penalties",
+     sources: [[F8, "§8.1–8.3"]],
+     outline: ["Kernel and local polynomial regression", "B-splines", "Penalized splines", "Smoothing splines", "Choosing the smoothing parameter", "Mixed-model and Bayesian representations of smoothing"]}
+  - {num: 44, part: IX, slug: additive-models, pages: 55, title: "Additive, Geoadditive and Structured Additive Models",
+     sources: [[F9, all], [A11, "§11.3"]],
+     outline: ["Additive models and backfitting", "Varying-coefficient models", "Spatial effects", "Structured additive regression", "Generalized additive models"]}
+
+  # ---------------- Part X ----------------
+  - {num: 45, part: X, slug: quantile-gamlss, pages: 40, title: "Quantile Regression and GAMLSS",
+     sources: [[F10, all]],
+     outline: ["Why model more than the mean", "Quantile regression", "Expectile regression", "Generalized additive models for location, scale and shape", "Comparing distributional models"]}

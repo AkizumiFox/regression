@@ -1,0 +1,72 @@
+% Book-wide notation for "Regression: From Projection to Distribution".
+% Used by the PDF (included in the LaTeX preamble) and by the website (converted to
+% MathJax macros by build/macros.py). See authoring/NOTATION.md for the conventions.
+% Only \def, \newcommand, \providecommand and \DeclareMathOperator are understood by the
+% web converter. Operators the engine's LaTeX style already defines use \providecommand,
+% so the PDF keeps the engine's definition and the website gets the same one from here.
+
+% Bold vectors and matrices: bold italic, Latin and Greek alike
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\providecommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\Y}{\vect{Y}}
+\newcommand{\y}{\vect{y}}
+\newcommand{\X}{\vect{X}}
+\newcommand{\x}{\vect{x}}
+\newcommand{\W}{\vect{W}}
+\newcommand{\Z}{\vect{Z}}
+\newcommand{\bb}{\vect{b}}
+\newcommand{\bv}{\vect{v}}
+\newcommand{\bu}{\vect{u}}
+\newcommand{\bw}{\vect{w}}
+\newcommand{\bz}{\vect{z}}
+\newcommand{\br}{\vect{r}}
+\newcommand{\be}{\vect{\varepsilon}}
+\newcommand{\bbeta}{\vect{\beta}}
+\newcommand{\bgamma}{\vect{\gamma}}
+\newcommand{\bmu}{\vect{\mu}}
+\newcommand{\blambda}{\vect{\lambda}}
+\newcommand{\bzero}{\vect{0}}
+\newcommand{\bone}{\vect{1}}
+\newcommand{\I}{\vect{I}}
+\newcommand{\A}{\vect{A}}
+\newcommand{\B}{\vect{B}}
+\newcommand{\M}{\vect{M}}
+\newcommand{\Mo}{\vect{M}_0}
+\newcommand{\Q}{\vect{Q}}
+\newcommand{\R}{\vect{R}}
+\newcommand{\V}{\vect{V}}
+\newcommand{\G}{\vect{G}}
+\newcommand{\bP}{\vect{P}}
+\newcommand{\bH}{\vect{H}}
+\newcommand{\bL}{\vect{L}}
+\newcommand{\bD}{\vect{D}}
+\newcommand{\bS}{\vect{S}}
+\newcommand{\bT}{\vect{T}}
+\newcommand{\bU}{\vect{U}}
+\newcommand{\bSigma}{\vect{\Sigma}}
+\newcommand{\bLambda}{\vect{\Lambda}}
+\newcommand{\hbeta}{\hat{\bbeta}}
+\newcommand{\hY}{\hat{\Y}}
+\newcommand{\he}{\hat{\be}}
+
+% Spaces and operators
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\Null}{\mathcal{N}}
+\newcommand{\T}{^{\top}}
+\newcommand{\ginv}{^{-}}
+\newcommand{\perpc}{^{\perp}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\tr}{\operatorname{tr}}
+\providecommand{\diag}{\operatorname{diag}}
+\providecommand{\spn}{\operatorname{span}}
+\providecommand{\Var}{\operatorname{Var}}
+\providecommand{\Cov}{\operatorname{Cov}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\vecop}{\operatorname{vec}}
+\newcommand{\E}{\operatorname{E}}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\inner}[2]{\langle #1,#2\rangle}
+\newcommand{\iid}{\overset{\text{iid}}{\sim}}
+\newcommand{\Normal}{\mathrm{N}}
+\newcommand{\dirsum}{\oplus}

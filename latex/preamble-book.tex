@@ -1,0 +1,66 @@
+% Preamble for Book PDF
+% Same as preamble.tex: full LaTeX setup with bookmode for correct heading styles
+\usepackage{bbm}
+% Text block margins: 2.5cm sides, 2.5cm top/bottom (narrower than default book)
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[skipgeometry,skiphyperref,skiptitlesec]{latex/latex-template}
+\let\maketitle\relax
+
+% List spacing (1.2x)
+\usepackage{enumitem}
+\setlist{itemsep=1.2em, parsep=0pt}
+
+% Chapter styling (bookmode: two-level no box, three-level black box, correct font sizes)
+\usepackage[bookmode]{latex/chapter-style}
+
+% Unnumbered theorem variants for preface (when is-preface, filter uses definition* etc.)
+\newtheorem*{definitionT*}{Definition}
+\newtheorem*{theoremT*}{Theorem}
+\newtheorem*{corollaryT*}{Corollary}
+\newtheorem*{lemmaT*}{Lemma}
+\newtheorem*{propositionT*}{Proposition}
+\newenvironment{definition*}{\begin{dBox}\begin{definitionT*}}{\end{definitionT*}\end{dBox}}
+\newenvironment{theorem*}{\begin{tBox}\begin{theoremT*}}{\end{theoremT*}\end{tBox}}
+\newenvironment{corollary*}{\begin{cBox}\begin{corollaryT*}}{\end{corollaryT*}\end{cBox}}
+\newenvironment{lemma*}{\begin{lBox}\begin{lemmaT*}}{\end{lemmaT*}\end{lBox}}
+\newenvironment{proposition*}{\begin{pBox}\begin{propositionT*}}{\end{propositionT*}\end{pBox}}
+
+% Code listings (runnable cells) and function plots (components.lua)
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily\small, columns=fullflexible, keepspaces=true, breaklines=true,
+  frame=single, rulecolor=\color{black!25}, framesep=6pt, xleftmargin=6pt, xrightmargin=6pt,
+  keywordstyle=\color{blue!60!black}\bfseries, commentstyle=\color{black!55}\itshape,
+  stringstyle=\color{red!60!black}, showstringspaces=false, upquote=true}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% Unicode symbols typed directly in prose (e.g. the proof tags (⇒), (⊆))
+\usepackage{newunicodechar}
+\newunicodechar{⇒}{\ensuremath{\Rightarrow}}
+\newunicodechar{⇐}{\ensuremath{\Leftarrow}}
+\newunicodechar{⇔}{\ensuremath{\Leftrightarrow}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{⊆}{\ensuremath{\subseteq}}
+\newunicodechar{⊇}{\ensuremath{\supseteq}}
+\newunicodechar{∈}{\ensuremath{\in}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{≠}{\ensuremath{\ne}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{①}{\textcircled{\scriptsize 1}}
+\newunicodechar{②}{\textcircled{\scriptsize 2}}
+\newunicodechar{③}{\textcircled{\scriptsize 3}}
+\newunicodechar{④}{\textcircled{\scriptsize 4}}
+
+% Images written by Pandoc carry both width and height=\textheight; keep their shape
+\usepackage{graphicx}
+\setkeys{Gin}{keepaspectratio}
+
+% Tables written by Pandoc (column widths use \real from calc)
+\usepackage{longtable,booktabs,array,calc}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% hyperref is loaded by the pandoc template after latex/macros.tex, and it
+% reclaims \H (the Hungarian-umlaut accent). Restore the bold matrix H once
+% the preamble is over, so \H means the matrix in Chapter 7 onwards.
+\AtBeginDocument{\def\H{\mathbf{H}}}

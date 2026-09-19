@@ -1,0 +1,1673 @@
+{
+ "books": {
+  "R": {
+   "name": "Rencher & Schaalje",
+   "short": "Linear Models in Statistics 2e",
+   "role": "scaffolding"
+  },
+  "S": {
+   "name": "Seber & Lee",
+   "short": "Linear Regression Analysis 2e",
+   "role": "depth"
+  },
+  "C": {
+   "name": "Christensen",
+   "short": "Plane Answers 5e",
+   "role": "geometry"
+  },
+  "N": {
+   "name": "Sen & Srivastava",
+   "short": "Regression Analysis",
+   "role": "practice"
+  },
+  "A": {
+   "name": "Agresti",
+   "short": "Foundations of Linear and GLMs",
+   "role": "bridge"
+  },
+  "F": {
+   "name": "Fahrmeir et al.",
+   "short": "Regression 2e",
+   "role": "capstone"
+  }
+ },
+ "nodes": {
+  "R1": {
+   "id": "R1",
+   "book": "R",
+   "ch": "1",
+   "title": "Introduction",
+   "pages": 4
+  },
+  "R2": {
+   "id": "R2",
+   "book": "R",
+   "ch": "2",
+   "title": "Matrix Algebra",
+   "pages": 64
+  },
+  "R3": {
+   "id": "R3",
+   "book": "R",
+   "ch": "3",
+   "title": "Random Vectors and Matrices",
+   "pages": 18
+  },
+  "R4": {
+   "id": "R4",
+   "book": "R",
+   "ch": "4",
+   "title": "Multivariate Normal Distribution",
+   "pages": 18
+  },
+  "R5": {
+   "id": "R5",
+   "book": "R",
+   "ch": "5",
+   "title": "Distribution of Quadratic Forms",
+   "pages": 22
+  },
+  "R6": {
+   "id": "R6",
+   "book": "R",
+   "ch": "6",
+   "title": "Simple Linear Regression",
+   "pages": 10
+  },
+  "R7": {
+   "id": "R7",
+   "book": "R",
+   "ch": "7",
+   "title": "Multiple Regression: Estimation",
+   "pages": 48
+  },
+  "R8": {
+   "id": "R8",
+   "book": "R",
+   "ch": "8",
+   "title": "Multiple Regression: Tests",
+   "pages": 42
+  },
+  "R9": {
+   "id": "R9",
+   "book": "R",
+   "ch": "9",
+   "title": "Model Validation and Diagnostics",
+   "pages": 16
+  },
+  "R10": {
+   "id": "R10",
+   "book": "R",
+   "ch": "10",
+   "title": "Multiple Regression: Random x's",
+   "pages": 34
+  },
+  "R11": {
+   "id": "R11",
+   "book": "R",
+   "ch": "11",
+   "title": "Bayesian Inference",
+   "pages": 18
+  },
+  "R12": {
+   "id": "R12",
+   "book": "R",
+   "ch": "12",
+   "title": "ANOVA Models (non-full-rank)",
+   "pages": 44
+  },
+  "R13": {
+   "id": "R13",
+   "book": "R",
+   "ch": "13",
+   "title": "One-Way ANOVA: Balanced",
+   "pages": 38
+  },
+  "R14": {
+   "id": "R14",
+   "book": "R",
+   "ch": "14",
+   "title": "Two-Way ANOVA: Balanced",
+   "pages": 36
+  },
+  "R15": {
+   "id": "R15",
+   "book": "R",
+   "ch": "15",
+   "title": "ANOVA: Cell Means, Unbalanced",
+   "pages": 30
+  },
+  "R16": {
+   "id": "R16",
+   "book": "R",
+   "ch": "16",
+   "title": "Analysis of Covariance",
+   "pages": 36
+  },
+  "R17": {
+   "id": "R17",
+   "book": "R",
+   "ch": "17",
+   "title": "Linear Mixed Models",
+   "pages": 28
+  },
+  "R18": {
+   "id": "R18",
+   "book": "R",
+   "ch": "18",
+   "title": "Additional Models",
+   "pages": 10
+  },
+  "SA": {
+   "id": "SA",
+   "book": "S",
+   "ch": "App A",
+   "title": "Matrix Algebra",
+   "pages": 18
+  },
+  "SB": {
+   "id": "SB",
+   "book": "S",
+   "ch": "App B",
+   "title": "Orthogonal Projections",
+   "pages": 4
+  },
+  "S1": {
+   "id": "S1",
+   "book": "S",
+   "ch": "1",
+   "title": "Vectors of Random Variables",
+   "pages": 16
+  },
+  "S2": {
+   "id": "S2",
+   "book": "S",
+   "ch": "2",
+   "title": "Multivariate Normal Distribution",
+   "pages": 18
+  },
+  "S3": {
+   "id": "S3",
+   "book": "S",
+   "ch": "3",
+   "title": "Estimation and Distribution Theory",
+   "pages": 62
+  },
+  "S4": {
+   "id": "S4",
+   "book": "S",
+   "ch": "4",
+   "title": "Hypothesis Testing",
+   "pages": 22
+  },
+  "S5": {
+   "id": "S5",
+   "book": "S",
+   "ch": "5",
+   "title": "Confidence Intervals and Regions",
+   "pages": 20
+  },
+  "S6": {
+   "id": "S6",
+   "book": "S",
+   "ch": "6",
+   "title": "Straight Line Regression",
+   "pages": 26
+  },
+  "S7": {
+   "id": "S7",
+   "book": "S",
+   "ch": "7",
+   "title": "Polynomial Regression",
+   "pages": 22
+  },
+  "S8": {
+   "id": "S8",
+   "book": "S",
+   "ch": "8",
+   "title": "Analysis of Variance",
+   "pages": 40
+  },
+  "S9": {
+   "id": "S9",
+   "book": "S",
+   "ch": "9",
+   "title": "Departures from Assumptions",
+   "pages": 38
+  },
+  "S10": {
+   "id": "S10",
+   "book": "S",
+   "ch": "10",
+   "title": "Departures: Diagnosis and Remedies",
+   "pages": 64
+  },
+  "S11": {
+   "id": "S11",
+   "book": "S",
+   "ch": "11",
+   "title": "Computational Algorithms",
+   "pages": 62
+  },
+  "S12": {
+   "id": "S12",
+   "book": "S",
+   "ch": "12",
+   "title": "Prediction and Model Selection",
+   "pages": 66
+  },
+  "CA": {
+   "id": "CA",
+   "book": "C",
+   "ch": "App A",
+   "title": "Vector Spaces",
+   "pages": 10
+  },
+  "CB": {
+   "id": "CB",
+   "book": "C",
+   "ch": "App B",
+   "title": "Matrix Results",
+   "pages": 24
+  },
+  "C1": {
+   "id": "C1",
+   "book": "C",
+   "ch": "1",
+   "title": "Introduction",
+   "pages": 20
+  },
+  "C2": {
+   "id": "C2",
+   "book": "C",
+   "ch": "2",
+   "title": "Estimation",
+   "pages": 40
+  },
+  "C3": {
+   "id": "C3",
+   "book": "C",
+   "ch": "3",
+   "title": "Testing",
+   "pages": 46
+  },
+  "C4": {
+   "id": "C4",
+   "book": "C",
+   "ch": "4",
+   "title": "One-Way ANOVA",
+   "pages": 16
+  },
+  "C5": {
+   "id": "C5",
+   "book": "C",
+   "ch": "5",
+   "title": "Multiple Comparison Techniques",
+   "pages": 22
+  },
+  "C6": {
+   "id": "C6",
+   "book": "C",
+   "ch": "6",
+   "title": "Regression Analysis",
+   "pages": 52
+  },
+  "C7": {
+   "id": "C7",
+   "book": "C",
+   "ch": "7",
+   "title": "Multifactor ANOVA",
+   "pages": 44
+  },
+  "C8": {
+   "id": "C8",
+   "book": "C",
+   "ch": "8",
+   "title": "Experimental Design Models",
+   "pages": 14
+  },
+  "C9": {
+   "id": "C9",
+   "book": "C",
+   "ch": "9",
+   "title": "Analysis of Covariance",
+   "pages": 26
+  },
+  "C10": {
+   "id": "C10",
+   "book": "C",
+   "ch": "10",
+   "title": "General Gauss-Markov Models",
+   "pages": 32
+  },
+  "C11": {
+   "id": "C11",
+   "book": "C",
+   "ch": "11",
+   "title": "Split Plot Models",
+   "pages": 28
+  },
+  "C12": {
+   "id": "C12",
+   "book": "C",
+   "ch": "12",
+   "title": "Model Diagnostics",
+   "pages": 52
+  },
+  "C13": {
+   "id": "C13",
+   "book": "C",
+   "ch": "13",
+   "title": "Collinearity and Alternative Estimates",
+   "pages": 26
+  },
+  "C14": {
+   "id": "C14",
+   "book": "C",
+   "ch": "14",
+   "title": "Variable Selection",
+   "pages": 28
+  },
+  "N1": {
+   "id": "N1",
+   "book": "N",
+   "ch": "1",
+   "title": "Introduction (simple LR)",
+   "pages": 27
+  },
+  "N2": {
+   "id": "N2",
+   "book": "N",
+   "ch": "2",
+   "title": "Multiple Regression",
+   "pages": 32
+  },
+  "N3": {
+   "id": "N3",
+   "book": "N",
+   "ch": "3",
+   "title": "Tests and Confidence Regions",
+   "pages": 23
+  },
+  "N4": {
+   "id": "N4",
+   "book": "N",
+   "ch": "4",
+   "title": "Indicator Variables",
+   "pages": 17
+  },
+  "N5": {
+   "id": "N5",
+   "book": "N",
+   "ch": "5",
+   "title": "Normality Assumption",
+   "pages": 10
+  },
+  "N6": {
+   "id": "N6",
+   "book": "N",
+   "ch": "6",
+   "title": "Unequal Variances",
+   "pages": 18
+  },
+  "N7": {
+   "id": "N7",
+   "book": "N",
+   "ch": "7",
+   "title": "Correlated Errors",
+   "pages": 26
+  },
+  "N8": {
+   "id": "N8",
+   "book": "N",
+   "ch": "8",
+   "title": "Outliers and Influential Observations",
+   "pages": 26
+  },
+  "N9": {
+   "id": "N9",
+   "book": "N",
+   "ch": "9",
+   "title": "Transformations",
+   "pages": 38
+  },
+  "N10": {
+   "id": "N10",
+   "book": "N",
+   "ch": "10",
+   "title": "Multicollinearity",
+   "pages": 15
+  },
+  "N11": {
+   "id": "N11",
+   "book": "N",
+   "ch": "11",
+   "title": "Variable Selection",
+   "pages": 20
+  },
+  "N12": {
+   "id": "N12",
+   "book": "N",
+   "ch": "12",
+   "title": "Biased Estimation",
+   "pages": 14
+  },
+  "A1": {
+   "id": "A1",
+   "book": "A",
+   "ch": "1",
+   "title": "Introduction to Linear and GLMs",
+   "pages": 25
+  },
+  "A2": {
+   "id": "A2",
+   "book": "A",
+   "ch": "2",
+   "title": "Linear Models: Least Squares Theory",
+   "pages": 54
+  },
+  "A3": {
+   "id": "A3",
+   "book": "A",
+   "ch": "3",
+   "title": "Normal Linear Models: Inference",
+   "pages": 40
+  },
+  "A4": {
+   "id": "A4",
+   "book": "A",
+   "ch": "4",
+   "title": "GLMs: Model Fitting and Inference",
+   "pages": 45
+  },
+  "A5": {
+   "id": "A5",
+   "book": "A",
+   "ch": "5",
+   "title": "Models for Binary Data",
+   "pages": 37
+  },
+  "A6": {
+   "id": "A6",
+   "book": "A",
+   "ch": "6",
+   "title": "Multinomial Response Models",
+   "pages": 26
+  },
+  "A7": {
+   "id": "A7",
+   "book": "A",
+   "ch": "7",
+   "title": "Models for Count Data",
+   "pages": 40
+  },
+  "A8": {
+   "id": "A8",
+   "book": "A",
+   "ch": "8",
+   "title": "Quasi-Likelihood Methods",
+   "pages": 18
+  },
+  "A9": {
+   "id": "A9",
+   "book": "A",
+   "ch": "9",
+   "title": "Modeling Correlated Responses",
+   "pages": 47
+  },
+  "A10": {
+   "id": "A10",
+   "book": "A",
+   "ch": "10",
+   "title": "Bayesian Linear and GLM Modeling",
+   "pages": 31
+  },
+  "A11": {
+   "id": "A11",
+   "book": "A",
+   "ch": "11",
+   "title": "Extensions of GLMs",
+   "pages": 31
+  },
+  "F1": {
+   "id": "F1",
+   "book": "F",
+   "ch": "1",
+   "title": "Introduction",
+   "pages": 21
+  },
+  "F2": {
+   "id": "F2",
+   "book": "F",
+   "ch": "2",
+   "title": "Regression Models (panorama)",
+   "pages": 62
+  },
+  "F3": {
+   "id": "F3",
+   "book": "F",
+   "ch": "3",
+   "title": "Classical Linear Model",
+   "pages": 106
+  },
+  "F4": {
+   "id": "F4",
+   "book": "F",
+   "ch": "4",
+   "title": "Extensions of the Classical Linear Model",
+   "pages": 92
+  },
+  "F5": {
+   "id": "F5",
+   "book": "F",
+   "ch": "5",
+   "title": "Generalized Linear Models",
+   "pages": 60
+  },
+  "F6": {
+   "id": "F6",
+   "book": "F",
+   "ch": "6",
+   "title": "Categorical Regression Models",
+   "pages": 24
+  },
+  "F7": {
+   "id": "F7",
+   "book": "F",
+   "ch": "7",
+   "title": "Mixed Models",
+   "pages": 64
+  },
+  "F8": {
+   "id": "F8",
+   "book": "F",
+   "ch": "8",
+   "title": "Nonparametric Regression",
+   "pages": 123
+  },
+  "F9": {
+   "id": "F9",
+   "book": "F",
+   "ch": "9",
+   "title": "Structured Additive Regression",
+   "pages": 67
+  },
+  "F10": {
+   "id": "F10",
+   "book": "F",
+   "ch": "10",
+   "title": "Distributional Regression Models",
+   "pages": 41
+  }
+ },
+ "hard": [
+  [
+   "R2",
+   "R3"
+  ],
+  [
+   "R3",
+   "R4"
+  ],
+  [
+   "R4",
+   "R5"
+  ],
+  [
+   "R2",
+   "R5"
+  ],
+  [
+   "R1",
+   "R6"
+  ],
+  [
+   "R2",
+   "R6"
+  ],
+  [
+   "R6",
+   "R7"
+  ],
+  [
+   "R3",
+   "R7"
+  ],
+  [
+   "R7",
+   "R8"
+  ],
+  [
+   "R5",
+   "R8"
+  ],
+  [
+   "R4",
+   "R8"
+  ],
+  [
+   "R8",
+   "R9"
+  ],
+  [
+   "R8",
+   "R10"
+  ],
+  [
+   "R8",
+   "R11"
+  ],
+  [
+   "R8",
+   "R12"
+  ],
+  [
+   "R2",
+   "R12"
+  ],
+  [
+   "R12",
+   "R13"
+  ],
+  [
+   "R13",
+   "R14"
+  ],
+  [
+   "R14",
+   "R15"
+  ],
+  [
+   "R14",
+   "R16"
+  ],
+  [
+   "R7",
+   "R16"
+  ],
+  [
+   "R12",
+   "R17"
+  ],
+  [
+   "R7",
+   "R17"
+  ],
+  [
+   "R16",
+   "R17"
+  ],
+  [
+   "R17",
+   "R18"
+  ],
+  [
+   "R2",
+   "S1"
+  ],
+  [
+   "S1",
+   "S2"
+  ],
+  [
+   "S2",
+   "S3"
+  ],
+  [
+   "R2",
+   "S3"
+  ],
+  [
+   "S3",
+   "S4"
+  ],
+  [
+   "S2",
+   "S4"
+  ],
+  [
+   "S4",
+   "S5"
+  ],
+  [
+   "S5",
+   "S6"
+  ],
+  [
+   "S6",
+   "S7"
+  ],
+  [
+   "S3",
+   "S8"
+  ],
+  [
+   "S5",
+   "S8"
+  ],
+  [
+   "S5",
+   "S9"
+  ],
+  [
+   "S9",
+   "S10"
+  ],
+  [
+   "S10",
+   "S12"
+  ],
+  [
+   "S3",
+   "S11"
+  ],
+  [
+   "R2",
+   "S11"
+  ],
+  [
+   "CA",
+   "SB"
+  ],
+  [
+   "CA",
+   "CB"
+  ],
+  [
+   "CB",
+   "C1"
+  ],
+  [
+   "C1",
+   "C2"
+  ],
+  [
+   "CA",
+   "C2"
+  ],
+  [
+   "CB",
+   "C2"
+  ],
+  [
+   "C2",
+   "C3"
+  ],
+  [
+   "C3",
+   "C4"
+  ],
+  [
+   "C4",
+   "C5"
+  ],
+  [
+   "C3",
+   "C6"
+  ],
+  [
+   "C4",
+   "C7"
+  ],
+  [
+   "C7",
+   "C8"
+  ],
+  [
+   "C7",
+   "C9"
+  ],
+  [
+   "C6",
+   "C9"
+  ],
+  [
+   "C2",
+   "C10"
+  ],
+  [
+   "C3",
+   "C10"
+  ],
+  [
+   "C10",
+   "C11"
+  ],
+  [
+   "C7",
+   "C11"
+  ],
+  [
+   "C3",
+   "C12"
+  ],
+  [
+   "C6",
+   "C12"
+  ],
+  [
+   "C12",
+   "C13"
+  ],
+  [
+   "C13",
+   "C14"
+  ],
+  [
+   "N1",
+   "N2"
+  ],
+  [
+   "R2",
+   "N2"
+  ],
+  [
+   "N2",
+   "N3"
+  ],
+  [
+   "N2",
+   "N4"
+  ],
+  [
+   "N3",
+   "N5"
+  ],
+  [
+   "N3",
+   "N6"
+  ],
+  [
+   "N6",
+   "N7"
+  ],
+  [
+   "N2",
+   "N8"
+  ],
+  [
+   "N6",
+   "N9"
+  ],
+  [
+   "N8",
+   "N9"
+  ],
+  [
+   "N2",
+   "N10"
+  ],
+  [
+   "N10",
+   "N11"
+  ],
+  [
+   "N10",
+   "N12"
+  ],
+  [
+   "A1",
+   "A2"
+  ],
+  [
+   "A2",
+   "A3"
+  ],
+  [
+   "A3",
+   "A4"
+  ],
+  [
+   "A4",
+   "A5"
+  ],
+  [
+   "A5",
+   "A6"
+  ],
+  [
+   "A4",
+   "A7"
+  ],
+  [
+   "A7",
+   "A8"
+  ],
+  [
+   "A4",
+   "A9"
+  ],
+  [
+   "A4",
+   "A10"
+  ],
+  [
+   "A9",
+   "A11"
+  ],
+  [
+   "A10",
+   "A11"
+  ],
+  [
+   "F1",
+   "F2"
+  ],
+  [
+   "F2",
+   "F3"
+  ],
+  [
+   "F3",
+   "F4"
+  ],
+  [
+   "F4",
+   "F5"
+  ],
+  [
+   "F5",
+   "F6"
+  ],
+  [
+   "F5",
+   "F7"
+  ],
+  [
+   "F4",
+   "F7"
+  ],
+  [
+   "F3",
+   "F8"
+  ],
+  [
+   "F4",
+   "F8"
+  ],
+  [
+   "F8",
+   "F9"
+  ],
+  [
+   "F7",
+   "F9"
+  ],
+  [
+   "F9",
+   "F10"
+  ],
+  [
+   "F5",
+   "F10"
+  ]
+ ],
+ "soft": [
+  [
+   "SB",
+   "S3"
+  ],
+  [
+   "R2",
+   "CB"
+  ],
+  [
+   "C6",
+   "C7"
+  ],
+  [
+   "A5",
+   "A7"
+  ],
+  [
+   "A8",
+   "A9"
+  ],
+  [
+   "R4",
+   "A3"
+  ],
+  [
+   "R2",
+   "A2"
+  ],
+  [
+   "CA",
+   "A2"
+  ],
+  [
+   "R2",
+   "F3"
+  ],
+  [
+   "R8",
+   "S3"
+  ],
+  [
+   "R8",
+   "A2"
+  ],
+  [
+   "R8",
+   "N3"
+  ],
+  [
+   "A2",
+   "C2"
+  ],
+  [
+   "S3",
+   "C2"
+  ],
+  [
+   "R7",
+   "C2"
+  ],
+  [
+   "SB",
+   "C2"
+  ],
+  [
+   "SB",
+   "A2"
+  ],
+  [
+   "A1",
+   "N4"
+  ],
+  [
+   "N4",
+   "R12"
+  ],
+  [
+   "R12",
+   "C4"
+  ],
+  [
+   "R8",
+   "S8"
+  ],
+  [
+   "N5",
+   "S10"
+  ],
+  [
+   "N6",
+   "S10"
+  ],
+  [
+   "N8",
+   "S10"
+  ],
+  [
+   "N9",
+   "S10"
+  ],
+  [
+   "R9",
+   "S10"
+  ],
+  [
+   "S10",
+   "C12"
+  ],
+  [
+   "N8",
+   "C12"
+  ],
+  [
+   "N10",
+   "C13"
+  ],
+  [
+   "N12",
+   "C13"
+  ],
+  [
+   "R10",
+   "C13"
+  ],
+  [
+   "C14",
+   "S12"
+  ],
+  [
+   "N11",
+   "S12"
+  ],
+  [
+   "C10",
+   "R17"
+  ],
+  [
+   "C10",
+   "A9"
+  ],
+  [
+   "R17",
+   "A9"
+  ],
+  [
+   "A9",
+   "F7"
+  ],
+  [
+   "N7",
+   "R17"
+  ],
+  [
+   "A4",
+   "F5"
+  ],
+  [
+   "A5",
+   "F6"
+  ],
+  [
+   "A6",
+   "F6"
+  ],
+  [
+   "S7",
+   "F8"
+  ],
+  [
+   "S6",
+   "S12"
+  ],
+  [
+   "C13",
+   "F4"
+  ],
+  [
+   "S12",
+   "F4"
+  ],
+  [
+   "A10",
+   "F4"
+  ],
+  [
+   "R11",
+   "A10"
+  ],
+  [
+   "A8",
+   "F5"
+  ],
+  [
+   "F5",
+   "A11"
+  ],
+  [
+   "F8",
+   "A11"
+  ],
+  [
+   "C5",
+   "A3"
+  ],
+  [
+   "S3",
+   "S11"
+  ]
+ ],
+ "alt": [
+  [
+   "R2",
+   "SA",
+   "matrix algebra"
+  ],
+  [
+   "R2",
+   "CB",
+   "matrix algebra"
+  ],
+  [
+   "R3",
+   "S1",
+   "random vectors / expectation operators"
+  ],
+  [
+   "R4",
+   "S2",
+   "multivariate normal"
+  ],
+  [
+   "R5",
+   "S2",
+   "distribution of quadratic forms"
+  ],
+  [
+   "R5",
+   "C1",
+   "distribution of quadratic forms"
+  ],
+  [
+   "R4",
+   "C1",
+   "multivariate normal"
+  ],
+  [
+   "R7",
+   "S3",
+   "least squares estimation"
+  ],
+  [
+   "R7",
+   "F3",
+   "least squares estimation"
+  ],
+  [
+   "S3",
+   "F3",
+   "least squares estimation"
+  ],
+  [
+   "R8",
+   "S4",
+   "hypothesis testing / general linear hypothesis"
+  ],
+  [
+   "R8",
+   "F3",
+   "hypothesis testing"
+  ],
+  [
+   "C2",
+   "A2",
+   "projection-based estimation"
+  ],
+  [
+   "C3",
+   "A3",
+   "testing as subspace comparison"
+  ],
+  [
+   "C5",
+   "A3",
+   "multiple comparisons"
+  ],
+  [
+   "R9",
+   "S10",
+   "regression diagnostics"
+  ],
+  [
+   "R9",
+   "C12",
+   "regression diagnostics"
+  ],
+  [
+   "S10",
+   "C12",
+   "regression diagnostics"
+  ],
+  [
+   "N8",
+   "S10",
+   "outliers and influence"
+  ],
+  [
+   "N9",
+   "S10",
+   "transformations"
+  ],
+  [
+   "N10",
+   "C13",
+   "multicollinearity"
+  ],
+  [
+   "N12",
+   "C13",
+   "ridge / principal component regression"
+  ],
+  [
+   "N12",
+   "F4",
+   "shrinkage and regularization"
+  ],
+  [
+   "C13",
+   "F4",
+   "ridge / regularization"
+  ],
+  [
+   "N11",
+   "C14",
+   "variable selection"
+  ],
+  [
+   "N11",
+   "S12",
+   "variable selection"
+  ],
+  [
+   "C14",
+   "S12",
+   "variable selection"
+  ],
+  [
+   "S12",
+   "F3",
+   "model choice and variable selection"
+  ],
+  [
+   "R11",
+   "A10",
+   "Bayesian linear models"
+  ],
+  [
+   "R11",
+   "C2",
+   "Bayesian estimation"
+  ],
+  [
+   "A10",
+   "F4",
+   "Bayesian linear models"
+  ],
+  [
+   "R11",
+   "S3",
+   "Bayesian estimation"
+  ],
+  [
+   "R13",
+   "C4",
+   "one-way ANOVA"
+  ],
+  [
+   "R14",
+   "C7",
+   "two-way / multifactor ANOVA"
+  ],
+  [
+   "R15",
+   "C7",
+   "unbalanced ANOVA"
+  ],
+  [
+   "R16",
+   "C9",
+   "analysis of covariance"
+  ],
+  [
+   "S8",
+   "C4",
+   "analysis of variance"
+  ],
+  [
+   "S8",
+   "R13",
+   "analysis of variance"
+  ],
+  [
+   "R17",
+   "F7",
+   "linear mixed models"
+  ],
+  [
+   "A9",
+   "F7",
+   "mixed models / correlated data"
+  ],
+  [
+   "A5",
+   "F5",
+   "binary regression"
+  ],
+  [
+   "A6",
+   "F6",
+   "categorical / ordinal responses"
+  ],
+  [
+   "A7",
+   "F5",
+   "count data regression"
+  ],
+  [
+   "A4",
+   "F5",
+   "GLM likelihood machinery"
+  ],
+  [
+   "A11",
+   "F8",
+   "smoothing / GAMs"
+  ],
+  [
+   "N7",
+   "R17",
+   "correlated errors / random effects"
+  ],
+  [
+   "N7",
+   "C10",
+   "non-scalar covariance"
+  ],
+  [
+   "C10",
+   "F7",
+   "general covariance structures"
+  ]
+ ],
+ "levels": {
+  "R1": 0,
+  "R2": 0,
+  "R3": 1,
+  "R4": 2,
+  "R5": 3,
+  "R6": 1,
+  "R7": 2,
+  "R8": 4,
+  "R9": 5,
+  "R10": 5,
+  "R11": 5,
+  "R12": 5,
+  "R13": 6,
+  "R14": 7,
+  "R15": 8,
+  "R16": 8,
+  "R17": 9,
+  "R18": 10,
+  "SA": 0,
+  "SB": 1,
+  "S1": 1,
+  "S2": 2,
+  "S3": 5,
+  "S4": 6,
+  "S5": 7,
+  "S6": 8,
+  "S7": 9,
+  "S8": 8,
+  "S9": 8,
+  "S10": 9,
+  "S11": 6,
+  "S12": 13,
+  "CA": 0,
+  "CB": 1,
+  "C1": 2,
+  "C2": 6,
+  "C3": 7,
+  "C4": 8,
+  "C5": 9,
+  "C6": 8,
+  "C7": 9,
+  "C8": 10,
+  "C9": 10,
+  "C10": 8,
+  "C11": 10,
+  "C12": 10,
+  "C13": 11,
+  "C14": 12,
+  "N1": 0,
+  "N2": 1,
+  "N3": 5,
+  "N4": 2,
+  "N5": 6,
+  "N6": 6,
+  "N7": 7,
+  "N8": 2,
+  "N9": 7,
+  "N10": 2,
+  "N11": 3,
+  "N12": 3,
+  "A1": 0,
+  "A2": 5,
+  "A3": 10,
+  "A4": 11,
+  "A5": 12,
+  "A6": 13,
+  "A7": 13,
+  "A8": 14,
+  "A9": 15,
+  "A10": 12,
+  "A11": 16,
+  "F1": 0,
+  "F2": 1,
+  "F3": 2,
+  "F4": 14,
+  "F5": 15,
+  "F6": 16,
+  "F7": 16,
+  "F8": 15,
+  "F9": 17,
+  "F10": 18
+ },
+ "tracks": {
+  "cover": {
+   "label": "Minimal cover",
+   "desc": "One source per topic, prerequisites closed. Everything the six books teach, read once.",
+   "nodes": [
+    "A1",
+    "A10",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "C1",
+    "C10",
+    "C12",
+    "C13",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "CA",
+    "CB",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F7",
+    "F8",
+    "R1",
+    "R12",
+    "R13",
+    "R14",
+    "R16",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "S1",
+    "S10",
+    "S12",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S9"
+   ],
+   "pages": 1870
+  },
+  "viable": {
+   "label": "Minimum viable",
+   "desc": "Classical linear model only: estimation, inference, geometry, diagnostics, selection.",
+   "nodes": [
+    "C1",
+    "C2",
+    "C3",
+    "CA",
+    "CB",
+    "R1",
+    "R12",
+    "R13",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "S1",
+    "S10",
+    "S12",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S9"
+   ],
+   "pages": 754
+  },
+  "theory": {
+   "label": "Theory spine",
+   "desc": "Deepest structural understanding, no applications. Ends at general Gauss-Markov.",
+   "nodes": [
+    "A1",
+    "A2",
+    "C1",
+    "C10",
+    "C2",
+    "C3",
+    "CA",
+    "CB",
+    "R2",
+    "S1",
+    "S11",
+    "S2",
+    "S3"
+   ],
+   "pages": 473
+  },
+  "impl": {
+   "label": "Implementer",
+   "desc": "For writing the code: numerics, conditioning, regularization.",
+   "nodes": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "S1",
+    "S10",
+    "S11",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S9"
+   ],
+   "pages": 809
+  }
+ }
+}
