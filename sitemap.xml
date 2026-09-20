@@ -245,6 +245,27 @@
   <url><loc>https://regression.akizumifox.com/ch30-regularization-boosting/04-componentwise-boosting.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch30-regularization-boosting/05-boosting-as-regularization.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch30-regularization-boosting/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch31-general-gauss-markov/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch31-general-gauss-markov/01-generalized-least-squares.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch31-general-gauss-markov/02-ols-blue.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch31-general-gauss-markov/03-singular-covariance.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch31-general-gauss-markov/04-feasible-gls.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch31-general-gauss-markov/05-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch32-linear-mixed-models/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch32-linear-mixed-models/01-random-effects.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch32-linear-mixed-models/02-mixed-model.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch32-linear-mixed-models/03-blup.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch32-linear-mixed-models/04-likelihood.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch32-linear-mixed-models/05-inference.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch32-linear-mixed-models/06-bayes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch32-linear-mixed-models/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/01-split-plot.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/02-clustered-data.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/03-repeated-measures.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/04-covariance-models.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/05-growth-curves.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/06-summary-and-notes.html</loc></url>
   <url><loc>https://regression.akizumifox.com/results.html</loc></url>
   <url><loc>https://regression.akizumifox.com/graph.html</loc></url>
 </urlset>

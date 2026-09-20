@@ -269,6 +269,33 @@
    "results": 47,
    "chapterNumber": 30,
    "part": ""
+  },
+  {
+   "id": "ch31-general-gauss-markov",
+   "name": "Chapter 31",
+   "title": "The General Gauss\u2013Markov Model",
+   "url": "ch31-general-gauss-markov/index.html",
+   "results": 45,
+   "chapterNumber": 31,
+   "part": "Part VII \u00b7 When the Errors Are Correlated"
+  },
+  {
+   "id": "ch32-linear-mixed-models",
+   "name": "Chapter 32",
+   "title": "Random Effects and Linear Mixed Models",
+   "url": "ch32-linear-mixed-models/index.html",
+   "results": 64,
+   "chapterNumber": 32,
+   "part": ""
+  },
+  {
+   "id": "ch33-clustered-longitudinal-splitplot",
+   "name": "Chapter 33",
+   "title": "Clustered, Longitudinal and Split-Plot Data",
+   "url": "ch33-clustered-longitudinal-splitplot/index.html",
+   "results": 44,
+   "chapterNumber": 33,
+   "part": ""
   }
  ],
  "edges": [
@@ -405,6 +432,24 @@
    "implied": false
   },
   {
+   "source": "ch01-matrix-algebra",
+   "target": "ch31-general-gauss-markov",
+   "weight": 12,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch32-linear-mixed-models",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch02-random-vectors",
    "target": "ch03-multivariate-normal",
    "weight": 23,
@@ -525,6 +570,24 @@
    "implied": false
   },
   {
+   "source": "ch02-random-vectors",
+   "target": "ch31-general-gauss-markov",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch32-linear-mixed-models",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 4,
+   "implied": false
+  },
+  {
    "source": "ch03-multivariate-normal",
    "target": "ch01-matrix-algebra",
    "weight": 1,
@@ -633,6 +696,12 @@
    "implied": false
   },
   {
+   "source": "ch03-multivariate-normal",
+   "target": "ch32-linear-mixed-models",
+   "weight": 4,
+   "implied": false
+  },
+  {
    "source": "ch04-quadratic-forms",
    "target": "ch02-random-vectors",
    "weight": 4,
@@ -732,6 +801,18 @@
    "source": "ch04-quadratic-forms",
    "target": "ch29-model-selection",
    "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch32-linear-mixed-models",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch04-quadratic-forms",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 5,
    "implied": false
   },
   {
@@ -1005,6 +1086,24 @@
    "implied": false
   },
   {
+   "source": "ch06-projections",
+   "target": "ch31-general-gauss-markov",
+   "weight": 18,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch32-linear-mixed-models",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 8,
+   "implied": false
+  },
+  {
    "source": "ch07-optimality",
    "target": "ch02-random-vectors",
    "weight": 1,
@@ -1014,6 +1113,12 @@
    "source": "ch07-optimality",
    "target": "ch05-model-and-least-squares",
    "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch06-projections",
+   "weight": 1,
    "implied": false
   },
   {
@@ -1137,6 +1242,24 @@
    "implied": false
   },
   {
+   "source": "ch07-optimality",
+   "target": "ch31-general-gauss-markov",
+   "weight": 12,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch32-linear-mixed-models",
+   "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 3,
+   "implied": false
+  },
+  {
    "source": "ch08-estimability",
    "target": "ch01-matrix-algebra",
    "weight": 1,
@@ -1233,6 +1356,18 @@
    "implied": false
   },
   {
+   "source": "ch08-estimability",
+   "target": "ch31-general-gauss-markov",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch32-linear-mixed-models",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch09-sums-of-squares",
    "target": "ch04-quadratic-forms",
    "weight": 1,
@@ -1308,6 +1443,24 @@
    "source": "ch09-sums-of-squares",
    "target": "ch29-model-selection",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch31-general-gauss-markov",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch32-linear-mixed-models",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 3,
    "implied": false
   },
   {
@@ -1503,6 +1656,12 @@
    "implied": false
   },
   {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch31-general-gauss-markov",
+   "weight": 3,
+   "implied": false
+  },
+  {
    "source": "ch12-intervals-and-bands",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -1590,6 +1749,18 @@
    "source": "ch12-intervals-and-bands",
    "target": "ch28-high-dimensional",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch31-general-gauss-markov",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch32-linear-mixed-models",
+   "weight": 1,
    "implied": false
   },
   {
@@ -1725,6 +1896,18 @@
    "implied": false
   },
   {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch32-linear-mixed-models",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 3,
+   "implied": false
+  },
+  {
    "source": "ch15-anova-subspaces",
    "target": "ch08-estimability",
    "weight": 1,
@@ -1751,6 +1934,18 @@
   {
    "source": "ch15-anova-subspaces",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch15-anova-subspaces",
+   "target": "ch32-linear-mixed-models",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch15-anova-subspaces",
+   "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 1,
    "implied": false
   },
@@ -1788,6 +1983,18 @@
    "source": "ch16-multiway-layouts",
    "target": "ch22-transformations",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch16-multiway-layouts",
+   "target": "ch32-linear-mixed-models",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch16-multiway-layouts",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 10,
    "implied": false
   },
   {
@@ -1830,6 +2037,12 @@
    "source": "ch18-covariance-and-design",
    "target": "ch25-causal-interpretation",
    "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch18-covariance-and-design",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 3,
    "implied": false
   },
   {
@@ -1941,6 +2154,18 @@
    "implied": false
   },
   {
+   "source": "ch19-theory-of-departures",
+   "target": "ch31-general-gauss-markov",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch19-theory-of-departures",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch01-matrix-algebra",
    "weight": 1,
@@ -2043,6 +2268,24 @@
    "implied": false
   },
   {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch31-general-gauss-markov",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch32-linear-mixed-models",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 5,
+   "implied": false
+  },
+  {
    "source": "ch22-transformations",
    "target": "ch05-model-and-least-squares",
    "weight": 1,
@@ -2070,6 +2313,24 @@
    "source": "ch23-resampling-inference",
    "target": "ch25-causal-interpretation",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch23-resampling-inference",
+   "target": "ch31-general-gauss-markov",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch23-resampling-inference",
+   "target": "ch32-linear-mixed-models",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch23-resampling-inference",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 2,
    "implied": false
   },
   {
@@ -2193,6 +2454,12 @@
    "implied": false
   },
   {
+   "source": "ch27-shrinkage",
+   "target": "ch32-linear-mixed-models",
+   "weight": 12,
+   "implied": false
+  },
+  {
    "source": "ch28-high-dimensional",
    "target": "ch29-model-selection",
    "weight": 1,
@@ -2238,6 +2505,114 @@
    "source": "ch29-model-selection",
    "target": "ch30-regularization-boosting",
    "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch32-linear-mixed-models",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch31-general-gauss-markov",
+   "target": "ch04-quadratic-forms",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch31-general-gauss-markov",
+   "target": "ch07-optimality",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch31-general-gauss-markov",
+   "target": "ch19-theory-of-departures",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch31-general-gauss-markov",
+   "target": "ch32-linear-mixed-models",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch31-general-gauss-markov",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 8,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch04-quadratic-forms",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch07-optimality",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch09-sums-of-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch13-multiplicity",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch14-correlation-lack-of-fit-prediction",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch15-anova-subspaces",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch16-multiway-layouts",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch18-covariance-and-design",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 30,
+   "implied": false
+  },
+  {
+   "source": "ch33-clustered-longitudinal-splitplot",
+   "target": "ch02-random-vectors",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch33-clustered-longitudinal-splitplot",
+   "target": "ch06-projections",
+   "weight": 1,
    "implied": false
   }
  ]

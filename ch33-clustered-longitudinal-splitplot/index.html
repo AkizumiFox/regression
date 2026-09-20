@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clustered, Longitudinal and Split-Plot Data – Regression:
+From Projection to Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch33-clustered-longitudinal-splitplot/index.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="What you need.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/index.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/index.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="Clustered, Longitudinal and
+Split-Plot Data">
+        <meta property="og:description" content="What you need.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch33-clustered-longitudinal-splitplot/index.html">Clustered, Longitudinal and Split-Plot Data</a></li>
+                        <li class="breadcrumb-item"><a href="../ch33-clustered-longitudinal-splitplot/index.html"><span class="chapter-title">Clustered, Longitudinal and Split-Plot Data</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            
+                            <span class="chapter-title">Clustered,
+Longitudinal and Split-Plot Data</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="clustered-longitudinal-and-split-plot-data">
+
+                </div>
+                <p>Most data arrive in groups. Plots lie in fields,
+                pupils sit in classrooms, patients return for repeated
+                visits, firms are followed for twenty years. Two
+                observations from the same group are more alike than two
+                from different groups, and the error covariance is no
+                longer <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2\mathbf{I}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D408 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">I</mi></mrow></math></mjx-assistive-mml></mjx-container></span>.
+                This chapter is the applied half of Part VII: it takes
+                the general Gauss–Markov theory of <a href="../ch31-general-gauss-markov/index.html">Chapter
+                31</a> and the mixed models of <a href="../ch32-linear-mixed-models/index.html">Chapter
+                32</a> and puts them to work on the three structures
+                that account for most correlated data in practice. A
+                split-plot experiment randomizes at two levels and
+                therefore has two error terms, so some comparisons are
+                precise and others are not. A repeated-measures analysis
+                needs a condition on the covariance that is weaker than
+                equicorrelation and stronger than nothing, and there are
+                three standard ways of dealing with its failure. A
+                longitudinal study needs a covariance model chosen from
+                a small catalogue, checked against the data, and hedged
+                with a standard error that survives its being wrong. The
+                chapter closes with growth curves, where each subject
+                has its own trajectory and the whole point is to borrow
+                strength across subjects.</p>
+                <p><strong>What you need.</strong> <a href="../ch06-projections/index.html">Chapter 6</a>
+                (projection in a general inner product, <a href="../ch06-projections/09-inner-products.html#thm-proj-kruskal" class="xref" data-ref="thm-proj-kruskal" data-shard="ch06-projections">Theorem 6.9.3</a>), <a href="../ch09-sums-of-squares/index.html">Chapter 9</a>
+                (expected mean squares, <a href="../ch09-sums-of-squares/06-expected-mean-squares.html#thm-ss-expected-mean-squares" class="xref" data-ref="thm-ss-expected-mean-squares" data-shard="ch09-sums-of-squares">Theorem 9.6.1</a>), <a href="../ch16-multiway-layouts/index.html">Chapter
+                16</a> (balanced layouts as Kronecker products, <a href="../ch16-multiway-layouts/01-additive.html#lem-tw-kron" class="xref" data-ref="lem-tw-kron" data-shard="ch16-multiway-layouts">Lemma 16.1.1</a>, <a href="../ch16-multiway-layouts/03-balanced.html#thm-tw-balanced" class="xref" data-ref="thm-tw-balanced" data-shard="ch16-multiway-layouts">Theorem 16.3.1</a>),
+                <a href="../ch18-covariance-and-design/index.html">Chapter
+                18</a> (randomized blocks, <a href="../ch18-covariance-and-design/04-randomized-blocks.html#thm-dsn-rcbd" class="xref" data-ref="thm-dsn-rcbd" data-shard="ch18-covariance-and-design">Theorem 18.4.1</a>),
+                <a href="../ch19-theory-of-departures/index.html">Chapter
+                19</a> (the effect of a wrong covariance, <a href="../ch19-theory-of-departures/02-wrong-covariance.html#thm-dep-covariance" class="xref" data-ref="thm-dep-covariance" data-shard="ch19-theory-of-departures">Theorem 19.2.2</a>),
+                <a href="../ch21-nonnormality-heteroscedasticity-serial/index.html">Chapter
+                21</a> (sandwich estimators, <a href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html#thm-het-sandwich" class="xref" data-ref="thm-het-sandwich" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.4.2</a>,
+                autoregressive errors, <a href="../ch21-nonnormality-heteroscedasticity-serial/06-autoregressive-errors.html#def-het-ar1" class="xref" data-ref="def-het-ar1" data-shard="ch21-nonnormality-heteroscedasticity-serial">Definition 21.6.1</a>),
+                <a href="../ch29-model-selection/index.html">Chapter
+                29</a> (<a href="../ch29-model-selection/02-cp-aic-bic.html#def-sel-aic-bic" class="xref" data-ref="def-sel-aic-bic" data-shard="ch29-model-selection">Definition 29.2.2</a>),
+                and the two chapters before this one: generalized least
+                squares and its inference (<a href="../ch31-general-gauss-markov/01-generalized-least-squares.html#def-ggm-gls" class="xref" data-ref="def-ggm-gls" data-shard="ch31-general-gauss-markov">Definition 31.1.1</a>,
+                <a href="../ch31-general-gauss-markov/01-generalized-least-squares.html#thm-ggm-inference" class="xref" data-ref="thm-ggm-inference" data-shard="ch31-general-gauss-markov">Theorem 31.1.1</a>,
+                <a href="../ch31-general-gauss-markov/02-ols-blue.html#thm-ggm-ols-blue" class="xref" data-ref="thm-ggm-ols-blue" data-shard="ch31-general-gauss-markov">Theorem 31.2.2</a>)
+                and the mixed model with its predictors and likelihoods
+                (<a href="../ch32-linear-mixed-models/02-mixed-model.html#def-mix-model" class="xref" data-ref="def-mix-model" data-shard="ch32-linear-mixed-models">Definition 32.2.1</a>,
+                <a href="../ch32-linear-mixed-models/03-blup.html#thm-mix-blup" class="xref" data-ref="thm-mix-blup" data-shard="ch32-linear-mixed-models">Theorem 32.3.1</a>,
+                <a href="../ch32-linear-mixed-models/03-blup.html#thm-mix-henderson" class="xref" data-ref="thm-mix-henderson" data-shard="ch32-linear-mixed-models">Theorem 32.3.2</a>,
+                <a href="../ch32-linear-mixed-models/04-likelihood.html#def-mix-reml" class="xref" data-ref="def-mix-reml" data-shard="ch32-linear-mixed-models">Definition 32.4.1</a>).</p>
+                <h2 id="roadmap">Roadmap</h2>
+                <ul>
+                <li><a href="01-split-plot.html">Split-plot
+                designs</a></li>
+                <li><a href="02-clustered-data.html">Clustered data and
+                compound symmetry</a></li>
+                <li><a href="03-repeated-measures.html">Repeated
+                measures</a></li>
+                <li><a href="04-covariance-models.html">Covariance
+                models for longitudinal data</a></li>
+                <li><a href="05-growth-curves.html">Growth
+                curves</a></li>
+                <li><a href="06-summary-and-notes.html">Summary and
+                notes</a></li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch32-linear-mixed-models/07-summary-and-notes.html" class="pagination-link" aria-label="Summary
+and Notes">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">32.7 Summary and
+Notes</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch33-clustered-longitudinal-splitplot/01-split-plot.html" class="pagination-link" aria-label="Split-plot
+designs">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">33.1 Split-plot
+designs</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Clustered%2C%20Longitudinal%20and%20Split-Plot%20Data&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch33-clustered-longitudinal-splitplot%2Findex.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch33-clustered-longitudinal-splitplot/index.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

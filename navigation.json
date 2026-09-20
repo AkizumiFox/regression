@@ -1571,6 +1571,141 @@
           "filename": "06-summary-and-notes.md"
         }
       ]
+    },
+    {
+      "title": "The General Gauss–Markov Model",
+      "number": 31,
+      "part": "Part VII · When the Errors Are Correlated",
+      "collapsed": true,
+      "path": "ch31-general-gauss-markov/index.html",
+      "sections": [
+        {
+          "title": "Generalized least squares",
+          "number": "31.1",
+          "path": "ch31-general-gauss-markov/01-generalized-least-squares.html",
+          "filename": "01-generalized-least-squares.md"
+        },
+        {
+          "title": "When ordinary least squares is best",
+          "number": "31.2",
+          "path": "ch31-general-gauss-markov/02-ols-blue.html",
+          "filename": "02-ols-blue.md"
+        },
+        {
+          "title": "Singular covariance matrices",
+          "number": "31.3",
+          "path": "ch31-general-gauss-markov/03-singular-covariance.html",
+          "filename": "03-singular-covariance.md"
+        },
+        {
+          "title": "Estimated covariance: feasible generalized least squares",
+          "number": "31.4",
+          "path": "ch31-general-gauss-markov/04-feasible-gls.html",
+          "filename": "04-feasible-gls.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "31.5",
+          "path": "ch31-general-gauss-markov/05-summary-and-notes.html",
+          "filename": "05-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Random Effects and Linear Mixed Models",
+      "number": 32,
+      "part": "",
+      "collapsed": true,
+      "path": "ch32-linear-mixed-models/index.html",
+      "sections": [
+        {
+          "title": "Random effects",
+          "number": "32.1",
+          "path": "ch32-linear-mixed-models/01-random-effects.html",
+          "filename": "01-random-effects.md"
+        },
+        {
+          "title": "The linear mixed model",
+          "number": "32.2",
+          "path": "ch32-linear-mixed-models/02-mixed-model.html",
+          "filename": "02-mixed-model.md"
+        },
+        {
+          "title": "Prediction: BLUP and Henderson's equations",
+          "number": "32.3",
+          "path": "ch32-linear-mixed-models/03-blup.html",
+          "filename": "03-blup.md"
+        },
+        {
+          "title": "Maximum likelihood and REML",
+          "number": "32.4",
+          "path": "ch32-linear-mixed-models/04-likelihood.html",
+          "filename": "04-likelihood.md"
+        },
+        {
+          "title": "Inference when the covariance is estimated",
+          "number": "32.5",
+          "path": "ch32-linear-mixed-models/05-inference.html",
+          "filename": "05-inference.md"
+        },
+        {
+          "title": "Bayesian thread III: mixed models as hierarchical models",
+          "number": "32.6",
+          "path": "ch32-linear-mixed-models/06-bayes.html",
+          "filename": "06-bayes.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "32.7",
+          "path": "ch32-linear-mixed-models/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Clustered, Longitudinal and Split-Plot Data",
+      "number": 33,
+      "part": "",
+      "collapsed": true,
+      "path": "ch33-clustered-longitudinal-splitplot/index.html",
+      "sections": [
+        {
+          "title": "Split-plot designs",
+          "number": "33.1",
+          "path": "ch33-clustered-longitudinal-splitplot/01-split-plot.html",
+          "filename": "01-split-plot.md"
+        },
+        {
+          "title": "Clustered data and compound symmetry",
+          "number": "33.2",
+          "path": "ch33-clustered-longitudinal-splitplot/02-clustered-data.html",
+          "filename": "02-clustered-data.md"
+        },
+        {
+          "title": "Repeated measures",
+          "number": "33.3",
+          "path": "ch33-clustered-longitudinal-splitplot/03-repeated-measures.html",
+          "filename": "03-repeated-measures.md"
+        },
+        {
+          "title": "Covariance models for longitudinal data",
+          "number": "33.4",
+          "path": "ch33-clustered-longitudinal-splitplot/04-covariance-models.html",
+          "filename": "04-covariance-models.md"
+        },
+        {
+          "title": "Growth curves",
+          "number": "33.5",
+          "path": "ch33-clustered-longitudinal-splitplot/05-growth-curves.html",
+          "filename": "05-growth-curves.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "33.6",
+          "path": "ch33-clustered-longitudinal-splitplot/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
     }
   ]
 }

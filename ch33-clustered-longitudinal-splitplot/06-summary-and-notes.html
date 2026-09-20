@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch33-clustered-longitudinal-splitplot/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Split plots.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="33.6 Summary and Notes">
+        <meta property="og:description" content="Split plots.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch33-clustered-longitudinal-splitplot/index.html">Clustered, Longitudinal and Split-Plot Data</a></li>
+                        <li class="breadcrumb-item"><a href="../ch33-clustered-longitudinal-splitplot/06-summary-and-notes.html"><span class="chapter-number">33.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">33.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">33.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A split-plot design randomizes twice and has two
+                error terms: the response space splits into a whole-plot
+                stratum with error variance <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma_s^2+b\sigma_w^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.297em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.297em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>σ</mi><mi>s</mi><mn>2</mn></msubsup><mo>+</mo><mi>b</mi><msubsup><mi>σ</mi><mi>w</mi><mn>2</mn></msubsup></math></mjx-assistive-mml></mjx-container></span>
+                and a subplot stratum with error variance <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma_s^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.297em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mi>σ</mi><mi>s</mi><mn>2</mn></msubsup></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch33-clustered-longitudinal-splitplot/01-split-plot.html#lem-cls-strata" class="xref" data-ref="lem-cls-strata" data-shard="ch33-clustered-longitudinal-splitplot">Lemma 33.1.1</a>).</p></li>
+                <li><p>In the balanced design ordinary least squares is
+                still best, because <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathcal{C}(\mathbf{V}\mathbf{X})\subseteq\mathcal{C}(\mathbf{X})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D415 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2286"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c43 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">V</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mo stretchy="false">)</mo><mo>⊆</mo><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">C</mi></mrow><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>.
+                The whole-plot factor is tested against the
+                block-by-treatment mean square on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(r-1)(a-1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>r</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>a</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> degrees of
+                freedom, the subplot factor and the interaction against
+                the residual; a comparison of whole-plot treatments at
+                one subplot level belongs to neither stratum and needs
+                both mean squares (<a href="../ch33-clustered-longitudinal-splitplot/01-split-plot.html#thm-cls-splitplot" class="xref" data-ref="thm-cls-splitplot" data-shard="ch33-clustered-longitudinal-splitplot">Theorem 33.1.2</a>).
+                Pooling inflates the whole-plot <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> and deflates the
+                subplot one.</p></li>
+                <li><p>With compound symmetry inside clusters of size
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi></math></mjx-assistive-mml></mjx-container></span>, a cluster-level
+                coefficient has its variance multiplied by the design
+                effect <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1+(m-1)\rho"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>+</mo><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi>ρ</mi></math></mjx-assistive-mml></mjx-container></span>
+                and a within-cluster coefficient by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1-\rho"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D70C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>−</mo><mi>ρ</mi></math></mjx-assistive-mml></mjx-container></span>; the usual
+                standard error is wrong by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\{\operatorname{E}(s^2)/\lambda\}^{1/2}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo fence="false" stretchy="false">{</mo><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mo stretchy="false">(</mo><msup><mi>s</mi><mn>2</mn></msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>λ</mi><msup><mo fence="false" stretchy="false">}</mo><mrow data-mjx-texclass="ORD"><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>,
+                with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{E}(s^2)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mo stretchy="false">(</mo><msup><mi>s</mi><mn>2</mn></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> given
+                exactly (<a href="../ch33-clustered-longitudinal-splitplot/02-clustered-data.html#prp-cls-compound" class="xref" data-ref="prp-cls-compound" data-shard="ch33-clustered-longitudinal-splitplot">Proposition 33.2.1</a>).
+                Clustering moves information from between-cluster to
+                within-cluster comparisons.</p></li>
+                <li><p>The cluster-robust covariance estimator assumes
+                only that clusters are independent, and is consistent as
+                the number of clusters grows, not the number of
+                observations. With few clusters it is badly biased
+                downward.</p></li>
+                <li><p>The repeated-measures <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> test is exact if and
+                only if the covariance satisfies sphericity: all
+                pairwise differences of the repeated measurements have
+                the same variance (<a href="../ch33-clustered-longitudinal-splitplot/03-repeated-measures.html#lem-cls-hf-form" class="xref" data-ref="lem-cls-hf-form" data-shard="ch33-clustered-longitudinal-splitplot">Lemma 33.3.1</a>,
+                <a href="../ch33-clustered-longitudinal-splitplot/03-repeated-measures.html#thm-cls-sphericity" class="xref" data-ref="thm-cls-sphericity" data-shard="ch33-clustered-longitudinal-splitplot">Theorem 33.3.2</a>).
+                Compound symmetry implies sphericity; the converse is
+                false.</p></li>
+                <li><p>When sphericity fails, the moment-matched
+                approximation multiplies both degrees of freedom by
+                Box’s <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\epsilon"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D716 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϵ</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch33-clustered-longitudinal-splitplot/03-repeated-measures.html#prp-cls-box" class="xref" data-ref="prp-cls-box" data-shard="ch33-clustered-longitudinal-splitplot">Proposition 33.3.3</a>);
+                the Greenhouse–Geisser and Huynh–Feldt corrections
+                estimate <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\epsilon"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D716 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϵ</mi></math></mjx-assistive-mml></mjx-container></span>,
+                and Hotelling’s <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="T^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.056em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>T</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>
+                avoids the issue at a cost in power (<a href="../ch33-clustered-longitudinal-splitplot/03-repeated-measures.html#prp-cls-multivariate" class="xref" data-ref="prp-cls-multivariate" data-shard="ch33-clustered-longitudinal-splitplot">Proposition 33.3.4</a>).</p></li>
+                <li><p>Longitudinal covariance is built from random
+                effects, serial correlation and measurement error, and
+                the standard models keep one or two of the three (<a href="../ch33-clustered-longitudinal-splitplot/04-covariance-models.html#def-cls-covariance" class="xref" data-ref="def-cls-covariance" data-shard="ch33-clustered-longitudinal-splitplot">Definition 33.4.1</a>).
+                A wrong covariance model leaves the fixed effects
+                unbiased and is repaired by the empirical standard
+                error; restricted likelihoods compare only models with
+                the same mean structure (<a href="../ch33-clustered-longitudinal-splitplot/04-covariance-models.html#prp-cls-selection" class="xref" data-ref="prp-cls-selection" data-shard="ch33-clustered-longitudinal-splitplot">Proposition 33.4.1</a>).</p></li>
+                <li><p>In the balanced random-coefficient growth model
+                the population curve is the average of the subjects’ own
+                curves, needing no covariance parameter; the predicted
+                subject curve shrinks the subject’s own curve towards it
+                by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{D}(\mathbf{D}+\sigma^2(\mathbf{X}^{\top}\mathbf{X})^{-1})^{-1}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D403 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D403 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">D</mi></mrow><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">D</mi></mrow><mo>+</mo><msup><mi>σ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>;
+                and restricted maximum likelihood has the closed form of
+                the two-stage moment estimator (<a href="../ch33-clustered-longitudinal-splitplot/05-growth-curves.html#prp-cls-growth" class="xref" data-ref="prp-cls-growth" data-shard="ch33-clustered-longitudinal-splitplot">Proposition 33.5.1</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">33.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Split plots.</strong> The design and its
+                two-stratum analysis are due to Yates (1935); Fisher
+                (1935) had already made the choice of error term the
+                central issue of experimental design. The route taken
+                here is <a href="../ch33-clustered-longitudinal-splitplot/01-split-plot.html#lem-cls-strata" class="xref" data-ref="lem-cls-strata" data-shard="ch33-clustered-longitudinal-splitplot">Lemma 33.1.1</a>,
+                which reduces everything to <a href="../ch16-multiway-layouts/03-balanced.html#thm-tw-balanced" class="xref" data-ref="thm-tw-balanced" data-shard="ch16-multiway-layouts">Theorem 16.3.1</a>
+                plus Kruskal’s condition (<a href="../ch06-projections/09-inner-products.html#thm-proj-kruskal" class="xref" data-ref="thm-proj-kruskal" data-shard="ch06-projections">Theorem 6.9.3</a>);
+                Christensen (2020, chapter 11) develops split-plot
+                models from a cluster sampling model in the same
+                coordinate-free spirit. The cross-stratum simple effect
+                of <a href="../ch33-clustered-longitudinal-splitplot/01-split-plot.html#thm-cls-splitplot" class="xref" data-ref="thm-cls-splitplot" data-shard="ch33-clustered-longitudinal-splitplot">Theorem 33.1.2</a>(f)
+                is standard practical advice given a derivation
+                here.</p>
+                <p><strong>Clusters and the design effect.</strong> The
+                design effect <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1+(m-1)\rho"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>+</mo><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi>ρ</mi></math></mjx-assistive-mml></mjx-container></span> is Kish’s
+                (1965), from survey sampling; its damage to standard
+                errors for aggregate regressors was pressed on
+                econometricians by Moulton (1990). The cluster-robust
+                estimator <a href="../ch33-clustered-longitudinal-splitplot/02-clustered-data.html#eq-cls-cluster-sandwich" class="xref" data-ref="eq-cls-cluster-sandwich" data-shard="ch33-clustered-longitudinal-splitplot">Eq. 33.2.3</a>
+                is the clustered form of the sandwich estimators of <a href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html">Section
+                21.4</a>, whose proof also gives its consistency,
+                cluster by cluster in place of observation by
+                observation; its small-sample failings and their
+                remedies are surveyed by Cameron and Miller (2015).</p>
+                <p><strong>Sphericity.</strong> Box (1954) computed the
+                effect of an arbitrary covariance on the two-way
+                analysis of variance and introduced <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\epsilon"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D716 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϵ</mi></math></mjx-assistive-mml></mjx-container></span> and the
+                approximation of <a href="../ch33-clustered-longitudinal-splitplot/03-repeated-measures.html#prp-cls-box" class="xref" data-ref="prp-cls-box" data-shard="ch33-clustered-longitudinal-splitplot">Proposition 33.3.3</a>.
+                Huynh and Feldt (1970) isolated the necessary and
+                sufficient condition of <a href="../ch33-clustered-longitudinal-splitplot/03-repeated-measures.html#lem-cls-hf-form" class="xref" data-ref="lem-cls-hf-form" data-shard="ch33-clustered-longitudinal-splitplot">Lemma 33.3.1</a>,
+                which is named after them, and the fixed-<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="N"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>N</mi></math></mjx-assistive-mml></mjx-container></span> form of <a href="../ch33-clustered-longitudinal-splitplot/03-repeated-measures.html#thm-cls-sphericity" class="xref" data-ref="thm-cls-sphericity" data-shard="ch33-clustered-longitudinal-splitplot">Theorem 33.3.2</a>(c)
+                is theirs; the proof here takes the easier route through
+                the large-sample limit. Geisser and Greenhouse (1958)
+                showed the lower-bound reference distribution to be
+                exactly conservative, not merely so within Box’s
+                approximation; Greenhouse and Geisser (1959) made the
+                plug-in and lower-bound corrections a recommendation,
+                Huynh and Feldt (1976) gave the bias-corrected <a href="../ch33-clustered-longitudinal-splitplot/03-repeated-measures.html#eq-cls-hf-epsilon" class="xref" data-ref="eq-cls-hf-epsilon" data-shard="ch33-clustered-longitudinal-splitplot">Eq. 33.3.3</a>,
+                and Mauchly (1940) the likelihood ratio test of
+                sphericity itself. The multivariate alternative is
+                Hotelling’s <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="T^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D447 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.056em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>T</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>
+                (Hotelling 1931), whose distribution theory we quote
+                from Anderson (2003).</p>
+                <p><strong>Longitudinal covariance.</strong> The
+                three-source decomposition <a href="../ch33-clustered-longitudinal-splitplot/04-covariance-models.html#eq-cls-three-sources" class="xref" data-ref="eq-cls-three-sources" data-shard="ch33-clustered-longitudinal-splitplot">Eq. 33.4.1</a>
+                and the empirical variogram are due to Diggle (1988);
+                Diggle, Heagerty, Liang and Zeger (2002) is the standard
+                account. That a working covariance can be wrong without
+                invalidating the estimate, provided the standard error
+                is computed empirically, is from Liang and Zeger (1986),
+                whose generalized estimating equations are the subject
+                of Chapter 40. The rule of <a href="../ch33-clustered-longitudinal-splitplot/04-covariance-models.html#prp-cls-selection" class="xref" data-ref="prp-cls-selection" data-shard="ch33-clustered-longitudinal-splitplot">Proposition 33.4.1</a>(c)
+                follows from <a href="../ch32-linear-mixed-models/04-likelihood.html#def-mix-reml" class="xref" data-ref="def-mix-reml" data-shard="ch32-linear-mixed-models">Definition 32.4.1</a>
+                and is a common source of error in practice. Degrees of
+                freedom under an estimated covariance belong to
+                Satterthwaite (1946) and Kenward and Roger (1997);
+                missing data to Chapter 41, the missing-at-random
+                condition being Rubin’s (1976).</p>
+                <p><strong>Growth curves.</strong> Potthoff and Roy
+                (1964) introduced <a href="../ch33-clustered-longitudinal-splitplot/05-growth-curves.html#eq-cls-potthoff-roy" class="xref" data-ref="eq-cls-potthoff-roy" data-shard="ch33-clustered-longitudinal-splitplot">Eq. 33.5.1</a>
+                and reduced it to an ordinary multivariate analysis of
+                variance by a weight matrix fixed in advance; Rao (1965)
+                gave the efficient estimate and recast growth curves in
+                terms of random coefficients, <a href="../ch33-clustered-longitudinal-splitplot/05-growth-curves.html#eq-cls-random-coefficient" class="xref" data-ref="eq-cls-random-coefficient" data-shard="ch33-clustered-longitudinal-splitplot">Eq. 33.5.2</a>;
+                Laird and Ware (1982) put the two together in the form
+                that became standard software. The shrinkage <a href="../ch33-clustered-longitudinal-splitplot/05-growth-curves.html#eq-cls-growth-blup" class="xref" data-ref="eq-cls-growth-blup" data-shard="ch33-clustered-longitudinal-splitplot">Eq. 33.5.5</a>
+                is the multivariate signal-to-noise weighting of <a href="../ch27-shrinkage/index.html">Chapter 27</a>; the
+                closed form <a href="../ch33-clustered-longitudinal-splitplot/05-growth-curves.html#eq-cls-growth-reml" class="xref" data-ref="eq-cls-growth-reml" data-shard="ch33-clustered-longitudinal-splitplot">Eq. 33.5.7</a>
+                appears to be folklore, proved here by factorizing the
+                error-contrast likelihood into within- and
+                between-subject pieces.</p>
+                <p><strong>The data.</strong> The investment panel of <a href="../ch33-clustered-longitudinal-splitplot/04-covariance-models.html#exm-cls-grunfeld-covariance" class="xref" data-ref="exm-cls-grunfeld-covariance" data-shard="ch33-clustered-longitudinal-splitplot">Example (Investment in eleven firms)</a>
+                and <a href="../ch33-clustered-longitudinal-splitplot/05-growth-curves.html#exm-cls-grunfeld-growth" class="xref" data-ref="exm-cls-grunfeld-growth" data-shard="ch33-clustered-longitudinal-splitplot">Example (The investment trajectories of eleven firms)</a>
+                is Grunfeld’s (1958), in the eleven-firm version
+                reconstructed by Kleiber and Zeileis (2010) and
+                distributed with statsmodels — the panel already fitted
+                with a random firm effect in <a href="../ch32-linear-mixed-models/index.html">Chapter
+                32</a>, seen here from two more angles. The split-plot
+                and repeated-measures examples are simulated.</p>
+                <h2 id="references"><span class="header-section-number">33.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Anderson, Theodore W. (2003). <em>An Introduction to
+                Multivariate Statistical Analysis</em>. 3rd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Box, George E. P. (1954). Some Theorems on Quadratic
+                Forms Applied in the Study of Analysis of Variance
+                Problems, II. Effects of Inequality of Variance and of
+                Correlation Between Errors in the Two-Way
+                Classification. <em>The Annals of Mathematical
+                Statistics</em> 25(3), 484–498.</li>
+                <li>Cameron, A. Colin and Miller, Douglas L. (2015). A
+                Practitioner’s Guide to Cluster-Robust Inference.
+                <em>Journal of Human Resources</em> 50(2), 317–372.</li>
+                <li>Christensen, Ronald (2020). <em>Plane Answers to
+                Complex Questions: The Theory of Linear Models</em>. 5th
+                edition. Cham: Springer.</li>
+                <li>Diggle, Peter J. (1988). An Approach to the Analysis
+                of Repeated Measurements. <em>Biometrics</em> 44(4),
+                959–971.</li>
+                <li>Diggle, Peter J., Heagerty, Patrick, Liang, Kung-Yee
+                and Zeger, Scott L. (2002). <em>Analysis of Longitudinal
+                Data</em>. 2nd edition. Oxford: Oxford University
+                Press.</li>
+                <li>Fisher, Ronald A. (1935). <em>The Design of
+                Experiments</em>. Edinburgh: Oliver and Boyd.</li>
+                <li>Geisser, Seymour and Greenhouse, Samuel W. (1958).
+                An Extension of Box’s Results on the Use of the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> Distribution in
+                Multivariate Analysis. <em>The Annals of Mathematical
+                Statistics</em> 29(3), 885–891.</li>
+                <li>Greenhouse, Samuel W. and Geisser, Seymour (1959).
+                On Methods in the Analysis of Profile Data.
+                <em>Psychometrika</em> 24(2), 95–112.</li>
+                <li>Grunfeld, Yehuda (1958). <em>The Determinants of
+                Corporate Investment</em>. PhD thesis, University of
+                Chicago.</li>
+                <li>Hotelling, Harold (1931). The Generalization of
+                Student’s Ratio. <em>The Annals of Mathematical
+                Statistics</em> 2(3), 360–378.</li>
+                <li>Huynh, Huynh and Feldt, Leonard S. (1970).
+                Conditions under Which Mean Square Ratios in Repeated
+                Measurements Designs Have Exact <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span>-Distributions.
+                <em>Journal of the American Statistical Association</em>
+                65(332), 1582–1589.</li>
+                <li>Huynh, Huynh and Feldt, Leonard S. (1976).
+                Estimation of the Box Correction for Degrees of Freedom
+                from Sample Data in Randomized Block and Split-Plot
+                Designs. <em>Journal of Educational Statistics</em>
+                1(1), 69–82.</li>
+                <li>Kenward, Michael G. and Roger, James H. (1997).
+                Small Sample Inference for Fixed Effects from Restricted
+                Maximum Likelihood. <em>Biometrics</em> 53(3),
+                983–997.</li>
+                <li>Kish, Leslie (1965). <em>Survey Sampling</em>. New
+                York: Wiley.</li>
+                <li>Kleiber, Christian and Zeileis, Achim (2010). The
+                Grunfeld Data at 50. <em>German Economic Review</em>
+                11(4), 404–417.</li>
+                <li>Laird, Nan M. and Ware, James H. (1982).
+                Random-Effects Models for Longitudinal Data.
+                <em>Biometrics</em> 38(4), 963–974.</li>
+                <li>Liang, Kung-Yee and Zeger, Scott L. (1986).
+                Longitudinal Data Analysis Using Generalized Linear
+                Models. <em>Biometrika</em> 73(1), 13–22.</li>
+                <li>Mauchly, John W. (1940). Significance Test for
+                Sphericity of a Normal <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>-Variate Distribution.
+                <em>The Annals of Mathematical Statistics</em> 11(2),
+                204–209.</li>
+                <li>Moulton, Brent R. (1990). An Illustration of a
+                Pitfall in Estimating the Effects of Aggregate Variables
+                on Micro Units. <em>The Review of Economics and
+                Statistics</em> 72(2), 334–338.</li>
+                <li>Potthoff, Richard F. and Roy, S. N. (1964). A
+                Generalized Multivariate Analysis of Variance Model
+                Useful Especially for Growth Curve Problems.
+                <em>Biometrika</em> 51(3–4), 313–326.</li>
+                <li>Rao, C. Radhakrishna (1965). The Theory of Least
+                Squares When the Parameters Are Stochastic and Its
+                Application to the Analysis of Growth Curves.
+                <em>Biometrika</em> 52(3–4), 447–458.</li>
+                <li>Rubin, Donald B. (1976). Inference and Missing Data.
+                <em>Biometrika</em> 63(3), 581–592.</li>
+                <li>Satterthwaite, Franklin E. (1946). An Approximate
+                Distribution of Estimates of Variance Components.
+                <em>Biometrics Bulletin</em> 2(6), 110–114.</li>
+                <li>Yates, Frank (1935). Complex Experiments.
+                <em>Supplement to the Journal of the Royal Statistical
+                Society</em> 2(2), 181–247.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch33-clustered-longitudinal-splitplot/05-growth-curves.html" class="pagination-link" aria-label="Growth
+curves">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">33.5 Growth
+curves</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2033.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch33-clustered-longitudinal-splitplot%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch33-clustered-longitudinal-splitplot/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>
