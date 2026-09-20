@@ -266,6 +266,33 @@
   <url><loc>https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/04-covariance-models.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/05-growth-curves.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch34-exponential-families-glm/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch34-exponential-families-glm/01-exponential-dispersion-families.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch34-exponential-families-glm/02-link-functions.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch34-exponential-families-glm/03-likelihood-equations.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch34-exponential-families-glm/04-irls.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch34-exponential-families-glm/05-deviance-and-inference.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch34-exponential-families-glm/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch35-binary-responses/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch35-binary-responses/01-logistic-regression.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch35-binary-responses/02-probit-cloglog.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch35-binary-responses/03-separation.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch35-binary-responses/04-goodness-of-fit.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch35-binary-responses/05-case-control.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch35-binary-responses/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch36-multinomial-ordinal/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch36-multinomial-ordinal/01-baseline-category-logits.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch36-multinomial-ordinal/02-cumulative-logit-models.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch36-multinomial-ordinal/03-proportional-odds.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch36-multinomial-ordinal/04-sequential-models.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch36-multinomial-ordinal/05-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch37-counts/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch37-counts/01-poisson-regression.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch37-counts/02-offsets-and-rates.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch37-counts/03-poisson-multinomial.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch37-counts/04-negative-binomial.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch37-counts/05-zero-inflation.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch37-counts/06-summary-and-notes.html</loc></url>
   <url><loc>https://regression.akizumifox.com/results.html</loc></url>
   <url><loc>https://regression.akizumifox.com/graph.html</loc></url>
 </urlset>

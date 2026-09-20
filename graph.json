@@ -296,6 +296,42 @@
    "results": 44,
    "chapterNumber": 33,
    "part": ""
+  },
+  {
+   "id": "ch34-exponential-families-glm",
+   "name": "Chapter 34",
+   "title": "Exponential Families and the Generalized Linear Model",
+   "url": "ch34-exponential-families-glm/index.html",
+   "results": 56,
+   "chapterNumber": 34,
+   "part": "Part VIII \u00b7 Beyond the Normal Response"
+  },
+  {
+   "id": "ch35-binary-responses",
+   "name": "Chapter 35",
+   "title": "Binary Responses",
+   "url": "ch35-binary-responses/index.html",
+   "results": 54,
+   "chapterNumber": 35,
+   "part": ""
+  },
+  {
+   "id": "ch36-multinomial-ordinal",
+   "name": "Chapter 36",
+   "title": "Multinomial and Ordinal Responses",
+   "url": "ch36-multinomial-ordinal/index.html",
+   "results": 40,
+   "chapterNumber": 36,
+   "part": ""
+  },
+  {
+   "id": "ch37-counts",
+   "name": "Chapter 37",
+   "title": "Counts",
+   "url": "ch37-counts/index.html",
+   "results": 55,
+   "chapterNumber": 37,
+   "part": ""
   }
  ],
  "edges": [
@@ -816,6 +852,12 @@
    "implied": false
   },
   {
+   "source": "ch04-quadratic-forms",
+   "target": "ch34-exponential-families-glm",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch05-model-and-least-squares",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -932,6 +974,18 @@
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch28-high-dimensional",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch34-exponential-families-glm",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch37-counts",
    "weight": 2,
    "implied": false
   },
@@ -1104,6 +1158,18 @@
    "implied": false
   },
   {
+   "source": "ch06-projections",
+   "target": "ch34-exponential-families-glm",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch37-counts",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch07-optimality",
    "target": "ch02-random-vectors",
    "weight": 1,
@@ -1260,6 +1326,18 @@
    "implied": false
   },
   {
+   "source": "ch07-optimality",
+   "target": "ch34-exponential-families-glm",
+   "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch35-binary-responses",
+   "weight": 5,
+   "implied": false
+  },
+  {
    "source": "ch08-estimability",
    "target": "ch01-matrix-algebra",
    "weight": 1,
@@ -1368,6 +1446,12 @@
    "implied": false
   },
   {
+   "source": "ch08-estimability",
+   "target": "ch37-counts",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch09-sums-of-squares",
    "target": "ch04-quadratic-forms",
    "weight": 1,
@@ -1461,6 +1545,12 @@
    "source": "ch09-sums-of-squares",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch09-sums-of-squares",
+   "target": "ch34-exponential-families-glm",
+   "weight": 2,
    "implied": false
   },
   {
@@ -1662,6 +1752,24 @@
    "implied": false
   },
   {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch34-exponential-families-glm",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch35-binary-responses",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch36-multinomial-ordinal",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch12-intervals-and-bands",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -1761,6 +1869,12 @@
    "source": "ch12-intervals-and-bands",
    "target": "ch32-linear-mixed-models",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch34-exponential-families-glm",
+   "weight": 2,
    "implied": false
   },
   {
@@ -1995,6 +2109,12 @@
    "source": "ch16-multiway-layouts",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch16-multiway-layouts",
+   "target": "ch37-counts",
+   "weight": 5,
    "implied": false
   },
   {
@@ -2226,6 +2346,30 @@
    "implied": false
   },
   {
+   "source": "ch20-residuals-leverage-influence",
+   "target": "ch34-exponential-families-glm",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch20-residuals-leverage-influence",
+   "target": "ch35-binary-responses",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch20-residuals-leverage-influence",
+   "target": "ch36-multinomial-ordinal",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch20-residuals-leverage-influence",
+   "target": "ch37-counts",
+   "weight": 4,
+   "implied": false
+  },
+  {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch05-model-and-least-squares",
    "weight": 3,
@@ -2286,9 +2430,51 @@
    "implied": false
   },
   {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch34-exponential-families-glm",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch35-binary-responses",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch36-multinomial-ordinal",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch37-counts",
+   "weight": 3,
+   "implied": false
+  },
+  {
    "source": "ch22-transformations",
    "target": "ch05-model-and-least-squares",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch22-transformations",
+   "target": "ch34-exponential-families-glm",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch22-transformations",
+   "target": "ch35-binary-responses",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch22-transformations",
+   "target": "ch37-counts",
+   "weight": 2,
    "implied": false
   },
   {
@@ -2376,6 +2562,12 @@
    "implied": false
   },
   {
+   "source": "ch25-causal-interpretation",
+   "target": "ch35-binary-responses",
+   "weight": 4,
+   "implied": false
+  },
+  {
    "source": "ch26-collinearity",
    "target": "ch01-matrix-algebra",
    "weight": 1,
@@ -2460,6 +2652,24 @@
    "implied": false
   },
   {
+   "source": "ch27-shrinkage",
+   "target": "ch35-binary-responses",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch36-multinomial-ordinal",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch37-counts",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch28-high-dimensional",
    "target": "ch29-model-selection",
    "weight": 1,
@@ -2517,6 +2727,36 @@
    "source": "ch29-model-selection",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch34-exponential-families-glm",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch36-multinomial-ordinal",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch37-counts",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch30-regularization-boosting",
+   "target": "ch35-binary-responses",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch30-regularization-boosting",
+   "target": "ch36-multinomial-ordinal",
+   "weight": 1,
    "implied": false
   },
   {
@@ -2604,6 +2844,12 @@
    "implied": false
   },
   {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch37-counts",
+   "weight": 3,
+   "implied": false
+  },
+  {
    "source": "ch33-clustered-longitudinal-splitplot",
    "target": "ch02-random-vectors",
    "weight": 1,
@@ -2613,6 +2859,78 @@
    "source": "ch33-clustered-longitudinal-splitplot",
    "target": "ch06-projections",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch10-computation",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch11-general-linear-hypothesis",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch35-binary-responses",
+   "weight": 15,
+   "implied": false
+  },
+  {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch36-multinomial-ordinal",
+   "weight": 20,
+   "implied": false
+  },
+  {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch37-counts",
+   "weight": 26,
+   "implied": false
+  },
+  {
+   "source": "ch35-binary-responses",
+   "target": "ch05-model-and-least-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch35-binary-responses",
+   "target": "ch34-exponential-families-glm",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch35-binary-responses",
+   "target": "ch36-multinomial-ordinal",
+   "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch35-binary-responses",
+   "target": "ch37-counts",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch36-multinomial-ordinal",
+   "target": "ch37-counts",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch37-counts",
+   "target": "ch05-model-and-least-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch37-counts",
+   "target": "ch34-exponential-families-glm",
+   "weight": 2,
    "implied": false
   }
  ]

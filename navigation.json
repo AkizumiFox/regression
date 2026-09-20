@@ -1706,6 +1706,180 @@
           "filename": "06-summary-and-notes.md"
         }
       ]
+    },
+    {
+      "title": "Exponential Families and the Generalized Linear Model",
+      "number": 34,
+      "part": "Part VIII · Beyond the Normal Response",
+      "collapsed": true,
+      "path": "ch34-exponential-families-glm/index.html",
+      "sections": [
+        {
+          "title": "Exponential dispersion families",
+          "number": "34.1",
+          "path": "ch34-exponential-families-glm/01-exponential-dispersion-families.html",
+          "filename": "01-exponential-dispersion-families.md"
+        },
+        {
+          "title": "Link functions",
+          "number": "34.2",
+          "path": "ch34-exponential-families-glm/02-link-functions.html",
+          "filename": "02-link-functions.md"
+        },
+        {
+          "title": "The likelihood equations",
+          "number": "34.3",
+          "path": "ch34-exponential-families-glm/03-likelihood-equations.html",
+          "filename": "03-likelihood-equations.md"
+        },
+        {
+          "title": "Iteratively reweighted least squares",
+          "number": "34.4",
+          "path": "ch34-exponential-families-glm/04-irls.html",
+          "filename": "04-irls.md"
+        },
+        {
+          "title": "Deviance and asymptotic inference",
+          "number": "34.5",
+          "path": "ch34-exponential-families-glm/05-deviance-and-inference.html",
+          "filename": "05-deviance-and-inference.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "34.6",
+          "path": "ch34-exponential-families-glm/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Binary Responses",
+      "number": 35,
+      "part": "",
+      "collapsed": true,
+      "path": "ch35-binary-responses/index.html",
+      "sections": [
+        {
+          "title": "Logistic regression",
+          "number": "35.1",
+          "path": "ch35-binary-responses/01-logistic-regression.html",
+          "filename": "01-logistic-regression.md"
+        },
+        {
+          "title": "Probit and complementary log–log links",
+          "number": "35.2",
+          "path": "ch35-binary-responses/02-probit-cloglog.html",
+          "filename": "02-probit-cloglog.md"
+        },
+        {
+          "title": "Separation",
+          "number": "35.3",
+          "path": "ch35-binary-responses/03-separation.html",
+          "filename": "03-separation.md"
+        },
+        {
+          "title": "Goodness of fit",
+          "number": "35.4",
+          "path": "ch35-binary-responses/04-goodness-of-fit.html",
+          "filename": "04-goodness-of-fit.md"
+        },
+        {
+          "title": "Case–control sampling",
+          "number": "35.5",
+          "path": "ch35-binary-responses/05-case-control.html",
+          "filename": "05-case-control.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "35.6",
+          "path": "ch35-binary-responses/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Multinomial and Ordinal Responses",
+      "number": 36,
+      "part": "",
+      "collapsed": true,
+      "path": "ch36-multinomial-ordinal/index.html",
+      "sections": [
+        {
+          "title": "Baseline-category logits",
+          "number": "36.1",
+          "path": "ch36-multinomial-ordinal/01-baseline-category-logits.html",
+          "filename": "01-baseline-category-logits.md"
+        },
+        {
+          "title": "Cumulative logit models",
+          "number": "36.2",
+          "path": "ch36-multinomial-ordinal/02-cumulative-logit-models.html",
+          "filename": "02-cumulative-logit-models.md"
+        },
+        {
+          "title": "Proportional odds and its checks",
+          "number": "36.3",
+          "path": "ch36-multinomial-ordinal/03-proportional-odds.html",
+          "filename": "03-proportional-odds.md"
+        },
+        {
+          "title": "Sequential models",
+          "number": "36.4",
+          "path": "ch36-multinomial-ordinal/04-sequential-models.html",
+          "filename": "04-sequential-models.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "36.5",
+          "path": "ch36-multinomial-ordinal/05-summary-and-notes.html",
+          "filename": "05-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Counts",
+      "number": 37,
+      "part": "",
+      "collapsed": true,
+      "path": "ch37-counts/index.html",
+      "sections": [
+        {
+          "title": "Poisson regression",
+          "number": "37.1",
+          "path": "ch37-counts/01-poisson-regression.html",
+          "filename": "01-poisson-regression.md"
+        },
+        {
+          "title": "Offsets and rates",
+          "number": "37.2",
+          "path": "ch37-counts/02-offsets-and-rates.html",
+          "filename": "02-offsets-and-rates.md"
+        },
+        {
+          "title": "Poisson and multinomial",
+          "number": "37.3",
+          "path": "ch37-counts/03-poisson-multinomial.html",
+          "filename": "03-poisson-multinomial.md"
+        },
+        {
+          "title": "Negative binomial models",
+          "number": "37.4",
+          "path": "ch37-counts/04-negative-binomial.html",
+          "filename": "04-negative-binomial.md"
+        },
+        {
+          "title": "Zero inflation",
+          "number": "37.5",
+          "path": "ch37-counts/05-zero-inflation.html",
+          "filename": "05-zero-inflation.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "37.6",
+          "path": "ch37-counts/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
     }
   ]
 }

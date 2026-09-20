@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exponential Families and the Generalized Linear
+Model – Regression: From Projection to Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch34-exponential-families-glm/index.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="What you need.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch34-exponential-families-glm/index.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch34-exponential-families-glm/index.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="Exponential Families and the
+Generalized Linear Model">
+        <meta property="og:description" content="What you need.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch34-exponential-families-glm/index.html">Exponential Families and the Generalized Linear Model</a></li>
+                        <li class="breadcrumb-item"><a href="../ch34-exponential-families-glm/index.html"><span class="chapter-title">Exponential Families and the Generalized Linear Model</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            
+                            <span class="chapter-title">Exponential
+Families and the Generalized Linear Model</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="exponential-families-and-the-generalized-linear-model">
+
+                </div>
+                <p>Every chapter so far has modelled a response whose
+                scatter about a linear mean is, if not normal, at least
+                additive and of constant shape. Counts, proportions,
+                waiting times and insurance claims are none of these:
+                their means are confined to an interval, their spread
+                grows with their mean, their distributions are skewed by
+                construction. This chapter builds the framework that
+                handles them — a response from an <strong>exponential
+                dispersion family</strong>, a <strong>linear
+                predictor</strong> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{x}_{(i)}^{\top}\boldsymbol{\upbeta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.347em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msubsup><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mrow data-mjx-texclass="ORD"><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msubsup><mi mathvariant="bold">β</mi></math></mjx-assistive-mml></mjx-container></span>, and a
+                <strong>link</strong> joining the two. Least squares
+                gives way to maximum likelihood, the normal equations to
+                the likelihood equations, and the closed-form estimate
+                to an iteration that turns out to be weighted least
+                squares, run until it stops changing. Exact distribution
+                theory gives way to asymptotics, so every claim here
+                comes with conditions attached.</p>
+                <p><strong>What you need.</strong> <a href="../ch05-model-and-least-squares/index.html">Chapter
+                5</a> and <a href="../ch06-projections/index.html">Chapter 6</a> (the
+                linear model, projection, leverage), <a href="../ch07-optimality/03-maximum-likelihood.html">Section
+                7.3</a> and <a href="../ch07-optimality/04-minimum-variance.html">Section
+                7.4</a> (maximum likelihood <a href="../ch07-optimality/03-maximum-likelihood.html#thm-opt-mle" class="xref" data-ref="thm-opt-mle" data-shard="ch07-optimality">Theorem 7.3.1</a>, the
+                score and information <a href="../ch07-optimality/04-minimum-variance.html#prp-opt-information" class="xref" data-ref="prp-opt-information" data-shard="ch07-optimality">Proposition 7.4.7</a>,
+                exponential families <a href="../ch07-optimality/04-minimum-variance.html#lem-opt-exponential-family" class="xref" data-ref="lem-opt-exponential-family" data-shard="ch07-optimality">Lemma 7.4.2</a>), <a href="../ch11-general-linear-hypothesis/index.html">Chapter
+                11</a> (the likelihood ratio test <a href="../ch11-general-linear-hypothesis/04-likelihood-ratio.html#thm-glh-lrt" class="xref" data-ref="thm-glh-lrt" data-shard="ch11-general-linear-hypothesis">Theorem 11.4.1</a>
+                and the trinity <a href="../ch11-general-linear-hypothesis/04-likelihood-ratio.html#prp-glh-trinity" class="xref" data-ref="prp-glh-trinity" data-shard="ch11-general-linear-hypothesis">Proposition 11.4.2</a>),
+                <a href="../ch21-nonnormality-heteroscedasticity-serial/03-weighted-least-squares.html">Section
+                21.3</a> (weighted least squares <a href="../ch21-nonnormality-heteroscedasticity-serial/03-weighted-least-squares.html#thm-het-wls" class="xref" data-ref="thm-het-wls" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.3.1</a>).
+                <a href="../ch20-residuals-leverage-influence/index.html">Chapter
+                20</a> (residuals and influence, and iteratively
+                reweighted least squares <a href="../ch20-residuals-leverage-influence/06-robust.html#prp-res-irls" class="xref" data-ref="prp-res-irls" data-shard="ch20-residuals-leverage-influence">Proposition 20.6.1</a>)
+                and <a href="../ch29-model-selection/index.html">Chapter
+                29</a> (AIC) are used in the last section.</p>
+                <h2 id="roadmap">Roadmap</h2>
+                <ul>
+                <li><a href="01-exponential-dispersion-families.html">Exponential
+                dispersion families</a></li>
+                <li><a href="02-link-functions.html">Link
+                functions</a></li>
+                <li><a href="03-likelihood-equations.html">The
+                likelihood equations</a></li>
+                <li><a href="04-irls.html">Iteratively reweighted least
+                squares</a></li>
+                <li><a href="05-deviance-and-inference.html">Deviance
+                and asymptotic inference</a></li>
+                <li><a href="06-summary-and-notes.html">Summary and
+                notes</a></li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch33-clustered-longitudinal-splitplot/06-summary-and-notes.html" class="pagination-link" aria-label="Summary
+and Notes">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">33.6 Summary and
+Notes</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch34-exponential-families-glm/01-exponential-dispersion-families.html" class="pagination-link" aria-label="Exponential
+dispersion families">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">34.1 Exponential
+dispersion families</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Exponential%20Families%20and%20the%20Generalized%20Linear%20Model&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch34-exponential-families-glm%2Findex.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch34-exponential-families-glm/index.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch37-counts/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Poisson regression.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch37-counts/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch37-counts/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="37.6 Summary and Notes">
+        <meta property="og:description" content="Poisson regression.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch37-counts/index.html">Counts</a></li>
+                        <li class="breadcrumb-item"><a href="../ch37-counts/06-summary-and-notes.html"><span class="chapter-number">37.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">37.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">37.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>The Poisson is the exponential dispersion family
+                with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="V(\mu)=\mu"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D449 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>V</mi><mo stretchy="false">(</mo><mi>μ</mi><mo stretchy="false">)</mo><mo>=</mo><mi>μ</mi></math></mjx-assistive-mml></mjx-container></span> and
+                no free dispersion; its canonical link is the logarithm,
+                so coefficients are log rate ratios (<a href="../ch37-counts/01-poisson-regression.html#def-cnt-poisson" class="xref" data-ref="def-cnt-poisson" data-shard="ch37-counts">Definition 37.1.1</a>).</p></li>
+                <li><p>The likelihood equations are <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{X}^{\top}(\mathbf{y}-\hat{\boldsymbol{\upmu}})=\mathbf{0}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛍</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mn class="mjx-b"><mjx-c class="mjx-c1D7CE TEX-B"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow><mo>−</mo><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">μ</mi><mo stretchy="false">^</mo></mover></mrow><mo stretchy="false">)</mo><mo>=</mo><mrow data-mjx-texclass="ORD"><mn mathvariant="bold">0</mn></mrow></math></mjx-assistive-mml></mjx-container></span>,
+                the information is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{X}^{\top}\mathbf{W}\mathbf{X}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D416 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">W</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow></math></mjx-assistive-mml></mjx-container></span> with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{W}=\operatorname{diag}(\hat\mu_i)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D416 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="4"><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.329em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">W</mi></mrow><mo>=</mo><mi>diag</mi><mo stretchy="false">(</mo><msub><mrow data-mjx-texclass="ORD"><mover><mi>μ</mi><mo stretchy="false">^</mo></mover></mrow><mi>i</mi></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, and
+                the log-likelihood is strictly concave at full column
+                rank (<a href="../ch37-counts/01-poisson-regression.html#thm-cnt-score" class="xref" data-ref="thm-cnt-score" data-shard="ch37-counts">Theorem 37.1.1</a>). Fitted
+                counts reproduce the observed margins spanned by the
+                model matrix (<a href="../ch37-counts/01-poisson-regression.html#thm-cnt-marginals" class="xref" data-ref="thm-cnt-marginals" data-shard="ch37-counts">Theorem 37.1.2</a>).</p></li>
+                <li><p>The maximum likelihood estimate exists exactly
+                when no direction <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{d}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D41D TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">d</mi></mrow></math></mjx-assistive-mml></mjx-container></span> satisfies <a href="../ch37-counts/01-poisson-regression.html#eq-cnt-divergent" class="xref" data-ref="eq-cnt-divergent" data-shard="ch37-counts">Eq. 37.1.3</a> (<a href="../ch37-counts/01-poisson-regression.html#prp-cnt-existence" class="xref" data-ref="prp-cnt-existence" data-shard="ch37-counts">Proposition 37.1.3</a>); a
+                ridge penalty always restores one.</p></li>
+                <li><p>Exposure enters as an offset, a column with
+                coefficient fixed at one. Grouping records with
+                identical regressors and carrying group size as exposure
+                leaves the fit unchanged; estimating the exposure
+                coefficient costs precision, fixing a wrong one costs
+                bias (<a href="../ch37-counts/02-offsets-and-rates.html#prp-cnt-offsets" class="xref" data-ref="prp-cnt-offsets" data-shard="ch37-counts">Proposition 37.2.1</a>).</p></li>
+                <li><p>Independent Poisson counts conditioned on their
+                total are multinomial, and the two fits agree whenever
+                the model has a free parameter for every total the
+                design fixed (<a href="../ch37-counts/03-poisson-multinomial.html#thm-cnt-poisson-multinomial" class="xref" data-ref="thm-cnt-poisson-multinomial" data-shard="ch37-counts">Theorem 37.3.1</a>).
+                Independence is the no-interaction model (<a href="../ch37-counts/03-poisson-multinomial.html#cor-cnt-independence" class="xref" data-ref="cor-cnt-independence" data-shard="ch37-counts">Corollary 37.3.2</a>), and
+                interaction parameters are log odds ratios (<a href="../ch37-counts/03-poisson-multinomial.html#prp-cnt-interaction" class="xref" data-ref="prp-cnt-interaction" data-shard="ch37-counts">Proposition 37.3.3</a>).</p></li>
+                <li><p>A gamma mixture of Poissons is negative binomial,
+                with variance <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mu+\mu^2/\kappa"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>μ</mi><mo>+</mo><msup><mi>μ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>κ</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch37-counts/04-negative-binomial.html#lem-cnt-gamma-mixture" class="xref" data-ref="lem-cnt-gamma-mixture" data-shard="ch37-counts">Lemma 37.4.1</a>, <a href="../ch37-counts/04-negative-binomial.html#def-cnt-negbin" class="xref" data-ref="def-cnt-negbin" data-shard="ch37-counts">Definition 37.4.1</a>); any
+                mixing distribution inflates the variance. At fixed
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\kappa"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>κ</mi></math></mjx-assistive-mml></mjx-container></span> the NB2
+                model is a generalized linear model, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\upbeta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">β</mi></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\kappa"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>κ</mi></math></mjx-assistive-mml></mjx-container></span> are orthogonal,
+                and the test of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\alpha=1/\kappa=0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FC TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi><mo>=</mo><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>κ</mi><mo>=</mo><mn>0</mn></math></mjx-assistive-mml></mjx-container></span> is on
+                the boundary, so its null distribution is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tfrac12\chi^2(0)+\tfrac12\chi^2(1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mstyle><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mstyle space="3"><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><msup><mi>χ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>+</mo><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><msup><mi>χ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>;
+                part (f) gives the NB1 score and its relation to
+                quasi-Poisson (<a href="../ch37-counts/04-negative-binomial.html#prp-cnt-negbin" class="xref" data-ref="prp-cnt-negbin" data-shard="ch37-counts">Proposition 37.4.2</a>). The
+                score test <a href="../ch37-counts/04-negative-binomial.html#eq-cnt-score-test" class="xref" data-ref="eq-cnt-score-test" data-shard="ch37-counts">Eq. 37.4.8</a> needs only the
+                Poisson fit (<a href="../ch37-counts/04-negative-binomial.html#thm-cnt-dispersion-score" class="xref" data-ref="thm-cnt-dispersion-score" data-shard="ch37-counts">Theorem 37.4.3</a>).</p></li>
+                <li><p>Zero-inflated models add a mass at zero; hurdle
+                models cut the distribution at zero and fit the two
+                pieces separately, which factorizes the likelihood (<a href="../ch37-counts/05-zero-inflation.html#def-cnt-zero-models" class="xref" data-ref="def-cnt-zero-models" data-shard="ch37-counts">Definition 37.5.1</a>, <a href="../ch37-counts/05-zero-inflation.html#prp-cnt-zero-inflation" class="xref" data-ref="prp-cnt-zero-inflation" data-shard="ch37-counts">Proposition 37.5.1</a>). The
+                Vuong statistic <a href="../ch37-counts/05-zero-inflation.html#eq-cnt-vuong" class="xref" data-ref="eq-cnt-vuong" data-shard="ch37-counts">Eq. 37.5.5</a> is not valid for
+                the nested comparison it is usually applied to.</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">37.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Poisson regression.</strong> The log-linear
+                model for counts predates the generalized linear model,
+                but Nelder and Wedderburn (1972) put it in its modern
+                setting, and McCullagh and Nelder (1989) is the standard
+                reference for the deviance, residuals and fitting
+                algorithm. Agresti (2015, chapter 7) and Fahrmeir et
+                al. (2021, section 5.2) are the sources against which
+                this chapter’s coverage was checked; Cameron and Trivedi
+                (2013) and Winkelmann (2008) are book-length econometric
+                treatments. The existence condition <a href="../ch37-counts/01-poisson-regression.html#prp-cnt-existence" class="xref" data-ref="prp-cnt-existence" data-shard="ch37-counts">Proposition 37.1.3</a> is the
+                Poisson analogue of the separation conditions of <a href="../ch35-binary-responses/index.html">Chapter
+                35</a>, proved here from scratch. The Anscombe residual
+                of <a href="../ch37-counts/01-poisson-regression.html#exr-cnt-anscombe" class="xref" data-ref="exr-cnt-anscombe" data-shard="ch37-counts">Exercise (B3)</a> is from
+                Anscombe (1948).</p>
+                <p><strong>Rates.</strong> Treating survival data with
+                piecewise-constant hazards as Poisson counts with an
+                offset is due to Holford (1980) and Laird and Olivier
+                (1981); it is the reason that much of the early software
+                for survival analysis was software for log-linear
+                models.</p>
+                <p><strong>Contingency tables.</strong> The
+                Poisson–multinomial correspondence and the maximum
+                likelihood theory of hierarchical log-linear models are
+                in Birch (1963) and, comprehensively, Bishop, Fienberg
+                and Holland (1975). Graphical log-linear models are due
+                to Darroch, Lauritzen and Speed (1980). The chi-squared
+                test for independence is Pearson (1900); <a href="../ch37-counts/03-poisson-multinomial.html#cor-cnt-independence" class="xref" data-ref="cor-cnt-independence" data-shard="ch37-counts">Corollary 37.3.2</a> is its
+                likelihood-based restatement.</p>
+                <p><strong>The negative binomial.</strong> The gamma
+                mixture derivation goes back to Greenwood and Yule
+                (1920), who used it for accident proneness. The NB1 and
+                NB2 parameterizations and their different estimating
+                equations are discussed by Cameron and Trivedi (2013,
+                section 3.3) and Hilbe (2011). The score test <a href="../ch37-counts/04-negative-binomial.html#eq-cnt-score-test" class="xref" data-ref="eq-cnt-score-test" data-shard="ch37-counts">Eq. 37.4.8</a> is due to Dean
+                and Lawless (1989); the derivation here, by expanding
+                the log-likelihood in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\alpha"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FC TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>α</mi></math></mjx-assistive-mml></mjx-container></span>, is the usual one.
+                The boundary problem is the setting of Self and Liang
+                (1987), invoked by <a href="../ch37-counts/04-negative-binomial.html#prp-cnt-negbin" class="xref" data-ref="prp-cnt-negbin" data-shard="ch37-counts">Proposition 37.4.2</a>(e); <a href="../ch32-linear-mixed-models/05-inference.html#thm-mix-boundary" class="xref" data-ref="thm-mix-boundary" data-shard="ch32-linear-mixed-models">Theorem 32.5.2</a>
+                computes a comparable case exactly.</p>
+                <p><strong>Zeros.</strong> The zero-inflated Poisson
+                model and its EM algorithm are Lambert (1992), written
+                for defect counts in manufacturing; hurdle models are
+                Mullahy (1986). Vuong (1989) introduced the
+                model-selection statistic, for strictly non-nested
+                models; Wilson (2015) documents its misuse for
+                zero-inflation testing, and Schennach and Wilhelm (2017)
+                analyse its size and propose a repair. The definitions
+                and likelihoods of the two model families are <a href="../ch37-counts/05-zero-inflation.html#def-cnt-zero-models" class="xref" data-ref="def-cnt-zero-models" data-shard="ch37-counts">Definition 37.5.1</a> and the
+                preamble to <a href="../ch37-counts/05-zero-inflation.html#prp-cnt-zero-inflation" class="xref" data-ref="prp-cnt-zero-inflation" data-shard="ch37-counts">Proposition 37.5.1</a>. Chapter
+                38 returns to overdispersion without a likelihood, and
+                Chapter 40 to counts that are not independent.</p>
+                <h2 id="references"><span class="header-section-number">37.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Agresti, Alan (2015). <em>Foundations of Linear and
+                Generalized Linear Models</em>. Hoboken, NJ: Wiley.</li>
+                <li>Anscombe, F. J. (1948). The Transformation of
+                Poisson, Binomial and Negative-Binomial Data.
+                <em>Biometrika</em> 35(3–4), 246–254.</li>
+                <li>Birch, M. W. (1963). Maximum Likelihood in Three-Way
+                Contingency Tables. <em>Journal of the Royal Statistical
+                Society, Series B</em> 25(1), 220–233.</li>
+                <li>Bishop, Yvonne M. M., Fienberg, Stephen E. and
+                Holland, Paul W. (1975). <em>Discrete Multivariate
+                Analysis: Theory and Practice</em>. Cambridge, MA: MIT
+                Press.</li>
+                <li>Cameron, A. Colin and Trivedi, Pravin K. (2013).
+                <em>Regression Analysis of Count Data</em>. 2nd edition.
+                Cambridge: Cambridge University Press.</li>
+                <li>Darroch, J. N., Lauritzen, S. L. and Speed, T. P.
+                (1980). Markov Fields and Log-Linear Interaction Models
+                for Contingency Tables. <em>The Annals of
+                Statistics</em> 8(3), 522–539.</li>
+                <li>Dean, C. and Lawless, J. F. (1989). Tests for
+                Detecting Overdispersion in Poisson Regression Models.
+                <em>Journal of the American Statistical Association</em>
+                84(406), 467–472.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Greenwood, Major and Yule, G. Udny (1920). An
+                Inquiry into the Nature of Frequency Distributions
+                Representative of Multiple Happenings. <em>Journal of
+                the Royal Statistical Society</em> 83(2), 255–279.</li>
+                <li>Hilbe, Joseph M. (2011). <em>Negative Binomial
+                Regression</em>. 2nd edition. Cambridge: Cambridge
+                University Press.</li>
+                <li>Holford, Theodore R. (1980). The Analysis of Rates
+                and of Survivorship Using Log-Linear Models.
+                <em>Biometrics</em> 36(2), 299–305.</li>
+                <li>Laird, Nan and Olivier, Donald (1981). Covariance
+                Analysis of Censored Survival Data Using Log-Linear
+                Analysis Techniques. <em>Journal of the American
+                Statistical Association</em> 76(374), 231–240.</li>
+                <li>Lambert, Diane (1992). Zero-Inflated Poisson
+                Regression, with an Application to Defects in
+                Manufacturing. <em>Technometrics</em> 34(1), 1–14.</li>
+                <li>McCullagh, Peter and Nelder, John A. (1989).
+                <em>Generalized Linear Models</em>. 2nd edition. London:
+                Chapman and Hall.</li>
+                <li>Mullahy, John (1986). Specification and Testing of
+                Some Modified Count Data Models. <em>Journal of
+                Econometrics</em> 33(3), 341–365.</li>
+                <li>Nelder, John A. and Wedderburn, Robert W. M. (1972).
+                Generalized Linear Models. <em>Journal of the Royal
+                Statistical Society, Series A</em> 135(3), 370–384.</li>
+                <li>Pearson, Karl (1900). On the Criterion that a Given
+                System of Deviations from the Probable in the Case of a
+                Correlated System of Variables is Such that It Can Be
+                Reasonably Supposed to Have Arisen from Random Sampling.
+                <em>Philosophical Magazine, Series 5</em> 50(302),
+                157–175.</li>
+                <li>Schennach, Susanne M. and Wilhelm, Daniel (2017). A
+                Simple Parametric Model Selection Test. <em>Journal of
+                the American Statistical Association</em> 112(520),
+                1663–1674.</li>
+                <li>Self, Steven G. and Liang, Kung-Yee (1987).
+                Asymptotic Properties of Maximum Likelihood Estimators
+                and Likelihood Ratio Tests under Nonstandard Conditions.
+                <em>Journal of the American Statistical Association</em>
+                82(398), 605–610.</li>
+                <li>Vuong, Quang H. (1989). Likelihood Ratio Tests for
+                Model Selection and Non-Nested Hypotheses.
+                <em>Econometrica</em> 57(2), 307–333.</li>
+                <li>Wilson, Paul (2015). The Misuse of the Vuong Test
+                for Non-Nested Models to Test for Zero-Inflation.
+                <em>Economics Letters</em> 127, 51–53.</li>
+                <li>Winkelmann, Rainer (2008). <em>Econometric Analysis
+                of Count Data</em>. 5th edition. Berlin: Springer.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch37-counts/05-zero-inflation.html" class="pagination-link" aria-label="Zero
+inflation">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">37.5 Zero
+inflation</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2037.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch37-counts%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch37-counts/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

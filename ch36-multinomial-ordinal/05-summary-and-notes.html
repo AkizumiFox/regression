@@ -1,0 +1,413 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>36.5 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch36-multinomial-ordinal/05-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Coverage.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch36-multinomial-ordinal/05-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch36-multinomial-ordinal/05-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="36.5 Summary and Notes">
+        <meta property="og:description" content="Coverage.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch36-multinomial-ordinal/index.html">Multinomial and Ordinal Responses</a></li>
+                        <li class="breadcrumb-item"><a href="../ch36-multinomial-ordinal/05-summary-and-notes.html"><span class="chapter-number">36.5</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">36.5</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">36.5.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>The multinomial distribution is an exponential
+                family with natural parameters the baseline-category
+                logits, cumulant <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="b(\boldsymbol{\upeta})=\log(1+\sum_s
+                e^{\eta_s})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛈</mjx-utext></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="4"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-munder space="3" limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-msup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D702 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D460 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>b</mi><mo stretchy="false">(</mo><mi mathvariant="bold">η</mi><mo stretchy="false">)</mo><mo>=</mo><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><munder><mo data-mjx-texclass="OP">∑</mo><mi>s</mi></munder><msup><mi>e</mi><mrow data-mjx-texclass="ORD"><msub><mi>η</mi><mi>s</mi></msub></mrow></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, mean <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m\nabla b"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-n"><mjx-c class="mjx-c2207"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44F TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi><mi mathvariant="normal">∇</mi><mi>b</mi></math></mjx-assistive-mml></mjx-container></span> and covariance
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m(\operatorname{diag}(\boldsymbol{\uppi})-\boldsymbol{\uppi}\boldsymbol{\uppi}^{\top})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-n"><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c69"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛑</mjx-utext></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-b" space="3"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛑</mjx-utext></mjx-mi><mjx-msup><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛑</mjx-utext></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi><mo stretchy="false">(</mo><mi>diag</mi><mo stretchy="false">(</mo><mi mathvariant="bold">π</mi><mo stretchy="false">)</mo><mo>−</mo><mi mathvariant="bold">π</mi><msup><mi mathvariant="bold">π</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                (<a href="../ch36-multinomial-ordinal/01-baseline-category-logits.html#lem-mlt-multinomial" class="xref" data-ref="lem-mlt-multinomial" data-shard="ch36-multinomial-ordinal">Lemma 36.1.1</a>).
+                The chapter then chooses which <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="c-1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>c</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> logits to make
+                linear.</p></li>
+                <li><p>The baseline-category logit model (<a href="../ch36-multinomial-ordinal/01-baseline-category-logits.html#def-mlt-baseline" class="xref" data-ref="def-mlt-baseline" data-shard="ch36-multinomial-ordinal">Definition 36.1.1</a>)
+                is the canonical-link generalized linear model for that
+                family: score <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{X}^{\top}(\mathbf{y}_r-\boldsymbol{\upmu}_r)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛍</mjx-utext></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">(</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow><mi>r</mi></msub><mo>−</mo><msub><mi mathvariant="bold">μ</mi><mi>r</mi></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> per
+                category, observed information equal to expected, and a
+                log-likelihood strictly concave when <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{rank}(\mathbf{X})=p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6E"></mjx-c><mjx-c class="mjx-c6B"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>rank</mi><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mo stretchy="false">)</mo><mo>=</mo><mi>p</mi></math></mjx-assistive-mml></mjx-container></span>, so the
+                maximum is unique when it exists (<a href="../ch36-multinomial-ordinal/01-baseline-category-logits.html#thm-mlt-score" class="xref" data-ref="thm-mlt-score" data-shard="ch36-multinomial-ordinal">Theorem 36.1.2</a>).</p></li>
+                <li><p>Changing the baseline is a linear
+                reparameterization, leaving estimates, fitted values,
+                the maximized likelihood and the standard errors of
+                contrasts unchanged (<a href="../ch36-multinomial-ordinal/01-baseline-category-logits.html#prp-mlt-invariance" class="xref" data-ref="prp-mlt-invariance" data-shard="ch36-multinomial-ordinal">Proposition 36.1.3</a>).
+                A coefficient is a log odds ratio against the baseline,
+                not a derivative of a probability (<a href="../ch36-multinomial-ordinal/01-baseline-category-logits.html#prp-mlt-derivative" class="xref" data-ref="prp-mlt-derivative" data-shard="ch36-multinomial-ordinal">Proposition 36.1.4</a>).</p></li>
+                <li><p>For an ordered response, modelling <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="P(Y\le r)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>P</mi><mo stretchy="false">(</mo><mi>Y</mi><mo>≤</mo><mi>r</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> uses the
+                ordering (<a href="../ch36-multinomial-ordinal/02-cumulative-logit-models.html#def-mlt-cumulative" class="xref" data-ref="def-mlt-cumulative" data-shard="ch36-multinomial-ordinal">Definition 36.2.1</a>).
+                Fitted probabilities are positive only where the linear
+                predictors stay in order: automatic with common slopes,
+                a real restriction without them (<a href="../ch36-multinomial-ordinal/02-cumulative-logit-models.html#prp-mlt-ordering" class="xref" data-ref="prp-mlt-ordering" data-shard="ch36-multinomial-ordinal">Proposition 36.2.1</a>).
+                Score and expected information are <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sum_i\mathbf{D}_i^{\top}\mathbf{V}_i^{-1}(\tilde{\mathbf{y}}_i-m_i\tilde{\boldsymbol{\uppi}}_i)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-munder limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-msubsup space="2"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D403 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D415 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.294em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.303em; margin-bottom: -0.215em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c7E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.215em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c7E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛑</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><munder><mo data-mjx-texclass="OP">∑</mo><mi>i</mi></munder><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">D</mi></mrow><mi>i</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msubsup><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">V</mi></mrow><mi>i</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msubsup><mo stretchy="false">(</mo><msub><mrow data-mjx-texclass="ORD"><mover><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow><mo stretchy="false">~</mo></mover></mrow><mi>i</mi></msub><mo>−</mo><msub><mi>m</mi><mi>i</mi></msub><msub><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">π</mi><mo stretchy="false">~</mo></mover></mrow><mi>i</mi></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sum_i
+                m_i\mathbf{D}_i^{\top}\mathbf{V}_i^{-1}\mathbf{D}_i"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-munder limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D403 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D415 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.294em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D403 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><munder><mo data-mjx-texclass="OP">∑</mo><mi>i</mi></munder><msub><mi>m</mi><mi>i</mi></msub><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">D</mi></mrow><mi>i</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msubsup><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">V</mi></mrow><mi>i</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msubsup><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">D</mi></mrow><mi>i</mi></msub></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch36-multinomial-ordinal/02-cumulative-logit-models.html#prp-mlt-cumulative-score" class="xref" data-ref="prp-mlt-cumulative-score" data-shard="ch36-multinomial-ordinal">Proposition 36.2.2</a>),
+                and the log-likelihood is concave when the link density
+                is log-concave.</p></li>
+                <li><p>The proportional odds model has a latent-variable
+                derivation, slopes that survive any collapsing of
+                adjacent categories, cutpoints that never need
+                constraining, and one odds ratio applying at every cut
+                (<a href="../ch36-multinomial-ordinal/03-proportional-odds.html#thm-mlt-proportional-odds" class="xref" data-ref="thm-mlt-proportional-odds" data-shard="ch36-multinomial-ordinal">Theorem 36.3.1</a>).
+                The collapsing invariance is also how it is
+                checked.</p></li>
+                <li><p>That restriction is tested by a score statistic
+                computed from the restricted fit alone, on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(c-2)|A|"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D434 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mi>c</mi><mo>−</mo><mn>2</mn><mo stretchy="false">)</mo><mo data-mjx-texclass="ORD" stretchy="false">|</mo><mi>A</mi><mo data-mjx-texclass="ORD" stretchy="false">|</mo></math></mjx-assistive-mml></mjx-container></span> degrees of
+                freedom, and diagnosed by plotting the slopes of the
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="c-1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>c</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> dichotomized
+                fits (<a href="../ch36-multinomial-ordinal/03-proportional-odds.html#prp-mlt-checks" class="xref" data-ref="prp-mlt-checks" data-shard="ch36-multinomial-ordinal">Proposition 36.3.2</a>).
+                When it fails: partial proportional odds, a different
+                link, a scale effect, a different family, or an honest
+                table of slopes.</p></li>
+                <li><p>A sequential model (<a href="../ch36-multinomial-ordinal/04-sequential-models.html#def-mlt-sequential" class="xref" data-ref="def-mlt-sequential" data-shard="ch36-multinomial-ordinal">Definition 36.4.1</a>)
+                models the probability of stopping at each stage. Its
+                likelihood factors into <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="c-1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>c</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> binomial likelihoods,
+                so with stage-specific slopes it is <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="c-1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>c</mi><mo>−</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> separate binary
+                regressions with asymptotically independent estimates
+                (<a href="../ch36-multinomial-ordinal/04-sequential-models.html#thm-mlt-factorization" class="xref" data-ref="thm-mlt-factorization" data-shard="ch36-multinomial-ordinal">Theorem 36.4.1</a>),
+                and with a common slope one binary regression on
+                expanded data (<a href="../ch36-multinomial-ordinal/04-sequential-models.html#cor-mlt-expanded" class="xref" data-ref="cor-mlt-expanded" data-shard="ch36-multinomial-ordinal">Corollary 36.4.2</a>).
+                No ordering constraint is needed.</p></li>
+                <li><p>With the complementary log-log link the two
+                ordinal families coincide, cutpoints related by a
+                cumulative sum on the exponential scale (<a href="../ch36-multinomial-ordinal/04-sequential-models.html#prp-mlt-cloglog" class="xref" data-ref="prp-mlt-cloglog" data-shard="ch36-multinomial-ordinal">Proposition 36.4.3</a>):
+                the grouped-data proportional hazards model. With the
+                logit link they differ, and the data can tell them
+                apart.</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">36.5.2. </span> Notes and
+                sources</h2>
+                <p><strong>Coverage.</strong> The topics follow Agresti
+                (2015, chapter 6) and Fahrmeir, Kneib, Lang and Marx
+                (2021, §6.2–6.3); the treatment, proofs, examples and
+                exercises are our own.</p>
+                <p><strong>Baseline-category logits.</strong> The model
+                grew up independently in biostatistics and econometrics.
+                McFadden (1974) derived it from random utility
+                maximization, which is the source of the name
+                <em>multinomial logit</em> and of the discrete-choice
+                literature; the underlying axiom is Luce’s (1959), and
+                the independence of irrelevant alternatives in <a href="../ch36-multinomial-ordinal/01-baseline-category-logits.html#exr-mlt-iia" class="xref" data-ref="exr-mlt-iia" data-shard="ch36-multinomial-ordinal">Exercise (C2)</a>
+                is its most famous consequence and problem. McFadden’s
+                conditional logit model, in which regressors vary by
+                category, is the standard extension, not treated here.
+                Existence of the maximum likelihood estimate is settled
+                by Albert and Anderson (1984); <a href="../ch35-binary-responses/03-separation.html#thm-bin-separation" class="xref" data-ref="thm-bin-separation" data-shard="ch35-binary-responses">Theorem 35.3.1</a> is
+                the binary case. The individualized fits of the remark
+                in <a href="01-baseline-category-logits.html">Section
+                36.1</a> are analysed by Begg and Gray (1984).</p>
+                <p><strong>Cumulative models.</strong> Modelling
+                cumulative probabilities with a common slope goes back
+                to Walker and Duncan (1967). McCullagh (1980) named the
+                proportional odds model and gave the latent-variable
+                derivation, the general cumulative link family and the
+                invariance properties of <a href="../ch36-multinomial-ordinal/03-proportional-odds.html#thm-mlt-proportional-odds" class="xref" data-ref="thm-mlt-proportional-odds" data-shard="ch36-multinomial-ordinal">Theorem 36.3.1</a>;
+                McCullagh and Nelder (1989, chapter 5) is a compressed
+                version. Anderson (1984) introduced a different ordinal
+                family, the <em>stereotype</em> model, which estimates
+                category scores rather than assuming them. That the
+                log-likelihood of a cumulative link model is concave
+                whenever the link density is log-concave was proved by
+                Pratt (1981) and, for grouped data specifically, by
+                Burridge (1981); it is the reason Fisher scoring is as
+                docile here as it is. The asymptotics of <a href="02-cumulative-logit-models.html">Section 36.2</a>
+                are imported rather than proved, this model not being a
+                generalized linear model; the standard accounts are van
+                der Vaart (1998) and Lehmann and Casella (1998). Agresti
+                (2010) is the book-length treatment, and covers the
+                scale-effect models of <a href="03-proportional-odds.html">Section 36.3</a> and
+                the connection with rank statistics in <a href="../ch36-multinomial-ordinal/03-proportional-odds.html#exr-mlt-po-rank" class="xref" data-ref="exr-mlt-po-rank" data-shard="ch36-multinomial-ordinal">Exercise (C2)</a>.</p>
+                <p><strong>Checking proportional odds.</strong> The
+                score test of <a href="../ch36-multinomial-ordinal/03-proportional-odds.html#prp-mlt-checks" class="xref" data-ref="prp-mlt-checks" data-shard="ch36-multinomial-ordinal">Proposition 36.3.2</a>
+                is the one most software reports; Brant (1990) gave the
+                Wald version based on the separate dichotomized fits,
+                which is where the habit of plotting them comes from; it
+                tests the same hypothesis as the score statistic but is
+                a different statistic. Partial proportional odds models
+                are due to Peterson and Harrell (1990), who also noted
+                that such fits can produce negative probabilities — the
+                failure of <a href="../ch36-multinomial-ordinal/02-cumulative-logit-models.html#prp-mlt-ordering" class="xref" data-ref="prp-mlt-ordering" data-shard="ch36-multinomial-ordinal">Proposition 36.2.1</a>.</p>
+                <p><strong>Sequential models.</strong>
+                Continuation-ratio logits go back to Fienberg (1980);
+                the sequential formulation used here, with a link and a
+                linear predictor at each stage, is Tutz’s (1991).
+                Fahrmeir and Tutz (2001) and Tutz (2012) give the
+                textbook treatments, the latter with a taxonomy of
+                ordinal models built out of binary ones. The
+                factorization of <a href="../ch36-multinomial-ordinal/04-sequential-models.html#thm-mlt-factorization" class="xref" data-ref="thm-mlt-factorization" data-shard="ch36-multinomial-ordinal">Theorem 36.4.1</a>
+                is the algebra that underlies discrete-time survival
+                analysis, where the stages are time intervals and the
+                continuation ratios are hazards; the continuous-time
+                ancestor is Cox (1972), and <a href="../ch36-multinomial-ordinal/04-sequential-models.html#prp-mlt-cloglog" class="xref" data-ref="prp-mlt-cloglog" data-shard="ch36-multinomial-ordinal">Proposition 36.4.3</a>,
+                due to Läärä and Matthews (1985), connects the two.</p>
+                <p><strong>Data.</strong> Both examples use
+                public-domain data shipped with statsmodels: the
+                travel-mode data of <a href="../ch36-multinomial-ordinal/01-baseline-category-logits.html#exm-mlt-mode" class="xref" data-ref="exm-mlt-mode" data-shard="ch36-multinomial-ordinal">Example (Choosing how to travel)</a>
+                come from the online archive of Greene’s econometrics
+                text, and <a href="../ch36-multinomial-ordinal/02-cumulative-logit-models.html#exm-mlt-selfplacement" class="xref" data-ref="exm-mlt-selfplacement" data-shard="ch36-multinomial-ordinal">Example (A seven-point scale)</a>
+                uses an extract of the 1996 American National Election
+                Study, whose education and income variables are ordered
+                scales treated here as numerical scores. Treating them
+                as factors changes the coefficients but no conclusion
+                about proportional odds. Neither example is a causal
+                statement, for the reasons in <a href="../ch25-causal-interpretation/index.html">Chapter
+                25</a>.</p>
+                <p><strong>What is missing.</strong> Responses
+                clustered, repeated or overdispersed relative to <a href="../ch36-multinomial-ordinal/01-baseline-category-logits.html#lem-mlt-multinomial" class="xref" data-ref="lem-mlt-multinomial" data-shard="ch36-multinomial-ordinal">Lemma 36.1.1</a>
+                need more than this chapter offers: Chapter 38 takes up
+                quasi-likelihood and overdispersion, Chapter 40 random
+                effects and estimating equations, and Chapter 39
+                Bayesian fitting, where the latent variable of <a href="../ch36-multinomial-ordinal/03-proportional-odds.html#thm-mlt-proportional-odds" class="xref" data-ref="thm-mlt-proportional-odds" data-shard="ch36-multinomial-ordinal">Theorem 36.3.1</a>(a)
+                becomes a data augmentation scheme.</p>
+                <h2 id="references"><span class="header-section-number">36.5.3. </span>
+                References</h2>
+                <ul>
+                <li>Agresti, Alan (2010). <em>Analysis of Ordinal
+                Categorical Data</em>. 2nd edition. Hoboken, NJ:
+                Wiley.</li>
+                <li>Agresti, Alan (2015). <em>Foundations of Linear and
+                Generalized Linear Models</em>. Hoboken, NJ: Wiley.</li>
+                <li>Albert, Adelin and Anderson, John A. (1984). On the
+                Existence of Maximum Likelihood Estimates in Logistic
+                Regression Models. <em>Biometrika</em> 71(1), 1–10.</li>
+                <li>Anderson, John A. (1984). Regression and Ordered
+                Categorical Variables. <em>Journal of the Royal
+                Statistical Society, Series B</em> 46(1), 1–30.</li>
+                <li>Begg, Colin B. and Gray, Robert (1984). Calculation
+                of Polychotomous Logistic Regression Parameters Using
+                Individualized Regressions. <em>Biometrika</em> 71(1),
+                11–18.</li>
+                <li>Brant, Rollin (1990). Assessing Proportionality in
+                the Proportional Odds Model for Ordinal Logistic
+                Regression. <em>Biometrics</em> 46(4), 1171–1178.</li>
+                <li>Burridge, J. (1981). A Note on Maximum Likelihood
+                Estimation for Regression Models Using Grouped Data.
+                <em>Journal of the Royal Statistical Society, Series
+                B</em> 43(1), 41–45.</li>
+                <li>Cox, David R. (1972). Regression Models and
+                Life-Tables. <em>Journal of the Royal Statistical
+                Society, Series B</em> 34(2), 187–220.</li>
+                <li>Fahrmeir, Ludwig and Tutz, Gerhard (2001).
+                <em>Multivariate Statistical Modelling Based on
+                Generalized Linear Models</em>. 2nd edition. New York:
+                Springer.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Fienberg, Stephen E. (1980). <em>The Analysis of
+                Cross-Classified Categorical Data</em>. 2nd edition.
+                Cambridge, MA: MIT Press.</li>
+                <li>Läärä, Esa and Matthews, John N. S. (1985). The
+                Equivalence of Two Models for Ordinal Data.
+                <em>Biometrika</em> 72(1), 206–207.</li>
+                <li>Lehmann, E. L. and Casella, George (1998).
+                <em>Theory of Point Estimation</em>. 2nd edition. New
+                York: Springer.</li>
+                <li>Luce, R. Duncan (1959). <em>Individual Choice
+                Behavior: A Theoretical Analysis</em>. New York:
+                Wiley.</li>
+                <li>McCullagh, Peter (1980). Regression Models for
+                Ordinal Data. <em>Journal of the Royal Statistical
+                Society, Series B</em> 42(2), 109–142.</li>
+                <li>McCullagh, Peter and Nelder, John A. (1989).
+                <em>Generalized Linear Models</em>. 2nd edition. London:
+                Chapman and Hall.</li>
+                <li>McFadden, Daniel (1974). Conditional Logit Analysis
+                of Qualitative Choice Behavior. In Paul Zarembka
+                (editor), <em>Frontiers in Econometrics</em>, 105–142.
+                New York: Academic Press.</li>
+                <li>Peterson, Bercedis and Harrell, Frank E. (1990).
+                Partial Proportional Odds Models for Ordinal Response
+                Variables. <em>Journal of the Royal Statistical Society,
+                Series C</em> 39(2), 205–217.</li>
+                <li>Pratt, John W. (1981). Concavity of the Log
+                Likelihood. <em>Journal of the American Statistical
+                Association</em> 76(373), 103–106.</li>
+                <li>Tutz, Gerhard (1991). Sequential Models in
+                Categorical Regression. <em>Computational Statistics and
+                Data Analysis</em> 11(3), 275–295.</li>
+                <li>Tutz, Gerhard (2012). <em>Regression for Categorical
+                Data</em>. Cambridge: Cambridge University Press.</li>
+                <li>Walker, Strother H. and Duncan, David B. (1967).
+                Estimation of the Probability of an Event as a Function
+                of Several Independent Variables. <em>Biometrika</em>
+                54(1–2), 167–179.</li>
+                <li>van der Vaart, Aad W. (1998). <em>Asymptotic
+                Statistics</em>. Cambridge: Cambridge University
+                Press.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch36-multinomial-ordinal/04-sequential-models.html" class="pagination-link" aria-label="Sequential
+models">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">36.4 Sequential
+models</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch37-counts/index.html" class="pagination-link" aria-label="Counts">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Counts</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2036.5%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch36-multinomial-ordinal%2F05-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch36-multinomial-ordinal/05-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

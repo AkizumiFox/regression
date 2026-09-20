@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counts – Regression: From Projection to Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch37-counts/index.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="A count has no upper bound,
+cannot be negative, and is nearly always more variable when it is large
+than when it is small.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch37-counts/index.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch37-counts/index.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="Counts">
+        <meta property="og:description" content="A count has no upper
+bound, cannot be negative, and is nearly always more variable when it is
+large than when it is small.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar"
+                    aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false"
+                        aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar"
+                        aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch37-counts/index.html">Counts</a></li>
+                        <li class="breadcrumb-item"><a href="../ch37-counts/index.html"><span class="chapter-title">Counts</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            
+                            <span class="chapter-title">Counts</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="counts">
+
+                </div>
+                <p>A count has no upper bound, cannot be negative, and
+                is nearly always more variable when it is large than
+                when it is small. The linear model fits none of these
+                descriptions and no transformation repairs all of them
+                at once. The generalized linear model does better: put
+                the linear predictor on the log scale, so that the mean
+                is multiplicative, and let the distribution supply a
+                variance that grows with the mean. That is the Poisson
+                log-linear model, the starting point of this
+                chapter.</p>
+                <p>It is only a starting point. Real counts are almost
+                always more variable than the Poisson allows, often have
+                far more zeros, and are sometimes not a sample of
+                independent events at all but a contingency table in
+                disguise. Each complaint has a model attached to it:
+                exposure and rates, the exact connection between Poisson
+                counts and multinomial proportions, the negative
+                binomial, and the two standard ways to model an excess
+                of zeros.</p>
+                <p><strong>What you need.</strong> <a
+                href="../ch34-exponential-families-glm/index.html">Chapter
+                34</a> (the generalized linear model: <a
+                href="../ch34-exponential-families-glm/02-link-functions.html#def-glm-model"
+                class="xref" data-ref="def-glm-model"
+                data-shard="ch34-exponential-families-glm">Definition 34.2.1</a>,
+                the likelihood equations <a
+                href="../ch34-exponential-families-glm/03-likelihood-equations.html#thm-glm-score"
+                class="xref" data-ref="thm-glm-score"
+                data-shard="ch34-exponential-families-glm">Theorem 34.3.1</a>,
+                iteratively reweighted least squares <a
+                href="../ch34-exponential-families-glm/04-irls.html#thm-glm-irls"
+                class="xref" data-ref="thm-glm-irls"
+                data-shard="ch34-exponential-families-glm">Theorem 34.4.1</a>,
+                the deviance <a
+                href="../ch34-exponential-families-glm/05-deviance-and-inference.html#def-glm-deviance"
+                class="xref" data-ref="def-glm-deviance"
+                data-shard="ch34-exponential-families-glm">Definition 34.5.1</a>
+                and <a
+                href="../ch34-exponential-families-glm/05-deviance-and-inference.html#thm-glm-deviance"
+                class="xref" data-ref="thm-glm-deviance"
+                data-shard="ch34-exponential-families-glm">Theorem 34.5.5</a>,
+                and the three test statistics <a
+                href="../ch34-exponential-families-glm/05-deviance-and-inference.html#prp-glm-three-tests"
+                class="xref" data-ref="prp-glm-three-tests"
+                data-shard="ch34-exponential-families-glm">Proposition 34.5.3</a>).
+                <a href="../ch35-binary-responses/index.html">Chapter
+                35</a> supplies the separation theorem <a
+                href="../ch35-binary-responses/03-separation.html#thm-bin-separation"
+                class="xref" data-ref="thm-bin-separation"
+                data-shard="ch35-binary-responses">Theorem 35.3.1</a>,
+                whose Poisson counterpart is <a
+                href="../ch37-counts/01-poisson-regression.html#prp-cnt-existence"
+                class="xref" data-ref="prp-cnt-existence"
+                data-shard="ch37-counts">Proposition 37.1.3</a>, and <a
+                href="../ch36-multinomial-ordinal/index.html">Chapter
+                36</a> the baseline-category logit model <a
+                href="../ch36-multinomial-ordinal/01-baseline-category-logits.html#def-mlt-baseline"
+                class="xref" data-ref="def-mlt-baseline"
+                data-shard="ch36-multinomial-ordinal">Definition 36.1.1</a>,
+                which <a href="03-poisson-multinomial.html">Section
+                37.3</a> shows is a log-linear model in disguise. From
+                earlier parts: the two-way layout and its interaction
+                (<a
+                href="../ch16-multiway-layouts/02-interaction.html#def-tw-interaction"
+                class="xref" data-ref="def-tw-interaction"
+                data-shard="ch16-multiway-layouts">Definition 16.2.1</a>
+                and <a
+                href="../ch16-multiway-layouts/02-interaction.html#prp-tw-interaction-equiv"
+                class="xref" data-ref="prp-tw-interaction-equiv"
+                data-shard="ch16-multiway-layouts">Proposition 16.2.1</a>),
+                variance-stabilizing transformations (<a
+                href="../ch22-transformations/04-variance-stabilizing.html#thm-tr-variance-stabilizing"
+                class="xref" data-ref="thm-tr-variance-stabilizing"
+                data-shard="ch22-transformations">Theorem 22.4.1</a>),
+                the sandwich covariance estimator (<a
+                href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html#thm-het-sandwich"
+                class="xref" data-ref="thm-het-sandwich"
+                data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.4.2</a>),
+                the likelihood ratio test on the boundary of the
+                parameter space (<a
+                href="../ch32-linear-mixed-models/05-inference.html#thm-mix-boundary"
+                class="xref" data-ref="thm-mix-boundary"
+                data-shard="ch32-linear-mixed-models">Theorem 32.5.2</a>),
+                and model selection by AIC and BIC (<a
+                href="../ch29-model-selection/02-cp-aic-bic.html#def-sel-aic-bic"
+                class="xref" data-ref="def-sel-aic-bic"
+                data-shard="ch29-model-selection">Definition 29.2.2</a>).</p>
+                <h2 id="roadmap">Roadmap</h2>
+                <ul>
+                <li><a href="01-poisson-regression.html">Poisson
+                regression</a></li>
+                <li><a href="02-offsets-and-rates.html">Offsets and
+                rates</a></li>
+                <li><a href="03-poisson-multinomial.html">Poisson and
+                multinomial</a></li>
+                <li><a href="04-negative-binomial.html">Negative
+                binomial models</a></li>
+                <li><a href="05-zero-inflation.html">Zero
+                inflation</a></li>
+                <li><a href="06-summary-and-notes.html">Summary and
+                notes</a></li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch36-multinomial-ordinal/05-summary-and-notes.html" class="pagination-link" aria-label="Summary
+and Notes">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">36.5 Summary and
+Notes</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch37-counts/01-poisson-regression.html" class="pagination-link" aria-label="Poisson
+regression">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">37.1 Poisson
+regression</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Counts&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch37-counts%2Findex.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch37-counts/index.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

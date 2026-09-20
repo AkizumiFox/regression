@@ -1,0 +1,459 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch35-binary-responses/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Coverage.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch35-binary-responses/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch35-binary-responses/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="35.6 Summary and Notes">
+        <meta property="og:description" content="Coverage.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch35-binary-responses/index.html">Binary Responses</a></li>
+                        <li class="breadcrumb-item"><a href="../ch35-binary-responses/06-summary-and-notes.html"><span class="chapter-number">35.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">35.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">35.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A binary response is a binomial exponential
+                dispersion family with variance function <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\pi(1-\pi)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>π</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>π</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, dispersion
+                one and natural parameter the log odds; the canonical
+                link is the logit (<a href="../ch35-binary-responses/01-logistic-regression.html#def-bin-logistic" class="xref" data-ref="def-bin-logistic" data-shard="ch35-binary-responses">Definition 35.1.1</a>).</p></li>
+                <li><p>A logistic coefficient is a log odds ratio,
+                constant over the other covariates; <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="|\beta_j|/4"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo data-mjx-texclass="ORD" stretchy="false">|</mo><msub><mi>β</mi><mi>j</mi></msub><mo data-mjx-texclass="ORD" stretchy="false">|</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>4</mn></math></mjx-assistive-mml></mjx-container></span> bounds its
+                effect on the probability scale, and the average
+                marginal effect converts it to a change in probability
+                (<a href="../ch35-binary-responses/01-logistic-regression.html#prp-bin-interpretation" class="xref" data-ref="prp-bin-interpretation" data-shard="ch35-binary-responses">Proposition 35.1.1</a>).</p></li>
+                <li><p>Grouping observations with identical covariates
+                changes the log-likelihood by a constant, so the
+                estimate, its covariance and every likelihood ratio are
+                unchanged; the deviance is not (<a href="../ch35-binary-responses/01-logistic-regression.html#prp-bin-grouping" class="xref" data-ref="prp-bin-grouping" data-shard="ch35-binary-responses">Proposition 35.1.2</a>).</p></li>
+                <li><p>Fisher scoring is iteratively reweighted least
+                squares with weights <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m_i\pi_i(1-\pi_i)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>m</mi><mi>i</mi></msub><msub><mi>π</mi><mi>i</mi></msub><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>π</mi><mi>i</mi></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>;
+                observed and expected information coincide, and the
+                log-likelihood is strictly concave when <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{rank}(\mathbf{X})=p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c72"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c6E"></mjx-c><mjx-c class="mjx-c6B"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>rank</mi><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mo stretchy="false">)</mo><mo>=</mo><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch35-binary-responses/01-logistic-regression.html#prp-bin-irls" class="xref" data-ref="prp-bin-irls" data-shard="ch35-binary-responses">Proposition 35.1.3</a>).</p></li>
+                <li><p>Every binary regression is a threshold model:
+                logistic, normal and smallest extreme-value latent
+                errors give the logit, probit and complementary log–log
+                links, and a proportional hazards process observed at a
+                fixed time gives the last of them and no other (<a href="../ch35-binary-responses/02-probit-cloglog.html#def-bin-latent" class="xref" data-ref="def-bin-latent" data-shard="ch35-binary-responses">Definition 35.2.1</a>
+                and <a href="../ch35-binary-responses/02-probit-cloglog.html#prp-bin-links" class="xref" data-ref="prp-bin-links" data-shard="ch35-binary-responses">Proposition 35.2.1</a>).</p></li>
+                <li><p>The latent scale is not identified, so probit and
+                logit coefficients are comparable only after rescaling,
+                by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1.8138"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1.8138</mn></math></mjx-assistive-mml></mjx-container></span> or <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1.5958"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c39"></mjx-c><mjx-c class="mjx-c35"></mjx-c><mjx-c class="mjx-c38"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1.5958</mn></math></mjx-assistive-mml></mjx-container></span> depending on the
+                convention (<a href="../ch35-binary-responses/02-probit-cloglog.html#prp-bin-latent-scale" class="xref" data-ref="prp-bin-latent-scale" data-shard="ch35-binary-responses">Proposition 35.2.2</a>).</p></li>
+                <li><p>The maximum likelihood estimate exists if and
+                only if the data are in overlap; under separation some
+                coefficients diverge and the Wald test collapses while
+                the likelihood ratio does not (<a href="../ch35-binary-responses/03-separation.html#def-bin-separation" class="xref" data-ref="def-bin-separation" data-shard="ch35-binary-responses">Definition 35.3.1</a>
+                and <a href="../ch35-binary-responses/03-separation.html#thm-bin-separation" class="xref" data-ref="thm-bin-separation" data-shard="ch35-binary-responses">Theorem 35.3.1</a>).</p></li>
+                <li><p>Firth’s penalty <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tfrac12\log\det(\mathbf{X}^{\top}\mathbf{W}\mathbf{X})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mstyle><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-mi class="mjx-n"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="2"><mjx-c class="mjx-c64"></mjx-c><mjx-c class="mjx-c65"></mjx-c><mjx-c class="mjx-c74"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D416 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><mo data-mjx-texclass="OP" movablelimits="true">det</mo><mo stretchy="false">(</mo><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">W</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                removes the leading bias and gives finite estimates; a
+                ridge or Cauchy penalty does the same more crudely (<a href="../ch35-binary-responses/03-separation.html#prp-bin-firth" class="xref" data-ref="prp-bin-firth" data-shard="ch35-binary-responses">Proposition 35.3.2</a>).</p></li>
+                <li><p>Grouped Pearson and deviance statistics have
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\chi^2(N-p)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mi>N</mi><mo>−</mo><mi>p</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> limits
+                as the group sizes grow. The ungrouped deviance is
+                exactly <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="-2\sum_i\{\hat\pi_i\log\hat\pi_i+(1-\hat\pi_i)\log(1-\hat\pi_i)\}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-munder space="2" limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.285em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-msub space="2"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.285em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.285em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.285em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>2</mn><munder><mo data-mjx-texclass="OP">∑</mo><mi>i</mi></munder><mo fence="false" stretchy="false">{</mo><msub><mrow data-mjx-texclass="ORD"><mover><mi>π</mi><mo stretchy="false">^</mo></mover></mrow><mi>i</mi></msub><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><msub><mrow data-mjx-texclass="ORD"><mover><mi>π</mi><mo stretchy="false">^</mo></mover></mrow><mi>i</mi></msub><mo>+</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mrow data-mjx-texclass="ORD"><mover><mi>π</mi><mo stretchy="false">^</mo></mover></mrow><mi>i</mi></msub><mo stretchy="false">)</mo><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mrow data-mjx-texclass="ORD"><mover><mi>π</mi><mo stretchy="false">^</mo></mover></mrow><mi>i</mi></msub><mo stretchy="false">)</mo><mo fence="false" stretchy="false">}</mo></math></mjx-assistive-mml></mjx-container></span>,
+                a function of the fit alone with no <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\chi^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>χ</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> limit; differences
+                of deviances remain valid (<a href="../ch35-binary-responses/04-goodness-of-fit.html#prp-bin-fit" class="xref" data-ref="prp-bin-fit" data-shard="ch35-binary-responses">Proposition 35.4.1</a>).</p></li>
+                <li><p>In-sample calibration is automatic, so
+                calibration must be judged out of sample, and the area
+                under the ROC curve is a rank statistic, blind to
+                calibration (<a href="../ch35-binary-responses/04-goodness-of-fit.html#prp-bin-calibration" class="xref" data-ref="prp-bin-calibration" data-shard="ch35-binary-responses">Proposition 35.4.2</a>
+                and <a href="../ch35-binary-responses/04-goodness-of-fit.html#prp-bin-auc" class="xref" data-ref="prp-bin-auc" data-shard="ch35-binary-responses">Proposition 35.4.3</a>).</p></li>
+                <li><p>Retrospective sampling on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="Y"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Y</mi></math></mjx-assistive-mml></mjx-container></span> alone shifts the
+                intercept by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\log(\rho_1/\rho_0)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><mo stretchy="false">(</mo><msub><mi>ρ</mi><mn>1</mn></msub><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>ρ</mi><mn>0</mn></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> and
+                leaves the slopes alone, and the logit is the only link
+                with that property (<a href="../ch35-binary-responses/05-case-control.html#thm-bin-casecontrol" class="xref" data-ref="thm-bin-casecontrol" data-shard="ch35-binary-responses">Theorem 35.5.1</a>).</p></li>
+                <li><p>Matched sets are handled by conditioning; fitting
+                the stratum intercepts instead is inconsistent, and for
+                matched pairs gives exactly twice the conditional
+                estimate (<a href="../ch35-binary-responses/05-case-control.html#prp-bin-conditional" class="xref" data-ref="prp-bin-conditional" data-shard="ch35-binary-responses">Proposition 35.5.2</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">35.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Coverage.</strong> The topics follow Agresti
+                (2015, chapter 5) and Fahrmeir, Kneib, Lang and Marx
+                (2021, sections 5.1–5.2), with proofs, examples and
+                exercises of this book’s own. Collett (2003) and Hosmer,
+                Lemeshow and Sturdivant (2013) are the standard applied
+                accounts, and the source of the events-per-variable
+                guidance alluded to in <a href="01-logistic-regression.html">Section 35.1</a>;
+                McCullagh and Nelder (1989, chapter 4) is the compact
+                theoretical reference.</p>
+                <p><strong>Origins.</strong> The logistic function
+                entered statistics through bioassay: probit analysis
+                came first, with Bliss (1934) and Finney (1971), and
+                Berkson (1944) argued for the logistic alternative
+                against considerable resistance. Cox (1958a) gave the
+                modern regression treatment of binary sequences and Cox
+                (1970) the first book on binary data. The complementary
+                log–log link is the binary face of the proportional
+                hazards model of Cox (1972), with the discrete-time
+                version of <a href="../ch35-binary-responses/02-probit-cloglog.html#exr-bin-cloglog-interval" class="xref" data-ref="exr-bin-cloglog-interval" data-shard="ch35-binary-responses">Exercise (B2)</a> due
+                to Prentice and Gloeckler (1978); the link family of <a href="../ch35-binary-responses/02-probit-cloglog.html#exr-bin-link-family" class="xref" data-ref="exr-bin-link-family" data-shard="ch35-binary-responses">Exercise (C1)</a> is
+                Aranda-Ordaz’s (1981). The “divide by four” rule is from
+                Gelman and Hill (2007).</p>
+                <p><strong>Separation.</strong> Silvapulle (1981) proved
+                existence of the estimate under a convexity condition
+                equivalent to overlap; Albert and Anderson (1984)
+                introduced the terminology of complete and
+                quasi-complete separation and the linear-programming
+                diagnostic, and Santner and Duffy (1986) corrected a gap
+                in their argument. The proof of <a href="../ch35-binary-responses/03-separation.html#thm-bin-separation" class="xref" data-ref="thm-bin-separation" data-shard="ch35-binary-responses">Theorem 35.3.1</a>
+                given here is the direct one: strict concavity leaves
+                only coercivity to establish, and coercivity is exactly
+                overlap. The counting formula of <a href="../ch35-binary-responses/03-separation.html#exr-bin-separation-high-dimensional" class="xref" data-ref="exr-bin-separation-high-dimensional" data-shard="ch35-binary-responses">Exercise (C1)</a> is
+                Cover’s (1965). Firth (1993) introduced the
+                Jeffreys-prior penalty as a bias-reduction device;
+                Heinze and Schemper (2002) recognized it as a remedy for
+                separation, and Kosmidis and Firth (2021) proved the
+                resulting estimate always finite. The Cauchy prior is
+                from Gelman, Jakulin, Pittau and Su (2008); exact
+                conditional inference is due to Cox (1970) and Hirji,
+                Mehta and Patel (1987); and the Wald pathology of <a href="../ch35-binary-responses/03-separation.html#exr-bin-hauck-donner" class="xref" data-ref="exr-bin-hauck-donner" data-shard="ch35-binary-responses">Exercise (B3)</a> is
+                Hauck and Donner’s (1977).</p>
+                <p><strong>Goodness of fit.</strong> That the ungrouped
+                deviance depends on the data only through the fitted
+                values is standard and appears in McCullagh and Nelder
+                (1989, section 4.4); the exact identity <a href="../ch35-binary-responses/04-goodness-of-fit.html#eq-bin-entropy-deviance" class="xref" data-ref="eq-bin-entropy-deviance" data-shard="ch35-binary-responses">Eq. 35.4.2</a> and
+                the simulation of <a href="../ch35-binary-responses/04-goodness-of-fit.html#exm-bin-deviance-sim" class="xref" data-ref="exm-bin-deviance-sim" data-shard="ch35-binary-responses">Example (Three deviances that mean nothing)</a>
+                are this book’s way of making the point. The
+                Hosmer–Lemeshow statistic is from Hosmer and Lemeshow
+                (1980), its instability discussed at length in Hosmer,
+                Lemeshow and Sturdivant (2013); a smoothed alternative
+                is le Cessie and van Houwelingen (1991). Calibration in
+                the sense of <a href="../ch35-binary-responses/04-goodness-of-fit.html#prp-bin-calibration" class="xref" data-ref="prp-bin-calibration" data-shard="ch35-binary-responses">Proposition 35.4.2</a>
+                goes back to Cox (1958b). The ROC curve entered medical
+                statistics through Hanley and McNeil (1982), and Pepe,
+                Janes, Longton, Leisenring and Newcomb (2004) documented
+                how insensitive its area is to genuinely informative
+                covariates.</p>
+                <p><strong>Case–control studies.</strong> The
+                retrospective likelihood argument that justifies using
+                the prospective fit is Prentice and Pyke (1979); Breslow
+                and Day (1980) is the classical monograph and Breslow
+                (1996) a readable retrospective on the design. The
+                conditional likelihood of <a href="../ch35-binary-responses/05-case-control.html#prp-bin-conditional" class="xref" data-ref="prp-bin-conditional" data-shard="ch35-binary-responses">Proposition 35.5.2</a>
+                comes from the tradition of Andersen (1970), itself an
+                instance of the incidental-parameter problem of Neyman
+                and Scott (1948) met in <a href="../ch07-optimality/03-maximum-likelihood.html#exm-opt-neyman-scott" class="xref" data-ref="exm-opt-neyman-scott" data-shard="ch07-optimality">Example (Many means, one variance)</a>.
+                Noncollapsibility is analysed by Greenland, Robins and
+                Pearl (1999), who separate it carefully from
+                confounding.</p>
+                <p><strong>What comes next.</strong> Chapter 38 takes up
+                quasi-likelihood and overdispersion, which matter for
+                grouped binary data whose variance exceeds <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="m\pi(1-\pi)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>m</mi><mi>π</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>π</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>; Chapter 39
+                treats fitting in practice and the Bayesian thread,
+                including the priors touched on in <a href="03-separation.html">Section 35.3</a>; Chapter 40
+                joins generalized linear models to the random effects of
+                <a href="../ch32-linear-mixed-models/index.html">Chapter
+                32</a>; and Chapter 41 covers missing data. Responses
+                with more than two categories are the subject of <a href="../ch36-multinomial-ordinal/index.html">Chapter
+                36</a>. The 1996 American National Election Studies
+                survey used throughout is public domain; it illustrates
+                method only, and nothing here should be read as a claim
+                about the election.</p>
+                <h2 id="references"><span class="header-section-number">35.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Agresti, Alan (2015). <em>Foundations of Linear and
+                Generalized Linear Models</em>. Hoboken, NJ: Wiley.</li>
+                <li>Albert, Adelin and Anderson, John A. (1984). On the
+                Existence of Maximum Likelihood Estimates in Logistic
+                Regression Models. <em>Biometrika</em> 71(1), 1–10.</li>
+                <li>Andersen, Erling B. (1970). Asymptotic Properties of
+                Conditional Maximum-Likelihood Estimators. <em>Journal
+                of the Royal Statistical Society, Series B</em> 32(2),
+                283–301.</li>
+                <li>Aranda-Ordaz, Francisco J. (1981). On Two Families
+                of Transformations to Additivity for Binary Response
+                Data. <em>Biometrika</em> 68(2), 357–363.</li>
+                <li>Berkson, Joseph (1944). Application of the Logistic
+                Function to Bio-Assay. <em>Journal of the American
+                Statistical Association</em> 39(227), 357–365.</li>
+                <li>Bliss, Chester I. (1934). The Method of Probits.
+                <em>Science</em> 79(2037), 38–39.</li>
+                <li>Breslow, Norman E. (1996). Statistics in
+                Epidemiology: The Case-Control Study. <em>Journal of the
+                American Statistical Association</em> 91(433),
+                14–28.</li>
+                <li>Breslow, Norman E. and Day, Nicholas E. (1980).
+                <em>Statistical Methods in Cancer Research, Volume I:
+                The Analysis of Case-Control Studies</em>. Lyon:
+                International Agency for Research on Cancer.</li>
+                <li>Collett, David (2003). <em>Modelling Binary
+                Data</em>. 2nd edition. Boca Raton: Chapman and
+                Hall/CRC.</li>
+                <li>Cover, Thomas M. (1965). Geometrical and Statistical
+                Properties of Systems of Linear Inequalities with
+                Applications in Pattern Recognition. <em>IEEE
+                Transactions on Electronic Computers</em> EC-14(3),
+                326–334.</li>
+                <li>Cox, David R. (1958a). The Regression Analysis of
+                Binary Sequences. <em>Journal of the Royal Statistical
+                Society, Series B</em> 20(2), 215–242.</li>
+                <li>Cox, David R. (1958b). Two Further Applications of a
+                Model for Binary Regression. <em>Biometrika</em>
+                45(3/4), 562–565.</li>
+                <li>Cox, David R. (1970). <em>The Analysis of Binary
+                Data</em>. London: Methuen.</li>
+                <li>Cox, David R. (1972). Regression Models and
+                Life-Tables. <em>Journal of the Royal Statistical
+                Society, Series B</em> 34(2), 187–220.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Finney, David J. (1971). <em>Probit Analysis</em>.
+                3rd edition. Cambridge: Cambridge University Press.</li>
+                <li>Firth, David (1993). Bias Reduction of Maximum
+                Likelihood Estimates. <em>Biometrika</em> 80(1),
+                27–38.</li>
+                <li>Gelman, Andrew and Hill, Jennifer (2007). <em>Data
+                Analysis Using Regression and Multilevel/Hierarchical
+                Models</em>. Cambridge: Cambridge University Press.</li>
+                <li>Gelman, Andrew, Jakulin, Aleks, Pittau, Maria Grazia
+                and Su, Yu-Sung (2008). A Weakly Informative Default
+                Prior Distribution for Logistic and Other Regression
+                Models. <em>The Annals of Applied Statistics</em> 2(4),
+                1360–1383.</li>
+                <li>Greenland, Sander, Robins, James M. and Pearl, Judea
+                (1999). Confounding and Collapsibility in Causal
+                Inference. <em>Statistical Science</em> 14(1),
+                29–46.</li>
+                <li>Hanley, James A. and McNeil, Barbara J. (1982). The
+                Meaning and Use of the Area under a Receiver Operating
+                Characteristic (ROC) Curve. <em>Radiology</em> 143(1),
+                29–36.</li>
+                <li>Hauck, Walter W. and Donner, Allan (1977). Wald’s
+                Test as Applied to Hypotheses in Logit Analysis.
+                <em>Journal of the American Statistical Association</em>
+                72(360), 851–853.</li>
+                <li>Heinze, Georg and Schemper, Michael (2002). A
+                Solution to the Problem of Separation in Logistic
+                Regression. <em>Statistics in Medicine</em> 21(16),
+                2409–2419.</li>
+                <li>Hirji, Karim F., Mehta, Cyrus R. and Patel, Nitin R.
+                (1987). Computing Distributions for Exact Logistic
+                Regression. <em>Journal of the American Statistical
+                Association</em> 82(400), 1110–1117.</li>
+                <li>Hosmer, David W. and Lemeshow, Stanley (1980).
+                Goodness of Fit Tests for the Multiple Logistic
+                Regression Model. <em>Communications in Statistics —
+                Theory and Methods</em> 9(10), 1043–1069.</li>
+                <li>Hosmer, David W., Lemeshow, Stanley and Sturdivant,
+                Rodney X. (2013). <em>Applied Logistic Regression</em>.
+                3rd edition. Hoboken, NJ: Wiley.</li>
+                <li>Kosmidis, Ioannis and Firth, David (2021).
+                Jeffreys-Prior Penalty, Finiteness and Shrinkage in
+                Binomial-Response Generalized Linear Models.
+                <em>Biometrika</em> 108(1), 71–82.</li>
+                <li>le Cessie, Saskia and van Houwelingen, Johannes C.
+                (1991). A Goodness-of-Fit Test for Binary Regression
+                Models Based on Smoothing Methods. <em>Biometrics</em>
+                47(4), 1267–1282.</li>
+                <li>McCullagh, Peter and Nelder, John A. (1989).
+                <em>Generalized Linear Models</em>. 2nd edition. London:
+                Chapman and Hall.</li>
+                <li>Neyman, Jerzy and Scott, Elizabeth L. (1948).
+                Consistent Estimates Based on Partially Consistent
+                Observations. <em>Econometrica</em> 16(1), 1–32.</li>
+                <li>Pepe, Margaret S., Janes, Holly, Longton, Gary,
+                Leisenring, Wendy and Newcomb, Polly (2004). Limitations
+                of the Odds Ratio in Gauging the Performance of a
+                Diagnostic, Prognostic, or Screening Marker.
+                <em>American Journal of Epidemiology</em> 159(9),
+                882–890.</li>
+                <li>Prentice, Ross L. and Gloeckler, Lynn A. (1978).
+                Regression Analysis of Grouped Survival Data with
+                Application to Breast Cancer Data. <em>Biometrics</em>
+                34(1), 57–67.</li>
+                <li>Prentice, Ross L. and Pyke, Ronald (1979). Logistic
+                Disease Incidence Models and Case-Control Studies.
+                <em>Biometrika</em> 66(3), 403–411.</li>
+                <li>Santner, Thomas J. and Duffy, Diane E. (1986). A
+                Note on A. Albert and J. A. Anderson’s Conditions for
+                the Existence of Maximum Likelihood Estimates in
+                Logistic Regression Models. <em>Biometrika</em> 73(3),
+                755–758.</li>
+                <li>Silvapulle, Mervyn J. (1981). On the Existence of
+                Maximum Likelihood Estimators for the Binomial Response
+                Models. <em>Journal of the Royal Statistical Society,
+                Series B</em> 43(3), 310–313.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch35-binary-responses/05-case-control.html" class="pagination-link" aria-label="Case–control
+sampling">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">35.5 Case–control
+sampling</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch36-multinomial-ordinal/index.html" class="pagination-link" aria-label="Multinomial
+and Ordinal Responses">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Multinomial and
+Ordinal Responses</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2035.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch35-binary-responses%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch35-binary-responses/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>
