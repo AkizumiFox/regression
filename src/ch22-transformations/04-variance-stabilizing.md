@@ -177,7 +177,7 @@ Transformation is one of three remedies for a variance that depends on the mean.
    or keep ordinary least squares with heteroscedasticity-consistent standard errors (@thm-het-sandwich).
 
 3. **Model.** Specify the mean through a link function and the variance through \( v \): a generalized linear model,
-   such as Poisson or logistic regression, whose coefficients refer to the mean of \( y \) itself. Chapter 34 develops
+   such as Poisson or logistic regression, whose coefficients refer to the mean of \( y \) itself. [Chapter 34](../ch34-exponential-families-glm/index.html) develops
    this modern default.
 
 The first two can be combined. The *logit* of a binomial proportion is not variance-stabilizing, but its

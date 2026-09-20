@@ -38,3 +38,18 @@ A chapter that needs a new symbol adds it here and there before using it.
   singular; in ch. 32–33 it is the marginal covariance V = ZGZᵀ + R itself, with σ² absorbed.
   `\Z` is the random-effect design matrix, `\bu` the random effects, `\G` = Cov(u) and
   `\R` = Cov(ε). Variance components are `\boldsymbol{\uptheta}`.
+
+- **Generalized linear models (Part VIII).** Fixed across chapters 34–37. The response
+  distribution is an exponential dispersion family with *natural parameter* `\theta_i`
+  (scalar; `\vartheta` is free for an unrelated parameter in an exercise), *cumulant
+  function* `b(\theta)`, *dispersion* `\phi`, *prior weight* `w_i` and *variance function*
+  `V(\mu)`, so `\mu_i=b'(\theta_i)` and `\Var(Y_i)=\phi b''(\theta_i)/w_i`. The *link* is
+  `g`, its inverse `h=g^{-1}`, the *linear predictor* is `\eta_i=\x_{(i)}\T\bbeta` with
+  vector `\boldsymbol{\upeta}=\X\bbeta`, and the mean vector is `\bmu`. In the fitting,
+  `\W` is the diagonal matrix of *working weights* `w_ih'(\eta_i)^2/V(\mu_i)`,
+  `\bD=\diag(d\mu_i/d\eta_i)` and `\bz` is the *working response*; `\X\T\W\X` is the
+  expected information. `D` is the *deviance* and `D^{*}=D/\phi` the *scaled deviance*.
+  Category probabilities are `\boldsymbol{\uppi}`; in chapter 36 `\boldsymbol{\uptheta}`
+  is the vector of *cutpoints* of a cumulative-link model (not the variance components of
+  Part VII) and `\boldsymbol{\uppsi}` collects all parameters of a fit. Chapter 37 writes
+  `\kappa` for the negative binomial shape and `\alpha=1/\kappa` for its reciprocal.

@@ -198,7 +198,7 @@ the normal equations, where, as [Section 10.5](05-conditioning.html) shows, \( \
 number of \( \X \) after its columns are scaled to equal length. With \( \kappa\le10^4 \) about eight digits
 survive, more than any coefficient is known statistically. The normal equations are therefore sound
 for well-conditioned designs, when only cross-products are available, and inside iterations such as the
-reweighted least squares of Chapter 34. Nearly collinear observational data are where the \( \kappa^2 \)
+reweighted least squares of [Chapter 34](../ch34-exponential-families-glm/index.html) (@thm-glm-irls). Nearly collinear observational data are where the \( \kappa^2 \)
 loss bites.
 
 ## The sweep operator

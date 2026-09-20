@@ -33,7 +33,7 @@ the models below.
 | Departures from the assumptions | diagnostics, transformations, resampling, measurement error, causation | Chapters [19](../ch19-theory-of-departures/index.html)–[25](../ch25-causal-interpretation/index.html) |
 | Many regressors | collinearity, shrinkage, \( p>n \), selection, boosting | Chapters [26](../ch26-collinearity/index.html)–[30](../ch30-regularization-boosting/index.html) |
 | General covariance and random effects | \( \Cov(\be)=\sigma^2\V \); \( \Y=\X\bbeta+\Z\bu+\be \) | Chapters [31](../ch31-general-gauss-markov/index.html)–[33](../ch33-clustered-longitudinal-splitplot/index.html) |
-| Generalized linear models | non-normal distribution and a link | Chapters 34–41 |
+| Generalized linear models | non-normal distribution and a link | Chapters [34](../ch34-exponential-families-glm/index.html)–41 |
 | Nonparametric and additive models | smooth functions in the predictor | Chapters 42–44 |
 | Distributional regression | regressors act on more than the mean | Chapter 45 |
 
@@ -70,10 +70,10 @@ measurements on one person or pupils in one school (Chapters [32](../ch32-linear
 linear predictor can leave \( [0,1] \). For a count the mean must be positive and the variance
 grows with the mean. Generalized linear models keep the linear predictor, choose a
 distribution from an exponential family, and connect the two by a link: the logit
-\( \log\{\mu/(1-\mu)\} \) for binary responses (Chapter 35), the logarithm for counts
-(Chapter 37). Coefficients act additively on the scale of the link, so in a Poisson model
+\( \log\{\mu/(1-\mu)\} \) for binary responses ([Chapter 35](../ch35-binary-responses/index.html)), the logarithm for counts
+([Chapter 37](../ch37-counts/index.html)). Coefficients act additively on the scale of the link, so in a Poisson model
 with log link \( e^{\beta_j} \) is the factor by which the mean changes per unit of \( x_j \).
-Chapters 34–41 develop the theory, overdispersion, correlated responses and missing data.
+Chapters [34](../ch34-exponential-families-glm/index.html)–41 develop the theory, overdispersion, correlated responses and missing data.
 
 **Nonparametric and additive models.** Polynomials, as in @exm-lm-co2, force a global
 shape on a curve. Splines and smoothers let the data choose the shape locally
@@ -107,7 +107,7 @@ variance rises with the mean, and in every group it is between \( 4.8 \) and
 
 Two models for the mean are fitted to the disease score \( x \). The linear model gives
 \( 1.268+0.1416\,x \) visits. The Poisson regression with log link
-(Chapter 37) gives \( \exp(0.549+0.0408\,x) \): each unit of the index multiplies the
+(@def-cnt-poisson) gives \( \exp(0.549+0.0408\,x) \): each unit of the index multiplies the
 mean by \( e^{0.0408} \), \( 4.17 \) percent more visits. Over the bulk of the data the
 two curves are close, and both follow the group means. They differ in shape at high values
 of the index, where the log-linear mean grows ever faster and the linear one at a constant
@@ -193,7 +193,7 @@ Unbiasedness needs only (L1) (@thm-lm-moments(a)). With independent cases,
 \( \Cov(\hbeta)=(\X\T\X)^{-1}\X\T\bSigma\X(\X\T\X)^{-1} \). Nothing in least squares constrains
 \( \x\T\hbeta \) to \( [0,1] \): the estimate is a linear function of \( \y \), and at design points far
 from the centre of the data the fitted line can cross \( 0 \) or \( 1 \) even when every true
-probability is inside. The logit link of Chapter 35 removes the problem.
+probability is inside. The logit link of [Chapter 35](../ch35-binary-responses/index.html) (@def-bin-logistic) removes the problem.
 :::
 
 ::: {#exr-lm-poisson-score}

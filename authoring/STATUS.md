@@ -39,15 +39,22 @@ The plan is `blueprint/book.yaml` (45 chapters in 10 parts); each chapter's brie
 | 31 | ch31-general-gauss-markov | The general Gauss–Markov model | deployed |
 | 32 | ch32-linear-mixed-models | Random effects and linear mixed models | deployed |
 | 33 | ch33-clustered-longitudinal-splitplot | Clustered, longitudinal and split-plot data | deployed |
-| 34–45 | | see `blueprint/book.yaml` | not started |
+| 34 | ch34-exponential-families-glm | Exponential families and the generalized linear model | deployed |
+| 35 | ch35-binary-responses | Binary responses | deployed |
+| 36 | ch36-multinomial-ordinal | Multinomial and ordinal responses | deployed |
+| 37 | ch37-counts | Counts | deployed |
+| 38–45 | | see `blueprint/book.yaml` | not started |
 
-Deployed 2026-09-20 to https://regression.akizumifox.com (site repo AkizumiFox/regression, GitHub
+Deployed 2026-09-21 to https://regression.akizumifox.com (site repo AkizumiFox/regression, GitHub
 Pages from `main`, DNS through Cloudflare). Republish with `./build.py deploy --push`.
-Chapters 1–33 (Parts I–VII) are deployed; the combined PDF is 1,485 pages.
+Chapters 1–37 (Parts I–VII and the first half of Part VIII) are deployed; the combined PDF is
+1,655 pages. Part VIII still needs Chapters 38 (quasi-likelihood and overdispersion), 39 (GLMs in
+practice and the Bayesian thread), 40 (GLMMs and GEE) and 41 (missing data).
 
 ## Open forward promises
 
-Chapters 1–33 point forward to unwritten chapters in prose ("Chapter 35 treats binary
-responses"). Those references are plain text until the target chapter is published; when a
-chapter is added, search `src/` for "Chapter N" and link it. The forward references to
-Chapters 31–33 were linked when Part VII was written.
+Chapters 1–33 point forward to unwritten chapters in prose ("Chapter 42 treats splines").
+Those references are plain text until the target chapter is published; when a chapter is
+added, search `src/` for "Chapter N" and link it. The forward references to Chapters 31–33
+were linked when Part VII was written, and those to Chapters 34–37 when the first half of
+Part VIII was written. Chapters 38–45 are still referred to in plain text.

@@ -117,7 +117,7 @@ The proposition needs the error to *multiply* the mean. If instead
 \( \log Y_i\approx\x_{(i)}\T\bbeta+\varepsilon_i\exp(-\x_{(i)}\T\bbeta) \), so the logarithm *creates* a variance that
 falls with the level (@exr-tr-additive-log). A mean that is exponential in the regressors combined with errors
 of constant variance calls for fitting the mean directly, by nonlinear least squares or by a
-generalized linear model with a logarithmic link (Chapter 34), not for transforming the data.
+generalized linear model with a logarithmic link ([Chapter 34](../ch34-exponential-families-glm/index.html)), not for transforming the data.
 :::
 
 ## The ladder of powers
@@ -143,7 +143,7 @@ is, to first order in the delta method, about \( 1/\mu_i \) (@exr-tr-poisson-sca
 stabilizes the variance at about \( \tfrac14 \) ([Section 22.4](04-variance-stabilizing.html)), but its mean is
 about \( \exp(\x_{(i)}\T\bbeta/2) \), which is not linear in the regressors. (Strictly, zeros have probability \( e^{-\mu_i}>0 \), so the statement concerns \( \log Y_i \) given
 \( Y_i>0 \), or \( \log(Y_i+c) \).) No power does both. The remedy is a model that states the mean and the variance separately, the Poisson
-generalized linear model of Chapter 34. A transformation can also remove an interaction, under the order
+generalized linear model of [Chapter 34](../ch34-exponential-families-glm/index.html). A transformation can also remove an interaction, under the order
 condition of @prp-tw-removable, as the logarithm did for the running times of
 [Section 16.1](../ch16-multiway-layouts/01-additive.html).
 
@@ -151,7 +151,7 @@ condition of @prp-tw-removable, as the logarithm did for the running times of
 
 The logarithm and the negative powers need \( y>0 \). The common fix \( \log(y+c) \) for a “start” \( c>0 \) makes the
 coefficients depend on \( c \) when zeros are frequent. The start can be estimated with the power (@exr-tr-shifted), but a spike at zero usually means two processes, whether a case is positive and how large
-it is, which no transformation separates; two-part models and generalized linear models (Chapter 34) are
+it is, which no transformation separates; two-part models and generalized linear models ([Chapter 34](../ch34-exponential-families-glm/index.html)) are
 more natural. For responses of both signs, Yeo and Johnson (2000) give a family defined on the whole line.
 
 ## Exercises

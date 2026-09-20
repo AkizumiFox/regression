@@ -276,7 +276,7 @@ the event \( \{\lvert Z\rvert>c\} \) is unchanged by the sign change,
 \( \Pr(W\le w)=\Pr(Z\le w,\lvert Z\rvert\le c)+\Pr(-Z\le w,\lvert Z\rvert>c)=\Pr(Z\le w) \).
 Next, \( \Cov(Z,W)=\E(Z^2;\lvert Z\rvert\le c)-\E(Z^2;\lvert Z\rvert>c)=2\E(Z^2;\lvert Z\rvert\le c)-1 \),
 which is continuous and increasing in \( c \), tends to \( -1 \) as \( c\to0 \) and to \( 1 \) as \( c\to\infty \),
-and so vanishes at some \( c \). Finally \( Z+W=2Z\,\mathbb 1\{\lvert Z\rvert\le c\} \) equals \( 0 \) with
+and so vanishes at some \( c \). Finally \( Z+W=2Z\,\mathbf{1}\{\lvert Z\rvert\le c\} \) equals \( 0 \) with
 probability \( \Pr(\lvert Z\rvert>c)\in(0,1) \) but is not constant. A normal variable is either
 constant or has a density, so \( Z+W \) is not normal.
 :::

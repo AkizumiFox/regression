@@ -54,7 +54,7 @@ transformations and the spread-versus-level idea, Anscombe (1948) derived the co
 Grizzle, Starmer and Koch (1969) developed weighted least squares on transformed proportions. The limit
 theorems are in van der Vaart (1998). The smearing estimate is due to Duan (1983). Manning (1998) showed
 how heteroscedasticity on the log scale biases retransformed means, one reason why generalized linear
-models with a log link (Chapter 34) are now the usual alternative for skewed positive responses.
+models with a log link ([Chapter 34](../ch34-exponential-families-glm/index.html)) are now the usual alternative for skewed positive responses.
 
 ## References
 

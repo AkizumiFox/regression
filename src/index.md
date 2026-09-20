@@ -100,7 +100,7 @@ are written; the ones not yet on the site are named in plain text.
   Consult Part I as needed.
 - **The theory spine.** Part I, then Chapters [6](ch06-projections/index.html), [7](ch07-optimality/index.html), [8](ch08-estimability/index.html), [9](ch09-sums-of-squares/index.html), [11](ch11-general-linear-hypothesis/index.html) and [31](ch31-general-gauss-markov/index.html).
   This is the shortest route to a full structural understanding of the linear model.
-- **For implementers.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html), [10](ch10-computation/index.html) and [20](ch20-residuals-leverage-influence/index.html), [Part VI](ch26-collinearity/index.html) and Chapter 34.
+- **For implementers.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html), [10](ch10-computation/index.html) and [20](ch20-residuals-leverage-influence/index.html), [Part VI](ch26-collinearity/index.html) and [Chapter 34](ch34-exponential-families-glm/index.html).
 - **A course on generalized models.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html) and [11](ch11-general-linear-hypothesis/index.html), then Parts [VII](ch31-general-gauss-markov/index.html)–X.
 
 ### Prerequisites
@@ -142,6 +142,8 @@ under the exercise; try the exercise before opening it.
 | \( \chi^2(r,\gamma) \), \( F(r,s,\gamma) \) | noncentral distributions, noncentrality \( \gamma \) |
 | \( \V \) | error covariance: a known shape in \( \Cov(\Y)=\sigma^2\V \) ([Chapter 31](ch31-general-gauss-markov/index.html)), or \( \V=\Z\G\Z\T+\R \) in a mixed model (Chapters [32](ch32-linear-mixed-models/index.html)–[33](ch33-clustered-longitudinal-splitplot/index.html)) |
 | \( \Z \), \( \bu \), \( \G \), \( \R \) | random-effect design matrix, random effects, \( \Cov(\bu) \) and \( \Cov(\be) \) ([Part VII](ch31-general-gauss-markov/index.html)) |
+| \( \theta \), \( b(\theta) \), \( \phi \), \( V(\mu) \) | natural parameter, cumulant function, dispersion and variance function of an exponential dispersion family ([Part VIII](ch34-exponential-families-glm/index.html)) |
+| \( \eta \), \( g \), \( \W \), \( D \) | linear predictor \( \x_{(i)}\T\bbeta \), link function, working weights and deviance of a generalized linear model ([Part VIII](ch34-exponential-families-glm/index.html)) |
 
 Vectors are columns. Matrices and vectors are set in bold upright type and
 scalars in italic. A bare “projection” always means an orthogonal

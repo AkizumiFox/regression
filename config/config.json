@@ -122,7 +122,14 @@
             "part": "Part VII · When the Errors Are Correlated"
         },
         "src/ch32-linear-mixed-models",
-        "src/ch33-clustered-longitudinal-splitplot"
+        "src/ch33-clustered-longitudinal-splitplot",
+        {
+            "dir": "src/ch34-exponential-families-glm",
+            "part": "Part VIII · Beyond the Normal Response"
+        },
+        "src/ch35-binary-responses",
+        "src/ch36-multinomial-ordinal",
+        "src/ch37-counts"
     ],
     "macros": "latex/macros.tex",
     "templates": {

@@ -204,7 +204,8 @@ print(f"F     {F:.3f}  exact p = {stats.f.sf(F, q, n - r):.4f}")
 
 The lesson for other models is double. In the normal linear model none of the three approximations is
 needed, because the exact \( F \) test is available. In models without an exact theory,
-generalized linear models among them (Chapter 34 onwards), the three statistics are the standard tools. Their
+generalized linear models among them ([Chapter 34](../ch34-exponential-families-glm/index.html) onwards), the three statistics are the standard
+tools (@prp-glm-three-tests). Their
 disagreement in small samples is a warning that the \( \chi^2 \) approximation is poor. The linear model
 suggests a remedy: dividing by \( q \) and referring to an \( F \) distribution with finite denominator degrees
 of freedom often calibrates better.

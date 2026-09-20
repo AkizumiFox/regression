@@ -49,7 +49,7 @@ In the linear model \( \E(\Y)=\X\bbeta \), \( \bbeta\in\Real^p \), the parameter
 
 The definition is phrased through the mean, not the whole distribution. By the argument
 above the two versions agree whenever the error distribution does not involve \( \bbeta \),
-which is the situation throughout this book until the generalized linear models of Part VIII.
+which is the situation throughout this book until the generalized linear models of [Part VIII](../ch34-exponential-families-glm/index.html).
 There the mean is \( h(\X\bbeta) \) for a known one-to-one function \( h \), and the same
 definition applies unchanged. It says that \( g(\bbeta) \) is a well-defined function of the
 point \( \bmu \), whichever coordinates were used to describe that point.
