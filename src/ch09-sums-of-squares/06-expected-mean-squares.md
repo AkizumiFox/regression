@@ -120,7 +120,7 @@ follows from independence and \( \E(1/V)=1/(\nu-2) \) for \( V\sim\chi^2(\nu) \)
 
 The principle is more general than the choice of \( s^2 \). With random effects the expected mean
 squares contain variance components, and the right denominator may be another mean square
-(@exr-ss-random-oneway; Chapters 32 and 33). Also, when the model is wrong, @thm-ss-expected-mean-squares(b) shows that the denominator
+(@exr-ss-random-oneway; Chapters [32](../ch32-linear-mixed-models/index.html) and [33](../ch33-clustered-longitudinal-splitplot/index.html), @prp-mix-oneway). Also, when the model is wrong, @thm-ss-expected-mean-squares(b) shows that the denominator
 itself is inflated, by \( \norm{(\I-\M)\bmu}^2/(n-r) \) (compare @exm-rv-rss-bias). Omitted terms inflate
 the denominator of every \( F \) ratio, which pushes the ratios towards zero, and they can also
 shift the numerators, because the omitted part of

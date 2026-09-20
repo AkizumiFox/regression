@@ -68,7 +68,7 @@ to first order in \( 1/(n_k-1) \); the Brown–Forsythe degrees of freedom, like
 (1946) moment match. The robust test of equal variances by
 analysis of variance of absolute deviations is due to Levene (1960), and the version based on deviations from medians to Brown and
 Forsythe (1974b). The simulation of @exm-aov-size-simulation is ours. [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) returns to heteroscedasticity with weighted least squares and
-heteroscedasticity-consistent standard errors, and Chapter 32 to random effects.
+heteroscedasticity-consistent standard errors, and [Chapter 32](../ch32-linear-mixed-models/index.html) to random effects.
 
 ## References
 

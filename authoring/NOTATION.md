@@ -33,3 +33,8 @@ A chapter that needs a new symbol adds it here and there before using it.
   included.
 - Accents always take braces: `\hat{\y}`, `\bar{\x}`, `\tilde{\X}`.
 - British spelling (centring, centred, behaviour, modelling), as in the chapters written so far.
+- **Correlated errors (Part VII).** `\V` is the error covariance. In ch. 31 it is a *shape*,
+  Cov(Y) = σ²V, with V known, known up to a few parameters, or nonnegative definite and
+  singular; in ch. 32–33 it is the marginal covariance V = ZGZᵀ + R itself, with σ² absorbed.
+  `\Z` is the random-effect design matrix, `\bu` the random effects, `\G` = Cov(u) and
+  `\R` = Cov(ε). Variance components are `\boldsymbol{\uptheta}`.

@@ -386,7 +386,7 @@ the residuals, by the best linear predictor of @thm-rv-blp. In the ordinary mode
 @eq-cor-blup is the fitted value \( \x_0\T\hbeta \), with mean squared error
 \( \sigma^2[v_{00}+\x_0\T(\X\T\X)\ginv\x_0] \). The same theorem, with \( \bv_0 \) built from a spatial covariance
 function, is the kriging predictor of geostatistics, and with random effects in place of \( e_0 \) it
-gives the predictors of mixed models (Chapter 32).
+gives the predictors of mixed models ([Chapter 32](../ch32-linear-mixed-models/index.html), @thm-mix-blup).
 
 ## Exercises
 

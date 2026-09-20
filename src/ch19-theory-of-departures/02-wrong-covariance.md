@@ -239,8 +239,8 @@ standard errors too small.
 ::: {.idea}
 A wrong covariance matrix is mainly a problem for *standard errors*, not *estimates*: \( s^2(\X\T\X)^{-1} \) can be wrong by a large factor in either direction, and
 nothing in the fitted model reveals this. [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) shows how to estimate the correct covariance @eq-lm-sandwich without knowing
-\( \V \), and how to detect serial correlation. Chapter 31 treats generalized least squares when \( \V \) is known up to a few
-parameters.
+\( \V \), and how to detect serial correlation. [Chapter 31](../ch31-general-gauss-markov/index.html) treats generalized least squares when \( \V \) is known up to a few
+parameters (@def-ggm-feasible).
 :::
 
 ## Exercises

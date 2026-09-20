@@ -205,7 +205,7 @@ account. Neither set of numbers is "the" effect of self-rated health. They answe
 questions.
 
 The data record the same people in several years, so the cases are not independent and the
-second-moment assumptions do not hold exactly; Chapter 33 treats such clustered data.
+second-moment assumptions do not hold exactly; [Chapter 33](../ch33-clustered-longitudinal-splitplot/index.html) treats such clustered data.
 :::
 
 ```{.python .run #cell-rand-dummies-adjusted}

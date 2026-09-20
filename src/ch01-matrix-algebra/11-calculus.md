@@ -143,7 +143,7 @@ the derivatives with respect to off-diagonal entries double. Some books (Rencher
 report formulas of the type \( 2\W^{-1}-\diag(\W^{-1}) \) for this reason. The
 simplest way to avoid the issue is to differentiate along a symmetric direction \( \W+t\mathbf{E} \),
 as in (c). This is the convenient route for the normal likelihoods of
-Chapter 32. The listing checks the gradient formulas against central finite
+[Chapter 32](../ch32-linear-mixed-models/index.html). The listing checks the gradient formulas against central finite
 differences, and the script also checks part (c) and @prp-mat-quadratic-min. The largest
 discrepancy in the listing is \( 3\times 10^{-9} \), which is the size one
 expects from the finite-difference approximation.

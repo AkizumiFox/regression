@@ -129,7 +129,7 @@ The same projections serve the random-effects model of [Section 15.1](01-oneway-
 \( \Cov(\Y)=\sigma^2\I+\sigma_a^2\Z\Z\T \) and a constant mean, \( \E(\text{MSE})=\sigma^2 \) still, while
 \( \E(\text{MSB})=\sigma^2+n_0\sigma_a^2 \) with \( n_0=(n-\sum_kn_k^2/n)/(g-1) \), which is \( m \) in a balanced layout (@exr-aov-random-n0).
 The ratio \( F \) then tests \( \sigma_a^2=0 \), and the difference of the two mean squares divided by \( n_0 \)
-estimates \( \sigma_a^2 \). Chapter 32 develops this.
+estimates \( \sigma_a^2 \). [Chapter 32](../ch32-linear-mixed-models/index.html) develops this (@prp-mix-oneway).
 
 ## The table, derived
 

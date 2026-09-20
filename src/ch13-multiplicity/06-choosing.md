@@ -208,8 +208,8 @@ step-down procedures that are more powerful than Tukey's and still control the f
 strongly; the books cited in the notes describe them.
 
 A Bayesian response to multiplicity is a hierarchical model that treats the group means as draws
-from a common distribution and shrinks the estimated differences toward each other (@exr-mc-bayes-shrink). Chapter 32 develops random-effects models
-of this kind, and the conjugate analysis of @thm-opt-bayes-conjugate is their simplest case.
+from a common distribution and shrinks the estimated differences toward each other (@exr-mc-bayes-shrink). [Chapter 32](../ch32-linear-mixed-models/index.html) develops
+random-effects models of this kind (@prp-mix-bayes), and the conjugate analysis of @thm-opt-bayes-conjugate is their simplest case.
 
 ## Exercises
 

@@ -169,7 +169,8 @@ with probability one, so the MLE is *inconsistent*. The unbiased \( s^2=\text{SS
 and is consistent. This is the example of Neyman and Scott (1948). It shows that the good large-sample
 behaviour of maximum likelihood can fail when the number of nuisance parameters grows with the data.
 Restricted maximum likelihood, which removes the mean before estimating the variance
-(@exr-opt-reml), repairs it, and Chapter 32 builds variance-component estimation on that idea.
+(@exr-opt-reml), repairs it, and [Chapter 32](../ch32-linear-mixed-models/index.html) builds variance-component estimation on that
+idea (@def-mix-reml).
 :::
 
 Unbiasedness is not the only possible criterion for choosing a divisor. Under normality we can compare

@@ -204,8 +204,8 @@ with mean zero. Given \( \alpha \), the mean is \( \alpha\bone \) and the covari
 \]
 so every pair of measurements has correlation \( \tau^2/(\tau^2+\sigma^2) \). Independent errors
 combined with a shared random component produce exactly this *equicorrelation* structure.
-It is the starting point of Chapter 32. Ordinary least squares ignores it,
-with consequences that Chapter 33 examines.
+It is the starting point of [Chapter 32](../ch32-linear-mixed-models/index.html). Ordinary least squares ignores it,
+with consequences that [Chapter 33](../ch33-clustered-longitudinal-splitplot/index.html) examines (@prp-cls-compound).
 :::
 
 ## Exercises

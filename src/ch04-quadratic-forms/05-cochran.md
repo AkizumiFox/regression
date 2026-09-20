@@ -161,7 +161,7 @@ have matrices \( \V^{1/2}\A_i\V^{1/2} \). Their ranks are those of the \( \A_i \
 unchanged. What changes is the condition on the sum: \( \V^{1/2}\A\V^{1/2} \) is idempotent iff
 \( \A\V\A=\A \) (for example \( \sum_i\A_i=\V^{-1} \)), and conditions (iii) and (iv) become
 \( \A_i\V\A_i=\A_i \) and \( \A_i\V\A_j=\mathbf{0} \). These are the generalized least squares decompositions
-of Chapter 31.
+of [Chapter 31](../ch31-general-gauss-markov/index.html) (@thm-ggm-inference).
 :::
 
 Most analysis of variance tables in this book come from a chain of nested model spaces.

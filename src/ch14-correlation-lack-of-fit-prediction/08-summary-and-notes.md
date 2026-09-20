@@ -67,8 +67,9 @@ conditionality principle; Cox (1958) gave the standard discussion. The Wishart d
 Wishart (1928), and Anderson (2003) treats it and the mean of its inverse through densities; the proof of
 @lem-cor-inverse-wishart here uses only conditioning and symmetry. Breiman and Freedman (1983) use the
 prediction error of regression with normal regressors to study how many variables to enter, a question
-[Chapter 29](../ch29-model-selection/index.html) takes up. Best linear unbiased prediction is due to Goldberger (1962); Chapter 31 and
-Chapter 32 develop it for general covariance structures and mixed models.
+[Chapter 29](../ch29-model-selection/index.html) takes up. Best linear unbiased prediction is due to Goldberger (1962); [Chapter 31](../ch31-general-gauss-markov/index.html)
+and [Chapter 32](../ch32-linear-mixed-models/index.html) develop it for general covariance structures and mixed
+models (@thm-mix-blup).
 
 **Correlation coefficients.** Fisher found the exact distribution of \( r \) (1915), introduced \( z \) with its
 approximate mean and variance (1921), showed that partial correlations follow the same law with the sample

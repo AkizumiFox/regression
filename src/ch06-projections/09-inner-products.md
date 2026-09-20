@@ -90,8 +90,8 @@ A **generalized least squares** (GLS) estimate minimizes
 Computationally, GLS is ordinary least squares applied to the *whitened* data
 \( (\bL^{-1}\y,\bL^{-1}\X) \). Aitken (1935) showed that GLS gives the best linear
 unbiased estimator under this covariance, which is the Gauss–Markov theorem transported through
-\( \bL \). Chapter 31 proves this, and handles
-singular \( \V \) and the more realistic case where \( \V \) must be estimated.
+\( \bL \). [Chapter 7](../ch07-optimality/index.html) proves it as @cor-opt-aitken, and [Chapter 31](../ch31-general-gauss-markov/index.html)
+handles singular \( \V \) and the more realistic case where \( \V \) must be estimated.
 
 When is the ordinary least squares fit already the GLS fit? Geometrically, the two
 projections onto \( \C(\X) \) coincide iff the Euclidean and the \( \V^{-1} \) notions of
@@ -118,7 +118,7 @@ By symmetry of \( \V \), this says \( \X\T\V\bu=\bzero \) whenever \( \X\T\bu=\b
 The condition holds, for example, for equicorrelated errors
 \( \V=(1-\rho)\I+\rho\bone\bone\T \) whenever \( \bone\in\C(\X) \)
 (@exr-proj-equicorrelation). It also underlies the analysis of balanced
-split-plot designs in Chapter 33. The result is due to
+split-plot designs in [Chapter 33](../ch33-clustered-longitudinal-splitplot/index.html) (@thm-cls-splitplot). The result is due to
 Kruskal (1968), and the coordinate-free argument is his.
 
 ::: {#exm-proj-ar1}

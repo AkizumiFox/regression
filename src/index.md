@@ -89,7 +89,7 @@ proofs, examples and exercises are original to this book.
 
 Parts I–VI (Chapters 1–30) are the classical linear model, complete in itself:
 estimation, exact inference, designed experiments, diagnostics, and the move from
-unbiased estimation to regularization. Parts VII–X (Chapters 31–45) climb the rest
+unbiased estimation to regularization. Parts [VII](ch31-general-gauss-markov/index.html)–X (Chapters [31](ch31-general-gauss-markov/index.html)–45) climb the rest
 of the ladder: correlated errors, non-normal responses, nonlinear predictors, and
 models for entire conditional distributions. Chapters are published here as they
 are written; the ones not yet on the site are named in plain text.
@@ -98,10 +98,10 @@ are written; the ones not yet on the site are named in plain text.
 
 - **A first course on linear models.** Chapters [5](ch05-model-and-least-squares/index.html)–[9](ch09-sums-of-squares/index.html), [11](ch11-general-linear-hypothesis/index.html)–[12](ch12-intervals-and-bands/index.html), [15](ch15-anova-subspaces/index.html), [19](ch19-theory-of-departures/index.html)–[20](ch20-residuals-leverage-influence/index.html) and [29](ch29-model-selection/index.html).
   Consult Part I as needed.
-- **The theory spine.** Part I, then Chapters [6](ch06-projections/index.html), [7](ch07-optimality/index.html), [8](ch08-estimability/index.html), [9](ch09-sums-of-squares/index.html), [11](ch11-general-linear-hypothesis/index.html) and 31.
+- **The theory spine.** Part I, then Chapters [6](ch06-projections/index.html), [7](ch07-optimality/index.html), [8](ch08-estimability/index.html), [9](ch09-sums-of-squares/index.html), [11](ch11-general-linear-hypothesis/index.html) and [31](ch31-general-gauss-markov/index.html).
   This is the shortest route to a full structural understanding of the linear model.
 - **For implementers.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html), [10](ch10-computation/index.html) and [20](ch20-residuals-leverage-influence/index.html), [Part VI](ch26-collinearity/index.html) and Chapter 34.
-- **A course on generalized models.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html) and [11](ch11-general-linear-hypothesis/index.html), then Parts VII–X.
+- **A course on generalized models.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html) and [11](ch11-general-linear-hypothesis/index.html), then Parts [VII](ch31-general-gauss-markov/index.html)–X.
 
 ### Prerequisites
 
@@ -140,6 +140,8 @@ under the exercise; try the exercise before opening it.
 | \( \E \), \( \Var \), \( \Cov \) | expectation, variance, covariance (matrix) |
 | \( \Normal_n(\bmu,\bSigma) \) | \( n \)-variate normal distribution |
 | \( \chi^2(r,\gamma) \), \( F(r,s,\gamma) \) | noncentral distributions, noncentrality \( \gamma \) |
+| \( \V \) | error covariance: a known shape in \( \Cov(\Y)=\sigma^2\V \) ([Chapter 31](ch31-general-gauss-markov/index.html)), or \( \V=\Z\G\Z\T+\R \) in a mixed model (Chapters [32](ch32-linear-mixed-models/index.html)–[33](ch33-clustered-longitudinal-splitplot/index.html)) |
+| \( \Z \), \( \bu \), \( \G \), \( \R \) | random-effect design matrix, random effects, \( \Cov(\bu) \) and \( \Cov(\be) \) ([Part VII](ch31-general-gauss-markov/index.html)) |
 
 Vectors are columns. Matrices and vectors are set in bold upright type and
 scalars in italic. A bare “projection” always means an orthogonal

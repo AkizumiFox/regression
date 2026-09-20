@@ -177,7 +177,8 @@ longer a linear model with covariance \( \sigma^2\I \).
 
 The projections and sums of squares are the same in both models, but their expectations differ
 ([Section 15.3](03-anova-table.html)), and so does the target: contrasts among the treatments studied, or the variance
-components \( \sigma_a^2 \) and \( \sigma^2 \) (@exr-ss-random-oneway). Chapter 32 develops random and mixed effects.
+components \( \sigma_a^2 \) and \( \sigma^2 \) (@exr-ss-random-oneway). [Chapter 32](../ch32-linear-mixed-models/index.html) develops random and
+mixed effects (@prp-mix-oneway).
 
 ## Exercises
 

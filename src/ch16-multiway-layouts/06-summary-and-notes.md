@@ -36,7 +36,7 @@
 
 **Unreplicated factorials and pooling.** The half-normal plot is due to Daniel (1959), and the pseudo standard error of @exr-tw-lenth to Lenth (1989). The effect of preliminary tests on subsequent inference was first studied by Bancroft (1944), and the simulation of [Figure 16.4.2](04-higher-way.html#fig-tw-pooling) illustrates his conclusions in a simple case.
 
-**Nested designs.** Hurlbert (1984) named *pseudoreplication*, treating observations within an experimental unit as independent replicates of the unit's treatment, and documented how widespread it was in ecology. Random inner levels are taken up with variance components in Chapters 32 and 33. Unbalanced multiway data are the subject of [Chapter 17](../ch17-unbalanced-data/index.html), and randomized blocks and Latin squares, additive layouts whose structure comes from randomization, of [Chapter 18](../ch18-covariance-and-design/index.html).
+**Nested designs.** Hurlbert (1984) named *pseudoreplication*, treating observations within an experimental unit as independent replicates of the unit's treatment, and documented how widespread it was in ecology. Random inner levels are taken up with variance components in Chapters [32](../ch32-linear-mixed-models/index.html) and [33](../ch33-clustered-longitudinal-splitplot/index.html). Unbalanced multiway data are the subject of [Chapter 17](../ch17-unbalanced-data/index.html), and randomized blocks and Latin squares, additive layouts whose structure comes from randomization, of [Chapter 18](../ch18-covariance-and-design/index.html).
 
 ## References
 

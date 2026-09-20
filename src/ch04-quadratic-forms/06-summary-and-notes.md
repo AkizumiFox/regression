@@ -67,7 +67,8 @@ arrangements of standard material.
 **Noncentral distributions.**  The noncentral chi-squared distribution first appeared in
 Fisher (1928). Patnaik (1949) studied its approximation by a scaled
 central chi-squared variable, and Satterthwaite (1946) used the same two-moment
-idea for linear combinations of mean squares, which reappears in Chapter 32.
+idea for linear combinations of mean squares, which reappears in the mixed models of
+[Chapter 32](../ch32-linear-mixed-models/index.html) (@prp-mix-inference).
 Johnson et al. (1995, chapters 29–31) collect the properties of the noncentral
 chi-squared, \( F \) and \( t \) families. The monotonicity of power in the noncentrality and in the
 degrees of freedom is treated systematically by Ghosh (1973).

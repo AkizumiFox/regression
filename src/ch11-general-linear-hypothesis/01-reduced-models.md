@@ -252,7 +252,7 @@ there are replicate observations.
 
 *The errors must be independent with a common variance.* Correlated or heteroscedastic errors
 change both numerator and denominator, and the null distribution is no longer \( F \). [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html)
-and Chapter 31 treat these cases.
+and [Chapter 31](../ch31-general-gauss-markov/index.html) treat these cases.
 
 *Normality* gives the exact distribution, and it is the least critical of the three. The null
 distribution is exactly \( F \) for every spherically symmetric error law

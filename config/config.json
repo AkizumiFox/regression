@@ -116,7 +116,13 @@
         "src/ch27-shrinkage",
         "src/ch28-high-dimensional",
         "src/ch29-model-selection",
-        "src/ch30-regularization-boosting"
+        "src/ch30-regularization-boosting",
+        {
+            "dir": "src/ch31-general-gauss-markov",
+            "part": "Part VII · When the Errors Are Correlated"
+        },
+        "src/ch32-linear-mixed-models",
+        "src/ch33-clustered-longitudinal-splitplot"
     ],
     "macros": "latex/macros.tex",
     "templates": {

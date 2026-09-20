@@ -211,8 +211,8 @@ Three remarks keep the concept in its place.
 
 *It does not depend on the covariance.* Estimability involves only \( \E(\Y)=\X\bbeta \), so
 it is the same whether the errors are uncorrelated, correlated, heteroscedastic or normal,
-provided \( \Cov(\Y) \) is free of \( \bbeta \). Generalized least squares in Part VII has the same
-estimable functions as ordinary least squares.
+provided \( \Cov(\Y) \) is free of \( \bbeta \). Generalized least squares in Part VII
+([Chapter 31](../ch31-general-gauss-markov/index.html)) has the same estimable functions as ordinary least squares.
 
 *It is a property of the design, not the response.* Whether \( \blambda\T\bbeta \) is
 estimable can be decided before any response is measured, from \( \X \) alone. This makes

@@ -253,8 +253,8 @@ squares criterion. Its normal equations (@thm-proj-normal-equations) are \( \X_*
 
 Ordinary least squares remains unbiased when \( \Cov(\Y)=\sigma^2\V \), but in general it is no longer
 best. @thm-proj-kruskal characterized the models in which the two estimators coincide, and
-@exr-opt-zyskind shows that exactly these models keep ordinary least squares optimal. Chapter 31
-develops the general theory, including singular \( \V \).
+@exr-opt-zyskind shows that exactly these models keep ordinary least squares optimal. [Chapter 31](../ch31-general-gauss-markov/index.html)
+develops the general theory (@thm-ggm-ols-blue), including singular \( \V \) (@thm-ggm-singular).
 
 The whitening in the proof carries the rest of the least squares toolkit with it. The fitted vector
 \( \X\hbeta_{\text{GLS}}=\V^{1/2}\M_*\Z \), where \( \M_* \) is the orthogonal projection onto \( \C(\X_*) \), is the

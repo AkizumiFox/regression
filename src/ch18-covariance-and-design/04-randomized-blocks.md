@@ -312,7 +312,7 @@ print(f"estimated CRD error variance {s2_crd:.2f} against {ms_err:.2f}:"
 
 Treating the boards as a random sample of boards changes nothing about treatment comparisons in a complete block design,
 since block effects cancel from every contrast (@thm-dsn-rcbd(b)). It matters for incomplete blocks
-([Section 18.5](05-latin-squares-incomplete-blocks.html)) and for predicting a new block; Chapter 32 treats such mixed models.
+([Section 18.5](05-latin-squares-incomplete-blocks.html)) and for predicting a new block; [Chapter 32](../ch32-linear-mixed-models/index.html) treats such mixed models.
 :::
 
 ## Exercises
@@ -393,5 +393,5 @@ A comparison of treatments uses only within-block information, in which \( \bar{
 Tukey intervals of @exr-mc-tukey-two-way remain exact. A single treatment mean is a statement about the population of blocks, and its
 uncertainty includes the sampling of the \( b \) blocks: \( s^2/b \) misses the term \( \sigma_\beta^2/b \). The estimate above mixes two
 mean squares with different degrees of freedom, so an interval built on it is only approximately \( t \); the proper treatment is the
-subject of Chapter 32.
+subject of [Chapter 32](../ch32-linear-mixed-models/index.html) (@prp-mix-inference).
 :::

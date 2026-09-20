@@ -47,7 +47,7 @@ parts:
     drops: "drops unbiasedness"
     model: "Shrinkage, selection, regularization, high dimensions."
   - num: VII
-    title: "Relaxing the Covariance"
+    title: "When the Errors Are Correlated"
     drops: "drops Cov(ε) = σ²I"
     model: "Generalized least squares, general Gauss–Markov, mixed models."
   - num: VIII
@@ -172,13 +172,13 @@ chapters:
   # ---------------- Part VII ----------------
   - {num: 31, part: VII, slug: general-gauss-markov, pages: 45, title: "The General Gauss–Markov Model",
      sources: [[C10, all], [C2, "§2.7"], [S3, "§3.10"], [R7, "§7.8"]],
-     outline: ["Generalized least squares", "When ordinary least squares is BLUE", "Singular covariance matrices", "Estimated covariance: feasible GLS"]}
+     outline: ["Generalized least squares", "When ordinary least squares is best", "Singular covariance matrices", "Estimated covariance: feasible generalized least squares"]}
   - {num: 32, part: VII, slug: linear-mixed-models, pages: 70, title: "Random Effects and Linear Mixed Models",
      sources: [[R17, all], [A9, "§9.2–9.3"], [F7, "§7.1–7.4"], [N7, "§7.4–7.5"]],
-     outline: ["Random effects", "The linear mixed model", "BLUP and Henderson's equations", "Maximum likelihood and REML", "Inference for fixed effects and variance components", "Bayesian thread III: mixed models as hierarchical models"]}
+     outline: ["Random effects", "The linear mixed model", "Prediction: BLUP and Henderson's equations", "Maximum likelihood and REML", "Inference when the covariance is estimated", "Bayesian thread III: mixed models as hierarchical models"]}
   - {num: 33, part: VII, slug: clustered-longitudinal-splitplot, pages: 50, title: "Clustered, Longitudinal and Split-Plot Data",
      sources: [[C11, all], [N7, "§7.6–7.7"], [F7, "§7.7"], [R18, "§18.1–18.2"]],
-     outline: ["Split-plot designs", "Repeated measures", "Covariance models for longitudinal data", "Growth curves"]}
+     outline: ["Split-plot designs", "Clustered data and compound symmetry", "Repeated measures", "Covariance models for longitudinal data", "Growth curves"]}
 
   # ---------------- Part VIII ----------------
   - {num: 34, part: VIII, slug: exponential-families-glm, pages: 50, title: "Exponential Families and the Generalized Linear Model",

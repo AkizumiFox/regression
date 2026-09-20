@@ -36,13 +36,18 @@ The plan is `blueprint/book.yaml` (45 chapters in 10 parts); each chapter's brie
 | 28 | ch28-high-dimensional | High-dimensional regression: p > n | deployed |
 | 29 | ch29-model-selection | Model selection and prediction | deployed |
 | 30 | ch30-regularization-boosting | Regularization and boosting | deployed |
-| 31–45 | | see `blueprint/book.yaml` | not started |
+| 31 | ch31-general-gauss-markov | The general Gauss–Markov model | deployed |
+| 32 | ch32-linear-mixed-models | Random effects and linear mixed models | deployed |
+| 33 | ch33-clustered-longitudinal-splitplot | Clustered, longitudinal and split-plot data | deployed |
+| 34–45 | | see `blueprint/book.yaml` | not started |
 
 Deployed 2026-09-20 to https://regression.akizumifox.com (site repo AkizumiFox/regression, GitHub
 Pages from `main`, DNS through Cloudflare). Republish with `./build.py deploy --push`.
-Chapters 1–30 (Parts I–VI) are deployed; the combined PDF is 1,350 pages.
+Chapters 1–33 (Parts I–VII) are deployed; the combined PDF is 1,485 pages.
 
 ## Open forward promises
 
-Chapters 1–30 point forward to unwritten chapters in prose ("Chapter 32 treats random and mixed effects"). Those references are plain text until the target chapter is published;
-when a chapter is added, search `src/` for "Chapter N" and link it.
+Chapters 1–33 point forward to unwritten chapters in prose ("Chapter 35 treats binary
+responses"). Those references are plain text until the target chapter is published; when a
+chapter is added, search `src/` for "Chapter N" and link it. The forward references to
+Chapters 31–33 were linked when Part VII was written.

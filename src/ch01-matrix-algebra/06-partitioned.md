@@ -271,7 +271,7 @@ print(f"largest relative discrepancy over all {n} deletions: {worst:.1e}")
 ::: {#exm-mat-factor}
 [Diagonal plus low rank]
 
-In factor models and in the linear mixed models of Chapter 32, covariance
+In factor models and in the linear mixed models of [Chapter 32](../ch32-linear-mixed-models/index.html), covariance
 matrices have the form \( \bSigma=\bD+\bL\bL\T \) with \( \bD \) diagonal and positive and \( \bL \) of size
 \( N\times k \), \( k\ll N \). By @eq-mat-woodbury and @thm-mat-block-determinant(c),
 \[

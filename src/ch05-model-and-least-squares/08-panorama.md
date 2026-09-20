@@ -32,7 +32,7 @@ the models below.
 | Normal linear model | exact tests, intervals, multiple comparisons, designed experiments | Chapters [11](../ch11-general-linear-hypothesis/index.html)–18 |
 | Departures from the assumptions | diagnostics, transformations, resampling, measurement error, causation | Chapters [19](../ch19-theory-of-departures/index.html)–[25](../ch25-causal-interpretation/index.html) |
 | Many regressors | collinearity, shrinkage, \( p>n \), selection, boosting | Chapters [26](../ch26-collinearity/index.html)–[30](../ch30-regularization-boosting/index.html) |
-| General covariance and random effects | \( \Cov(\be)=\sigma^2\V \); \( \Y=\X\bbeta+\mathbf{Z}\mathbf{b}+\be \) | Chapters 31–33 |
+| General covariance and random effects | \( \Cov(\be)=\sigma^2\V \); \( \Y=\X\bbeta+\Z\bu+\be \) | Chapters [31](../ch31-general-gauss-markov/index.html)–[33](../ch33-clustered-longitudinal-splitplot/index.html) |
 | Generalized linear models | non-normal distribution and a link | Chapters 34–41 |
 | Nonparametric and additive models | smooth functions in the predictor | Chapters 42–44 |
 | Distributional regression | regressors act on more than the mean | Chapter 45 |
@@ -56,14 +56,14 @@ by the meaning of coefficients; the book does not develop them, but Chapters [29
 predictors and treat boosting.
 
 **General covariance and mixed models.** The general Gauss–Markov model replaces
-\( \sigma^2\I \) by \( \sigma^2\V \) (Chapter 31), and generalized least squares is least squares
+\( \sigma^2\I \) by \( \sigma^2\V \) ([Chapter 31](../ch31-general-gauss-markov/index.html)), and generalized least squares is least squares
 in a different inner product ([Section 6.9](../ch06-projections/09-inner-products.html)). Linear
 mixed models write the response as
 \[
-\Y=\X\bbeta+\mathbf{Z}\mathbf{b}+\be,
+\Y=\X\bbeta+\Z\bu+\be,
 \]
-where \( \mathbf{b} \) is a vector of random effects shared by related cases, such as repeated
-measurements on one person or pupils in one school (Chapters 32–33). The RAND data of
+where \( \bu \) is a vector of random effects shared by related cases, such as repeated
+measurements on one person or pupils in one school (Chapters [32](../ch32-linear-mixed-models/index.html)–[33](../ch33-clustered-longitudinal-splitplot/index.html)). The RAND data of
 @exm-lm-health-coding, with the same people observed in several years, are of this kind.
 
 **Generalized linear models.** For a binary response the mean is a probability, and a

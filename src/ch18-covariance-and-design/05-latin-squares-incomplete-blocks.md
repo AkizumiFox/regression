@@ -351,7 +351,7 @@ print(f"se of a difference {se_diff:.3f}; efficiency factor {eff:.4f}")
 
 The block totals, with \( \E B_j=k\mu+\sum_in_{ij}\tau_i+k\beta_j \), also carry treatment information. With random block effects
 they give an independent *inter-block* estimate of every contrast, whose variance grows with \( \sigma_\beta^2 \). Combining the two
-estimates by inverse-variance weights, as Yates proposed, is generalized least squares in a mixed model (Chapter 32). With blocks as
+estimates by inverse-variance weights, as Yates proposed, is generalized least squares in a mixed model ([Chapter 32](../ch32-linear-mixed-models/index.html)). With blocks as
 different as these tasters, the inter-block estimate adds little.
 :::
 

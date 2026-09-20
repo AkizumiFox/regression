@@ -294,7 +294,7 @@ print("within transformation:", beta_within)
 
 Whether discarding between-unit variation is wise depends on why units differ. That
 question is taken up for random-effects alternatives in
-Chapter 32 and Chapter 33.
+[Chapter 32](../ch32-linear-mixed-models/index.html) and [Chapter 33](../ch33-clustered-longitudinal-splitplot/index.html).
 
 Added-variable plots are among the most useful diagnostics for multiple
 regression. They show the evidence for a single coefficient in two dimensions,

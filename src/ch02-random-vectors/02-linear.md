@@ -318,7 +318,7 @@ covariance matrices are computed the same way in [Chapter 5](../ch05-model-and-l
 [Chapter 6](../ch06-projections/index.html). If instead \( \Cov(\be)=\sigma^2\V \) with \( \V \) positive definite, then
 \( \V^{-1/2}\Y=\V^{-1/2}\X\bbeta+\V^{-1/2}\be \) is a model with \( \Cov(\V^{-1/2}\be)=\sigma^2\I \).
 Whitening the data turns correlated errors back into the standard case. This is
-generalized least squares, which [Chapter 6](../ch06-projections/index.html) and Chapter 31 develop.
+generalized least squares, which [Chapter 6](../ch06-projections/index.html) and [Chapter 31](../ch31-general-gauss-markov/index.html) develop.
 
 ## Exercises
 

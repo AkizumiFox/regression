@@ -91,7 +91,7 @@ Diagnostic use of leverage is taken up in
 Aitken (1935). The coordinate-free condition for equality of ordinary and
 generalized least squares (@thm-proj-kruskal) is from Kruskal (1968).
 Christensen (2020, chapter 10) develops the consequences for the general
-Gauss–Markov model, which Chapter 31 follows.
+Gauss–Markov model, which [Chapter 31](../ch31-general-gauss-markov/index.html) follows.
 
 **Computation.**  Golub and Van Loan (2013) is the standard reference for QR,
 the SVD and their perturbation theory. Higham (2002) gives the precise
