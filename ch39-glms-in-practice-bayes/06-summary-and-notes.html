@@ -1,0 +1,491 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>39.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch39-glms-in-practice-bayes/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Model building.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch39-glms-in-practice-bayes/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch39-glms-in-practice-bayes/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="39.6 Summary and Notes">
+        <meta property="og:description" content="Model building.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch39-glms-in-practice-bayes/index.html">GLMs in Practice; the Bayesian Thread</a></li>
+                        <li class="breadcrumb-item"><a href="../ch39-glms-in-practice-bayes/06-summary-and-notes.html"><span class="chapter-number">39.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">39.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">39.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A response family is chosen from the support and
+                from the mean–variance relationship; with replicates,
+                the variance-function power is estimated by regressing
+                log group variance on log group mean (<a href="../ch39-glms-in-practice-bayes/01-model-building.html#prp-prc-model-building" class="xref" data-ref="prp-prc-model-building" data-shard="ch39-glms-in-practice-bayes">Proposition 39.1.1</a>(a)).</p></li>
+                <li><p>Additivity belongs to the link, not to the data:
+                a mean additive on one link scale is additive on another
+                only when the two differ by an affine map (<a href="../ch39-glms-in-practice-bayes/01-model-building.html#prp-prc-model-building" class="xref" data-ref="prp-prc-model-building" data-shard="ch39-glms-in-practice-bayes">Proposition 39.1.1</a>(b)).</p></li>
+                <li><p>Likelihood criteria compare models for the same
+                random variable. A model fitted to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="t(\mathbf{y})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>t</mi><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> needs the
+                correction <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="-2\sum_i\log
+                t'(y_i)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-munder space="2" limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c6C"></mjx-c><mjx-c class="mjx-c6F"></mjx-c><mjx-c class="mjx-c67"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2061"></mjx-c></mjx-mo><mjx-msup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-var" size="s"><mjx-c class="mjx-c2032"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>2</mn><munder><mo data-mjx-texclass="OP">∑</mo><mi>i</mi></munder><mi>log</mi><mo data-mjx-texclass="NONE">⁡</mo><msup><mi>t</mi><mo data-mjx-alternate="1">′</mo></msup><mo stretchy="false">(</mo><msub><mi>y</mi><mi>i</mi></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, itself of order <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math></mjx-assistive-mml></mjx-container></span>, before its AIC can
+                stand beside one for <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{y}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch39-glms-in-practice-bayes/01-model-building.html#prp-prc-model-building" class="xref" data-ref="prp-prc-model-building" data-shard="ch39-glms-in-practice-bayes">Proposition 39.1.1</a>(c),
+                <a href="../ch39-glms-in-practice-bayes/01-model-building.html#exm-prc-strikes" class="xref" data-ref="exm-prc-strikes" data-shard="ch39-glms-in-practice-bayes">Example (How long does a strike last)</a>).</p></li>
+                <li><p>Diagnostics should be aimed. Pearson residuals
+                have approximate variance <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1-h_{ii}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>−</mo><msub><mi>h</mi><mrow data-mjx-texclass="ORD"><mi>i</mi><mi>i</mi></mrow></msub></math></mjx-assistive-mml></mjx-container></span>; a simulated
+                envelope has pointwise level <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="2/(B+1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D435 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>2</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><mi>B</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>; the link is
+                tested by adding <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat\eta^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.304em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D702 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow data-mjx-texclass="ORD"><mover><mi>η</mi><mo stretchy="false">^</mo></mover></mrow><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span>; a covariate’s
+                scale by partial-residual and added-variable plots; the
+                variance function by the height and trend of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="|r^{P}|"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo data-mjx-texclass="ORD" stretchy="false">|</mo><msup><mi>r</mi><mrow data-mjx-texclass="ORD"><mi>P</mi></mrow></msup><mo data-mjx-texclass="ORD" stretchy="false">|</mo></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch39-glms-in-practice-bayes/02-diagnostics.html#prp-prc-diagnostics" class="xref" data-ref="prp-prc-diagnostics" data-shard="ch39-glms-in-practice-bayes">Proposition 39.2.1</a>).
+                In <a href="../ch39-glms-in-practice-bayes/02-diagnostics.html#exm-prc-tvnews" class="xref" data-ref="exm-prc-tvnews" data-shard="ch39-glms-in-practice-bayes">Example (Days of television news)</a>
+                only the last is wrong.</p></li>
+                <li><p>The log-likelihood is quadratic in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\upbeta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">β</mi></math></mjx-assistive-mml></mjx-container></span> for every design
+                exactly when the family is normal (<a href="../ch39-glms-in-practice-bayes/03-bayesian-linear-revisited.html#prp-prc-quadratic" class="xref" data-ref="prp-prc-quadratic" data-shard="ch39-glms-in-practice-bayes">Proposition 39.3.1</a>):
+                in the Bayesian thread every definition survives, every
+                closed form does not.</p></li>
+                <li><p>The Bayesian generalized linear model is <a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#def-prc-posterior" class="xref" data-ref="def-prc-posterior" data-shard="ch39-glms-in-practice-bayes">Definition 39.4.1</a>.
+                A proper prior with a bounded likelihood gives a proper
+                posterior; a flat prior on a logistic model gives one
+                exactly when the data are in overlap, that is exactly
+                when the maximum likelihood estimate exists (<a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#prp-prc-propriety" class="xref" data-ref="prp-prc-propriety" data-shard="ch39-glms-in-practice-bayes">Proposition 39.4.1</a>).</p></li>
+                <li><p>Under local smoothness, a growing Hessian and a
+                concentration condition, the Laplace approximation to
+                the marginal likelihood has relative error <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="O(n^{-1})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#thm-prc-laplace" class="xref" data-ref="thm-prc-laplace" data-shard="ch39-glms-in-practice-bayes">Theorem 39.4.2</a>);
+                its logarithm is the BIC with an <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="O(1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> remainder carrying
+                the whole influence of the prior (<a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#cor-prc-bic" class="xref" data-ref="cor-prc-bic" data-shard="ch39-glms-in-practice-bayes">Corollary 39.4.3</a>).</p></li>
+                <li><p>Metropolis–Hastings and Gibbs leave the posterior
+                invariant by detailed balance (<a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#prp-prc-mh-invariance" class="xref" data-ref="prp-prc-mh-invariance" data-shard="ch39-glms-in-practice-bayes">Proposition 39.4.4</a>,
+                <a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#def-prc-mcmc" class="xref" data-ref="def-prc-mcmc" data-shard="ch39-glms-in-practice-bayes">Definition 39.4.2</a>);
+                Albert–Chib augmentation makes every probit full
+                conditional normal or truncated normal (<a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#prp-prc-albert-chib" class="xref" data-ref="prp-prc-albert-chib" data-shard="ch39-glms-in-practice-bayes">Proposition 39.4.5</a>).
+                Convergence is judged by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat R"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.463em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D445 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi>R</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span>, mixing by
+                effective sample size (<a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#exm-prc-anes-mcmc" class="xref" data-ref="exm-prc-anes-mcmc" data-shard="ch39-glms-in-practice-bayes">Example (The 1996 survey, sampled)</a>).</p></li>
+                <li><p>Posterior predictive checks compare the data with
+                replicates from <a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#eq-prc-ppd" class="xref" data-ref="eq-prc-ppd" data-shard="ch39-glms-in-practice-bayes">Eq. 39.4.8</a>;
+                using the data twice makes them conservative, so an
+                extreme <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span>-value is
+                evidence and a middling one is not (<a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#def-prc-ppc" class="xref" data-ref="def-prc-ppc" data-shard="ch39-glms-in-practice-bayes">Definition 39.4.3</a>,
+                <a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#exm-prc-ppc" class="xref" data-ref="exm-prc-ppc" data-shard="ch39-glms-in-practice-bayes">Example (Where the survey model fails)</a>).</p></li>
+                <li><p>A normal prior is ridge, a Laplace prior the
+                lasso at its mode, and a normal prior on a logit is
+                bimodal on the probability scale exactly when <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2>2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mo>&gt;</mo><mn>2</mn></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch39-glms-in-practice-bayes/05-priors-as-regularizers.html#prp-prc-priors" class="xref" data-ref="prp-prc-priors" data-shard="ch39-glms-in-practice-bayes">Proposition 39.5.1</a>).
+                A proper prior makes the mode exist under separation,
+                where maximum likelihood has none (<a href="../ch39-glms-in-practice-bayes/05-priors-as-regularizers.html#exm-prc-separated-bayes" class="xref" data-ref="exm-prc-separated-bayes" data-shard="ch39-glms-in-practice-bayes">Example (The separated subgroup, three priors)</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">39.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Model building.</strong> The three-part
+                structure — random component, systematic component, link
+                — is Nelder and Wedderburn’s (1972); McCullagh and
+                Nelder (1989) remains the standard account of how the
+                pieces are chosen, their chapter 8 for the log link
+                being preferred to the canonical reciprocal in gamma
+                models and their chapter 11 for mean–variance
+                diagnostics. Fahrmeir, Kneib, Lang and Marx (2021, §5.3)
+                develop the log-normal and gamma alternatives for
+                nonnegative responses. The Jacobian correction of <a href="../ch39-glms-in-practice-bayes/01-model-building.html#prp-prc-model-building" class="xref" data-ref="prp-prc-model-building" data-shard="ch39-glms-in-practice-bayes">Proposition 39.1.1</a>(c)
+                is elementary, widely known, and as widely omitted from
+                software output.</p>
+                <p><strong>Diagnostics.</strong> Pregibon (1981)
+                transferred the linear-model diagnostics of <a href="../ch20-residuals-leverage-influence/index.html">Chapter
+                20</a> to generalized linear models by the substitution
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{X}\mapsto\hat{\mathbf{W}}^{1/2}\mathbf{X}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c21A6"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.595em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D416 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-base></mjx-mover></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mo stretchy="false">↦</mo><msup><mrow data-mjx-texclass="ORD"><mover><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">W</mi></mrow><mo stretchy="false">^</mo></mover></mrow><mrow data-mjx-texclass="ORD"><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></mrow></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow></math></mjx-assistive-mml></mjx-container></span>,
+                and Pregibon (1980) introduced the goodness-of-link test
+                of <a href="../ch39-glms-in-practice-bayes/02-diagnostics.html#prp-prc-diagnostics" class="xref" data-ref="prp-prc-diagnostics" data-shard="ch39-glms-in-practice-bayes">Proposition 39.2.1</a>(d).
+                The half-normal plot with a simulated envelope is
+                Atkinson’s (1981, 1985), and the exchangeability
+                argument behind <a href="../ch39-glms-in-practice-bayes/02-diagnostics.html#eq-prc-envelope" class="xref" data-ref="eq-prc-envelope" data-shard="ch39-glms-in-practice-bayes">Eq. 39.2.1</a>
+                is the one that justifies Monte Carlo tests generally.
+                Cook and Weisberg (1983) read a trend in absolute
+                residuals as evidence about the variance function.</p>
+                <p><strong>The Bayesian thread.</strong> Lindley and
+                Smith (1972) is the origin of the hierarchical linear
+                model. Diaconis and Ylvisaker (1979) characterized the
+                conjugate priors of an exponential family; the
+                generalized linear form <a href="../ch39-glms-in-practice-bayes/03-bayesian-linear-revisited.html#eq-prc-dy" class="xref" data-ref="eq-prc-dy" data-shard="ch39-glms-in-practice-bayes">Eq. 39.3.2</a>,
+                with a pseudo-response and per-observation weights, is
+                Bedrick, Christensen and Johnson (1996) and Chen and
+                Ibrahim (2003). Rencher and Schaalje (2008, chapter 11)
+                and Agresti (2015, chapter 10) are the source treatments
+                closest to this chapter, and Gelman, Carlin, Stern,
+                Dunson, Vehtari and Rubin (2013) the standard modern
+                reference for its last two sections.</p>
+                <p><strong>Laplace and the BIC.</strong> Laplace’s
+                method is two centuries old; its use for posterior
+                moments and marginal likelihoods is Tierney and Kadane’s
+                (1986). Schwarz (1978) derived the BIC, and Kass and
+                Raftery (1995) made the link between Bayes factors, the
+                Laplace approximation and the BIC standard; their
+                section 4 discusses the regularity conditions that <a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#thm-prc-laplace" class="xref" data-ref="thm-prc-laplace" data-shard="ch39-glms-in-practice-bayes">Theorem 39.4.2</a>
+                assumes, and the set used here — a shrinking ball,
+                bounded scaled derivatives, a concentration bound — is
+                convenient rather than weakest. The deviance information
+                criterion is Spiegelhalter, Best, Carlin and van der
+                Linde (2002); the Bernstein–von Mises theorem in the
+                form quoted is van der Vaart (1998, chapter 10).</p>
+                <p><strong>MCMC.</strong> The algorithm of <a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#eq-prc-mh" class="xref" data-ref="eq-prc-mh" data-shard="ch39-glms-in-practice-bayes">Eq. 39.4.6</a>
+                is Metropolis, Rosenbluth, Rosenbluth, Teller and Teller
+                (1953) as generalized by Hastings (1970); Tierney (1994)
+                gave the rigorous account for continuous state spaces
+                and Robert and Casella (2004) the textbook treatment.
+                The Gibbs sampler is Geman and Geman (1984), brought
+                into mainstream statistics by Gelfand and Smith (1990).
+                Optimal scaling is Roberts, Gelman and Gilks (1997), and
+                the iteratively reweighted proposal follows Gamerman
+                (1997). Data augmentation for the probit model is Albert
+                and Chib (1993); for the logit, Holmes and Held (2006)
+                use a scale mixture and Polson, Scott and Windle (2013)
+                the Pólya–gamma identity now in general use. <a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#eq-prc-rhat" class="xref" data-ref="eq-prc-rhat" data-shard="ch39-glms-in-practice-bayes">Eq. 39.4.7</a>
+                is Gelman and Rubin (1992) and the truncation rule for
+                the effective sample size is Geyer’s (1992). Posterior
+                predictive checking is Rubin (1984), Meng (1994) and
+                Gelman, Meng and Stern (1996), its <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span>-values analysed by
+                Bayarri and Berger (2000). Hamiltonian Monte Carlo,
+                which is what modern software actually runs, is omitted
+                because its justification needs machinery this book does
+                not develop.</p>
+                <p><strong>Priors as penalties.</strong> The
+                ridge–normal correspondence is as old as ridge
+                regression (<a href="../ch27-shrinkage/02-ridge.html#thm-shr-ridge" class="xref" data-ref="thm-shr-ridge" data-shard="ch27-shrinkage">Theorem 27.2.2</a>); the
+                lasso–Laplace one was noted by Tibshirani (1996) and
+                turned into a sampler by Park and Casella (2008).
+                Gelman, Jakulin, Pittau and Su (2008) proposed the
+                Cauchy default prior for logistic regression with the
+                rescaling to standard deviation <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1/2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></math></mjx-assistive-mml></mjx-container></span>, and gave the
+                separation argument that <a href="../ch39-glms-in-practice-bayes/05-priors-as-regularizers.html#prp-prc-priors" class="xref" data-ref="prp-prc-priors" data-shard="ch39-glms-in-practice-bayes">Proposition 39.5.1</a>(d)
+                formalizes. That Firth’s (1993) penalty is the Jeffreys
+                (1946) prior was observed by Firth himself; Heinze and
+                Schemper (2002) made it the standard remedy. The
+                horseshoe is Carvalho, Polson and Scott (2010). The
+                propriety argument of <a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#prp-prc-propriety" class="xref" data-ref="prp-prc-propriety" data-shard="ch39-glms-in-practice-bayes">Proposition 39.4.1</a>(b)
+                is the Bayesian face of <a href="../ch35-binary-responses/03-separation.html#thm-bin-separation" class="xref" data-ref="thm-bin-separation" data-shard="ch35-binary-responses">Theorem 35.3.1</a>.</p>
+                <h2 id="references"><span class="header-section-number">39.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Agresti, Alan (2015). <em>Foundations of Linear and
+                Generalized Linear Models</em>. Hoboken, NJ: Wiley.</li>
+                <li>Albert, James H. and Chib, Siddhartha (1993).
+                Bayesian Analysis of Binary and Polychotomous Response
+                Data. <em>Journal of the American Statistical
+                Association</em> 88(422), 669–679.</li>
+                <li>Atkinson, Anthony C. (1981). Two Graphical Displays
+                for Outlying and Influential Observations in Regression.
+                <em>Biometrika</em> 68(1), 13–20.</li>
+                <li>Atkinson, Anthony C. (1985). <em>Plots,
+                Transformations and Regression</em>. Oxford: Clarendon
+                Press.</li>
+                <li>Bedrick, Edward J., Christensen, Ronald and Johnson,
+                Wesley (1996). A New Perspective on Priors for
+                Generalized Linear Models. <em>Journal of the American
+                Statistical Association</em> 91(436), 1450–1460.</li>
+                <li>Bayarri, M. J. and Berger, James O. (2000). P Values
+                for Composite Null Models. <em>Journal of the American
+                Statistical Association</em> 95(452), 1127–1142.</li>
+                <li>Carvalho, Carlos M., Polson, Nicholas G. and Scott,
+                James G. (2010). The Horseshoe Estimator for Sparse
+                Signals. <em>Biometrika</em> 97(2), 465–480.</li>
+                <li>Chen, Ming-Hui and Ibrahim, Joseph G. (2003).
+                Conjugate Priors for Generalized Linear Models.
+                <em>Statistica Sinica</em> 13(2), 461–476.</li>
+                <li>Cook, R. Dennis and Weisberg, Sanford (1983).
+                Diagnostics for Heteroscedasticity in Regression.
+                <em>Biometrika</em> 70(1), 1–10.</li>
+                <li>Diaconis, Persi and Ylvisaker, Donald (1979).
+                Conjugate Priors for Exponential Families. <em>The
+                Annals of Statistics</em> 7(2), 269–281.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Firth, David (1993). Bias Reduction of Maximum
+                Likelihood Estimates. <em>Biometrika</em> 80(1),
+                27–38.</li>
+                <li>Gamerman, Dani (1997). Sampling from the Posterior
+                Distribution in Generalized Linear Mixed Models.
+                <em>Statistics and Computing</em> 7(1), 57–68.</li>
+                <li>Gelfand, Alan E. and Smith, Adrian F. M. (1990).
+                Sampling-Based Approaches to Calculating Marginal
+                Densities. <em>Journal of the American Statistical
+                Association</em> 85(410), 398–409.</li>
+                <li>Gelman, Andrew, Carlin, John B., Stern, Hal S.,
+                Dunson, David B., Vehtari, Aki and Rubin, Donald B.
+                (2013). <em>Bayesian Data Analysis</em>. 3rd edition.
+                Boca Raton, FL: CRC Press.</li>
+                <li>Gelman, Andrew, Jakulin, Aleks, Pittau, Maria Grazia
+                and Su, Yu-Sung (2008). A Weakly Informative Default
+                Prior Distribution for Logistic and Other Regression
+                Models. <em>The Annals of Applied Statistics</em> 2(4),
+                1360–1383.</li>
+                <li>Gelman, Andrew, Meng, Xiao-Li and Stern, Hal (1996).
+                Posterior Predictive Assessment of Model Fitness via
+                Realized Discrepancies. <em>Statistica Sinica</em> 6(4),
+                733–760.</li>
+                <li>Gelman, Andrew and Rubin, Donald B. (1992).
+                Inference from Iterative Simulation Using Multiple
+                Sequences. <em>Statistical Science</em> 7(4),
+                457–472.</li>
+                <li>Geyer, Charles J. (1992). Practical Markov Chain
+                Monte Carlo. <em>Statistical Science</em> 7(4),
+                473–483.</li>
+                <li>Geman, Stuart and Geman, Donald (1984). Stochastic
+                Relaxation, Gibbs Distributions, and the Bayesian
+                Restoration of Images. <em>IEEE Transactions on Pattern
+                Analysis and Machine Intelligence</em> 6(6),
+                721–741.</li>
+                <li>Hastings, W. Keith (1970). Monte Carlo Sampling
+                Methods Using Markov Chains and Their Applications.
+                <em>Biometrika</em> 57(1), 97–109.</li>
+                <li>Heinze, Georg and Schemper, Michael (2002). A
+                Solution to the Problem of Separation in Logistic
+                Regression. <em>Statistics in Medicine</em> 21(16),
+                2409–2419.</li>
+                <li>Holmes, Chris C. and Held, Leonhard (2006). Bayesian
+                Auxiliary Variable Models for Binary and Multinomial
+                Regression. <em>Bayesian Analysis</em> 1(1),
+                145–168.</li>
+                <li>Jeffreys, Harold (1946). An Invariant Form for the
+                Prior Probability in Estimation Problems.
+                <em>Proceedings of the Royal Society of London, Series
+                A</em> 186(1007), 453–461.</li>
+                <li>Kass, Robert E. and Raftery, Adrian E. (1995). Bayes
+                Factors. <em>Journal of the American Statistical
+                Association</em> 90(430), 773–795.</li>
+                <li>Lindley, Dennis V. and Smith, Adrian F. M. (1972).
+                Bayes Estimates for the Linear Model. <em>Journal of the
+                Royal Statistical Society, Series B</em> 34(1),
+                1–41.</li>
+                <li>McCullagh, Peter and Nelder, John A. (1989).
+                <em>Generalized Linear Models</em>. 2nd edition. London:
+                Chapman and Hall.</li>
+                <li>Meng, Xiao-Li (1994). Posterior Predictive <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span>-Values. <em>The Annals
+                of Statistics</em> 22(3), 1142–1160.</li>
+                <li>Metropolis, Nicholas, Rosenbluth, Arianna W.,
+                Rosenbluth, Marshall N., Teller, Augusta H. and Teller,
+                Edward (1953). Equation of State Calculations by Fast
+                Computing Machines. <em>The Journal of Chemical
+                Physics</em> 21(6), 1087–1092.</li>
+                <li>Nelder, John A. and Wedderburn, Robert W. M. (1972).
+                Generalized Linear Models. <em>Journal of the Royal
+                Statistical Society, Series A</em> 135(3), 370–384.</li>
+                <li>Park, Trevor and Casella, George (2008). The
+                Bayesian Lasso. <em>Journal of the American Statistical
+                Association</em> 103(482), 681–686.</li>
+                <li>Polson, Nicholas G., Scott, James G. and Windle,
+                Jesse (2013). Bayesian Inference for Logistic Models
+                Using Pólya–Gamma Latent Variables. <em>Journal of the
+                American Statistical Association</em> 108(504),
+                1339–1349.</li>
+                <li>Pregibon, Daryl (1980). Goodness of Link Tests for
+                Generalized Linear Models. <em>Journal of the Royal
+                Statistical Society, Series C</em> 29(1), 15–24.</li>
+                <li>Pregibon, Daryl (1981). Logistic Regression
+                Diagnostics. <em>The Annals of Statistics</em> 9(4),
+                705–724.</li>
+                <li>Rencher, Alvin C. and Schaalje, G. Bruce (2008).
+                <em>Linear Models in Statistics</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Robert, Christian P. and Casella, George (2004).
+                <em>Monte Carlo Statistical Methods</em>. 2nd edition.
+                New York: Springer.</li>
+                <li>Roberts, Gareth O., Gelman, Andrew and Gilks, Walter
+                R. (1997). Weak Convergence and Optimal Scaling of
+                Random Walk Metropolis Algorithms. <em>The Annals of
+                Applied Probability</em> 7(1), 110–120.</li>
+                <li>Rubin, Donald B. (1984). Bayesianly Justifiable and
+                Relevant Frequency Calculations for the Applied
+                Statistician. <em>The Annals of Statistics</em> 12(4),
+                1151–1172.</li>
+                <li>Schwarz, Gideon (1978). Estimating the Dimension of
+                a Model. <em>The Annals of Statistics</em> 6(2),
+                461–464.</li>
+                <li>Spiegelhalter, David J., Best, Nicola G., Carlin,
+                Bradley P. and van der Linde, Angelika (2002). Bayesian
+                Measures of Model Complexity and Fit. <em>Journal of the
+                Royal Statistical Society, Series B</em> 64(4),
+                583–639.</li>
+                <li>Tibshirani, Robert (1996). Regression Shrinkage and
+                Selection via the Lasso. <em>Journal of the Royal
+                Statistical Society, Series B</em> 58(1), 267–288.</li>
+                <li>Tierney, Luke (1994). Markov Chains for Exploring
+                Posterior Distributions. <em>The Annals of
+                Statistics</em> 22(4), 1701–1728.</li>
+                <li>Tierney, Luke and Kadane, Joseph B. (1986). Accurate
+                Approximations for Posterior Moments and Marginal
+                Densities. <em>Journal of the American Statistical
+                Association</em> 81(393), 82–86.</li>
+                <li>van der Vaart, Aad W. (1998). <em>Asymptotic
+                Statistics</em>. Cambridge: Cambridge University
+                Press.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch39-glms-in-practice-bayes/05-priors-as-regularizers.html" class="pagination-link" aria-label="Priors
+as regularizers">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">39.5 Priors as
+regularizers</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch40-glmm-gee/index.html" class="pagination-link" aria-label="GLMMs
+and Generalized Estimating Equations">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">GLMMs and
+Generalized Estimating Equations</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2039.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch39-glms-in-practice-bayes%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch39-glms-in-practice-bayes/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

@@ -1880,6 +1880,186 @@
           "filename": "06-summary-and-notes.md"
         }
       ]
+    },
+    {
+      "title": "Quasi-Likelihood and Overdispersion",
+      "number": 38,
+      "part": "",
+      "collapsed": true,
+      "path": "ch38-quasi-likelihood/index.html",
+      "sections": [
+        {
+          "title": "Variance functions",
+          "number": "38.1",
+          "path": "ch38-quasi-likelihood/01-variance-functions.html",
+          "filename": "01-variance-functions.md"
+        },
+        {
+          "title": "Quasi-likelihood estimating equations",
+          "number": "38.2",
+          "path": "ch38-quasi-likelihood/02-estimating-equations.html",
+          "filename": "02-estimating-equations.md"
+        },
+        {
+          "title": "Sandwich covariance estimation",
+          "number": "38.3",
+          "path": "ch38-quasi-likelihood/03-sandwich.html",
+          "filename": "03-sandwich.md"
+        },
+        {
+          "title": "Overdispersion",
+          "number": "38.4",
+          "path": "ch38-quasi-likelihood/04-overdispersion.html",
+          "filename": "04-overdispersion.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "38.5",
+          "path": "ch38-quasi-likelihood/05-summary-and-notes.html",
+          "filename": "05-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "GLMs in Practice; the Bayesian Thread",
+      "number": 39,
+      "part": "",
+      "collapsed": true,
+      "path": "ch39-glms-in-practice-bayes/index.html",
+      "sections": [
+        {
+          "title": "Building a model",
+          "number": "39.1",
+          "path": "ch39-glms-in-practice-bayes/01-model-building.html",
+          "filename": "01-model-building.md"
+        },
+        {
+          "title": "Diagnostics",
+          "number": "39.2",
+          "path": "ch39-glms-in-practice-bayes/02-diagnostics.html",
+          "filename": "02-diagnostics.md"
+        },
+        {
+          "title": "Bayesian thread IV: what carries over",
+          "number": "39.3",
+          "path": "ch39-glms-in-practice-bayes/03-bayesian-linear-revisited.html",
+          "filename": "03-bayesian-linear-revisited.md"
+        },
+        {
+          "title": "Bayesian generalized linear models and MCMC",
+          "number": "39.4",
+          "path": "ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html",
+          "filename": "04-bayesian-glms-mcmc.md"
+        },
+        {
+          "title": "Priors as regularizers",
+          "number": "39.5",
+          "path": "ch39-glms-in-practice-bayes/05-priors-as-regularizers.html",
+          "filename": "05-priors-as-regularizers.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "39.6",
+          "path": "ch39-glms-in-practice-bayes/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "GLMMs and Generalized Estimating Equations",
+      "number": 40,
+      "part": "",
+      "collapsed": true,
+      "path": "ch40-glmm-gee/index.html",
+      "sections": [
+        {
+          "title": "Marginal versus conditional models",
+          "number": "40.1",
+          "path": "ch40-glmm-gee/01-marginal-versus-conditional.html",
+          "filename": "01-marginal-versus-conditional.md"
+        },
+        {
+          "title": "Generalized linear mixed models",
+          "number": "40.2",
+          "path": "ch40-glmm-gee/02-glmms.html",
+          "filename": "02-glmms.md"
+        },
+        {
+          "title": "Integrated likelihood approximations",
+          "number": "40.3",
+          "path": "ch40-glmm-gee/03-integrated-likelihood.html",
+          "filename": "03-integrated-likelihood.md"
+        },
+        {
+          "title": "Generalized estimating equations",
+          "number": "40.4",
+          "path": "ch40-glmm-gee/04-gee.html",
+          "filename": "04-gee.md"
+        },
+        {
+          "title": "Working correlation",
+          "number": "40.5",
+          "path": "ch40-glmm-gee/05-working-correlation.html",
+          "filename": "05-working-correlation.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "40.6",
+          "path": "ch40-glmm-gee/06-summary-and-notes.html",
+          "filename": "06-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Missing Data",
+      "number": 41,
+      "part": "",
+      "collapsed": true,
+      "path": "ch41-missing-data/index.html",
+      "sections": [
+        {
+          "title": "Missingness mechanisms",
+          "number": "41.1",
+          "path": "ch41-missing-data/01-mechanisms.html",
+          "filename": "01-mechanisms.md"
+        },
+        {
+          "title": "Complete cases and quick repairs",
+          "number": "41.2",
+          "path": "ch41-missing-data/02-complete-case.html",
+          "filename": "02-complete-case.md"
+        },
+        {
+          "title": "Likelihood under missingness at random",
+          "number": "41.3",
+          "path": "ch41-missing-data/03-likelihood.html",
+          "filename": "03-likelihood.md"
+        },
+        {
+          "title": "The EM algorithm",
+          "number": "41.4",
+          "path": "ch41-missing-data/04-em.html",
+          "filename": "04-em.md"
+        },
+        {
+          "title": "Multiple imputation",
+          "number": "41.5",
+          "path": "ch41-missing-data/05-multiple-imputation.html",
+          "filename": "05-multiple-imputation.md"
+        },
+        {
+          "title": "Sensitivity analysis",
+          "number": "41.6",
+          "path": "ch41-missing-data/06-sensitivity.html",
+          "filename": "06-sensitivity.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "41.7",
+          "path": "ch41-missing-data/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
     }
   ]
 }

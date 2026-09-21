@@ -293,6 +293,34 @@
   <url><loc>https://regression.akizumifox.com/ch37-counts/04-negative-binomial.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch37-counts/05-zero-inflation.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch37-counts/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch38-quasi-likelihood/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch38-quasi-likelihood/01-variance-functions.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch38-quasi-likelihood/02-estimating-equations.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch38-quasi-likelihood/03-sandwich.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch38-quasi-likelihood/04-overdispersion.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch38-quasi-likelihood/05-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch39-glms-in-practice-bayes/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch39-glms-in-practice-bayes/01-model-building.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch39-glms-in-practice-bayes/02-diagnostics.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch39-glms-in-practice-bayes/03-bayesian-linear-revisited.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch39-glms-in-practice-bayes/05-priors-as-regularizers.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch39-glms-in-practice-bayes/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch40-glmm-gee/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch40-glmm-gee/01-marginal-versus-conditional.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch40-glmm-gee/02-glmms.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch40-glmm-gee/03-integrated-likelihood.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch40-glmm-gee/04-gee.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch40-glmm-gee/05-working-correlation.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch40-glmm-gee/06-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch41-missing-data/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch41-missing-data/01-mechanisms.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch41-missing-data/02-complete-case.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch41-missing-data/03-likelihood.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch41-missing-data/04-em.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch41-missing-data/05-multiple-imputation.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch41-missing-data/06-sensitivity.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch41-missing-data/07-summary-and-notes.html</loc></url>
   <url><loc>https://regression.akizumifox.com/results.html</loc></url>
   <url><loc>https://regression.akizumifox.com/graph.html</loc></url>
 </urlset>

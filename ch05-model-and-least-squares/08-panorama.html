@@ -378,7 +378,8 @@ regression models to come</span>
                 model with a conjugate prior the posterior is available
                 in closed form (<a href="../ch07-optimality/06-bayes-conjugate.html#thm-opt-bayes-conjugate" class="xref" data-ref="thm-opt-bayes-conjugate" data-shard="ch07-optimality">Theorem 7.6.2</a>), and it
                 reappears for intervals (<a href="../ch12-intervals-and-bands/06-bayes.html#thm-ci-bayes-credible" class="xref" data-ref="thm-ci-bayes-credible" data-shard="ch12-intervals-and-bands">Theorem 12.6.2</a>)
-                and for generalized linear models (Chapter 39).</p>
+                and for generalized linear models (<a href="../ch39-glms-in-practice-bayes/index.html">Chapter
+                39</a>).</p>
                 <h2 id="a-first-look-beyond-the-linear-model"><span class="header-section-number">5.8.3. </span> A first
                 look beyond the linear model</h2>
                 <div id="exm-lm-counts" class="example env" data-env-type="example" data-number="" style="--env-color: #3b7a4c">
@@ -407,9 +408,9 @@ regression models to come</span>
                 them. They differ more in what they assume about
                 variability. The linear model assumes a constant
                 variance; the Poisson model assumes variance equal to
-                the mean. The data contradict both. Chapter 38 shows how
-                to keep the log-linear mean and let the variance be a
-                multiple of it.</p>
+                the mean. The data contradict both. <a href="../ch38-quasi-likelihood/index.html">Chapter
+                38</a> shows how to keep the log-linear mean and let the
+                variance be a multiple of it.</p>
                 <p>The Poisson fit is not computed by ordinary least
                 squares, but its estimating equations have the same form
                 as the normal equations: <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{X}^{\top}(\mathbf{y}-\hat{\boldsymbol{\upmu}})=\mathbf{0}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛍</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mn class="mjx-b"><mjx-c class="mjx-c1D7CE TEX-B"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow><mo>−</mo><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">μ</mi><mo stretchy="false">^</mo></mover></mrow><mo stretchy="false">)</mo><mo>=</mo><mrow data-mjx-texclass="ORD"><mn mathvariant="bold">0</mn></mrow></math></mjx-assistive-mml></mjx-container></span>,

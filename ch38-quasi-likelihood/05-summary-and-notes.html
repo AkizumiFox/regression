@@ -1,0 +1,412 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>38.5 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch38-quasi-likelihood/05-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Estimating functions and
+optimality.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch38-quasi-likelihood/05-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch38-quasi-likelihood/05-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="38.5 Summary and Notes">
+        <meta property="og:description" content="Estimating functions
+and optimality.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch38-quasi-likelihood/index.html">Quasi-Likelihood and Overdispersion</a></li>
+                        <li class="breadcrumb-item"><a href="../ch38-quasi-likelihood/05-summary-and-notes.html"><span class="chapter-number">38.5</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">38.5</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">38.5.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A <strong>variance specification</strong> (<a href="../ch38-quasi-likelihood/01-variance-functions.html#def-ql-variance-function" class="xref" data-ref="def-ql-variance-function" data-shard="ch38-quasi-likelihood">Definition 38.1.1</a>)
+                gives the mean and the variance of each response and
+                nothing else: <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{E}
+                Y_i=h(\mathbf{x}_{(i)}^{\top}\boldsymbol{\upbeta})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.182em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D431 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.347em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msubsup><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><msub><mi>Y</mi><mi>i</mi></msub><mo>=</mo><mi>h</mi><mo stretchy="false">(</mo><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">x</mi></mrow><mrow data-mjx-texclass="ORD"><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msubsup><mi mathvariant="bold">β</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{Var}(Y_i)=\phi
+                V(\mu_i)/w_i"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c56"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.182em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D719 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D449 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Var</mi><mo stretchy="false">(</mo><msub><mi>Y</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mi>ϕ</mi><mi>V</mi><mo stretchy="false">(</mo><msub><mi>μ</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>w</mi><mi>i</mi></msub></math></mjx-assistive-mml></mjx-container></span>, with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\phi"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D719 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math></mjx-assistive-mml></mjx-container></span> free even for a
+                variance function borrowed from a family that fixed it.
+                No distribution need exist with these moments, and for
+                ungrouped binary data none does with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\phi\ne1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D719 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2260"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi><mo>≠</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>. Overdispersion
+                of a group proportion has two shapes, a constant
+                multiple of the binomial variance and the factor <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1+\rho(m-1)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D70C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>+</mo><mi>ρ</mi><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> of
+                exchangeable trials (<a href="../ch38-quasi-likelihood/01-variance-functions.html#lem-ql-exchangeable" class="xref" data-ref="lem-ql-exchangeable" data-shard="ch38-quasi-likelihood">Lemma 38.1.1</a>),
+                agreeing at one group size only.</p></li>
+                <li><p>A variance function fixes the estimating
+                equations, not the fit: the NB1 model shares the
+                quasi-Poisson variance function and gives a different
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\boldsymbol{\upbeta}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">β</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch38-quasi-likelihood/04-overdispersion.html#exm-ql-strikes-choice" class="xref" data-ref="exm-ql-strikes-choice" data-shard="ch38-quasi-likelihood">Example (Four analyses of the strike data)</a>).</p></li>
+                <li><p>The <strong>quasi-likelihood</strong> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="Q(\mu;y)=w\phi^{-1}\int_y^{\mu}(y-t)V(t)^{-1}dt"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D444 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c3B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D464 TEX-I"></mjx-c></mjx-mi><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D719 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-msubsup space="2"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c222B TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.341em; margin-left: -0.138em;"><mjx-TeXAtom size="s" texclass="ORD" style="margin-left: 0.276em;"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-spacer style="margin-top: 0.408em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D449 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D461 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>Q</mi><mo stretchy="false">(</mo><mi>μ</mi><mo>;</mo><mi>y</mi><mo stretchy="false">)</mo><mo>=</mo><mi>w</mi><msup><mi>ϕ</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup><msubsup><mo data-mjx-texclass="OP">∫</mo><mi>y</mi><mrow data-mjx-texclass="ORD"><mi>μ</mi></mrow></msubsup><mo stretchy="false">(</mo><mi>y</mi><mo>−</mo><mi>t</mi><mo stretchy="false">)</mo><mi>V</mi><mo stretchy="false">(</mo><mi>t</mi><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup><mi>d</mi><mi>t</mi></math></mjx-assistive-mml></mjx-container></span>
+                of <a href="../ch38-quasi-likelihood/02-estimating-equations.html#def-ql-quasi" class="xref" data-ref="def-ql-quasi" data-shard="ch38-quasi-likelihood">Definition 38.2.1</a>
+                has the score, the two Bartlett identities and the
+                saturated maximum of a log-likelihood, and equals the
+                log-likelihood minus its saturated value for an
+                exponential dispersion family (<a href="../ch38-quasi-likelihood/02-estimating-equations.html#prp-ql-properties" class="xref" data-ref="prp-ql-properties" data-shard="ch38-quasi-likelihood">Proposition 38.2.1</a>);
+                its <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="-2\phi"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D719 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>2</mn><mi>ϕ</mi></math></mjx-assistive-mml></mjx-container></span> multiple
+                is the <strong>quasi-deviance</strong>.</p></li>
+                <li><p>The <strong>quasi-score</strong> is the score <a href="../ch34-exponential-families-glm/03-likelihood-equations.html#eq-glm-score" class="xref" data-ref="eq-glm-score" data-shard="ch34-exponential-families-glm">Eq. 34.3.1</a>,
+                so the estimate is the usual iteratively reweighted
+                least squares fit (<a href="../ch38-quasi-likelihood/02-estimating-equations.html#thm-ql-score" class="xref" data-ref="thm-ql-score" data-shard="ch38-quasi-likelihood">Theorem 38.2.2</a>(a)),
+                unbiased as soon as the mean model is right whatever the
+                variances; the identity between its variance and its
+                sensitivity needs the variance model too (<a href="../ch38-quasi-likelihood/02-estimating-equations.html#thm-ql-score" class="xref" data-ref="thm-ql-score" data-shard="ch38-quasi-likelihood">Theorem 38.2.2</a>(b)–(e)).</p></li>
+                <li><p>Among <strong>linear estimating
+                functions</strong> <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{C}(\boldsymbol{\upbeta})(\mathbf{y}-\boldsymbol{\upmu})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D402 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-b" space="3"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛍</mjx-utext></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">C</mi></mrow><mo stretchy="false">(</mo><mi mathvariant="bold">β</mi><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow><mo>−</mo><mi mathvariant="bold">μ</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                the quasi-score maximizes the Godambe information, and
+                nothing else does except its nonsingular linear
+                transformations (<a href="../ch38-quasi-likelihood/02-estimating-equations.html#prp-ql-optimality" class="xref" data-ref="prp-ql-optimality" data-shard="ch38-quasi-likelihood">Proposition 38.2.3</a>).
+                The proof is Gauss–Markov with an orthogonal projection
+                in place of the completion of the square.</p></li>
+                <li><p>Under (Q1)–(Q5), <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\boldsymbol{\upbeta}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">β</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span> is asymptotically
+                normal with the <strong>sandwich</strong> covariance
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{A}_n^{-1}\mathbf{B}_n\mathbf{A}_n^{-1}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D400 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.247em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom><mjx-spacer style="margin-top: 0.239em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D401 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D400 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.247em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom><mjx-spacer style="margin-top: 0.239em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">A</mi></mrow><mi>n</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msubsup><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">B</mi></mrow><mi>n</mi></msub><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">A</mi></mrow><mi>n</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msubsup></math></mjx-assistive-mml></mjx-container></span>,
+                whose middle is estimated from the residuals (<a href="../ch38-quasi-likelihood/03-sandwich.html#thm-ql-asymptotics" class="xref" data-ref="thm-ql-asymptotics" data-shard="ch38-quasi-likelihood">Theorem 38.3.1</a>);
+                a correct variance specification makes <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{B}_n=\mathbf{A}_n"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D401 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D400 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">B</mi></mrow><mi>n</mi></msub><mo>=</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">A</mi></mrow><mi>n</mi></msub></math></mjx-assistive-mml></mjx-container></span> and collapses
+                it to the model-based <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\phi(\mathbf{X}^{\top}\mathbf{W}\mathbf{X})^{-1}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D719 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D416 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi><mo stretchy="false">(</mo><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">W</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>, then
+                valid and more efficient.</p></li>
+                <li><p>The dispersion is estimated by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="X^2/(n-p)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.051em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>X</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>, of expectation
+                exactly <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\phi"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D719 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>ϕ</mi></math></mjx-assistive-mml></mjx-container></span> at the
+                true mean, while the deviance version is not in general
+                consistent (<a href="../ch38-quasi-likelihood/03-sandwich.html#prp-ql-dispersion" class="xref" data-ref="prp-ql-dispersion" data-shard="ch38-quasi-likelihood">Proposition 38.3.2</a>(a),(b)).
+                Nested models are compared by the quasi-<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span> statistic <a href="../ch38-quasi-likelihood/03-sandwich.html#eq-ql-quasi-f" class="xref" data-ref="eq-ql-quasi-f" data-shard="ch38-quasi-likelihood">Eq. 38.3.3</a>, which
+                needs a correct variance function; the Akaike criterion
+                has no analogue here beyond a convention (<a href="../ch38-quasi-likelihood/03-sandwich.html#prp-ql-dispersion" class="xref" data-ref="prp-ql-dispersion" data-shard="ch38-quasi-likelihood">Proposition 38.3.2</a>(c),(d)).</p></li>
+                <li><p>Overdispersion comes from unobserved
+                heterogeneity, clustering and contagion, each computable
+                exactly (<a href="../ch38-quasi-likelihood/04-overdispersion.html#prp-ql-overdispersion" class="xref" data-ref="prp-ql-overdispersion" data-shard="ch38-quasi-likelihood">Proposition 38.4.1</a>(a)–(c)).
+                Ignoring a dispersion <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\phi_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D719 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>ϕ</mi><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span> turns a nominal
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="5\%"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mi class="mjx-n"><mjx-c class="mjx-c25"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>5</mn><mi mathvariant="normal">%</mi></math></mjx-assistive-mml></mjx-container></span> test of one
+                coefficient into one of size <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\Pr\{\chi^2(1)>3.841/\phi_0\}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c50"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D712 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3E"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c33"></mjx-c><mjx-c class="mjx-c2E"></mjx-c><mjx-c class="mjx-c38"></mjx-c><mjx-c class="mjx-c34"></mjx-c><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D719 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo data-mjx-texclass="OP" movablelimits="true">Pr</mo><mo fence="false" stretchy="false">{</mo><msup><mi>χ</mi><mn>2</mn></msup><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo><mo>&gt;</mo><mn>3.841</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>ϕ</mi><mn>0</mn></msub><mo fence="false" stretchy="false">}</mo></math></mjx-assistive-mml></mjx-container></span>,
+                and of six coefficients into something far worse (<a href="../ch38-quasi-likelihood/04-overdispersion.html#eq-ql-size" class="xref" data-ref="eq-ql-size" data-shard="ch38-quasi-likelihood">Eq. 38.4.2</a>). The
+                repairs assume different things — a mean and a variance
+                shape, a full distribution, a mixing law — and the last
+                changes the estimand.</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">38.5.2. </span> Notes and
+                sources</h2>
+                <p><strong>Wedderburn’s paper.</strong> Quasi-likelihood
+                is due to Wedderburn (1974), written two years after the
+                generalized linear model itself (Nelder and Wedderburn
+                1972) and in the same spirit: notice which part of the
+                structure the algorithm uses, and keep only that. The
+                definition <a href="../ch38-quasi-likelihood/02-estimating-equations.html#eq-ql-quasi" class="xref" data-ref="eq-ql-quasi" data-shard="ch38-quasi-likelihood">Eq. 38.2.1</a>, the
+                two Bartlett identities and the table of
+                quasi-likelihoods are all in that paper, as is the name.
+                McCullagh and Nelder (1989, chapter 9) is the standard
+                extended treatment; their chapter 10 develops the joint
+                model for the mean and the dispersion, which this
+                chapter does not cover. Multiplying Poisson or binomial
+                standard errors by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sqrt{X^2/(n-p)}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msqrt><mjx-sqrt><mjx-surd><mjx-mo class="mjx-sop"><mjx-c class="mjx-c221A TEX-S1"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.103em;"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.289em; margin-left: 0.051em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-box></mjx-sqrt></mjx-msqrt></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msqrt><msup><mi>X</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mi>p</mi><mo stretchy="false">)</mo></msqrt></math></mjx-assistive-mml></mjx-container></span> predates
+                the theory — Finney (1947) used it for probit analysis —
+                and Wedderburn said what it estimates.</p>
+                <p><strong>Estimating functions and optimality.</strong>
+                The general theory of unbiased estimating functions is
+                Godambe (1960), who showed the likelihood score optimal
+                among them in the sense used in <a href="../ch38-quasi-likelihood/02-estimating-equations.html#prp-ql-optimality" class="xref" data-ref="prp-ql-optimality" data-shard="ch38-quasi-likelihood">Proposition 38.2.3</a>;
+                Godambe and Heyde (1987) survey the subject. The
+                projection proof given here makes the analogy exact:
+                “optimal among linear estimating functions” stands to
+                “optimal among all” as “best linear unbiased” stands to
+                “minimum variance unbiased” in <a href="../ch07-optimality/02-gauss-markov.html#thm-opt-gauss-markov" class="xref" data-ref="thm-opt-gauss-markov" data-shard="ch07-optimality">Theorem 7.2.1</a>.
+                McCullagh (1983) proved the asymptotics under conditions
+                close to (Q1)–(Q5).</p>
+                <p><strong>The sandwich.</strong> Its history is traced
+                in <a href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html">Section
+                21.4</a>: Eicker (1963), Huber (1967) and White (1980)
+                in three literatures at once. The
+                generalized-linear-model version, with the working
+                weights in the bread, is in Royall (1986), who argued
+                for it as the default; Liang and Zeger (1986) made it
+                the foundation of generalized estimating equations. Its
+                small-sample bias is analysed by Kauermann and Carroll
+                (2001), and the leverage corrections of <a href="../ch38-quasi-likelihood/03-sandwich.html#exm-ql-coverage" class="xref" data-ref="exm-ql-coverage" data-shard="ch38-quasi-likelihood">Example (Coverage when the variance function is right and when it is wrong)</a>
+                are the HC2 and HC3 of MacKinnon and White (1985).</p>
+                <p><strong>Binomial overdispersion.</strong> The
+                exchangeable-trials calculation <a href="../ch38-quasi-likelihood/01-variance-functions.html#eq-ql-exchangeable" class="xref" data-ref="eq-ql-exchangeable" data-shard="ch38-quasi-likelihood">Eq. 38.1.3</a> is the
+                design effect of cluster sampling (Kish 1965), which <a href="../ch33-clustered-longitudinal-splitplot/index.html">Chapter
+                33</a> met as <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1+(m-1)\rho"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70C TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>+</mo><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi>ρ</mi></math></mjx-assistive-mml></mjx-container></span>. The
+                beta-binomial distribution is due to Skellam (1948), and
+                Williams (1982) proposed fitting the variance function
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\{1+\rho(m_i-1)\}\mu(1-\mu)/m_i"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D70C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45A TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo fence="false" stretchy="false">{</mo><mn>1</mn><mo>+</mo><mi>ρ</mi><mo stretchy="false">(</mo><msub><mi>m</mi><mi>i</mi></msub><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo fence="false" stretchy="false">}</mo><mi>μ</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>μ</mi><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msub><mi>m</mi><mi>i</mi></msub></math></mjx-assistive-mml></mjx-container></span>
+                by alternating a quasi-likelihood step with a moment
+                equation setting <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="X^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.051em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>X</mi><mn>2</mn></msup></math></mjx-assistive-mml></mjx-container></span> equal to its degrees
+                of freedom.</p>
+                <p><strong>Which device to use.</strong> Ver Hoef and
+                Boveng (2007) is a clear applied statement of the
+                quasi-Poisson against negative binomial question,
+                showing that the choice is between the NB1 and NB2
+                variance functions and matters most where the fitted
+                means are most spread out — what <a href="../ch38-quasi-likelihood/04-overdispersion.html#exm-ql-strikes-choice" class="xref" data-ref="exm-ql-strikes-choice" data-shard="ch38-quasi-likelihood">Example (Four analyses of the strike data)</a>
+                shows in miniature. Cameron and Trivedi (2013) covers
+                the quasi-likelihood, negative binomial and sandwich
+                routes together. The “QAIC” convention of <a href="../ch38-quasi-likelihood/03-sandwich.html#prp-ql-dispersion" class="xref" data-ref="prp-ql-dispersion" data-shard="ch38-quasi-likelihood">Proposition 38.3.2</a>(d)
+                is from Lebreton, Burnham, Clobert and Anderson (1992),
+                widely used in ecology and resting on no theorem.</p>
+                <p><strong>The data.</strong> The strike durations of <a href="../ch38-quasi-likelihood/02-estimating-equations.html#exm-ql-strikes-fit" class="xref" data-ref="exm-ql-strikes-fit" data-shard="ch38-quasi-likelihood">Example (Strike durations)</a>
+                are the subset of Kennan’s (1985) contract-strike series
+                distributed with statsmodels, from Bureau of Labor
+                Statistics records. Kennan fitted duration models of a
+                different kind; the Poisson mean model here illustrates
+                the methods of this chapter and is not an account of
+                strike durations.</p>
+                <p><strong>What comes next.</strong> Chapter 39 returns
+                to models with likelihoods, taking up model building,
+                diagnostics and the Bayesian treatment. Chapter 40
+                extends the estimating-equation idea to correlated
+                responses, where the working variance becomes a working
+                <em>correlation matrix</em>. Chapter 41 asks what
+                happens when some responses are not observed at all.</p>
+                <h2 id="references"><span class="header-section-number">38.5.3. </span>
+                References</h2>
+                <ul>
+                <li>Cameron, A. Colin and Trivedi, Pravin K. (2013).
+                <em>Regression Analysis of Count Data</em>. 2nd edition.
+                Cambridge: Cambridge University Press.</li>
+                <li>Eicker, Friedhelm (1963). Asymptotic Normality and
+                Consistency of the Least Squares Estimators for Families
+                of Linear Regressions. <em>The Annals of Mathematical
+                Statistics</em> 34(2), 447–456.</li>
+                <li>Fahrmeir, Ludwig and Kaufmann, Heinz (1985).
+                Consistency and Asymptotic Normality of the Maximum
+                Likelihood Estimator in Generalized Linear Models.
+                <em>The Annals of Statistics</em> 13(1), 342–368.</li>
+                <li>Finney, David J. (1947). <em>Probit Analysis: A
+                Statistical Treatment of the Sigmoid Response
+                Curve</em>. Cambridge: Cambridge University Press.</li>
+                <li>Godambe, V. P. (1960). An Optimum Property of
+                Regular Maximum Likelihood Estimation. <em>The Annals of
+                Mathematical Statistics</em> 31(4), 1208–1211.</li>
+                <li>Godambe, V. P. and Heyde, C. C. (1987).
+                Quasi-Likelihood and Optimal Estimation.
+                <em>International Statistical Review</em> 55(3),
+                231–244.</li>
+                <li>Huber, Peter J. (1967). The Behavior of Maximum
+                Likelihood Estimates under Nonstandard Conditions. In
+                <em>Proceedings of the Fifth Berkeley Symposium on
+                Mathematical Statistics and Probability</em>, volume 1,
+                221–233. Berkeley: University of California Press.</li>
+                <li>Kauermann, Göran and Carroll, Raymond J. (2001). A
+                Note on the Efficiency of Sandwich Covariance Matrix
+                Estimation. <em>Journal of the American Statistical
+                Association</em> 96(456), 1387–1396.</li>
+                <li>Kennan, John (1985). The Duration of Contract
+                Strikes in US Manufacturing. <em>Journal of
+                Econometrics</em> 28(1), 5–28.</li>
+                <li>Kish, Leslie (1965). <em>Survey Sampling</em>. New
+                York: Wiley.</li>
+                <li>Lebreton, Jean-Dominique, Burnham, Kenneth P.,
+                Clobert, Jean and Anderson, David R. (1992). Modeling
+                Survival and Testing Biological Hypotheses Using Marked
+                Animals: A Unified Approach with Case Studies.
+                <em>Ecological Monographs</em> 62(1), 67–118.</li>
+                <li>Liang, Kung-Yee and Zeger, Scott L. (1986).
+                Longitudinal Data Analysis Using Generalized Linear
+                Models. <em>Biometrika</em> 73(1), 13–22.</li>
+                <li>MacKinnon, James G. and White, Halbert (1985). Some
+                Heteroskedasticity-Consistent Covariance Matrix
+                Estimators with Improved Finite Sample Properties.
+                <em>Journal of Econometrics</em> 29(3), 305–325.</li>
+                <li>McCullagh, Peter (1983). Quasi-Likelihood Functions.
+                <em>The Annals of Statistics</em> 11(1), 59–67.</li>
+                <li>McCullagh, Peter and Nelder, John A. (1989).
+                <em>Generalized Linear Models</em>. 2nd edition. London:
+                Chapman and Hall.</li>
+                <li>Nelder, John A. and Wedderburn, Robert W. M. (1972).
+                Generalized Linear Models. <em>Journal of the Royal
+                Statistical Society, Series A</em> 135(3), 370–384.</li>
+                <li>Royall, Richard M. (1986). Model Robust Confidence
+                Intervals Using Maximum Likelihood Estimators.
+                <em>International Statistical Review</em> 54(2),
+                221–226.</li>
+                <li>Skellam, J. G. (1948). A Probability Distribution
+                Derived from the Binomial Distribution by Regarding the
+                Probability of Success as Variable between the Sets of
+                Trials. <em>Journal of the Royal Statistical Society,
+                Series B</em> 10(2), 257–261.</li>
+                <li>Ver Hoef, Jay M. and Boveng, Peter L. (2007).
+                Quasi-Poisson vs. Negative Binomial Regression: How
+                Should We Model Overdispersed Count Data?
+                <em>Ecology</em> 88(11), 2766–2772.</li>
+                <li>Wedderburn, Robert W. M. (1974). Quasi-Likelihood
+                Functions, Generalized Linear Models, and the
+                Gauss–Newton Method. <em>Biometrika</em> 61(3),
+                439–447.</li>
+                <li>White, Halbert (1980). A
+                Heteroskedasticity-Consistent Covariance Matrix
+                Estimator and a Direct Test for Heteroskedasticity.
+                <em>Econometrica</em> 48(4), 817–838.</li>
+                <li>Williams, D. A. (1982). Extra-Binomial Variation in
+                Logistic Linear Models. <em>Journal of the Royal
+                Statistical Society, Series C (Applied Statistics)</em>
+                31(2), 144–148.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch38-quasi-likelihood/04-overdispersion.html" class="pagination-link" aria-label="Overdispersion">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">38.4 Overdispersion</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch39-glms-in-practice-bayes/index.html" class="pagination-link" aria-label="GLMs
+in Practice; the Bayesian Thread">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">GLMs in
+Practice; the Bayesian Thread</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2038.5%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch38-quasi-likelihood%2F05-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch38-quasi-likelihood/05-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

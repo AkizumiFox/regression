@@ -332,6 +332,42 @@
    "results": 55,
    "chapterNumber": 37,
    "part": ""
+  },
+  {
+   "id": "ch38-quasi-likelihood",
+   "name": "Chapter 38",
+   "title": "Quasi-Likelihood and Overdispersion",
+   "url": "ch38-quasi-likelihood/index.html",
+   "results": 34,
+   "chapterNumber": 38,
+   "part": ""
+  },
+  {
+   "id": "ch39-glms-in-practice-bayes",
+   "name": "Chapter 39",
+   "title": "GLMs in Practice; the Bayesian Thread",
+   "url": "ch39-glms-in-practice-bayes/index.html",
+   "results": 45,
+   "chapterNumber": 39,
+   "part": ""
+  },
+  {
+   "id": "ch40-glmm-gee",
+   "name": "Chapter 40",
+   "title": "GLMMs and Generalized Estimating Equations",
+   "url": "ch40-glmm-gee/index.html",
+   "results": 41,
+   "chapterNumber": 40,
+   "part": ""
+  },
+  {
+   "id": "ch41-missing-data",
+   "name": "Chapter 41",
+   "title": "Missing Data",
+   "url": "ch41-missing-data/index.html",
+   "results": 49,
+   "chapterNumber": 41,
+   "part": ""
   }
  ],
  "edges": [
@@ -624,6 +660,12 @@
    "implied": false
   },
   {
+   "source": "ch02-random-vectors",
+   "target": "ch41-missing-data",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch03-multivariate-normal",
    "target": "ch01-matrix-algebra",
    "weight": 1,
@@ -735,6 +777,18 @@
    "source": "ch03-multivariate-normal",
    "target": "ch32-linear-mixed-models",
    "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch40-glmm-gee",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch41-missing-data",
+   "weight": 1,
    "implied": false
   },
   {
@@ -987,6 +1041,12 @@
    "source": "ch05-model-and-least-squares",
    "target": "ch37-counts",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch38-quasi-likelihood",
+   "weight": 1,
    "implied": false
   },
   {
@@ -1170,6 +1230,24 @@
    "implied": false
   },
   {
+   "source": "ch06-projections",
+   "target": "ch38-quasi-likelihood",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch41-missing-data",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch07-optimality",
    "target": "ch02-random-vectors",
    "weight": 1,
@@ -1335,6 +1413,30 @@
    "source": "ch07-optimality",
    "target": "ch35-binary-responses",
    "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch38-quasi-likelihood",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch40-glmm-gee",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch07-optimality",
+   "target": "ch41-missing-data",
+   "weight": 8,
    "implied": false
   },
   {
@@ -1770,6 +1872,12 @@
    "implied": false
   },
   {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch41-missing-data",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch12-intervals-and-bands",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -1875,6 +1983,24 @@
    "source": "ch12-intervals-and-bands",
    "target": "ch34-exponential-families-glm",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch40-glmm-gee",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch41-missing-data",
+   "weight": 1,
    "implied": false
   },
   {
@@ -2118,6 +2244,12 @@
    "implied": false
   },
   {
+   "source": "ch16-multiway-layouts",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch17-unbalanced-data",
    "target": "ch08-estimability",
    "weight": 1,
@@ -2163,6 +2295,12 @@
    "source": "ch18-covariance-and-design",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch18-covariance-and-design",
+   "target": "ch41-missing-data",
+   "weight": 14,
    "implied": false
   },
   {
@@ -2370,6 +2508,12 @@
    "implied": false
   },
   {
+   "source": "ch20-residuals-leverage-influence",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 8,
+   "implied": false
+  },
+  {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch05-model-and-least-squares",
    "weight": 3,
@@ -2454,6 +2598,18 @@
    "implied": false
   },
   {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch38-quasi-likelihood",
+   "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch40-glmm-gee",
+   "weight": 5,
+   "implied": false
+  },
+  {
    "source": "ch22-transformations",
    "target": "ch05-model-and-least-squares",
    "weight": 1,
@@ -2475,6 +2631,12 @@
    "source": "ch22-transformations",
    "target": "ch37-counts",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch22-transformations",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 6,
    "implied": false
   },
   {
@@ -2517,6 +2679,30 @@
    "source": "ch23-resampling-inference",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch23-resampling-inference",
+   "target": "ch38-quasi-likelihood",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch23-resampling-inference",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch23-resampling-inference",
+   "target": "ch40-glmm-gee",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch23-resampling-inference",
+   "target": "ch41-missing-data",
+   "weight": 3,
    "implied": false
   },
   {
@@ -2565,6 +2751,12 @@
    "source": "ch25-causal-interpretation",
    "target": "ch35-binary-responses",
    "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch25-causal-interpretation",
+   "target": "ch40-glmm-gee",
+   "weight": 1,
    "implied": false
   },
   {
@@ -2670,6 +2862,12 @@
    "implied": false
   },
   {
+   "source": "ch27-shrinkage",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 6,
+   "implied": false
+  },
+  {
    "source": "ch28-high-dimensional",
    "target": "ch29-model-selection",
    "weight": 1,
@@ -2748,6 +2946,30 @@
    "implied": false
   },
   {
+   "source": "ch29-model-selection",
+   "target": "ch38-quasi-likelihood",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 14,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch40-glmm-gee",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch41-missing-data",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch30-regularization-boosting",
    "target": "ch35-binary-responses",
    "weight": 1,
@@ -2757,6 +2979,12 @@
    "source": "ch30-regularization-boosting",
    "target": "ch36-multinomial-ordinal",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch30-regularization-boosting",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 9,
    "implied": false
   },
   {
@@ -2850,6 +3078,24 @@
    "implied": false
   },
   {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch40-glmm-gee",
+   "weight": 15,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch41-missing-data",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch33-clustered-longitudinal-splitplot",
    "target": "ch02-random-vectors",
    "weight": 1,
@@ -2859,6 +3105,12 @@
    "source": "ch33-clustered-longitudinal-splitplot",
    "target": "ch06-projections",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch33-clustered-longitudinal-splitplot",
+   "target": "ch40-glmm-gee",
+   "weight": 9,
    "implied": false
   },
   {
@@ -2892,6 +3144,30 @@
    "implied": false
   },
   {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch38-quasi-likelihood",
+   "weight": 34,
+   "implied": false
+  },
+  {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 39,
+   "implied": false
+  },
+  {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch40-glmm-gee",
+   "weight": 13,
+   "implied": false
+  },
+  {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch41-missing-data",
+   "weight": 6,
+   "implied": false
+  },
+  {
    "source": "ch35-binary-responses",
    "target": "ch05-model-and-least-squares",
    "weight": 1,
@@ -2916,8 +3192,32 @@
    "implied": false
   },
   {
+   "source": "ch35-binary-responses",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 26,
+   "implied": false
+  },
+  {
+   "source": "ch35-binary-responses",
+   "target": "ch40-glmm-gee",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch35-binary-responses",
+   "target": "ch41-missing-data",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch36-multinomial-ordinal",
    "target": "ch37-counts",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch36-multinomial-ordinal",
+   "target": "ch40-glmm-gee",
    "weight": 2,
    "implied": false
   },
@@ -2931,6 +3231,90 @@
    "source": "ch37-counts",
    "target": "ch34-exponential-families-glm",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch37-counts",
+   "target": "ch38-quasi-likelihood",
+   "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch37-counts",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch37-counts",
+   "target": "ch40-glmm-gee",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch37-counts",
+   "target": "ch41-missing-data",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch38-quasi-likelihood",
+   "target": "ch34-exponential-families-glm",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch38-quasi-likelihood",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 7,
+   "implied": false
+  },
+  {
+   "source": "ch38-quasi-likelihood",
+   "target": "ch40-glmm-gee",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch39-glms-in-practice-bayes",
+   "target": "ch30-regularization-boosting",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch39-glms-in-practice-bayes",
+   "target": "ch40-glmm-gee",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch40-glmm-gee",
+   "target": "ch32-linear-mixed-models",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch40-glmm-gee",
+   "target": "ch33-clustered-longitudinal-splitplot",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch40-glmm-gee",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch41-missing-data",
+   "target": "ch18-covariance-and-design",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch41-missing-data",
+   "target": "ch40-glmm-gee",
+   "weight": 1,
    "implied": false
   }
  ]

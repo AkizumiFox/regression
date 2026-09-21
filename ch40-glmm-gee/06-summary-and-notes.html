@@ -1,0 +1,473 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40.6 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch40-glmm-gee/06-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Coverage.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch40-glmm-gee/06-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch40-glmm-gee/06-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="40.6 Summary and Notes">
+        <meta property="og:description" content="Coverage.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch40-glmm-gee/index.html">GLMMs and Generalized Estimating Equations</a></li>
+                        <li class="breadcrumb-item"><a href="../ch40-glmm-gee/06-summary-and-notes.html"><span class="chapter-number">40.6</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">40.6</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">40.6.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A nonlinear link and a random effect do not
+                commute, so a clustered model has two sets of
+                coefficients. The identity and log links are the
+                exceptions; for the probit the marginal coefficient is
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\beta^{C}/\sqrt{1+\tau^{2}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D6FD TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msqrt><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.087em;"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.289em; margin-left: 0.054em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-box></mjx-sqrt></mjx-msqrt></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>β</mi><mrow data-mjx-texclass="ORD"><mi>C</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msqrt><mn>1</mn><mo>+</mo><msup><mi>τ</mi><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup></msqrt></math></mjx-assistive-mml></mjx-container></span>
+                exactly, and for the logit it is strictly attenuated
+                with local factor <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1-\operatorname{Var}(P_\theta)/\{\operatorname{E}
+                P_\theta\operatorname{E}(1-P_\theta)\}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="3"><mjx-c class="mjx-c56"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.109em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-msub space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.109em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D443 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em; margin-left: -0.109em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D703 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>−</mo><mi>Var</mi><mo stretchy="false">(</mo><msub><mi>P</mi><mi>θ</mi></msub><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo fence="false" stretchy="false">{</mo><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><msub><mi>P</mi><mi>θ</mi></msub><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>P</mi><mi>θ</mi></msub><mo stretchy="false">)</mo><mo fence="false" stretchy="false">}</mo></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch40-glmm-gee/01-marginal-versus-conditional.html#prp-gmm-marginal" class="xref" data-ref="prp-gmm-marginal" data-shard="ch40-glmm-gee">Proposition 40.1.1</a>).</p></li>
+                <li><p>The generalized linear mixed model puts random
+                effects in the linear predictor of a generalized linear
+                model (<a href="../ch40-glmm-gee/02-glmms.html#def-gmm-glmm" class="xref" data-ref="def-gmm-glmm" data-shard="ch40-glmm-gee">Definition 40.2.1</a>). Its
+                marginal moments follow by conditioning: a binomial
+                response acquires the beta-binomial overdispersion
+                factor, and a Poisson–lognormal response acquires
+                <em>exactly</em> the NB2 variance function (<a href="../ch40-glmm-gee/02-glmms.html#prp-gmm-moments" class="xref" data-ref="prp-gmm-moments" data-shard="ch40-glmm-gee">Proposition 40.2.1</a>).</p></li>
+                <li><p>A cluster-level random intercept can only induce
+                nonnegative within-cluster correlation, because two
+                nondecreasing functions of one random variable have
+                nonnegative covariance (<a href="../ch40-glmm-gee/02-glmms.html#lem-gmm-association" class="xref" data-ref="lem-gmm-association" data-shard="ch40-glmm-gee">Lemma 40.2.2</a>). Data with
+                competition inside a cluster need a different
+                tool.</p></li>
+                <li><p>Predicting a random effect in a GLMM is empirical
+                Bayes rather than BLUP, but the shrinkage survives: the
+                posterior mode lies strictly between zero and the
+                cluster’s own estimate, with the familiar factor <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tau^{2}/(\tau^{2}+I_i^{-1})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.054em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.054em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msubsup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43C TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.294em; margin-left: -0.064em;"><mjx-TeXAtom size="s" texclass="ORD" style="margin-left: 0.166em;"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>τ</mi><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><msup><mi>τ</mi><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup><mo>+</mo><msubsup><mi>I</mi><mi>i</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msubsup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                to first order (<a href="../ch40-glmm-gee/02-glmms.html#prp-gmm-prediction" class="xref" data-ref="prp-gmm-prediction" data-shard="ch40-glmm-gee">Proposition 40.2.3</a>).</p></li>
+                <li><p>The integrated likelihood factorizes over
+                independent clusters. The Laplace approximation has
+                relative error <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="O(n_i^{-1})"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.294em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><msubsup><mi>n</mi><mi>i</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msubsup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> — governed by
+                the observations <em>per cluster</em>, not by the sample
+                size — and adaptive Gauss–Hermite quadrature with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="K=1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi><mo>=</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> node is exactly the
+                Laplace approximation (<a href="../ch40-glmm-gee/03-integrated-likelihood.html#thm-gmm-likelihood" class="xref" data-ref="thm-gmm-likelihood" data-shard="ch40-glmm-gee">Theorem 40.3.1</a>).</p></li>
+                <li><p>Penalized quasi-likelihood is Henderson’s
+                mixed-model equations applied to the working response,
+                and is inconsistent: it attenuates both <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\boldsymbol{\upbeta}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">β</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\boldsymbol{\uptheta}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛉</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">θ</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span>,
+                badly for binary data in small clusters (<a href="../ch40-glmm-gee/03-integrated-likelihood.html#prp-gmm-pql" class="xref" data-ref="prp-gmm-pql" data-shard="ch40-glmm-gee">Proposition 40.3.2</a>, <a href="../ch40-glmm-gee/03-integrated-likelihood.html#exm-gmm-compare" class="xref" data-ref="exm-gmm-compare" data-shard="ch40-glmm-gee">Example (Three methods on clustered binary data)</a>).</p></li>
+                <li><p>Generalized estimating equations solve <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sum_i\mathbf{D}_i^{\top}\mathbf{V}_i^{-1}(\mathbf{Y}_i-\boldsymbol{\upmu}_i)=\mathbf{0}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-munder limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-msubsup space="2"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D403 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.284em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D415 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.294em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D418 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛍</mjx-utext></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mn class="mjx-b"><mjx-c class="mjx-c1D7CE TEX-B"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><munder><mo data-mjx-texclass="OP">∑</mo><mi>i</mi></munder><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">D</mi></mrow><mi>i</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msubsup><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">V</mi></mrow><mi>i</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msubsup><mo stretchy="false">(</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Y</mi></mrow><mi>i</mi></msub><mo>−</mo><msub><mi mathvariant="bold">μ</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mrow data-mjx-texclass="ORD"><mn mathvariant="bold">0</mn></mrow></math></mjx-assistive-mml></mjx-container></span>
+                with a working correlation the analyst chooses and does
+                not have to believe (<a href="../ch40-glmm-gee/04-gee.html#def-gmm-gee" class="xref" data-ref="def-gmm-gee" data-shard="ch40-glmm-gee">Definition 40.4.1</a>). The
+                estimating function is unbiased for every working
+                correlation, so <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\hat{\boldsymbol{\upbeta}}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.265em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mover><mi mathvariant="bold">β</mi><mo stretchy="false">^</mo></mover></mrow></math></mjx-assistive-mml></mjx-container></span> is consistent for
+                the marginal coefficient and asymptotically normal with
+                the sandwich covariance <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{A}^{-1}\mathbf{B}\mathbf{A}^{-1}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D400 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D401 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D400 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">A</mi></mrow><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">B</mi></mrow><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">A</mi></mrow><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch40-glmm-gee/04-gee.html#thm-gmm-gee" class="xref" data-ref="thm-gmm-gee" data-shard="ch40-glmm-gee">Theorem 40.4.1</a>).</p></li>
+                <li><p>GEE gives no likelihood, no random-effect
+                predictions and no distribution; a non-diagonal working
+                correlation also needs the mean model to hold
+                conditionally on the <em>whole</em> covariate history,
+                which feedback destroys; and it fails under missingness
+                that depends on previously observed responses — the one
+                case in which a likelihood-based analysis still works
+                (<a href="04-gee.html">Section 40.4</a>).</p></li>
+                <li><p>A wrong working correlation costs efficiency for
+                covariates that vary within clusters and nothing at all
+                for covariates fixed within a cluster; the sandwich
+                needs a small-sample correction below about forty
+                clusters; and QIC, the quasi-likelihood analogue of AIC,
+                is sound for mean models and weak for correlation
+                structures (<a href="../ch40-glmm-gee/05-working-correlation.html#prp-gmm-working" class="xref" data-ref="prp-gmm-working" data-shard="ch40-glmm-gee">Proposition 40.5.1</a>).</p></li>
+                <li><p>Because every working correlation targets the
+                same <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\upbeta}^{0}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi mathvariant="bold">β</mi><mrow data-mjx-texclass="ORD"><mn>0</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>, a
+                large gap between two GEE fits of the same mean model is
+                evidence against the <em>mean model</em> (<a href="../ch40-glmm-gee/05-working-correlation.html#exm-gmm-qic" class="xref" data-ref="exm-gmm-qic" data-shard="ch40-glmm-gee">Example (Grunfeld’s panel by GEE)</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">40.6.2. </span> Notes and
+                sources</h2>
+                <p><strong>Coverage.</strong> The topics follow Agresti
+                (2015, sections 9.4–9.6) and Fahrmeir, Kneib, Lang and
+                Marx (2021, sections 7.5–7.6), but put the
+                marginal–conditional distinction first, before either
+                estimation method, because that is where the choice
+                between the two traditions is actually made. Book-length
+                treatments are Diggle, Heagerty, Liang and Zeger (2002)
+                for longitudinal data, McCulloch, Searle and Neuhaus
+                (2008) for the mixed-model theory, and Molenberghs and
+                Verbeke (2005) for discrete longitudinal responses.</p>
+                <p><strong>Marginal versus conditional.</strong> The
+                distinction was made precise for binary data by Neuhaus,
+                Kalbfleisch and Hauck (1991), still the clearest
+                statement of what each coefficient means and when the
+                two agree. The approximation factor <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(1+c^{2}\tau^{2})^{-1/2}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msup space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.054em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><msup><mi>c</mi><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup><msup><mi>τ</mi><mrow data-mjx-texclass="ORD"><mn>2</mn></mrow></msup><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>
+                with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="c=16\sqrt3/(15\pi)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c36"></mjx-c></mjx-mn><mjx-msqrt><mjx-sqrt><mjx-surd><mjx-mo class="mjx-n"><mjx-c class="mjx-c221A"></mjx-c></mjx-mo></mjx-surd><mjx-box style="padding-top: 0.164em;"><mjx-mn class="mjx-n"><mjx-c class="mjx-c33"></mjx-c></mjx-mn></mjx-box></mjx-sqrt></mjx-msqrt><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c35"></mjx-c></mjx-mn><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>c</mi><mo>=</mo><mn>16</mn><msqrt><mn>3</mn></msqrt><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><mn>15</mn><mi>π</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> is
+                from Zeger, Liang and Albert (1988); the constant comes
+                from matching the logistic and normal distributions and
+                predates its use here by a long way. The proof of <a href="../ch40-glmm-gee/01-marginal-versus-conditional.html#prp-gmm-marginal" class="xref" data-ref="prp-gmm-marginal" data-shard="ch40-glmm-gee">Proposition 40.1.1</a>(d)
+                given above, through the derivative identity <a href="../ch40-glmm-gee/01-marginal-versus-conditional.html#eq-gmm-attenuation-derivative" class="xref" data-ref="eq-gmm-attenuation-derivative" data-shard="ch40-glmm-gee">Eq. 40.1.5</a>, seems to be
+                the shortest route to the strict inequality, and needs
+                no assumption on the random-effect distribution beyond
+                non-degeneracy. The median odds ratio of <a href="../ch40-glmm-gee/02-glmms.html#exr-gmm-mor" class="xref" data-ref="exr-gmm-mor" data-shard="ch40-glmm-gee">Exercise (B1)</a> was
+                popularized in epidemiology by Larsen and Merlo
+                (2005).</p>
+                <p><strong>Fitting.</strong> Breslow and Clayton (1993)
+                introduced penalized quasi-likelihood under that name
+                and set the pattern for GLMM software for a decade;
+                Breslow and Lin (1995) and Lin and Breslow (1996)
+                quantified its bias and proposed corrections. Adaptive
+                Gauss–Hermite quadrature for this problem is due to Liu
+                and Pierce (1994) and, for nonlinear mixed models,
+                Pinheiro and Bates (1995), who also observed that one
+                adaptive node reproduces the Laplace approximation. The
+                Laplace expansion itself is classical; the form used in
+                <a href="../ch40-glmm-gee/03-integrated-likelihood.html#thm-gmm-likelihood" class="xref" data-ref="thm-gmm-likelihood" data-shard="ch40-glmm-gee">Theorem 40.3.1</a>(b) is the
+                one in Tierney and Kadane (1986) and Barndorff-Nielsen
+                and Cox (1989, chapter 3). The asymptotics of the
+                integrated likelihood quoted in <a href="02-glmms.html">Section 40.2</a> are in McCulloch,
+                Searle and Neuhaus (2008, chapter 14). Monte Carlo EM
+                for this problem is Wei and Tanner (1990), with
+                automated sample-size rules in Booth and Hobert (1999);
+                the MCMC route with iteratively reweighted proposals is
+                Gamerman (1997).</p>
+                <p><strong>Estimating equations.</strong> Liang and
+                Zeger (1986) and Zeger and Liang (1986) introduced GEE,
+                and the pair is worth reading together: the first gives
+                the theory, the second the practice. The conditions and
+                the expansion in <a href="../ch40-glmm-gee/04-gee.html#thm-gmm-gee" class="xref" data-ref="thm-gmm-gee" data-shard="ch40-glmm-gee">Theorem 40.4.1</a> follow
+                theirs, with the cluster sandwich argument taken from <a href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html#thm-het-sandwich" class="xref" data-ref="thm-het-sandwich" data-shard="ch21-nonnormality-heteroscedasticity-serial">Theorem 21.4.2</a>
+                as <a href="../ch33-clustered-longitudinal-splitplot/02-clustered-data.html">Section
+                33.2</a> already arranged it. The warning about
+                time-varying covariates and the full-covariate
+                conditional mean is due to Pepe and Anderson (1994), and
+                is treated at length in Diggle, Heagerty, Liang and
+                Zeger (2002, chapter 12). Small-sample corrections to
+                the sandwich are due to Mancl and DeRouen (2001),
+                Kauermann and Carroll (2001) and Fay and Graubard
+                (2001); the first is used in <a href="../ch40-glmm-gee/04-gee.html#exm-gmm-coverage" class="xref" data-ref="exm-gmm-coverage" data-shard="ch40-glmm-gee">Example (Coverage when the working correlation is wrong)</a>.
+                QIC is Pan (2001); the criticism of it as a selector of
+                working correlations, and the CIC variant, are in Hin
+                and Wang (2009). Alternating logistic regressions are
+                Carey, Zeger and Diggle (1993). The failure of GEE under
+                missingness that depends on observed responses, and the
+                inverse-probability-weighted repair, are from Robins,
+                Rotnitzky and Zhao (1995).</p>
+                <p><strong>What is new here.</strong> <a href="../ch40-glmm-gee/02-glmms.html#lem-gmm-association" class="xref" data-ref="lem-gmm-association" data-shard="ch40-glmm-gee">Lemma 40.2.2</a> and its
+                consequence — that a cluster-level random intercept
+                cannot produce negative within-cluster correlation, so
+                that the travel-mode data of <a href="../ch40-glmm-gee/04-gee.html#exm-gmm-modechoice" class="xref" data-ref="exm-gmm-modechoice" data-shard="ch40-glmm-gee">Example (Four options per traveller)</a>
+                are outside the reach of any random-intercept GLMM — is
+                elementary, and the association inequality behind it is
+                standard, but we have not seen the two put together as a
+                reason to prefer estimating equations. The efficiency
+                comparison of <a href="../ch40-glmm-gee/05-working-correlation.html#exm-gmm-efficiency" class="xref" data-ref="exm-gmm-efficiency" data-shard="ch40-glmm-gee">Example (How much efficiency is at stake)</a>
+                separates within-cluster from cluster-level covariates,
+                making the often-repeated advice “the working
+                correlation hardly matters” precise: it hardly matters
+                for cluster-level covariates and matters by a factor of
+                nearly two for within-cluster ones.</p>
+                <p><strong>Data and code.</strong> Grunfeld’s investment
+                panel is the public-domain eleven-firm version
+                distributed with statsmodels, also used in <a href="../ch32-linear-mixed-models/index.html">Chapter
+                32</a> and <a href="../ch33-clustered-longitudinal-splitplot/index.html">Chapter
+                33</a>; its provenance is Grunfeld (1958), with the
+                version history discussed by Kleiber and Zeileis (2010).
+                The travel-mode choice data are the public-domain sample
+                of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="210"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c><mjx-c class="mjx-c31"></mjx-c><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>210</mn></math></mjx-assistive-mml></mjx-container></span> non-business
+                trips between Sydney, Canberra and Melbourne from a 1987
+                intercity mode-choice study, also distributed with
+                statsmodels; the sample over-represents the rarer modes,
+                as <a href="../ch40-glmm-gee/04-gee.html#exm-gmm-modechoice" class="xref" data-ref="exm-gmm-modechoice" data-shard="ch40-glmm-gee">Example (Four options per traveller)</a>
+                notes. The code in <code>code/ch40/</code> is written
+                from the formulas in this chapter and checked against
+                statsmodels where an equivalent fit exists; the
+                simulations use fixed seeds.</p>
+                <h2 id="references"><span class="header-section-number">40.6.3. </span>
+                References</h2>
+                <ul>
+                <li>Agresti, Alan (2015). <em>Foundations of Linear and
+                Generalized Linear Models</em>. Hoboken, NJ: Wiley.</li>
+                <li>Barndorff-Nielsen, Ole E. and Cox, David R. (1989).
+                <em>Asymptotic Techniques for Use in Statistics</em>.
+                London: Chapman and Hall.</li>
+                <li>Booth, James G. and Hobert, James P. (1999).
+                Maximizing Generalized Linear Mixed Model Likelihoods
+                with an Automated Monte Carlo EM Algorithm. <em>Journal
+                of the Royal Statistical Society, Series B</em> 61(1),
+                265–285.</li>
+                <li>Breslow, Norman E. and Clayton, David G. (1993).
+                Approximate Inference in Generalized Linear Mixed
+                Models. <em>Journal of the American Statistical
+                Association</em> 88(421), 9–25.</li>
+                <li>Breslow, Norman E. and Lin, Xihong (1995). Bias
+                Correction in Generalised Linear Mixed Models with a
+                Single Component of Dispersion. <em>Biometrika</em>
+                82(1), 81–91.</li>
+                <li>Carey, Vincent, Zeger, Scott L. and Diggle, Peter
+                (1993). Modelling Multivariate Binary Data with
+                Alternating Logistic Regressions. <em>Biometrika</em>
+                80(3), 517–526.</li>
+                <li>Diggle, Peter J., Heagerty, Patrick, Liang, Kung-Yee
+                and Zeger, Scott L. (2002). <em>Analysis of Longitudinal
+                Data</em>. 2nd edition. Oxford: Oxford University
+                Press.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Fay, Michael P. and Graubard, Barry I. (2001).
+                Small-Sample Adjustments for Wald-Type Tests Using
+                Sandwich Estimators. <em>Biometrics</em> 57(4),
+                1198–1206.</li>
+                <li>Gamerman, Dani (1997). Sampling from the Posterior
+                Distribution in Generalized Linear Mixed Models.
+                <em>Statistics and Computing</em> 7(1), 57–68.</li>
+                <li>Grunfeld, Yehuda (1958). <em>The Determinants of
+                Corporate Investment</em>. PhD thesis, University of
+                Chicago.</li>
+                <li>Hin, Lin-Yee and Wang, You-Gan (2009).
+                Working-Correlation-Structure Identification in
+                Generalized Estimating Equations. <em>Statistics in
+                Medicine</em> 28(4), 642–658.</li>
+                <li>Kauermann, Göran and Carroll, Raymond J. (2001). A
+                Note on the Efficiency of Sandwich Covariance Matrix
+                Estimation. <em>Journal of the American Statistical
+                Association</em> 96(456), 1387–1396.</li>
+                <li>Kleiber, Christian and Zeileis, Achim (2010). The
+                Grunfeld Data at 50. <em>German Economic Review</em>
+                11(4), 404–417.</li>
+                <li>Larsen, Klaus and Merlo, Juan (2005). Appropriate
+                Assessment of Neighborhood Effects on Individual Health:
+                Integrating Random and Fixed Effects in Multilevel
+                Logistic Regression. <em>American Journal of
+                Epidemiology</em> 161(1), 81–88.</li>
+                <li>Liang, Kung-Yee and Zeger, Scott L. (1986).
+                Longitudinal Data Analysis Using Generalized Linear
+                Models. <em>Biometrika</em> 73(1), 13–22.</li>
+                <li>Lin, Xihong and Breslow, Norman E. (1996). Bias
+                Correction in Generalized Linear Mixed Models with
+                Multiple Components of Dispersion. <em>Journal of the
+                American Statistical Association</em> 91(435),
+                1007–1016.</li>
+                <li>Liu, Qing and Pierce, Donald A. (1994). A Note on
+                Gauss–Hermite Quadrature. <em>Biometrika</em> 81(3),
+                624–629.</li>
+                <li>Mancl, Lloyd A. and DeRouen, Timothy A. (2001). A
+                Covariance Estimator for GEE with Improved Small-Sample
+                Properties. <em>Biometrics</em> 57(1), 126–134.</li>
+                <li>McCulloch, Charles E., Searle, Shayle R. and
+                Neuhaus, John M. (2008). <em>Generalized, Linear, and
+                Mixed Models</em>. 2nd edition. Hoboken, NJ: Wiley.</li>
+                <li>Molenberghs, Geert and Verbeke, Geert (2005).
+                <em>Models for Discrete Longitudinal Data</em>. New
+                York: Springer.</li>
+                <li>Neuhaus, John M., Kalbfleisch, John D. and Hauck,
+                Walter W. (1991). A Comparison of Cluster-Specific and
+                Population-Averaged Approaches for Analyzing Correlated
+                Binary Data. <em>International Statistical Review</em>
+                59(1), 25–35.</li>
+                <li>Pan, Wei (2001). Akaike’s Information Criterion in
+                Generalized Estimating Equations. <em>Biometrics</em>
+                57(1), 120–125.</li>
+                <li>Pepe, Margaret Sullivan and Anderson, Garnet L.
+                (1994). A Cautionary Note on Inference for Marginal
+                Regression Models with Longitudinal Data and General
+                Correlated Response Data. <em>Communications in
+                Statistics — Simulation and Computation</em> 23(4),
+                939–951.</li>
+                <li>Pinheiro, José C. and Bates, Douglas M. (1995).
+                Approximations to the Log-Likelihood Function in the
+                Nonlinear Mixed-Effects Model. <em>Journal of
+                Computational and Graphical Statistics</em> 4(1),
+                12–35.</li>
+                <li>Robins, James M., Rotnitzky, Andrea and Zhao, Lue
+                Ping (1995). Analysis of Semiparametric Regression
+                Models for Repeated Outcomes in the Presence of Missing
+                Data. <em>Journal of the American Statistical
+                Association</em> 90(429), 106–121.</li>
+                <li>Tierney, Luke and Kadane, Joseph B. (1986). Accurate
+                Approximations for Posterior Moments and Marginal
+                Densities. <em>Journal of the American Statistical
+                Association</em> 81(393), 82–86.</li>
+                <li>Wei, Greg C. G. and Tanner, Martin A. (1990). A
+                Monte Carlo Implementation of the EM Algorithm and the
+                Poor Man’s Data Augmentation Algorithms. <em>Journal of
+                the American Statistical Association</em> 85(411),
+                699–704.</li>
+                <li>Zeger, Scott L. and Liang, Kung-Yee (1986).
+                Longitudinal Data Analysis for Discrete and Continuous
+                Outcomes. <em>Biometrics</em> 42(1), 121–130.</li>
+                <li>Zeger, Scott L., Liang, Kung-Yee and Albert, Paul S.
+                (1988). Models for Longitudinal Data: A Generalized
+                Estimating Equation Approach. <em>Biometrics</em> 44(4),
+                1049–1060.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch40-glmm-gee/05-working-correlation.html" class="pagination-link" aria-label="Working
+correlation">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">40.5 Working
+correlation</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch41-missing-data/index.html" class="pagination-link" aria-label="Missing
+Data">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Missing
+Data</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2040.6%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch40-glmm-gee%2F06-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch40-glmm-gee/06-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>
