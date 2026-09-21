@@ -59,7 +59,7 @@ bootstrap and permutation inference ([Chapter 23](ch23-resampling-inference/inde
 errors in variables ([Chapter 24](ch24-errors-in-variables/index.html)), the causal
 interpretation of coefficients ([Chapter 25](ch25-causal-interpretation/index.html)),
 high-dimensional regression ([Chapter 28](ch28-high-dimensional/index.html)) and missing data
-(Chapter 41).
+([Chapter 41](ch41-missing-data/index.html)).
 
 ## Code
 
@@ -144,6 +144,7 @@ under the exercise; try the exercise before opening it.
 | \( \Z \), \( \bu \), \( \G \), \( \R \) | random-effect design matrix, random effects, \( \Cov(\bu) \) and \( \Cov(\be) \) ([Part VII](ch31-general-gauss-markov/index.html)) |
 | \( \theta \), \( b(\theta) \), \( \phi \), \( V(\mu) \) | natural parameter, cumulant function, dispersion and variance function of an exponential dispersion family ([Part VIII](ch34-exponential-families-glm/index.html)) |
 | \( \eta \), \( g \), \( \W \), \( D \) | linear predictor \( \x_{(i)}\T\bbeta \), link function, working weights and deviance of a generalized linear model ([Part VIII](ch34-exponential-families-glm/index.html)) |
+| \( \R_i \), \( \R \) | working correlation matrix of a cluster ([Chapter 40](ch40-glmm-gee/index.html)) and missingness indicator array ([Chapter 41](ch41-missing-data/index.html)): two local uses of \( \R \), each announced where it starts |
 
 Vectors are columns. Matrices and vectors are set in bold upright type and
 scalars in italic. A bare “projection” always means an orthogonal

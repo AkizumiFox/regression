@@ -631,7 +631,7 @@ print(f"dispersion: Pearson {phi_pearson:.5f}   deviance {phi_deviance:.5f}")
 ## Estimating the dispersion
 
 For the binomial and Poisson families \( \phi=1 \) by construction; if the data contradict
-that, the remedy is a different model, which is Chapter 38. For the normal, gamma and
+that, the remedy is a different model, which is [Chapter 38](../ch38-quasi-likelihood/index.html). For the normal, gamma and
 inverse Gaussian families \( \phi \) is free. Maximum likelihood would take it from the full
 likelihood, which for the gamma involves the digamma function and behaves badly under
 misspecification. The standard choice is instead the **Pearson estimate**

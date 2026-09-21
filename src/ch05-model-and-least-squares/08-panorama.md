@@ -91,7 +91,7 @@ into a model rather than a violation (Chapter 45).
 **The Bayesian thread.** A prior distribution on \( (\bbeta,\sigma^2) \) turns the likelihood into a
 posterior. For the normal linear model with a conjugate prior the posterior is available in
 closed form (@thm-opt-bayes-conjugate), and it reappears for intervals (@thm-ci-bayes-credible) and for
-generalized linear models (Chapter 39).
+generalized linear models ([Chapter 39](../ch39-glms-in-practice-bayes/index.html)).
 
 ## A first look beyond the linear model
 
@@ -114,7 +114,7 @@ of the index, where the log-linear mean grows ever faster and the linear one at 
 rate, and where the data are too sparse to decide between them. They differ more in what they
 assume about variability.
 The linear model assumes a constant variance; the Poisson model assumes variance equal to the
-mean. The data contradict both. Chapter 38 shows how to keep the log-linear mean and let the
+mean. The data contradict both. [Chapter 38](../ch38-quasi-likelihood/index.html) shows how to keep the log-linear mean and let the
 variance be a multiple of it.
 
 The Poisson fit is not computed by ordinary least squares, but its estimating equations

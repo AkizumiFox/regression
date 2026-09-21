@@ -43,18 +43,22 @@ The plan is `blueprint/book.yaml` (45 chapters in 10 parts); each chapter's brie
 | 35 | ch35-binary-responses | Binary responses | deployed |
 | 36 | ch36-multinomial-ordinal | Multinomial and ordinal responses | deployed |
 | 37 | ch37-counts | Counts | deployed |
-| 38–45 | | see `blueprint/book.yaml` | not started |
+| 38 | ch38-quasi-likelihood | Quasi-likelihood and overdispersion | deployed38
+| 39 | ch39-glms-in-practice-bayes | GLMs in practice; the Bayesian thread | deployed39
+| 40 | ch40-glmm-gee | GLMMs and generalized estimating equations | deployed40
+| 41 | ch41-missing-data | Missing data | deployed41
+| 42–45 | | see `blueprint/book.yaml` | not started |
 
 Deployed 2026-09-21 to https://regression.akizumifox.com (site repo AkizumiFox/regression, GitHub
 Pages from `main`, DNS through Cloudflare). Republish with `./build.py deploy --push`.
-Chapters 1–37 (Parts I–VII and the first half of Part VIII) are deployed; the combined PDF is
-1,655 pages. Part VIII still needs Chapters 38 (quasi-likelihood and overdispersion), 39 (GLMs in
-practice and the Bayesian thread), 40 (GLMMs and GEE) and 41 (missing data).
+Chapters 1–41 (Parts I–VIII) are deployed; the combined PDF is 1,820 pages. The next part is IX
+(Chapters 42–44: polynomials and piecewise fits, smoothing, additive models), then X (Chapter 45).
 
 ## Open forward promises
 
 Chapters 1–33 point forward to unwritten chapters in prose ("Chapter 42 treats splines").
 Those references are plain text until the target chapter is published; when a chapter is
 added, search `src/` for "Chapter N" and link it. The forward references to Chapters 31–33
-were linked when Part VII was written, and those to Chapters 34–37 when the first half of
-Part VIII was written. Chapters 38–45 are still referred to in plain text.
+were linked when Part VII was written, those to Chapters 34–37 when the first half of
+Part VIII was written, and those to Chapters 38–41 when the part was completed. Chapters
+42–45 are still referred to in plain text.

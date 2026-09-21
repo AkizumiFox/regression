@@ -147,7 +147,7 @@ gives \( \theta(\mu) \), hence \( b \), hence the density.
 ::: {.idea}
 A generalized linear model is specified by three separate choices: the **variance function**
 \( V \), which fixes the family; the **link**; and the **linear predictor** \( \X\bbeta \).
-Chapter 38 keeps the first two and throws the density away, which is possible because the
+[Chapter 38](../ch38-quasi-likelihood/index.html) keeps the first two and throws the density away, which is possible because the
 estimating equations of [Section 34.3](03-likelihood-equations.html) involve nothing else.
 :::
 
@@ -188,7 +188,7 @@ This is @eq-glm-edf with \( w=m \), \( \phi=1 \), \( \theta=\log\{\mu/(1-\mu)\} 
 and \( b''(\theta)=\mu(1-\mu) \), so @prp-glm-moments gives \( \E(Y)=\mu \) and
 \( \Var(Y)=\mu(1-\mu)/m \): the number of trials acts entirely through the prior weight. The
 dispersion is fixed at \( 1 \), so a proportion more variable than \( \mu(1-\mu)/m \) needs the
-different treatment of Chapter 38.
+different treatment of [Chapter 38](../ch38-quasi-likelihood/index.html).
 :::
 
 ::: {#exm-glm-gamma}

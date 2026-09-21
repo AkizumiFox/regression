@@ -225,8 +225,8 @@ integration in the listing below, behaves differently:
 
 The mode is zero for \( \lvert z\rvert\le1.5 \); the mean is zero only at \( z=0 \), and approaches \( z-1.5 \) for large \( z \)
 ([Figure 30.1.1](#fig-reg-thresholding)(c)). Exact zeros come from the mode, not from the prior; a prior that believes in
-exact zeros needs a point mass, as in the spike-and-slab priors of George and McCulloch (1993). Chapter 39 returns to
-priors as regularizers.
+exact zeros needs a point mass, as in the spike-and-slab priors of George and McCulloch (1993).
+[Chapter 39](../ch39-glms-in-practice-bayes/index.html) returns to priors as regularizers (@prp-prc-priors).
 :::
 
 ```{.python .run #cell-penalties-laplace}

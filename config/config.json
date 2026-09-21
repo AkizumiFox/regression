@@ -129,7 +129,11 @@
         },
         "src/ch35-binary-responses",
         "src/ch36-multinomial-ordinal",
-        "src/ch37-counts"
+        "src/ch37-counts",
+        "src/ch38-quasi-likelihood",
+        "src/ch39-glms-in-practice-bayes",
+        "src/ch40-glmm-gee",
+        "src/ch41-missing-data"
     ],
     "macros": "latex/macros.tex",
     "templates": {

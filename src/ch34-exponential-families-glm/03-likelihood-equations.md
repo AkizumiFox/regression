@@ -120,7 +120,7 @@ be estimated afterwards without disturbing \( \hbeta \)
 ([Section 34.5](05-deviance-and-inference.html)), just as least squares does not need
 \( \sigma^2 \). And they involve the family **only through \( V \)**: two densities with the
 same variance function give the same \( \hbeta \), the seed of the quasi-likelihood of
-Chapter 38.
+[Chapter 38](../ch38-quasi-likelihood/index.html) (@def-ql-quasi).
 
 ## The fitted marginals
 

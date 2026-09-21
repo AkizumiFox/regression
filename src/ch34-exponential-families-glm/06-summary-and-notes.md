@@ -85,8 +85,8 @@ a general estimation device and for the convergence issues
 of [Section 34.4](04-irls.html). Existence and uniqueness link by link are settled by
 Wedderburn (1976), the source of the gamma/identity warning
 in [Section 34.3](03-likelihood-equations.html); that only the variance function enters the
-estimating equations, so one may drop the density, is Wedderburn (1974), which Chapter 38
-follows.
+estimating equations, so one may drop the density, is Wedderburn (1974), which
+[Chapter 38](../ch38-quasi-likelihood/index.html) follows.
 
 **Asymptotics.** The complete theory — consistency, asymptotic normality, and existence
 with probability tending to one — is Fahrmeir and Kaufmann (1985), under conditions
@@ -129,11 +129,11 @@ used here that \( y \) may be a group average. Dobson and Barnett (2018) is a ge
 introduction; Rencher and Schaalje (2008, chapter 18) treats the subject briefly, as an
 extension of linear-model theory.
 
-**What comes next.** Chapter 38 keeps the score equations and drops the density, which
-handles data more variable than the family allows. Chapter 39 takes up model building in
+**What comes next.** [Chapter 38](../ch38-quasi-likelihood/index.html) keeps the score equations and drops the density, which
+handles data more variable than the family allows. [Chapter 39](../ch39-glms-in-practice-bayes/index.html) takes up model building in
 practice and the Bayesian treatment, whose priors are the counterpart of the penalized
 likelihoods of [Chapter 27](../ch27-shrinkage/index.html) and
-[Chapter 30](../ch30-regularization-boosting/index.html). Chapter 40 joins the subject to the
+[Chapter 30](../ch30-regularization-boosting/index.html). [Chapter 40](../ch40-glmm-gee/index.html) joins the subject to the
 mixed models of [Chapter 32](../ch32-linear-mixed-models/index.html), where the likelihood is
 no longer available in closed form.
 

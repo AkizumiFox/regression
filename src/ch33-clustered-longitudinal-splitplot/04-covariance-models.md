@@ -156,7 +156,8 @@ model costs efficiency, not validity, since \( \bbeta \) stays unbiased and part
 (b) supplies a standard error that is right anyway — the longitudinal version of
 the sandwich argument of
 [Section 21.4](../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html),
-and the basis of the generalized estimating equations of Chapter 40.
+and the basis of the generalized estimating equations (@def-gmm-gee) of
+[Chapter 40](../ch40-glmm-gee/index.html).
 
 ::: {.warning}
 The empirical standard error protects against the covariance model and nothing
@@ -387,7 +388,7 @@ the likelihood is wrong and no covariance model repairs it.
 Software that fits a mixed model to incomplete longitudinal data makes a
 missing-at-random assumption on the analyst's behalf, silently, and the empirical
 standard error of @prp-cls-selection(b) does *not* protect against its failure.
-Chapter 41 treats missing data properly.
+[Chapter 41](../ch41-missing-data/index.html) treats missing data properly.
 :::
 
 ## Exercises

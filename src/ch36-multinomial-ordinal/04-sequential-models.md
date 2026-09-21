@@ -365,9 +365,10 @@ AIC will decline to choose. The mechanism should choose.
 - **Adjacent-category** when local comparisons are the meaningful ones: category
   \( r+1 \) rather than \( r \), among those in one of the two.
 
-None of them addresses overdispersion relative to the multinomial. Chapter 38 treats
-quasi-likelihood and overdispersion, and Chapter 40 the random-effects models that
-repeated categorical measurements need.
+None of them addresses overdispersion relative to the multinomial.
+[Chapter 38](../ch38-quasi-likelihood/index.html) treats quasi-likelihood and overdispersion, and
+[Chapter 40](../ch40-glmm-gee/index.html) the random-effects models that repeated categorical
+measurements need.
 
 ## Exercises
 

@@ -110,9 +110,10 @@ proportional odds. Neither example is a causal statement, for the reasons in
 [Chapter 25](../ch25-causal-interpretation/index.html).
 
 **What is missing.** Responses clustered, repeated or overdispersed relative to
-@lem-mlt-multinomial need more than this chapter offers: Chapter 38 takes up
-quasi-likelihood and overdispersion, Chapter 40 random effects and estimating equations,
-and Chapter 39 Bayesian fitting, where the latent variable of
+@lem-mlt-multinomial need more than this chapter offers: [Chapter 38](../ch38-quasi-likelihood/index.html)
+takes up quasi-likelihood and overdispersion, [Chapter 40](../ch40-glmm-gee/index.html) random effects and
+estimating equations, and [Chapter 39](../ch39-glms-in-practice-bayes/index.html) Bayesian fitting, where the latent
+variable of
 @thm-mlt-proportional-odds(a) becomes a data augmentation scheme.
 
 ## References

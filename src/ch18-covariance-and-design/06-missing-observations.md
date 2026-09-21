@@ -230,8 +230,8 @@ missing value by its current fitted value, and the M-step refits. Part (b) prove
 
 Everything assumes that the loss is unrelated to what the value would have been. A strip that split before gluing qualifies; a joint
 that failed in handling because its glue was weak does not, and then both filling in and dropping make the adhesive look stronger than it
-is. The observed data cannot reveal this. Chapter 41 treats missing data in general, including the kinds of missingness and multiple
-imputation.
+is. The observed data cannot reveal this. [Chapter 41](../ch41-missing-data/index.html) treats missing data in general, including the kinds of
+missingness (@def-mis-mechanisms) and multiple imputation (@def-mis-multiple-imputation).
 
 ::: {.warning}
 Never analyse filled-in values as if they were data without the corrections of @thm-dsn-missing(e). The residual degrees of freedom must be

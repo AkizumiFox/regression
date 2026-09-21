@@ -84,8 +84,9 @@ problem is the setting of Self and Liang (1987), invoked by @prp-cnt-negbin(e);
 non-nested models; Wilson (2015) documents its misuse for zero-inflation testing,
 and Schennach and Wilhelm (2017) analyse its size and propose a repair. The
 definitions and likelihoods of the two model families are @def-cnt-zero-models and
-the preamble to @prp-cnt-zero-inflation. Chapter 38 returns to overdispersion
-without a likelihood, and Chapter 40 to counts that are not independent.
+the preamble to @prp-cnt-zero-inflation. [Chapter 38](../ch38-quasi-likelihood/index.html) returns to
+overdispersion without a likelihood, and [Chapter 40](../ch40-glmm-gee/index.html) to counts that are
+not independent.
 
 ## References
 

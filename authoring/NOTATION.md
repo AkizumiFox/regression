@@ -53,3 +53,18 @@ A chapter that needs a new symbol adds it here and there before using it.
   is the vector of *cutpoints* of a cumulative-link model (not the variance components of
   Part VII) and `\boldsymbol{\uppsi}` collects all parameters of a fit. Chapter 37 writes
   `\kappa` for the negative binomial shape and `\alpha=1/\kappa` for its reciprocal.
+
+- **Estimating equations, random effects and missingness (chapters 38–41).** The symbols of
+  chapters 34–37 above are unchanged. Chapter 38 writes `Q(\mu;y)` for the *quasi-likelihood*
+  of @def-ql-quasi and `\bU(\bbeta)` for an *estimating function*; the dispersion is the same
+  `\phi`, estimated by `\hat{\phi}`, and the sandwich covariance keeps the bread/meat form of
+  chapter 21. Chapter 40 keeps Part VII's `\Z`, `\bu\sim\Normal_q\{\bzero,\G(\boldsymbol{\uptheta})\}`
+  and `\G` for the random effects of a GLMM, and writes `\R_i(\boldsymbol{\upalpha})` for the
+  **working correlation** matrix of a GEE, with `\V_i=\phi\A_i^{1/2}\R_i\A_i^{1/2}` the working
+  covariance and `\A_i=\diag\{V(\mu_{ij})\}` — a local use of `\R`, not the `\R=\Cov(\be)` of
+  chapters 32–33, flagged in the chapter where it starts. In chapter 41 `\R` is the
+  **missingness-indicator** array, with `R_{ij}=1` when the entry is recorded, `\mathbf{D}` the
+  complete data, `\mathbf{D}_{\mathrm{obs}}` and `\mathbf{D}_{\mathrm{mis}}` its recorded and
+  unrecorded parts, `\boldsymbol{\uptheta}` the parameter of the data model and
+  `\boldsymbol{\uppsi}` that of the mechanism; `\bR_i` in section 40.4.6 is the same indicator
+  in diagonal form.

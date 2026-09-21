@@ -92,10 +92,10 @@ and the empirical variogram are due to Diggle (1988); Diggle, Heagerty, Liang an
 Zeger (2002) is the standard account. That a working covariance can be wrong
 without invalidating the estimate, provided the standard error is computed
 empirically, is from Liang and Zeger (1986), whose generalized estimating
-equations are the subject of Chapter 40. The rule of @prp-cls-selection(c) follows
+equations are the subject of [Chapter 40](../ch40-glmm-gee/index.html). The rule of @prp-cls-selection(c) follows
 from @def-mix-reml and is a common source of error in practice. Degrees of freedom
 under an estimated covariance belong to Satterthwaite (1946) and Kenward and
-Roger (1997); missing data to Chapter 41, the missing-at-random condition being
+Roger (1997); missing data to [Chapter 41](../ch41-missing-data/index.html), the missing-at-random condition being
 Rubin's (1976).
 
 **Growth curves.** Potthoff and Roy (1964) introduced @eq-cls-potthoff-roy and

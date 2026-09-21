@@ -89,7 +89,7 @@ Part (a) says the inflation is unavoidable: *any* unmodelled variation in the me
 adds to the variance, whatever its shape. The gamma is chosen in (b) for its
 closed form, not because heterogeneity is really gamma distributed; the log-normal
 gives no closed form, and is the natural choice once random effects enter the
-picture (Chapter 40).
+picture ([Chapter 40](../ch40-glmm-gee/index.html)).
 
 ::: {#def-cnt-negbin}
 [Negative binomial regression]
@@ -172,7 +172,8 @@ In the NB2 model of @def-cnt-negbin with \( \kappa \) treated as a parameter:
    \]{#eq-cnt-nb1-score}
 
    The residual \( y_i-\mu_i \) does not appear, so this is not a weighted least
-   squares equation at all. The quasi-Poisson model of Chapter 38 shares the NB1
+   squares equation at all. The quasi-Poisson model of [Chapter 38](../ch38-quasi-likelihood/index.html) shares
+   the NB1
    variance function \( V(\mu)=\phi\mu \) but has the Poisson estimating equation
    \( \X\T(\y-\bmu)=\bzero \), so the two give different \( \hbeta \) from the same
    data (@exr-cnt-quasi-vs-nb): a variance function does not determine a fit.

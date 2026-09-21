@@ -10,7 +10,7 @@ and the least squares estimate. It is biased in the frequentist sense, which is 
 Gauss–Markov bound. And as the prior becomes flat, the posterior reproduces least squares and the
 \( t \) intervals of [Section 7.5](05-sampling-distributions.html) exactly. This is the first of several Bayesian
 threads in the book. [Section 12.6](../ch12-intervals-and-bands/06-bayes.html) continues it with credible regions and predictive distributions, [Chapter 27](../ch27-shrinkage/index.html)
-with shrinkage priors, and Chapter 39 with generalized linear models.
+with shrinkage priors, and [Chapter 39](../ch39-glms-in-practice-bayes/index.html) with generalized linear models.
 
 ## The normal-inverse-gamma family
 

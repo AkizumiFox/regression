@@ -108,13 +108,14 @@ conditional likelihood of @prp-bin-conditional comes from the tradition of Ander
 (1948) met in @exm-opt-neyman-scott. Noncollapsibility is analysed by Greenland,
 Robins and Pearl (1999), who separate it carefully from confounding.
 
-**What comes next.** Chapter 38 takes up quasi-likelihood and overdispersion, which
-matter for grouped binary data whose variance exceeds \( m\pi(1-\pi) \); Chapter 39
-treats fitting in practice and the Bayesian thread, including the priors touched on in
-[Section 35.3](03-separation.html); Chapter 40 joins generalized linear
+**What comes next.** [Chapter 38](../ch38-quasi-likelihood/index.html) takes up quasi-likelihood and
+overdispersion, which matter for grouped binary data whose variance exceeds
+\( m\pi(1-\pi) \); [Chapter 39](../ch39-glms-in-practice-bayes/index.html) treats fitting in practice and the Bayesian
+thread, including the priors touched on in
+[Section 35.3](03-separation.html); [Chapter 40](../ch40-glmm-gee/index.html) joins generalized linear
 models to the random effects of
 [Chapter 32](../ch32-linear-mixed-models/index.html); and
-Chapter 41 covers missing data. Responses with more than two categories are the subject
+[Chapter 41](../ch41-missing-data/index.html) covers missing data. Responses with more than two categories are the subject
 of [Chapter 36](../ch36-multinomial-ordinal/index.html). The 1996 American National
 Election Studies survey used throughout is public domain; it illustrates method only,
 and nothing here should be read as a claim about the election.

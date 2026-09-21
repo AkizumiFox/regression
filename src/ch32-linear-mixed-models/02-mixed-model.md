@@ -53,9 +53,9 @@ Two means live in @eq-mix-model. Conditionally on the random effects,
 Marginally, \( \E(\Y)=\X\bbeta \): this is what the population does on average. In
 the linear model with normal errors the two lead to the same \( \bbeta \), and the
 distinction looks pedantic. It is not pedantic at all once the link is nonlinear.
-For a generalized linear mixed model (Chapter 40) the marginal mean of \( g^{-1}
+For a generalized linear mixed model ([Chapter 40](../ch40-glmm-gee/index.html)) the marginal mean of \( g^{-1}
 (\X\bbeta+\Z\bu) \) is not \( g^{-1}(\X\bbeta) \), and the subject-specific and
-population-averaged coefficients genuinely differ.
+population-averaged coefficients genuinely differ (@prp-gmm-marginal).
 :::
 
 ::: {.warning}

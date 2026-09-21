@@ -285,7 +285,7 @@ effects are honestly wider, with no need for the corrections of
 no chi-bar-squared mixture to calibrate. And the same machinery handles models with no
 closed form, which is what
 [Chapter 33](../ch33-clustered-longitudinal-splitplot/index.html) needs for richer
-covariance structures and Chapter 40 needs once the response is not normal.
+covariance structures and [Chapter 40](../ch40-glmm-gee/index.html) needs once the response is not normal.
 
 Two costs. A prior for the variance components must be chosen, and with few groups it
 matters, as panel (b) shows; the only defensible practice is to state it and show the
