@@ -261,7 +261,7 @@ For the murder-rate regression, \( \text{SSE}=46s^2 \) with \( s^2=2.217 \), the
 \( (1.531,\ 3.497) \). The interval is not symmetric about \( s^2 \), and it is not the shortest
 one with this coverage (@exr-ci-shortest-sigma).
 
-The two pivots of this section react differently to non-normal errors. The \( t \) statistic needs
+The two pivots of this section react differently to nonnormal errors. The \( t \) statistic needs
 normality of a weighted average of errors, which a central limit theorem restores, and \( s\to\sigma \), which
 holds for any error law. The chi-squared pivot needs the whole error distribution, because the variance of SSE
 depends on the fourth moment (@prp-opt-var-sse). Take the fitted murder-rate model as the truth, with

@@ -4,7 +4,7 @@ The exact theory of Part III rests on three assumptions about the errors: they a
 variance, and they are uncorrelated. [Chapter 19](../ch19-theory-of-departures/index.html) worked out what
 least squares does when each of them fails. This chapter is about the data analyst's side of the same
 question: how to see a failure in the residuals, how large it must be before it matters, and what to do
-about it. The three assumptions do not matter equally. Coefficient inference survives non-normal errors in
+about it. The three assumptions do not matter equally. Coefficient inference survives nonnormal errors in
 moderately large samples, but prediction intervals do not. Unequal variances leave least squares unbiased but
 make its usual standard errors wrong, sometimes by a factor of four or more, and they can be repaired either
 by weighting or by a variance estimator that does not trust the model. Serial correlation does the same
@@ -21,9 +21,9 @@ moments of quadratic forms from
 [Chapter 4](../ch04-quadratic-forms/index.html) (@thm-qf-canonical, @cor-qf-mahalanobis), the deletion
 formulas of [Chapter 10](../ch10-computation/index.html) (@prp-cmp-loo), and prediction intervals from
 [Chapter 12](../ch12-intervals-and-bands/index.html) (@thm-ci-prediction-interval) and their large-sample
-coverage under non-normal errors (@prp-ci-pi-limit). From
+coverage under nonnormal errors (@prp-ci-pi-limit). From
 [Chapter 19](../ch19-theory-of-departures/index.html) we use the covariance of least squares under a general
-error covariance (@thm-dep-covariance) and its large-sample behaviour under non-normal
+error covariance (@thm-dep-covariance) and its large-sample behaviour under nonnormal
 errors (@thm-dep-nonnormal). From [Chapter 20](../ch20-residuals-leverage-influence/index.html) we use studentized
 residuals (@def-res-residuals, @thm-res-external-t). The limit theorems of probability that the chapter needs
 are gathered, or pointed to, in [Section 21.2](02-detecting-heteroscedasticity.html).

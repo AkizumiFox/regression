@@ -8,7 +8,7 @@ departure does to the least squares estimator, to \( s^2 \) and to the tests and
 intervals built from them. Omitting a regressor biases the
 coefficients, and yet the biased estimator can still have the smaller mean squared error. A wrong
 covariance matrix leaves the estimator nearly efficient but can make its standard error
-wrong by a factor of two or more. With non-normal errors the \( t \) and \( F \) tests are
+wrong by a factor of two or more. With nonnormal errors the \( t \) and \( F \) tests are
 asymptotically valid when no observation has large leverage, while tests and intervals for
 \( \sigma^2 \) are not valid in any sample size. A single bad observation can move the
 estimate arbitrarily far. With random regressors and a curved mean, the usual standard errors describe
@@ -28,7 +28,7 @@ treats random regressors under the normal model, and [Section 19.5](05-random-re
 
 - [Omitting and adding regressors](01-underfitting-overfitting.html)
 - [An incorrect covariance matrix](02-wrong-covariance.html)
-- [Non-normal errors](03-non-normal-errors.html)
+- [Nonnormal errors](03-non-normal-errors.html)
 - [A single bad observation](04-outliers.html)
 - [Random regressors and a curved mean](05-random-regressors.html)
 - [Collinearity, previewed](06-collinearity.html)

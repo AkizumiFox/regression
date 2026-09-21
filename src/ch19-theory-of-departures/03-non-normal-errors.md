@@ -1,4 +1,4 @@
-# Non-normal errors
+# Nonnormal errors
 
 Normality entered Part III at one point only: it turned the moments of \( \hbeta \) and \( s^2 \) into exact
 distributions (@thm-opt-sampling). Everything that needs only two moments holds for any error distribution
@@ -52,7 +52,7 @@ right side tends to zero by dominated convergence. The Lindeberg–Feller theore
 :::
 
 ::: {#thm-dep-nonnormal}
-[Least squares with non-normal errors]
+[Least squares with nonnormal errors]
 
 In the sequence of models above, suppose \( h^*_n\to0 \). Let \( s^2=\norm{(\I-\M)\Y_n}^2/(n-p) \).
 
@@ -395,7 +395,7 @@ two-sample \( t \) tests with skewed data?
 (i) The mean of group \( 1 \) has \( c_i=1/m \) on its \( m \) observations, so \( w_i=m^{-1/2} \) there and
 \( \sum_iw_i^3=m\cdot m^{-3/2}=m^{-1/2} \). (ii) The difference has \( c_i=\pm1/m \) on the two groups, so \( w_i=\pm(2m)^{-1/2} \), and the cubes
 cancel: \( \sum_iw_i^3=0 \). The numerator of a one-sample \( t \) statistic has skewness \( \gamma_1/\sqrt m \). That of a
-two-sample comparison with equal group sizes has none, and its non-normality starts with the kurtosis term, of order \( 1/m \).
+two-sample comparison with equal group sizes has none, and its nonnormality starts with the kurtosis term, of order \( 1/m \).
 Equal-sized two-sample comparisons are therefore much better protected against skewness.
 :::
 

@@ -73,7 +73,7 @@ Cholesky and principal-component whitening.
 
 **Quadratic forms.**  The trace argument for @thm-rv-quadform-mean is folklore.
 @thm-rv-quadform-variance is stated without proof by Atiqullah (1962),
-who used it to study how non-normal errors affect the residual variance estimate and the \( F \)-test.
+who used it to study how nonnormal errors affect the residual variance estimate and the \( F \)-test.
 The kurtosis term depends on \( \A \) only through its diagonal. For the residual sum of squares of a
 correct model it equals \( (\mu_4-3\sigma^4)\sum_i(1-h_{ii})^2 \), which takes its simplest form,
 \( (\mu_4-3\sigma^4)(n-r)^2/n \), when all leverages \( h_{ii} \) are equal. These are the quadratically balanced designs of

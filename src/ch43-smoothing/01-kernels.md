@@ -492,7 +492,7 @@ divided by \( g(x) \).
 There are two reasons this chapter does not stop here. The first is that a
 kernel estimate is the solution of no global optimization problem: there is no
 criterion whose minimizer it is and no coefficient vector to report, so there is
-no obvious way to add a second covariate, a non-normal response or a random
+no obvious way to add a second covariate, a nonnormal response or a random
 effect. The second is dimension. With \( d \) covariates the window is a
 \( d \)-dimensional ball holding of order \( nh^d \) points, and the optimal rate
 degrades to \( n^{-4/(4+d)} \) — the *curse of dimensionality*. At \( d=5 \) it is

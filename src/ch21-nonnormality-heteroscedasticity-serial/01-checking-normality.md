@@ -89,7 +89,7 @@ pushes a distribution towards normality, so residuals look *more* normal than th
 them. This is sometimes called **supernormality**. The factor \( b_i \) measures it exactly.
 
 ::: {#exm-het-supernormality}
-[How much non-normality survives]
+[How much nonnormality survives]
 
 Take \( n=30 \) observations, an intercept, and \( p-1 \) columns of standard normal regressors. Averaged over
 the observations, the share of the errors' excess kurtosis that survives in the standardized residuals is
@@ -246,7 +246,7 @@ Applied to residuals, none of these has its nominal null distribution, because t
 sample. The effect on the level is small. In the design of @exm-het-supernormality with \( p=20 \) and
 normal errors, the 5% Shapiro–Wilk test applied to the raw residuals rejected in \( 0.045 \) of \( 4000 \)
 simulated data sets, and applied to the internally studentized residuals in \( 0.035 \). The effect on power is
-not small. Supernormality hides the non-normality that the test is looking for.
+not small. Supernormality hides the nonnormality that the test is looking for.
 
 ::: {#exm-het-sw-power}
 [Power lost to supernormality]
@@ -292,7 +292,7 @@ distort a prediction interval badly; in large ones it rejects departures too sma
 question is whether the departure is large enough to affect the inference at hand. For coefficient tests
 without high-leverage points it rarely is. For prediction intervals it can be, as the next result shows.
 
-## What non-normality does to prediction intervals
+## What nonnormality does to prediction intervals
 
 Under normal errors the interval \( \hat{Y}_0\pm t_{n-p,\alpha/2}\,s\sqrt{1+h_0} \) covers a new response
 \( Y_0=\x_0\T\bbeta+\varepsilon_0 \) with probability exactly \( 1-\alpha \), where

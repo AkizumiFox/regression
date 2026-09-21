@@ -256,7 +256,7 @@ and [Chapter 31](../ch31-general-gauss-markov/index.html) treat these cases.
 
 *Normality* gives the exact distribution, and it is the least critical of the three. The null
 distribution is exactly \( F \) for every spherically symmetric error law
-([Section 11.2](02-comparing-projections.html)), and approximately so for independent non-normal errors
+([Section 11.2](02-comparing-projections.html)), and approximately so for independent nonnormal errors
 unless the sample is small or some points have high leverage (@thm-dep-nonnormal).
 
 ::: {.warning}

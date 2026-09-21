@@ -76,7 +76,7 @@ degrees of freedom is treated systematically by Ghosh (1973).
 **General quadratic forms.**  The exact distribution of a quadratic form that is not
 chi-squared can be computed by numerical inversion of its characteristic function
 (Gil-Pelaez 1951; Imhof 1961). Mathai and Provost (1992) give a
-book-length treatment of quadratic forms in normal and non-normal variables. The mean square
+book-length treatment of quadratic forms in normal and nonnormal variables. The mean square
 successive difference of @exm-qf-drift goes back to von Neumann (1941),
 who derived the exact distribution of its ratio to \( S^2 \).
 

@@ -264,7 +264,7 @@ random scale independent of \( \Z \), or not, then \( \be=S\Z=(S\norm{\Z})(\Z/\n
 Taking \( S^{-2} \) proportional to a \( \chi^2(\nu) \) variable gives the spherical multivariate
 \( t \) distribution. Its components are uncorrelated and heavy-tailed but *not* independent: one
 common scale inflates or shrinks them all. The \( F \) test is exactly valid for all such laws. What
-the proposition does not cover are independent non-normal errors, whose direction is not uniform.
+the proposition does not cover are independent nonnormal errors, whose direction is not uniform.
 For them the null distribution is only approximately \( F \).
 
 ::: {#exm-glh-spherical}
@@ -283,7 +283,7 @@ rejection rates of the \( 5\% \) test are
 
 with Monte Carlo standard error about \( 0.0015 \). The first two agree exactly, not just
 approximately: the spherical errors were made by rescaling the normal ones, and each rescaled data
-set gives the same \( F \) as its normal original. The two independent non-normal laws give
+set gives the same \( F \) as its normal original. The two independent nonnormal laws give
 rates slightly below \( 0.05 \). For this design, with \( 43 \) residual degrees of freedom and no
 extreme leverage, the independent \( t_3 \) errors make the test slightly conservative, the exponential
 rate is within Monte Carlo error of \( 0.05 \), and both are close to the nominal level.

@@ -33,7 +33,7 @@ the models below.
 | Departures from the assumptions | diagnostics, transformations, resampling, measurement error, causation | Chapters [19](../ch19-theory-of-departures/index.html)–[25](../ch25-causal-interpretation/index.html) |
 | Many regressors | collinearity, shrinkage, \( p>n \), selection, boosting | Chapters [26](../ch26-collinearity/index.html)–[30](../ch30-regularization-boosting/index.html) |
 | General covariance and random effects | \( \Cov(\be)=\sigma^2\V \); \( \Y=\X\bbeta+\Z\bu+\be \) | Chapters [31](../ch31-general-gauss-markov/index.html)–[33](../ch33-clustered-longitudinal-splitplot/index.html) |
-| Generalized linear models | non-normal distribution and a link | Chapters [34](../ch34-exponential-families-glm/index.html)–41 |
+| Generalized linear models | nonnormal distribution and a link | Chapters [34](../ch34-exponential-families-glm/index.html)–41 |
 | Nonparametric and additive models | smooth functions in the predictor | Chapters [42](../ch42-polynomials-piecewise/index.html)–[44](../ch44-additive-models/index.html) |
 | Distributional regression | regressors act on more than the mean | [Chapter 45](../ch45-quantile-gamlss/index.html) |
 

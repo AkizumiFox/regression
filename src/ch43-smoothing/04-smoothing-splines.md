@@ -355,7 +355,7 @@ a *low-rank* approximation to it: both fits are determined, through
 two agree once \( m \) comfortably exceeds the effective degrees of freedom. The
 smoothing spline has no knot choice and costs \( O(n) \); the P-spline carries an
 explicit coefficient vector and generalizes to several covariates and to
-non-normal responses, which is why
+nonnormal responses, which is why
 [Chapter 44](../ch44-additive-models/index.html) uses it.
 
 ::: {.remark}

@@ -38,7 +38,7 @@ Crainiceanu (2006) is the standard reference for nonlinear models, regression ca
 the choice of SIMEX extrapolant. All data in the chapter are simulated.
 
 **Attenuation and identification.** Spearman (1904) introduced the correction for attenuation in mental testing.
-Reiersøl (1950) proved that non-normality of the true regressor restores identification. The functional model's
+Reiersøl (1950) proved that nonnormality of the true regressor restores identification. The functional model's
 incidental parameters are an instance of Neyman and Scott (1948). Gleser and Hwang (1987) proved that
 errors-in-variables confidence sets with guaranteed coverage have infinite expected length. Berkson (1950)
 distinguished controlled regressors from classical error.

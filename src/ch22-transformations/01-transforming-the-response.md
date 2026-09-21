@@ -132,7 +132,7 @@ proportional to \( \mu^{a} \) calls for the power \( 1-a \), the logarithm when 
 
 ## Three goals and one function
 
-The three claims are not equally important. With non-normal errors, least squares and the usual tests remain
+The three claims are not equally important. With nonnormal errors, least squares and the usual tests remain
 asymptotically valid under mild conditions (@thm-dep-nonnormal). A non-constant variance leaves the
 coefficients unbiased but the standard errors wrong (@thm-dep-covariance). A wrong mean function biases
 everything. So the mean comes first, then the variance, then the shape of the errors.

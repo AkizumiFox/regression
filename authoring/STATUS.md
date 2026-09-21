@@ -93,13 +93,8 @@ about 20 minor ones are fixed. These are the ones left, recorded rather than hid
   where the house form is the full given name; journal names vary ("Journal of the Royal
   Statistical Society, Series B" against two other renderings); and Atkinson (1985) appears
   under three slightly different titles.
-- **Spelling.** "nonnormal" (91) and "non-normal" (49) both occur, the second in section
-  titles and a directory name, so unifying them would move more than prose.
-- **Source hygiene.** 26 section files write `\mathbf{Z}`, `\mathbf{A}` and the like where
-  a macro exists. The output is identical; only grep suffers.
-- **Advisory warnings.** `./build.py check` prints 186 "names a result without a reference"
-  warnings. They are heuristics about block titles, and the ones inspected were all false
-  positives (a chapter naming its own subject).
-- **Page budgets.** `blueprint/book.yaml` still carries the page budgets the chapters were
-  planned against; most chapters ran 10–40 per cent longer. The budgets are stale, not the
-  chapters.
+- **Source hygiene, left deliberately.** 26 section files write `\mathbf{Z}`, `\mathbf{A}`
+  and the like where a macro exists. Normalizing them is *not* wanted: the output is
+  identical, and the macros carry book-wide meanings (`\Z` is the random-effect design
+  matrix from Part VII on), so rewriting a generic bold Z in Chapter 2 as `\Z` would
+  manufacture false hits for exactly the greps a notation audit runs.

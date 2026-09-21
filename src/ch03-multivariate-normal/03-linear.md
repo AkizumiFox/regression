@@ -189,7 +189,7 @@ which with this many draws rejects normality at any conventional level.
 (a) Both margins are exactly \( \Normal(0,1) \) and the correlation is zero, but
 the scatter is an X, not an ellipse. (b) The linear combination
 \( (Y_1+Y_2)/\sqrt2 \) has variance one but is sharply peaked and heavy-tailed
-compared with \( \Normal(0,1) \). By @def-mvn, one non-normal direction is
+compared with \( \Normal(0,1) \). By @def-mvn, one nonnormal direction is
 enough to rule out joint normality.](normal_marginals.svg){#fig-mvn-normal-marginals width=100%}
 :::
 
@@ -198,7 +198,7 @@ enough to rule out joint normality.](normal_marginals.svg){#fig-mvn-normal-margi
 (a) Both margins are exactly \( \Normal(0,1) \) and the correlation is zero, but
 the scatter is an X, not an ellipse. (b) The linear combination
 \( (Y_1+Y_2)/\sqrt2 \) has variance one but is sharply peaked and heavy-tailed
-compared with \( \Normal(0,1) \). By @def-mvn, one non-normal direction is
+compared with \( \Normal(0,1) \). By @def-mvn, one nonnormal direction is
 enough to rule out joint normality.](normal_marginals.pdf){width=100%}
 :::
 

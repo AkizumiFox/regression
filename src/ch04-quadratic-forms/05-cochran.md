@@ -153,7 +153,7 @@ against \( 200{,}000 \) simulated data sets.]{#tab-qf-cochran}
 [What the theorem does not cover]
 
 Two assumptions carry the weight. The first is normality. Without it,
-@thm-qf-mean-var(d) fails, and with independent non-normal errors the between and
+@thm-qf-mean-var(d) fails, and with independent nonnormal errors the between and
 within sums of squares are in general correlated, with a correlation driven by the fourth
 cumulant (@exr-qf-kurtosis). The second is the spherical covariance \( \sigma^2\I \). With
 \( \Cov(\Y)=\sigma^2\V \), \( \V \) positive definite, apply the theorem to \( \V^{-1/2}\Y \), whose forms

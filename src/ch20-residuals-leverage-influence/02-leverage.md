@@ -137,7 +137,7 @@ and Markov's inequality,
 by dominated convergence, since \( \E\norm{\x}^2<\infty \).
 :::
 
-The condition matters for inference with non-normal errors. Huber (1973) showed that every fitted value
+The condition matters for inference with nonnormal errors. Huber (1973) showed that every fitted value
 \( \x\T\hbeta \) is asymptotically normal, for every error law with finite variance, iff the largest leverage tends to zero,
 and @thm-dep-nonnormal of [Chapter 19](../ch19-theory-of-departures/index.html) rests on a condition of this Lindeberg type.
 A case that keeps a fixed share of the leverage keeps a fixed share of its own error in its fitted value, and no

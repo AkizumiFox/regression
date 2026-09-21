@@ -57,7 +57,7 @@ runs on into Part IX, where a roughness penalty turns out to be a normal prior
 ([Section 43.6](ch43-smoothing/06-mixed-model-and-bayes.html)).
 
 **Departures have a theory.**  [Part V](ch19-theory-of-departures/index.html) opens by deriving what omitted
-variables, wrong covariance, non-normality, outliers and collinearity actually
+variables, wrong covariance, nonnormality, outliers and collinearity actually
 do to the estimator. Diagnostics and remedies come after that.
 
 **Material most regression texts omit.**  This book adds chapters on
@@ -97,7 +97,7 @@ proofs, examples and exercises are original to this book.
 Parts I–VI (Chapters 1–30) are the classical linear model, complete in itself:
 estimation, exact inference, designed experiments, diagnostics, and the move from
 unbiased estimation to regularization. Parts [VII](ch31-general-gauss-markov/index.html)–[X](ch45-quantile-gamlss/index.html) (Chapters [31](ch31-general-gauss-markov/index.html)–[45](ch45-quantile-gamlss/index.html)) climb the rest
-of the ladder: correlated errors, non-normal responses, nonlinear predictors, and
+of the ladder: correlated errors, nonnormal responses, nonlinear predictors, and
 models for entire conditional distributions. All forty-five chapters are here;
 each one links to the results it uses, so any of them can be entered directly.
 

@@ -23,7 +23,7 @@ posterior is still prior times likelihood**: Bayes' theorem does not know what f
 \( \y \) came from. **Credible sets still mean what they meant**: @def-ci-credible is a
 statement about a posterior distribution, not about a normal one. **A random effect is
 still a prior**: the generalized linear mixed models of
-[Chapter 40](../ch40-glmm-gee/index.html) are @eq-mix-hierarchy with a non-normal first
+[Chapter 40](../ch40-glmm-gee/index.html) are @eq-mix-hierarchy with a nonnormal first
 level, and the empirical Bayes reading (@prp-shr-empirical-bayes) survives with them.
 
 ## What does not, and why

@@ -9,6 +9,7 @@ import hashlib
 import json
 import re
 import subprocess
+from collections import Counter
 from html import escape as html_escape, unescape
 from concurrent.futures import ThreadPoolExecutor
 
@@ -146,6 +147,42 @@ def add_title_mentions(labels: dict):
             other for other, pattern in named.items()
             if other != label and other not in referenced and pattern.search(text)
         )
+    drop_generic_mentions(labels)
+
+
+# A title like "Normal equations" or "Conditional distribution" names an object, not only
+# a result, so it turns up in ordinary prose and every occurrence looks like a missing
+# citation. Genericity is measurable: a title that many unrelated results mention without
+# citing is being used as a common noun, and warning about it drowns the real cases.
+GENERIC_MENTION_THRESHOLD = 4
+
+
+def drop_generic_mentions(labels: dict):
+    """Drop mentions that are not actionable: common nouns, and results proved later."""
+    counts = Counter(other for info in labels.values() for other in info.get("mentions", []))
+    generic = {other for other, n in counts.items() if n > GENERIC_MENTION_THRESHOLD}
+
+    def chapter_of(label):
+        # "ch07-optimality/05-sampling.html" -> 7; anything else sorts last
+        path = labels.get(label, {}).get("file") or ""
+        match = re.match(r"ch(\d+)", path)
+        return int(match.group(1)) if match else 10**6
+
+    for label, info in labels.items():
+        if not info.get("mentions"):
+            continue
+        here = chapter_of(label)
+        # A mention of a result proved in a later chapter cannot become a citation: the
+        # book's rule is that proofs cite only what precedes them.
+        page = info.get("file")
+        info["mentions"] = [
+            m for m in info["mentions"]
+            if m not in generic
+            # A result proved later cannot be cited: proofs cite only what precedes them.
+            and chapter_of(m) <= here
+            # Nor is a citation wanted inside the very section that states the result.
+            and labels.get(m, {}).get("file") != page
+        ]
 
 
 def load_scan(book: Book) -> tuple[dict, dict]:

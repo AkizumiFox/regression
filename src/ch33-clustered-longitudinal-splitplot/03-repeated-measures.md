@@ -429,7 +429,7 @@ With a between-subjects factor the within-subject analysis is the same, applied 
 the pooled within-group covariance, and the univariate tests are exact iff the
 pooled \( \boldsymbol{\Psi} \) is spherical *and* the groups share a common
 \( \bSigma \). Mauchly's (1940) test of sphericity itself, which most software
-reports, is sensitive to non-normality and, like any preliminary test, distorts
+reports, is sensitive to nonnormality and, like any preliminary test, distorts
 the level of what follows.
 :::
 

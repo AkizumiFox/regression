@@ -12,7 +12,7 @@
 
 3. Under \( \Cov(\Y)=\sigma^2\V \) the usual variance estimate is off by a factor bounded by eigenvalue ratios of \( \V \) (@thm-dep-covariance), while the efficiency loss is bounded by Kantorovich's constant (@thm-dep-efficiency).
 
-4. With non-normal errors and \( \max_ih_{ii}\to0 \), linear estimates are asymptotically normal and \( t \) and \( F \) tests
+4. With nonnormal errors and \( \max_ih_{ii}\to0 \), linear estimates are asymptotically normal and \( t \) and \( F \) tests
    asymptotically valid (@thm-dep-nonnormal); leverage bounds the finite-sample skewness and kurtosis (@prp-dep-cumulants).
 
 5. Intervals for \( \sigma^2 \), variance-ratio tests and prediction intervals stay wrong in large samples (@prp-dep-sigma-interval, @prp-ci-pi-limit); quadratic balance protects \( F \) tests (@prp-dep-balance).
@@ -44,9 +44,9 @@ covariance matrix is due to Bloomfield and Watson (1975) and Knott (1975). Grena
 asymptotically efficient for polynomial trends under stationary errors, the phenomenon of @exm-dep-ar1. Kruskal's
 (1968) condition for exact equality is @thm-proj-kruskal.
 
-**Non-normality.** The Lindeberg–Feller theorem is in Billingsley (1995), and Cramér–Wold, Slutsky and continuous
+**Nonnormality.** The Lindeberg–Feller theorem is in Billingsley (1995), and Cramér–Wold, Slutsky and continuous
 mapping in van der Vaart (1998). The leverage condition \( h^*_n\to0 \) is the one used by Huber (1973) in his asymptotic
-theory of robust regression. That tests on variances are sensitive to non-normality while tests on means are not was
+theory of robust regression. That tests on variances are sensitive to nonnormality while tests on means are not was
 emphasized by Box (1953). Box and Watson (1962) and Atiqullah (1962) studied the regression \( F \) test through its
 first two moments, and Atiqullah introduced quadratic balance. @prp-dep-balance is a compact version of their
 calculation.

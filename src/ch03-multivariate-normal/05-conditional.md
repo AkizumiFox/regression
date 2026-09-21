@@ -312,7 +312,7 @@ best linear predictor.
 :::
 
 The proof is short because independence of \( \W \) and \( \Y_2 \) is much stronger than the
-zero correlation that defines a projection. For non-normal vectors only zero
+zero correlation that defines a projection. For nonnormal vectors only zero
 correlation is available, and the best linear predictor is merely the best
 *linear* predictor.
 

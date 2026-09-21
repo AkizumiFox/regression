@@ -180,7 +180,7 @@ Adding the three terms proves the formula.
 
 For normal errors, \( \mu_3=0 \) and \( \mu_4=3\sigma^4 \), and the formula collapses to
 \( 2\sigma^4\tr(\A^2)+4\sigma^2\boldsymbol{\uptheta}\T\A^2\boldsymbol{\uptheta} \). Both extra terms describe how
-non-normality leaks into second-order behaviour. The kurtosis term depends on \( \A \) only
+nonnormality leaks into second-order behaviour. The kurtosis term depends on \( \A \) only
 through its diagonal. The skewness term needs both a skewed error distribution and a
 mean that the form does not annihilate. For the residual sum of squares of a correct
 model, \( \A\boldsymbol{\uptheta}=(\I-\M)\boldsymbol{\uptheta}=\bzero \), so the skewness term disappears but the kurtosis

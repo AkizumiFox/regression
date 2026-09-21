@@ -66,7 +66,7 @@ because \( \exp(\x_0\T\hbeta)\to\exp(\x_0\T\bbeta) \) in probability, and produc
 By part (a), a transformed model is naturally read through medians: \( h(\x\T\hbeta) \) estimates the conditional
 median when the errors are symmetric. Part (b) is the **retransformation bias**: for the exponential,
 \( h(\x\T\hbeta) \) underestimates the mean by the factor \( \E e^{\varepsilon} \). Under normal errors this suggests
-\( \exp(\x_0\T\hbeta+s^2/2) \), but the factor depends on the whole error distribution, and with non-normal errors
+\( \exp(\x_0\T\hbeta+s^2/2) \), but the factor depends on the whole error distribution, and with nonnormal errors
 that estimate is in general inconsistent: it converges to \( \exp(\sigma^2/2) \), not to \( \E e^{\varepsilon} \). Part (c) is Duan's (1983) remedy, the empirical distribution of the residuals
 standing in for \( F \), under the familiar condition that no observation keep a fixed share of the fit
 ([Section 6.8](../ch06-projections/08-leverage.html)). For general \( h \) the smearing estimate is

@@ -138,7 +138,7 @@ Any information that pins down one variance identifies everything: \( \sigma_u^2
 chapter is about where such information comes from.
 
 ::: {.remark}
-[Non-normal true values]
+[Nonnormal true values]
 
 Reiersøl (1950) showed that when \( \beta\ne0 \) and the errors are normal and independent of \( X \), the slope is identified
 exactly when \( X \) is *not* normal; higher moments then carry the missing information. We do not prove this.

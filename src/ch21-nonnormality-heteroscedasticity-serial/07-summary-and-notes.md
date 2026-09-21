@@ -14,7 +14,7 @@
    [Table 21.1.1](01-checking-normality.html#tab-het-prediction) evaluates for five error laws.
 
 3. The Breusch–Pagan statistic is half the explained sum of squares of \( \hat{\varepsilon}_i^2/\tilde{\sigma}^2 \) on the
-   variance variables, whatever the variance function. Non-normal errors inflate its null law by \( (\kappa-1)/2 \), with \( \kappa \) the raw kurtosis, and
+   variance variables, whatever the variance function. Nonnormal errors inflate its null law by \( (\kappa-1)/2 \), with \( \kappa \) the raw kurtosis, and
    Koenker's \( nR^2 \) corrects this (@thm-het-breusch-pagan, using @lem-het-clt). The Goldfeld–Quandt test is exact
    under normality (@prp-het-goldfeld-quandt).
 

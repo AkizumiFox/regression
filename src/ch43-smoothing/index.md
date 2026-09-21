@@ -20,7 +20,7 @@ of [Chapter 27](../ch27-shrinkage/index.html) and
 problem, a linear operator, a trace that counts the degrees of freedom spent.
 The second tradition is the more useful one here, because a penalty carries over
 unchanged to several covariates
-([Chapter 44](../ch44-additive-models/index.html)), to non-normal responses and to
+([Chapter 44](../ch44-additive-models/index.html)), to nonnormal responses and to
 parameters other than the mean ([Chapter 45](../ch45-quantile-gamlss/index.html)),
 and because it has a second reading as a normal prior, which turns the smoothing
 parameter into a variance ratio the data can estimate.
