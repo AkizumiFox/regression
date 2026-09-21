@@ -43,10 +43,10 @@ The plan is `blueprint/book.yaml` (45 chapters in 10 parts); each chapter's brie
 | 35 | ch35-binary-responses | Binary responses | deployed |
 | 36 | ch36-multinomial-ordinal | Multinomial and ordinal responses | deployed |
 | 37 | ch37-counts | Counts | deployed |
-| 38 | ch38-quasi-likelihood | Quasi-likelihood and overdispersion | deployed38
-| 39 | ch39-glms-in-practice-bayes | GLMs in practice; the Bayesian thread | deployed39
-| 40 | ch40-glmm-gee | GLMMs and generalized estimating equations | deployed40
-| 41 | ch41-missing-data | Missing data | deployed41
+| 38 | ch38-quasi-likelihood | Quasi-likelihood and overdispersion | deployed |
+| 39 | ch39-glms-in-practice-bayes | GLMs in practice; the Bayesian thread | deployed |
+| 40 | ch40-glmm-gee | GLMMs and generalized estimating equations | deployed |
+| 41 | ch41-missing-data | Missing data | deployed |
 | 42–45 | | see `blueprint/book.yaml` | not started |
 
 Deployed 2026-09-21 to https://regression.akizumifox.com (site repo AkizumiFox/regression, GitHub
