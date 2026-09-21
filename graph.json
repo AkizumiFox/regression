@@ -50,7 +50,7 @@
    "name": "Chapter 6",
    "title": "Projections: The Geometry of Least Squares",
    "url": "ch06-projections/index.html",
-   "results": 96,
+   "results": 94,
    "chapterNumber": 6,
    "part": ""
   },
@@ -433,6 +433,12 @@
   },
   {
    "source": "ch01-matrix-algebra",
+   "target": "ch06-projections",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
    "target": "ch07-optimality",
    "weight": 10,
    "implied": false
@@ -440,7 +446,7 @@
   {
    "source": "ch01-matrix-algebra",
    "target": "ch08-estimability",
-   "weight": 10,
+   "weight": 11,
    "implied": false
   },
   {
@@ -559,6 +565,12 @@
   },
   {
    "source": "ch01-matrix-algebra",
+   "target": "ch34-exponential-families-glm",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
    "target": "ch42-polynomials-piecewise",
    "weight": 2,
    "implied": false
@@ -578,7 +590,7 @@
   {
    "source": "ch02-random-vectors",
    "target": "ch03-multivariate-normal",
-   "weight": 23,
+   "weight": 25,
    "implied": false
   },
   {
@@ -986,7 +998,7 @@
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch07-optimality",
-   "weight": 7,
+   "weight": 8,
    "implied": false
   },
   {
@@ -1040,7 +1052,7 @@
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch19-theory-of-departures",
-   "weight": 21,
+   "weight": 20,
    "implied": false
   },
   {
@@ -1118,7 +1130,7 @@
   {
    "source": "ch06-projections",
    "target": "ch03-multivariate-normal",
-   "weight": 7,
+   "weight": 6,
    "implied": false
   },
   {
@@ -1136,7 +1148,7 @@
   {
    "source": "ch06-projections",
    "target": "ch08-estimability",
-   "weight": 42,
+   "weight": 41,
    "implied": false
   },
   {
@@ -1280,7 +1292,7 @@
   {
    "source": "ch06-projections",
    "target": "ch33-clustered-longitudinal-splitplot",
-   "weight": 8,
+   "weight": 9,
    "implied": false
   },
   {
@@ -1328,7 +1340,7 @@
   {
    "source": "ch06-projections",
    "target": "ch44-additive-models",
-   "weight": 9,
+   "weight": 10,
    "implied": false
   },
   {
@@ -1622,6 +1634,12 @@
   {
    "source": "ch08-estimability",
    "target": "ch28-high-dimensional",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch08-estimability",
+   "target": "ch30-regularization-boosting",
    "weight": 2,
    "implied": false
   },
@@ -2275,6 +2293,12 @@
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch39-glms-in-practice-bayes",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch42-polynomials-piecewise",
    "weight": 2,
    "implied": false
@@ -2822,7 +2846,7 @@
   {
    "source": "ch22-transformations",
    "target": "ch39-glms-in-practice-bayes",
-   "weight": 6,
+   "weight": 5,
    "implied": false
   },
   {
@@ -2900,7 +2924,7 @@
   {
    "source": "ch23-resampling-inference",
    "target": "ch41-missing-data",
-   "weight": 3,
+   "weight": 2,
    "implied": false
   },
   {
@@ -3482,7 +3506,7 @@
   {
    "source": "ch34-exponential-families-glm",
    "target": "ch39-glms-in-practice-bayes",
-   "weight": 39,
+   "weight": 40,
    "implied": false
   },
   {
