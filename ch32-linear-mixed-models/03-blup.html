@@ -638,10 +638,11 @@ and Henderson’s equations</span>
                 difference from <a href="../ch27-shrinkage/index.html">Chapter 27</a> is
                 that the penalty is not chosen by cross-validation; it
                 is estimated, because the model says what <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2/\sigma_u^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.297em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msubsup><mi>σ</mi><mi>u</mi><mn>2</mn></msubsup></math></mjx-assistive-mml></mjx-container></span>
-                means. Chapter 43 exploits the same equivalence in the
-                other direction, writing a smoothing spline as a mixed
-                model so that its smoothing parameter can be estimated
-                by REML.</p>
+                means. <a href="../ch43-smoothing/index.html">Chapter
+                43</a> exploits the same equivalence in the other
+                direction, writing a penalized spline as a mixed model
+                so that its smoothing parameter can be estimated by REML
+                (<a href="../ch43-smoothing/06-mixed-model-and-bayes.html#thm-smo-mixed" class="xref" data-ref="thm-smo-mixed" data-shard="ch43-smoothing">Theorem 43.6.1</a>).</p>
                 </div>
                 <div id="cell-blup-setup" class="code-cell" data-lang="python" data-packages="">
                 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

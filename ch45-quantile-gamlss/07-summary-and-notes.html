@@ -1,0 +1,525 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>45.7 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch45-quantile-gamlss/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Quantile regression.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch45-quantile-gamlss/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch45-quantile-gamlss/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="45.7 Summary and Notes">
+        <meta property="og:description" content="Quantile regression.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch45-quantile-gamlss/index.html">Quantile Regression and GAMLSS</a></li>
+                        <li class="breadcrumb-item"><a href="../ch45-quantile-gamlss/07-summary-and-notes.html"><span class="chapter-number">45.7</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">45.7</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">45.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A model of the conditional mean constrains the
+                whole conditional distribution: in a location model
+                every quantile curve is the same curve shifted, and in a
+                location-scale model the shape is frozen though the
+                spread moves (<a href="../ch45-quantile-gamlss/01-beyond-the-mean.html#prp-qnt-beyond-mean" class="xref" data-ref="prp-qnt-beyond-mean" data-shard="ch45-quantile-gamlss">Proposition 45.1.2</a>,
+                using <a href="../ch45-quantile-gamlss/01-beyond-the-mean.html#lem-qnt-monotone" class="xref" data-ref="lem-qnt-monotone" data-shard="ch45-quantile-gamlss">Lemma 45.1.1</a>).</p></li>
+                <li><p>The <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tau"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>τ</mi></math></mjx-assistive-mml></mjx-container></span>-quantile is exactly
+                the set of minimizers of the expected check loss, for
+                any distribution with a finite mean; the sample problem
+                is a linear program, equivariant under scaling, shifts,
+                reparameterization and monotone transformation of the
+                response (<a href="../ch45-quantile-gamlss/02-quantile-regression.html#thm-qnt-check" class="xref" data-ref="thm-qnt-check" data-shard="ch45-quantile-gamlss">Theorem 45.2.1</a>).</p></li>
+                <li><p>A regression quantile interpolates <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span> observations, and the
+                numbers of residual signs satisfy <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n_{-}\le\tau n\le
+                n_{-}+n_0"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="4"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2264"></mjx-c></mjx-mo><mjx-msub space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c30"></mjx-c></mjx-mn></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>n</mi><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msub><mo>≤</mo><mi>τ</mi><mi>n</mi><mo>≤</mo><msub><mi>n</mi><mrow data-mjx-texclass="ORD"><mo>−</mo></mrow></msub><mo>+</mo><msub><mi>n</mi><mn>0</mn></msub></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch45-quantile-gamlss/02-quantile-regression.html#prp-qnt-counts" class="xref" data-ref="prp-qnt-counts" data-shard="ch45-quantile-gamlss">Proposition 45.2.2</a>).</p></li>
+                <li><p>Knight’s identity splits the increment of the
+                check loss into a linear term and a controllable
+                remainder (<a href="../ch45-quantile-gamlss/03-inference.html#lem-qnt-knight" class="xref" data-ref="lem-qnt-knight" data-shard="ch45-quantile-gamlss">Lemma 45.3.1</a>);
+                with the convexity lemma it gives asymptotic normality
+                with a sandwich covariance built from the error
+                densities at zero, and in the iid case the sparsity
+                function (<a href="../ch45-quantile-gamlss/03-inference.html#thm-qnt-asymptotics" class="xref" data-ref="thm-qnt-asymptotics" data-shard="ch45-quantile-gamlss">Theorem 45.3.2</a>).</p></li>
+                <li><p>That density can be estimated by a difference
+                quotient of the empirical quantile function, or avoided
+                by rank-score tests or the pairs bootstrap; on
+                heteroscedastic data only the last two keep their
+                nominal coverage (<a href="../ch45-quantile-gamlss/03-inference.html#exm-qnt-coverage" class="xref" data-ref="exm-qnt-coverage" data-shard="ch45-quantile-gamlss">Example (Which interval keeps its promise)</a>).</p></li>
+                <li><p>Fitted quantile curves are ordered at the average
+                covariate vector but can cross elsewhere; sorting them
+                can only bring them closer to the truth, in every <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="L^p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>L</mi><mi>p</mi></msup></math></mjx-assistive-mml></mjx-container></span> sense (<a href="../ch45-quantile-gamlss/03-inference.html#prp-qnt-crossing" class="xref" data-ref="prp-qnt-crossing" data-shard="ch45-quantile-gamlss">Proposition 45.3.3</a>).</p></li>
+                <li><p>Squared deviation in place of absolute gives
+                expectiles: unique, increasing in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tau"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>τ</mi></math></mjx-assistive-mml></mjx-container></span>, equal to the mean
+                at <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tau=1/2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>τ</mi><mo>=</mo><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>2</mn></math></mjx-assistive-mml></mjx-container></span>,
+                affinely equivariant, and at the quantile level <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{E}(\mu-Y)_{+}/\operatorname{E}\lvert
+                Y-\mu\rvert"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.15em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo></mjx-TeXAtom></mjx-script></mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-n" space="2"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c7C"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mo stretchy="false">(</mo><mi>μ</mi><mo>−</mo><mi>Y</mi><msub><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>+</mo></mrow></msub><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mo data-mjx-texclass="OPEN" fence="false" stretchy="false">|</mo><mi>Y</mi><mo>−</mo><mi>μ</mi><mo data-mjx-texclass="CLOSE" fence="false" stretchy="false">|</mo></math></mjx-assistive-mml></mjx-container></span>, which depends on the distribution
+                (<a href="../ch45-quantile-gamlss/04-expectiles.html#prp-qnt-expectile" class="xref" data-ref="prp-qnt-expectile" data-shard="ch45-quantile-gamlss">Proposition 45.4.1</a>).</p></li>
+                <li><p>Expectile regression is weighted least squares
+                with weights determined by the signs of the residuals; a
+                step that leaves the weights unchanged has found the
+                exact global minimizer (<a href="../ch45-quantile-gamlss/04-expectiles.html#prp-qnt-iwls" class="xref" data-ref="prp-qnt-iwls" data-shard="ch45-quantile-gamlss">Proposition 45.4.2</a>).</p></li>
+                <li><p>A GAMLSS gives every parameter of a chosen family
+                its own structured additive predictor (<a href="../ch45-quantile-gamlss/05-gamlss.html#def-qnt-gamlss" class="xref" data-ref="def-qnt-gamlss" data-shard="ch45-quantile-gamlss">Definition 45.5.1</a>)
+                and maximizes a penalized log-likelihood by block-wise
+                Fisher scoring, each step a penalized weighted least
+                squares fit; for the normal location-scale model the
+                information is block diagonal (<a href="../ch45-quantile-gamlss/05-gamlss.html#thm-qnt-gamlss" class="xref" data-ref="thm-qnt-gamlss" data-shard="ch45-quantile-gamlss">Theorem 45.5.1</a>).</p></li>
+                <li><p>The likelihood of a flexible location-scale model
+                is unbounded, so the smoothing parameters are what make
+                the problem well posed and cannot be chosen by
+                maximizing it (<a href="../ch45-quantile-gamlss/05-gamlss.html#exm-qnt-unbounded" class="xref" data-ref="exm-qnt-unbounded" data-shard="ch45-quantile-gamlss">Example (Watching it happen)</a>).</p></li>
+                <li><p>Predictive distributions are compared by proper
+                scoring rules. The continuous ranked probability score
+                is strictly proper, splits into a discrepancy and an
+                irreducible floor, and is the check loss averaged over
+                all levels; probability integral transforms are uniform
+                under a correct model (<a href="../ch45-quantile-gamlss/06-comparing.html#prp-qnt-comparison" class="xref" data-ref="prp-qnt-comparison" data-shard="ch45-quantile-gamlss">Proposition 45.6.1</a>).</p></li>
+                <li><p>On Engel’s budgets the quantile model and the
+                location-scale GAMLSS beat the homoscedastic mean model
+                by about three paired standard errors of the score, and
+                are indistinguishable from each other (<a href="../ch45-quantile-gamlss/06-comparing.html#exm-qnt-compare" class="xref" data-ref="exm-qnt-compare" data-shard="ch45-quantile-gamlss">Example (Mean model, quantile model and GAMLSS on Engel’s budgets)</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">45.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>Quantile regression.</strong> The subject
+                begins with Koenker and Bassett (1978), which introduced
+                the check loss, the linear programming formulation, the
+                counting properties and the asymptotics under
+                identically distributed errors, and with Koenker and
+                Bassett (1982), which brought Engel’s budget data into
+                the literature as a test bed for heteroscedasticity.
+                Koenker (2005) is the standard monograph and the source
+                for everything in <a href="03-inference.html">Section
+                45.3</a> stated here without proof; Koenker and Hallock
+                (2001) is a short introduction. The median regression
+                ancestor is far older, as <a href="../ch05-model-and-least-squares/09-summary-and-notes.html">Section
+                5.9</a> records.</p>
+                <p>The proof in <a href="../ch45-quantile-gamlss/03-inference.html#thm-qnt-asymptotics" class="xref" data-ref="thm-qnt-asymptotics" data-shard="ch45-quantile-gamlss">Theorem 45.3.2</a>
+                follows the convexity route of Pollard (1991), using the
+                exact identity of Knight (1998); the convexity lemma is
+                the one ingredient taken on trust. The sparsity estimate
+                and its bandwidth are Hall and Sheather (1988);
+                rank-score inference Gutenbrunner and Jurečková (1992);
+                bootstrap validity Hahn (1995); computation Koenker and
+                d’Orey (1987) and Portnoy and Koenker (1997). Crossing
+                and its repairs: He (1997), Bondell, Reich and Wang
+                (2010), and the rearrangement of Chernozhukov,
+                Fernández-Val and Galichon (2010), whose <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="L^p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43F TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>L</mi><mi>p</mi></msup></math></mjx-assistive-mml></mjx-container></span>-contraction property
+                is <a href="../ch45-quantile-gamlss/03-inference.html#prp-qnt-crossing" class="xref" data-ref="prp-qnt-crossing" data-shard="ch45-quantile-gamlss">Proposition 45.3.3</a>(b).
+                The statistic <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="R_1(\tau)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D445 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70F TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>R</mi><mn>1</mn></msub><mo stretchy="false">(</mo><mi>τ</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> is Koenker and
+                Machado (1999), nonparametric extensions start from
+                Koenker, Ng and Portnoy (1994), and the Bayesian route
+                through the asymmetric Laplace is Yu and Moyeed (2001),
+                made practical by Kozumi and Kobayashi (2011).</p>
+                <p><strong>Expectiles.</strong> Newey and Powell (1987)
+                introduced asymmetric least squares, proved the
+                properties collected in <a href="../ch45-quantile-gamlss/04-expectiles.html#prp-qnt-expectile" class="xref" data-ref="prp-qnt-expectile" data-shard="ch45-quantile-gamlss">Proposition 45.4.1</a>,
+                and gave the iterated weighted least squares algorithm;
+                Efron (1991) developed the regression percentile view
+                and Jones (1994) the sense in which expectiles are
+                quantiles of a related distribution. The revival came
+                with smoothing: Schnabel and Eilers (2009), Sobotka and
+                Kneib (2012). The risk-measurement interest follows
+                Gneiting (2011) and Ziegel (2016).</p>
+                <p><strong>GAMLSS.</strong> The framework is Rigby and
+                Stasinopoulos (2005), with software in Stasinopoulos and
+                Rigby (2007); the ancestor is the LMS method of Cole and
+                Green (1992). The Bayesian version is Klein, Kneib, Lang
+                and Sohn (2015) and the boosting version Mayr, Fenske,
+                Hofner, Kneib and Schmid (2012); randomized quantile
+                residuals are Dunn and Smyth (1996). The survey chapter
+                of Fahrmeir, Kneib, Lang and Marx (2021) covers all
+                three approaches and supplied this chapter’s coverage
+                checklist.</p>
+                <p><strong>Scoring rules.</strong> The continuous ranked
+                probability score dates to Matheson and Winkler (1976);
+                Gneiting and Raftery (2007) is the definitive treatment
+                of propriety, and Gneiting, Balabdaoui and Raftery
+                (2007) formulated sharpness subject to calibration. The
+                probability integral transform goes back to Rosenblatt
+                (1952) and entered forecast assessment through the
+                prequential principle of Dawid (1984). Comparing
+                predictions by a paired test of their score difference
+                is Diebold and Mariano (1995).</p>
+                <p><strong>Data.</strong> Engel’s 1857 budget survey is
+                public domain and distributed with statsmodels. It
+                appeared in chapters 20 to 23 as an example of a
+                difficulty; here it is the subject, and nothing in this
+                chapter is a claim about nineteenth-century Belgium.</p>
+                <h2 id="what-the-ladder-reached-and-what-lies-beyond-it"><span class="header-section-number">45.7.3. </span> What the
+                ladder reached, and what lies beyond it</h2>
+                <p>This book began with a projection onto a subspace and
+                ends with an estimated conditional distribution. Each
+                part removed one assumption: Parts I to VI kept the
+                linear predictor, the normal error and the constant
+                variance and asked what could be proved; Part VII
+                dropped independence, Part VIII normality, Part IX
+                linearity, and Part X the mean.</p>
+                <p>What holds the sequence together is that almost
+                nothing was thrown away at each step. The normal
+                equations became estimating equations; the projection
+                became a smoother matrix and then a weighted smoother
+                matrix; the residual sum of squares became a deviance
+                and then a penalized log-likelihood; the trace of the
+                hat matrix became effective degrees of freedom, and it
+                is still a trace. A reader who has followed the argument
+                to here has not learned forty-five methods but one
+                method, restated.</p>
+                <p>Three directions are left untouched, and it is more
+                useful to name them than to gesture at them.</p>
+                <p><strong>Prediction without a model.</strong> Random
+                forests, gradient boosting and neural networks predict
+                better than any model in this book on many problems, and
+                they can be made distributional: quantile regression
+                forests (Meinshausen 2006) return a conditional
+                distribution rather than a conditional mean. What they
+                do not return is a coefficient with an interpretation.
+                Conformal prediction (Vovk, Gammerman and Shafer 2005)
+                is the counterweight, wrapping any predictor in a
+                prediction set with finite-sample coverage under
+                exchangeability alone — a stronger guarantee than
+                anything proved here, and a weaker statement, because it
+                says nothing about the mechanism.</p>
+                <p><strong>Causal inference.</strong> <a href="../ch25-causal-interpretation/index.html">Chapter
+                25</a> went as far as a regression book can. The modern
+                subject — instrumental variables beyond <a href="../ch24-errors-in-variables/04-instrumental-variables.html#def-eiv-instrument" class="xref" data-ref="def-eiv-instrument" data-shard="ch24-errors-in-variables">Definition 24.4.1</a>,
+                difference-in-differences, regression discontinuity,
+                synthetic controls, the semiparametric theory behind
+                doubly robust estimation — is a separate discipline with
+                its own books, linked to this one by the
+                Frisch–Waugh–Lovell theorem (<a href="../ch06-projections/06-fwl.html#thm-proj-fwl" class="xref" data-ref="thm-proj-fwl" data-shard="ch06-projections">Theorem 6.6.2</a>), the
+                engine inside double machine learning.</p>
+                <p><strong>Data that are not vectors, and data that are
+                not complete.</strong> Functional data analysis (Ramsay
+                and Silverman 2005) rebuilds the linear model when the
+                response or the covariate is a curve, with the penalized
+                splines of <a href="../ch43-smoothing/index.html">Chapter 43</a> as
+                its tool and the same trace as its degrees of freedom.
+                Conditional transformation models (Hothorn, Kneib and
+                Bühlmann 2014) learn the map to a reference law, a
+                fourth route alongside the three of <a href="01-beyond-the-mean.html">Section 45.1</a>.
+                Regression for event times has its own century of theory
+                beginning with Cox (1972); and censored quantile
+                regression (Powell 1986) belongs here too, its point
+                being that quantiles are equivariant under the censoring
+                map <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="y\mapsto\max(y,c)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c21A6"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c6D"></mjx-c><mjx-c class="mjx-c61"></mjx-c><mjx-c class="mjx-c78"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="2"><mjx-c class="mjx-c1D450 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>y</mi><mo stretchy="false">↦</mo><mo data-mjx-texclass="OP" movablelimits="true">max</mo><mo stretchy="false">(</mo><mi>y</mi><mo>,</mo><mi>c</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> by <a href="../ch45-quantile-gamlss/02-quantile-regression.html#thm-qnt-check" class="xref" data-ref="thm-qnt-check" data-shard="ch45-quantile-gamlss">Theorem 45.2.1</a>(d)
+                while means are not.</p>
+                <p>None of these is promised in a later chapter, because
+                there is no later chapter. What this book offers is the
+                apparatus with which to read them.</p>
+                <h2 id="references"><span class="header-section-number">45.7.4. </span>
+                References</h2>
+                <ul>
+                <li>Bondell, Howard D., Reich, Brian J. and Wang, Huixia
+                (2010). Noncrossing Quantile Regression Curve
+                Estimation. <em>Biometrika</em> 97(4), 825–838.</li>
+                <li>Chernozhukov, Victor, Fernández-Val, Iván and
+                Galichon, Alfred (2010). Quantile and Probability Curves
+                without Crossing. <em>Econometrica</em> 78(3),
+                1093–1125.</li>
+                <li>Cole, Tim J. and Green, Peter J. (1992). Smoothing
+                Reference Centile Curves: The LMS Method and Penalized
+                Likelihood. <em>Statistics in Medicine</em> 11(10),
+                1305–1319.</li>
+                <li>Cox, David R. (1972). Regression Models and
+                Life-Tables. <em>Journal of the Royal Statistical
+                Society, Series B</em> 34(2), 187–220.</li>
+                <li>Dawid, A. Philip (1984). Statistical Theory: The
+                Prequential Approach. <em>Journal of the Royal
+                Statistical Society, Series A</em> 147(2), 278–292.</li>
+                <li>Diebold, Francis X. and Mariano, Roberto S. (1995).
+                Comparing Predictive Accuracy. <em>Journal of Business
+                and Economic Statistics</em> 13(3), 253–263.</li>
+                <li>Dunn, Peter K. and Smyth, Gordon K. (1996).
+                Randomized Quantile Residuals. <em>Journal of
+                Computational and Graphical Statistics</em> 5(3),
+                236–244.</li>
+                <li>Efron, Bradley (1991). Regression Percentiles Using
+                Asymmetric Squared Error Loss. <em>Statistica
+                Sinica</em> 1(1), 93–125.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Gneiting, Tilmann (2011). Making and Evaluating
+                Point Forecasts. <em>Journal of the American Statistical
+                Association</em> 106(494), 746–762.</li>
+                <li>Gneiting, Tilmann, Balabdaoui, Fadoua and Raftery,
+                Adrian E. (2007). Probabilistic Forecasts, Calibration
+                and Sharpness. <em>Journal of the Royal Statistical
+                Society, Series B</em> 69(2), 243–268.</li>
+                <li>Gneiting, Tilmann and Raftery, Adrian E. (2007).
+                Strictly Proper Scoring Rules, Prediction, and
+                Estimation. <em>Journal of the American Statistical
+                Association</em> 102(477), 359–378.</li>
+                <li>Gutenbrunner, Cornelius and Jurečková, Jana (1992).
+                Regression Rank Scores and Regression Quantiles. <em>The
+                Annals of Statistics</em> 20(1), 305–330.</li>
+                <li>Hahn, Jinyong (1995). Bootstrapping Quantile
+                Regression Estimators. <em>Econometric Theory</em>
+                11(1), 105–121.</li>
+                <li>Hall, Peter and Sheather, Simon J. (1988). On the
+                Distribution of a Studentized Quantile. <em>Journal of
+                the Royal Statistical Society, Series B</em> 50(3),
+                381–391.</li>
+                <li>He, Xuming (1997). Quantile Curves without Crossing.
+                <em>The American Statistician</em> 51(2), 186–192.</li>
+                <li>Hothorn, Torsten, Kneib, Thomas and Bühlmann, Peter
+                (2014). Conditional Transformation Models. <em>Journal
+                of the Royal Statistical Society, Series B</em> 76(1),
+                3–27.</li>
+                <li>Jones, M. Chris (1994). Expectiles and M-quantiles
+                are Quantiles. <em>Statistics and Probability
+                Letters</em> 20(2), 149–153.</li>
+                <li>Klein, Nadja, Kneib, Thomas, Lang, Stefan and Sohn,
+                Alexander (2015). Bayesian Structured Additive
+                Distributional Regression with an Application to
+                Regional Income Inequality in Germany. <em>The Annals of
+                Applied Statistics</em> 9(2), 1024–1052.</li>
+                <li>Knight, Keith (1998). Limiting Distributions for L1
+                Regression Estimators under General Conditions. <em>The
+                Annals of Statistics</em> 26(2), 755–770.</li>
+                <li>Koenker, Roger (2005). <em>Quantile Regression</em>.
+                Cambridge: Cambridge University Press.</li>
+                <li>Koenker, Roger and Bassett, Gilbert (1978).
+                Regression Quantiles. <em>Econometrica</em> 46(1),
+                33–50.</li>
+                <li>Koenker, Roger and Bassett, Gilbert (1982). Robust
+                Tests for Heteroscedasticity Based on Regression
+                Quantiles. <em>Econometrica</em> 50(1), 43–61.</li>
+                <li>Koenker, Roger and d’Orey, Vasco (1987). Computing
+                Regression Quantiles. <em>Applied Statistics</em> 36(3),
+                383–393.</li>
+                <li>Koenker, Roger and Hallock, Kevin F. (2001).
+                Quantile Regression. <em>Journal of Economic
+                Perspectives</em> 15(4), 143–156.</li>
+                <li>Koenker, Roger and Machado, José A. F. (1999).
+                Goodness of Fit and Related Inference Processes for
+                Quantile Regression. <em>Journal of the American
+                Statistical Association</em> 94(448), 1296–1310.</li>
+                <li>Koenker, Roger, Ng, Pin and Portnoy, Stephen (1994).
+                Quantile Smoothing Splines. <em>Biometrika</em> 81(4),
+                673–680.</li>
+                <li>Kozumi, Hideo and Kobayashi, Genya (2011). Gibbs
+                Sampling Methods for Bayesian Quantile Regression.
+                <em>Journal of Statistical Computation and
+                Simulation</em> 81(11), 1565–1578.</li>
+                <li>Matheson, James E. and Winkler, Robert L. (1976).
+                Scoring Rules for Continuous Probability Distributions.
+                <em>Management Science</em> 22(10), 1087–1096.</li>
+                <li>Mayr, Andreas, Fenske, Nora, Hofner, Benjamin,
+                Kneib, Thomas and Schmid, Matthias (2012). Generalized
+                Additive Models for Location, Scale and Shape for High
+                Dimensional Data: A Flexible Approach Based on Boosting.
+                <em>Journal of the Royal Statistical Society, Series
+                C</em> 61(3), 403–427.</li>
+                <li>Meinshausen, Nicolai (2006). Quantile Regression
+                Forests. <em>Journal of Machine Learning Research</em>
+                7, 983–999.</li>
+                <li>Newey, Whitney K. and Powell, James L. (1987).
+                Asymmetric Least Squares Estimation and Testing.
+                <em>Econometrica</em> 55(4), 819–847.</li>
+                <li>Pollard, David (1991). Asymptotics for Least
+                Absolute Deviation Regression Estimators.
+                <em>Econometric Theory</em> 7(2), 186–199.</li>
+                <li>Portnoy, Stephen and Koenker, Roger (1997). The
+                Gaussian Hare and the Laplacian Tortoise: Computability
+                of Squared-Error versus Absolute-Error Estimators.
+                <em>Statistical Science</em> 12(4), 279–300.</li>
+                <li>Powell, James L. (1986). Censored Regression
+                Quantiles. <em>Journal of Econometrics</em> 32(1),
+                143–155.</li>
+                <li>Ramsay, James O. and Silverman, Bernard W. (2005).
+                <em>Functional Data Analysis</em>. 2nd edition. New
+                York: Springer.</li>
+                <li>Rigby, Robert A. and Stasinopoulos, D. Mikis (2005).
+                Generalized Additive Models for Location, Scale and
+                Shape. <em>Journal of the Royal Statistical Society,
+                Series C</em> 54(3), 507–554.</li>
+                <li>Rosenblatt, Murray (1952). Remarks on a Multivariate
+                Transformation. <em>The Annals of Mathematical
+                Statistics</em> 23(3), 470–472.</li>
+                <li>Schnabel, Sabine K. and Eilers, Paul H. C. (2009).
+                Optimal Expectile Smoothing. <em>Computational
+                Statistics and Data Analysis</em> 53(12),
+                4168–4177.</li>
+                <li>Sobotka, Fabian and Kneib, Thomas (2012).
+                Geoadditive Expectile Regression. <em>Computational
+                Statistics and Data Analysis</em> 56(4), 755–767.</li>
+                <li>Stasinopoulos, D. Mikis and Rigby, Robert A. (2007).
+                Generalized Additive Models for Location Scale and Shape
+                (GAMLSS) in R. <em>Journal of Statistical Software</em>
+                23(7), 1–46.</li>
+                <li>Vovk, Vladimir, Gammerman, Alexander and Shafer,
+                Glenn (2005). <em>Algorithmic Learning in a Random
+                World</em>. New York: Springer.</li>
+                <li>Yu, Keming and Moyeed, Rana A. (2001). Bayesian
+                Quantile Regression. <em>Statistics and Probability
+                Letters</em> 54(4), 437–447.</li>
+                <li>Ziegel, Johanna F. (2016). Coherence and
+                Elicitability. <em>Mathematical Finance</em> 26(4),
+                901–918.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch45-quantile-gamlss/06-comparing.html" class="pagination-link" aria-label="Comparing
+distributional models">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">45.6 Comparing
+distributional models</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2045.7%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch45-quantile-gamlss%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch45-quantile-gamlss/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

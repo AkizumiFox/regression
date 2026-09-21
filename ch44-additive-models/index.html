@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additive, Geoadditive and Structured Additive
+Models – Regression: From Projection to Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch44-additive-models/index.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Chapter 43 learned to estimate
+one unknown curve.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch44-additive-models/index.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch44-additive-models/index.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="Additive, Geoadditive and
+Structured Additive Models">
+        <meta property="og:description" content="Chapter 43 learned to
+estimate one unknown curve.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch44-additive-models/index.html">Additive, Geoadditive and Structured Additive Models</a></li>
+                        <li class="breadcrumb-item"><a href="../ch44-additive-models/index.html"><span class="chapter-title">Additive, Geoadditive and Structured Additive Models</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            
+                            <span class="chapter-title">Additive,
+Geoadditive and Structured Additive Models</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="additive-geoadditive-and-structured-additive-models">
+
+                </div>
+                <p><a href="../ch43-smoothing/index.html">Chapter 43</a>
+                learned to estimate one unknown curve. Real data sets
+                have a dozen covariates, and one unknown surface in a
+                dozen dimensions is hopeless: no neighbourhood of a
+                point holds enough observations to average. The way out
+                is a structural assumption weaker than linearity but far
+                stronger than nothing — the covariates act
+                <strong>additively</strong>, each through its own
+                unknown function — which turns a hopeless problem into a
+                stack of one-dimensional ones held together by a single
+                penalized criterion.</p>
+                <p>This chapter builds that framework and keeps widening
+                it. A coefficient may vary smoothly with a second
+                covariate. A term may be a spatial effect, penalized
+                towards its neighbours on a map or towards a smooth
+                surface over coordinates. A term may be a random
+                intercept, a penalized term whose penalty is the
+                identity. All of these are <em>one</em> model — a
+                structured additive predictor — with <em>one</em>
+                estimation theory: a quadratic penalty per term,
+                effective degrees of freedom from a trace, smoothing
+                parameters from a restricted likelihood, and a Bayesian
+                reading in which every penalty is a prior. The last
+                section puts a link and a response distribution in front
+                of that predictor and closes the circle with <a href="../ch34-exponential-families-glm/index.html">Part
+                VIII</a>.</p>
+                <p><strong>What you need.</strong> <a href="../ch06-projections/index.html">Chapter 6</a>
+                (projections, the trace as a rank, <a href="../ch06-projections/06-fwl.html#thm-proj-fwl" class="xref" data-ref="thm-proj-fwl" data-shard="ch06-projections">Theorem 6.6.2</a>), <a href="../ch26-collinearity/index.html">Chapter 26</a>
+                (collinearity and the variance inflation factor, <a href="../ch26-collinearity/02-vif.html#def-col-vif" class="xref" data-ref="def-col-vif" data-shard="ch26-collinearity">Definition 26.2.1</a>),
+                <a href="../ch27-shrinkage/index.html">Chapter 27</a>
+                and <a href="../ch30-regularization-boosting/index.html">Chapter
+                30</a> (ridge, penalized least squares and effective
+                degrees of freedom, <a href="../ch27-shrinkage/02-ridge.html#thm-shr-ridge" class="xref" data-ref="thm-shr-ridge" data-shard="ch27-shrinkage">Theorem 27.2.2</a> and <a href="../ch30-regularization-boosting/01-penalized-least-squares.html#def-reg-penalized" class="xref" data-ref="def-reg-penalized" data-shard="ch30-regularization-boosting">Definition 30.1.1</a>),
+                <a href="../ch29-model-selection/index.html">Chapter
+                29</a> (cross-validation and information criteria, <a href="../ch29-model-selection/03-cross-validation.html#thm-sel-loocv" class="xref" data-ref="thm-sel-loocv" data-shard="ch29-model-selection">Theorem 29.3.2</a>, <a href="../ch29-model-selection/03-cross-validation.html#def-sel-gcv" class="xref" data-ref="def-sel-gcv" data-shard="ch29-model-selection">Definition 29.3.2</a>,
+                <a href="../ch29-model-selection/05-selection-bias.html#prp-sel-selection-bias" class="xref" data-ref="prp-sel-selection-bias" data-shard="ch29-model-selection">Proposition 29.5.1</a>),
+                <a href="../ch32-linear-mixed-models/index.html">Chapter
+                32</a> (mixed models, BLUP and REML, <a href="../ch32-linear-mixed-models/02-mixed-model.html#def-mix-model" class="xref" data-ref="def-mix-model" data-shard="ch32-linear-mixed-models">Definition 32.2.1</a>,
+                <a href="../ch32-linear-mixed-models/03-blup.html#thm-mix-blup" class="xref" data-ref="thm-mix-blup" data-shard="ch32-linear-mixed-models">Theorem 32.3.1</a>,
+                <a href="../ch32-linear-mixed-models/04-likelihood.html#thm-mix-reml" class="xref" data-ref="thm-mix-reml" data-shard="ch32-linear-mixed-models">Theorem 32.4.2</a>),
+                <a href="../ch34-exponential-families-glm/index.html">Chapter
+                34</a> (the generalized linear model and IRLS, <a href="../ch34-exponential-families-glm/02-link-functions.html#def-glm-model" class="xref" data-ref="def-glm-model" data-shard="ch34-exponential-families-glm">Definition 34.2.1</a>,
+                <a href="../ch34-exponential-families-glm/04-irls.html#thm-glm-irls" class="xref" data-ref="thm-glm-irls" data-shard="ch34-exponential-families-glm">Theorem 34.4.1</a>),
+                <a href="../ch38-quasi-likelihood/index.html">Chapter
+                38</a> (quasi-likelihood and dispersion, <a href="../ch38-quasi-likelihood/02-estimating-equations.html#def-ql-quasi" class="xref" data-ref="def-ql-quasi" data-shard="ch38-quasi-likelihood">Definition 38.2.1</a>,
+                <a href="../ch38-quasi-likelihood/03-sandwich.html#prp-ql-dispersion" class="xref" data-ref="prp-ql-dispersion" data-shard="ch38-quasi-likelihood">Proposition 38.3.2</a>),
+                <a href="../ch39-glms-in-practice-bayes/index.html">Chapter
+                39</a> (the Bayesian machinery, <a href="../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html#def-prc-posterior" class="xref" data-ref="def-prc-posterior" data-shard="ch39-glms-in-practice-bayes">Definition 39.4.1</a>,
+                <a href="../ch39-glms-in-practice-bayes/05-priors-as-regularizers.html#prp-prc-priors" class="xref" data-ref="prp-prc-priors" data-shard="ch39-glms-in-practice-bayes">Proposition 39.5.1</a>)
+                and, above all, <a href="../ch43-smoothing/index.html">Chapter 43</a>,
+                whose P-spline blocks and smoothing-parameter criteria
+                are used here as given.</p>
+                <div class="remark small-env" data-env-type="remark">
+                <p><em>Remark</em> (Notation in this chapter)<em>.</em>
+                A <strong>term</strong> is a pair: a design block <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{Z}_j"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D419 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Z</mi></mrow><mi>j</mi></msub></math></mjx-assistive-mml></mjx-container></span> of size <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n\times d_j"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-cD7"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>×</mo><msub><mi>d</mi><mi>j</mi></msub></math></mjx-assistive-mml></mjx-container></span> and a
+                nonnegative definite penalty <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{P}_j"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow><mi>j</mi></msub></math></mjx-assistive-mml></mjx-container></span>, with coefficients
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\upgamma}_j"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛄</mjx-utext></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi mathvariant="bold">γ</mi><mi>j</mi></msub></math></mjx-assistive-mml></mjx-container></span> and
+                smoothing parameter <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda_j"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>λ</mi><mi>j</mi></msub></math></mjx-assistive-mml></mjx-container></span> — the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{P}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow></math></mjx-assistive-mml></mjx-container></span>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\upgamma}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold" data-short="">𝛄</mjx-utext></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">γ</mi></math></mjx-assistive-mml></mjx-container></span> and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi></math></mjx-assistive-mml></mjx-container></span> of <a href="../ch43-smoothing/index.html">Chapter 43</a>, now
+                carrying a term index. So <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{Z}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D419 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Z</mi></mrow></math></mjx-assistive-mml></mjx-container></span> keeps its meaning from
+                <a href="../ch31-general-gauss-markov/index.html">Part
+                VII</a>, the design of the coefficients that are shrunk,
+                and <a href="05-structured-additive.html">Section
+                44.5</a> shows the two uses are the same. Unpenalized
+                columns stay in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{X}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow></math></mjx-assistive-mml></mjx-container></span>
+                with coefficients <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\boldsymbol{\upbeta}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-b"><mjx-utext style="font-size: 88.4%; padding: 0.848em 0 0.226em 0;" variant="bold">𝛃</mjx-utext></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi mathvariant="bold">β</mi></math></mjx-assistive-mml></mjx-container></span>; <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{A}=\mathbf{Z}^{\top}\mathbf{W}\mathbf{Z}+\mathbf{P}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D400 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D419 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D416 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D419 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-TeXAtom space="3" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D40F TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">A</mi></mrow><mo>=</mo><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Z</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">W</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">Z</mi></mrow><mo>+</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">P</mi></mrow></math></mjx-assistive-mml></mjx-container></span> is the
+                penalized cross-product, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{W}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D416 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">W</mi></mrow></math></mjx-assistive-mml></mjx-container></span> the working weights of
+                <a href="../ch34-exponential-families-glm/index.html">Chapter
+                34</a>, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{S}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D412 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">S</mi></mrow></math></mjx-assistive-mml></mjx-container></span> the
+                smoother matrix and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{C}_j"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D402 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">C</mi></mrow><mi>j</mi></msub></math></mjx-assistive-mml></mjx-container></span> the operator
+                producing the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="j"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>j</mi></math></mjx-assistive-mml></mjx-container></span>th
+                component.</p>
+                </div>
+                <h2 id="roadmap">Roadmap</h2>
+                <ul>
+                <li><a href="01-additive-models.html">The additive
+                model</a></li>
+                <li><a href="02-backfitting.html">Backfitting and
+                concurvity</a></li>
+                <li><a href="03-varying-coefficients.html">Varying-coefficient
+                models</a></li>
+                <li><a href="04-spatial-effects.html">Spatial
+                effects</a></li>
+                <li><a href="05-structured-additive.html">Structured
+                additive regression</a></li>
+                <li><a href="06-generalized-additive-models.html">Generalized
+                additive models</a></li>
+                <li><a href="07-summary-and-notes.html">Summary and
+                notes</a></li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch43-smoothing/07-summary-and-notes.html" class="pagination-link" aria-label="Summary
+and Notes">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">43.7 Summary and
+Notes</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch44-additive-models/01-additive-models.html" class="pagination-link" aria-label="The
+additive model">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">44.1 The
+additive model</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Additive%2C%20Geoadditive%20and%20Structured%20Additive%20Models&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch44-additive-models%2Findex.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch44-additive-models/index.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

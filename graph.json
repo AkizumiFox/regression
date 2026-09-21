@@ -368,6 +368,42 @@
    "results": 49,
    "chapterNumber": 41,
    "part": ""
+  },
+  {
+   "id": "ch42-polynomials-piecewise",
+   "name": "Chapter 42",
+   "title": "Polynomials, Piecewise Fits and the Road to Splines",
+   "url": "ch42-polynomials-piecewise/index.html",
+   "results": 47,
+   "chapterNumber": 42,
+   "part": "Part IX \u00b7 Relaxing Linearity"
+  },
+  {
+   "id": "ch43-smoothing",
+   "name": "Chapter 43",
+   "title": "Smoothing: Kernels, Splines and Penalties",
+   "url": "ch43-smoothing/index.html",
+   "results": 59,
+   "chapterNumber": 43,
+   "part": ""
+  },
+  {
+   "id": "ch44-additive-models",
+   "name": "Chapter 44",
+   "title": "Additive, Geoadditive and Structured Additive Models",
+   "url": "ch44-additive-models/index.html",
+   "results": 51,
+   "chapterNumber": 44,
+   "part": ""
+  },
+  {
+   "id": "ch45-quantile-gamlss",
+   "name": "Chapter 45",
+   "title": "Quantile Regression and GAMLSS",
+   "url": "ch45-quantile-gamlss/index.html",
+   "results": 49,
+   "chapterNumber": 45,
+   "part": "Part X \u00b7 The Whole Distribution"
   }
  ],
  "edges": [
@@ -522,6 +558,24 @@
    "implied": false
   },
   {
+   "source": "ch01-matrix-algebra",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch43-smoothing",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch01-matrix-algebra",
+   "target": "ch44-additive-models",
+   "weight": 5,
+   "implied": false
+  },
+  {
    "source": "ch02-random-vectors",
    "target": "ch03-multivariate-normal",
    "weight": 23,
@@ -663,6 +717,12 @@
    "source": "ch02-random-vectors",
    "target": "ch41-missing-data",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch44-additive-models",
+   "weight": 3,
    "implied": false
   },
   {
@@ -1050,6 +1110,12 @@
    "implied": false
   },
   {
+   "source": "ch05-model-and-least-squares",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 2,
+   "implied": false
+  },
+  {
    "source": "ch06-projections",
    "target": "ch03-multivariate-normal",
    "weight": 7,
@@ -1245,6 +1311,30 @@
    "source": "ch06-projections",
    "target": "ch41-missing-data",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 12,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch43-smoothing",
+   "weight": 8,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch44-additive-models",
+   "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch06-projections",
+   "target": "ch45-quantile-gamlss",
+   "weight": 2,
    "implied": false
   },
   {
@@ -1554,6 +1644,12 @@
    "implied": false
   },
   {
+   "source": "ch08-estimability",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch09-sums-of-squares",
    "target": "ch04-quadratic-forms",
    "weight": 1,
@@ -1656,6 +1752,12 @@
    "implied": false
   },
   {
+   "source": "ch09-sums-of-squares",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 8,
+   "implied": false
+  },
+  {
    "source": "ch10-computation",
    "target": "ch05-model-and-least-squares",
    "weight": 2,
@@ -1725,6 +1827,18 @@
    "source": "ch10-computation",
    "target": "ch29-model-selection",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch10-computation",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch10-computation",
+   "target": "ch43-smoothing",
+   "weight": 3,
    "implied": false
   },
   {
@@ -1878,6 +1992,12 @@
    "implied": false
   },
   {
+   "source": "ch11-general-linear-hypothesis",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 7,
+   "implied": false
+  },
+  {
    "source": "ch12-intervals-and-bands",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -2001,6 +2121,12 @@
    "source": "ch12-intervals-and-bands",
    "target": "ch41-missing-data",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch12-intervals-and-bands",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 6,
    "implied": false
   },
   {
@@ -2145,6 +2271,30 @@
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch43-smoothing",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch44-additive-models",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch14-correlation-lack-of-fit-prediction",
+   "target": "ch45-quantile-gamlss",
+   "weight": 1,
    "implied": false
   },
   {
@@ -2424,6 +2574,18 @@
    "implied": false
   },
   {
+   "source": "ch19-theory-of-departures",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch19-theory-of-departures",
+   "target": "ch44-additive-models",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch01-matrix-algebra",
    "weight": 1,
@@ -2511,6 +2673,18 @@
    "source": "ch20-residuals-leverage-influence",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 8,
+   "implied": false
+  },
+  {
+   "source": "ch20-residuals-leverage-influence",
+   "target": "ch43-smoothing",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch20-residuals-leverage-influence",
+   "target": "ch45-quantile-gamlss",
+   "weight": 2,
    "implied": false
   },
   {
@@ -2610,6 +2784,18 @@
    "implied": false
   },
   {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch43-smoothing",
+   "weight": 3,
+   "implied": false
+  },
+  {
+   "source": "ch21-nonnormality-heteroscedasticity-serial",
+   "target": "ch45-quantile-gamlss",
+   "weight": 4,
+   "implied": false
+  },
+  {
    "source": "ch22-transformations",
    "target": "ch05-model-and-least-squares",
    "weight": 1,
@@ -2637,6 +2823,18 @@
    "source": "ch22-transformations",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch22-transformations",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch22-transformations",
+   "target": "ch45-quantile-gamlss",
+   "weight": 3,
    "implied": false
   },
   {
@@ -2706,6 +2904,12 @@
    "implied": false
   },
   {
+   "source": "ch23-resampling-inference",
+   "target": "ch45-quantile-gamlss",
+   "weight": 3,
+   "implied": false
+  },
+  {
    "source": "ch24-errors-in-variables",
    "target": "ch05-model-and-least-squares",
    "weight": 1,
@@ -2736,6 +2940,12 @@
    "implied": false
   },
   {
+   "source": "ch24-errors-in-variables",
+   "target": "ch45-quantile-gamlss",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch25-causal-interpretation",
    "target": "ch03-multivariate-normal",
    "weight": 1,
@@ -2756,6 +2966,24 @@
   {
    "source": "ch25-causal-interpretation",
    "target": "ch40-glmm-gee",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch25-causal-interpretation",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch25-causal-interpretation",
+   "target": "ch44-additive-models",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch25-causal-interpretation",
+   "target": "ch45-quantile-gamlss",
    "weight": 1,
    "implied": false
   },
@@ -2799,6 +3027,18 @@
    "source": "ch26-collinearity",
    "target": "ch28-high-dimensional",
    "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch26-collinearity",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch26-collinearity",
+   "target": "ch44-additive-models",
+   "weight": 2,
    "implied": false
   },
   {
@@ -2865,6 +3105,24 @@
    "source": "ch27-shrinkage",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch43-smoothing",
+   "weight": 8,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch44-additive-models",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch27-shrinkage",
+   "target": "ch45-quantile-gamlss",
+   "weight": 1,
    "implied": false
   },
   {
@@ -2970,6 +3228,30 @@
    "implied": false
   },
   {
+   "source": "ch29-model-selection",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 8,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch43-smoothing",
+   "weight": 18,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch44-additive-models",
+   "weight": 10,
+   "implied": false
+  },
+  {
+   "source": "ch29-model-selection",
+   "target": "ch45-quantile-gamlss",
+   "weight": 9,
+   "implied": false
+  },
+  {
    "source": "ch30-regularization-boosting",
    "target": "ch35-binary-responses",
    "weight": 1,
@@ -2985,6 +3267,24 @@
    "source": "ch30-regularization-boosting",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch30-regularization-boosting",
+   "target": "ch43-smoothing",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch30-regularization-boosting",
+   "target": "ch44-additive-models",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch30-regularization-boosting",
+   "target": "ch45-quantile-gamlss",
+   "weight": 3,
    "implied": false
   },
   {
@@ -3096,6 +3396,24 @@
    "implied": false
   },
   {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch43-smoothing",
+   "weight": 13,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch44-additive-models",
+   "weight": 18,
+   "implied": false
+  },
+  {
+   "source": "ch32-linear-mixed-models",
+   "target": "ch45-quantile-gamlss",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch33-clustered-longitudinal-splitplot",
    "target": "ch02-random-vectors",
    "weight": 1,
@@ -3111,6 +3429,18 @@
    "source": "ch33-clustered-longitudinal-splitplot",
    "target": "ch40-glmm-gee",
    "weight": 9,
+   "implied": false
+  },
+  {
+   "source": "ch33-clustered-longitudinal-splitplot",
+   "target": "ch43-smoothing",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch33-clustered-longitudinal-splitplot",
+   "target": "ch44-additive-models",
+   "weight": 1,
    "implied": false
   },
   {
@@ -3168,6 +3498,18 @@
    "implied": false
   },
   {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch44-additive-models",
+   "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch34-exponential-families-glm",
+   "target": "ch45-quantile-gamlss",
+   "weight": 5,
+   "implied": false
+  },
+  {
    "source": "ch35-binary-responses",
    "target": "ch05-model-and-least-squares",
    "weight": 1,
@@ -3206,6 +3548,18 @@
   {
    "source": "ch35-binary-responses",
    "target": "ch41-missing-data",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch35-binary-responses",
+   "target": "ch44-additive-models",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch35-binary-responses",
+   "target": "ch45-quantile-gamlss",
    "weight": 1,
    "implied": false
   },
@@ -3258,6 +3612,18 @@
    "implied": false
   },
   {
+   "source": "ch37-counts",
+   "target": "ch44-additive-models",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch37-counts",
+   "target": "ch45-quantile-gamlss",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch38-quasi-likelihood",
    "target": "ch34-exponential-families-glm",
    "weight": 1,
@@ -3276,6 +3642,18 @@
    "implied": false
   },
   {
+   "source": "ch38-quasi-likelihood",
+   "target": "ch44-additive-models",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch38-quasi-likelihood",
+   "target": "ch45-quantile-gamlss",
+   "weight": 1,
+   "implied": false
+  },
+  {
    "source": "ch39-glms-in-practice-bayes",
    "target": "ch30-regularization-boosting",
    "weight": 1,
@@ -3285,6 +3663,24 @@
    "source": "ch39-glms-in-practice-bayes",
    "target": "ch40-glmm-gee",
    "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch39-glms-in-practice-bayes",
+   "target": "ch43-smoothing",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch39-glms-in-practice-bayes",
+   "target": "ch44-additive-models",
+   "weight": 5,
+   "implied": false
+  },
+  {
+   "source": "ch39-glms-in-practice-bayes",
+   "target": "ch45-quantile-gamlss",
+   "weight": 3,
    "implied": false
   },
   {
@@ -3314,6 +3710,120 @@
   {
    "source": "ch41-missing-data",
    "target": "ch40-glmm-gee",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch42-polynomials-piecewise",
+   "target": "ch06-projections",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch42-polynomials-piecewise",
+   "target": "ch08-estimability",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch42-polynomials-piecewise",
+   "target": "ch09-sums-of-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch42-polynomials-piecewise",
+   "target": "ch43-smoothing",
+   "weight": 12,
+   "implied": false
+  },
+  {
+   "source": "ch43-smoothing",
+   "target": "ch29-model-selection",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch43-smoothing",
+   "target": "ch30-regularization-boosting",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch43-smoothing",
+   "target": "ch32-linear-mixed-models",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch43-smoothing",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch43-smoothing",
+   "target": "ch44-additive-models",
+   "weight": 11,
+   "implied": false
+  },
+  {
+   "source": "ch43-smoothing",
+   "target": "ch45-quantile-gamlss",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch44-additive-models",
+   "target": "ch05-model-and-least-squares",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch44-additive-models",
+   "target": "ch30-regularization-boosting",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch44-additive-models",
+   "target": "ch42-polynomials-piecewise",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch44-additive-models",
+   "target": "ch45-quantile-gamlss",
+   "weight": 6,
+   "implied": false
+  },
+  {
+   "source": "ch45-quantile-gamlss",
+   "target": "ch05-model-and-least-squares",
+   "weight": 2,
+   "implied": false
+  },
+  {
+   "source": "ch45-quantile-gamlss",
+   "target": "ch20-residuals-leverage-influence",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch45-quantile-gamlss",
+   "target": "ch23-resampling-inference",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch45-quantile-gamlss",
+   "target": "ch34-exponential-families-glm",
+   "weight": 1,
+   "implied": false
+  },
+  {
+   "source": "ch45-quantile-gamlss",
+   "target": "ch44-additive-models",
    "weight": 1,
    "implied": false
   }

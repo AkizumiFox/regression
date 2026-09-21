@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantile Regression and GAMLSS – Regression: From Projection
+to Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch45-quantile-gamlss/index.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Forty-four chapters have been
+spent on one number.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch45-quantile-gamlss/index.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch45-quantile-gamlss/index.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="Quantile Regression and GAMLSS">
+        <meta property="og:description" content="Forty-four chapters
+have been spent on one number.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar"
+                    aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false"
+                        aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar"
+                        aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch45-quantile-gamlss/index.html">Quantile Regression and GAMLSS</a></li>
+                        <li class="breadcrumb-item"><a href="../ch45-quantile-gamlss/index.html"><span class="chapter-title">Quantile Regression and GAMLSS</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            
+                            <span class="chapter-title">Quantile
+Regression and GAMLSS</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="quantile-regression-and-gamlss">
+
+                </div>
+                <p>Forty-four chapters have been spent on one number.
+                Least squares estimates a conditional mean; the
+                generalized linear model estimates a transformed
+                conditional mean; splines and additive models let that
+                mean bend. Everything else about the conditional
+                distribution of the response — its spread, its skewness,
+                its tails — entered as an assumption to be checked, a
+                nuisance to be corrected for, or a reason to widen a
+                standard error. This last chapter turns the nuisance
+                into the subject.</p>
+                <p>There are two ways to do it. One drops the parametric
+                model and estimates the conditional quantiles directly,
+                each level fitted by its own criterion: that is quantile
+                regression, whose loss function is as simple as squared
+                error and as easy to justify. The other keeps a
+                parametric family but lets <em>every</em> parameter of
+                it carry its own structured additive predictor: that is
+                GAMLSS. Between them sits expectile regression, which
+                buys a differentiable loss at the price of a less
+                transparent interpretation. The chapter ends where a
+                book about models should end: with how to tell whether
+                one estimated distribution is better than another.</p>
+                <p><strong>What you need.</strong> <a
+                href="../ch05-model-and-least-squares/index.html">Chapter
+                5</a> and <a
+                href="../ch06-projections/index.html">Chapter 6</a> (the
+                linear model, least squares and the best linear
+                predictor <a
+                href="../ch06-projections/11-population.html#thm-proj-blp"
+                class="xref" data-ref="thm-proj-blp"
+                data-shard="ch06-projections">Theorem 6.11.1</a>), <a
+                href="../ch21-nonnormality-heteroscedasticity-serial/index.html">Chapter
+                21</a> (heteroscedasticity, weighted least squares and
+                the sandwich <a
+                href="../ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html#def-het-hc"
+                class="xref" data-ref="def-het-hc"
+                data-shard="ch21-nonnormality-heteroscedasticity-serial">Definition 21.4.1</a>),
+                <a href="../ch22-transformations/index.html">Chapter
+                22</a> (<a
+                href="../ch22-transformations/02-box-cox.html#def-tr-box-cox"
+                class="xref" data-ref="def-tr-box-cox"
+                data-shard="ch22-transformations">Definition 22.2.1</a>,
+                the older route to a well-behaved response), <a
+                href="../ch23-resampling-inference/index.html">Chapter
+                23</a> (the bootstrap <a
+                href="../ch23-resampling-inference/01-cases-and-residuals.html#def-bs-bootstrap"
+                class="xref" data-ref="def-bs-bootstrap"
+                data-shard="ch23-resampling-inference">Definition 23.1.1</a>
+                and its schemes <a
+                href="../ch23-resampling-inference/05-freedman-lane.html#def-bs-schemes"
+                class="xref" data-ref="def-bs-schemes"
+                data-shard="ch23-resampling-inference">Definition 23.5.1</a>),
+                <a
+                href="../ch25-causal-interpretation/index.html">Chapter
+                25</a> (what a fitted curve does and does not mean), <a
+                href="../ch29-model-selection/index.html">Chapter 29</a>
+                (cross-validation <a
+                href="../ch29-model-selection/03-cross-validation.html#thm-sel-loocv"
+                class="xref" data-ref="thm-sel-loocv"
+                data-shard="ch29-model-selection">Theorem 29.3.2</a>,
+                AIC <a
+                href="../ch29-model-selection/02-cp-aic-bic.html#prp-sel-aic-bic"
+                class="xref" data-ref="prp-sel-aic-bic"
+                data-shard="ch29-model-selection">Proposition 29.2.4</a>,
+                selection bias <a
+                href="../ch29-model-selection/05-selection-bias.html#prp-sel-selection-bias"
+                class="xref" data-ref="prp-sel-selection-bias"
+                data-shard="ch29-model-selection">Proposition 29.5.1</a>),
+                <a
+                href="../ch30-regularization-boosting/index.html">Chapter
+                30</a> (penalized fitting <a
+                href="../ch30-regularization-boosting/01-penalized-least-squares.html#def-reg-penalized"
+                class="xref" data-ref="def-reg-penalized"
+                data-shard="ch30-regularization-boosting">Definition 30.1.1</a>)
+                and <a
+                href="../ch34-exponential-families-glm/index.html">Chapter
+                34</a> (the generalized linear model <a
+                href="../ch34-exponential-families-glm/02-link-functions.html#def-glm-model"
+                class="xref" data-ref="def-glm-model"
+                data-shard="ch34-exponential-families-glm">Definition 34.2.1</a>
+                and its iteratively reweighted least squares <a
+                href="../ch34-exponential-families-glm/04-irls.html#thm-glm-irls"
+                class="xref" data-ref="thm-glm-irls"
+                data-shard="ch34-exponential-families-glm">Theorem 34.4.1</a>).
+                The last two sections use the penalized splines of <a
+                href="../ch43-smoothing/index.html">Chapter 43</a> and
+                the structured additive predictors of <a
+                href="../ch44-additive-models/index.html">Chapter
+                44</a>; the M-estimation machinery of <a
+                href="../ch20-residuals-leverage-influence/06-robust.html">Section
+                20.6</a> (<a
+                href="../ch20-residuals-leverage-influence/06-robust.html#prp-res-irls"
+                class="xref" data-ref="prp-res-irls"
+                data-shard="ch20-residuals-leverage-influence">Proposition 20.6.1</a>)
+                is the ancestor of two algorithms below.</p>
+                <h2 id="roadmap">Roadmap</h2>
+                <ul>
+                <li><a href="01-beyond-the-mean.html">Why model more
+                than the mean</a></li>
+                <li><a href="02-quantile-regression.html">Quantile
+                regression</a></li>
+                <li><a href="03-inference.html">Inference for quantile
+                regression</a></li>
+                <li><a href="04-expectiles.html">Expectile
+                regression</a></li>
+                <li><a href="05-gamlss.html">Models for location, scale
+                and shape</a></li>
+                <li><a href="06-comparing.html">Comparing distributional
+                models</a></li>
+                <li><a href="07-summary-and-notes.html">Summary and
+                notes</a></li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch44-additive-models/07-summary-and-notes.html" class="pagination-link" aria-label="Summary
+and Notes">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">44.7 Summary and
+Notes</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch45-quantile-gamlss/01-beyond-the-mean.html" class="pagination-link" aria-label="Why
+model more than the mean">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">45.1 Why model
+more than the mean</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Quantile%20Regression%20and%20GAMLSS&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch45-quantile-gamlss%2Findex.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch45-quantile-gamlss/index.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

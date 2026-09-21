@@ -2060,6 +2060,198 @@
           "filename": "07-summary-and-notes.md"
         }
       ]
+    },
+    {
+      "title": "Polynomials, Piecewise Fits and the Road to Splines",
+      "number": 42,
+      "part": "Part IX · Relaxing Linearity",
+      "collapsed": true,
+      "path": "ch42-polynomials-piecewise/index.html",
+      "sections": [
+        {
+          "title": "Polynomial regression and its instability",
+          "number": "42.1",
+          "path": "ch42-polynomials-piecewise/01-polynomial-regression.html",
+          "filename": "01-polynomial-regression.md"
+        },
+        {
+          "title": "Orthogonal polynomials",
+          "number": "42.2",
+          "path": "ch42-polynomials-piecewise/02-orthogonal-polynomials.html",
+          "filename": "02-orthogonal-polynomials.md"
+        },
+        {
+          "title": "Piecewise polynomials",
+          "number": "42.3",
+          "path": "ch42-polynomials-piecewise/03-piecewise-polynomials.html",
+          "filename": "03-piecewise-polynomials.md"
+        },
+        {
+          "title": "Regression splines and truncated power bases",
+          "number": "42.4",
+          "path": "ch42-polynomials-piecewise/04-regression-splines.html",
+          "filename": "04-regression-splines.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "42.5",
+          "path": "ch42-polynomials-piecewise/05-summary-and-notes.html",
+          "filename": "05-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Smoothing: Kernels, Splines and Penalties",
+      "number": 43,
+      "part": "",
+      "collapsed": true,
+      "path": "ch43-smoothing/index.html",
+      "sections": [
+        {
+          "title": "Kernel and local polynomial regression",
+          "number": "43.1",
+          "path": "ch43-smoothing/01-kernels.html",
+          "filename": "01-kernels.md"
+        },
+        {
+          "title": "B-splines",
+          "number": "43.2",
+          "path": "ch43-smoothing/02-b-splines.html",
+          "filename": "02-b-splines.md"
+        },
+        {
+          "title": "Penalized splines",
+          "number": "43.3",
+          "path": "ch43-smoothing/03-penalized-splines.html",
+          "filename": "03-penalized-splines.md"
+        },
+        {
+          "title": "Smoothing splines",
+          "number": "43.4",
+          "path": "ch43-smoothing/04-smoothing-splines.html",
+          "filename": "04-smoothing-splines.md"
+        },
+        {
+          "title": "Choosing the smoothing parameter",
+          "number": "43.5",
+          "path": "ch43-smoothing/05-choosing-lambda.html",
+          "filename": "05-choosing-lambda.md"
+        },
+        {
+          "title": "Mixed-model and Bayesian representations",
+          "number": "43.6",
+          "path": "ch43-smoothing/06-mixed-model-and-bayes.html",
+          "filename": "06-mixed-model-and-bayes.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "43.7",
+          "path": "ch43-smoothing/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Additive, Geoadditive and Structured Additive Models",
+      "number": 44,
+      "part": "",
+      "collapsed": true,
+      "path": "ch44-additive-models/index.html",
+      "sections": [
+        {
+          "title": "The additive model",
+          "number": "44.1",
+          "path": "ch44-additive-models/01-additive-models.html",
+          "filename": "01-additive-models.md"
+        },
+        {
+          "title": "Backfitting and concurvity",
+          "number": "44.2",
+          "path": "ch44-additive-models/02-backfitting.html",
+          "filename": "02-backfitting.md"
+        },
+        {
+          "title": "Varying-coefficient models",
+          "number": "44.3",
+          "path": "ch44-additive-models/03-varying-coefficients.html",
+          "filename": "03-varying-coefficients.md"
+        },
+        {
+          "title": "Spatial effects",
+          "number": "44.4",
+          "path": "ch44-additive-models/04-spatial-effects.html",
+          "filename": "04-spatial-effects.md"
+        },
+        {
+          "title": "Structured additive regression",
+          "number": "44.5",
+          "path": "ch44-additive-models/05-structured-additive.html",
+          "filename": "05-structured-additive.md"
+        },
+        {
+          "title": "Generalized additive models",
+          "number": "44.6",
+          "path": "ch44-additive-models/06-generalized-additive-models.html",
+          "filename": "06-generalized-additive-models.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "44.7",
+          "path": "ch44-additive-models/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
+    },
+    {
+      "title": "Quantile Regression and GAMLSS",
+      "number": 45,
+      "part": "Part X · The Whole Distribution",
+      "collapsed": true,
+      "path": "ch45-quantile-gamlss/index.html",
+      "sections": [
+        {
+          "title": "Why model more than the mean",
+          "number": "45.1",
+          "path": "ch45-quantile-gamlss/01-beyond-the-mean.html",
+          "filename": "01-beyond-the-mean.md"
+        },
+        {
+          "title": "Quantile regression",
+          "number": "45.2",
+          "path": "ch45-quantile-gamlss/02-quantile-regression.html",
+          "filename": "02-quantile-regression.md"
+        },
+        {
+          "title": "Inference for quantile regression",
+          "number": "45.3",
+          "path": "ch45-quantile-gamlss/03-inference.html",
+          "filename": "03-inference.md"
+        },
+        {
+          "title": "Expectile regression",
+          "number": "45.4",
+          "path": "ch45-quantile-gamlss/04-expectiles.html",
+          "filename": "04-expectiles.md"
+        },
+        {
+          "title": "Models for location, scale and shape",
+          "number": "45.5",
+          "path": "ch45-quantile-gamlss/05-gamlss.html",
+          "filename": "05-gamlss.md"
+        },
+        {
+          "title": "Comparing distributional models",
+          "number": "45.6",
+          "path": "ch45-quantile-gamlss/06-comparing.html",
+          "filename": "06-comparing.md"
+        },
+        {
+          "title": "Summary and Notes",
+          "number": "45.7",
+          "path": "ch45-quantile-gamlss/07-summary-and-notes.html",
+          "filename": "07-summary-and-notes.md"
+        }
+      ]
     }
   ]
 }

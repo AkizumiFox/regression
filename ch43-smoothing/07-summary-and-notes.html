@@ -1,0 +1,511 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>43.7 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch43-smoothing/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="B-splines. Splines as a
+subject begin with Schoenberg (1946).">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch43-smoothing/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch43-smoothing/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="43.7 Summary and Notes">
+        <meta property="og:description" content="B-splines. Splines as a
+subject begin with Schoenberg (1946).">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch43-smoothing/index.html">Smoothing: Kernels, Splines and Penalties</a></li>
+                        <li class="breadcrumb-item"><a href="../ch43-smoothing/07-summary-and-notes.html"><span class="chapter-number">43.7</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">43.7</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">43.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A local polynomial fit is weighted least squares
+                solved afresh at every point; its weights are linear in
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{y}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D432 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">y</mi></mrow></math></mjx-assistive-mml></mjx-container></span> and reproduce
+                polynomials of the fitted degree exactly, whatever the
+                design and the bandwidth (<a href="../ch43-smoothing/01-kernels.html#prp-smo-equivalent-kernel" class="xref" data-ref="prp-smo-equivalent-kernel" data-shard="ch43-smoothing">Proposition 43.1.1</a>).</p></li>
+                <li><p>Under a regular design, a bounded-variation
+                kernel and a twice-differentiable <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="f"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math></mjx-assistive-mml></mjx-container></span>, the local linear
+                estimate has bias <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\tfrac12\mu_2f''(x)h^2+o(h^2)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mstyle><mjx-mfrac><mjx-frac><mjx-num><mjx-nstrut></mjx-nstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-num><mjx-dbox><mjx-dtable><mjx-line></mjx-line><mjx-row><mjx-den><mjx-dstrut></mjx-dstrut><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-den></mjx-row></mjx-dtable></mjx-dbox></mjx-frac></mjx-mfrac></mjx-mstyle><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.053em;"><mjx-mo class="mjx-var" size="s"><mjx-c class="mjx-c2033"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D45C TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><msub><mi>μ</mi><mn>2</mn></msub><msup><mi>f</mi><mo data-mjx-alternate="1">″</mo></msup><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><msup><mi>h</mi><mn>2</mn></msup><mo>+</mo><mi>o</mi><mo stretchy="false">(</mo><msup><mi>h</mi><mn>2</mn></msup><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span>
+                and variance <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2R(K)/\{nhg(x)\}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D445 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><mi>R</mi><mo stretchy="false">(</mo><mi>K</mi><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo fence="false" stretchy="false">{</mo><mi>n</mi><mi>h</mi><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo fence="false" stretchy="false">}</mo></math></mjx-assistive-mml></mjx-container></span>;
+                the local constant estimate adds <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mu_2h^2f'g'/g"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D707 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msub><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.053em;"><mjx-mo class="mjx-var" size="s"><mjx-c class="mjx-c2032"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mo class="mjx-var" size="s"><mjx-c class="mjx-c2032"></mjx-c></mjx-mo></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D454 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>μ</mi><mn>2</mn></msub><msup><mi>h</mi><mn>2</mn></msup><msup><mi>f</mi><mo data-mjx-alternate="1">′</mo></msup><msup><mi>g</mi><mo data-mjx-alternate="1">′</mo></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mi>g</mi></math></mjx-assistive-mml></mjx-container></span> in
+                the interior and a term of order <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="h"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c210E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>h</mi></math></mjx-assistive-mml></mjx-container></span> at the boundary. The
+                optimal bandwidth is of order <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n^{-1/5}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>n</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>5</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> and the
+                pointwise mean squared error of order <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n^{-4/5}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>n</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>4</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>5</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch43-smoothing/01-kernels.html#lem-smo-moment-sums" class="xref" data-ref="lem-smo-moment-sums" data-shard="ch43-smoothing">Lemma 43.1.2</a>, <a href="../ch43-smoothing/01-kernels.html#thm-smo-local-poly" class="xref" data-ref="thm-smo-local-poly" data-shard="ch43-smoothing">Theorem 43.1.3</a>).</p></li>
+                <li><p>B-splines, defined by the de Boor recurrence, are
+                nonnegative, supported on <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="d+2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi><mo>+</mo><mn>2</mn></math></mjx-assistive-mml></mjx-container></span> consecutive knots,
+                sum to one, are <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="C^{d-1}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.052em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>C</mi><mrow data-mjx-texclass="ORD"><mi>d</mi><mo>−</mo><mn>1</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> at simple knots,
+                have a derivative that is again a combination of
+                B-splines, and form a basis of the spline space of <a href="../ch42-polynomials-piecewise/03-piecewise-polynomials.html#thm-ply-spline-space" class="xref" data-ref="thm-ply-spline-space" data-shard="ch42-polynomials-piecewise">Theorem 42.3.1</a>
+                (<a href="../ch43-smoothing/02-b-splines.html#def-smo-bspline" class="xref" data-ref="def-smo-bspline" data-shard="ch43-smoothing">Definition 43.2.1</a>, <a href="../ch43-smoothing/02-b-splines.html#prp-smo-bspline" class="xref" data-ref="prp-smo-bspline" data-shard="ch43-smoothing">Proposition 43.2.1</a>);
+                coefficients at the Greville abscissae reproduce the
+                identity (<a href="../ch43-smoothing/02-b-splines.html#prp-smo-greville" class="xref" data-ref="prp-smo-greville" data-shard="ch43-smoothing">Proposition 43.2.2</a>). The
+                basis matrix is banded and well conditioned where the
+                truncated power basis is neither.</p></li>
+                <li><p>A penalized spline takes a rich B-spline basis
+                and a difference penalty (<a href="../ch43-smoothing/03-penalized-splines.html#def-smo-pspline" class="xref" data-ref="def-smo-pspline" data-shard="ch43-smoothing">Definition 43.3.1</a>). The
+                fit is a generalized ridge regression: it shrinks the
+                Demmler–Reinsch coordinates by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="(1+\lambda e_j)^{-1}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>λ</mi><msub><mi>e</mi><mi>j</mi></msub><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span>,
+                spends <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{tr}(\mathbf{S}_\lambda)=\sum_j(1+\lambda
+                e_j)^{-1}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D412 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-munder space="4" limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D452 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>tr</mi><mo stretchy="false">(</mo><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">S</mi></mrow><mi>λ</mi></msub><mo stretchy="false">)</mo><mo>=</mo><munder><mo data-mjx-texclass="OP">∑</mo><mi>j</mi></munder><mo stretchy="false">(</mo><mn>1</mn><mo>+</mo><mi>λ</mi><msub><mi>e</mi><mi>j</mi></msub><msup><mo stretchy="false">)</mo><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>1</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> degrees of freedom, and as <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda\to\infty"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c2192"></mjx-c></mjx-mo><mjx-mi class="mjx-n" space="4"><mjx-c class="mjx-c221E"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi><mo accent="false" stretchy="false">→</mo><mi mathvariant="normal">∞</mi></math></mjx-assistive-mml></mjx-container></span> tends to
+                the least squares fit in the null space of the penalty —
+                a constant for <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="k=1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi><mo>=</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span>,
+                a line for <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="k=2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D458 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>k</mi><mo>=</mo><mn>2</mn></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch43-smoothing/03-penalized-splines.html#lem-smo-diagonalize" class="xref" data-ref="lem-smo-diagonalize" data-shard="ch43-smoothing">Lemma 43.3.1</a>, <a href="../ch43-smoothing/03-penalized-splines.html#prp-smo-pspline-ridge" class="xref" data-ref="prp-smo-pspline-ridge" data-shard="ch43-smoothing">Proposition 43.3.2</a>, <a href="../ch43-smoothing/03-penalized-splines.html#prp-smo-penalty-limit" class="xref" data-ref="prp-smo-penalty-limit" data-shard="ch43-smoothing">Proposition 43.3.3</a>).
+                Once the penalty is there, the number of knots stops
+                mattering.</p></li>
+                <li><p>Among all functions with square-integrable second
+                derivative, the minimizer of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sum_i\{y_i-f(x_i)\}^2+\lambda\int
+                f''^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-munder limits="false"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c2211 TEX-S1"></mjx-c></mjx-mo><mjx-script style="vertical-align: -0.285em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-munder><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D466 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-msup><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-sop" space="2"><mjx-c class="mjx-c222B TEX-S1"></mjx-c></mjx-mo><mjx-msup space="2"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.053em;"><mjx-mrow size="s"><mjx-mo class="mjx-var"><mjx-c class="mjx-c2033"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-mrow></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><munder><mo data-mjx-texclass="OP">∑</mo><mi>i</mi></munder><mo fence="false" stretchy="false">{</mo><msub><mi>y</mi><mi>i</mi></msub><mo>−</mo><mi>f</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo><msup><mo fence="false" stretchy="false">}</mo><mn>2</mn></msup><mo>+</mo><mi>λ</mi><mo data-mjx-texclass="OP">∫</mo><msup><mi>f</mi><mrow><mo data-mjx-alternate="1" data-mjx-pseudoscript="true">″</mo><mn>2</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> is the natural cubic spline with
+                knots at the design points (<a href="../ch43-smoothing/04-smoothing-splines.html#lem-smo-natural-interpolant" class="xref" data-ref="lem-smo-natural-interpolant" data-shard="ch43-smoothing">Lemma 43.4.1</a>, <a href="../ch43-smoothing/04-smoothing-splines.html#thm-smo-smoothing-spline" class="xref" data-ref="thm-smo-smoothing-spline" data-shard="ch43-smoothing">Theorem 43.4.2</a>). Its fit
+                solves a pentadiagonal system in <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="O(n)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> operations (<a href="../ch43-smoothing/04-smoothing-splines.html#prp-smo-reinsch" class="xref" data-ref="prp-smo-reinsch" data-shard="ch43-smoothing">Proposition 43.4.3</a>).</p></li>
+                <li><p>Every smoother here is a linear operator <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{S}_\lambda"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D412 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">S</mi></mrow><mi>λ</mi></msub></math></mjx-assistive-mml></mjx-container></span>. Its trace
+                measures what was spent, <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\sigma^2\mathbf{S}_\lambda\mathbf{S}_\lambda^{\top}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D412 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-msubsup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D412 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.308em; margin-left: 0;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-spacer style="margin-top: 0.18em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>σ</mi><mn>2</mn></msup><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">S</mi></mrow><mi>λ</mi></msub><msubsup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">S</mi></mrow><mi>λ</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msubsup></math></mjx-assistive-mml></mjx-container></span>
+                is the covariance of the fit, and the obvious pointwise
+                interval is an interval for <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{E}\{\hat f(x_i)\}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c45"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c7B"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mover><mjx-over style="padding-bottom: 0.105em; padding-left: 0.457em; margin-bottom: -0.531em;"><mjx-mo class="mjx-n" style="width: 0; margin-left: -0.25em;"><mjx-c class="mjx-c5E"></mjx-c></mjx-mo></mjx-over><mjx-base><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi></mjx-base></mjx-mover></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c7D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi data-mjx-texclass="OP" mathvariant="normal">E</mi><mo fence="false" stretchy="false">{</mo><mrow data-mjx-texclass="ORD"><mover><mi>f</mi><mo stretchy="false">^</mo></mover></mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo fence="false" stretchy="false">}</mo></math></mjx-assistive-mml></mjx-container></span>, not
+                for <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="f(x_i)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-msub><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D465 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D456 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch43-smoothing/05-choosing-lambda.html#prp-smo-linear-smoother" class="xref" data-ref="prp-smo-linear-smoother" data-shard="ch43-smoothing">Proposition 43.5.1</a>).</p></li>
+                <li><p>The smoothing parameter can be chosen by
+                leave-one-out cross-validation, which needs no
+                refitting, by generalized cross-validation, which needs
+                only the trace, or by a corrected AIC: they agree in
+                large samples with independent errors, differ in the
+                upper tail, and all overfit badly when the errors are
+                correlated (<a href="../ch43-smoothing/05-choosing-lambda.html#thm-smo-lambda" class="xref" data-ref="thm-smo-lambda" data-shard="ch43-smoothing">Theorem 43.5.2</a>).</p></li>
+                <li><p>A quadratic penalty is a normal prior. Splitting
+                the coefficients into the penalty’s null space and its
+                complement turns a penalized spline into a linear mixed
+                model with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\lambda=\sigma^2/\sigma_u^2"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-msup space="4"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-msubsup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D70E TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.247em; margin-left: 0;"><mjx-mn class="mjx-n" size="s"><mjx-c class="mjx-c32"></mjx-c></mjx-mn><mjx-spacer style="margin-top: 0.297em;"></mjx-spacer><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msubsup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>λ</mi><mo>=</mo><msup><mi>σ</mi><mn>2</mn></msup><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><msubsup><mi>σ</mi><mi>u</mi><mn>2</mn></msubsup></math></mjx-assistive-mml></mjx-container></span>,
+                so that REML estimates the smoothing parameter and the
+                posterior supplies a band (<a href="../ch43-smoothing/06-mixed-model-and-bayes.html#thm-smo-mixed" class="xref" data-ref="thm-smo-mixed" data-shard="ch43-smoothing">Theorem 43.6.1</a>). That
+                band is wider than the naive one by roughly the amount
+                needed to absorb the bias on average — stated, not
+                proved, in <a href="../ch43-smoothing/06-mixed-model-and-bayes.html#prp-smo-bayes-bands" class="xref" data-ref="prp-smo-bayes-bands" data-shard="ch43-smoothing">Proposition 43.6.2</a>(c) —
+                which buys across-the-function coverage and not
+                pointwise coverage.</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">43.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>Kernels and local polynomials.</strong> The
+                local constant estimator is due independently to
+                Nadaraya (1964) and Watson (1964), and the optimality of
+                the kernel named after him to Epanechnikov (1969),
+                though as <a href="../ch43-smoothing/01-kernels.html#exr-smo-efficiency" class="xref" data-ref="exr-smo-efficiency" data-shard="ch43-smoothing">Exercise (B2)</a> shows the
+                gain is a few per cent. The modern theory of local
+                <em>polynomial</em> fitting is Fan and Gijbels (1996),
+                whose chapter 3 has the random-design version of <a href="../ch43-smoothing/01-kernels.html#thm-smo-local-poly" class="xref" data-ref="thm-smo-local-poly" data-shard="ch43-smoothing">Theorem 43.1.3</a> with the
+                conditional expansions handled properly; Wand and Jones
+                (1995) give the background. The design-bias and
+                boundary-bias comparisons in <a href="../ch43-smoothing/01-kernels.html#thm-smo-local-poly" class="xref" data-ref="thm-smo-local-poly" data-shard="ch43-smoothing">Theorem 43.1.3</a>(b) and
+                (c) are why local linear replaced Nadaraya–Watson, an
+                argument made forcefully by Hastie and Loader (1993).
+                The fixed-design proof given here, through <a href="../ch43-smoothing/01-kernels.html#lem-smo-moment-sums" class="xref" data-ref="lem-smo-moment-sums" data-shard="ch43-smoothing">Lemma 43.1.2</a>, makes
+                every error term explicit; the price is assumption (A),
+                and <a href="../ch43-smoothing/01-kernels.html#exr-smo-random-design" class="xref" data-ref="exr-smo-random-design" data-shard="ch43-smoothing">Exercise (C2)</a> says what
+                changes without it. That the rate <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="n^{-4/5}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c34"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mn class="mjx-n"><mjx-c class="mjx-c35"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>n</mi><mrow data-mjx-texclass="ORD"><mo>−</mo><mn>4</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mn>5</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> cannot be
+                improved for twice-differentiable <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="f"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi></math></mjx-assistive-mml></mjx-container></span> is Stone (1980, 1982),
+                whose curse of dimensionality is what makes <a href="../ch44-additive-models/index.html">Chapter 44</a>
+                necessary. Loess is Cleveland (1979), extended by
+                Cleveland and Devlin (1988), and plug-in bandwidths are
+                Ruppert, Sheather and Wand (1995).</p>
+                <p><strong>B-splines.</strong> Splines as a subject
+                begin with Schoenberg (1946). The stable recurrence <a href="../ch43-smoothing/02-b-splines.html#eq-smo-deboor" class="xref" data-ref="eq-smo-deboor" data-shard="ch43-smoothing">Eq. 43.2.2</a> is due to de
+                Boor (1972) and Cox (1972); de Boor (2001) is the
+                standard reference and contains Marsden’s identity, the
+                Curry–Schoenberg theorem that the B-splines span the
+                spline space for a general knot sequence, and the
+                general form of <a href="../ch43-smoothing/02-b-splines.html#prp-smo-greville" class="xref" data-ref="prp-smo-greville" data-shard="ch43-smoothing">Proposition 43.2.2</a>. The
+                proofs here need only the recurrence, the partition of
+                unity and the derivative formula, and are stated for the
+                clamped sequence; the induction in <a href="../ch43-smoothing/02-b-splines.html#prp-smo-bspline" class="xref" data-ref="prp-smo-bspline" data-shard="ch43-smoothing">Proposition 43.2.1</a>(f) is
+                the shortest route I know to the basis property for
+                it.</p>
+                <p><strong>Penalized splines.</strong> Penalizing
+                differences of a fitted sequence is Whittaker’s (1923)
+                graduation, rediscovered many times; its marriage with
+                the B-spline basis is Eilers and Marx (1996), which
+                introduced both the name and the practice of taking many
+                knots and letting the penalty do the work. O’Sullivan
+                (1986) had earlier used the integral penalty on a
+                B-spline basis, and Wand and Ormerod (2008) relate the
+                two. Ruppert (2002) is the source of the rule of thumb
+                for the knot count and Ruppert, Wand and Carroll (2003)
+                the book-length treatment. The simultaneous
+                diagonalization of <a href="../ch43-smoothing/03-penalized-splines.html#lem-smo-diagonalize" class="xref" data-ref="lem-smo-diagonalize" data-shard="ch43-smoothing">Lemma 43.3.1</a> goes back
+                to Demmler and Reinsch (1975).</p>
+                <p><strong>Smoothing splines.</strong> Reinsch (1967)
+                gave the algorithm; the variational characterization <a href="../ch43-smoothing/04-smoothing-splines.html#thm-smo-smoothing-spline" class="xref" data-ref="thm-smo-smoothing-spline" data-shard="ch43-smoothing">Theorem 43.4.2</a> and the
+                integration-by-parts argument behind it are due to
+                Schoenberg and to Reinsch, and the treatment here
+                follows Green and Silverman (1994, ch. 2), whose band
+                matrices are those of <a href="../ch43-smoothing/04-smoothing-splines.html#prp-smo-reinsch" class="xref" data-ref="prp-smo-reinsch" data-shard="ch43-smoothing">Proposition 43.4.3</a>.
+                Wahba (1990) is the definitive account from the
+                reproducing-kernel side, with the representer theorem of
+                Kimeldorf and Wahba (1971) at its centre; Eubank (1999)
+                is gentler. Silverman (1984) computed the equivalent
+                kernel quoted in <a href="04-smoothing-splines.html">Section 43.4</a>, and
+                Silverman (1985) surveys the approach; the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="O(n)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D442 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45B TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> computation of the
+                diagonal of <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{S}_\lambda"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D412 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D706 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">S</mi></mrow><mi>λ</mi></msub></math></mjx-assistive-mml></mjx-container></span> is Hutchinson
+                and de Hoog (1985).</p>
+                <p><strong>Choosing the smoothing parameter.</strong>
+                Generalized cross-validation is Craven and Wahba (1979),
+                and the leave-one-out shortcut for quadratic penalties
+                is <a href="../ch29-model-selection/03-cross-validation.html#thm-sel-loocv" class="xref" data-ref="thm-sel-loocv" data-shard="ch29-model-selection">Theorem 29.3.2</a>.
+                The corrected AIC <a href="../ch43-smoothing/05-choosing-lambda.html#eq-smo-aicc" class="xref" data-ref="eq-smo-aicc" data-shard="ch43-smoothing">Eq. 43.5.5</a> is Hurvich,
+                Simonoff and Tsai (1998), who make the case that its
+                pole is a feature. Opsomer, Wang and Yang (2001) review
+                what correlated errors do, which is what <a href="../ch43-smoothing/05-choosing-lambda.html#exm-smo-correlated" class="xref" data-ref="exm-smo-correlated" data-shard="ch43-smoothing">Example (What correlated errors do)</a>
+                illustrates: no automatic rule separates a smooth mean
+                from smooth noise without an assumption. Reiss and Ogden
+                (2009) compare REML and GCV. Nothing here addresses
+                inference <em>after</em> the selection except by saying
+                so; <a href="../ch29-model-selection/05-selection-bias.html#prp-sel-selection-bias" class="xref" data-ref="prp-sel-selection-bias" data-shard="ch29-model-selection">Proposition 29.5.1</a>
+                is the warning, and the remedies are those of <a href="../ch23-resampling-inference/index.html">Chapter
+                23</a> and <a href="../ch29-model-selection/index.html">Chapter
+                29</a>.</p>
+                <p><strong>Mixed models and Bayes.</strong> The
+                equivalence between a smoothing penalty and a random
+                effect is old — implicit in Whittaker’s graduation and
+                explicit in Wahba (1978) — and was made into a working
+                method by Ruppert, Wand and Carroll (2003), whose
+                chapter 4 contains the transformation of <a href="../ch43-smoothing/06-mixed-model-and-bayes.html#thm-smo-mixed" class="xref" data-ref="thm-smo-mixed" data-shard="ch43-smoothing">Theorem 43.6.1</a>(a) in
+                essentially the form given here. Wahba (1983) introduced
+                the Bayesian band and Nychka (1988) analysed its
+                coverage, coining the across-the-function reading that
+                <a href="../ch43-smoothing/06-mixed-model-and-bayes.html#prp-smo-bayes-bands" class="xref" data-ref="prp-smo-bayes-bands" data-shard="ch43-smoothing">Proposition 43.6.2</a>(c)
+                states; that part is quoted, not proved, and the
+                simulation in <a href="../ch43-smoothing/06-mixed-model-and-bayes.html#exm-smo-coverage" class="xref" data-ref="exm-smo-coverage" data-shard="ch43-smoothing">Example (Measuring the coverage)</a>
+                is the evidence offered for it. Sun and Loader (1994)
+                give genuinely simultaneous bands. The adaptive methods
+                named at the end of <a href="06-mixed-model-and-bayes.html">Section 43.6</a>
+                are Denison, Mallick and Smith (1998), Donoho and
+                Johnstone (1994) and Ramsay (1988).</p>
+                <p><strong>Coverage.</strong> This chapter follows the
+                ground of Fahrmeir, Kneib, Lang and Marx (2021, §8.1 and
+                §8.3); their §8.2, on bivariate and spatial smoothing,
+                belongs to <a href="../ch44-additive-models/index.html">Chapter
+                44</a>, as does Hastie and Tibshirani (1990), the book
+                that made smoothers part of the regression
+                curriculum.</p>
+                <h2 id="references"><span class="header-section-number">43.7.3. </span>
+                References</h2>
+                <ul>
+                <li>Cleveland, William S. (1979). Robust Locally
+                Weighted Regression and Smoothing Scatterplots.
+                <em>Journal of the American Statistical Association</em>
+                74(368), 829–836.</li>
+                <li>Cleveland, William S. and Devlin, Susan J. (1988).
+                Locally Weighted Regression: An Approach to Regression
+                Analysis by Local Fitting. <em>Journal of the American
+                Statistical Association</em> 83(403), 596–610.</li>
+                <li>Cox, Maurice G. (1972). The Numerical Evaluation of
+                B-Splines. <em>Journal of the Institute of Mathematics
+                and Its Applications</em> 10(2), 134–149.</li>
+                <li>Craven, Peter and Wahba, Grace (1979). Smoothing
+                Noisy Data with Spline Functions. <em>Numerische
+                Mathematik</em> 31(4), 377–403.</li>
+                <li>de Boor, Carl (1972). On Calculating with B-Splines.
+                <em>Journal of Approximation Theory</em> 6(1),
+                50–62.</li>
+                <li>de Boor, Carl (2001). <em>A Practical Guide to
+                Splines</em>. Revised edition. New York: Springer.</li>
+                <li>Demmler, A. and Reinsch, C. (1975). Oscillation
+                Matrices with Spline Smoothing. <em>Numerische
+                Mathematik</em> 24(5), 375–382.</li>
+                <li>Denison, David G. T., Mallick, Bani K. and Smith,
+                Adrian F. M. (1998). Automatic Bayesian Curve Fitting.
+                <em>Journal of the Royal Statistical Society, Series
+                B</em> 60(2), 333–350.</li>
+                <li>Donoho, David L. and Johnstone, Iain M. (1994).
+                Ideal Spatial Adaptation by Wavelet Shrinkage.
+                <em>Biometrika</em> 81(3), 425–455.</li>
+                <li>Eilers, Paul H. C. and Marx, Brian D. (1996).
+                Flexible Smoothing with B-splines and Penalties.
+                <em>Statistical Science</em> 11(2), 89–121.</li>
+                <li>Epanechnikov, V. A. (1969). Non-parametric
+                Estimation of a Multivariate Probability Density.
+                <em>Theory of Probability and Its Applications</em>
+                14(1), 153–158.</li>
+                <li>Eubank, Randall L. (1999). <em>Nonparametric
+                Regression and Spline Smoothing</em>. 2nd edition. New
+                York: Marcel Dekker.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Fan, Jianqing and Gijbels, Irène (1996). <em>Local
+                Polynomial Modelling and Its Applications</em>. London:
+                Chapman and Hall.</li>
+                <li>Green, Peter J. and Silverman, Bernard W. (1994).
+                <em>Nonparametric Regression and Generalized Linear
+                Models: A Roughness Penalty Approach</em>. London:
+                Chapman and Hall.</li>
+                <li>Hastie, Trevor and Loader, Clive (1993). Local
+                Regression: Automatic Kernel Carpentry. <em>Statistical
+                Science</em> 8(2), 120–129.</li>
+                <li>Hastie, Trevor J. and Tibshirani, Robert J. (1990).
+                <em>Generalized Additive Models</em>. London: Chapman
+                and Hall.</li>
+                <li>Hurvich, Clifford M., Simonoff, Jeffrey S. and Tsai,
+                Chih-Ling (1998). Smoothing Parameter Selection in
+                Nonparametric Regression Using an Improved Akaike
+                Information Criterion. <em>Journal of the Royal
+                Statistical Society, Series B</em> 60(2), 271–293.</li>
+                <li>Hutchinson, M. F. and de Hoog, F. R. (1985).
+                Smoothing Noisy Data with Spline Functions.
+                <em>Numerische Mathematik</em> 47(1), 99–106.</li>
+                <li>Kimeldorf, George and Wahba, Grace (1971). Some
+                Results on Tchebycheffian Spline Functions. <em>Journal
+                of Mathematical Analysis and Applications</em> 33(1),
+                82–95.</li>
+                <li>Nadaraya, E. A. (1964). On Estimating Regression.
+                <em>Theory of Probability and Its Applications</em>
+                9(1), 141–142.</li>
+                <li>Nychka, Douglas (1988). Bayesian Confidence
+                Intervals for Smoothing Splines. <em>Journal of the
+                American Statistical Association</em> 83(404),
+                1134–1143.</li>
+                <li>Opsomer, Jean, Wang, Yuedong and Yang, Yuhong
+                (2001). Nonparametric Regression with Correlated Errors.
+                <em>Statistical Science</em> 16(2), 134–153.</li>
+                <li>O’Sullivan, Finbarr (1986). A Statistical
+                Perspective on Ill-posed Inverse Problems.
+                <em>Statistical Science</em> 1(4), 502–518.</li>
+                <li>Ramsay, James O. (1988). Monotone Regression Splines
+                in Action. <em>Statistical Science</em> 3(4),
+                425–441.</li>
+                <li>Reinsch, Christian H. (1967). Smoothing by Spline
+                Functions. <em>Numerische Mathematik</em> 10(3),
+                177–183.</li>
+                <li>Reiss, Philip T. and Ogden, R. Todd (2009).
+                Smoothing Parameter Selection for a Class of
+                Semiparametric Linear Models. <em>Journal of the Royal
+                Statistical Society, Series B</em> 71(2), 505–523.</li>
+                <li>Ruppert, David (2002). Selecting the Number of Knots
+                for Penalized Splines. <em>Journal of Computational and
+                Graphical Statistics</em> 11(4), 735–757.</li>
+                <li>Ruppert, David, Sheather, Simon J. and Wand, M. P.
+                (1995). An Effective Bandwidth Selector for Local Least
+                Squares Regression. <em>Journal of the American
+                Statistical Association</em> 90(432), 1257–1270.</li>
+                <li>Ruppert, David, Wand, M. P. and Carroll, Raymond J.
+                (2003). <em>Semiparametric Regression</em>. Cambridge:
+                Cambridge University Press.</li>
+                <li>Schoenberg, I. J. (1946). Contributions to the
+                Problem of Approximation of Equidistant Data by Analytic
+                Functions. <em>Quarterly of Applied Mathematics</em> 4,
+                45–99 and 112–141.</li>
+                <li>Silverman, Bernard W. (1984). Spline Smoothing: The
+                Equivalent Variable Kernel Method. <em>The Annals of
+                Statistics</em> 12(3), 898–916.</li>
+                <li>Silverman, Bernard W. (1985). Some Aspects of the
+                Spline Smoothing Approach to Non-parametric Regression
+                Curve Fitting. <em>Journal of the Royal Statistical
+                Society, Series B</em> 47(1), 1–52.</li>
+                <li>Stone, Charles J. (1980). Optimal Rates of
+                Convergence for Nonparametric Estimators. <em>The Annals
+                of Statistics</em> 8(6), 1348–1360.</li>
+                <li>Stone, Charles J. (1982). Optimal Global Rates of
+                Convergence for Nonparametric Regression. <em>The Annals
+                of Statistics</em> 10(4), 1040–1053.</li>
+                <li>Sun, Jiayang and Loader, Clive R. (1994).
+                Simultaneous Confidence Bands for Linear Regression and
+                Smoothing. <em>The Annals of Statistics</em> 22(3),
+                1328–1345.</li>
+                <li>Wahba, Grace (1978). Improper Priors, Spline
+                Smoothing and the Problem of Guarding Against Model
+                Errors in Regression. <em>Journal of the Royal
+                Statistical Society, Series B</em> 40(3), 364–372.</li>
+                <li>Wahba, Grace (1983). Bayesian “Confidence Intervals”
+                for the Cross-validated Smoothing Spline. <em>Journal of
+                the Royal Statistical Society, Series B</em> 45(1),
+                133–150.</li>
+                <li>Wahba, Grace (1990). <em>Spline Models for
+                Observational Data</em>. Philadelphia: SIAM.</li>
+                <li>Wand, M. P. and Jones, M. C. (1995). <em>Kernel
+                Smoothing</em>. London: Chapman and Hall.</li>
+                <li>Wand, M. P. and Ormerod, J. T. (2008). On
+                Semiparametric Regression with O’Sullivan Penalized
+                Splines. <em>Australian and New Zealand Journal of
+                Statistics</em> 50(2), 179–198.</li>
+                <li>Watson, Geoffrey S. (1964). Smooth Regression
+                Analysis. <em>Sankhyā: The Indian Journal of Statistics,
+                Series A</em> 26(4), 359–372.</li>
+                <li>Whittaker, Edmund T. (1923). On a New Method of
+                Graduation. <em>Proceedings of the Edinburgh
+                Mathematical Society</em> 41, 63–75.</li>
+                <li>Wood, Simon N. (2017). <em>Generalized Additive
+                Models: An Introduction with R</em>. 2nd edition. Boca
+                Raton: Chapman and Hall/CRC.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch43-smoothing/06-mixed-model-and-bayes.html" class="pagination-link" aria-label="Mixed-model
+and Bayesian representations">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">43.6 Mixed-model
+and Bayesian representations</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch44-additive-models/index.html" class="pagination-link" aria-label="Additive,
+Geoadditive and Structured Additive Models">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Additive,
+Geoadditive and Structured Additive Models</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2043.7%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch43-smoothing%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch43-smoothing/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

@@ -321,6 +321,36 @@
   <url><loc>https://regression.akizumifox.com/ch41-missing-data/05-multiple-imputation.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch41-missing-data/06-sensitivity.html</loc></url>
   <url><loc>https://regression.akizumifox.com/ch41-missing-data/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch42-polynomials-piecewise/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch42-polynomials-piecewise/01-polynomial-regression.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch42-polynomials-piecewise/02-orthogonal-polynomials.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch42-polynomials-piecewise/03-piecewise-polynomials.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch42-polynomials-piecewise/04-regression-splines.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch42-polynomials-piecewise/05-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch43-smoothing/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch43-smoothing/01-kernels.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch43-smoothing/02-b-splines.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch43-smoothing/03-penalized-splines.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch43-smoothing/04-smoothing-splines.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch43-smoothing/05-choosing-lambda.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch43-smoothing/06-mixed-model-and-bayes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch43-smoothing/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch44-additive-models/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch44-additive-models/01-additive-models.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch44-additive-models/02-backfitting.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch44-additive-models/03-varying-coefficients.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch44-additive-models/04-spatial-effects.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch44-additive-models/05-structured-additive.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch44-additive-models/06-generalized-additive-models.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch44-additive-models/07-summary-and-notes.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch45-quantile-gamlss/index.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch45-quantile-gamlss/01-beyond-the-mean.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch45-quantile-gamlss/02-quantile-regression.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch45-quantile-gamlss/03-inference.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch45-quantile-gamlss/04-expectiles.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch45-quantile-gamlss/05-gamlss.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch45-quantile-gamlss/06-comparing.html</loc></url>
+  <url><loc>https://regression.akizumifox.com/ch45-quantile-gamlss/07-summary-and-notes.html</loc></url>
   <url><loc>https://regression.akizumifox.com/results.html</loc></url>
   <url><loc>https://regression.akizumifox.com/graph.html</loc></url>
 </urlset>

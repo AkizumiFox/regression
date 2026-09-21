@@ -1,0 +1,388 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42.5 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch42-polynomials-piecewise/05-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Polynomial regression and
+ill-conditioning.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch42-polynomials-piecewise/05-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch42-polynomials-piecewise/05-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="42.5 Summary and Notes">
+        <meta property="og:description" content="Polynomial regression
+and ill-conditioning.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch42-polynomials-piecewise/index.html">Polynomials, Piecewise Fits and the Road to Splines</a></li>
+                        <li class="breadcrumb-item"><a href="../ch42-polynomials-piecewise/05-summary-and-notes.html"><span class="chapter-number">42.5</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">42.5</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">42.5.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>A polynomial regression is a linear model in a
+                transformed basis (<a href="../ch42-polynomials-piecewise/01-polynomial-regression.html#def-ply-polynomial" class="xref" data-ref="def-ply-polynomial" data-shard="ch42-polynomials-piecewise">Definition 42.1.1</a>):
+                estimation, the <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span>
+                tests, the bands, lack of fit and the diagnostics of
+                Parts II and III apply unchanged, and only the reading
+                of an individual coefficient is lost.</p></li>
+                <li><p>Raising the degree buys bias and sells variance
+                unevenly: the standard error of the fit grows fastest at
+                the edges, leverage concentrates there, and a single
+                observation moves the whole curve (<a href="../ch42-polynomials-piecewise/01-polynomial-regression.html#prp-ply-instability" class="xref" data-ref="prp-ply-instability" data-shard="ch42-polynomials-piecewise">Proposition 42.1.1</a>).
+                The monomial basis is also one of the worst conditioned
+                in numerical analysis, its Gram matrix converging to a
+                Hilbert matrix; centring and rescaling to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="[-1,1]"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c5B"></mjx-c></mjx-mo><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c2C"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="2"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n"><mjx-c class="mjx-c5D"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo stretchy="false">[</mo><mo>−</mo><mn>1</mn><mo>,</mo><mn>1</mn><mo stretchy="false">]</mo></math></mjx-assistive-mml></mjx-container></span> recover most of
+                that for free.</p></li>
+                <li><p>The orthogonal polynomials of a design exist, are
+                unique, and satisfy a three-term recurrence, because
+                multiplication by the argument is self-adjoint and
+                raises degree by one (<a href="../ch42-polynomials-piecewise/02-orthogonal-polynomials.html#def-ply-orthogonal" class="xref" data-ref="def-ply-orthogonal" data-shard="ch42-polynomials-piecewise">Definition 42.2.1</a>,
+                <a href="../ch42-polynomials-piecewise/02-orthogonal-polynomials.html#lem-ply-shift" class="xref" data-ref="lem-ply-shift" data-shard="ch42-polynomials-piecewise">Lemma 42.2.1</a>
+                and <a href="../ch42-polynomials-piecewise/02-orthogonal-polynomials.html#thm-ply-recurrence" class="xref" data-ref="thm-ply-recurrence" data-shard="ch42-polynomials-piecewise">Theorem 42.2.2</a>).
+                In the orthonormal basis <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathbf{X}^{\top}\mathbf{X}=\mathbf{I}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: 0.363em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-n"><mjx-c class="mjx-c22A4"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-script></mjx-msup><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-TeXAtom space="4" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D408 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mrow data-mjx-texclass="ORD"><mi mathvariant="normal">⊤</mi></mrow></msup><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mo>=</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">I</mi></mrow></math></mjx-assistive-mml></mjx-container></span>: coefficients
+                do not change with the degree, sequential sums of
+                squares are order-free, and <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\kappa(\mathbf{X})=1"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D417 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mo class="mjx-n" space="4"><mjx-c class="mjx-c3D"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="4"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>κ</mi><mo stretchy="false">(</mo><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">X</mi></mrow><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn></math></mjx-assistive-mml></mjx-container></span> (<a href="../ch42-polynomials-piecewise/02-orthogonal-polynomials.html#cor-ply-sequential" class="xref" data-ref="cor-ply-sequential" data-shard="ch42-polynomials-piecewise">Corollary 42.2.3</a>).</p></li>
+                <li><p>Changing the basis fixes the arithmetic and
+                nothing else: the oscillation, the boundary variance and
+                the extrapolation belong to <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\mathcal P_d"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msub><mjx-TeXAtom texclass="ORD"><mjx-mi class="mjx-cal mjx-i"><mjx-c class="mjx-c50 TEX-C"></mjx-c></mjx-mi></mjx-TeXAtom><mjx-script style="vertical-align: -0.15em; margin-left: -0.037em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mrow data-mjx-texclass="ORD"><mi data-mjx-variant="-tex-calligraphic" mathvariant="script">P</mi></mrow><mi>d</mi></msub></math></mjx-assistive-mml></mjx-container></span>, not to any
+                list of functions spanning it.</p></li>
+                <li><p>Cutting the range at <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="K"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container></span> knots and fitting
+                degree-<span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="d"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi></math></mjx-assistive-mml></mjx-container></span> pieces
+                with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="C^{d-1}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-msup><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: 0.363em; margin-left: 0.052em;"><mjx-TeXAtom size="s" texclass="ORD"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-TeXAtom></mjx-script></mjx-msup></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>C</mi><mrow data-mjx-texclass="ORD"><mi>d</mi><mo>−</mo><mn>1</mn></mrow></msup></math></mjx-assistive-mml></mjx-container></span> joins
+                gives a space of dimension <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="d+1+K"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D451 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mn class="mjx-n" space="3"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2B"></mjx-c></mjx-mo><mjx-mi class="mjx-i" space="3"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>d</mi><mo>+</mo><mn>1</mn><mo>+</mo><mi>K</mi></math></mjx-assistive-mml></mjx-container></span> with the truncated
+                power functions as a basis (<a href="../ch42-polynomials-piecewise/03-piecewise-polynomials.html#def-ply-piecewise" class="xref" data-ref="def-ply-piecewise" data-shard="ch42-polynomials-piecewise">Definition 42.3.1</a>,
+                <a href="../ch42-polynomials-piecewise/03-piecewise-polynomials.html#thm-ply-spline-space" class="xref" data-ref="thm-ply-spline-space" data-shard="ch42-polynomials-piecewise">Theorem 42.3.1</a>).
+                The continuity constraints are independent linear
+                restrictions, so each level of smoothness is a testable
+                hypothesis.</p></li>
+                <li><p>A regression spline is ordinary least squares in
+                that basis (<a href="../ch42-polynomials-piecewise/04-regression-splines.html#def-ply-regression-spline" class="xref" data-ref="def-ply-regression-spline" data-shard="ch42-polynomials-piecewise">Definition 42.4.1</a>).
+                Knots buy flexibility one degree of freedom at a time
+                and spend it locally; their placement controls where the
+                variance goes, and quantile knots are the defensible
+                default (<a href="../ch42-polynomials-piecewise/04-regression-splines.html#prp-ply-knots" class="xref" data-ref="prp-ply-knots" data-shard="ch42-polynomials-piecewise">Proposition 42.4.1</a>).</p></li>
+                <li><p>The truncated power basis is for proving things,
+                not for computing with: its condition number grows
+                geometrically with <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="K"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>K</mi></math></mjx-assistive-mml></mjx-container></span>, while a locally
+                supported basis for the same space, on a design that
+                occupies every support, does not.</p></li>
+                <li><p>A fitted curve is still a conditional mean, still
+                says nothing about intervention, and still must not be
+                extrapolated: of the bases compared on the carbon
+                dioxide series, the one that fitted best inside the data
+                was among the worst outside it (<a href="04-regression-splines.html">Section
+                42.4</a>).</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">42.5.2. </span> Notes and
+                sources</h2>
+                <p><strong>Polynomial regression and
+                ill-conditioning.</strong> That the Gram matrix of the
+                monomials is essentially a Hilbert matrix is an old
+                observation; Forsythe (1957) is the paper that drew from
+                it the recommendation to fit in an orthogonal basis, and
+                Seber and Lee (2003, section 7.1.1) cite him for the
+                formula. The conditioning facts are from numerical
+                analysis: Todd (1954) for the Hilbert matrix, and Higham
+                (2002), whose chapters on Vandermonde systems and on
+                test matrices cover the two cases. Runge (1901) gave the
+                interpolation example and Trefethen (2019) is the modern
+                account, including Chebyshev nodes and the Lebesgue
+                constants of <a href="../ch42-polynomials-piecewise/01-polynomial-regression.html#exr-ply-lebesgue" class="xref" data-ref="exr-ply-lebesgue" data-shard="ch42-polynomials-piecewise">Exercise (C2)</a>;
+                a least squares polynomial of moderate degree on a large
+                sample is not an interpolant and misbehaves more mildly,
+                but by the same mechanism.</p>
+                <p><strong>Orthogonal polynomials.</strong> The general
+                theory is classical, and Szegő (1939) remains the
+                reference for the continuous case. The discrete case —
+                orthogonality with respect to a design rather than a
+                measure — was brought into statistical computing by
+                Forsythe (1957), and the recurrence is sometimes named
+                for him there. The integer contrasts tabulated for
+                equally spaced levels are older, and are the ones <a href="../ch08-estimability/07-contrasts.html">Section
+                8.7</a> uses.</p>
+                <p><strong>Splines.</strong> The name and the theory
+                begin with Schoenberg (1946), and the rank condition in
+                its sharp form with Schoenberg and Whitney (1953). Least
+                squares fitting with fixed knots grew in the 1970s:
+                Poirier (1973) and Wold (1974) are early accounts aimed
+                at data analysis, Smith (1979) a readable introduction.
+                Wold’s advice — few knots, several observations between
+                them, at most one extremum per interval — is still
+                sound, and Harrell (2015, chapter 2) gives the modern
+                version. The truncated power basis and its B-spline
+                remedy are treated by de Boor (2001), and in statistical
+                terms by Eilers and Marx (1996) and Ruppert, Wand and
+                Carroll (2003, chapter 3).</p>
+                <p><strong>Segmented regression.</strong> A knot at an
+                unknown location is a nonlinear problem and is not
+                treated here: see Hudson (1966) for the fitting, Feder
+                (1975) for the asymptotics when the change point is
+                identified, and Seber and Wild (1989, chapter 9) for a
+                survey. Cobb (1978) shows what a conditional analysis of
+                the Nile series of <a href="../ch42-polynomials-piecewise/03-piecewise-polynomials.html#exm-ply-nile-ladder" class="xref" data-ref="exm-ply-nile-ladder" data-shard="ch42-polynomials-piecewise">Example (Four fits with the same knots)</a>
+                requires.</p>
+                <p><strong>Where the thread goes.</strong> Two loose
+                ends are tied in <a href="../ch43-smoothing/index.html">Chapter 43</a>: a
+                basis that is stable however many knots there are, and a
+                continuous rather than discrete flexibility parameter.
+                Fahrmeir, Kneib, Lang and Marx (2021, chapter 8), the
+                source for the rest of this part, treats them together,
+                as does Hastie and Tibshirani (1990) from the
+                additive-model side.</p>
+                <p><strong>Data.</strong> The Mauna Loa carbon dioxide
+                series and the Nile flows are public-domain data sets
+                distributed with statsmodels, already used in <a href="../ch05-model-and-least-squares/03-multiple-regression-model.html#exm-lm-co2" class="xref" data-ref="exm-lm-co2" data-shard="ch05-model-and-least-squares">Example (A curved trend and a seasonal cycle)</a>
+                and <a href="../ch09-sums-of-squares/04-orthogonal-designs.html#exm-ss-nile-polynomials" class="xref" data-ref="exm-ss-nile-polynomials" data-shard="ch09-sums-of-squares">Example (A trend in the Nile)</a>;
+                the skewed design of <a href="../ch42-polynomials-piecewise/04-regression-splines.html#exm-ply-knot-placement" class="xref" data-ref="exm-ply-knot-placement" data-shard="ch42-polynomials-piecewise">Example (A skewed design)</a>
+                is simulated with a fixed seed.</p>
+                <h2 id="references"><span class="header-section-number">42.5.3. </span>
+                References</h2>
+                <ul>
+                <li>Cobb, George W. (1978). The Problem of the Nile:
+                Conditional Solution to a Changepoint Problem.
+                <em>Biometrika</em> 65(2), 243–251.</li>
+                <li>de Boor, Carl (2001). <em>A Practical Guide to
+                Splines</em>. Revised edition. New York: Springer.</li>
+                <li>Eilers, Paul H. C. and Marx, Brian D. (1996).
+                Flexible Smoothing with B-splines and Penalties.
+                <em>Statistical Science</em> 11(2), 89–121.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Feder, Paul I. (1975). On Asymptotic Distribution
+                Theory in Segmented Regression Problems: Identified
+                Case. <em>The Annals of Statistics</em> 3(1),
+                49–83.</li>
+                <li>Forsythe, George E. (1957). Generation and Use of
+                Orthogonal Polynomials for Data-Fitting with a Digital
+                Computer. <em>Journal of the Society for Industrial and
+                Applied Mathematics</em> 5(2), 74–88.</li>
+                <li>Harrell, Frank E. (2015). <em>Regression Modeling
+                Strategies</em>. 2nd edition. Cham: Springer.</li>
+                <li>Hastie, Trevor J. and Tibshirani, Robert J. (1990).
+                <em>Generalized Additive Models</em>. London: Chapman
+                and Hall.</li>
+                <li>Higham, Nicholas J. (2002). <em>Accuracy and
+                Stability of Numerical Algorithms</em>. 2nd edition.
+                Philadelphia: SIAM.</li>
+                <li>Hudson, Derek J. (1966). Fitting Segmented Curves
+                Whose Join Points Have to Be Estimated. <em>Journal of
+                the American Statistical Association</em> 61(316),
+                1097–1129.</li>
+                <li>Poirier, Dale J. (1973). Piecewise Regression Using
+                Cubic Splines. <em>Journal of the American Statistical
+                Association</em> 68(343), 515–524.</li>
+                <li>Runge, Carl (1901). Über empirische Funktionen und
+                die Interpolation zwischen äquidistanten Ordinaten.
+                <em>Zeitschrift für Mathematik und Physik</em> 46,
+                224–243.</li>
+                <li>Ruppert, David, Wand, M. P. and Carroll, Raymond J.
+                (2003). <em>Semiparametric Regression</em>. Cambridge:
+                Cambridge University Press.</li>
+                <li>Schoenberg, Isaac J. (1946). Contributions to the
+                Problem of Approximation of Equidistant Data by Analytic
+                Functions. <em>Quarterly of Applied Mathematics</em> 4,
+                45–99 and 112–141.</li>
+                <li>Schoenberg, Isaac J. and Whitney, Anne (1953). On
+                Pólya Frequency Functions III: The Positivity of
+                Translation Determinants with an Application to the
+                Interpolation Problem by Spline Curves. <em>Transactions
+                of the American Mathematical Society</em> 74(2),
+                246–259.</li>
+                <li>Seber, George A. F. and Lee, Alan J. (2003).
+                <em>Linear Regression Analysis</em>. 2nd edition.
+                Hoboken, NJ: Wiley.</li>
+                <li>Seber, George A. F. and Wild, Chris J. (1989).
+                <em>Nonlinear Regression</em>. New York: Wiley.</li>
+                <li>Smith, Patricia L. (1979). Splines as a Useful and
+                Convenient Statistical Tool. <em>The American
+                Statistician</em> 33(2), 57–62.</li>
+                <li>Szegő, Gábor (1939). <em>Orthogonal
+                Polynomials</em>. American Mathematical Society
+                Colloquium Publications 23. New York: American
+                Mathematical Society.</li>
+                <li>Todd, John (1954). The Condition of the Finite
+                Segments of the Hilbert Matrix. In <em>Contributions to
+                the Solution of Systems of Linear Equations and the
+                Determination of Eigenvalues</em>, National Bureau of
+                Standards Applied Mathematics Series 39, 109–116.</li>
+                <li>Trefethen, Lloyd N. (2019). <em>Approximation Theory
+                and Approximation Practice</em>. Extended edition.
+                Philadelphia: SIAM.</li>
+                <li>Wold, Svante (1974). Spline Functions in Data
+                Analysis. <em>Technometrics</em> 16(1), 1–11.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch42-polynomials-piecewise/04-regression-splines.html" class="pagination-link" aria-label="Regression
+splines and truncated power bases">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">42.4 Regression
+splines and truncated power bases</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch43-smoothing/index.html" class="pagination-link" aria-label="Smoothing:
+Kernels, Splines and Penalties">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Smoothing:
+Kernels, Splines and Penalties</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2042.5%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch42-polynomials-piecewise%2F05-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch42-polynomials-piecewise/05-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>

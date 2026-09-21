@@ -1,0 +1,491 @@
+<!DOCTYPE html><html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>44.7 Summary and Notes – Regression: From Projection to
+Distribution</title>
+
+    <meta name="asset-prefix" content="../">
+    <meta name="page-path" content="ch44-additive-models/07-summary-and-notes.html">
+
+    <meta name="color-scheme" content="light dark">
+    <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
+    <script>
+        (function () {
+            var root = document.documentElement, stored = {};
+            try {
+                stored.theme = localStorage.getItem('book-theme');
+                stored.sidebar = localStorage.getItem('book-sidebar');
+                stored.toc = localStorage.getItem('book-toc');
+            } catch (e) {}
+            root.dataset.theme = stored.theme === 'light' || stored.theme === 'dark' ? stored.theme
+                : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (stored.sidebar === 'collapsed') root.dataset.sidebar = 'collapsed';
+            if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
+        })();
+    </script>
+        <meta name="description" content="Additive models and
+backfitting.">
+            <link rel="canonical" href="https://regression.akizumifox.com/ch44-additive-models/07-summary-and-notes.html">
+    <meta property="og:url" content="https://regression.akizumifox.com/ch44-additive-models/07-summary-and-notes.html">
+        <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Regression: From Projection
+to Distribution">
+    <meta property="og:title" content="44.7 Summary and Notes">
+        <meta property="og:description" content="Additive models and
+backfitting.">
+        <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+    <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
+    <link rel="preload" href="../fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin="">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles.css?v=c240cbf4c3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        <!-- Math is rendered at build time (build/math.py); this is its stylesheet. MathJax itself
+         loads only when needed (search snippets), see main.js -->
+    <link rel="stylesheet" href="../mathjax.css?v=3.2.2">
+    <meta name="math-prerendered" content="true">
+    
+    <!-- Tippy.js for tooltips -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
+
+        </head>
+
+<body>
+    <a class="skip-link" href="#quarto-content">Skip to content</a>
+
+    <div id="quarto-container">
+        <!-- Left Sidebar Navigation -->
+        <nav id="quarto-sidebar" aria-label="Book contents">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-title">
+                    Regression: From Projection to Distribution
+                </a>
+                <div class="sidebar-tools">
+                    <a href="../book/book.pdf" title="Full book (PDF)" target="_blank">
+                        <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i>
+                        <span class="visually-hidden">Full book (PDF)</span>
+                    </a>
+                                    </div>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="search" class="search-input" id="search-input" placeholder="Search" aria-label="Search the book" autocomplete="off">
+                <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+            </div>
+
+            <nav class="sidebar-nav">
+                                <ul class="nav-list">
+                    <li><a href="../index.html">Preface</a></li>
+                </ul>
+                            </nav>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="quarto-content">
+            <!-- Toolbar: book contents (drawer on phones, collapsible pane on wider screens),
+                 light/dark theme, and the "On this page" pane -->
+            <div class="topbar" role="toolbar" aria-label="Page layout">
+                <button type="button" class="icon-button sidebar-toggle" aria-controls="quarto-sidebar" aria-expanded="true" aria-label="Hide book contents" data-tooltip="Hide contents">
+                    <i class="bi bi-layout-sidebar sidebar-icon-pane" aria-hidden="true"></i>
+                    <i class="bi bi-list sidebar-icon-menu" aria-hidden="true"></i>
+                </button>
+                <a href="../index.html" class="topbar-title">Regression:
+From Projection to Distribution</a>
+                <div class="topbar-actions">
+                    <button type="button" class="icon-button theme-toggle" aria-pressed="false" aria-label="Dark mode" data-tooltip="Dark mode">
+                        <i class="bi bi-moon-stars theme-icon-moon" aria-hidden="true"></i>
+                        <i class="bi bi-sun theme-icon-sun" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" class="icon-button toc-toggle" aria-controls="quarto-margin-sidebar" aria-expanded="true" aria-label="Hide on this page" data-tooltip="Hide “On this page”">
+                        <i class="bi bi-layout-sidebar-reverse" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+
+            <article class="content">
+                <!-- Page title removed to avoid duplication with content H1 -->
+                <!-- Quarto-style Title Block -->
+                <header id="title-block-header" class="quarto-title-block default">
+                                        <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
+                        <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../ch44-additive-models/index.html">Additive, Geoadditive and Structured Additive Models</a></li>
+                        <li class="breadcrumb-item"><a href="../ch44-additive-models/07-summary-and-notes.html"><span class="chapter-number">44.7</span>  <span class="chapter-title">Summary and Notes</span></a></li>
+                        </ol>
+                    </nav>
+                                        <div class="quarto-title">
+                        <h1 class="title">
+                            <span class="chapter-number">44.7</span>  
+                            <span class="chapter-title">Summary and
+Notes</span>
+                        </h1>
+                    </div>
+                </header>
+
+                <div id="summary-and-notes">
+
+                </div>
+                <h2 id="summary"><span class="header-section-number">44.7.1. </span>
+                Summary</h2>
+                <div class="idea small-env" data-env-type="idea">
+                <p><em>Idea</em><em>.</em> </p>
+                <ol type="1">
+                <li><p>Additivity is the structural assumption that
+                makes nonparametric regression possible in more than one
+                or two dimensions. The model is <a href="../ch44-additive-models/01-additive-models.html#def-add-model" class="xref" data-ref="def-add-model" data-shard="ch44-additive-models">Definition 44.1.1</a>;
+                its components are fixed only up to constants until
+                centred (<a href="../ch44-additive-models/01-additive-models.html#prp-add-identifiability" class="xref" data-ref="prp-add-identifiability" data-shard="ch44-additive-models">Proposition 44.1.1</a>),
+                a constraint best absorbed into the basis.</p></li>
+                <li><p>In a basis, an additive model is one penalized
+                regression with a block-diagonal penalty: <a href="../ch44-additive-models/01-additive-models.html#eq-add-criterion" class="xref" data-ref="eq-add-criterion" data-shard="ch44-additive-models">Eq. 44.1.4</a> and the
+                penalized normal equations <a href="../ch44-additive-models/01-additive-models.html#eq-add-normal" class="xref" data-ref="eq-add-normal" data-shard="ch44-additive-models">Eq. 44.1.6</a>. The
+                fit is a linear smoother, its effective degrees of
+                freedom are <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="\operatorname{tr}\mathbf{S}"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-n"><mjx-c class="mjx-c74"></mjx-c><mjx-c class="mjx-c72"></mjx-c></mjx-mi><mjx-TeXAtom space="2" texclass="ORD"><mjx-mi class="mjx-b"><mjx-c class="mjx-c1D412 TEX-B"></mjx-c></mjx-mi></mjx-TeXAtom></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>tr</mi><mrow data-mjx-texclass="ORD"><mi mathvariant="bold">S</mi></mrow></math></mjx-assistive-mml></mjx-container></span>,
+                and they split over the terms (<a href="../ch44-additive-models/01-additive-models.html#prp-add-df" class="xref" data-ref="prp-add-df" data-shard="ch44-additive-models">Proposition 44.1.2</a>).</p></li>
+                <li><p>Backfitting — smooth each term against the
+                partial residual, and cycle — is block Gauss–Seidel on
+                those equations and block coordinate descent on the
+                criterion, converging geometrically to the unique fit
+                when the penalized cross-product is positive definite
+                and to <em>a</em> minimizer otherwise (<a href="../ch44-additive-models/02-backfitting.html#thm-add-backfitting" class="xref" data-ref="thm-add-backfitting" data-shard="ch44-additive-models">Theorem 44.2.1</a>);
+                unpenalized, it is alternating projection (<a href="../ch44-additive-models/02-backfitting.html#cor-add-projection" class="xref" data-ref="cor-add-projection" data-shard="ch44-additive-models">Corollary 44.2.2</a>).</p></li>
+                <li><p>Concurvity is collinearity between function
+                spaces (<a href="../ch44-additive-models/02-backfitting.html#def-add-concurvity-index" class="xref" data-ref="def-add-concurvity-index" data-shard="ch44-additive-models">Definition 44.2.1</a>).
+                It leaves the fitted mean alone, inflates the variance
+                of the components by <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="1/(1-\kappa_j)"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-TeXAtom texclass="ORD"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2F"></mjx-c></mjx-mo></mjx-TeXAtom><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn><mjx-mo class="mjx-n" space="3"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-msub space="3"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D705 TEX-I"></mjx-c></mjx-mi><mjx-script style="vertical-align: -0.15em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D457 TEX-I"></mjx-c></mjx-mi></mjx-script></mjx-msub><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mrow data-mjx-texclass="ORD"><mo>/</mo></mrow><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><msub><mi>κ</mi><mi>j</mi></msub><mo stretchy="false">)</mo></math></mjx-assistive-mml></mjx-container></span> in the
+                worst direction (<a href="../ch44-additive-models/02-backfitting.html#prp-add-concurvity" class="xref" data-ref="prp-add-concurvity" data-shard="ch44-additive-models">Proposition 44.2.3</a>),
+                and is invisible in a correlation matrix.</p></li>
+                <li><p>A varying-coefficient term <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="f(z)u"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D453 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c28"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D467 TEX-I"></mjx-c></mjx-mi><mjx-mo class="mjx-n"><mjx-c class="mjx-c29"></mjx-c></mjx-mo><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D462 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi><mo stretchy="false">(</mo><mi>z</mi><mo stretchy="false">)</mo><mi>u</mi></math></mjx-assistive-mml></mjx-container></span> is an ordinary
+                penalized term whose design is the basis scaled row by
+                row (<a href="../ch44-additive-models/03-varying-coefficients.html#def-add-varying" class="xref" data-ref="def-add-varying" data-shard="ch44-additive-models">Definition 44.3.1</a>,
+                <a href="../ch44-additive-models/03-varying-coefficients.html#prp-add-varying-fit" class="xref" data-ref="prp-add-varying-fit" data-shard="ch44-additive-models">Proposition 44.3.1</a>):
+                smooth interactions, factor-by-curve models and
+                time-varying coefficients at no extra cost.</p></li>
+                <li><p>A spatial effect is a term too (<a href="../ch44-additive-models/04-spatial-effects.html#def-add-spatial" class="xref" data-ref="def-add-spatial" data-shard="ch44-additive-models">Definition 44.4.1</a>):
+                for areal data the penalty <a href="../ch44-additive-models/04-spatial-effects.html#eq-add-mrf" class="xref" data-ref="eq-add-mrf" data-shard="ch44-additive-models">Eq. 44.4.2</a>, with
+                one null direction per connected component and a
+                conditional reading as shrinkage towards the neighbour
+                mean (<a href="../ch44-additive-models/04-spatial-effects.html#prp-add-mrf" class="xref" data-ref="prp-add-mrf" data-shard="ch44-additive-models">Proposition 44.4.1</a>);
+                for coordinates a kriging basis penalized by the
+                correlation matrix at the knots (<a href="../ch44-additive-models/04-spatial-effects.html#prp-add-kriging" class="xref" data-ref="prp-add-kriging" data-shard="ch44-additive-models">Proposition 44.4.2</a>),
+                the mixed model of Part VII in disguise.</p></li>
+                <li><p>Structured additive regression (<a href="../ch44-additive-models/05-structured-additive.html#def-add-star" class="xref" data-ref="def-add-star" data-shard="ch44-additive-models">Definition 44.5.1</a>)
+                is the whole catalogue in one predictor. It is
+                identified whenever the <em>unpenalized parts</em> of
+                its terms are (<a href="../ch44-additive-models/05-structured-additive.html#prp-add-star-identified" class="xref" data-ref="prp-add-star-identified" data-shard="ch44-additive-models">Proposition 44.5.1</a>),
+                it is a linear mixed model after one orthogonal
+                transformation (<a href="../ch44-additive-models/05-structured-additive.html#prp-add-mixed" class="xref" data-ref="prp-add-mixed" data-shard="ch44-additive-models">Proposition 44.5.2</a>),
+                and its smoothing parameters are variance ratios
+                estimated by <a href="../ch44-additive-models/05-structured-additive.html#eq-add-reml-update" class="xref" data-ref="eq-add-reml-update" data-shard="ch44-additive-models">Eq. 44.5.4</a> (<a href="../ch44-additive-models/05-structured-additive.html#prp-add-reml-update" class="xref" data-ref="prp-add-reml-update" data-shard="ch44-additive-models">Proposition 44.5.3</a>).</p></li>
+                <li><p>With a link and an exponential dispersion family
+                the fit is penalized IRLS (<a href="../ch44-additive-models/06-generalized-additive-models.html#thm-add-gam" class="xref" data-ref="thm-add-gam" data-shard="ch44-additive-models">Theorem 44.6.1</a>):
+                Chapter 34’s algorithm with the penalty added. Degrees
+                of freedom, dispersion and Chapter 39’s diagnostics
+                carry over, and the dispersion belongs in the
+                smoothing-parameter update or every curve is
+                undersmoothed.</p></li>
+                <li><p>Inference for a smooth term is approximate, and
+                doubly so because the smoothing parameters were chosen
+                from the same data. The <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="p"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45D TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>p</mi></math></mjx-assistive-mml></mjx-container></span>-values rank terms; they
+                do not test them.</p></li>
+                </ol>
+                </div>
+                <h2 id="notes-and-sources"><span class="header-section-number">44.7.2. </span> Notes and
+                sources</h2>
+                <p><strong>Additive models and backfitting.</strong> The
+                additive model and backfitting come from Friedman and
+                Stuetzle (1981), where the cycling served projection
+                pursuit regression, and from Breiman and Friedman
+                (1985). The definitive analysis is Buja, Hastie and
+                Tibshirani (1989): the Gauss–Seidel reading, the
+                convergence theory for symmetric shrinking smoothers,
+                concurvity, and the distinction between convergence of
+                the fit and of the components are all theirs. <a href="../ch44-additive-models/02-backfitting.html#thm-add-backfitting" class="xref" data-ref="thm-add-backfitting" data-shard="ch44-additive-models">Theorem 44.2.1</a> is
+                that theory for penalized smoothers, where the argument
+                reduces to the Ostrowski–Reich theorem (Golub and Van
+                Loan, 2013, chapter 11); Hastie and Tibshirani (1990)
+                made the models widely used. The order here reverses the
+                historical one: because <a href="../ch43-smoothing/index.html">Chapter 43</a> built
+                its smoothers from bases and penalties, the direct solve
+                is available from the start and backfitting becomes an
+                algorithm for large problems rather than the definition
+                of the estimator. Wood (2017) takes the same view and is
+                the standard modern reference for the chapter. A fourth
+                route, met in <a href="../ch30-regularization-boosting/index.html">Chapter
+                30</a> rather than here, is componentwise boosting: fit
+                a block to the current residual as backfitting does, but
+                damp the step and pick the block greedily instead of
+                cycling (<a href="../ch30-regularization-boosting/04-componentwise-boosting.html#thm-reg-boosting" class="xref" data-ref="thm-reg-boosting" data-shard="ch30-regularization-boosting">Theorem 30.4.1</a>).</p>
+                <p><strong>Concurvity.</strong> The word and the
+                phenomenon are from Buja, Hastie and Tibshirani (1989);
+                measuring it by canonical correlations between the
+                component spaces, as in <a href="../ch44-additive-models/02-backfitting.html#def-add-concurvity-index" class="xref" data-ref="def-add-concurvity-index" data-shard="ch44-additive-models">Definition 44.2.1</a>,
+                and reporting it routinely follow Wood (2017). Ramsay,
+                Burnett and Krewski (2003) document how badly it
+                distorts component estimates in air-pollution
+                time-series studies, where pollution, temperature and
+                season are nearly functions of one another.</p>
+                <p><strong>Varying coefficients.</strong> Hastie and
+                Tibshirani (1993) introduced these models in the
+                generality used here; the tensor-product construction is
+                developed in Wood (2017).</p>
+                <p><strong>Spatial terms.</strong> The Markov random
+                field penalty and its conditional reading are due to
+                Besag (1974); the intrinsic form used here, with the
+                convolution model that adds an unstructured region
+                effect, is Besag, York and Mollié (1991), and Rue and
+                Held (2005) is the systematic treatment. The kriging
+                side goes back to Matheron (1963); the low-rank
+                penalized version of <a href="../ch44-additive-models/04-spatial-effects.html#prp-add-kriging" class="xref" data-ref="prp-add-kriging" data-shard="ch44-additive-models">Proposition 44.4.2</a>,
+                and the name <em>geoadditive model</em>, are from
+                Kammann and Wand (2003), and Wendland (1995) constructed
+                the compactly supported radial functions used in the
+                example. Reich, Hodges and Zadnik (2006) sharpen the
+                spatial-confounding warning: a spatial random effect can
+                move a fixed-effect estimate substantially, in a
+                direction that is hard to predict.</p>
+                <p><strong>Structured additive regression.</strong> The
+                name and the framework are from Fahrmeir, Kneib and Lang
+                (2004) and Brezger and Lang (2006); the presentation in
+                Fahrmeir, Kneib, Lang and Marx (2021, chapter 9) is the
+                one this chapter is answerable to. The mixed-model
+                representation is older: Verbyla et al. (1999) developed
+                it and Ruppert, Wand and Carroll (2003) built a book on
+                it. The updates <a href="../ch44-additive-models/05-structured-additive.html#eq-add-reml-update" class="xref" data-ref="eq-add-reml-update" data-shard="ch44-additive-models">Eq. 44.5.4</a> are
+                Schall (1991), analysed in their modern form by Wood and
+                Fasiolo (2017) as the Fellner–Schall method. The fully
+                Bayesian version is Lang and Brezger (2004); the warning
+                about improper posteriors from vague priors on variance
+                components is Hobert and Casella (1996), with Gelman
+                (2006) on which proper priors behave well.</p>
+                <p><strong>Generalized additive models.</strong> Local
+                scoring is Hastie and Tibshirani (1986, 1990). The
+                direct penalized-IRLS form of <a href="../ch44-additive-models/06-generalized-additive-models.html#thm-add-gam" class="xref" data-ref="thm-add-gam" data-shard="ch44-additive-models">Theorem 44.6.1</a>,
+                which is what software now uses, is developed in Wood
+                (2017, chapter 6); the performance iteration is Gu
+                (1992), and the more stable outer iteration, which
+                differentiates a properly defined restricted likelihood,
+                is Wood (2011). The approximate reference distribution
+                quoted without proof in <a href="../ch44-additive-models/06-generalized-additive-models.html#thm-add-gam" class="xref" data-ref="thm-add-gam" data-shard="ch44-additive-models">Theorem 44.6.1</a>(d)
+                is derived, with simulation evidence for its accuracy
+                and its failure modes, in Wood (2013). The bands come
+                from the Bayesian argument of Wahba (1983) and Nychka
+                (1988) through <a href="../ch43-smoothing/06-mixed-model-and-bayes.html#thm-smo-mixed" class="xref" data-ref="thm-smo-mixed" data-shard="ch43-smoothing">Theorem 43.6.1</a>; Marra
+                and Wood (2012) find their coverage survives averaged
+                over the curve but not pointwise. Term selection by an
+                extra penalty on the null space is Marra and Wood
+                (2011).</p>
+                <p><strong>Two threads the book does not
+                develop.</strong> Smoothing-spline analysis of variance,
+                Gu (2013), builds additive and interaction models from
+                reproducing-kernel Hilbert spaces rather than from bases
+                and difference penalties, reaching the same models by a
+                more elegant and more demanding route. And the theory of
+                <em>rates</em>: the optimal rate quoted in <a href="01-additive-models.html">Section 44.1</a> is Stone
+                (1980), and the fact that each additive component can
+                still be estimated at the one-dimensional rate whatever
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="q"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D45E TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>q</mi></math></mjx-assistive-mml></mjx-container></span> is — so that
+                additivity defeats the curse of dimensionality rather
+                than merely dodging it — is Stone (1985), with the sharp
+                version for backfitting in Opsomer and Ruppert (1997).
+                Those proofs need empirical-process tools this book does
+                not assume.</p>
+                <h2 id="references"><span class="header-section-number">44.7.3. </span>
+                References</h2>
+                <ul>
+                <li>Besag, Julian (1974). Spatial Interaction and the
+                Statistical Analysis of Lattice Systems. <em>Journal of
+                the Royal Statistical Society, Series B</em> 36(2),
+                192–236.</li>
+                <li>Besag, Julian, York, Jeremy and Mollié, Annie
+                (1991). Bayesian Image Restoration, with Two
+                Applications in Spatial Statistics. <em>Annals of the
+                Institute of Statistical Mathematics</em> 43(1),
+                1–20.</li>
+                <li>Breiman, Leo and Friedman, Jerome H. (1985).
+                Estimating Optimal Transformations for Multiple
+                Regression and Correlation. <em>Journal of the American
+                Statistical Association</em> 80(391), 580–598.</li>
+                <li>Brezger, Andreas and Lang, Stefan (2006).
+                Generalized Structured Additive Regression Based on
+                Bayesian P-Splines. <em>Computational Statistics and
+                Data Analysis</em> 50(4), 967–991.</li>
+                <li>Buja, Andreas, Hastie, Trevor and Tibshirani, Robert
+                (1989). Linear Smoothers and Additive Models. <em>The
+                Annals of Statistics</em> 17(2), 453–510.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas and Lang, Stefan
+                (2004). Penalized Structured Additive Regression for
+                Space–Time Data: A Bayesian Perspective. <em>Statistica
+                Sinica</em> 14(3), 731–761.</li>
+                <li>Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and
+                Marx, Brian D. (2021). <em>Regression: Models, Methods
+                and Applications</em>. 2nd edition. Berlin:
+                Springer.</li>
+                <li>Friedman, Jerome H. and Stuetzle, Werner (1981).
+                Projection Pursuit Regression. <em>Journal of the
+                American Statistical Association</em> 76(376),
+                817–823.</li>
+                <li>Gelman, Andrew (2006). Prior Distributions for
+                Variance Parameters in Hierarchical Models. <em>Bayesian
+                Analysis</em> 1(3), 515–534.</li>
+                <li>Golub, Gene H. and Van Loan, Charles F. (2013).
+                <em>Matrix Computations</em>. 4th edition. Baltimore:
+                Johns Hopkins University Press.</li>
+                <li>Gu, Chong (1992). Cross-Validating Non-Gaussian
+                Data. <em>Journal of Computational and Graphical
+                Statistics</em> 1(2), 169–179.</li>
+                <li>Gu, Chong (2013). <em>Smoothing Spline ANOVA
+                Models</em>. 2nd edition. New York: Springer.</li>
+                <li>Hastie, Trevor and Tibshirani, Robert (1986).
+                Generalized Additive Models. <em>Statistical
+                Science</em> 1(3), 297–310.</li>
+                <li>Hastie, Trevor and Tibshirani, Robert (1990).
+                <em>Generalized Additive Models</em>. London: Chapman
+                and Hall.</li>
+                <li>Hastie, Trevor and Tibshirani, Robert (1993).
+                Varying-Coefficient Models. <em>Journal of the Royal
+                Statistical Society, Series B</em> 55(4), 757–796.</li>
+                <li>Hobert, James P. and Casella, George (1996). The
+                Effect of Improper Priors on Gibbs Sampling in
+                Hierarchical Linear Mixed Models. <em>Journal of the
+                American Statistical Association</em> 91(436),
+                1461–1473.</li>
+                <li>Kammann, E. E. and Wand, M. P. (2003). Geoadditive
+                Models. <em>Journal of the Royal Statistical Society,
+                Series C</em> 52(1), 1–18.</li>
+                <li>Lang, Stefan and Brezger, Andreas (2004). Bayesian
+                P-Splines. <em>Journal of Computational and Graphical
+                Statistics</em> 13(1), 183–212.</li>
+                <li>Marra, Giampiero and Wood, Simon N. (2011).
+                Practical Variable Selection for Generalized Additive
+                Models. <em>Computational Statistics and Data
+                Analysis</em> 55(7), 2372–2387.</li>
+                <li>Marra, Giampiero and Wood, Simon N. (2012). Coverage
+                Properties of Confidence Intervals for Generalized
+                Additive Model Components. <em>Scandinavian Journal of
+                Statistics</em> 39(1), 53–74.</li>
+                <li>Matheron, Georges (1963). Principles of
+                Geostatistics. <em>Economic Geology</em> 58(8),
+                1246–1266.</li>
+                <li>Nychka, Douglas (1988). Bayesian Confidence
+                Intervals for Smoothing Splines. <em>Journal of the
+                American Statistical Association</em> 83(404),
+                1134–1143.</li>
+                <li>Opsomer, Jean D. and Ruppert, David (1997). Fitting
+                a Bivariate Additive Model by Local Polynomial
+                Regression. <em>The Annals of Statistics</em> 25(1),
+                186–211.</li>
+                <li>Ramsay, Timothy O., Burnett, Richard T. and Krewski,
+                Daniel (2003). The Effect of Concurvity in Generalized
+                Additive Models Linking Mortality to Ambient Particulate
+                Matter. <em>Epidemiology</em> 14(1), 18–23.</li>
+                <li>Reich, Brian J., Hodges, James S. and Zadnik, Vesna
+                (2006). Effects of Residual Smoothing on the Posterior
+                of the Fixed Effects in Disease-Mapping Models.
+                <em>Biometrics</em> 62(4), 1197–1206.</li>
+                <li>Rue, Håvard and Held, Leonhard (2005). <em>Gaussian
+                Markov Random Fields: Theory and Applications</em>. Boca
+                Raton: Chapman and Hall/CRC.</li>
+                <li>Ruppert, David, Wand, M. P. and Carroll, R. J.
+                (2003). <em>Semiparametric Regression</em>. Cambridge:
+                Cambridge University Press.</li>
+                <li>Schall, Robert (1991). Estimation in Generalized
+                Linear Models with Random Effects. <em>Biometrika</em>
+                78(4), 719–727.</li>
+                <li>Stone, Charles J. (1980). Optimal Rates of
+                Convergence for Nonparametric Estimators. <em>The Annals
+                of Statistics</em> 8(6), 1348–1360.</li>
+                <li>Stone, Charles J. (1985). Additive Regression and
+                Other Nonparametric Models. <em>The Annals of
+                Statistics</em> 13(2), 689–705.</li>
+                <li>Verbyla, Arūnas P., Cullis, Brian R., Kenward,
+                Michael G. and Welham, Sue J. (1999). The Analysis of
+                Designed Experiments and Longitudinal Data by Using
+                Smoothing Splines. <em>Journal of the Royal Statistical
+                Society, Series C</em> 48(3), 269–311.</li>
+                <li>Wahba, Grace (1983). Bayesian “Confidence Intervals”
+                for the Cross-Validated Smoothing Spline. <em>Journal of
+                the Royal Statistical Society, Series B</em> 45(1),
+                133–150.</li>
+                <li>Wendland, Holger (1995). Piecewise Polynomial,
+                Positive Definite and Compactly Supported Radial
+                Functions of Minimal Degree. <em>Advances in
+                Computational Mathematics</em> 4(1), 389–396.</li>
+                <li>Wood, Simon N. (2011). Fast Stable Restricted
+                Maximum Likelihood and Marginal Likelihood Estimation of
+                Semiparametric Generalized Linear Models. <em>Journal of
+                the Royal Statistical Society, Series B</em> 73(1),
+                3–36.</li>
+                <li>Wood, Simon N. (2013). On p-Values for Smooth
+                Components of an Extended Generalized Additive Model.
+                <em>Biometrika</em> 100(1), 221–228.</li>
+                <li>Wood, Simon N. (2017). <em>Generalized Additive
+                Models: An Introduction with R</em>. 2nd edition. Boca
+                Raton: Chapman and Hall/CRC.</li>
+                <li>Wood, Simon N. and Fasiolo, Matteo (2017). A
+                Generalized Fellner–Schall Method for Smoothing
+                Parameter Optimization with Application to Tweedie
+                Location, Scale and Shape Models. <em>Biometrics</em>
+                73(4), 1071–1081.</li>
+                </ul>
+            </article>
+
+            <!-- Page Navigation -->
+            <nav class="page-navigation">
+                <div class="nav-page nav-page-previous">
+                                        <a href="../ch44-additive-models/06-generalized-additive-models.html" class="pagination-link" aria-label="Generalized
+additive models">
+                        <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Previous</span>
+                            <span class="nav-page-text">44.6 Generalized
+additive models</span>
+                        </span>
+                    </a>
+                                    </div>
+                <div class="nav-page nav-page-next">
+                                        <a href="../ch45-quantile-gamlss/index.html" class="pagination-link" aria-label="Quantile
+Regression and GAMLSS">
+                        <span class="nav-page-body">
+                            <span class="nav-page-label">Next</span>
+                            <span class="nav-page-text">Quantile
+Regression and GAMLSS</span>
+                        </span>
+                        <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                    </a>
+                                    </div>
+            </nav>
+                        <p class="page-feedback">
+                Found a typo or a mistake?
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%2044.7%20Summary%20and%20Notes&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fch44-additive-models%2F07-summary-and-notes.html%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>
+            </p>
+                    </main>
+
+        <!-- Right Sidebar (TOC) -->
+        <aside id="quarto-margin-sidebar">
+            <nav class="toc" aria-label="On this page">
+                <h2>On this page</h2>
+                            </nav>
+
+            <div class="other-formats">
+                <h3>Download</h3>
+                <ul>
+                    <li><a href="../pdf/ch44-additive-models/07-summary-and-notes.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="../book/book.pdf" target="_blank">Full book (PDF)</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Tooltip Script -->
+    <script src="../main.js?v=c240cbf4c3"></script>
+            </body>
+
+</html>
