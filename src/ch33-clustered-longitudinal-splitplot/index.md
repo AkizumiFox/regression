@@ -18,7 +18,8 @@ The chapter closes with growth curves, where each subject has its own trajectory
 and the whole point is to borrow strength across subjects.
 
 **What you need.** [Chapter 6](../ch06-projections/index.html) (projection in a
-general inner product, @thm-proj-kruskal),
+general inner product, @def-proj-gls, and when it agrees with least squares,
+@thm-proj-kruskal),
 [Chapter 9](../ch09-sums-of-squares/index.html) (expected mean
 squares, @thm-ss-expected-mean-squares),
 [Chapter 16](../ch16-multiway-layouts/index.html) (balanced layouts as Kronecker

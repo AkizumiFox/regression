@@ -12,7 +12,7 @@ path. The number of steps plays the part of the penalty.
 @thm-mat-svd, and the Cauchy–Schwarz inequality, @prp-mat-cauchy-schwarz), [Chapter 6](../ch06-projections/index.html)
 (least squares as projection, @thm-proj-ls-projection, and the minimum-norm solution, @prp-proj-min-norm),
 [Chapter 7](../ch07-optimality/index.html) (the conjugate posterior, @thm-opt-bayes-conjugate and @prp-opt-shrinkage),
-and indicator coding of factors ([Chapter 15](../ch15-anova-subspaces/index.html)). From this part:
+and indicator coding of factors ([Section 8.5](../ch08-estimability/05-factor-coding.html), @def-est-coding). From this part:
 [Chapter 27](../ch27-shrinkage/index.html) (ridge regression, @thm-shr-ridge, and the lasso, @def-shr-lasso and @thm-shr-lasso-orthonormal) and [Chapter 29](../ch29-model-selection/index.html) (covariance penalties,
 @thm-sel-optimism, and cross-validation). [Chapter 28](../ch28-high-dimensional/index.html) is needed only for remarks.
 

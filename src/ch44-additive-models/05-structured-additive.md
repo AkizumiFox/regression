@@ -90,18 +90,18 @@ they fail softly, through inflated variances.
 [A STAR model is a linear mixed model]
 
 Let \( \bP_j \) have rank \( r_j \) and spectral decomposition
-\( \bP_j=\mathbf{P}_j^{+}\bLambda_j\mathbf{P}_j^{+\top} \) with
+\( \bP_j=\Q_j^{+}\bLambda_j\Q_j^{+\top} \) with
 \( \bLambda_j=\diag(\nu_{j1},\dots,\nu_{jr_j}) \) positive, and let
-\( \mathbf{P}_j^{0} \) be an orthonormal basis of \( \Null(\bP_j) \). Put
+\( \Q_j^{0} \) be an orthonormal basis of \( \Null(\bP_j) \). Put
 \[
-\X_j^{0}=\Z_j\mathbf{P}_j^{0},\qquad
-\Z_j^{+}=\Z_j\mathbf{P}_j^{+}\bLambda_j^{-1/2},\qquad
-\bu_j=\bLambda_j^{1/2}\mathbf{P}_j^{+\top}\bgamma_j .
+\X_j^{0}=\Z_j\Q_j^{0},\qquad
+\Z_j^{+}=\Z_j\Q_j^{+}\bLambda_j^{-1/2},\qquad
+\bu_j=\bLambda_j^{1/2}\Q_j^{+\top}\bgamma_j .
 \]{#eq-add-mixed-transform}
 
 ::: {.enumerate options="label=(\alph*)"}
 1. \( \Z_j\bgamma_j=\X_j^{0}\mathbf{b}_j+\Z_j^{+}\bu_j \) with
-   \( \mathbf{b}_j=\mathbf{P}_j^{0\top}\bgamma_j \), and
+   \( \mathbf{b}_j=\Q_j^{0\top}\bgamma_j \), and
    \( \bgamma_j\T\bP_j\bgamma_j=\norm{\bu_j}^2 \).
 
 2. With \( \tau_j^2=\sigma^2/\lambda_j \), the penalized criterion @eq-add-criterion
@@ -120,14 +120,14 @@ Let \( \bP_j \) have rank \( r_j \) and spectral decomposition
 :::
 
 ::: {.proof}
-(a) The columns of \( \mathbf{P}_j^{+} \) and \( \mathbf{P}_j^{0} \) form an orthonormal
+(a) The columns of \( \Q_j^{+} \) and \( \Q_j^{0} \) form an orthonormal
 basis of \( \Real^{d_j} \), so
-\( \bgamma_j=\mathbf{P}_j^{0}\mathbf{b}_j+\mathbf{P}_j^{+}\mathbf{P}_j^{+\top}\bgamma_j \)
-and \( \mathbf{P}_j^{+}\mathbf{P}_j^{+\top}\bgamma_j
-=\mathbf{P}_j^{+}\bLambda_j^{-1/2}\bu_j \). Multiplying by \( \Z_j \) gives the first
+\( \bgamma_j=\Q_j^{0}\mathbf{b}_j+\Q_j^{+}\Q_j^{+\top}\bgamma_j \)
+and \( \Q_j^{+}\Q_j^{+\top}\bgamma_j
+=\Q_j^{+}\bLambda_j^{-1/2}\bu_j \). Multiplying by \( \Z_j \) gives the first
 claim. For the second,
 \( \bgamma_j\T\bP_j\bgamma_j
-=\bgamma_j\T\mathbf{P}_j^{+}\bLambda_j\mathbf{P}_j^{+\top}\bgamma_j=\norm{\bu_j}^2 \).
+=\bgamma_j\T\Q_j^{+}\bLambda_j\Q_j^{+\top}\bgamma_j=\norm{\bu_j}^2 \).
 (b) Substituting (a) into @eq-add-criterion turns it into
 \[
 \Bigl\lVert\y-\X\bbeta-\sum_j\X_j^{0}\mathbf{b}_j-\sum_j\Z_j^{+}\bu_j\Bigr\rVert^2
@@ -204,8 +204,8 @@ linear mixed model: the complete-data estimate of \( \tau_j^2 \) is
 
 \[
 \tr\Cov(\bu_j\mid\y)
-=\sigma^2\tr\bigl\{\bLambda_j^{1/2}\mathbf{P}_j^{+\top}(\A^{-1})_{jj}
-\mathbf{P}_j^{+}\bLambda_j^{1/2}\bigr\}
+=\sigma^2\tr\bigl\{\bLambda_j^{1/2}\Q_j^{+\top}(\A^{-1})_{jj}
+\Q_j^{+}\bLambda_j^{1/2}\bigr\}
 =\sigma^2\tr\bigl\{(\A^{-1})_{jj}\bP_j\bigr\},
 \]
 

@@ -271,8 +271,8 @@ sense classical rank tests are, and intervals follow by inverting the test over 
 grid. No density is estimated, which is why Koenker (2005, chapter 3) makes them the
 default; the cost is a grid search per interval.
 
-**The bootstrap.** Resampling \( (y_i,\x_{(i)}) \) pairs — scheme (a)
-of @def-bs-schemes — needs only independence of the pairs, and Hahn (1995) proved that
+**The bootstrap.** Resampling \( (y_i,\x_{(i)}) \) pairs — the case bootstrap
+of @def-bs-bootstrap(b) — needs only independence of the pairs, and Hahn (1995) proved that
 the bootstrap distribution of \( \sqrt{n}(\hbeta_{\tau}^{*}-\hbeta_{\tau}) \) has
 the same limit as that of \( \sqrt{n}(\hbeta_{\tau}-\bbeta_{\tau}) \). Resampling
 *residuals* is not valid here, for the reason

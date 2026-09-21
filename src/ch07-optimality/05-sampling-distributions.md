@@ -239,9 +239,11 @@ Let the errors be independent with mean zero, variance \( \sigma^2 \), third mom
 :::
 
 ::: {.proof}
-Apply @thm-rv-quadform-variance to \( \text{SSE}=\Y\T(\I-\M)\Y \), with \( \boldsymbol{\uptheta}=\X\bbeta \) and \( \A=\I-\M \), whose
-diagonal entries are \( 1-h_{ii} \). The terms \( 4\sigma^2\boldsymbol{\uptheta}\T\A^2\boldsymbol{\uptheta} \) and \( 4\mu_3\boldsymbol{\uptheta}\T\A\mathbf{a} \) vanish
-because \( \A\boldsymbol{\uptheta}=(\I-\M)\X\bbeta=\bzero \), and \( \tr(\A^2)=\tr(\A)=n-r \).
+This is @prp-lm-var-s2 with \( r \) in place of \( p \). That proof applies
+@thm-rv-quadform-variance to \( \text{SSE}=\Y\T(\I-\M)\Y \) and uses only that
+\( \A=\I-\M \) is idempotent with \( \tr(\A^2)=\tr(\A)=n-r \) and diagonal entries
+\( 1-h_{ii} \), and that \( \A\X\bbeta=\bzero \), which kills the terms carrying
+\( \boldsymbol{\uptheta} \) and \( \mu_3 \). None of it needs full column rank.
 :::
 
 The factor \( \mu_4-3\sigma^4 \) is \( \sigma^4 \) times the excess kurtosis. For normal errors it vanishes and we recover

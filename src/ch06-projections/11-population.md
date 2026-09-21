@@ -4,7 +4,8 @@ So far the geometry has lived in observation space \( \Real^n \), and every stat
 about one fixed data vector. There is a parallel geometry one level up, in which the
 vectors are *random variables* and the inner product is an expectation. In that
 geometry, least squares estimates something even when the linear model is false,
-namely the population projection of \( Y \) onto a span of regressors. The conditional
+namely the population projection of \( Y \) onto a span of regressors. In this section
+\( \mathbf{X} \) is a *random* vector of regressors, not the model matrix \( \X \). The conditional
 expectation turns out to be a projection too. This section sets up the correspondence.
 [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) develops prediction theory from it, and
 [Chapter 19](../ch19-theory-of-departures/index.html) uses it to study what least squares estimates under

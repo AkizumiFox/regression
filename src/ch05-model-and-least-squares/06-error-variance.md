@@ -198,8 +198,8 @@ supplies the formula.
 [Variance of s²]
 
 In the linear model with \( \rank(\X)=p<n \), suppose the errors \( \varepsilon_1,\dots,\varepsilon_n \) are
-independent with mean \( 0 \), variance \( \sigma^2 \), common third moment
-\( \mu_3=\E(\varepsilon_i^3) \) and common fourth moment \( \mu_4=\E(\varepsilon_i^4)<\infty \). Then
+independent with mean \( 0 \), variance \( \sigma^2 \) and common fourth moment
+\( \mu_4=\E(\varepsilon_i^4)<\infty \). Then
 \[
 \Var(\text{SSE})=2\sigma^4(n-p)+(\mu_4-3\sigma^4)\sum_{i=1}^n(1-h_{ii})^2 .
 \]
@@ -208,8 +208,8 @@ For normal errors, \( \mu_4=3\sigma^4 \) and \( \Var(s^2)=2\sigma^4/(n-p) \).
 
 ::: {.proof}
 Apply @thm-rv-quadform-variance to the vector \( \be \), whose means \( \theta_i \) are all zero, with
-\( \A=\I-\bH \). The terms involving \( \boldsymbol{\uptheta} \) vanish (in particular \( \mu_3 \) enters only
-multiplied by \( \boldsymbol{\uptheta}=\bzero \), so its value is irrelevant). The diagonal of \( \A \) has entries
+\( \A=\I-\bH \). The terms involving \( \boldsymbol{\uptheta} \) vanish (in particular the third moment enters
+only multiplied by \( \boldsymbol{\uptheta}=\bzero \), so it need not even be assumed finite). The diagonal of \( \A \) has entries
 \( 1-h_{ii} \), and \( \tr(\A^2)=\tr(\A)=n-p \) because \( \A \) is idempotent. For the normal case,
 the fourth moment of a \( \Normal(0,\sigma^2) \) variable is \( 3\sigma^4 \), and
 \( \Var(s^2)=\Var(\text{SSE})/(n-p)^2 \).

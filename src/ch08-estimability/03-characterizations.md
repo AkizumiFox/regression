@@ -43,7 +43,7 @@ Let \( \X \) be \( n\times p \), let \( \G \) denote a generalized inverse of \(
 \( \C(\X\T\X)=\C(\X\T) \) (@cor-proj-gram-colspace(b)).
 (d)\( \Rightarrow \)(f): if \( \blambda=\X\T\X\br \), then for every generalized inverse
 \( \blambda\T\G\X\T\X=\br\T(\X\T\X\G\X\T\X)=\br\T\X\T\X=\blambda\T \).
-(f)\( \Rightarrow \)(e) holds because generalized inverses exist (@prp-proj-ginverse-exists).
+(f)\( \Rightarrow \)(e) holds because generalized inverses exist (@thm-mat-ginverse-exists).
 (e)\( \Rightarrow \)(d): transposing \( \blambda\T\G\X\T\X=\blambda\T \) gives
 \( \X\T\X(\G\T\blambda)=\blambda \), so \( \br=\G\T\blambda \) solves the system.
 (b)\( \Leftrightarrow \)(g) is @thm-proj-invariant-functions.

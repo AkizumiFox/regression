@@ -9,8 +9,8 @@ value decomposition, idempotent matrices, Kronecker products and the calculus of
 quadratic forms. It is a reference chapter, meant to be skimmed first and consulted
 later, but every central result is proved.
 
-**What you need.** None beyond the Notation chapter. A first course in linear algebra
-helps, but is not assumed.
+**What you need.** Nothing beyond the notation table in the [preface](../index.html#notation).
+A first course in linear algebra helps, but is not assumed.
 
 **A slower road through the same algebra.** This chapter is a reference. It states what
 the rest of the book uses, in the order a regression argument needs it, and proves it —

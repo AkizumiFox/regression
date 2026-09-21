@@ -113,10 +113,13 @@ Belgium.
 ## What the ladder reached, and what lies beyond it
 
 This book began with a projection onto a subspace and ends with an estimated
-conditional distribution. Each part removed one assumption: Parts I to VI kept the
-linear predictor, the normal error and the constant variance and asked what could be
-proved; Part VII dropped independence, Part VIII normality, Part IX linearity, and
-Part X the mean.
+conditional distribution. Each part changed one thing. Parts I to III built the
+classical model and its exact theory; Part IV let the design be a set of factors, so
+that the model matrix is rank deficient by construction; Part V audited every
+assumption in turn and asked what survives each departure; Part VI gave up
+unbiasedness; Part VII dropped \( \Cov(\be)=\sigma^2\I \); Part VIII dropped
+normality; Part IX dropped the linear predictor; and Part X dropped the decision to
+model only the mean.
 
 What holds the sequence together is that almost nothing was thrown away at each step.
 The normal equations became estimating equations; the projection became a smoother

@@ -67,7 +67,11 @@ and \( h_{ii} \) its diagonal.
    \( \tilde{\x}_j \) has slope exactly \( \hat\beta_j \), so curvature or a single
    dominating point in that plot is a statement about \( \hat\beta_j \) itself.
 
-6. *(Checking the variance function.)* If the assumed variance function is correct then
+6. *(Checking the variance function.)* Suppose the assumed variance function is correct
+   and each observation carries enough information for \( r_i^{P} \) to be approximately
+   normal: grouped data with large group sizes, or counts with means that are not small.
+   (This fails for ungrouped binary data, where \( r_i^{P} \) takes two values and the
+   constant below is wrong.) Then
    \( \E|r_i^{P}|\approx\sqrt{2/\pi} \) for every \( i \), so a plot of \( |r_i^{P}| \)
    against \( \hat\eta_i \) should be level. A systematic trend indicates a variance
    function of the wrong shape; a level plot at the wrong height indicates a dispersion
@@ -107,8 +111,11 @@ case \( i \) changes \( \hat\bmu \) and therefore \( \hat{\W} \).
 
 (d) The enlarged model contains the fitted one at coefficient zero and adds one parameter,
 so @thm-glm-deviance gives the \( \chi^2(1) \) limit under the smaller model. Note that
-\( \hat\eta_i \) is itself estimated; the effect of that is of smaller order and is
-ignored, as in @prp-tr-constructed.
+\( \hat\eta_i \) is itself estimated. Because \( \hat\eta^2 \) is a function of the
+fitted values alone, the normal-theory analogue is @thm-cor-fitted-regressors, which makes
+the corresponding \( F \) test *exact*; here the response is not normal, the limit is the
+asymptotic one, and the effect of estimating \( \hat\eta_i \) is of smaller order under
+the conditions of @thm-glm-asymptotics.
 
 (e) The working residual is \( (y_i-\hat\mu_i)/h'(\hat\eta_i)=z_i-\hat\eta_i \)
 by @eq-glm-working-response. The weighted least squares fit of \( \bz \) on \( \X \) has
@@ -122,8 +129,9 @@ is an ordinary least squares problem in the \( \hat{\W} \) inner product; @thm-p
 applied in that inner product gives the claim.
 
 (f) By (a), \( r_i^{P} \) has approximate mean zero and variance \( 1-h_{ii}\approx1 \)
-when the leverages are small, and is approximately normal under the conditions
-of @thm-glm-asymptotics. For \( Z\sim\Normal(0,1) \), \( \E|Z|=\sqrt{2/\pi} \). If instead
+when the leverages are small. Its approximate normality is the hypothesis of the
+statement, and it is a statement about the single observation \( Y_i \), not about
+\( \hbeta \): @thm-glm-asymptotics concerns the estimate and does not deliver it. For \( Z\sim\Normal(0,1) \), \( \E|Z|=\sqrt{2/\pi} \). If instead
 \( \Var(Y_i)=\phi V(\mu_i)/w_i \) with \( \phi\ne1 \), every \( r_i^{P} \) is inflated by
 \( \sqrt\phi \) and the plot is level at \( \sqrt{2\phi/\pi} \).
 :::

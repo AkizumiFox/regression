@@ -18,7 +18,7 @@ response distribution in front of that predictor and closes the circle with
 [Part VIII](../ch34-exponential-families-glm/index.html).
 
 **What you need.** [Chapter 6](../ch06-projections/index.html) (projections, the trace as a
-rank, @thm-proj-fwl), [Chapter 26](../ch26-collinearity/index.html) (collinearity and the
+rank, @prp-proj-trace-rank, and @thm-proj-fwl), [Chapter 26](../ch26-collinearity/index.html) (collinearity and the
 variance inflation factor, @def-col-vif), [Chapter 27](../ch27-shrinkage/index.html) and
 [Chapter 30](../ch30-regularization-boosting/index.html) (ridge, penalized least squares and
 effective degrees of freedom, @thm-shr-ridge and @def-reg-penalized),

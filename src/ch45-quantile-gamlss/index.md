@@ -23,7 +23,7 @@ best linear predictor @thm-proj-blp),
 (heteroscedasticity, weighted least squares and the sandwich @def-het-hc),
 [Chapter 22](../ch22-transformations/index.html) (@def-tr-box-cox, the older route to
 a well-behaved response), [Chapter 23](../ch23-resampling-inference/index.html) (the
-bootstrap @def-bs-bootstrap and its schemes @def-bs-schemes),
+bootstrap @def-bs-bootstrap and the permutation schemes @def-bs-schemes),
 [Chapter 25](../ch25-causal-interpretation/index.html) (what a fitted curve does and
 does not mean), [Chapter 29](../ch29-model-selection/index.html)
 (cross-validation @thm-sel-loocv, AIC @prp-sel-aic-bic, selection bias @prp-sel-selection-bias),

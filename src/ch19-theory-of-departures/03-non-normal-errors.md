@@ -237,7 +237,7 @@ for kind in ["spread", "far point"]:
 ## Inference about the error variance
 
 The interval for \( \sigma^2 \) (@prp-ci-sigma) rests on \( \text{SSE} \), a sum of *squared* errors, whose variance
-depends on the kurtosis (@prp-lm-var-s2, @prp-opt-var-sse). A central limit theorem applies, but with the wrong variance.
+depends on the kurtosis (@prp-opt-var-sse). A central limit theorem applies, but with the wrong variance.
 
 ::: {#prp-dep-sigma-interval}
 [The interval for sigma squared]

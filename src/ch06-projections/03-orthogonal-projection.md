@@ -164,43 +164,12 @@ are not orthonormal and may not even be independent. To write \( \M \) directly 
 terms of \( \X \) we need a substitute for \( (\X\T\X)^{-1} \) that exists even when
 \( \X\T\X \) is singular.
 
-::: {#def-proj-ginverse}
-[Generalized inverse]
-
-A **generalized inverse** of an \( m\times k \) matrix \( \A \) is any \( k\times m \)
-matrix \( \A\ginv \) such that \( \A\A\ginv\A=\A \).
-:::
-
-If \( \A \) is square and nonsingular, multiplying \( \A\A\ginv\A=\A \) on both sides by
-\( \A^{-1} \) gives \( \A\ginv=\A^{-1} \), so the generalized inverse is unique and
-equal to the inverse. When \( \A \) is singular there are infinitely many.
-
-::: {#prp-proj-ginverse-exists}
-[Existence]
-
-Every matrix has a generalized inverse. If \( \A \) has rank \( r \) and is permuted so
-that
-\[
-\A=\begin{pmatrix}\A_{11}&\A_{12}\\\A_{21}&\A_{22}\end{pmatrix}
-\]
-with \( \A_{11} \) an \( r\times r \) nonsingular block, then
-\( \A\ginv=\begin{pmatrix}\A_{11}^{-1}&\bzero\\\bzero&\bzero\end{pmatrix} \) (permuted back)
-is a generalized inverse.
-:::
-
-::: {.proof}
-A rank-\( r \) matrix has \( r \) independent rows and \( r \) independent columns, and the
-submatrix where they cross is nonsingular ([Chapter 1](../ch01-matrix-algebra/index.html)). This
-guarantees the block form. Since the first \( r \) columns are a basis for the column
-space, \( \begin{pmatrix}\A_{12}\\\A_{22}\end{pmatrix}=\begin{pmatrix}\A_{11}\\\A_{21}\end{pmatrix}\B \)
-for some \( \B \), so \( \B=\A_{11}^{-1}\A_{12} \) and \( \A_{22}=\A_{21}\A_{11}^{-1}\A_{12} \).
-Multiplying out,
-\[
-\A\A\ginv\A=\begin{pmatrix}\I&\bzero\\\A_{21}\A_{11}^{-1}&\bzero\end{pmatrix}\A
-=\begin{pmatrix}\A_{11}&\A_{12}\\\A_{21}&\A_{21}\A_{11}^{-1}\A_{12}\end{pmatrix}=\A .
-\qedhere
-\]
-:::
+A **generalized inverse** of \( \A \) is any matrix \( \A\ginv \) with
+\( \A\A\ginv\A=\A \) (@def-mat-ginverse), and every matrix has one: if \( \A \) has
+rank \( r \), invert a nonsingular \( r\times r \) submatrix and pad with zeros
+(@thm-mat-ginverse-exists). If \( \A \) is square and nonsingular the condition forces
+\( \A\ginv=\A^{-1} \); when \( \A \) is singular there are infinitely many, and the
+whole family is described in @exr-proj-all-ginverses.
 
 Among the many generalized inverses, one is singled out by extra symmetry
 conditions. The **Moore–Penrose inverse** \( \A^{+} \) is the unique matrix

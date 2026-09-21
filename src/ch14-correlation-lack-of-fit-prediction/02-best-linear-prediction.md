@@ -1,7 +1,9 @@
 # Best linear prediction
 
 With random rows, a regression is a rule for predicting the response of a new case from its
-regressors. The population theory is in place: the conditional mean \( m(\mathbf{X})=\E(Y\mid\mathbf{X}) \) is the best
+regressors. Throughout this section and the next three, \( \mathbf{X} \) is a *random*
+\( k \)-vector of regressors, as in [Section 6.11](../ch06-projections/11-population.html),
+while \( \X \) keeps its usual meaning as a model matrix. The population theory is in place: the conditional mean \( m(\mathbf{X})=\E(Y\mid\mathbf{X}) \) is the best
 predictor (@prp-proj-conditional-expectation), the best *linear* predictor
 \( L(Y\mid\mathbf{X})=\alpha^*+\bbeta^{*\top}\mathbf{X} \) is a projection (@thm-proj-blp, @thm-rv-blp), the two coincide
 for jointly normal variables (@prp-mvn-best-predictor), and least squares estimates \( L \) consistently (@prp-proj-consistency). This section asks the finite-sample questions: how large is the error of the
@@ -111,7 +113,9 @@ independent of \( \bar{\mathbf{X}} \).
 :::
 
 ::: {.proof}
-Let \( \X_1 \) be the \( n\times k \) matrix with rows \( \mathbf{X}_i\T \). Write \( \X_1=\bone\bmu\T+\Z_0\bSigma^{1/2} \), where
+Collect the sampled regressor vectors in the \( n\times k \) matrix \( \X_1 \), whose
+\( i \)th row is \( \mathbf{X}_i\T \) (bold capital \( \mathbf{X} \) with a case subscript
+is the random vector; \( \X_1 \) is the matrix of its sampled values). Write \( \X_1=\bone\bmu\T+\Z_0\bSigma^{1/2} \), where
 \( \bSigma^{1/2} \) is the symmetric square root (@thm-mat-square-root) and \( \Z_0 \) has independent standard normal
 entries. Let \( \mathbf{O} \) be an orthogonal \( n\times n \) matrix with first row \( n^{-1/2}\bone\T \), for instance the Helmert
 matrix of @exm-mat-helmert, and let \( \mathbf{K} \) consist of its last \( n-1 \) rows. From \( \mathbf{O}\T\mathbf{O}=\I \),

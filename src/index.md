@@ -21,7 +21,7 @@ new tools the relaxation requires.
 | I | — | The apparatus: matrices, random vectors, the normal distribution, quadratic forms |
 | II | — | \( \Y=\X\bbeta+\be \), \( \E(\be)=\bzero \), \( \Cov(\be)=\sigma^2\I \), as a projection problem |
 | III | adds \( \be\sim\Normal(\bzero,\sigma^2\I) \) | Exact finite-sample inference |
-| IV | drops \( \rank(\X)=p \) | Estimability, analysis of variance, designed structure |
+| IV | the model matrix is rank deficient by construction | Analysis of variance as subspace comparison, multi-way layouts, unbalanced data, designed experiments |
 | V | audits every assumption | What breaks, how to see it, what inference survives |
 | VI | drops unbiasedness | Shrinkage, selection, regularization, \( p>n \) |
 | VII | drops \( \Cov(\be)=\sigma^2\I \) | Generalized least squares, general Gauss–Markov, mixed models |
@@ -47,7 +47,11 @@ singular value decomposition come immediately after least squares
 stability are closely linked.
 
 **The Bayesian treatment is a thread, not a quarantined chapter.**
-Boxed “Bayesian thread” sections close Parts II, III, VII and VIII, each
+Boxed “Bayesian thread” sections run through Parts II, III, VII and VIII —
+[Section 7.6](ch07-optimality/06-bayes-conjugate.html),
+[Section 12.6](ch12-intervals-and-bands/06-bayes.html),
+[Section 32.6](ch32-linear-mixed-models/06-bayes.html) and
+[Sections 39.3–39.4](ch39-glms-in-practice-bayes/03-bayesian-linear-revisited.html) — each
 developing the Bayesian counterpart of the result just proved, and the thread
 runs on into Part IX, where a roughness penalty turns out to be a normal prior
 ([Section 43.6](ch43-smoothing/06-mixed-model-and-bayes.html)).
@@ -131,6 +135,7 @@ under the exercise; try the exercise before opening it.
 |---|---|
 | \( \Y \), \( \y \) | response vector (random, observed), \( n\times 1 \) |
 | \( \X \) | model matrix, \( n\times p \); columns \( \x_1,\dots,\x_p \) |
+| \( \mathbf{X} \) | a *random* vector of regressors, in the population sections [5.1](ch05-model-and-least-squares/01-what-a-model-claims.html), [6.11](ch06-projections/11-population.html) and [14.2](ch14-correlation-lack-of-fit-prediction/02-best-linear-prediction.html)–14.5 only |
 | \( \bbeta \), \( \hbeta \) | coefficient vector and a least squares estimate |
 | \( \be \) | error vector, \( \be=\Y-\X\bbeta \) |
 | \( \hY \), \( \he \) | fitted values \( \X\hbeta \) and residuals \( \Y-\hY \) |
@@ -139,6 +144,7 @@ under the exercise; try the exercise before opening it.
 | \( \C(\A) \), \( \Null(\A) \) | column space and null space of \( \A \) |
 | \( \mathcal{S}\perpc \) | orthogonal complement of a subspace \( \mathcal S \) |
 | \( \A\T \), \( \A\ginv \) | transpose; a generalized inverse (\( \A\A\ginv\A=\A \)) |
+| \( \G \) | a generalized inverse of \( \X\T\X \) (Chapters [6](ch06-projections/index.html)–[30](ch30-regularization-boosting/index.html)); from [Chapter 31](ch31-general-gauss-markov/index.html) on, \( \Cov(\bu) \) in a mixed model |
 | \( \M \) | orthogonal projection onto \( \C(\X) \) |
 | \( \Mo \) | orthogonal projection onto the column space of a reduced model |
 | \( \rank \), \( \tr \), \( \diag \) | rank, trace, diagonal matrix |

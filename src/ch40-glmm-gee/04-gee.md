@@ -34,7 +34,7 @@ guess at that covariance is used, deliberately.
 Let \( V \) be a variance function and \( \phi \) a dispersion, and write
 \[
 \begin{aligned}
-\A_i(\bbeta)&=\diag\{V(\mu_{i1}),\dots,V(\mu_{in_i})\},\\
+\A^{V}_i(\bbeta)&=\diag\{V(\mu_{i1}),\dots,V(\mu_{in_i})\},\\
 \bD_i(\bbeta)&=\frac{\partial\bmu_i}{\partial\bbeta\T}
 =\diag\{h'(\eta_{ij})\}\,\X_i .
 \end{aligned}
@@ -45,7 +45,7 @@ matrix for the \( n_i \) observations of cluster \( i \), depending on a finite 
 covariance** is
 \[
 \V_i(\bbeta,\boldsymbol{\upalpha},\phi)
-=\phi\,\A_i^{1/2}\,\R_i(\boldsymbol{\upalpha})\,\A_i^{1/2},
+=\phi\,(\A^{V}_i)^{1/2}\,\R_i(\boldsymbol{\upalpha})\,(\A^{V}_i)^{1/2},
 \]{#eq-gmm-working-covariance}
 
 and the **generalized estimating equation** is
@@ -77,7 +77,7 @@ squares of @prp-cls-selection.
 :::
 
 Solving @eq-gmm-gee is Fisher scoring. Write \( \bS_i=\diag\{h'(\eta_{ij})/\sqrt{V(\mu_{ij})}\} \);
-then \( \bD_i\T\V_i^{-1}=\phi^{-1}\X_i\T\bS_i\R_i^{-1}\A_i^{-1/2} \), so the update is
+then \( \bD_i\T\V_i^{-1}=\phi^{-1}\X_i\T\bS_i\R_i^{-1}(\A^{V}_i)^{-1/2} \), so the update is
 \[
 \hbeta\ \leftarrow\ \hbeta+
 \Bigl(\sum_i\X_i\T\bS_i\R_i^{-1}\bS_i\X_i\Bigr)^{-1}
@@ -132,7 +132,7 @@ Then:
 3. **The sandwich estimator.** Let \( \br_i=\Y_i-\bmu_i(\hbeta_m) \) and
    \[
    \begin{aligned}
-   \hat{\bU}_{\text{R}}&=\hat\A_m^{-1}
+   \hat{\V}_{\text{R}}&=\hat\A_m^{-1}
    \Bigl(\sum_i\hat\bD_i\T\hat\V_i^{-1}\br_i\br_i\T\hat\V_i^{-1}\hat\bD_i\Bigr)
    \hat\A_m^{-1},\\
    \hat\A_m&=\sum_i\hat\bD_i\T\hat\V_i^{-1}\hat\bD_i ,
@@ -141,15 +141,15 @@ Then:
 
    with hats denoting evaluation at \( \hbeta_m,\hat{\boldsymbol{\upalpha}},\hat\phi \);
    \( \hat\A_m \) is \( m \) times the sample version of the \( \A_m \) of (E6).
-   Then \( m\,\hat{\bU}_{\text{R}}\to\A^{-1}\B\A^{-1} \) in probability, and the Wald
+   Then \( m\,\hat{\V}_{\text{R}}\to\A^{-1}\B\A^{-1} \) in probability, and the Wald
    statistic of a hypothesis \( \bLambda\T\bbeta \) of rank \( q \), formed with
-   \( \hat{\bU}_{\text{R}}\), tends to \( \chi^{2}(q) \).
+   \( \hat{\V}_{\text{R}}\), tends to \( \chi^{2}(q) \).
 
 4. **When the model-based covariance is valid.** If the working covariance is correct,
    \( \V_i=\bSigma_i^{0} \), then \( \B=\A \) and @eq-gmm-gee-asymptotics reduces to
    \( \A^{-1} \), which the **model-based** estimator
-   \( \hat{\bU}_{\text{M}}=(\sum_i\hat\bD_i\T\hat\V_i^{-1}\hat\bD_i)^{-1} \) estimates
-   consistently. Otherwise \( \hat{\bU}_{\text{M}} \) is inconsistent, in either direction.
+   \( \hat{\V}_{\text{M}}=(\sum_i\hat\bD_i\T\hat\V_i^{-1}\hat\bD_i)^{-1} \) estimates
+   consistently. Otherwise \( \hat{\V}_{\text{M}} \) is inconsistent, in either direction.
 :::
 
 :::
@@ -225,9 +225,11 @@ exactly as for @thm-glm-asymptotics, using the concavity-free argument for estim
 equations in Liang and Zeger (1986). Condition (E5) is a real assumption: moment estimators
 of \( \boldsymbol{\upalpha} \) from Pearson residuals are \( \sqrt m \)-consistent under
 (E1)–(E4), but an unstructured \( \R \) estimated from few clusters is not. Note the
-notation: \( \bU_m \) is the estimating *function*, while \( \hat{\bU}_{\text{R}} \) and
-\( \hat{\bU}_{\text{M}} \) are *covariance estimators*, as in
-[Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html).
+notation: \( \bU_m \) is the estimating *function*, as in
+[Chapter 38](../ch38-quasi-likelihood/index.html), while a hatted \( \V \) with a letter
+subscript is a *covariance estimator* for \( \hbeta \), as in
+[Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html); \( \V_i \), with a
+cluster subscript, remains the working covariance of cluster \( i \).
 :::
 
 ::: {.warning}

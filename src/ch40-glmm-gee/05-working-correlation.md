@@ -119,11 +119,11 @@ In the setting of @thm-gmm-gee:
    compared, and replaces the parameter count by a sandwich-based trace:
    \[
    \text{QIC}=-2Q(\hat\bmu;\y)
-   +2\operatorname{tr}\bigl(\hat{\boldsymbol{\Omega}}_{\text{I}}\hat{\bU}_{\text{R}}\bigr),
+   +2\operatorname{tr}\bigl(\hat{\boldsymbol{\Omega}}_{\text{I}}\hat{\V}_{\text{R}}\bigr),
    \]{#eq-gmm-qic}
 
-   where \( \hat{\boldsymbol{\Omega}}_{\text{I}}=\sum_i\hat\bD_i\T\hat\A_i^{-1}\hat\bD_i/\phi \)
-   is the independence-model information and \( \hat{\bU}_{\text{R}} \) is @eq-gmm-sandwich.
+   where \( \hat{\boldsymbol{\Omega}}_{\text{I}}=\sum_i\hat\bD_i\T(\hat\A^{V}_i)^{-1}\hat\bD_i/\phi \)
+   is the independence-model information and \( \hat{\V}_{\text{R}} \) is @eq-gmm-sandwich.
    If the working model is correct the trace is \( p \) and @eq-gmm-qic
    is the Akaike form @def-sel-aic-bic. It is a sound criterion for choosing the
    *mean model*, and a weakly justified one for choosing \( \R_i \).
@@ -137,7 +137,7 @@ and explained after it. (b) is the cluster version of the bias
 calculation in @exr-cls-crve-bias, applied to \( \hat\bD_i\T\hat\V_i^{-1}\br_i \) in place of
 \( \X_g\T\he_g \). (c) is a definition; the claim that the trace equals \( p \) when the
 working model is correct is @thm-gmm-gee(d), which gives
-\( \hat{\bU}_{\text{R}}\to\A^{-1} \), together with
+\( \hat{\V}_{\text{R}}\to\A^{-1} \), together with
 \( \boldsymbol{\Omega}_{\text{I}}=\A \) when \( \R_i=\I \) is correct.
 :::
 

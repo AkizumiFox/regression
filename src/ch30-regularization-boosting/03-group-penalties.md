@@ -1,7 +1,7 @@
 # Group penalties
 
 A factor with \( k \) levels enters a linear model as \( k-1 \) indicator columns
-([Chapter 15](../ch15-anova-subspaces/index.html)), and a smooth effect as several basis columns. The question is whether
+([Section 8.5](../ch08-estimability/05-factor-coding.html), @def-est-coding), and a smooth effect as several basis columns. The question is whether
 *the factor* matters. The lasso on the indicator columns can keep some levels and drop others, and its answer depends on the
 coding. Yuan and Lin (2006) proposed a penalty that treats a block of columns as a unit.
 

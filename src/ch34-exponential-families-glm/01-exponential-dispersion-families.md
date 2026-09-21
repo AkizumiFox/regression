@@ -25,7 +25,9 @@ where \( \theta \) lies in the **natural parameter space**
 \Theta=\Bigl\{\theta\in\Real:\ \kappa(\theta)=\int e^{w y\theta/\phi}\,e^{c(y,\phi,w)}\,d\nu(y)<\infty\Bigr\}
 \]
 and \( b(\theta)=(\phi/w)\log\kappa(\theta) \) is the **cumulant function**, required to be the
-*same* function of \( \theta \) for every admissible pair \( (\phi,w) \). The parameter
+*same* function of \( \theta \) for every admissible pair \( (\phi,w) \). The normalizing
+constant \( \kappa(\theta) \) is this chapter's only use of that letter with an argument;
+elsewhere \( \kappa(\cdot) \) is the condition number of @def-mat-condition-number. The parameter
 \( \theta \) is the **natural** (or canonical) parameter.
 :::
 

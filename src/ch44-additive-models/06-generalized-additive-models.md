@@ -482,8 +482,8 @@ it is block Gauss–Seidel, which is local scoring. The proof of @thm-add-backfi
 [B2]
 
 *Shrinking a whole term away.* Let \( \bP_j \) have null space of dimension
-\( m_j \) with orthonormal basis \( \mathbf{P}_j^{0} \), and replace the penalty by
-\( \bP_j+\epsilon\mathbf{P}_j^{0}\mathbf{P}_j^{0\top} \) for a small \( \epsilon>0 \).
+\( m_j \) with orthonormal basis \( \Q_j^{0} \), and replace the penalty by
+\( \bP_j+\epsilon\Q_j^{0}\Q_j^{0\top} \) for a small \( \epsilon>0 \).
 Show that the new penalty is positive definite, that
 \( \lambda_j\to\infty \) now shrinks the whole term to zero, and that
 \( \mathrm{df}_j\to0 \).

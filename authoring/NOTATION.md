@@ -9,7 +9,7 @@ A chapter that needs a new symbol adds it here and there before using it.
 | `\X`, `\x_j`, `\x_{(i)}` | model matrix n × p; its j-th column; its i-th row as a column |
 | `\bbeta`, `\hbeta`, `\be` | coefficients, a least squares estimate, the error vector ε |
 | `\hY`, `\he` | fitted values, residuals |
-| `\A, \B, \G, \M, \Q, \R, \V, \bP, \bD, \bL, \bS, \bT, \bU, \bH` | bold matrices (`\bH` is the hat matrix, written `\bH` in Ch. 5 before Ch. 6 renames it `\M`; locally, `\bH_{\G}=\G\X\T\X` in Ch. 8 and a Householder reflection in Ch. 10) |
+| `\A, \B, \G, \M, \Q, \R, \V, \bP, \bD, \bL, \bS, \bT, \bU, \bH` | bold matrices (`\bH` is the hat matrix, written `\bH` in Ch. 5 before Ch. 6 renames it `\M`; locally, `\bH_{\G}=\G\X\T\X` in Ch. 8 and a Householder reflection in Ch. 10). From Ch. 6 to Ch. 30 `\G` is a **generalized inverse of** `\X\T\X`; from Ch. 31 on it is `\Cov(\bu)`, as the mixed-model bullet below records |
 | `\bu, \bv, \bw, \bz, \bb, \br, \bmu, \bgamma, \blambda, \bzero, \bone` | bold vectors |
 | `\bSigma`, `\bLambda`, `\mathbf{a}`, `\boldsymbol{\uptheta}` | Matrices and vectors are **bold upright**, Latin and Greek alike. Latin: `\mathbf{a}`. Lowercase Greek: `\boldsymbol{\uptheta}` (upright Greek from `upgreek`: `\upalpha`, `\upbeta`, `\upvarepsilon`, …); capital Greek is upright already: `\boldsymbol{\Sigma}`. Never `\bm`, and never `\boldsymbol{\theta}` (that is bold *italic*) |
 | `\I` | identity. `\M` the orthogonal projection onto C(X), `\Mo` onto a reduced model |
@@ -52,7 +52,9 @@ A chapter that needs a new symbol adds it here and there before using it.
   Category probabilities are `\boldsymbol{\uppi}`; in chapter 36 `\boldsymbol{\uptheta}`
   is the vector of *cutpoints* of a cumulative-link model (not the variance components of
   Part VII) and `\boldsymbol{\uppsi}` collects all parameters of a fit. Chapter 37 writes
-  `\kappa` for the negative binomial shape and `\alpha=1/\kappa` for its reciprocal.
+  `\kappa` for the negative binomial shape and `\alpha=1/\kappa` for its reciprocal, and
+  chapter 34 writes `\kappa(\theta)` for the *normalizing constant* of an exponential
+  dispersion family, flagged where it is introduced.
 
 - **Estimating equations, random effects and missingness (chapters 38–41).** The symbols of
   chapters 34–37 above are unchanged. Chapter 38 writes `Q(\mu;y)` for the *quasi-likelihood*
@@ -60,14 +62,24 @@ A chapter that needs a new symbol adds it here and there before using it.
   `\phi`, estimated by `\hat{\phi}`, and the sandwich covariance keeps the bread/meat form of
   chapter 21. Chapter 40 keeps Part VII's `\Z`, `\bu\sim\Normal_q\{\bzero,\G(\boldsymbol{\uptheta})\}`
   and `\G` for the random effects of a GLMM, and writes `\R_i(\boldsymbol{\upalpha})` for the
-  **working correlation** matrix of a GEE, with `\V_i=\phi\A_i^{1/2}\R_i\A_i^{1/2}` the working
-  covariance and `\A_i=\diag\{V(\mu_{ij})\}` — a local use of `\R`, not the `\R=\Cov(\be)` of
-  chapters 32–33, flagged in the chapter where it starts. In chapter 41 `\R` is the
+  **working correlation** matrix of a GEE, with `\V_i=\phi(\A^{V}_i)^{1/2}\R_i(\A^{V}_i)^{1/2}` the working
+  covariance and `\A^{V}_i=\diag\{V(\mu_{ij})\}` the variance-function diagonal, superscripted
+  so that `\A` keeps the bread meaning it has in chapters 34 and 38 — a local use of `\R`, not
+  the `\R=\Cov(\be)` of chapters 32–33, flagged in the chapter where it starts. A hatted `\V`
+  with a *letter* subscript, `\hat{\V}_{\text{R}}` and `\hat{\V}_{\text{M}}`, is a covariance
+  estimator for `\hbeta` as in chapter 21, while `\V_i` keeps the cluster subscript. In chapter 41 `\R` is the
   **missingness-indicator** array, with `R_{ij}=1` when the entry is recorded, `\mathbf{D}` the
   complete data, `\mathbf{D}_{\mathrm{obs}}` and `\mathbf{D}_{\mathrm{mis}}` its recorded and
   unrecorded parts, `\boldsymbol{\uptheta}` the parameter of the data model and
   `\boldsymbol{\uppsi}` that of the mechanism; `\bR_i` in section 40.4.6 is the same indicator
   in diagonal form.
+
+- **Random regressors (sections 5.1, 6.11 and 14.2–14.5).** In the population sections a
+  regressor vector is itself random, and is written `\mathbf{X}` (a \( k \)-vector, with
+  \( \mathbf{X}_i \) its value for case \( i \)), while `\X` keeps its book-wide meaning as
+  the \( n\times p \) model matrix. The two are told apart by context and by the reminder each
+  of those sections carries; where both appear in one sentence, the sampled rows are collected
+  as a matrix and named explicitly.
 
 - **Bases, penalties and smoothers (Part IX).** A *basis matrix* is `\B`, with
   \( B_{ij}=B_j(x_i) \) the \( j \)th basis function at the \( i \)th design point, and
@@ -76,7 +88,8 @@ A chapter that needs a new symbol adds it here and there before using it.
   interior knots of a piecewise polynomial, chapter 43 keeps `\kappa` for the *extended*
   sequence of a B-spline basis and writes \( t_1<\dots<t_K \) for the interior knots inside
   it; chapter 44 writes \( \kappa_l \) for the knots of a kriging term. `\kappa(\cdot)` with
-  an argument is the condition number of @def-mat-condition-number, as in chapters 1 and 10.
+  an argument is the condition number of @def-mat-condition-number in chapters 1, 10, 42 and 43
+  (chapter 34's `\kappa(\theta)` is the one other function called kappa, and says so there).
   The *penalty matrix* is `\bP`, nonnegative definite, with *smoothing parameter*
   \( \lambda\ge0 \); the penalty is \( \lambda\bgamma\T\bP\bgamma \) and a difference matrix
   is `\bD_k`, so that \( \bP=\bD_k\T\bD_k \) for a P-spline. A fit that is linear in the

@@ -270,7 +270,14 @@ Let \( \hat\mu_i \) be the fitted means of a Poisson log-linear model with
 \]{#eq-cnt-score-alpha}
 
 its variance under the Poisson model is \( \tfrac12\sum_i\mu_i^{2} \), and its
-covariance with the score for \( \bbeta \) is zero. Consequently
+covariance with the score for \( \bbeta \) is zero. Suppose in addition that, as
+\( n\to\infty \) with \( p \) fixed, the true means stay in a fixed compact interval
+inside \( (0,\infty) \) and no observation dominates, in the sense that
+\[
+\frac{\sum_{i=1}^{n}\mu_i^{4}}{\bigl(\sum_{i=1}^{n}\mu_i^{2}\bigr)^{2}}\longrightarrow0 .
+\]{#eq-cnt-score-lyapunov}
+
+Then
 \[
 S=\frac{\sum_{i=1}^{n}\bigl\{(y_i-\hat\mu_i)^{2}-y_i\bigr\}}
 {\sqrt{2\sum_{i=1}^{n}\hat\mu_i^{2}}}
@@ -333,14 +340,10 @@ change the asymptotic variance of the score to first order. Dividing by the
 standard deviation, with \( \hat\mu_i \) for \( \mu_i \),
 gives @eq-cnt-score-test. For the limit, the \( A_i \) are independent with mean zero and
 \( \E A_i^{4}=O(\max(\mu_i,1)^{4}) \), a fourth-moment calculation like the one
-above. So if the \( \mu_i \) are bounded away from zero and
-\[
-\frac{\sum_{i=1}^{n}\mu_i^{4}}{\bigl(\sum_{i=1}^{n}\mu_i^{2}\bigr)^{2}}\longrightarrow0 ,
-\]
-Lyapunov's condition holds with \( \delta=2 \) and the standardized sum is
-asymptotically standard normal. That covers the case in which the fitted means
-stay in a fixed compact interval inside \( (0,\infty) \); Dean and Lawless (1989)
-treat the general one.
+above. Under the two hypotheses of the statement — means in a fixed compact interval
+inside \( (0,\infty) \) and @eq-cnt-score-lyapunov — Lyapunov's condition holds with
+\( \delta=2 \) and the standardized sum is asymptotically standard normal. Dean and
+Lawless (1989) treat designs in which the means are not so confined.
 :::
 
 The statistic is one-sided by construction: a count *less* variable than the

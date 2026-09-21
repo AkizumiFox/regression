@@ -27,7 +27,7 @@ Bayesian linear model @thm-opt-bayes-conjugate and credible sets @def-ci-credibl
 test @thm-glh-lrt). [Section
 18.6](../ch18-covariance-and-design/06-missing-observations.html) (@thm-dsn-missing, filling in a lost plot of a designed experiment) is the special
 case this chapter generalizes. [Chapter 23](../ch23-resampling-inference/index.html)
-supplies the bootstrap (@def-bs-bootstrap, @def-bs-schemes), which is one of the two
+supplies the bootstrap (@def-bs-bootstrap), which is one of the two
 honest routes to a standard error after EM;
 [Chapter 25](../ch25-causal-interpretation/index.html) the habit of asking what a
 coefficient is meant to answer; and

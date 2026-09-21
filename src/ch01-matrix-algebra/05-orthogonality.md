@@ -93,8 +93,9 @@ Let \( \Q \) and \( \mathbf{P} \) be \( n\times n \) orthogonal matrices.
 
 ::: {.proof}
 (a) \( (\Q\x)\T\Q\bv=\x\T\Q\T\Q\bv=\x\T\bv \). (b) \( (\Q\mathbf{P})\T\Q\mathbf{P}=\mathbf{P}\T\mathbf{P}=\I \).
-(c) Each column has unit length. For the determinant, see
-@prp-mat-det: \( 1=\det(\Q\T\Q)=(\det\Q)^2 \). (d) The first statement is
+(c) Each column has unit length. The determinant claim uses multiplicativity, proved
+independently of this proposition in [Section 1.6](06-partitioned.html) (@prp-mat-det):
+\( 1=\det(\Q\T\Q)=(\det\Q)^2 \). (d) The first statement is
 \( \Q\Q\T=\I \) written in blocks. For the second, \( \Q_1\T\Q_2=\bzero \) gives
 \( \C(\Q_2)\subseteq\C(\Q_1)\perpc \), and both have dimension \( n-r \).
 :::

@@ -133,7 +133,7 @@ matrix \( \X=[\bone,\bz_1,\bz_2,\bz_3] \) has \( p=4 \) columns and rank
 \( 3 \), so \( \X\T\X \) is singular. We compute \( \hbeta=\G\X\T\y \) for four
 generalized inverses \( \G \) of \( \X\T\X \):
 the Moore–Penrose inverse; the inverse obtained by deleting the intercept row and
-column (@prp-proj-ginverse-exists); the one obtained by deleting the first
+column (@thm-mat-ginverse-exists); the one obtained by deleting the first
 group's row and column; and a deliberately strange, non-symmetric one built from
 the general formula of @exr-proj-all-ginverses.
 
