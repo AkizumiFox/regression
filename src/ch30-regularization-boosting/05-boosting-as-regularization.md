@@ -292,3 +292,127 @@ For \( A=\{j\} \), \( \mathbf{d}_A=s_j \). For \( A=\{1,2\} \), \( (\X_A\T\X_A)^
 \( \mathbf{d}_A=(1-\rho^2)^{-1}(s_1-\rho s_2,\,s_2-\rho s_1)\T \). If \( s_1=s_2=s \), this is \( s(1-\rho)(1-\rho^2)^{-1}(1,1)\T \), with the signs of
 \( s \). If \( s_2=-s_1 \), it is \( (1+\rho)(1-\rho^2)^{-1}(s_1,s_2)\T \). In both cases the signs are right, because \( \lvert\rho\rvert<1 \).
 :::
+
+### C. Going deeper
+
+::: {#exr-reg-nonmonotone-three}
+[C1]
+
+@exr-reg-fs-two shows that with two regressors the lasso path is always monotone, so FS\(_0\) and the lasso
+coincide. Three regressors suffice to break it. Let
+\[
+\G=\begin{pmatrix}1&0.9&0.9\\0.9&1&0.7\\0.9&0.7&1\end{pmatrix}.
+\]
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \G \) is positive definite, its leading principal minors being \( 1 \), \( 0.19 \) and
+   \( 0.024 \). Deduce that for \( n\ge4 \) there is an \( n\times3 \) matrix \( \X \) with centred,
+   unit-length columns and \( \X\T\X=\G \) (take \( \X=\Q\G^{1/2} \) with \( \Q \) having orthonormal columns
+   in \( \C(\bone)^{\perpc} \); @thm-mat-square-root), and that \( \y=\X\G^{-1}\mathbf{c} \) is a centred
+   response with \( \X\T\y=\mathbf{c} \) for any \( \mathbf{c} \).
+
+2. With \( \mathbf{s}=(1,1,1)\T \), show that \( \mathbf{d}=\G^{-1}\mathbf{s}=(-\tfrac54,\tfrac54,\tfrac54)\T \).
+
+3. Take \( \mathbf{c}=(3.3,\,3.1,\,3.1)\T \). Show that for every \( \lambda\in(0,\tfrac{13}{10}) \) the lasso
+   estimate is
+   \[
+   \hbeta(\lambda)=(1,1,1)\T+(\tfrac12-\lambda)\,\mathbf{d},
+   \]
+   with all three coordinates positive, so that the active set is \( \{1,2,3\} \) with signs
+   \( \mathbf{s} \) throughout; check the optimality conditions and the endpoints.
+
+4. Show that as \( \lambda \) decreases across this segment the budget \( \norm{\hbeta(\lambda)}_1 \)
+   increases while \( \hat\beta_1(\lambda) \) decreases. Conclude that the hypothesis of
+   @prp-reg-stagewise(b) fails and FS\(_0\) cannot follow this path.
+:::
+
+:::
+
+::: {.solution}
+(a) The minors are \( 1 \), \( 1-0.81=0.19 \) and
+\( 1(1-0.49)-0.9(0.9-0.63)+0.9(0.63-0.9)=0.51-0.243-0.243=0.024 \), all positive, so \( \G \) is positive
+definite (@thm-mat-pd-characterizations). Then \( \G^{1/2} \) exists and \( \X=\Q\G^{1/2} \) has
+\( \X\T\X=\G^{1/2}\Q\T\Q\G^{1/2}=\G \); its columns lie in \( \C(\bone)^{\perpc} \), so they are centred,
+and \( \G_{jj}=1 \) makes them unit vectors. The space \( \C(\bone)^{\perpc} \) has dimension \( n-1\ge3 \),
+so such a \( \Q \) exists. Finally \( \X\T\y=\G\G^{-1}\mathbf{c}=\mathbf{c} \), and \( \y\in\C(\X) \) is
+centred.
+
+(b) Solve \( \G\mathbf{d}=\mathbf{s} \). By symmetry in the last two coordinates, \( d_2=d_3=u \) and
+\( d_1+1.8u=1 \), \( 0.9d_1+1.7u=1 \). From the first, \( d_1=1-1.8u \); substituting,
+\( 0.9-1.62u+1.7u=1 \), so \( 0.08u=0.1 \) and \( u=\tfrac54 \), whence \( d_1=1-\tfrac{18}{8}=-\tfrac54 \).
+(Check: \( -\tfrac54+0.9\cdot\tfrac54+0.9\cdot\tfrac54=-1.25+1.125+1.125=1 \).)
+
+(c) Since \( \mathbf{c}=\G(1,1,1)\T+\tfrac12\mathbf{s} \) — indeed
+\( \G(1,1,1)\T=(2.8,2.6,2.6)\T \) — @eq-reg-lasso-segment gives
+\( \hbeta(\lambda)=\G^{-1}\mathbf{c}-\lambda\mathbf{d}=(1,1,1)\T+(\tfrac12-\lambda)\mathbf{d} \). Then
+\( \hat\beta_1(\lambda)=1-\tfrac54(\tfrac12-\lambda) \) and
+\( \hat\beta_2(\lambda)=\hat\beta_3(\lambda)=1+\tfrac54(\tfrac12-\lambda) \). On
+\( \lambda\in(0,\tfrac{13}{10}) \) the first runs between \( \tfrac38 \) and \( 2 \) and the other two between
+\( \tfrac{13}8 \) and \( 0 \), so all three are positive and the signs are \( \mathbf{s} \). The optimality
+conditions are \( \X\T(\y-\X\hbeta)=\lambda\mathbf{s} \) on the active set, and
+\( \mathbf{c}-\G\hbeta(\lambda)=\lambda\G\mathbf{d}=\lambda\mathbf{s} \) by (b); there are no inactive
+coordinates. The objective is strictly convex because \( \G \) is positive definite, so this is the lasso
+estimate. At \( \lambda=\tfrac{13}{10} \) the second and third coefficients reach zero together, and
+\( \lambda \) may be taken down to \( 0 \), where \( \hbeta=(\tfrac38,\tfrac{13}8,\tfrac{13}8)\T \) is the
+least squares fit.
+
+(d) \( \norm{\hbeta(\lambda)}_1=3+\tfrac54(\tfrac12-\lambda)(-1+1+1)=3+\tfrac54(\tfrac12-\lambda) \), which
+grows as \( \lambda \) falls, while \( \hat\beta_1 \) falls with it. So the direction \( \mathbf{d} \) has
+\( d_1s_1=-\tfrac54<0 \): the lasso moves the first coefficient *against* the sign of its residual
+correlation. Stagewise never does that — a step always moves the chosen coefficient towards its correlation —
+so FS\(_0\) must part company with the path here, and by @prp-reg-stagewise(c) it follows the monotone lasso
+instead, holding the coefficient where the lasso lowers it. This is the behaviour the thick curve of
+[Figure 30.5.1](#fig-reg-stagewise) shows for a simulated design; here it is exhibited in exact arithmetic,
+and with the smallest number of regressors that admits it.
+:::
+
+::: {#exr-reg-dither}
+[C2]
+
+The last remark of the section says that stagewise "dithers" near least squares. Make it precise for an
+orthonormal design, \( \X\T\X=\I \), with \( \mathbf{z}=\X\T\y \), where the least squares estimate is
+\( \mathbf{z} \) itself. Write \( \mathbf{c}^{(k)}=\mathbf{z}-\bb^{(k)} \) for the residual correlations.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that a step changes only the chosen coordinate, replacing \( |c_j| \) by
+   \( \bigl|\varepsilon-|c_j|\bigr| \).
+
+2. Deduce that once \( |c_j|<\varepsilon \) it stays below \( \varepsilon \) for ever.
+
+3. Show that \( \sum_j|c_j^{(k)}| \) falls by exactly \( \varepsilon \) at every step at which
+   \( \max_j|c_j^{(k)}|\ge\varepsilon \), so there are at most \( \norm{\mathbf{z}}_1/\varepsilon \) such
+   steps. Conclude that there is a \( K \) with
+   \( \norm{\bb^{(k)}-\mathbf{z}}_\infty<\varepsilon \) for every \( k\ge K \).
+
+4. Take \( p=1 \) and \( z=\varepsilon/4 \). Show that the path cycles between \( 0 \) and \( \varepsilon \)
+   for ever, so FS\(_\varepsilon\) has no limit, although by (c) it stays within \( \varepsilon \) of least
+   squares. Relate to @exr-reg-arc-length.
+:::
+
+:::
+
+::: {.solution}
+(a) With \( \X\T\X=\I \) the correlations are \( \mathbf{c}=\mathbf{z}-\bb \), so moving \( b_j \) by
+\( \varepsilon\operatorname{sign}(c_j) \) replaces \( c_j \) by \( c_j-\varepsilon\operatorname{sign}(c_j) \),
+of absolute value \( \bigl||c_j|-\varepsilon\bigr| \), and leaves every other coordinate untouched.
+
+(b) If \( |c_j|<\varepsilon \) and \( j \) is chosen, the new value is \( \varepsilon-|c_j|\in(0,\varepsilon) \);
+if \( j \) is not chosen, nothing happens to it. Either way it remains below \( \varepsilon \).
+
+(c) If the maximum \( m=\max_j|c_j^{(k)}| \) is at least \( \varepsilon \), the chosen coordinate's absolute
+correlation becomes \( m-\varepsilon \), so \( \sum_j|c_j| \) falls by \( \varepsilon \). The sum is
+nonnegative and starts at \( \norm{\mathbf{z}}_1 \), so at most \( \norm{\mathbf{z}}_1/\varepsilon \) steps
+can be of that kind. After the last one, \( \max_j|c_j|<\varepsilon \), and by (b) applied to the chosen
+coordinate at each later step the maximum never returns to \( \varepsilon \). Since
+\( \mathbf{c}^{(k)}=\mathbf{z}-\bb^{(k)} \), this says \( \norm{\bb^{(k)}-\mathbf{z}}_\infty<\varepsilon \).
+
+(d) From \( b=0 \), \( c=\varepsilon/4>0 \), so \( b \) becomes \( \varepsilon \) and
+\( c=-3\varepsilon/4 \); the next step moves \( b \) back to \( 0 \) and restores \( c=\varepsilon/4 \). The
+two states alternate for ever, and \( |c| \) never exceeds \( 3\varepsilon/4<\varepsilon \), as (c)
+requires. The \( \ell_1 \) arc length after \( k \) steps is \( k\varepsilon \) and grows without bound,
+while \( \norm{\bb^{(k)}}_1\le\varepsilon \) does not: this is the failure of equality in
+@exr-reg-arc-length, and it happens exactly when a coordinate has moved in both directions. The lasso path,
+by contrast, is a finite piecewise-linear path that arrives at the least squares estimate at
+\( \lambda=0 \) and stops (@eq-reg-lasso-segment). Stagewise has no \( \lambda \) to reach zero; its only
+stopping rule is to stop, which is why early stopping is the regularizer.
+:::

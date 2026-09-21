@@ -100,12 +100,12 @@ Theorem 1.3.9, for general symmetric \( \A \) and \( \B \), does. That the inde
 - Craig, Allen T. (1943). Note on the Independence of Certain Quadratic Forms. *The Annals of Mathematical Statistics* 14(2), 195–197.
 - Driscoll, Michael F. and Gundberg, William R. (1986). A History of the Development of Craig's Theorem. *The American Statistician* 40(1), 65–70.
 - Fisher, Ronald A. (1928). The General Sampling Distribution of the Multiple Correlation Coefficient. *Proceedings of the Royal Society of London. Series A* 121(788), 654–673.
-- Ghosh, B. K. (1973). Some Monotonicity Theorems for \( \chi^2 \), F and t Distributions with Applications. *Journal of the Royal Statistical Society. Series B* 35(3), 480–492.
+- Ghosh, Bhaskar K. (1973). Some Monotonicity Theorems for \( \chi^2 \), F and t Distributions with Applications. *Journal of the Royal Statistical Society, Series B* 35(3), 480–492.
 - Gil-Pelaez, J. (1951). Note on the Inversion Theorem. *Biometrika* 38(3/4), 481–482.
-- Imhof, J. P. (1961). Computing the Distribution of Quadratic Forms in Normal Variables. *Biometrika* 48(3/4), 419–426.
-- Johnson, Norman L., Kotz, Samuel and Balakrishnan, N. (1995). *Continuous Univariate Distributions*. 2nd edition. New York: Wiley.
+- Imhof, Jean-Pierre (1961). Computing the Distribution of Quadratic Forms in Normal Variables. *Biometrika* 48(3/4), 419–426.
+- Johnson, Norman L., Kotz, Samuel and Balakrishnan, Narayanaswamy (1995). *Continuous Univariate Distributions*. 2nd edition. New York: Wiley.
 - Lukacs, Eugene (1942). A Characterization of the Normal Distribution. *The Annals of Mathematical Statistics* 13(1), 91–93.
-- Mathai, A. M. and Provost, Serge B. (1992). *Quadratic Forms in Random Variables: Theory and Applications*. New York: Marcel Dekker.
+- Mathai, Arak M. and Provost, Serge B. (1992). *Quadratic Forms in Random Variables: Theory and Applications*. New York: Marcel Dekker.
 - Patnaik, P. B. (1949). The Non-Central \( \chi^2 \)- and F-Distributions and Their Applications. *Biometrika* 36(1/2), 202–232.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
 - Satterthwaite, Franklin E. (1946). An Approximate Distribution of Estimates of Variance Components. *Biometrics Bulletin* 2(6), 110–114.

@@ -196,3 +196,90 @@ forming a basis of \( \C(\B) \). Then \( \C(\A\B)=\C(\A\B_0) \), so by rank–nu
 Show that if \( \A=\B_1\mathbf{F}_1=\B_2\mathbf{F}_2 \) are two rank factorizations, then \( \B_2=\B_1\bT \) and
 \( \mathbf{F}_2=\bT^{-1}\mathbf{F}_1 \) for a nonsingular \( \bT \).
 :::
+
+### C. Going deeper
+
+::: {#exr-mat-frobenius-rank}
+[C1]
+
+First prove a lemma: if \( \mathcal S\subseteq\Real^n \) is a subspace and \( \A \) is \( m\times n \),
+then the image \( \A\mathcal S=\{\A\x:\x\in\mathcal S\} \) has
+\( \dim\A\mathcal S=\dim\mathcal S-\dim(\mathcal S\cap\Null(\A)) \). Use it to prove Frobenius's
+inequality
+\[
+\rank(\A\B)+\rank(\B\mathbf{C})\le\rank(\B)+\rank(\A\B\mathbf{C})
+\]
+for \( \A \) of size \( m\times n \), \( \B \) of size \( n\times q \) and \( \mathbf{C} \) of size \( q\times s \),
+and recover @exr-mat-sylvester as the case \( \B=\I_n \).
+:::
+
+::: {.solution}
+For the lemma, let the columns of \( \bS_0 \) be a basis of \( \mathcal S \), so that
+\( \A\mathcal S=\C(\A\bS_0) \) and \( \A\bS_0 \) has \( \dim\mathcal S \) columns. By
+@thm-mat-rank-nullity, \( \dim\C(\A\bS_0)=\dim\mathcal S-\dim\Null(\A\bS_0) \). The map
+\( \mathbf{c}\mapsto\bS_0\mathbf{c} \) is one-to-one, because the columns of \( \bS_0 \) are independent, and
+it carries \( \Null(\A\bS_0) \) onto \( \mathcal S\cap\Null(\A) \). So the two have the same
+dimension, which proves the lemma.
+
+Apply it twice, to \( \mathcal S=\C(\B) \) and to \( \mathcal S=\C(\B\mathbf{C}) \):
+\[
+\rank(\A\B)=\rank(\B)-\dim\bigl(\C(\B)\cap\Null(\A)\bigr),\qquad
+\rank(\A\B\mathbf{C})=\rank(\B\mathbf{C})-\dim\bigl(\C(\B\mathbf{C})\cap\Null(\A)\bigr).
+\]
+Since \( \C(\B\mathbf{C})\subseteq\C(\B) \), the second intersection is contained in the first, so its
+dimension is no larger. Hence
+\( \rank(\A\B\mathbf{C})\ge\rank(\B\mathbf{C})-\dim(\C(\B)\cap\Null(\A))=\rank(\B\mathbf{C})-\rank(\B)+\rank(\A\B) \),
+which is the inequality. With \( \B=\I_n \) it reads
+\( \rank(\A)+\rank(\mathbf{C})\le n+\rank(\A\mathbf{C}) \).
+:::
+
+::: {#exr-mat-dim-sum}
+[C2]
+
+Prove that any two subspaces \( \mathcal S,\mathcal T\subseteq\Real^n \) satisfy
+\( \dim(\mathcal S+\mathcal T)=\dim\mathcal S+\dim\mathcal T-\dim(\mathcal S\cap\mathcal T) \),
+which the text states only when the intersection is \( \{\bzero\} \). Deduce that
+\[
+\rank[\X_1,\X_2]=\rank(\X_1)+\rank(\X_2)-\dim\bigl(\C(\X_1)\cap\C(\X_2)\bigr),
+\]
+and use it to recompute the rank in @exr-mat-two-way-rank.
+:::
+
+::: {.solution}
+Let \( \bu_1,\dots,\bu_d \) be a basis of \( \mathcal S\cap\mathcal T \), extended to a basis
+\( \bu_1,\dots,\bu_d,\bv_1,\dots,\bv_{k-d} \) of \( \mathcal S \) (\( k=\dim\mathcal S \)) and to a
+basis \( \bu_1,\dots,\bu_d,\bw_1,\dots,\bw_{l-d} \) of \( \mathcal T \) (\( l=\dim\mathcal T \)). The
+\( k+l-d \) vectors \( \bu_i,\bv_j,\bw_r \) clearly span \( \mathcal S+\mathcal T \). They are
+independent: suppose \( \sum_ia_i\bu_i+\sum_jb_j\bv_j+\sum_rc_r\bw_r=\bzero \). Then
+\( \sum_rc_r\bw_r=-\sum_ia_i\bu_i-\sum_jb_j\bv_j \) lies in \( \mathcal S \) and in \( \mathcal T \),
+hence in \( \mathcal S\cap\mathcal T \), so it is a combination of the \( \bu_i \). As
+\( \bu_1,\dots,\bu_d,\bw_1,\dots,\bw_{l-d} \) are independent, every \( c_r=0 \); and then every
+\( a_i \) and \( b_j \) vanishes as well. So the dimension of the sum is \( k+l-d \).
+
+Since \( \C[\X_1,\X_2]=\C(\X_1)+\C(\X_2) \), the rank formula follows. In the two-way layout with
+two rows and three columns, \( \C(\mathbf{R}) \) consists of the vectors that are constant within a
+row and \( \C(\mathbf{C}) \) of those constant within a column, of dimensions \( 2 \) and \( 3 \); a vector
+in both is constant, so the intersection is \( \spn(\bone) \), of dimension one. Hence
+\( \rank[\mathbf{R},\mathbf{C}]=2+3-1=4 \), and adjoining \( \bone\in\C(\mathbf{R}) \) does not change it, so
+\( \rank(\X)=4 \).
+:::
+
+::: {#exr-mat-rank-square}
+[C3]
+
+Show that \( \rank(\A^2)=\rank(\A) \) for a square \( \A \) iff \( \C(\A)\cap\Null(\A)=\{\bzero\} \), and
+that this in turn holds iff \( \Real^n=\C(\A)\dirsum\Null(\A) \). Give a matrix with
+\( \rank(\A^2)<\rank(\A) \). Show that every symmetric matrix, and every idempotent matrix,
+satisfies the condition.
+:::
+
+::: {.solution}
+The lemma of @exr-mat-frobenius-rank with \( \mathcal S=\C(\A) \) gives
+\( \rank(\A^2)=\rank(\A)-\dim(\C(\A)\cap\Null(\A)) \), which proves the first equivalence. By
+@thm-mat-rank-nullity the two subspaces have dimensions adding to \( n \), so their sum is all
+of \( \Real^n \) exactly when it is direct, that is, exactly when they meet only at \( \bzero \).
+For \( \A=\begin{psmallmatrix}0&1\\0&0\end{psmallmatrix} \), \( \rank(\A)=1 \) but \( \A^2=\bzero \);
+here \( \C(\A)=\Null(\A)=\spn(\mathbf{e}_1) \). If \( \A \) is symmetric and \( \x=\A\mathbf{y} \) lies in
+\( \Null(\A) \), then \( \x\T\x=\mathbf{y}\T\A\T\x=\mathbf{y}\T\A\x=0 \), so \( \x=\bzero \). If \( \A \) is
+idempotent, then \( \A^2=\A \) and the ranks are equal by definition.
+:::

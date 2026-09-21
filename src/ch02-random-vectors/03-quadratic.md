@@ -306,3 +306,91 @@ diagonals of the symmetric matrices \( \A \) and \( \B \). *Hint:* apply the the
 Let \( Y_1,\dots,Y_n \) be independent \( \Normal(0,\sigma^2) \). Among symmetric \( \A \) with \( \E(\Y\T\A\Y)=\sigma^2 \),
 show that \( \Var(\Y\T\A\Y) \) is minimized by \( \A=n^{-1}\I \). *Hint:* \( \tr(\A^2)\ge(\tr\A)^2/n \).
 :::
+
+### C. Going deeper
+
+::: {#exr-rv-fourth-moment-bound}
+[C1]
+
+::: {.enumerate options="label=(\alph*)"}
+1. Exhibit two random vectors in \( \Real^n \), both with mean \( \bzero \) and covariance \( \I_n \), for
+           which \( \Var(\Y\T\Y) \) equals \( 0 \) and \( 2n \). So the variance of a quadratic form, unlike
+           its mean in @thm-rv-quadform-mean, is not determined by \( \bmu \) and \( \bSigma \). Check
+           both answers against @thm-rv-quadform-variance.
+
+2. Let \( Y_1,\dots,Y_n \) be independent and identically distributed with variance \( \sigma^2>0 \)
+           and fourth central moment \( \mu_4 \). Using @exr-rv-var-sample-variance, show that
+           \( \Var(S^2)\ge0 \) for every \( n\ge2 \) forces \( \mu_4\ge\sigma^4 \), and prove that inequality
+           directly.
+
+3. Show that \( \mu_4=\sigma^4 \) holds only for the two-point law \( \Pr(Y_i=\theta\pm\sigma)=\tfrac12 \),
+           that this law gives \( \Var(S^2)=2\sigma^4/\{n(n-1)\} \), and that this is the smallest
+           variance the sample variance can have for a given \( \sigma^2 \).
+:::
+
+:::
+
+::: {.solution}
+(a) Let the \( Y_i \) be independent random signs. Then \( \Y\T\Y=n \) is
+constant, so its variance is \( 0 \); here \( \sigma^2=1 \), \( \mu_4=1 \), \( \A=\I \) and
+\( \mathbf{a}\T\mathbf{a}=\tr(\A^2)=n \), so @thm-rv-quadform-variance gives \( (1-3)n+2n=0 \). Let the
+\( Y_i \) be independent \( \Normal(0,1) \) instead. Then \( \mu_4=3 \) and the formula gives
+\( 0\cdot n+2n=2n \), which is the variance of a \( \chi^2(n) \) variable. Both vectors have mean
+\( \bzero \) and covariance \( \I_n \).
+
+(b) Writing the formula of @exr-rv-var-sample-variance over a common denominator,
+\[
+\Var(S^2)=\frac{\mu_4-3\sigma^4}{n}+\frac{2\sigma^4}{n-1}
+=\frac{n(\mu_4-\sigma^4)-\mu_4+3\sigma^4}{n(n-1)} .
+\]
+If \( \mu_4<\sigma^4 \) the numerator is negative for all large \( n \), which is impossible. Directly,
+\( \mu_4-\sigma^4=\Var\{(Y_i-\theta)^2\}\ge0 \) with \( \theta=\E Y_i \).
+
+(c) Equality means \( (Y_i-\theta)^2 \) is constant, necessarily equal to its mean \( \sigma^2 \), so
+\( Y_i-\theta=\pm\sigma \); the two signs have probability \( \tfrac12 \) each because \( \E(Y_i-\theta)=0 \).
+Substituting \( \mu_4=\sigma^4 \) in the display gives \( 2\sigma^4/\{n(n-1)\} \). The display is increasing
+in \( \mu_4 \) for \( n\ge2 \), so no law with the same \( \sigma^2 \) does better.
+:::
+
+::: {#exr-rv-residual-bias-range}
+[C2]
+
+Let \( \E(\Y)=\X\bbeta \) and \( \Cov(\Y)=\sigma^2\V \), where \( \V \) is nonnegative definite with unit
+diagonal, let \( \M \) be the orthogonal projection onto \( \C(\X) \) with \( \rank(\X)=r<n \), and let
+\( s^2=\text{RSS}/(n-r) \). By @exr-rv-rss-correlated, \( \E(s^2)=\sigma^2\tr\{(\I-\M)\V\}/(n-r) \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( 0\le\tr\{(\I-\M)\V\}\le n \), so that \( 0\le\E(s^2)\le\sigma^2n/(n-r) \).
+
+2. Show that both bounds are attained. For the lower one take \( \bone\in\C(\X) \) and
+           \( \V=\bone\bone\T \); for the upper one take \( \X=\bone \) with \( n \) even and \( \V=\bv\bv\T \),
+           where \( \bv=(1,-1,1,-1,\dots)\T \). Describe the data in each case.
+
+3. Show that \( \E(s^2)=\sigma^2 \) for *every* model matrix \( \X \) if and only if \( \V=\I \).
+:::
+
+:::
+
+::: {.solution}
+(a) Put \( \mathbf{N}=\I-\M \). Then \( \tr(\mathbf{N}\V)=\tr(\mathbf{N}\V\mathbf{N})\ge0 \),
+since \( \mathbf{N}\V\mathbf{N} \) is nonnegative definite. For the upper bound write the spectral
+decomposition \( \V=\sum_k\lambda_k\bu_k\bu_k\T \) with \( \lambda_k\ge0 \) (@thm-mat-spectral). Then
+\( \tr(\mathbf{N}\V)=\sum_k\lambda_k\norm{\mathbf{N}\bu_k}^2\le\sum_k\lambda_k=\tr(\V)=n \), because
+\( \norm{\mathbf{N}\bu_k}\le\norm{\bu_k}=1 \).
+
+(b) With \( \V=\bone\bone\T \) and \( \bone\in\C(\X) \) we have \( \mathbf{N}\bone=\bzero \), so
+\( \tr(\mathbf{N}\V)=\bone\T\mathbf{N}\bone=0 \) and \( \E(s^2)=0 \). Here \( \Y=\X\bbeta+\sigma Z\bone \) for a
+single scalar \( Z \): every observation is displaced by the same amount, the fit absorbs it and
+the residuals vanish. With \( \X=\bone \) and \( \V=\bv\bv\T \), \( \bone\T\bv=0 \) for even \( n \), so
+\( \mathbf{N}\bv=\bv \) and \( \tr(\mathbf{N}\V)=\norm{\bv}^2=n \), giving \( \E(s^2)=\sigma^2n/(n-1) \). Here
+\( Y_i=\mu+\sigma v_iZ \): the errors alternate in sign, none of the variation is along \( \bone \), and
+the residual sum of squares carries all \( n \) units of variance while being divided by \( n-1 \).
+Both \( \V \) are singular; replacing them by \( (1-\varepsilon)\V+\varepsilon\I \) keeps them correlation
+matrices, makes them positive definite, and changes \( \E(s^2) \) by \( O(\varepsilon) \).
+
+(c) If \( \V=\I \) then \( \tr(\mathbf{N}\V)=n-r \) for every \( \X \). Conversely, take \( \X=\mathbf{u} \), a
+single column with \( \norm{\mathbf{u}}=1 \), so that \( r=1 \) and \( \M=\mathbf{u}\mathbf{u}\T \). Unbiasedness
+requires \( \tr(\V)-\mathbf{u}\T\V\mathbf{u}=n-1 \), that is \( \mathbf{u}\T\V\mathbf{u}=1 \) for every unit \( \mathbf{u} \).
+As in @exr-rv-isotropic(a), a symmetric matrix with \( \mathbf{u}\T(\V-\I)\mathbf{u}=0 \) for all \( \mathbf{u} \) is
+\( \V=\I \).
+:::

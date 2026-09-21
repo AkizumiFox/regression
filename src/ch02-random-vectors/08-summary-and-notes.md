@@ -99,7 +99,7 @@ programs. Their near-collinearity, visible in @exm-rv-longley, is the reason.
 
 ## References
 
-- Anderson, T. W. (2003). *An Introduction to Multivariate Statistical Analysis*. 3rd edition. Hoboken, NJ: Wiley.
+- Anderson, Theodore W. (2003). *An Introduction to Multivariate Statistical Analysis*. 3rd edition. Hoboken, NJ: Wiley.
 - Atiqullah, M. (1962). The Estimation of Residual Variance in Quadratically Balanced Least-Squares Problems and the Robustness of the F-Test. *Biometrika* 49(1/2), 83–91.
 - Billingsley, Patrick (1995). *Probability and Measure*. 3rd edition. New York: Wiley.
 - Christensen, Ronald (2020). *Plane Answers to Complex Questions: The Theory of Linear Models*. 5th edition. Cham: Springer.
@@ -107,7 +107,7 @@ programs. Their near-collinearity, visible in @exm-rv-longley, is the reason.
 - Kessy, Agnan, Lewin, Alex and Strimmer, Korbinian (2018). Optimal Whitening and Decorrelation. *The American Statistician* 72(4), 309–314.
 - Longley, James W. (1967). An Appraisal of Least Squares Programs for the Electronic Computer from the Point of View of the User. *Journal of the American Statistical Association* 62(319), 819–841.
 - Mahalanobis, Prasanta Chandra (1936). On the Generalized Distance in Statistics. *Proceedings of the National Institute of Sciences of India* 2(1), 49–55.
-- Mathai, A. M. and Provost, Serge B. (1992). *Quadratic Forms in Random Variables: Theory and Applications*. New York: Marcel Dekker.
+- Mathai, Arak M. and Provost, Serge B. (1992). *Quadratic Forms in Random Variables: Theory and Applications*. New York: Marcel Dekker.
 - Rao, C. Radhakrishna (1973). *Linear Statistical Inference and Its Applications*. 2nd edition. New York: Wiley.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.

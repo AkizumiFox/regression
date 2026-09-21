@@ -215,3 +215,137 @@ The trace is \( T=\lambda_1+\lambda_2+c^2 \), independent of \( \theta \), and t
 The smaller eigenvalue is \( \bigl(T-\sqrt{T^2-4D}\bigr)/2 \), which increases with \( D \) for fixed \( T \). Since \( \lambda_1>\lambda_2 \), \( D \)
 is largest when \( \sin^2\theta=1 \).
 :::
+
+### C. Going deeper
+
+::: {#exr-col-two-points}
+[C1]
+
+@prp-col-new-observation(c) says where to put *one* new case. Repeating that advice for two cases is not
+optimal. Let \( p=2 \), \( \A=\diag(\lambda_1,\lambda_2) \) with \( \lambda_1>\lambda_2>0 \), and add two
+rows \( \x \) and \( \tilde{\x} \), each of length \( c \), so that \( \A \) becomes
+\( \A+\x\x\T+\tilde{\x}\tilde{\x}\T \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that both cases along the weak direction give
+   \( \lambda_{\min}=\min(\lambda_1,\ \lambda_2+2c^2) \), and that one along each eigenvector gives
+   \( \lambda_2+c^2 \).
+
+2. Show that for *every* such pair,
+   \[
+   \lambda_{\min}\le\min\Bigl\{\lambda_2+2c^2,\ \tfrac12(\lambda_1+\lambda_2)+c^2\Bigr\},
+   \]
+   using \( \bv_2\T(\cdot)\bv_2 \) for the first bound and the trace for the second.
+
+3. Show that the bound is attained. When \( 2c^2\le\lambda_1-\lambda_2 \) it is attained by (a)'s first
+   choice. When \( 2c^2>\lambda_1-\lambda_2 \) it is attained by
+   \[
+   \x=\bigl(\sqrt{a_1/2},\ \sqrt{a_2/2}\bigr)\T,\qquad
+   \tilde{\x}=\bigl(\sqrt{a_1/2},\ -\sqrt{a_2/2}\bigr)\T,
+   \qquad a_{1,2}=c^2\mp\tfrac12(\lambda_1-\lambda_2),
+   \]
+   neither of which lies along an eigenvector.
+
+4. Take \( \lambda_1=2 \), \( \lambda_2=1 \) and \( c=3/2 \). Compute \( \lambda_{\min} \) for the three
+   designs of (a) and (c), and compare.
+:::
+
+:::
+
+::: {.solution}
+(a) If \( \x=\tilde{\x}=c\bv_2 \), the sum \( \A+2c^2\bv_2\bv_2\T \) is diagonal with entries
+\( \lambda_1 \) and \( \lambda_2+2c^2 \). If \( \x=c\bv_1 \) and \( \tilde{\x}=c\bv_2 \), it is diagonal with
+entries \( \lambda_1+c^2 \) and \( \lambda_2+c^2 \), whose minimum is \( \lambda_2+c^2 \) because
+\( \lambda_1>\lambda_2 \).
+
+(b) Write \( \M=\x\x\T+\tilde{\x}\tilde{\x}\T \), which is nonnegative definite with
+\( \tr\M=2c^2 \). By @thm-mat-extremal-rayleigh,
+\( \lambda_{\min}(\A+\M)\le\bv_2\T(\A+\M)\bv_2=\lambda_2+\bv_2\T\M\bv_2\le\lambda_2+\tr\M=\lambda_2+2c^2 \),
+since the eigenvalues of \( \M \) are nonnegative and sum to \( \tr\M \). And the smaller of two eigenvalues
+is at most their average, so \( \lambda_{\min}(\A+\M)\le\tfrac12\tr(\A+\M)=\tfrac12(\lambda_1+\lambda_2)+c^2 \).
+
+(c) For the first case the design of (a) gives exactly \( \lambda_2+2c^2 \), which is then the smaller of the
+two bounds and is attained. For the second, \( a_1 \) and \( a_2 \) are nonnegative because
+\( 2c^2>\lambda_1-\lambda_2 \), they sum to \( 2c^2 \), and
+\( \x\x\T+\tilde{\x}\tilde{\x}\T=\diag(a_1,a_2) \), the off-diagonal terms cancelling. Also
+\( \norm{\x}^2=\norm{\tilde{\x}}^2=(a_1+a_2)/2=c^2 \). Then
+\( \A+\M=\diag(\lambda_1+a_1,\ \lambda_2+a_2) \), and both entries equal
+\( \tfrac12(\lambda_1+\lambda_2)+c^2 \), so \( \lambda_{\min} \) attains the second bound.
+
+(d) Here \( c^2=9/4 \) and \( \lambda_1-\lambda_2=1<2c^2 \). Both cases along \( \bv_2 \) give
+\( \min(2,\ 1+\tfrac92)=2 \), no better than doing nothing to the strong direction. One along each eigenvector
+gives \( 1+\tfrac94=\tfrac{13}4=3.25 \). The optimal pair, with \( a_1=\tfrac74 \) and \( a_2=\tfrac{11}4 \),
+gives \( \tfrac32+\tfrac94=\tfrac{15}4=3.75 \).
+
+The greedy rule fails because after the first case the weakest direction is no longer \( \bv_2 \), and a plan
+made for two cases should anticipate that. Choosing several cases at once is a design problem — here the
+criterion \( \lambda_{\min} \), called E-optimality — and one-at-a-time optimization solves it only when the
+budget is too small to level the two eigenvalues.
+:::
+
+::: {#exr-col-prior-hurts}
+[C2]
+
+Outside information helps only if it is good enough. In the setting of @exr-col-mixed take \( \bL=\bv_p\T \)
+and \( \boldsymbol{\Omega}=\omega^2 \), and suppose the source is *wrong*: \( \E(r)=\gamma_p+\delta \) with
+\( \gamma_p=\bv_p\T\bbeta \) and \( \delta\ne0 \), while \( \Var(r)=\sigma^2\omega^2 \) as claimed, and
+\( r \) is independent of \( \Y \). Write \( \kappa=1/\omega^2 \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \bv_\ell\T\tilde{\bbeta}=\hat\gamma_\ell \) for \( \ell\ne p \), while
+   \( \tilde\gamma_p=(\lambda_p\hat\gamma_p+\kappa r)/(\lambda_p+\kappa) \). Only the weak coordinate moves.
+
+2. Show that \( \tilde\gamma_p \) has bias \( \kappa\delta/(\lambda_p+\kappa) \) and variance
+   \( \sigma^2/(\lambda_p+\kappa) \), so that
+   \[
+   \E(\tilde\gamma_p-\gamma_p)^2=\frac{\sigma^2}{\lambda_p+\kappa}
+   +\frac{\kappa^2\delta^2}{(\lambda_p+\kappa)^2}.
+   \]
+
+3. Deduce that the outside information lowers the mean squared error if and only if
+   \[
+   \delta^2<\sigma^2\omega^2+\frac{\sigma^2}{\lambda_p}=\Var(r)+\Var(\hat\gamma_p):
+   \]
+   its error must be smaller than the two standard errors combined in quadrature.
+
+4. Interpret: what happens when the source is honest, in the sense that \( \delta \) is itself drawn with
+   mean zero and variance \( \sigma^2\omega^2 \)? What happens when it is confident and wrong, that is when
+   \( \omega^2 \) is small and \( \delta \) is not?
+:::
+
+:::
+
+::: {.solution}
+(a) By @exr-col-mixed, \( \tilde{\bbeta}=(\X\T\X+\kappa\bv_p\bv_p\T)^{-1}(\X\T\Y+\kappa\bv_pr) \). The matrix
+has the eigenvectors of \( \X\T\X \), with eigenvalues \( \lambda_\ell \) for \( \ell\ne p \) and
+\( \lambda_p+\kappa \), so its inverse is
+\( \sum_{\ell\ne p}\lambda_\ell^{-1}\bv_\ell\bv_\ell\T+(\lambda_p+\kappa)^{-1}\bv_p\bv_p\T \). Since
+\( \bv_\ell\T\X\T\Y=\lambda_\ell\hat\gamma_\ell \) (@thm-col-variance(a)) and \( \bv_\ell\T\bv_p=0 \) for
+\( \ell\ne p \), the stated coordinates follow.
+
+(b) \( \E\tilde\gamma_p=(\lambda_p\gamma_p+\kappa(\gamma_p+\delta))/(\lambda_p+\kappa) \), whose difference
+from \( \gamma_p \) is \( \kappa\delta/(\lambda_p+\kappa) \). Since \( r \) and \( \hat\gamma_p \) are
+independent with variances \( \sigma^2/\kappa \) and \( \sigma^2/\lambda_p \) (@thm-col-variance(a)),
+\[
+\Var(\tilde\gamma_p)=\frac{\lambda_p^2\sigma^2/\lambda_p+\kappa^2\sigma^2/\kappa}{(\lambda_p+\kappa)^2}
+=\frac{\sigma^2}{\lambda_p+\kappa}.
+\]
+Add the squared bias.
+
+(c) The inequality \( \E(\tilde\gamma_p-\gamma_p)^2<\sigma^2/\lambda_p \) reads
+\[
+\frac{\kappa^2\delta^2}{(\lambda_p+\kappa)^2}<\sigma^2\Bigl(\frac1{\lambda_p}-\frac1{\lambda_p+\kappa}\Bigr)
+=\frac{\sigma^2\kappa}{\lambda_p(\lambda_p+\kappa)} .
+\]
+Multiply by \( (\lambda_p+\kappa)^2/\kappa \) and divide by \( \kappa \):
+\( \delta^2<\sigma^2(\lambda_p+\kappa)/(\kappa\lambda_p)=\sigma^2/\kappa+\sigma^2/\lambda_p \), which is the
+stated bound because \( \sigma^2/\kappa=\sigma^2\omega^2=\Var(r) \).
+
+(d) If the source is honest then \( \E\delta^2=\sigma^2\omega^2 \), which is strictly less than the bound, so
+on average the outside information helps, and it helps most where the data are weakest, \( \lambda_p \) small.
+If the source is confident and wrong — \( \omega^2 \) small, so that \( \kappa \) is large and the answer
+along \( \bv_p \) comes almost entirely from outside — the bound \( \sigma^2\omega^2+\sigma^2/\lambda_p \) is
+itself small, and a modest \( \delta \) makes the mean squared error worse than plain least squares, which at
+least was unbiased. A stated prior variance is a claim about \( \delta \), and the inequality says the claim
+has to be roughly right, not merely convenient.
+:::

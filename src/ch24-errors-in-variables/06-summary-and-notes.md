@@ -58,22 +58,22 @@ relative risks for exposure measurement error. SIMEX is due to Cook and Stefansk
 
 ## References
 
-- Anderson, T. W. and Rubin, Herman (1949). Estimation of the Parameters of a Single Equation in a Complete System of Stochastic Equations. *The Annals of Mathematical Statistics* 20(1), 46–63.
+- Anderson, Theodore W. and Rubin, Herman (1949). Estimation of the Parameters of a Single Equation in a Complete System of Stochastic Equations. *The Annals of Mathematical Statistics* 20(1), 46–63.
 - Angrist, Joshua D. and Pischke, Jörn-Steffen (2009). *Mostly Harmless Econometrics: An Empiricist's Companion*. Princeton, NJ: Princeton University Press.
-- Basmann, R. L. (1957). A Generalized Classical Method of Linear Estimation of Coefficients in a Structural Equation. *Econometrica* 25(1), 77–83.
+- Basmann, Robert L. (1957). A Generalized Classical Method of Linear Estimation of Coefficients in a Structural Equation. *Econometrica* 25(1), 77–83.
 - Berkson, Joseph (1950). Are There Two Regressions? *Journal of the American Statistical Association* 45(250), 164–180.
 - Bound, John, Jaeger, David A. and Baker, Regina M. (1995). Problems with Instrumental Variables Estimation When the Correlation Between the Instruments and the Endogenous Explanatory Variable Is Weak. *Journal of the American Statistical Association* 90(430), 443–450.
 - Carroll, Raymond J., Ruppert, David, Stefanski, Leonard A. and Crainiceanu, Ciprian M. (2006). *Measurement Error in Nonlinear Models: A Modern Perspective*. 2nd edition. Boca Raton, FL: Chapman & Hall/CRC.
-- Cook, J. R. and Stefanski, L. A. (1994). Simulation-Extrapolation Estimation in Parametric Measurement Error Models. *Journal of the American Statistical Association* 89(428), 1314–1328.
+- Cook, J. R. and Stefanski, Leonard A. (1994). Simulation-Extrapolation Estimation in Parametric Measurement Error Models. *Journal of the American Statistical Association* 89(428), 1314–1328.
 - Deming, W. Edwards (1943). *Statistical Adjustment of Data*. New York: Wiley.
 - Fuller, Wayne A. (1987). *Measurement Error Models*. New York: Wiley.
 - Gleser, Leon Jay and Hwang, Jiunn Tzon (1987). The Nonexistence of 100(1−α)% Confidence Sets of Finite Expected Diameter in Errors-in-Variables and Related Models. *The Annals of Statistics* 15(4), 1351–1362.
 - Golub, Gene H. and Van Loan, Charles F. (1980). An Analysis of the Total Least Squares Problem. *SIAM Journal on Numerical Analysis* 17(6), 883–893.
-- Neyman, J. and Scott, Elizabeth L. (1948). Consistent Estimates Based on Partially Consistent Observations. *Econometrica* 16(1), 1–32.
+- Neyman, Jerzy and Scott, Elizabeth L. (1948). Consistent Estimates Based on Partially Consistent Observations. *Econometrica* 16(1), 1–32.
 - Reiersøl, Olav (1950). Identifiability of a Linear Relation between Variables Which Are Subject to Error. *Econometrica* 18(4), 375–389.
-- Sargan, J. D. (1958). The Estimation of Economic Relationships Using Instrumental Variables. *Econometrica* 26(3), 393–415.
+- Sargan, J. Denis (1958). The Estimation of Economic Relationships Using Instrumental Variables. *Econometrica* 26(3), 393–415.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.
-- Spearman, C. (1904). The Proof and Measurement of Association between Two Things. *The American Journal of Psychology* 15(1), 72–101.
+- Spearman, Charles (1904). The Proof and Measurement of Association between Two Things. *The American Journal of Psychology* 15(1), 72–101.
 - Staiger, Douglas and Stock, James H. (1997). Instrumental Variables Regression with Weak Instruments. *Econometrica* 65(3), 557–586.
 - Wald, Abraham (1940). The Fitting of Straight Lines if Both Variables Are Subject to Error. *The Annals of Mathematical Statistics* 11(3), 284–300.
 - Wright, Philip G. (1928). *The Tariff on Animal and Vegetable Oils*. New York: Macmillan.

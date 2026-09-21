@@ -102,15 +102,15 @@ Cobb (1978).
 - Anscombe, Francis J. (1973). Graphs in Statistical Analysis. *The American Statistician* 27(1), 17–21.
 - Christensen, Ronald (2020). *Plane Answers to Complex Questions: The Theory of Linear Models*. 5th edition. Cham: Springer.
 - Cobb, George W. (1978). The Problem of the Nile: Conditional Solution to a Changepoint Problem. *Biometrika* 65(2), 243–251.
-- Cochran, William G. (1934). The Distribution of Quadratic Forms in a Normal System, with Applications to the Analysis of Covariance. *Proceedings of the Cambridge Philosophical Society* 30(2), 178–191.
+- Cochran, William G. (1934). The Distribution of Quadratic Forms in a Normal System, with Applications to the Analysis of Covariance. *Mathematical Proceedings of the Cambridge Philosophical Society* 30(2), 178–191.
 - Fisher, Ronald A. (1922). On the Interpretation of \( \chi^2 \) from Contingency Tables, and the Calculation of P. *Journal of the Royal Statistical Society* 85(1), 87–94.
 - Fisher, Ronald A. (1925). *Statistical Methods for Research Workers*. Edinburgh: Oliver and Boyd.
 - Fisher, Ronald A. (1928). The General Sampling Distribution of the Multiple Correlation Coefficient. *Proceedings of the Royal Society of London. Series A* 121(788), 654–673.
 - Fisher, Ronald A. and Mackenzie, Winifred A. (1923). Studies in Crop Variation. II. The Manurial Response of Different Potato Varieties. *Journal of Agricultural Science* 13(3), 311–320.
 - Kvålseth, Tarald O. (1985). Cautionary Note about \( R^2 \). *The American Statistician* 39(4), 279–285.
-- Nelder, John A. (1977). A Reformulation of Linear Models. *Journal of the Royal Statistical Society. Series A* 140(1), 48–77.
+- Nelder, John A. (1977). A Reformulation of Linear Models. *Journal of the Royal Statistical Society, Series A* 140(1), 48–77.
 - Scheffé, Henry (1959). *The Analysis of Variance*. New York: Wiley.
 - Searle, Shayle R. (1987). *Linear Models for Unbalanced Data*. New York: Wiley.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.
-- Speed, F. M., Hocking, Ronald R. and Hackney, O. P. (1978). Methods of Analysis of Linear Models with Unbalanced Data. *Journal of the American Statistical Association* 73(361), 105–112.
+- Speed, F. Michael, Hocking, Ronald R. and Hackney, O. P. (1978). Methods of Analysis of Linear Models with Unbalanced Data. *Journal of the American Statistical Association* 73(361), 105–112.
 - Yates, Frank (1934). The Analysis of Multiple Classifications with Unequal Numbers in the Different Classes. *Journal of the American Statistical Association* 29(185), 51–66.

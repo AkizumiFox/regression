@@ -187,3 +187,88 @@ If \( \X=\Q_1\R_1=\Q_2\R_2 \), then
 are the Cholesky factor of \( \X\T\X \), which is unique by
 @thm-mat-pd-characterizations(d). So \( \R_1=\R_2 \) and \( \Q_1=\X\R_1^{-1}=\Q_2 \).
 :::
+
+### C. Going deeper
+
+::: {#exr-mat-gram-configuration}
+[C1]
+
+Let \( \A=[\mathbf{a}_1,\dots,\mathbf{a}_k] \) and \( \B=[\bb_1,\dots,\bb_k] \) be \( n\times k \) matrices with
+the same cross-product matrix, \( \A\T\A=\B\T\B \). Show that there is an orthogonal \( n\times n \)
+matrix \( \Q \) with \( \B=\Q\A \). So a Gram matrix determines its vectors up to a rotation or
+reflection of \( \Real^n \), and two model matrices with the same \( \X\T\X \) describe the same
+geometry in different coordinates. *Hint:* show first that \( \A\mathbf{c}=\bzero \) iff \( \B\mathbf{c}=\bzero \).
+:::
+
+::: {.solution}
+For every \( \mathbf{c}\in\Real^k \), \( \norm{\A\mathbf{c}}^2=\mathbf{c}\T\A\T\A\mathbf{c}=\mathbf{c}\T\B\T\B\mathbf{c}=\norm{\B\mathbf{c}}^2 \),
+so \( \A\mathbf{c}=\bzero \) iff \( \B\mathbf{c}=\bzero \). Hence the rule \( \bT(\A\mathbf{c})=\B\mathbf{c} \) defines a map
+on \( \C(\A) \) without ambiguity: if \( \A\mathbf{c}=\A\mathbf{d} \), then \( \A(\mathbf{c}-\mathbf{d})=\bzero \), so
+\( \B(\mathbf{c}-\mathbf{d})=\bzero \). The map is linear and preserves lengths, hence also inner products
+(@exr-mat-polarization). Both \( \C(\A) \) and \( \C(\B) \) have dimension \( r=\rank(\A)=\rank(\B) \),
+the two ranks being equal because the null spaces agree (@thm-mat-rank-nullity).
+
+Let \( \bu_1,\dots,\bu_r \) be an orthonormal basis of \( \C(\A) \), which exists
+by @thm-mat-qr. Then \( \bT\bu_1,\dots,\bT\bu_r \) are orthonormal and lie in \( \C(\B) \), so
+they are an orthonormal basis of it. Extend both sets to orthonormal bases \( \bu_1,\dots,\bu_n \) and
+\( \bw_1,\dots,\bw_n \) of \( \Real^n \), with \( \bw_i=\bT\bu_i \) for \( i\le r \), and put
+\( \Q=\mathbf{W}\bU\T \), where \( \bU \) and \( \mathbf{W} \) hold these bases as columns. Both are orthogonal,
+so \( \Q \) is orthogonal by @prp-mat-orthogonal(b), and \( \Q\bu_i=\bw_i \) for every \( i \). For
+\( \mathbf{c}\in\Real^k \), write \( \A\mathbf{c}=\sum_{i\le r}\alpha_i\bu_i \); then
+\( \Q\A\mathbf{c}=\sum_{i\le r}\alpha_i\bT\bu_i=\bT(\A\mathbf{c})=\B\mathbf{c} \). Taking \( \mathbf{c}=\mathbf{e}_j \) gives
+\( \Q\mathbf{a}_j=\bb_j \) for each \( j \), that is, \( \Q\A=\B \).
+:::
+
+::: {#exr-mat-householder-product}
+[C2]
+
+Show that every \( n\times n \) orthogonal matrix is a product of at most \( n \) Householder
+reflections. *Hint:* for unit vectors \( \x\ne\mathbf{y} \), the reflection with
+\( \bu=(\x-\mathbf{y})/\norm{\x-\mathbf{y}} \) sends \( \x \) to \( \mathbf{y} \); use it on the first column and induct.
+:::
+
+::: {.solution}
+For unit \( \x\ne\mathbf{y} \) put \( \bw=\x-\mathbf{y} \), so \( \bw\T\bw=2-2\x\T\mathbf{y} \) and
+\( \bw\T\x=1-\mathbf{y}\T\x=\tfrac12\bw\T\bw \). With \( \bu=\bw/\norm{\bw} \) and
+\( \mathbf{H}=\I-2\bu\bu\T \) (@exr-mat-householder),
+\( \mathbf{H}\x=\x-2\bw(\bw\T\x)/(\bw\T\bw)=\x-\bw=\mathbf{y} \).
+
+Argue by induction on \( n \), the case \( n=1 \) being \( \Q=(\pm1) \), where \( \Q=(1) \) is the empty
+product and \( \Q=(-1) \) is the reflection with \( \bu=(1) \). Let \( \Q \) be \( n\times n \) orthogonal
+with first column \( \mathbf{q}_1 \), a unit vector. If \( \mathbf{q}_1=\mathbf{e}_1 \), take \( \mathbf{H}_1=\I \) (no
+reflection); otherwise take the reflection \( \mathbf{H}_1 \) above with \( \x=\mathbf{q}_1 \) and
+\( \mathbf{y}=\mathbf{e}_1 \). Then \( \mathbf{H}_1\Q \) is orthogonal with first column \( \mathbf{e}_1 \), and since its rows
+are orthonormal too, its first row is \( \mathbf{e}_1\T \). So
+\( \mathbf{H}_1\Q=\begin{psmallmatrix}1&\bzero\T\\\bzero&\Q_2\end{psmallmatrix} \) with \( \Q_2 \)
+orthogonal of order \( n-1 \). By induction \( \Q_2 \) is a product of at most \( n-1 \) reflections
+\( \I_{n-1}-2\bv_j\bv_j\T \), and
+\( \begin{psmallmatrix}1&\bzero\T\\\bzero&\I-2\bv_j\bv_j\T\end{psmallmatrix}=\I_n-2\tilde{\bv}_j\tilde{\bv}_j\T \)
+with \( \tilde{\bv}_j=(0,\bv_j\T)\T \) a unit vector. Hence \( \mathbf{H}_1\Q \) is a product of at most
+\( n-1 \) reflections, and \( \Q=\mathbf{H}_1(\mathbf{H}_1\Q) \) of at most \( n \), because \( \mathbf{H}_1^{-1}=\mathbf{H}_1 \).
+:::
+
+::: {#exr-mat-hadamard}
+[C3]
+
+Let \( \X=\Q\R \) be the QR factorization of an \( n\times p \) matrix of full column rank. Show that
+\( \det(\X\T\X)=\prod_jr_{jj}^2 \) and that \( r_{jj}\le\norm{\x_j} \), with equality iff \( \x_j \) is
+orthogonal to \( \x_1,\dots,\x_{j-1} \). Deduce **Hadamard's inequality**
+\( \det(\X\T\X)\le\prod_j\norm{\x_j}^2 \), with equality iff the columns are mutually orthogonal,
+and \( \lvert\det\A\rvert\le\prod_j\norm{\mathbf{a}_j} \) for a square matrix \( \A \). (Determinants are
+in [Section 1.6](06-partitioned.html).) The quantity \( \det(\X\T\X) \) is a squared volume: it is
+largest, for columns of given lengths, when the regressors are orthogonal.
+:::
+
+::: {.solution}
+From \( \X=\Q\R \) with \( \Q\T\Q=\I_p \) we get \( \X\T\X=\R\T\R \), so by @prp-mat-det(a), (c)
+and (d), \( \det(\X\T\X)=(\det\R)^2=\prod_jr_{jj}^2 \). The \( j \)th column of \( \X=\Q\R \) is
+\( \x_j=\sum_{k\le j}r_{kj}\bu_k \), a combination of orthonormal vectors, so
+\( \norm{\x_j}^2=\sum_{k\le j}r_{kj}^2\ge r_{jj}^2 \), with equality iff \( r_{kj}=0 \) for every
+\( k<j \). Since \( r_{kj}=\bu_k\T\x_j \) and \( \bu_1,\dots,\bu_{j-1} \) span
+\( \spn(\x_1,\dots,\x_{j-1}) \) by @thm-mat-qr, that happens iff \( \x_j \) is orthogonal to the
+earlier columns. Multiplying the \( p \) inequalities gives Hadamard's inequality, with equality
+iff every column is orthogonal to all its predecessors, that is, iff the columns are mutually
+orthogonal. For a square \( \A \): if it is singular both sides of
+\( (\det\A)^2=\det(\A\T\A)\le\prod_j\norm{\mathbf{a}_j}^2 \) are handled by \( \det\A=0 \), and otherwise
+the inequality just proved applies with \( \X=\A \).
+:::

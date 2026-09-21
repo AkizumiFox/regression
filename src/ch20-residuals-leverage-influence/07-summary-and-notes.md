@@ -74,7 +74,7 @@ state data are those of [Chapter 6](../ch06-projections/index.html).
 
 - Allen, David M. (1974). The Relationship Between Variable Selection and Data Augmentation and a Method for Prediction. *Technometrics* 16(1), 125–127.
 - Andrews, David F. and Pregibon, Daryl (1978). Finding the Outliers that Matter. *Journal of the Royal Statistical Society, Series B* 40(1), 85–93.
-- Atkinson, Anthony C. (1985). *Plots, Transformations and Regression: An Introduction to Graphical Methods of Diagnostic Regression Analysis*. Oxford: Clarendon Press.
+- Atkinson, Anthony C. (1985). *Plots, Transformations, and Regression: An Introduction to Graphical Methods of Diagnostic Regression Analysis*. Oxford: Clarendon Press.
 - Atkinson, Anthony C. and Riani, Marco (2000). *Robust Diagnostic Regression Analysis*. New York: Springer.
 - Beaton, Albert E. and Tukey, John W. (1974). The Fitting of Power Series, Meaning Polynomials, Illustrated on Band-Spectroscopic Data. *Technometrics* 16(2), 147–185.
 - Beckman, Richard J. and Cook, R. Dennis (1983). Outlier..........s. *Technometrics* 25(2), 119–149.

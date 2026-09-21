@@ -106,10 +106,10 @@ package statsmodels.
 - Christensen, Ronald (2020). *Plane Answers to Complex Questions: The Theory of Linear Models*. 5th edition. Cham: Springer.
 - Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and Marx, Brian D. (2021). *Regression: Models, Methods and Applications*. 2nd edition. Berlin: Springer.
 - Freedman, David A. (2009). *Statistical Models: Theory and Practice*. Revised edition. Cambridge: Cambridge University Press.
-- Galton, Francis (1886). Regression towards Mediocrity in Hereditary Stature. *Journal of the Anthropological Institute of Great Britain and Ireland* 15, 246–263.
+- Galton, Francis (1886). Regression towards Mediocrity in Hereditary Stature. *The Journal of the Anthropological Institute of Great Britain and Ireland* 15, 246–263.
 - Gauss, Carl Friedrich (1809). *Theoria Motus Corporum Coelestium in Sectionibus Conicis Solem Ambientium*. Hamburg: Perthes und Besser.
-- Hastie, Trevor J. and Tibshirani, Robert J. (1986). Generalized Additive Models. *Statistical Science* 1(3), 297–310.
-- Hastie, Trevor J. and Tibshirani, Robert J. (1990). *Generalized Additive Models*. London: Chapman and Hall.
+- Hastie, Trevor and Tibshirani, Robert (1986). Generalized Additive Models. *Statistical Science* 1(3), 297–310.
+- Hastie, Trevor and Tibshirani, Robert (1990). *Generalized Additive Models*. London: Chapman and Hall.
 - Johansen, Søren and Juselius, Katarina (1990). Maximum Likelihood Estimation and Inference on Cointegration, with Applications to the Demand for Money. *Oxford Bulletin of Economics and Statistics* 52(2), 169–210.
 - Keeling, Charles D. and Whorf, Timothy P. (2004). Atmospheric CO2 Concentrations Derived from Flask Air Samples at Sites in the SIO Network. In *Trends: A Compendium of Data on Global Change*. Oak Ridge, TN: Carbon Dioxide Information Analysis Center, Oak Ridge National Laboratory.
 - Koenker, Roger and Bassett, Gilbert (1978). Regression Quantiles. *Econometrica* 46(1), 33–50.
@@ -117,9 +117,9 @@ package statsmodels.
 - Manning, Willard G., Newhouse, Joseph P., Duan, Naihua, Keeler, Emmett B., Leibowitz, Arleen and Marquis, M. Susan (1987). Health Insurance and the Demand for Medical Care: Evidence from a Randomized Experiment. *American Economic Review* 77(3), 251–277.
 - Nelder, John A. and Wedderburn, Robert W. M. (1972). Generalized Linear Models. *Journal of the Royal Statistical Society, Series A* 135(3), 370–384.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
-- Rigby, Robert A. and Stasinopoulos, D. Mikis (2005). Generalized Additive Models for Location, Scale and Shape. *Journal of the Royal Statistical Society, Series C (Applied Statistics)* 54(3), 507–554.
+- Rigby, Robert A. and Stasinopoulos, D. Mikis (2005). Generalized Additive Models for Location, Scale and Shape. *Journal of the Royal Statistical Society, Series C* 54(3), 507–554.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.
 - Sen, Ashish and Srivastava, Muni (1990). *Regression Analysis: Theory, Methods, and Applications*. New York: Springer.
 - Stigler, Stephen M. (1981). Gauss and the Invention of Least Squares. *The Annals of Statistics* 9(3), 465–474.
-- Stigler, Stephen M. (1986). *The History of Statistics: The Measurement of Uncertainty before 1900*. Cambridge, MA: Belknap Press of Harvard University Press.
+- Stigler, Stephen M. (1986). *The History of Statistics: The Measurement of Uncertainty before 1900*. Cambridge, MA: Harvard University Press.
 - White, Halbert (1980). A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity. *Econometrica* 48(4), 817–838.

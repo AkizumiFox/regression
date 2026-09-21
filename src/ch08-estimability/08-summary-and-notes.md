@@ -87,7 +87,7 @@ in `code/ch08/`.
 ## References
 
 - Agresti, Alan (2015). *Foundations of Linear and Generalized Linear Models*. Hoboken, NJ: Wiley.
-- Chambers, John M. and Hastie, Trevor J., eds. (1992). *Statistical Models in S*. Pacific Grove, CA: Wadsworth & Brooks/Cole.
+- Chambers, John M. and Hastie, Trevor, eds. (1992). *Statistical Models in S*. Pacific Grove, CA: Wadsworth & Brooks/Cole.
 - Christensen, Ronald (2020). *Plane Answers to Complex Questions: The Theory of Linear Models*. 5th edition. Cham: Springer.
 - Golub, Gene H. and Van Loan, Charles F. (2013). *Matrix Computations*. 4th edition. Baltimore: Johns Hopkins University Press.
 - Holford, Theodore R. (1983). The Estimation of Age, Period and Cohort Effects for Vital Rates. *Biometrics* 39(2), 311–324.

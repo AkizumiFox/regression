@@ -83,7 +83,7 @@ approach of Berk, Brown, Buja, Zhang and Zhao (2013). Exact conditional inferenc
 - Akaike, Hirotugu (1973). Information Theory and an Extension of the Maximum Likelihood Principle. In Petrov, B. N. and Csáki, F. (eds.), *Second International Symposium on Information Theory*, 267–281. Budapest: Akadémiai Kiadó.
 - Akaike, Hirotugu (1974). A New Look at the Statistical Model Identification. *IEEE Transactions on Automatic Control* 19(6), 716–723.
 - Allen, David M. (1974). The Relationship Between Variable Selection and Data Augmentation and a Method for Prediction. *Technometrics* 16(1), 125–127.
-- Bancroft, T. A. (1944). On Biases in Estimation Due to the Use of Preliminary Tests of Significance. *The Annals of Mathematical Statistics* 15(2), 190–204.
+- Bancroft, Theodore A. (1944). On Biases in Estimation Due to the Use of Preliminary Tests of Significance. *The Annals of Mathematical Statistics* 15(2), 190–204.
 - Bates, Stephen, Hastie, Trevor and Tibshirani, Robert (2024). Cross-Validation: What Does It Estimate and How Well Does It Do It? *Journal of the American Statistical Association* 119(546), 1434–1445.
 - Bengio, Yoshua and Grandvalet, Yves (2004). No Unbiased Estimator of the Variance of K-Fold Cross-Validation. *Journal of Machine Learning Research* 5, 1089–1105.
 - Berk, Richard, Brown, Lawrence, Buja, Andreas, Zhang, Kai and Zhao, Linda (2013). Valid Post-Selection Inference. *The Annals of Statistics* 41(2), 802–837.
@@ -94,7 +94,7 @@ approach of Berk, Brown, Buja, Zhang and Zhao (2013). Exact conditional inferenc
 - Breiman, Leo, Friedman, Jerome H., Olshen, Richard A. and Stone, Charles J. (1984). *Classification and Regression Trees*. Belmont, CA: Wadsworth.
 - Breiman, Leo and Spector, Philip (1992). Submodel Selection and Evaluation in Regression. The X-Random Case. *International Statistical Review* 60(3), 291–319.
 - Christensen, Ronald (2020). *Plane Answers to Complex Questions: The Theory of Linear Models*. 5th edition. Cham: Springer.
-- Cox, D. R. (1975). A Note on Data-Splitting for the Evaluation of Significance Levels. *Biometrika* 62(2), 441–444.
+- Cox, David R. (1975). A Note on Data-Splitting for the Evaluation of Significance Levels. *Biometrika* 62(2), 441–444.
 - Craven, Peter and Wahba, Grace (1979). Smoothing Noisy Data with Spline Functions. *Numerische Mathematik* 31(4), 377–403.
 - Donoho, David L. and Johnstone, Iain M. (1995). Adapting to Unknown Smoothness via Wavelet Shrinkage. *Journal of the American Statistical Association* 90(432), 1200–1224.
 - Efron, Bradley (1986). How Biased Is the Apparent Error Rate of a Prediction Rule? *Journal of the American Statistical Association* 81(394), 461–470.
@@ -113,15 +113,15 @@ approach of Berk, Brown, Buja, Zhang and Zhao (2013). Exact conditional inferenc
 - Kass, Robert E. and Raftery, Adrian E. (1995). Bayes Factors. *Journal of the American Statistical Association* 90(430), 773–795.
 - Kass, Robert E. and Wasserman, Larry (1995). A Reference Bayesian Test for Nested Hypotheses and Its Relationship to the Schwarz Criterion. *Journal of the American Statistical Association* 90(431), 928–934.
 - Konishi, Sadanori and Kitagawa, Genshiro (2008). *Information Criteria and Statistical Modeling*. New York: Springer.
-- Kullback, S. and Leibler, R. A. (1951). On Information and Sufficiency. *The Annals of Mathematical Statistics* 22(1), 79–86.
+- Kullback, Solomon and Leibler, Richard A. (1951). On Information and Sufficiency. *The Annals of Mathematical Statistics* 22(1), 79–86.
 - Lee, Jason D., Sun, Dennis L., Sun, Yuekai and Taylor, Jonathan E. (2016). Exact Post-Selection Inference, with Application to the Lasso. *The Annals of Statistics* 44(3), 907–927.
 - Leeb, Hannes and Pötscher, Benedikt M. (2005). Model Selection and Inference: Facts and Fiction. *Econometric Theory* 21(1), 21–59.
 - Leeb, Hannes and Pötscher, Benedikt M. (2006). Can One Estimate the Conditional Distribution of Post-Model-Selection Estimators? *The Annals of Statistics* 34(5), 2554–2591.
 - Li, Ker-Chau (1987). Asymptotic Optimality for \( C_p \), \( C_L \), Cross-Validation and Generalized Cross-Validation: Discrete Index Set. *The Annals of Statistics* 15(3), 958–975.
-- Mallows, C. L. (1973). Some Comments on \( C_p \). *Technometrics* 15(4), 661–675.
+- Mallows, Colin L. (1973). Some Comments on \( C_p \). *Technometrics* 15(4), 661–675.
 - Meinshausen, Nicolai and Bühlmann, Peter (2010). Stability Selection. *Journal of the Royal Statistical Society, Series B* 72(4), 417–473.
 - Miller, Alan (2002). *Subset Selection in Regression*. 2nd edition. Boca Raton, FL: Chapman and Hall/CRC.
-- Natarajan, B. K. (1995). Sparse Approximate Solutions to Linear Systems. *SIAM Journal on Computing* 24(2), 227–234.
+- Natarajan, Balas K. (1995). Sparse Approximate Solutions to Linear Systems. *SIAM Journal on Computing* 24(2), 227–234.
 - Nishii, Ryuei (1984). Asymptotic Properties of Criteria for Selection of Variables in Multiple Regression. *The Annals of Statistics* 12(2), 758–765.
 - Rinaldo, Alessandro, Wasserman, Larry and G'Sell, Max (2019). Bootstrapping and Sample Splitting for High-Dimensional, Assumption-Lean Inference. *The Annals of Statistics* 47(6), 3438–3469.
 - Schatzoff, Martin, Tsao, R. and Fienberg, Stephen (1968). Efficient Calculation of All Possible Regressions. *Technometrics* 10(4), 769–779.
@@ -132,8 +132,8 @@ approach of Berk, Brown, Buja, Zhang and Zhao (2013). Exact conditional inferenc
 - Shao, Jun (1997). An Asymptotic Theory for Linear Model Selection. *Statistica Sinica* 7(2), 221–264.
 - Shibata, Ritei (1981). An Optimal Selection of Regression Variables. *Biometrika* 68(1), 45–54.
 - Stein, Charles M. (1981). Estimation of the Mean of a Multivariate Normal Distribution. *The Annals of Statistics* 9(6), 1135–1151.
-- Stone, M. (1974). Cross-Validatory Choice and Assessment of Statistical Predictions. *Journal of the Royal Statistical Society, Series B* 36(2), 111–147.
-- Stone, M. (1977). An Asymptotic Equivalence of Choice of Model by Cross-Validation and Akaike's Criterion. *Journal of the Royal Statistical Society, Series B* 39(1), 44–47.
+- Stone, Mervyn (1974). Cross-Validatory Choice and Assessment of Statistical Predictions. *Journal of the Royal Statistical Society, Series B* 36(2), 111–147.
+- Stone, Mervyn (1977). An Asymptotic Equivalence of Choice of Model by Cross-Validation and Akaike's Criterion. *Journal of the Royal Statistical Society, Series B* 39(1), 44–47.
 - Sugiura, Nariaki (1978). Further Analysts of the Data by Akaike's Information Criterion and the Finite Corrections. *Communications in Statistics: Theory and Methods* 7(1), 13–26.
 - Tibshirani, Ryan J. (2015). Degrees of Freedom and Model Search. *Statistica Sinica* 25(3), 1265–1296.
 - Tibshirani, Ryan J., Taylor, Jonathan, Lockhart, Richard and Tibshirani, Robert (2016). Exact Post-Selection Inference for Sequential Regression Procedures. *Journal of the American Statistical Association* 111(514), 600–620.

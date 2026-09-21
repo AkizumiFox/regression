@@ -118,7 +118,7 @@ of @thm-bin-separation.
 - Agresti, Alan (2015). *Foundations of Linear and Generalized Linear Models*. Hoboken, NJ: Wiley.
 - Albert, James H. and Chib, Siddhartha (1993). Bayesian Analysis of Binary and Polychotomous Response Data. *Journal of the American Statistical Association* 88(422), 669–679.
 - Atkinson, Anthony C. (1981). Two Graphical Displays for Outlying and Influential Observations in Regression. *Biometrika* 68(1), 13–20.
-- Atkinson, Anthony C. (1985). *Plots, Transformations and Regression*. Oxford: Clarendon Press.
+- Atkinson, Anthony C. (1985). *Plots, Transformations, and Regression: An Introduction to Graphical Methods of Diagnostic Regression Analysis*. Oxford: Clarendon Press.
 - Bedrick, Edward J., Christensen, Ronald and Johnson, Wesley (1996). A New Perspective on Priors for Generalized Linear Models. *Journal of the American Statistical Association* 91(436), 1450–1460.
 - Bayarri, M. J. and Berger, James O. (2000). P Values for Composite Null Models. *Journal of the American Statistical Association* 95(452), 1127–1142.
 - Carvalho, Carlos M., Polson, Nicholas G. and Scott, James G. (2010). The Horseshoe Estimator for Sparse Signals. *Biometrika* 97(2), 465–480.
@@ -138,7 +138,7 @@ of @thm-bin-separation.
 - Hastings, W. Keith (1970). Monte Carlo Sampling Methods Using Markov Chains and Their Applications. *Biometrika* 57(1), 97–109.
 - Heinze, Georg and Schemper, Michael (2002). A Solution to the Problem of Separation in Logistic Regression. *Statistics in Medicine* 21(16), 2409–2419.
 - Holmes, Chris C. and Held, Leonhard (2006). Bayesian Auxiliary Variable Models for Binary and Multinomial Regression. *Bayesian Analysis* 1(1), 145–168.
-- Jeffreys, Harold (1946). An Invariant Form for the Prior Probability in Estimation Problems. *Proceedings of the Royal Society of London, Series A* 186(1007), 453–461.
+- Jeffreys, Harold (1946). An Invariant Form for the Prior Probability in Estimation Problems. *Proceedings of the Royal Society of London. Series A* 186(1007), 453–461.
 - Kass, Robert E. and Raftery, Adrian E. (1995). Bayes Factors. *Journal of the American Statistical Association* 90(430), 773–795.
 - Lindley, Dennis V. and Smith, Adrian F. M. (1972). Bayes Estimates for the Linear Model. *Journal of the Royal Statistical Society, Series B* 34(1), 1–41.
 - McCullagh, Peter and Nelder, John A. (1989). *Generalized Linear Models*. 2nd edition. London: Chapman and Hall.

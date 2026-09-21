@@ -203,12 +203,12 @@ reconstruction distributed with statsmodels, and continues the analysis begun in
 - Kenward, Michael G. and Roger, James H. (1997). Small Sample Inference for Fixed Effects from Restricted Maximum Likelihood. *Biometrics* 53(3), 983–997.
 - Laird, Nan M. and Ware, James H. (1982). Random-Effects Models for Longitudinal Data. *Biometrics* 38(4), 963–974.
 - McCulloch, Charles E., Searle, Shayle R. and Neuhaus, John M. (2008). *Generalized, Linear, and Mixed Models*. 2nd edition. Hoboken, NJ: Wiley.
-- Patterson, H. Desmond and Thompson, Robin (1971). Recovery of Inter-Block Information when Block Sizes are Unequal. *Biometrika* 58(3), 545–554.
+- Patterson, H. Desmond and Thompson, Robin (1971). Recovery of Inter-Block Information When Block Sizes Are Unequal. *Biometrika* 58(3), 545–554.
 - Pinheiro, José C. and Bates, Douglas M. (2000). *Mixed-Effects Models in S and S-PLUS*. New York: Springer.
 - Rao, C. Radhakrishna (1971). Estimation of Variance and Covariance Components — MINQUE Theory. *Journal of Multivariate Analysis* 1(3), 257–275.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
 - Robinson, George K. (1991). That BLUP is a Good Thing: The Estimation of Random Effects. *Statistical Science* 6(1), 15–32.
-- Ruppert, David, Wand, M. P. and Carroll, Raymond J. (2003). *Semiparametric Regression*. Cambridge: Cambridge University Press.
+- Ruppert, David, Wand, Matthew P. and Carroll, Raymond J. (2003). *Semiparametric Regression*. Cambridge: Cambridge University Press.
 - Satterthwaite, Franklin E. (1946). An Approximate Distribution of Estimates of Variance Components. *Biometrics Bulletin* 2(6), 110–114.
 - Searle, Shayle R., Casella, George and McCulloch, Charles E. (1992). *Variance Components*. New York: Wiley.
 - Self, Steven G. and Liang, Kung-Yee (1987). Asymptotic Properties of Maximum Likelihood Estimators and Likelihood Ratio Tests under Nonstandard Conditions. *Journal of the American Statistical Association* 82(398), 605–610.

@@ -115,9 +115,9 @@ matrix*. [Chapter 41](../ch41-missing-data/index.html) asks what happens when so
 - Eicker, Friedhelm (1963). Asymptotic Normality and Consistency of the Least Squares Estimators for Families of Linear Regressions. *The Annals of Mathematical Statistics* 34(2), 447–456.
 - Fahrmeir, Ludwig and Kaufmann, Heinz (1985). Consistency and Asymptotic Normality of the Maximum Likelihood Estimator in Generalized Linear Models. *The Annals of Statistics* 13(1), 342–368.
 - Finney, David J. (1947). *Probit Analysis: A Statistical Treatment of the Sigmoid Response Curve*. Cambridge: Cambridge University Press.
-- Godambe, V. P. (1960). An Optimum Property of Regular Maximum Likelihood Estimation. *The Annals of Mathematical Statistics* 31(4), 1208–1211.
-- Godambe, V. P. and Heyde, C. C. (1987). Quasi-Likelihood and Optimal Estimation. *International Statistical Review* 55(3), 231–244.
-- Huber, Peter J. (1967). The Behavior of Maximum Likelihood Estimates under Nonstandard Conditions. In *Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability*, volume 1, 221–233. Berkeley: University of California Press.
+- Godambe, Vidyadhar P. (1960). An Optimum Property of Regular Maximum Likelihood Estimation. *The Annals of Mathematical Statistics* 31(4), 1208–1211.
+- Godambe, Vidyadhar P. and Heyde, Christopher C. (1987). Quasi-Likelihood and Optimal Estimation. *International Statistical Review* 55(3), 231–244.
+- Huber, Peter J. (1967). The Behavior of Maximum Likelihood Estimates under Nonstandard Conditions. In *Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability*, Vol. 1, 221–233. Berkeley: University of California Press.
 - Kauermann, Göran and Carroll, Raymond J. (2001). A Note on the Efficiency of Sandwich Covariance Matrix Estimation. *Journal of the American Statistical Association* 96(456), 1387–1396.
 - Kennan, John (1985). The Duration of Contract Strikes in US Manufacturing. *Journal of Econometrics* 28(1), 5–28.
 - Kish, Leslie (1965). *Survey Sampling*. New York: Wiley.
@@ -128,8 +128,8 @@ matrix*. [Chapter 41](../ch41-missing-data/index.html) asks what happens when so
 - McCullagh, Peter and Nelder, John A. (1989). *Generalized Linear Models*. 2nd edition. London: Chapman and Hall.
 - Nelder, John A. and Wedderburn, Robert W. M. (1972). Generalized Linear Models. *Journal of the Royal Statistical Society, Series A* 135(3), 370–384.
 - Royall, Richard M. (1986). Model Robust Confidence Intervals Using Maximum Likelihood Estimators. *International Statistical Review* 54(2), 221–226.
-- Skellam, J. G. (1948). A Probability Distribution Derived from the Binomial Distribution by Regarding the Probability of Success as Variable between the Sets of Trials. *Journal of the Royal Statistical Society, Series B* 10(2), 257–261.
+- Skellam, John G. (1948). A Probability Distribution Derived from the Binomial Distribution by Regarding the Probability of Success as Variable between the Sets of Trials. *Journal of the Royal Statistical Society, Series B* 10(2), 257–261.
 - Ver Hoef, Jay M. and Boveng, Peter L. (2007). Quasi-Poisson vs. Negative Binomial Regression: How Should We Model Overdispersed Count Data? *Ecology* 88(11), 2766–2772.
 - Wedderburn, Robert W. M. (1974). Quasi-Likelihood Functions, Generalized Linear Models, and the Gauss–Newton Method. *Biometrika* 61(3), 439–447.
 - White, Halbert (1980). A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity. *Econometrica* 48(4), 817–838.
-- Williams, D. A. (1982). Extra-Binomial Variation in Logistic Linear Models. *Journal of the Royal Statistical Society, Series C (Applied Statistics)* 31(2), 144–148.
+- Williams, D. A. (1982). Extra-Binomial Variation in Logistic Linear Models. *Journal of the Royal Statistical Society, Series C* 31(2), 144–148.

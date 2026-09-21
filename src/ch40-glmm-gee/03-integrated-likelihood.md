@@ -469,3 +469,136 @@ Laplace error is governed by \( c_i\tau^{2} \), so the effective cluster size is
 \( \tau=1 \) the first is \( 1.25 \); with \( n=20 \), \( \phi=0.0930 \), \( \tau=0.52 \) the
 second is about \( 58 \). The two fits are in completely different regimes.
 :::
+
+### C. Going deeper
+
+::: {#exr-gmm-matched-pairs}
+[C1]
+
+@prp-gmm-pql(c) records that PQL is inconsistent but does not prove it. Here is the extreme case, in which
+everything can be done by hand: the limit \( \G^{-1}\to\bzero \) of @eq-gmm-pql-objective, where the penalty
+disappears and the cluster levels become free parameters. Take matched pairs: \( m \) clusters of size two,
+\( x_{i1}=0 \), \( x_{i2}=1 \), and
+\( \operatorname{logit}\Pr(Y_{ij}=1\mid u_i)=u_i+\beta x_{ij} \), with \( u_1,\dots,u_m \) and \( \beta \)
+all maximized over.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that a pair with \( y_{i1}+y_{i2}=0 \) or \( 2 \) has profile log-likelihood
+   \( \sup_u\ell_i(u,\beta)=0 \), free of \( \beta \), the supremum being approached as
+   \( u\to\mp\infty \). Such pairs carry no information about \( \beta \) here.
+
+2. Show that a discordant pair has \( \hat u_i=-\beta/2 \). (Use \( h(a)+h(b)=1 \) if and only if
+   \( a+b=0 \), where \( h \) is the logistic inverse link.) Show that its profile log-likelihood is
+   \( \pm\beta/2-2\log\{2\cosh(\beta/4)\} \), the sign being \( + \) for \( (y_{i1},y_{i2})=(0,1) \).
+
+3. Let \( a \) and \( b \) count the discordant pairs of the two kinds. Show that the joint maximizer
+   satisfies \( \tanh(\hat\beta/4)=(a-b)/(a+b) \), equivalently \( h(\hat\beta/2)=a/(a+b) \).
+
+4. Show that \( \Pr(Y_{i2}=1\mid Y_{i1}+Y_{i2}=1)=h(\beta) \), free of \( u_i \), so that the conditional
+   maximum likelihood estimate \( \tilde\beta \) solves \( h(\tilde\beta)=a/(a+b) \) and is consistent.
+   Conclude that \( \hat\beta=2\tilde\beta\to2\beta \) as \( m\to\infty \).
+:::
+
+The bias does not vanish with the number of clusters. In which direction is it, and how does that sit with
+@prp-gmm-pql(c)?
+:::
+
+::: {.solution}
+(a) For \( (0,0) \), \( \ell_i(u,\beta)=-\log(1+e^{u})-\log(1+e^{u+\beta}) \), which is negative and tends
+to \( 0 \) as \( u\to-\infty \); for \( (1,1) \),
+\( \ell_i=2u+\beta-\log(1+e^{u})-\log(1+e^{u+\beta})\to0 \) as \( u\to+\infty \). In both cases the
+supremum is \( 0 \) whatever \( \beta \) is.
+
+(b) For \( (0,1) \), \( \ell_i=(u+\beta)-\log(1+e^{u})-\log(1+e^{u+\beta}) \) and
+\( \partial\ell_i/\partial u=1-h(u)-h(u+\beta) \), which vanishes when \( h(u)+h(u+\beta)=1 \), that is when
+\( u+(u+\beta)=0 \), since \( h(b)=1-h(a) \) means \( h(b)=h(-a) \) and \( h \) is injective. So
+\( \hat u_i=-\beta/2 \), and the same computation applies to \( (1,0) \). Substituting,
+\( (1+e^{-\beta/2})(1+e^{\beta/2})=2+2\cosh(\beta/2)=4\cosh^{2}(\beta/4) \), so the profile value is
+\( \beta/2-2\log\{2\cosh(\beta/4)\} \) for \( (0,1) \) and \( -\beta/2-2\log\{2\cosh(\beta/4)\} \) for
+\( (1,0) \).
+
+(c) Adding (a) and (b), the profile log-likelihood is
+\( (a-b)\beta/2-2(a+b)\log\{2\cosh(\beta/4)\} \). Differentiating,
+\( (a-b)/2-\tfrac12(a+b)\tanh(\beta/4)=0 \), which gives \( \tanh(\hat\beta/4)=(a-b)/(a+b) \). Since
+\( h(\beta/2)=\{1+\tanh(\beta/4)\}/2 \), this is \( h(\hat\beta/2)=a/(a+b) \). (The function is strictly
+concave, so the stationary point is the maximum.)
+
+(d) The two discordant outcomes have conditional probabilities proportional to
+\( \{1-h(u)\}h(u+\beta) \) and \( h(u)\{1-h(u+\beta)\} \), whose ratio is
+\( e^{u+\beta}/e^{u}=e^{\beta} \) — the \( u \) cancels. So
+\( \Pr(Y_{i2}=1\mid\text{total}=1)=h(\beta) \), the conditional likelihood is
+\( h(\beta)^{a}\{1-h(\beta)\}^{b} \), and its maximizer solves \( h(\tilde\beta)=a/(a+b) \). The pairs are
+independent, so \( a/(a+b)\to h(\beta) \) with probability one and \( \tilde\beta\to\beta \). Comparing
+with (c), \( h(\hat\beta/2)=h(\tilde\beta) \), so \( \hat\beta=2\tilde\beta\to2\beta \).
+
+The bias here is *away* from zero, by a factor of two, and it is the incidental-parameter effect: one
+nuisance parameter per cluster, estimated from two observations, and never consistently. PQL as it is
+actually used keeps the penalty \( -\tfrac12\bu\T\G^{-1}\bu \), which pulls the \( \hat u_i \) towards zero
+and with them \( \hat\beta \); @prp-gmm-pql(c) and the simulation of @exm-gmm-compare report that in a
+random-intercept logistic model with small clusters the shrinkage wins, so the net bias is towards zero.
+The two effects are different and they need not cancel, which is why the size of the PQL bias is not
+predictable from \( m \) and \( n_i \) alone.
+:::
+
+::: {#exr-gmm-stirling}
+[C2]
+
+The correction \( \delta_i \) of @eq-gmm-laplace can be computed in closed form in two instructive cases.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Take \( \psi(u)=mu-e^{u} \) with \( m>0 \). Show that \( \int_{\Real}e^{\psi(u)}du=\Gamma(m) \), that
+   \( \hat u=\log m \), \( c=m \) and \( \psi'''(\hat u)=\psi^{(4)}(\hat u)=-m \), and hence that
+   \( \delta=1/(12m) \).
+
+2. Deduce that @eq-gmm-laplace reads
+   \( \Gamma(m)=\sqrt{2\pi}\,m^{m-1/2}e^{-m}\{1+1/(12m)+\dots\} \), which is Stirling's series: the
+   expansion of @thm-gmm-likelihood(b) is a familiar object in disguise.
+
+3. Now take a cluster of \( n \) Poisson responses with a log link, a common linear predictor \( \eta \)
+   and a random intercept of variance \( \tau^{2} \), so that
+   \( \psi_i(u)=S(\eta+u)-ne^{\eta+u}-u^{2}/(2\tau^{2})+\text{const} \) with \( S=\sum_jy_{ij} \). Writing
+   \( M=ne^{\eta+\hat u_i} \), show that \( c_i=M+\tau^{-2} \),
+   \( \psi_i'''(\hat u_i)=\psi_i^{(4)}(\hat u_i)=-M \), and
+   \[
+   \delta_i=\frac{M(5M-3c_i)}{24c_i^{3}}=\frac{M(2M-3\tau^{-2})}{24(M+\tau^{-2})^{3}} .
+   \]
+
+4. Deduce that \( \delta_i>0 \) exactly when \( M\tau^{2}>\tfrac32 \), and that
+   \( \delta_i\to1/(12M) \) as \( M\to\infty \) with \( \tau \) fixed. Relate \( M\tau^{2} \) to the
+   effective cluster size of @exr-gmm-effective-n.
+:::
+
+:::
+
+::: {.solution}
+(a) The substitution \( t=e^{u} \) gives
+\( \int e^{mu-e^{u}}du=\int_0^\infty t^{m-1}e^{-t}\,dt=\Gamma(m) \). Then \( \psi'(u)=m-e^{u} \) vanishes at
+\( \hat u=\log m \); \( \psi''(u)=-e^{u} \), so \( c=-\psi''(\hat u)=m \); and every higher derivative is
+\( -e^{u}=-m \) at the mode. Substituting in @eq-gmm-laplace,
+\[
+\delta=\frac{-m}{8m^{2}}+\frac{5m^{2}}{24m^{3}}=\frac{-3+5}{24m}=\frac1{12m}.
+\]
+
+(b) \( \psi(\hat u)=m\log m-m \), so
+\( \sqrt{2\pi/c}\,e^{\psi(\hat u)}=\sqrt{2\pi/m}\,m^{m}e^{-m}=\sqrt{2\pi}\,m^{m-1/2}e^{-m} \), and
+@eq-gmm-laplace multiplies it by \( 1+\delta+\dots=1+1/(12m)+\dots \). That is the classical expansion of
+the gamma function, whose correctness is known independently — a check on the formula, and a reminder that
+the Laplace approximation of this section is the Stirling approximation with the integrand changed.
+
+(c) \( \psi_i'(u)=S-ne^{\eta+u}-u/\tau^{2} \) and \( \psi_i''(u)=-ne^{\eta+u}-\tau^{-2} \), so
+\( c_i=-\psi_i''(\hat u_i)=M+\tau^{-2} \); the Gaussian term contributes nothing beyond the second
+derivative, so \( \psi_i'''=\psi_i^{(4)}=-ne^{\eta+u} \), equal to \( -M \) at the mode. Then
+\[
+\delta_i=\frac{-M}{8c_i^{2}}+\frac{5M^{2}}{24c_i^{3}}=\frac{M(5M-3c_i)}{24c_i^{3}},
+\]
+and \( 5M-3c_i=5M-3M-3\tau^{-2}=2M-3\tau^{-2} \).
+
+(d) The denominator is positive, so the sign of \( \delta_i \) is that of \( 2M-3\tau^{-2} \), and
+\( \delta_i>0 \) iff \( M\tau^{2}>\tfrac32 \). As \( M\to\infty \), \( c_i\sim M \) and
+\( \delta_i\sim 2M^{2}/(24M^{3})=1/(12M) \), which is the \( O(n_i^{-1}) \) of @thm-gmm-likelihood(b) with
+its constant exhibited, since \( M \) is proportional to \( n \). The product \( M\tau^{2}=c_i\tau^{2}-1 \)
+is the effective cluster size of @exr-gmm-effective-n, so a cluster carrying little information about its
+own random effect — \( M\tau^{2} \) below \( \tfrac32 \) — has a correction of the *opposite* sign, and the
+Laplace approximation then overstates the integral. The transition sits in exactly the range where
+@exm-gmm-compare found Laplace shrinking \( \hat\tau \) and @exm-gmm-grunfeld found it faultless.
+:::

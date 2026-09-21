@@ -378,3 +378,143 @@ the two estimating functions or by resampling. The cluster bootstrap of @exr-bs-
 — resample whole clusters with replacement and refit both — gives the
 reference distribution directly.
 :::
+
+### C. Going deeper
+
+::: {#exr-gmm-cluster-level-sizes}
+[C1]
+
+The advice "use independence when the covariate of interest is cluster-level" is a statement about *equal*
+cluster sizes. Let the working correlation be exchangeable,
+\( \R_i=(1-\alpha)\I+\alpha\bone\bone\T \) of size \( n_i \), and let the covariate be constant within each
+cluster, \( \x_{ij}=\x_i \), so that \( \mu_{ij}=\mu_i \) and \( (d\mu/d\eta)_{ij}=d_i \) are constant
+within the cluster as well.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \bone\T\R_i^{-1}=\bone\T/\{1+(n_i-1)\alpha\} \), and hence that cluster \( i \) contributes
+   \[
+   \frac{d_i}{\phi\,V(\mu_i)\{1+(n_i-1)\alpha\}}\;\x_i\bigl(\bone\T\y_i-n_i\mu_i\bigr)
+   \]
+   to the estimating function @eq-gmm-gee.
+
+2. Deduce that when every \( n_i=n \), the scalar \( \{1+(n-1)\alpha\}^{-1} \) is common to all clusters
+   and cancels from the equation: \( \hbeta \) does not depend on \( \alpha \) at all. This proves the claim
+   made for @exm-gmm-efficiency.
+
+3. Now let the sizes differ, and take the identity link with \( V\equiv1 \). Show that the exchangeable GEE
+   is weighted least squares on the cluster means with weights \( w_i=n_i/\{1+(n_i-1)\alpha\} \), and that
+   \( \Var(\bar y_i)=\sigma^2\{1+(n_i-1)\alpha\}/n_i \), so that \( w_i\propto1/\Var(\bar y_i) \): the
+   exchangeable working correlation gives exactly the efficient weights, and independence
+   (\( w_i=n_i \)) does not.
+
+4. Take \( \x_i\equiv1 \), \( \alpha=\tfrac12 \) and two clusters of sizes \( 2 \) and \( 10 \). Show that
+   the efficient estimator of the common mean has variance \( \tfrac{33}{104}\sigma^2 \) and the
+   independence estimator \( \tfrac{29}{72}\sigma^2 \), an efficiency of \( \tfrac{297}{377} \), about
+   \( 0.79 \).
+:::
+
+:::
+
+::: {.solution}
+(a) \( \R_i\bone=\{1+(n_i-1)\alpha\}\bone \) (@exr-gmm-exchangeable-bound), so
+\( \R_i^{-1}\bone=\bone/\{1+(n_i-1)\alpha\} \), and by symmetry the same for \( \bone\T\R_i^{-1} \). In
+@eq-gmm-gee cluster \( i \) contributes \( \bD_i\T\V_i^{-1}(\y_i-\bmu_i) \); with the linear predictor
+constant within the cluster, \( \X_i=\bone\x_i\T \), \( \bD_i=\partial\bmu_i/\partial\bbeta\T=d_i\bone\x_i\T \)
+and \( \A^{V}_i=V(\mu_i)\I \), so that \( \V_i=\phi V(\mu_i)\R_i \) and the contribution is
+\( d_i\x_i\bone\T\R_i^{-1}(\y_i-\mu_i\bone)/\{\phi V(\mu_i)\} \), which is the display.
+
+(b) With \( n_i\equiv n \) the equation reads
+\( \{1+(n-1)\alpha\}^{-1}\sum_id_i\x_i(\bone\T\y_i-n\mu_i)/\{\phi V(\mu_i)\}=\bzero \), and a nonzero scalar
+multiplying the whole left-hand side does not change its roots. So \( \hbeta \) is the independence
+estimate, whatever \( \hat\alpha \) turns out to be; all a nontrivial \( \R_i \) can contribute is the noise
+in \( \hat{\boldsymbol{\upalpha}} \), which is why the bars of @exm-gmm-efficiency for the cluster-level
+covariate sit below one.
+
+(c) With \( d_i=1 \), \( V\equiv1 \) and \( \bone\T\y_i=n_i\bar y_i \), the equation is
+\( \sum_i\x_i n_i(\bar y_i-\x_i\T\bbeta)/\{1+(n_i-1)\alpha\}=\bzero \), which is the normal equation of
+weighted least squares on the cluster means with weights \( w_i \). And by
+@prp-ql-overdispersion(b), or directly from
+\( \Var(\bar y_i)=\sigma^2\{(1-\alpha)n_i+\alpha n_i^2\}/n_i^2 \),
+\( \Var(\bar y_i)=\sigma^2\{1+(n_i-1)\alpha\}/n_i=\sigma^2/w_i \). Weighting by the reciprocal of the
+variance is the Gauss–Markov choice (@cor-opt-aitken), so the exchangeable working correlation with the
+right \( \alpha \) is efficient here, while independence weights by \( n_i \) and over-weights the large
+clusters, whose means are no better than \( \sigma^2/\alpha \) however large they grow.
+
+(d) \( \Var(\bar y_1)=\sigma^2(1+\tfrac12)/2=\tfrac34\sigma^2 \) and
+\( \Var(\bar y_2)=\sigma^2(1+\tfrac92)/10=\tfrac{11}{20}\sigma^2 \). The efficient estimator has variance
+\( \{1/\Var(\bar y_1)+1/\Var(\bar y_2)\}^{-1}=\{\tfrac43+\tfrac{20}{11}\}^{-1}\sigma^2
+=\tfrac{33}{104}\sigma^2 \). The independence estimator is \( (2\bar y_1+10\bar y_2)/12 \), with variance
+\( (4\cdot\tfrac34+100\cdot\tfrac{11}{20})\sigma^2/144=(3+55)\sigma^2/144=\tfrac{29}{72}\sigma^2 \). The
+ratio is \( (33/104)/(29/72)=2376/3016=\tfrac{297}{377} \).
+
+So the section's advice holds where it was derived, and a fifth of the information can be thrown away when
+cluster sizes are very unequal. The general rule is the one behind both cases: with a cluster-level
+covariate the data are the cluster means, and the only question is how to weight them.
+:::
+
+::: {#exr-gmm-feedback}
+[C2]
+
+@exm-gmm-qic offers two readings of a gap between the independence and exchangeable estimates. This
+exercise builds the second one exactly. Take clusters of size two, with \( z_i \), \( \varepsilon_{i1} \)
+and \( \varepsilon_{i2} \) independent with mean zero, \( \Var(z_i)=\sigma_z^2>0 \) and
+\( \Var(\varepsilon_{ij})=\sigma^2>0 \), and put
+\[
+x_{i1}=z_i,\qquad x_{i2}=\rho\,\varepsilon_{i1},\qquad y_{ij}=\beta x_{ij}+\varepsilon_{ij},
+\]
+with \( \rho\ne0 \): the covariate at the second occasion responds to what happened at the first.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \E(y_{ij}\mid x_{ij})=\beta x_{ij} \) for \( j=1,2 \), so the marginal mean model
+   @eq-gmm-gee-mean holds, while
+   \( \E(y_{i1}\mid x_{i1},x_{i2})\ne\beta x_{i1} \), so the full-covariate conditional mean condition
+   fails.
+
+2. Show that the independence estimating function has mean zero at \( \beta \), so
+   \( \hbeta_{\text{I}} \) is consistent.
+
+3. With the exchangeable working correlation \( \R=(1-\alpha)\I+\alpha\bone\bone\T \) of size two, identity
+   link and \( V\equiv1 \), show that at \( \beta \) the estimating function has mean
+   \( -\alpha\rho\sigma^2/(1-\alpha^2) \) per cluster while its derivative has mean
+   \( -(\sigma_z^2+\rho^2\sigma^2)/(1-\alpha^2) \), and hence that
+   \[
+   \hbeta_{\text{E}}\ \longrightarrow\ \beta-\frac{\alpha\rho\sigma^2}{\sigma_z^2+\rho^2\sigma^2} .
+   \]
+
+4. Deduce when the diagnostic of @exr-gmm-hausman has no power, and what happens to its power as
+   \( \sigma_z^2 \) grows. Is that reassuring?
+:::
+
+:::
+
+::: {.solution}
+(a) \( \E(y_{i1}\mid x_{i1})=\beta z_i+\E(\varepsilon_{i1}\mid z_i)=\beta z_i \) because
+\( \varepsilon_{i1} \) is independent of \( z_i \); and
+\( \E(y_{i2}\mid x_{i2})=\beta x_{i2}+\E(\varepsilon_{i2}\mid\varepsilon_{i1})=\beta x_{i2} \). But
+conditioning on both covariates reveals \( \varepsilon_{i1}=x_{i2}/\rho \), so
+\( \E(y_{i1}\mid x_{i1},x_{i2})=\beta x_{i1}+x_{i2}/\rho \). The marginal model is right at each occasion
+and wrong for the pair.
+
+(b) The independence contribution is \( x_{i1}\varepsilon_{i1}+x_{i2}\varepsilon_{i2} \), of mean
+\( \E(z_i\varepsilon_{i1})+\rho\E(\varepsilon_{i1}\varepsilon_{i2})=0 \). By @thm-gmm-gee(a) the estimate
+converges to \( \beta \).
+
+(c) With \( \R^{-1}=(1-\alpha^2)^{-1}\begin{pmatrix}1&-\alpha\\-\alpha&1\end{pmatrix} \), the contribution
+at \( \beta \) is \( (1-\alpha^2)^{-1}\{x_{i1}(\varepsilon_{i1}-\alpha\varepsilon_{i2})
++x_{i2}(\varepsilon_{i2}-\alpha\varepsilon_{i1})\} \). Taking expectations, the only surviving term is
+\( -\alpha\rho\,\E(\varepsilon_{i1}^2)=-\alpha\rho\sigma^2 \), giving the stated mean. Likewise
+\( \E\{\x_i\T\R^{-1}\x_i\}=(1-\alpha^2)^{-1}\{\sigma_z^2-2\alpha\rho\E(z_i\varepsilon_{i1})+\rho^2\sigma^2\}
+=(\sigma_z^2+\rho^2\sigma^2)/(1-\alpha^2) \). Solving the population equation
+\( (\beta-b)\E\{\x_i\T\R^{-1}\x_i\}+\E\{\x_i\T\R^{-1}\be_i\}=0 \) and cancelling
+\( 1-\alpha^2 \) gives the limit.
+
+(d) The gap \( \hbeta_{\text{I}}-\hbeta_{\text{E}} \) tends to \( \alpha\rho\sigma^2/(\sigma_z^2+\rho^2\sigma^2) \),
+which vanishes when \( \alpha=0 \) — the two fits are then the same fit — and when \( \rho=0 \), there being
+no feedback to find. It also vanishes as \( \sigma_z^2\to\infty \): a covariate with a great deal of
+exogenous variation swamps the feedback, and the diagnostic sees nothing even though the full-covariate
+conditional mean condition still fails. That is not reassuring but it is not alarming either, since in the
+same limit the inconsistency of \( \hbeta_{\text{E}} \) itself vanishes at the same rate. What the exercise
+does show is that a *small* gap is not evidence that the condition holds, and that when the gap is large,
+as in @exm-gmm-qic, the exchangeable fit is the member of the pair to distrust — the opposite of the usual
+reflex, which treats the fit with the richer covariance as the better one.
+:::

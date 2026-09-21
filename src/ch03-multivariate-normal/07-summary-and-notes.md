@@ -96,13 +96,13 @@ sample moments, and in [Chapter 6](../ch06-projections/index.html), to illustrat
 
 ## References
 
-- Anderson, T. W. (2003). *An Introduction to Multivariate Statistical Analysis*. 3rd edition. Hoboken, NJ: Wiley.
+- Anderson, Theodore W. (2003). *An Introduction to Multivariate Statistical Analysis*. 3rd edition. Hoboken, NJ: Wiley.
 - Billingsley, Patrick (1995). *Probability and Measure*. 3rd edition. New York: Wiley.
 - Christensen, Ronald (2020). *Plane Answers to Complex Questions: The Theory of Linear Models*. 5th edition. Cham: Springer.
 - Cramér, Harald and Wold, Herman (1936). Some Theorems on Distribution Functions. *Journal of the London Mathematical Society* s1-11(4), 290–294.
-- Dempster, A. P. (1972). Covariance Selection. *Biometrics* 28(1), 157–175.
+- Dempster, Arthur P. (1972). Covariance Selection. *Biometrics* 28(1), 157–175.
 - Frisch, Ragnar and Waugh, Frederick V. (1933). Partial Time Regressions as Compared with Individual Trends. *Econometrica* 1(4), 387–401.
-- Galton, Francis (1886). Regression Towards Mediocrity in Hereditary Stature. *The Journal of the Anthropological Institute of Great Britain and Ireland* 15, 246–263.
+- Galton, Francis (1886). Regression towards Mediocrity in Hereditary Stature. *The Journal of the Anthropological Institute of Great Britain and Ireland* 15, 246–263.
 - Lauritzen, Steffen L. (1996). *Graphical Models*. Oxford: Oxford University Press.
 - Longley, James W. (1967). An Appraisal of Least Squares Programs for the Electronic Computer from the Point of View of the User. *Journal of the American Statistical Association* 62(319), 819–841.
 - Rao, C. Radhakrishna (1973). *Linear Statistical Inference and Its Applications*. 2nd edition. New York: Wiley.

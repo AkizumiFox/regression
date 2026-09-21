@@ -126,13 +126,13 @@ weighting.
 
 ## References
 
-- Anderson, T. W. (1957). Maximum Likelihood Estimates for a Multivariate Normal Distribution When Some Observations Are Missing. *Journal of the American Statistical Association* 52(278), 200–203.
+- Anderson, Theodore W. (1957). Maximum Likelihood Estimates for a Multivariate Normal Distribution When Some Observations Are Missing. *Journal of the American Statistical Association* 52(278), 200–203.
 - Barnard, John and Rubin, Donald B. (1999). Small-Sample Degrees of Freedom with Multiple Imputation. *Biometrika* 86(4), 948–955.
 - Carpenter, James R., Roger, James H. and Kenward, Michael G. (2013). Analysis of Longitudinal Trials with Protocol Deviation: A Framework for Relevant, Accessible Assumptions, and Inference via Multiple Imputation. *Journal of Biopharmaceutical Statistics* 23(6), 1352–1371.
 - Dempster, Arthur P., Laird, Nan M. and Rubin, Donald B. (1977). Maximum Likelihood from Incomplete Data via the EM Algorithm. *Journal of the Royal Statistical Society, Series B* 39(1), 1–38.
-- Healy, Michael and Westmacott, Michael (1956). Missing Values in Experiments Analysed on Automatic Computers. *Journal of the Royal Statistical Society, Series C (Applied Statistics)* 5(3), 203–206.
+- Healy, Michael and Westmacott, Michael (1956). Missing Values in Experiments Analysed on Automatic Computers. *Journal of the Royal Statistical Society, Series C* 5(3), 203–206.
 - Heckman, James J. (1979). Sample Selection Bias as a Specification Error. *Econometrica* 47(1), 153–161.
-- Horvitz, D. G. and Thompson, D. J. (1952). A Generalization of Sampling Without Replacement from a Finite Universe. *Journal of the American Statistical Association* 47(260), 663–685.
+- Horvitz, Daniel G. and Thompson, D. J. (1952). A Generalization of Sampling Without Replacement from a Finite Universe. *Journal of the American Statistical Association* 47(260), 663–685.
 - Little, Roderick J. A. (1988). A Test of Missing Completely at Random for Multivariate Data with Missing Values. *Journal of the American Statistical Association* 83(404), 1198–1202.
 - Little, Roderick J. A. (1992). Regression with Missing X's: A Review. *Journal of the American Statistical Association* 87(420), 1227–1237.
 - Little, Roderick J. A. (1993). Pattern-Mixture Models for Multivariate Incomplete Data. *Journal of the American Statistical Association* 88(421), 125–134.
@@ -156,4 +156,4 @@ weighting.
 - Van Buuren, Stef, Boshuizen, Hendriek C. and Knook, Dick L. (1999). Multiple Imputation of Missing Blood Pressure Covariates in Survival Analysis. *Statistics in Medicine* 18(6), 681–694.
 - White, Ian R. and Carlin, John B. (2010). Bias and Efficiency of Multiple Imputation Compared with Complete-Case Analysis for Missing Covariate Values. *Statistics in Medicine* 29(28), 2920–2931.
 - Wu, C. F. Jeff (1983). On the Convergence Properties of the EM Algorithm. *The Annals of Statistics* 11(1), 95–103.
-- Yates, F. (1933). The Analysis of Replicated Experiments When the Field Results Are Incomplete. *Empire Journal of Experimental Agriculture* 1(2), 129–142.
+- Yates, Frank (1933). The Analysis of Replicated Experiments When the Field Results Are Incomplete. *Empire Journal of Experimental Agriculture* 1(2), 129–142.

@@ -104,10 +104,10 @@ estimator; Efron and Hastie (2016, chapter 7) link James–Stein and ridge regre
 - Hoerl, Arthur E. and Kennard, Robert W. (1970). Ridge Regression: Biased Estimation for Nonorthogonal Problems. *Technometrics* 12(1), 55–67.
 - Hoerl, Arthur E., Kennard, Robert W. and Baldwin, Kent F. (1975). Ridge Regression: Some Simulations. *Communications in Statistics* 4(2), 105–123.
 - Hotelling, Harold (1933). Analysis of a Complex of Statistical Variables into Principal Components. *Journal of Educational Psychology* 24, 417–441 and 498–520.
-- James, W. and Stein, Charles (1961). Estimation with Quadratic Loss. *Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability* 1, 361–379.
-- Jolliffe, Ian T. (1982). A Note on the Use of Principal Components in Regression. *Journal of the Royal Statistical Society. Series C (Applied Statistics)* 31(3), 300–303.
+- James, Willard and Stein, Charles (1961). Estimation with Quadratic Loss. *Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability* 1, 361–379.
+- Jolliffe, Ian T. (1982). A Note on the Use of Principal Components in Regression. *Journal of the Royal Statistical Society, Series C* 31(3), 300–303.
 - Jolliffe, Ian T. (2002). *Principal Component Analysis*. 2nd edition. New York: Springer.
-- Lehmann, E. L. and Casella, George (1998). *Theory of Point Estimation*. 2nd edition. New York: Springer.
+- Lehmann, Erich L. and Casella, George (1998). *Theory of Point Estimation*. 2nd edition. New York: Springer.
 - Longley, James W. (1967). An Appraisal of Least Squares Programs for the Electronic Computer from the Point of View of the User. *Journal of the American Statistical Association* 62(319), 819–841.
 - Massy, William F. (1965). Principal Components Regression in Exploratory Statistical Research. *Journal of the American Statistical Association* 60(309), 234–256.
 - Osborne, Michael R., Presnell, Brett and Turlach, Berwin A. (2000). A New Approach to Variable Selection in Least Squares Problems. *IMA Journal of Numerical Analysis* 20(3), 389–403.
@@ -115,8 +115,8 @@ estimator; Efron and Hastie (2016, chapter 7) link James–Stein and ridge regre
 - Sen, Ashish and Srivastava, Muni (1990). *Regression Analysis: Theory, Methods, and Applications*. New York: Springer.
 - Stein, Charles (1956). Inadmissibility of the Usual Estimator for the Mean of a Multivariate Normal Distribution. *Proceedings of the Third Berkeley Symposium on Mathematical Statistics and Probability* 1, 197–206.
 - Stein, Charles M. (1981). Estimation of the Mean of a Multivariate Normal Distribution. *The Annals of Statistics* 9(6), 1135–1151.
-- Theobald, C. M. (1974). Generalizations of Mean Square Error Applied to Ridge Regression. *Journal of the Royal Statistical Society. Series B* 36(1), 103–106.
-- Tibshirani, Robert (1996). Regression Shrinkage and Selection via the Lasso. *Journal of the Royal Statistical Society. Series B* 58(1), 267–288.
+- Theobald, C. M. (1974). Generalizations of Mean Square Error Applied to Ridge Regression. *Journal of the Royal Statistical Society, Series B* 36(1), 103–106.
+- Tibshirani, Robert (1996). Regression Shrinkage and Selection via the Lasso. *Journal of the Royal Statistical Society, Series B* 58(1), 267–288.
 - Tibshirani, Ryan J. (2013). The Lasso Problem and Uniqueness. *Electronic Journal of Statistics* 7, 1456–1490.
 - Tikhonov, Andrey N. and Arsenin, Vasiliy Y. (1977). *Solutions of Ill-Posed Problems*. Washington, DC: Winston.
 - Tseng, Paul (2001). Convergence of a Block Coordinate Descent Method for Nondifferentiable Minimization. *Journal of Optimization Theory and Applications* 109(3), 475–494.

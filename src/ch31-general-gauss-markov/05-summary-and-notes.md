@@ -132,7 +132,7 @@ whole apparatus to split-plot, repeated-measures and longitudinal designs, where
 - Rao, C. Radhakrishna and Mitra, Sujit Kumar (1971). *Generalized Inverse of Matrices and Its Applications*. New York: Wiley.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.
-- Watson, Geoffrey S. (1955). Serial Correlation in Regression Analysis I. *Biometrika* 42(3–4), 327–341.
+- Watson, Geoffrey S. (1955). Serial Correlation in Regression Analysis I. *Biometrika* 42(3/4), 327–341.
 - White, Halbert (1980). A Heteroskedasticity-Consistent Covariance Matrix Estimator and a Direct Test for Heteroskedasticity. *Econometrica* 48(4), 817–838.
 - Yates, Frank (1940). The Recovery of Inter-Block Information in Balanced Incomplete Block Designs. *Annals of Eugenics* 10(4), 317–325.
 - Zellner, Arnold (1962). An Efficient Method of Estimating Seemingly Unrelated Regressions and Tests for Aggregation Bias. *Journal of the American Statistical Association* 57(298), 348–368.

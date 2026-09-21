@@ -21,7 +21,7 @@ eigenvectors of \( \A\T\A \) and \( \A\A\T \), with \( \C(\V)=\C(\A\T) \) and \(
 
 ::: {.proof}
 \( \A\T\A \) is nonnegative definite of rank \( r \) (@prp-mat-rank-product(c)). By the spectral
-theorem its eigenvalues are \( \sigma_1^2\ge\dots\ge\sigma_r^2>0 \) and \( n-r \) zeros, with orthonormal
+theorem (@thm-mat-spectral) its eigenvalues are \( \sigma_1^2\ge\dots\ge\sigma_r^2>0 \) and \( n-r \) zeros, with orthonormal
 eigenvectors \( \V=[\bv_1,\dots,\bv_r] \) for the nonzero ones and \( \V_0 \) for the zeros. Define
 \( \bU=\A\V\bD^{-1} \). Then
 \( \bU\T\bU=\bD^{-1}\V\T\A\T\A\V\bD^{-1}=\bD^{-1}\bD^2\bD^{-1}=\I_r \). For each column \( \bv \) of \( \V_0 \),
@@ -209,4 +209,98 @@ For two columns, even \( \kappa(\X)=100 \) requires \( \lvert r\rvert>9999/10001
 Show that \( \kappa(\X)\ge\max_j\norm{\x_j}/\min_k\norm{\x_k} \), so that columns on very different
 scales force a large condition number. Show by example that rescaling the columns can also
 increase \( \kappa \).
+:::
+
+### C. Going deeper
+
+::: {#exr-mat-eckart-young-frobenius}
+[C1]
+
+Prove the Frobenius version of the Eckart–Young theorem quoted after
+@prp-mat-svd-norms: for \( k<r \) and any \( \B \) with \( \rank(\B)\le k \),
+\[
+\norm{\A-\B}_F^2\ \ge\ \sum_{i>k}\sigma_i^2=\norm{\A-\A_k}_F^2 ,
+\]
+where \( \A_k=\sum_{i\le k}\sigma_i\bu_i\bv_i\T \). Work in three steps. (i) The columns of \( \B \)
+lie in the column space of some \( m\times k \) matrix \( \Q \) with \( \Q\T\Q=\I_k \); show that among
+all such \( \B \) the closest to \( \A \) is \( \Q\Q\T\A \), at squared distance
+\( \norm{\A}_F^2-\norm{\Q\T\A}_F^2 \). (ii) Show \( \norm{\Q\T\A}_F^2=\sum_i\sigma_i^2c_i \) with
+\( c_i=\norm{\Q\T\bu_i}^2\in[0,1] \) and \( \sum_ic_i=k \), and deduce
+\( \norm{\Q\T\A}_F^2\le\sum_{i\le k}\sigma_i^2 \). (iii) Exhibit the \( \Q \) that attains it.
+:::
+
+::: {.solution}
+Throughout, \( \tr(\mathbf{F}\T\G)=\sum_{i,j}f_{ij}g_{ij} \) by the definition of the trace, so
+\( \norm{\mathbf{F}}_F^2=\tr(\mathbf{F}\T\mathbf{F}) \).
+
+(i) Write \( \B=\Q\mathbf{C} \). Then \( \norm{\Q\mathbf{C}}_F^2=\tr(\mathbf{C}\T\Q\T\Q\mathbf{C})=\norm{\mathbf{C}}_F^2 \) and
+\( \tr(\A\T\Q\mathbf{C})=\tr\bigl((\Q\T\A)\T\mathbf{C}\bigr) \), so
+\[
+\norm{\A-\Q\mathbf{C}}_F^2=\norm{\A}_F^2-2\tr\bigl((\Q\T\A)\T\mathbf{C}\bigr)+\norm{\mathbf{C}}_F^2
+=\norm{\A}_F^2-\norm{\Q\T\A}_F^2+\norm{\mathbf{C}-\Q\T\A}_F^2 ,
+\]
+which is smallest at \( \mathbf{C}=\Q\T\A \). If \( \rank(\B)\le k \), a basis of \( \C(\B) \), extended if
+necessary and orthonormalized by @thm-mat-qr, provides such a \( \Q \).
+
+(ii) Let \( \A\A\T=\sum_{i=1}^m\sigma_i^2\bu_i\bu_i\T \) be its spectral decomposition, with
+\( \sigma_i=0 \) for \( i>r \) and \( \bu_1,\dots,\bu_m \) an orthonormal basis of \( \Real^m \). Then
+\[
+\norm{\Q\T\A}_F^2=\tr(\Q\T\A\A\T\Q)=\sum_i\sigma_i^2\,\tr(\Q\T\bu_i\bu_i\T\Q)
+=\sum_i\sigma_i^2c_i,\qquad c_i=\norm{\Q\T\bu_i}^2 .
+\]
+Completing \( \Q \) to an orthogonal matrix \( [\Q,\Q_2] \) gives
+\( 1=\norm{\bu_i}^2=\norm{\Q\T\bu_i}^2+\norm{\Q_2\T\bu_i}^2 \) by @prp-mat-orthogonal(d), so
+\( 0\le c_i\le1 \); and \( \sum_ic_i=\tr\bigl(\Q\T(\sum_i\bu_i\bu_i\T)\Q\bigr)=\tr(\Q\T\Q)=k \).
+Because the \( \sigma_i^2 \) are decreasing,
+\[
+\sum_i\sigma_i^2c_i-\sum_{i\le k}\sigma_i^2=\sum_{i\le k}\sigma_i^2(c_i-1)+\sum_{i>k}\sigma_i^2c_i
+\le\sigma_k^2\Bigl(\sum_ic_i-k\Bigr)=0,
+\]
+since \( c_i-1\le0 \) and \( \sigma_i^2\ge\sigma_k^2 \) for \( i\le k \), while \( c_i\ge0 \) and
+\( \sigma_i^2\le\sigma_k^2 \) for \( i>k \).
+
+(iii) Taking \( \Q=[\bu_1,\dots,\bu_k] \) gives \( c_i=1 \) for \( i\le k \) and \( c_i=0 \) otherwise,
+and \( \Q\Q\T\A=\sum_{i\le k}\bu_i\bu_i\T\A=\A_k \), because \( \bu_i\T\A=\sigma_i\bv_i\T \). So the
+minimum of \( \norm{\A-\B}_F^2 \) over matrices of rank at most \( k \) is
+\( \norm{\A}_F^2-\sum_{i\le k}\sigma_i^2=\sum_{i>k}\sigma_i^2 \), using @prp-mat-svd-norms(a),
+and it is attained at \( \A_k \). The same truncation is therefore optimal in both norms.
+:::
+
+::: {#exr-mat-weyl}
+[C2]
+
+Let \( \A \) and \( \A+\mathbf{E} \) be \( m\times n \), with singular values written in decreasing order
+and padded with zeros. Using @exr-mat-courant-fischer for \( \A\T\A \), show first that
+\[
+\sigma_k(\A)=\max_{\dim\mathcal S=k}\ \min_{\bzero\ne\x\in\mathcal S}\frac{\norm{\A\x}}{\norm{\x}},
+\]
+and then Weyl's inequality \( \lvert\sigma_k(\A+\mathbf{E})-\sigma_k(\A)\rvert\le\norm{\mathbf{E}}_2 \) for
+every \( k \). Deduce that for \( \X \) of full column rank
+\[
+\sigma_{\min}(\X)=\min\{\norm{\mathbf{E}}_2:\rank(\X+\mathbf{E})<p\},
+\]
+so that \( 1/\kappa(\X) \) measures, relative to \( \sigma_1 \), how far the design is from exact
+collinearity.
+:::
+
+::: {.solution}
+The eigenvalues of \( \A\T\A \) are \( \sigma_k(\A)^2 \), and
+\( \x\T\A\T\A\x/\x\T\x=\norm{\A\x}^2/\norm{\x}^2 \), so the Courant–Fischer formula of
+@exr-mat-courant-fischer gives the first display after taking square roots, the map
+\( t\mapsto\sqrt t \) being increasing.
+
+Fix \( k \) and let \( \mathcal S \) attain the maximum for \( \A \). For every unit \( \x \),
+\( \norm{(\A+\mathbf{E})\x}\ge\norm{\A\x}-\norm{\mathbf{E}\x}\ge\norm{\A\x}-\norm{\mathbf{E}}_2 \), so the minimum
+over the unit vectors of \( \mathcal S \) is at least \( \sigma_k(\A)-\norm{\mathbf{E}}_2 \). Hence
+\( \sigma_k(\A+\mathbf{E})\ge\sigma_k(\A)-\norm{\mathbf{E}}_2 \). Exchanging \( \A \) and \( \A+\mathbf{E} \), and
+noting \( \norm{-\mathbf{E}}_2=\norm{\mathbf{E}}_2 \), gives the reverse bound and so Weyl's inequality.
+
+For the last statement, suppose \( \rank(\X+\mathbf{E})<p \). Then \( (\X+\mathbf{E})\bv=\bzero \) for some unit
+\( \bv \), so \( \norm{\mathbf{E}}_2\ge\norm{\mathbf{E}\bv}=\norm{\X\bv}\ge\sigma_{\min}(\X) \) by
+@prp-mat-svd-norms(b). Conversely \( \mathbf{E}=-\sigma_p\bu_p\bv_p\T \) has spectral norm
+\( \sigma_p=\sigma_{\min}(\X) \) and \( (\X+\mathbf{E})\bv_p=\sigma_p\bu_p-\sigma_p\bu_p=\bzero \), so the
+minimum is attained. Rescaling, the nearest rank-deficient matrix is at relative distance
+\( \sigma_p/\sigma_1=1/\kappa(\X) \): a condition number of \( 10^3 \) means that a perturbation of
+one part in a thousand of the largest singular value suffices to make the columns exactly
+dependent.
 :::

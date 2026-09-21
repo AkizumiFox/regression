@@ -345,3 +345,119 @@ Suppose \( X \) is randomized, so it has no parents, and \( P \) is a pre-treatm
 \( \{P\} \) are adjustment sets and that \( v(\{P\})=(1-\rho^2_{YP\cdot X})\,v(\emptyset) \), where \( \rho_{YP\cdot X} \) is the partial
 correlation of \( Y \) and \( P \) given \( X \). Compare with @prp-dsn-precision.
 :::
+
+### C. Going deeper
+
+::: {#exr-cau-positivity}
+[C1]
+
+Positivity is not a technicality. Let \( Z \) be \( 1 \) or \( 0 \) with probability \( \tfrac12 \) each; let
+\( X \) be \( 1 \) or \( 0 \) with probability \( \tfrac12 \) each when \( Z=0 \), and \( X=0 \) whenever
+\( Z=1 \); and let
+\[
+Y=\tau X+\lambda Z+\psi XZ+U_Y,
+\]
+with \( U_Y \) of mean zero and independent of \( (X,Z) \). The graph is \( Z\to X \), \( Z\to Y \),
+\( X\to Y \), so \( \{Z\} \) satisfies the back-door criterion.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that the average effect
+   \( \E\bigl(Y\mid\operatorname{do}(X=1)\bigr)-\E\bigl(Y\mid\operatorname{do}(X=0)\bigr) \) is
+   \( \tau+\psi/2 \).
+
+2. Show that the right-hand side of @eq-cau-adjustment is not defined, because the positivity condition of
+   @thm-cau-backdoor(a) fails at \( z=1 \).
+
+3. Show that the joint distribution of \( (X,Z,Y) \) does not involve \( \psi \) at all, and that the least
+   squares regression of \( Y \) on \( 1 \), \( X \) and \( Z \) nevertheless returns the coefficient
+   \( \tau \) exactly, in the population and in every sample in which the three covariate patterns occur.
+:::
+
+What, then, is the regression's answer an answer to?
+:::
+
+::: {.solution}
+(a) Under \( \operatorname{do}(X=x) \) the assignment for \( Z \) is unchanged, so
+\( \E\bigl(Y\mid\operatorname{do}(X=x)\bigr)=\tau x+\lambda\E Z+\psi x\E Z=\tau x+(\lambda+\psi x)/2 \), and
+the difference at \( x=1 \) and \( x=0 \) is \( \tau+\psi/2 \).
+
+(b) \( \Pr(X=1\mid Z=1)=0 \), so \( \E(Y\mid X=1,Z=1) \) is a conditional expectation on a null event: the
+distribution of the data says nothing about it, and the outer expectation in @eq-cau-adjustment averages a
+quantity that is undefined on half of the population.
+
+(c) The event \( \{X=1,Z=1\} \) has probability zero, so \( XZ=0 \) with probability one and
+\( Y=\tau X+\lambda Z+U_Y \) almost surely: no feature of the distribution moves when \( \psi \) changes, and
+\( \psi \) is not identified. The covariate vector \( (1,X,Z) \) takes only the three values
+\( (1,0,0) \), \( (1,1,0) \) and \( (1,0,1) \), which are linearly independent, so the linear model is
+saturated: the best linear predictor reproduces \( \E(Y\mid X,Z) \) at each of the three patterns, giving
+\( \beta_0=0 \), \( \beta_0+\beta_1=\tau \) and \( \beta_0+\beta_2=\lambda \). Hence \( \beta_1=\tau \),
+and in a sample the normal equations have the same unique solution in terms of the three cell means.
+
+So the regression reports \( \tau \), which is the effect of \( X \) among the units with \( Z=0 \), and
+equals the average effect only under the assumption \( \psi=0 \) — an assumption the data cannot examine,
+because the stratum in which \( X=1 \) and \( Z=1 \) is empty. The number comes from the functional form, by
+extrapolation, and not from the observations. A linear model is at its most dangerous where the design is
+thin, since it never declines to answer.
+:::
+
+::: {#exr-cau-front-door}
+[C2]
+
+When every adjustment set contains an unrecorded variable, an observed *mediator* can still identify the
+effect. Let \( U \) be unrecorded and put
+\[
+X=aU+U_X,\qquad M=\delta X+U_M,\qquad Y=\gamma M+bU+U_Y,
+\]
+with \( U,U_X,U_M,U_Y \) independent of mean zero and variances
+\( \sigma_U^2,\sigma_X^2,\sigma_M^2,\sigma_Y^2 \), all positive, and \( a\ne0 \), \( b\ne0 \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that neither \( \emptyset \) nor \( \{M\} \) satisfies the back-door criterion relative to
+   \( (X,Y) \), so @thm-cau-backdoor identifies nothing from the recorded variables \( (X,M,Y) \).
+
+2. Show that the slope of \( L(M\mid X) \) is exactly \( \delta \).
+
+3. Show that the coefficient of \( M \) in \( L(Y\mid X,M) \) is exactly \( \gamma \), while the coefficient
+   of \( X \) there is \( b\kappa \) with \( \kappa=a\sigma_U^2/(a^2\sigma_U^2+\sigma_X^2) \), and so is not
+   the direct effect \( 0 \).
+
+4. Conclude that the product of the two estimable slopes is the total effect \( \tau=\gamma\delta \). This is
+   the linear case of Pearl's front-door criterion.
+
+5. Show that the construction is fragile: if \( M=\delta X+gU+U_M \) with \( g\ne0 \), the two slopes become
+   \( \delta+g\kappa \) and \( \gamma+b\lambda \) with
+   \( \lambda=g\sigma_U^2/(g^2\sigma_U^2+\sigma_M^2) \), whose product is not \( \gamma\delta \).
+:::
+
+:::
+
+::: {.solution}
+(a) The path \( X\leftarrow U\to Y \) is a back-door path with \( U \) a non-collider, so the empty set fails
+(ii); and \( M \) is a descendant of \( X \), so \( \{M\} \) fails (i). Since \( U \) is unrecorded, there is
+no candidate set left.
+
+(b) \( \Cov(M,X)=\delta\Var(X)+\Cov(U_M,X)=\delta\Var(X) \), because \( U_M \) is independent of \( X \), so
+@thm-proj-blp gives the slope \( \Cov(M,X)/\Var(X)=\delta \).
+
+(c) Since \( U_Y \) is uncorrelated with \( (X,M) \), \( L(Y\mid X,M)=\gamma M+b\,L(U\mid X,M) \). Now
+\( M=\delta X+U_M \), so the span of \( 1,X,M \) is the span of \( 1,X,U_M \), and \( U_M \) is uncorrelated
+with \( X \); by the orthogonality of the two pieces,
+\( L(U\mid X,M)=L(U\mid X)+L(U\mid U_M)=\kappa X+0 \), with
+\( \kappa=\Cov(U,X)/\Var(X)=a\sigma_U^2/(a^2\sigma_U^2+\sigma_X^2) \). So
+\( L(Y\mid X,M)=\gamma M+b\kappa X \): the coefficient of \( M \) is exactly \( \gamma \), and the
+coefficient of \( X \) is \( b\kappa\ne0 \) although the arrow \( X\to Y \) is absent. Conditioning on the
+mediator has left the confounding in the coefficient of \( X \) and removed it from the coefficient of
+\( M \) — because every back-door path from \( M \) to \( Y \) runs through \( X \), which is held fixed.
+
+(d) The total effect of \( X \) on \( Y \) is the product over the one directed path, \( \tau=\gamma\delta \),
+and by (b) and (c) both factors are coefficients of regressions among recorded variables, so each is
+estimated consistently by least squares (@prp-proj-consistency).
+
+(e) Replace \( U_M \) by \( E=gU+U_M \), which is still uncorrelated with \( X \), and repeat the two
+computations. For (b), \( \Cov(M,X)=\delta\Var(X)+g\,a\sigma_U^2 \), so the slope is \( \delta+g\kappa \).
+For (c), \( L(U\mid X,M)=L(U\mid X)+L(U\mid E)=\kappa X+\lambda E \) with
+\( \lambda=g\sigma_U^2/(g^2\sigma_U^2+\sigma_M^2) \), and \( E=M-\delta X \), so the coefficient of \( M \)
+is \( \gamma+b\lambda \). The product \( (\delta+g\kappa)(\gamma+b\lambda) \) differs from \( \gamma\delta \)
+by terms of first order in \( g \). The front-door criterion buys identification from an assumption — that
+nothing unrecorded acts on the mediator — that is no more checkable than the one it replaces.
+:::

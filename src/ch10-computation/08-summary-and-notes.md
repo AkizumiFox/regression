@@ -86,11 +86,11 @@ principal components regression in [Chapter 27](../ch27-shrinkage/index.html).
 - Björck, Åke (1967). Solving Linear Least Squares Problems by Gram–Schmidt Orthogonalization. *BIT* 7(1), 1–21.
 - Björck, Åke (1996). *Numerical Methods for Least Squares Problems*. Philadelphia: SIAM.
 - Björck, Åke and Paige, Christopher C. (1992). Loss and Recapture of Orthogonality in the Modified Gram–Schmidt Algorithm. *SIAM Journal on Matrix Analysis and Applications* 13(1), 176–190.
-- Brown, R. L., Durbin, J. and Evans, J. M. (1975). Techniques for Testing the Constancy of Regression Relationships over Time. *Journal of the Royal Statistical Society, Series B* 37(2), 149–192.
+- Brown, R. L., Durbin, James and Evans, J. M. (1975). Techniques for Testing the Constancy of Regression Relationships over Time. *Journal of the Royal Statistical Society, Series B* 37(2), 149–192.
 - Businger, Peter and Golub, Gene H. (1965). Linear Least Squares Solutions by Householder Transformations. *Numerische Mathematik* 7(3), 269–276.
 - Chan, Tony F. (1987). Rank Revealing QR Factorizations. *Linear Algebra and Its Applications* 88/89, 67–82.
 - Chan, Tony F., Golub, Gene H. and LeVeque, Randall J. (1983). Algorithms for Computing the Sample Variance: Analysis and Recommendations. *The American Statistician* 37(3), 242–247.
-- Dongarra, J. J., Bunch, J. R., Moler, C. B. and Stewart, G. W. (1979). *LINPACK Users' Guide*. Philadelphia: SIAM.
+- Dongarra, Jack J., Bunch, James R., Moler, Cleve B. and Stewart, Gilbert W. (1979). *LINPACK Users' Guide*. Philadelphia: SIAM.
 - Gentleman, W. Morven (1973). Least Squares Computations by Givens Transformations Without Square Roots. *Journal of the Institute of Mathematics and Its Applications* 12(3), 329–336.
 - Givens, Wallace (1958). Computation of Plane Unitary Rotations Transforming a General Matrix to Triangular Form. *Journal of the Society for Industrial and Applied Mathematics* 6(1), 26–50.
 - Goldberg, David (1991). What Every Computer Scientist Should Know About Floating-Point Arithmetic. *ACM Computing Surveys* 23(1), 5–48.
@@ -110,10 +110,10 @@ principal components regression in [Chapter 27](../ch27-shrinkage/index.html).
 - Läuchli, Peter (1961). Jordan-Elimination und Ausgleichung nach kleinsten Quadraten. *Numerische Mathematik* 3(1), 226–240.
 - Lawson, Charles L. and Hanson, Richard J. (1974). *Solving Least Squares Problems*. Englewood Cliffs, NJ: Prentice-Hall. Reprinted Philadelphia: SIAM, 1995.
 - Longley, James W. (1967). An Appraisal of Least Squares Programs for the Electronic Computer from the Point of View of the User. *Journal of the American Statistical Association* 62(319), 819–841.
-- Miller, Alan J. (1992). Algorithm AS 274: Least Squares Routines to Supplement Those of Gentleman. *Journal of the Royal Statistical Society, Series C (Applied Statistics)* 41(2), 458–478.
-- Plackett, R. L. (1950). Some Theorems in Least Squares. *Biometrika* 37(1/2), 149–157.
+- Miller, Alan J. (1992). Algorithm AS 274: Least Squares Routines to Supplement Those of Gentleman. *Journal of the Royal Statistical Society, Series C* 41(2), 458–478.
+- Plackett, Robin L. (1950). Some Theorems in Least Squares. *Biometrika* 37(1/2), 149–157.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.
-- Stewart, G. W. (1979). The Effects of Rounding Error on an Algorithm for Downdating a Cholesky Factorization. *Journal of the Institute of Mathematics and Its Applications* 23(2), 203–213.
+- Stewart, Gilbert W. (1979). The Effects of Rounding Error on an Algorithm for Downdating a Cholesky Factorization. *Journal of the Institute of Mathematics and Its Applications* 23(2), 203–213.
 - Thisted, Ronald A. (1988). *Elements of Statistical Computing: Numerical Computation*. New York: Chapman and Hall.
 - Trefethen, Lloyd N. and Bau, David (1997). *Numerical Linear Algebra*. Philadelphia: SIAM.
 - van der Sluis, A. (1969). Condition Numbers and Equilibration of Matrices. *Numerische Mathematik* 14(1), 14–23.

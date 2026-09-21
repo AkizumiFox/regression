@@ -177,3 +177,122 @@ Show that adding a column to \( \X \) cannot decrease any leverage. Show that th
 a one-way layout are \( 1/n_k \) for members of group \( k \), and explain why an observation
 forming a group on its own has leverage one.
 :::
+
+### C. Going deeper
+
+::: {#exr-proj-leverage-one-rank}
+[C1]
+
+@prp-proj-leverage(d) says that \( h_{ii}=1 \) iff \( \vect{e}_i\in\C(\X) \). Here is what that means
+for the design. Write \( \X_{(i)} \) for \( \X \) with row \( i \) deleted, and let
+\( \bD \) be the \( (n-1)\times n \) matrix that deletes the \( i \)th coordinate of a vector, so that
+\( \C(\X_{(i)})=\bD\,\C(\X) \) and \( \Null(\bD)=\spn(\vect{e}_i) \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \rank(\X_{(i)})=\rank(\X)-\dim\bigl(\C(\X)\cap\spn(\vect{e}_i)\bigr) \), and deduce
+   that \( h_{ii}=1 \) iff deleting case \( i \) lowers the rank of the design.
+
+2. Deduce that at most \( \rank(\X) \) cases can have leverage one, and that if \( k \) of them do,
+   the remaining leverages sum to \( \rank(\X)-k \).
+
+3. Show that \( \bD\M\bD\T \) is the orthogonal projection onto \( \C(\X_{(i)}) \) when
+   \( h_{ii}=1 \), and conclude that deleting such a case changes none of the other fitted
+   values. In what sense does the data set then contain no information about \( y_i \)?
+:::
+:::
+
+::: {.solution}
+(a) The map \( \bD \) restricted to \( \C(\X) \) is linear with image \( \C(\X_{(i)}) \) and kernel
+\( \C(\X)\cap\Null(\bD)=\C(\X)\cap\spn(\vect{e}_i) \), so the rank–nullity
+theorem (@eq-proj-rank-nullity) applied to that restriction gives the identity. The intersection is
+\( \spn(\vect{e}_i) \) if \( \vect{e}_i\in\C(\X) \) and \( \{\bzero\} \) otherwise, so the rank falls by one
+exactly when \( \vect{e}_i\in\C(\X) \), that is, when \( h_{ii}=1 \).
+
+(b) Leverages are nonnegative and sum to \( r=\rank(\X) \) by @prp-proj-leverage(b), so \( k \)
+entries equal to one force \( k\le r \) and leave \( r-k \) for the rest.
+
+(c) Suppose \( h_{ii}=1 \), so \( \M\vect{e}_i=\vect{e}_i \) and, by @prp-proj-leverage(d), row \( i \) and
+column \( i \) of \( \M \) are \( \vect{e}_i\T \) and \( \vect{e}_i \). The matrix \( \bD\M\bD\T \) is symmetric, and
+since \( \bD\T\bD=\I-\vect{e}_i\vect{e}_i\T \),
+\[
+(\bD\M\bD\T)^2=\bD\M(\I-\vect{e}_i\vect{e}_i\T)\M\bD\T=\bD(\M-\vect{e}_i\vect{e}_i\T)\bD\T=\bD\M\bD\T ,
+\]
+because \( \bD\vect{e}_i=\bzero \). Its column space is \( \bD\C(\M)=\C(\X_{(i)}) \), so it is the
+projection of @thm-proj-sym-idem. The reduced fit is therefore
+\( \bD\M\bD\T\y_{(i)}=\bD\M(\I-\vect{e}_i\vect{e}_i\T)\y=\bD\M\y-y_i\,\bD\vect{e}_i=\bD\M\y \),
+whose \( j \)th entry is \( \hat y_j \): the other fitted values do not move, and they never
+involved \( y_i \) in the first place, since \( m_{ji}=0 \). The response \( y_i \) influences no
+fitted value but its own, which it reproduces exactly: the model has a free coordinate reserved
+for case \( i \), and the data can neither check it nor borrow strength for it.
+:::
+
+::: {#exr-proj-leverage-replication}
+[C2]
+
+Replication bounds leverage. Suppose \( m \) cases share the same row of \( \X \), say
+\( \x_{(i)}=\x_{(j)} \) for all \( i,j\in D \) with \( \lvert D\rvert=m \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that rows \( i \) and \( j \) of \( \M \) are equal for \( i,j\in D \), and hence that
+   \( m_{ij}=h_{ii}=h_{jj} \) for all \( i,j\in D \).
+
+2. Deduce \( h_{ii}\le1/m \), with equality iff \( m_{il}=0 \) for every \( l\notin D \). Check the
+   bound against the one-way layout of @exr-proj-leverage-monotone.
+
+3. A design point of high leverage is to be measured again. Explain what (b) says about
+   repeating it \( m \) times, and why this does not contradict @exr-proj-leverage-monotone.
+:::
+:::
+
+::: {.solution}
+(a) By @thm-proj-ls-projection, \( \M\y=\X\hbeta \) for any least squares estimate, so the \( i \)th
+fitted value is \( \x_{(i)}\T\hbeta \). If \( \x_{(i)}=\x_{(j)} \), then \( \hat y_i=\hat y_j \) for every
+\( \y \), which forces rows \( i \) and \( j \) of \( \M \) to be equal. Taking the \( k \)th entry with
+\( k\in D \) and using symmetry, \( m_{ik}=m_{kk}=h_{kk} \), and also \( m_{ik}=m_{ki}=h_{ii} \), so all
+these numbers coincide.
+
+(b) By @prp-proj-leverage(a),
+\( h_{ii}=\sum_lm_{il}^2\ge\sum_{l\in D}m_{il}^2=m\,h_{ii}^2 \), and \( h_{ii}>0 \) unless the row is
+\( \bzero \); dividing gives \( h_{ii}\le1/m \). Equality needs the discarded terms to vanish, that
+is, \( m_{il}=0 \) for \( l\notin D \). In a one-way layout the \( m \) members of a group are exactly
+such a set, and the projection averages within groups, so \( m_{il}=0 \) outside the group and the
+bound is attained: \( h_{ii}=1/m \).
+
+(c) Replication is the one design change that caps leverage: with \( m \) copies of a point, none
+of them can have leverage above \( 1/m \), whatever the rest of the design, so an isolated design
+point stops being able to dictate its own fitted value. There is no conflict with
+@exr-proj-leverage-monotone, which adds a *column* to a fixed set of cases; here we add
+*cases*, and the total \( \sum_ih_{ii}=\rank(\X) \) is redistributed over more of them.
+:::
+
+::: {#exr-proj-leverage-add-case}
+[C3]
+
+Let \( \X \) have full column rank \( p \), write \( \A=\X\T\X \), and append one more case with row
+\( \x\T \), giving \( \X_+ \) with \( \X_+\T\X_+=\A+\x\x\T \). Put \( d=\x\T\A^{-1}\x \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Using @thm-mat-woodbury, show that the new case has leverage \( d/(1+d) \), which is always
+   less than one.
+
+2. Show that no old leverage increases: the new leverage of case \( i \) is
+   \( h_{ii}-(\x_{(i)}\T\A^{-1}\x)^2/(1+d) \). When is it unchanged?
+
+3. Reconcile (b) with \( \sum_ih_{ii}=p \) in both designs.
+:::
+:::
+
+::: {.solution}
+(a) By @eq-mat-sherman-morrison,
+\( (\A+\x\x\T)^{-1}=\A^{-1}-\A^{-1}\x\x\T\A^{-1}/(1+d) \), and \( 1+d>0 \) because \( \A^{-1} \) is
+positive definite. So the new case has leverage
+\( \x\T(\A+\x\x\T)^{-1}\x=d-d^2/(1+d)=d/(1+d)<1 \).
+
+(b) Applying the same formula to \( \x_{(i)} \) gives
+\( h_{ii}^{+}=h_{ii}-(\x_{(i)}\T\A^{-1}\x)^2/(1+d)\le h_{ii} \), with equality iff
+\( \x_{(i)}\T\A^{-1}\x=0 \), that is, iff the two rows are orthogonal in the metric of \( \A^{-1} \).
+
+(c) The old leverages fall by \( \sum_i(\x_{(i)}\T\A^{-1}\x)^2/(1+d)=\x\T\A^{-1}\A\A^{-1}\x/(1+d)=d/(1+d) \),
+which is exactly the leverage of the new case. The total stays at \( p \): one more case shares
+the same \( p \) units of leverage.
+:::

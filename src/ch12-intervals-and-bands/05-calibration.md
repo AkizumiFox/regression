@@ -300,7 +300,7 @@ When \( m\ge2 \), the new readings carry their own information about \( \sigma^2
 
 ::: {.solution}
 The within-specimen sum of squares is \( \sigma^2\chi^2(m-1) \), independent of \( \bar{Y}_0 \) (the sample mean and sample variance of a normal sample
-are independent) and of the standards. So \( \{\text{SSE}+\sum_j(Y_{0j}-\bar{Y}_0)^2\}/\sigma^2\sim\chi^2(n+m-3) \), independent of the numerator of the
+are independent by @cor-qf-sample-variance) and of the standards. So \( \{\text{SSE}+\sum_j(Y_{0j}-\bar{Y}_0)^2\}/\sigma^2\sim\chi^2(n+m-3) \), independent of the numerator of the
 pivot, and the pivot with \( s_p \) is \( t(n+m-3) \). More degrees of freedom give a smaller multiplier and a less variable estimate of \( \sigma \), so
 the set is shorter on average. The bounded case requires \( \hat{\beta}_1^2S_{xx}>t^2s_p^2 \), and a smaller \( t \) makes this easier.
 :::

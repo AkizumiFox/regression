@@ -228,3 +228,92 @@ completing the square as in @prp-mat-quadratic-min,
 \]
 This quadratic form is the numerator of the \( F \) statistic in [Chapter 11](../ch11-general-linear-hypothesis/index.html) (@thm-glh-general-f).
 :::
+
+### C. Going deeper
+
+::: {#exr-mat-ridge-path}
+[C1]
+
+Let \( \X \) be \( n\times p \) of any rank, write \( \A=\X\T\X \), and for \( \lambda>0 \) let
+\( \hbeta(\lambda)=(\A+\lambda\I)^{-1}\X\T\y \) be the minimizer of @exr-mat-ridge. Show that
+
+::: {.enumerate options="label=(\alph*)"}
+1. \( \dfrac{\partial\hbeta}{\partial\lambda}=-(\A+\lambda\I)^{-1}\hbeta(\lambda) \);
+
+2. \( \X\T\bigl(\y-\X\hbeta(\lambda)\bigr)=\lambda\hbeta(\lambda) \);
+
+3. \( \norm{\hbeta(\lambda)}^2 \) is strictly decreasing in \( \lambda \), and the residual sum of
+           squares \( \norm{\y-\X\hbeta(\lambda)}^2 \) is strictly increasing, unless \( \X\T\y=\bzero \);
+
+4. \( \hbeta(\lambda)\to\bzero \) as \( \lambda\to\infty \).
+:::
+
+So the ridge path trades fit for size monotonically, which is what makes a single tuning
+parameter a sensible thing to choose ([Chapter 27](../ch27-shrinkage/index.html)).
+:::
+
+::: {.solution}
+(a) By @prp-mat-matrix-derivatives(c) with \( \A(\lambda)=\A+\lambda\I \) and
+\( \dot{\A}=\I \), the derivative of \( (\A+\lambda\I)^{-1} \) is \( -(\A+\lambda\I)^{-2} \), so
+\( \partial\hbeta/\partial\lambda=-(\A+\lambda\I)^{-2}\X\T\y=-(\A+\lambda\I)^{-1}\hbeta \).
+
+(b) \( \X\T\y=(\A+\lambda\I)\hbeta=\X\T\X\hbeta+\lambda\hbeta \), so
+\( \X\T\y-\X\T\X\hbeta=\lambda\hbeta \).
+
+(c) Write \( \mathbf{K}=(\A+\lambda\I)^{-1} \), which is positive definite. Then
+\[
+\frac{\partial}{\partial\lambda}\norm{\hbeta}^2=2\hbeta\T\frac{\partial\hbeta}{\partial\lambda}
+=-2\hbeta\T\mathbf{K}\hbeta<0
+\]
+unless \( \hbeta=\bzero \), which by (b) happens only when \( \X\T\y=\bzero \), and then
+\( \hbeta(\lambda)=\bzero \) for every \( \lambda \). For the residual sum of squares, using (b),
+\[
+\frac{\partial}{\partial\lambda}\norm{\y-\X\hbeta}^2
+=-2\bigl(\y-\X\hbeta\bigr)\T\X\frac{\partial\hbeta}{\partial\lambda}
+=2\lambda\hbeta\T\mathbf{K}\hbeta>0
+\]
+under the same proviso.
+
+(d) Every eigenvalue of \( \A+\lambda\I \) is at least \( \lambda \), so
+\( \norm{\mathbf{K}}_2\le1/\lambda \) and \( \norm{\hbeta(\lambda)}\le\norm{\X\T\y}/\lambda\to0 \).
+:::
+
+::: {#exr-mat-logdet-concave}
+[C2]
+
+Show that \( \W\mapsto\log\det\W \) is strictly concave on the positive definite matrices: for
+positive definite \( \W \) and symmetric \( \mathbf{E}\ne\bzero \), the function
+\( f(t)=\log\det(\W+t\mathbf{E}) \) has \( f''(t)<0 \) wherever \( \W+t\mathbf{E} \) is positive definite.
+Deduce that \( \boldsymbol{\Omega}\mapsto\log\det\boldsymbol{\Omega}-\tr(\boldsymbol{\Omega}\bS) \), with \( \bS \) positive definite, is
+strictly concave in the *concentration matrix* \( \boldsymbol{\Omega}=\bSigma^{-1} \), that its only
+stationary point is \( \boldsymbol{\Omega}=\bS^{-1} \), and hence that the maximum found in
+@exr-mat-normal-mle is unique. *Hint:* differentiate along symmetric directions, as the text
+recommends, and use @thm-mat-square-root and @thm-mat-trace-cyclic.
+:::
+
+::: {.solution}
+Write \( \mathbf{M}(t)=(\W+t\mathbf{E})^{-1} \). By @prp-mat-matrix-derivatives(c),
+\( f'(t)=\tr(\mathbf{M}\mathbf{E}) \) and \( \mathbf{M}'(t)=-\mathbf{M}\mathbf{E}\mathbf{M} \), so
+\[
+f''(t)=\tr(\mathbf{M}'\mathbf{E})=-\tr(\mathbf{M}\mathbf{E}\mathbf{M}\mathbf{E})
+=-\tr\bigl((\mathbf{M}^{1/2}\mathbf{E}\mathbf{M}^{1/2})^2\bigr)=-\norm{\mathbf{M}^{1/2}\mathbf{E}\mathbf{M}^{1/2}}_F^2 ,
+\]
+using the cyclic property to move one factor \( \mathbf{M}^{1/2} \) from the front to the back and
+\( \tr(\mathbf{F}^2)=\tr(\mathbf{F}\T\mathbf{F})=\norm{\mathbf{F}}_F^2 \) for symmetric \( \mathbf{F} \). Since \( \mathbf{M}^{1/2} \)
+is nonsingular, \( \mathbf{M}^{1/2}\mathbf{E}\mathbf{M}^{1/2}=\bzero \) only for \( \mathbf{E}=\bzero \), so \( f''(t)<0 \).
+The positive definite matrices form a convex set, and strict concavity along every line
+segment in it is exactly strict concavity.
+
+Adding the linear term \( -\tr(\boldsymbol{\Omega}\bS) \) does not change the second derivative, so
+\( g(\boldsymbol{\Omega})=\log\det\boldsymbol{\Omega}-\tr(\boldsymbol{\Omega}\bS) \) is strictly concave. Differentiating along a
+symmetric direction \( \mathbf{E} \),
+\[
+\left.\frac{\partial}{\partial t}g(\boldsymbol{\Omega}+t\mathbf{E})\right|_{t=0}
+=\tr(\boldsymbol{\Omega}^{-1}\mathbf{E})-\tr(\bS\mathbf{E})=\tr\bigl\{(\boldsymbol{\Omega}^{-1}-\bS)\mathbf{E}\bigr\}.
+\]
+This vanishes for every symmetric \( \mathbf{E} \) iff \( \boldsymbol{\Omega}^{-1}=\bS \): take
+\( \mathbf{E}=\boldsymbol{\Omega}^{-1}-\bS \), which is symmetric, and the trace becomes
+\( \norm{\boldsymbol{\Omega}^{-1}-\bS}_F^2 \). A strictly concave function has at most one stationary point
+and no other local maximum, so \( \boldsymbol{\Omega}=\bS^{-1} \), that is, \( \bSigma=\bS \), is the unique
+maximizer, as @exr-mat-normal-mle found by a different route.
+:::

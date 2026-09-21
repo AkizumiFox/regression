@@ -217,7 +217,7 @@ while also \( \bv\T\bS\bv=\bv\T(\Z\bu)\le\norm{\bv}\norm{\Z\bu}
 \( \sqrt{\bv\T\bS\bv} \) when it is nonzero gives
 \( \bv\T\bS\bv\le\norm{\bv}^2 \), so the eigenvalues lie in \( [0,1] \).
 Splitting \( \Z\hat{\bgamma} \) by blocks gives the last identity.
-(b) \( \tr\bS=\tr(\Z\A^{-1}\Z\T)=\tr(\A^{-1}\Z\T\Z) \) by the cyclic property, and
+(b) \( \tr\bS=\tr(\Z\A^{-1}\Z\T)=\tr(\A^{-1}\Z\T\Z) \) by the cyclic property (@thm-mat-trace-cyclic), and
 \( \A^{-1}\Z\T\Z=\A^{-1}(\A-\bP)=\I-\A^{-1}\bP \). The \( j \)th diagonal
 block of \( \A^{-1}\bP \) is \( \lambda_j(\A^{-1})_{jj}\bP_j \), and the block
 belonging to the unpenalized columns is zero; taking traces block by block gives both

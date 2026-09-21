@@ -130,3 +130,94 @@ the diagonal and \( \rho \) next to it. Since \( \mathbf{C}\bone=\bzero \), @cor
 but \( n\Cov(\bar{\y})\to(1+2\rho)\bSigma \), not \( \bSigma \). For \( \rho>0 \) the naive standard error
 \( \sqrt{s_{jj}/n} \) stays too small by a fixed factor however large the sample.
 :::
+
+### C. Going deeper
+
+::: {#exr-rv-two-observations}
+[C1]
+
+::: {.enumerate options="label=(\alph*)"}
+1. With \( n=2 \), show that \( \bS=\tfrac12\mathbf{d}\mathbf{d}\T \) with \( \mathbf{d}=\y_1-\y_2 \). Deduce
+           that \( \rank(\bS)=1 \) whenever \( \y_1\ne\y_2 \), and that every sample correlation is \( \pm1 \),
+           whatever \( \bSigma \) is.
+
+2. With \( n=3 \) and \( p=3 \), show that \( \det(\bS)=0 \), hence that the three sample correlations
+           satisfy \( 1+2\hat{r}_{12}\hat{r}_{13}\hat{r}_{23}-\hat{r}_{12}^2-\hat{r}_{13}^2-\hat{r}_{23}^2=0 \)
+           when the sample variances are positive. Conclude that \( \hat{r}_{23} \) is always one of the
+           two *endpoints* of the interval allowed by @prp-rv-three-correlations, never an interior
+           point.
+
+3. What does this say about reading a sample correlation matrix computed from few
+           observations, and about the nearly singular \( \hat{\R} \) of @exm-rv-longley?
+:::
+
+:::
+
+::: {.solution}
+(a) Here \( \bar{\y}=\tfrac12(\y_1+\y_2) \), so
+\( \y_1-\bar{\y}=\tfrac12\mathbf{d} \) and \( \y_2-\bar{\y}=-\tfrac12\mathbf{d} \). Summing the two outer
+products and dividing by \( n-1=1 \) gives \( \bS=\tfrac12\mathbf{d}\mathbf{d}\T \), of rank one. Then
+\( s_{jk}=d_jd_k/2 \) and \( \hat{r}_{jk}=d_jd_k/\sqrt{d_j^2d_k^2}=\operatorname{sign}(d_jd_k) \),
+provided \( d_j,d_k\ne0 \). The two observations determine one direction, and every pair of
+coordinates moves along it.
+
+(b) By @prp-rv-sample-moments(c), \( \rank(\bS)\le n-1=2<3 \), so \( \det(\bS)=0 \). Writing
+\( \bS=\hat{\bD}\hat{\R}\hat{\bD} \) with \( \hat{\bD} \) the diagonal matrix of sample standard
+deviations, which is nonsingular when all sample variances are positive, gives
+\( \det(\hat{\R})=0 \). Expanding the \( 3\times3 \) determinant gives the stated identity, which is a
+quadratic in \( \hat{r}_{23} \) with roots
+\( \hat{r}_{12}\hat{r}_{13}\pm\sqrt{(1-\hat{r}_{12}^2)(1-\hat{r}_{13}^2)} \), the two endpoints
+in @prp-rv-three-correlations. A population correlation matrix hits these endpoints only when
+one variable is an exact linear function of the other two; three observations force it.
+
+(c) With \( n\le p \) the sample correlation matrix is singular whatever the population is, so
+its smallest eigenvalues and any statement derived from them describe the sample size as
+much as the data. Longley's \( \hat{\R} \) has \( n=16 \) and \( p=7 \), so its near singularity is not
+forced by the rank bound; it is a genuine feature of the series.
+:::
+
+::: {#exr-rv-smallest-eigenvalue}
+[C2]
+
+Let \( \bS \) be positive definite and let \( \lambda_{\min} \) be its smallest eigenvalue.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \lambda_{\min}=\min\{\mathbf{a}\T\bS\mathbf{a}:\norm{\mathbf{a}}=1\} \)
+           (@thm-mat-extremal-rayleigh), while
+           \( 1/(\bS^{-1})_{jj}=\min\{\mathbf{a}\T\bS\mathbf{a}:a_j=1\} \) (@thm-mat-partitioned-inverse).
+
+2. Deduce that \( \lambda_{\min}\le1/(\bS^{-1})_{jj} \) for every \( j \), with equality iff \( \mathbf{e}_j \) is
+           an eigenvector of \( \bS \) belonging to \( \lambda_{\min} \).
+
+3. For centred data, \( \mathbf{a}\T\bS\mathbf{a}=\norm{\mathbf{C}\boldsymbol{\mathcal{Y}}\mathbf{a}}^2/(n-1) \), so
+           \( 1/(\bS^{-1})_{jj} \) is the sample variance, with divisor \( n-1 \), of the residuals of
+           the least squares regression of variable \( j \) on the other \( p-1 \) variables, while
+           \( \lambda_{\min} \) minimizes over *all* normalized combinations. Using the smallest eigenvalue \( 2.59\times 10^{-4} \) of the Longley
+           correlation matrix in @exm-rv-longley, what can you say about how well any one
+           standardized series is predicted by the other six?
+:::
+
+:::
+
+::: {.solution}
+(a) The first statement is the Rayleigh quotient characterization. For the
+second, order the variables so that \( j=1 \) and partition \( \mathbf{a}=(1,\bb\T)\T \). Then
+\( \mathbf{a}\T\bS\mathbf{a}=s_{11}+2\bb\T\bS_{21}+\bb\T\bS_{22}\bb \), a positive definite quadratic in
+\( \bb \), minimized at \( \bb=-\bS_{22}^{-1}\bS_{21} \) with value the Schur complement
+\( s_{11}-\bS_{12}\bS_{22}^{-1}\bS_{21} \), which by @thm-mat-partitioned-inverse is
+\( 1/(\bS^{-1})_{11} \).
+
+(b) Any \( \mathbf{a} \) with \( a_j=1 \) has \( \norm{\mathbf{a}}\ge1 \), so
+\( \mathbf{a}\T\bS\mathbf{a}\ge\lambda_{\min}\norm{\mathbf{a}}^2\ge\lambda_{\min} \); minimizing over such \( \mathbf{a} \)
+gives the inequality. Equality forces a minimizer with \( \norm{\mathbf{a}}=1 \) and \( a_j=1 \), hence
+\( \mathbf{a}=\mathbf{e}_j \), and \( \mathbf{e}_j \) attains the Rayleigh minimum only if it is an eigenvector for
+\( \lambda_{\min} \). Conversely, if it is, both sides equal \( \lambda_{\min} \).
+
+(c) The residual sample variance of any one standardized series regressed on the other six is
+at least \( 2.59\times 10^{-4} \), so by @prp-rv-multiple-correlation its multiple correlation
+with the others satisfies \( 1-R^2\ge2.59\times 10^{-4} \). Collinearity as measured by the
+smallest eigenvalue is therefore always at least as severe as collinearity measured one
+variable at a time: the direction of least variance need not be close to any coordinate
+direction, and in Longley's data it is a contrast between year and GNP rather than a single
+series.
+:::

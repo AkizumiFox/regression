@@ -82,13 +82,13 @@ algorithm. Christensen (2020, section 9.3) treats missing observations through t
 - Fisher, Ronald A. (1935). *The Design of Experiments*. Edinburgh: Oliver and Boyd.
 - Fisher, Ronald A. (1940). An Examination of the Different Possible Solutions of a Problem in Incomplete Blocks. *Annals of Eugenics* 10(1), 52–75.
 - Freedman, David A. (2008). On Regression Adjustments to Experimental Data. *Advances in Applied Mathematics* 40(2), 180–193.
-- Healy, Michael and Westmacott, Michael (1956). Missing Values in Experiments Analysed on Automatic Computers. *Journal of the Royal Statistical Society, Series C (Applied Statistics)* 5(3), 203–206.
+- Healy, Michael and Westmacott, Michael (1956). Missing Values in Experiments Analysed on Automatic Computers. *Journal of the Royal Statistical Society, Series C* 5(3), 203–206.
 - Hinkelmann, Klaus and Kempthorne, Oscar (2008). *Design and Analysis of Experiments, Volume 1: Introduction to Experimental Design*. 2nd edition. Hoboken, NJ: Wiley.
 - Johnson, Palmer O. and Neyman, Jerzy (1936). Tests of Certain Linear Hypotheses and Their Application to Some Educational Problems. *Statistical Research Memoirs* 1, 57–93.
 - Kempthorne, Oscar (1952). *The Design and Analysis of Experiments*. New York: Wiley.
 - Lin, Winston (2013). Agnostic Notes on Regression Adjustments to Experimental Data: Reexamining Freedman's Critique. *The Annals of Applied Statistics* 7(1), 295–318.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
 - Senn, Stephen (1994). Testing for Baseline Balance in Clinical Trials. *Statistics in Medicine* 13(17), 1715–1726.
-- Yates, Frank (1933). The Analysis of Replicated Experiments When the Field Results Are Incomplete. *Empire Journal of Experimental Agriculture* 1, 129–142.
+- Yates, Frank (1933). The Analysis of Replicated Experiments When the Field Results Are Incomplete. *Empire Journal of Experimental Agriculture* 1(2), 129–142.
 - Yates, Frank (1936). Incomplete Randomized Blocks. *Annals of Eugenics* 7(2), 121–140.
 - Yates, Frank (1940). The Recovery of Inter-Block Information in Balanced Incomplete Block Designs. *Annals of Eugenics* 10(4), 317–325.

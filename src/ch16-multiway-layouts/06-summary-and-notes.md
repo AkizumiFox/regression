@@ -40,7 +40,7 @@
 
 ## References
 
-- Bancroft, T. A. (1944). On Biases in Estimation Due to the Use of Preliminary Tests of Significance. *The Annals of Mathematical Statistics* 15(2), 190–204.
+- Bancroft, Theodore A. (1944). On Biases in Estimation Due to the Use of Preliminary Tests of Significance. *The Annals of Mathematical Statistics* 15(2), 190–204.
 - Box, George E. P., Hunter, J. Stuart and Hunter, William G. (2005). *Statistics for Experimenters: Design, Innovation, and Discovery*. 2nd edition. Hoboken, NJ: Wiley.
 - Christensen, Ronald (2020). *Plane Answers to Complex Questions: The Theory of Linear Models*. 5th edition. Cham: Springer.
 - Daniel, Cuthbert (1959). Use of Half-Normal Plots in Interpreting Factorial Two-Level Experiments. *Technometrics* 1(4), 311–341.

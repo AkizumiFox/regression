@@ -441,6 +441,6 @@ By @thm-mat-partitioned-inverse,
 [C1]
 
 Assume \( \bSigma \) is positive definite. Prove @thm-mvn-conditional(b) by dividing the joint
-density by the marginal density of \( \Y_2 \) directly, using the partitioned inverse and the
+density by the marginal density of \( \Y_2 \) directly, using the partitioned inverse (@thm-mat-partitioned-inverse) and the
 block determinant formula.
 :::

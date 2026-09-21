@@ -82,7 +82,7 @@ heteroscedasticity-consistent standard errors, and [Chapter 32](../ch32-linear-m
 - Fisher, Ronald A. and Yates, Frank (1938). *Statistical Tables for Biological, Agricultural and Medical Research*. Edinburgh: Oliver and Boyd.
 - Hayter, Anthony J. (1984). A Proof of the Conjecture That the Tukey–Kramer Multiple Comparisons Procedure Is Conservative. *The Annals of Statistics* 12(1), 61–75.
 - Kempthorne, Oscar (1952). *The Design and Analysis of Experiments*. New York: Wiley.
-- Levene, Howard (1960). Robust Tests for Equality of Variances. In I. Olkin et al. (eds), *Contributions to Probability and Statistics: Essays in Honor of Harold Hotelling*, 278–292. Stanford, CA: Stanford University Press.
+- Levene, Howard (1960). Robust Tests for Equality of Variances. In I. Olkin et al. (eds.), *Contributions to Probability and Statistics: Essays in Honor of Harold Hotelling*, 278–292. Stanford, CA: Stanford University Press.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
 - Satterthwaite, Franklin E. (1946). An Approximate Distribution of Estimates of Variance Components. *Biometrics Bulletin* 2(6), 110–114.
 - Scheffé, Henry (1959). *The Analysis of Variance*. New York: Wiley.

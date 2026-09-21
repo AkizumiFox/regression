@@ -86,13 +86,13 @@ A read-only audit of the finished book (six dimensions: notation, duplication,
 cross-references, narrative, conventions, rigour) found 71 items; the 17 major ones and
 about 20 minor ones are fixed. These are the ones left, recorded rather than hidden:
 
-- **Exercises.** Five section pages carry no `## Exercises` block, and 34 pages stop at
-  group B with no `### C. Going deeper`. About half the exercises have no worked solution.
-  Writing real ones is content work, not a cleanup pass.
-- **References.** Three cosmetic inconsistencies: 88 first authors are given by initials
-  where the house form is the full given name; journal names vary ("Journal of the Royal
-  Statistical Society, Series B" against two other renderings); and Atkinson (1985) appears
-  under three slightly different titles.
+- **Exercise solutions.** Every section page now has all three groups (112 exercises were
+  written for the 38 pages that were short, 105 of them with worked solutions). Across the
+  book about half of the older exercises still carry no solution; the book only promises
+  them for the core ones.
+- **References.** Normalized: 117 entries in 36 chapters were corrected, journal names
+  brought to one form, and works cited in several chapters made identical. 28 first names
+  could not be confirmed and keep their initials rather than be guessed at.
 - **Source hygiene, left deliberately.** 26 section files write `\mathbf{Z}`, `\mathbf{A}`
   and the like where a macro exists. Normalizing them is *not* wanted: the output is
   identical, and the macros carry book-wide meanings (`\Z` is the random-effect design

@@ -358,3 +358,112 @@ So \( \mathbf{d}\T\mathbf{a}_1=d_2=0 \) and the second term vanishes. The first 
 \( t_i=-1+2i/11 \), \( i=0,\dots,11 \), \( \sum_it_i^2=(4/121)\sum_{i=0}^{11}(i-5.5)^2=(4/121)\cdot143=4.727 \), and
 \( 1/4.727=0.2115 \), which rounds to \( 0.212 \).
 :::
+
+### C. Going deeper
+
+::: {#exr-col-equicorrelated}
+[C1]
+
+A near-dependence need not show up in any pair of columns. Let \( \X \) have \( p\ge3 \) centred columns of
+unit length with all pairwise correlations equal to \( \rho \), so that
+\( \X\T\X=\R=(1-\rho)\I+\rho\bone\bone\T \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that the eigenvalues of \( \R \) are \( 1+(p-1)\rho \), with eigenvector \( \bone \), and \( 1-\rho \)
+   with multiplicity \( p-1 \); hence \( \R \) is positive definite exactly when
+   \( -1/(p-1)<\rho<1 \).
+
+2. Show that at \( \rho=-1/(p-1) \) the columns satisfy \( \X\bone=\bzero \) exactly. With \( p=10 \) every
+   pairwise correlation is then \( -\tfrac19 \) in absolute value, a number no inspection of the correlation
+   matrix would remark on, and the design is singular.
+
+3. Put \( \rho=-1/(p-1)+\epsilon \) with \( \epsilon>0 \) small. Find \( \lambda_p \), find
+   \( \Var(\bone\T\hbeta) \), and show that both are governed by \( \epsilon \) alone.
+
+4. Verify that
+   \[
+   \R^{-1}=\frac{1}{1-\rho}\Bigl\{\I-\frac{\rho}{1+(p-1)\rho}\bone\bone\T\Bigr\},
+   \]
+   so that \( \Var(\hat\beta_j)/\sigma^2=(\R^{-1})_{jj} \), the variance inflation factor of @def-col-vif, is
+   \( (1-\rho)^{-1}\{1-\rho/(1+(p-1)\rho)\} \). Evaluate it at \( p=10 \) and \( \rho=-\tfrac19+\epsilon \)
+   and show that it grows like \( 1/(90\epsilon) \).
+:::
+
+What does the exercise say about diagnosing collinearity from a table of correlations?
+:::
+
+::: {.solution}
+(a) \( \R\bone=(1-\rho)\bone+\rho p\bone=\{1+(p-1)\rho\}\bone \); and if \( \bv\perp\bone \) then
+\( \R\bv=(1-\rho)\bv \). These account for all \( p \) eigenvalues, and \( \R \) is positive definite iff both
+are positive.
+
+(b) At \( \rho=-1/(p-1) \) the first eigenvalue is \( 1-1=0 \), so \( \R\bone=\bzero \), and
+\( \norm{\X\bone}^2=\bone\T\X\T\X\bone=0 \), whence \( \X\bone=\bzero \): the columns sum to the zero vector.
+With \( p=10 \), \( \rho=-\tfrac19=-0.111 \).
+
+(c) The eigenvalue on \( \bone \) becomes \( 1+(p-1)\{-1/(p-1)+\epsilon\}=(p-1)\epsilon \), which for small
+\( \epsilon \) is the smallest, so \( \lambda_p=(p-1)\epsilon \) and \( \bv_p=\bone/\sqrt p \). By
+@thm-col-variance(a) applied to that eigenvector,
+\( \Var(\bone\T\hbeta)=p\,\Var(\bv_p\T\hbeta)=p\sigma^2/\{(p-1)\epsilon\} \), which is also the upper bound of
+@thm-col-variance(b) at \( \mathbf{a}=\bone \), attained because \( \bone \) points exactly along the weak
+eigenvector.
+
+(d) Multiply out: with \( c=\rho/\{1+(p-1)\rho\} \),
+\( \{(1-\rho)\I+\rho\bone\bone\T\}(\I-c\bone\bone\T)=(1-\rho)\I+\bone\bone\T\{\rho-c(1-\rho+\rho p)\}
+=(1-\rho)\I \), since \( 1-\rho+\rho p=1+(p-1)\rho \). Hence the stated inverse, and
+\( (\R^{-1})_{jj}=(1-\rho)^{-1}(1-c) \). At \( p=10 \) and \( \rho=-\tfrac19+\epsilon \),
+\( 1+9\rho=9\epsilon \) and \( 1-\rho=\tfrac{10}9-\epsilon \), so
+\( c=\rho/(9\epsilon)\to-1/(81\epsilon) \) and
+\( (\R^{-1})_{jj}\approx\tfrac{9}{10}\{1+1/(81\epsilon)\}=\tfrac9{10}+1/(90\epsilon) \).
+
+A table of pairwise correlations answers the question "is any one column nearly a multiple of another?" The
+question that matters is "is any combination of the columns nearly zero?", and the two are different as soon
+as \( p>2 \): here ten columns that are nearly mutually orthogonal in pairs are nevertheless nearly linearly
+dependent as a set. The eigenvalues of @thm-col-variance and the variance inflation factors see it; the
+correlation matrix, read entry by entry, does not.
+:::
+
+::: {#exr-col-better-than-orthogonal}
+[C2]
+
+Collinearity does not merely spread the same total precision differently: it can put *more* precision on a
+chosen direction than an orthogonal design of the same column lengths.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Let \( p=2 \) with centred columns of length \( L \) and correlation \( \rho\in(-1,1) \). Show that
+   \[
+   \Var(\hat\beta_1+\hat\beta_2)=\frac{2\sigma^2}{L^2(1+\rho)} ,
+   \]
+   which decreases as \( \rho \) increases, and is half its orthogonal value as \( \rho\to1 \).
+
+2. For \( p \) equicorrelated columns of length \( L \), show that
+   \( \Var(\bone\T\hbeta)=p\sigma^2/[L^2\{1+(p-1)\rho\}] \), so that the sum of the coefficients is estimated
+   \( p \) times better than in an orthogonal design as \( \rho\to1 \), and infinitely worse as
+   \( \rho\to-1/(p-1) \), the design of @exr-col-equicorrelated.
+
+3. Reconcile this with @thm-col-variance(b) and (d).
+:::
+
+:::
+
+::: {.solution}
+(a) \( \X\T\X=L^2\begin{pmatrix}1&\rho\\\rho&1\end{pmatrix} \), whose inverse is
+\( \{L^2(1-\rho^2)\}^{-1}\begin{pmatrix}1&-\rho\\-\rho&1\end{pmatrix} \). With \( \mathbf{a}=(1,1)\T \),
+\( \mathbf{a}\T(\X\T\X)^{-1}\mathbf{a}=(2-2\rho)/\{L^2(1-\rho^2)\}=2/\{L^2(1+\rho)\} \). At \( \rho=0 \) this is
+\( 2/L^2 \) and at \( \rho\to1 \) it is \( 1/L^2 \).
+
+(b) \( \X\T\X=L^2\R \) with \( \R \) as in @exr-col-equicorrelated, and
+\( \R^{-1}\bone=\bone/\{1+(p-1)\rho\} \) because \( \bone \) is an eigenvector. So
+\( \bone\T(\X\T\X)^{-1}\bone=p/[L^2\{1+(p-1)\rho\}] \). At \( \rho=0 \) this is \( p/L^2 \); as
+\( \rho\to1 \) it is \( 1/L^2 \), smaller by the factor \( p \); as \( \rho\to-1/(p-1) \) it diverges.
+
+(c) There is no contradiction. Part (b) of the theorem bounds \( \Var(\mathbf{a}\T\hbeta) \) by
+\( \sigma^2\norm{\mathbf{a}}^2/\lambda_p \) and below by \( \sigma^2\norm{\mathbf{a}}^2/\lambda_1 \), and here
+\( \mathbf{a}=\bone \) has \( \norm{\mathbf{a}}^2=p \) and points exactly along the *strong* eigenvector when
+\( \rho>0 \), so the lower bound \( p\sigma^2/\lambda_1 \) is attained: collinearity has made
+\( \lambda_1=L^2\{1+(p-1)\rho\} \) as large as it can be, and the sum is the direction that benefits. Part (d)
+records the price: \( \E\norm{\hbeta-\bbeta}^2=\sigma^2\tr(\X\T\X)^{-1} \) contains the \( p-1 \) terms
+\( \sigma^2/\{L^2(1-\rho)\} \), which diverge as \( \rho\to1 \). Total precision is not conserved either; what
+is true is that the design decides how much of it each direction receives, and a design chosen with one
+estimand in mind can be better than an orthogonal one for that estimand and far worse for every other.
+:::

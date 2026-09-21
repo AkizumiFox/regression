@@ -150,7 +150,7 @@ of [Section 43.6](06-mixed-model-and-bayes.html) are Denison, Mallick and Smith
 - Craven, Peter and Wahba, Grace (1979). Smoothing Noisy Data with Spline Functions. *Numerische Mathematik* 31(4), 377–403.
 - de Boor, Carl (1972). On Calculating with B-Splines. *Journal of Approximation Theory* 6(1), 50–62.
 - de Boor, Carl (2001). *A Practical Guide to Splines*. Revised edition. New York: Springer.
-- Demmler, A. and Reinsch, C. (1975). Oscillation Matrices with Spline Smoothing. *Numerische Mathematik* 24(5), 375–382.
+- Demmler, A. and Reinsch, Christian (1975). Oscillation Matrices with Spline Smoothing. *Numerische Mathematik* 24(5), 375–382.
 - Denison, David G. T., Mallick, Bani K. and Smith, Adrian F. M. (1998). Automatic Bayesian Curve Fitting. *Journal of the Royal Statistical Society, Series B* 60(2), 333–350.
 - Donoho, David L. and Johnstone, Iain M. (1994). Ideal Spatial Adaptation by Wavelet Shrinkage. *Biometrika* 81(3), 425–455.
 - Eilers, Paul H. C. and Marx, Brian D. (1996). Flexible Smoothing with B-splines and Penalties. *Statistical Science* 11(2), 89–121.
@@ -160,11 +160,11 @@ of [Section 43.6](06-mixed-model-and-bayes.html) are Denison, Mallick and Smith
 - Fan, Jianqing and Gijbels, Irène (1996). *Local Polynomial Modelling and Its Applications*. London: Chapman and Hall.
 - Green, Peter J. and Silverman, Bernard W. (1994). *Nonparametric Regression and Generalized Linear Models: A Roughness Penalty Approach*. London: Chapman and Hall.
 - Hastie, Trevor and Loader, Clive (1993). Local Regression: Automatic Kernel Carpentry. *Statistical Science* 8(2), 120–129.
-- Hastie, Trevor J. and Tibshirani, Robert J. (1990). *Generalized Additive Models*. London: Chapman and Hall.
+- Hastie, Trevor and Tibshirani, Robert (1990). *Generalized Additive Models*. London: Chapman and Hall.
 - Hurvich, Clifford M., Simonoff, Jeffrey S. and Tsai, Chih-Ling (1998). Smoothing Parameter Selection in Nonparametric Regression Using an Improved Akaike Information Criterion. *Journal of the Royal Statistical Society, Series B* 60(2), 271–293.
-- Hutchinson, M. F. and de Hoog, F. R. (1985). Smoothing Noisy Data with Spline Functions. *Numerische Mathematik* 47(1), 99–106.
+- Hutchinson, Michael F. and de Hoog, Frank R. (1985). Smoothing Noisy Data with Spline Functions. *Numerische Mathematik* 47(1), 99–106.
 - Kimeldorf, George and Wahba, Grace (1971). Some Results on Tchebycheffian Spline Functions. *Journal of Mathematical Analysis and Applications* 33(1), 82–95.
-- Nadaraya, E. A. (1964). On Estimating Regression. *Theory of Probability and Its Applications* 9(1), 141–142.
+- Nadaraya, Elizbar A. (1964). On Estimating Regression. *Theory of Probability and Its Applications* 9(1), 141–142.
 - Nychka, Douglas (1988). Bayesian Confidence Intervals for Smoothing Splines. *Journal of the American Statistical Association* 83(404), 1134–1143.
 - Opsomer, Jean, Wang, Yuedong and Yang, Yuhong (2001). Nonparametric Regression with Correlated Errors. *Statistical Science* 16(2), 134–153.
 - O'Sullivan, Finbarr (1986). A Statistical Perspective on Ill-posed Inverse Problems. *Statistical Science* 1(4), 502–518.
@@ -172,19 +172,19 @@ of [Section 43.6](06-mixed-model-and-bayes.html) are Denison, Mallick and Smith
 - Reinsch, Christian H. (1967). Smoothing by Spline Functions. *Numerische Mathematik* 10(3), 177–183.
 - Reiss, Philip T. and Ogden, R. Todd (2009). Smoothing Parameter Selection for a Class of Semiparametric Linear Models. *Journal of the Royal Statistical Society, Series B* 71(2), 505–523.
 - Ruppert, David (2002). Selecting the Number of Knots for Penalized Splines. *Journal of Computational and Graphical Statistics* 11(4), 735–757.
-- Ruppert, David, Sheather, Simon J. and Wand, M. P. (1995). An Effective Bandwidth Selector for Local Least Squares Regression. *Journal of the American Statistical Association* 90(432), 1257–1270.
-- Ruppert, David, Wand, M. P. and Carroll, Raymond J. (2003). *Semiparametric Regression*. Cambridge: Cambridge University Press.
-- Schoenberg, I. J. (1946). Contributions to the Problem of Approximation of Equidistant Data by Analytic Functions. *Quarterly of Applied Mathematics* 4, 45–99 and 112–141.
+- Ruppert, David, Sheather, Simon J. and Wand, Matthew P. (1995). An Effective Bandwidth Selector for Local Least Squares Regression. *Journal of the American Statistical Association* 90(432), 1257–1270.
+- Ruppert, David, Wand, Matthew P. and Carroll, Raymond J. (2003). *Semiparametric Regression*. Cambridge: Cambridge University Press.
+- Schoenberg, Isaac J. (1946). Contributions to the Problem of Approximation of Equidistant Data by Analytic Functions. *Quarterly of Applied Mathematics* 4, 45–99 and 112–141.
 - Silverman, Bernard W. (1984). Spline Smoothing: The Equivalent Variable Kernel Method. *The Annals of Statistics* 12(3), 898–916.
 - Silverman, Bernard W. (1985). Some Aspects of the Spline Smoothing Approach to Non-parametric Regression Curve Fitting. *Journal of the Royal Statistical Society, Series B* 47(1), 1–52.
 - Stone, Charles J. (1980). Optimal Rates of Convergence for Nonparametric Estimators. *The Annals of Statistics* 8(6), 1348–1360.
 - Stone, Charles J. (1982). Optimal Global Rates of Convergence for Nonparametric Regression. *The Annals of Statistics* 10(4), 1040–1053.
 - Sun, Jiayang and Loader, Clive R. (1994). Simultaneous Confidence Bands for Linear Regression and Smoothing. *The Annals of Statistics* 22(3), 1328–1345.
 - Wahba, Grace (1978). Improper Priors, Spline Smoothing and the Problem of Guarding Against Model Errors in Regression. *Journal of the Royal Statistical Society, Series B* 40(3), 364–372.
-- Wahba, Grace (1983). Bayesian "Confidence Intervals" for the Cross-validated Smoothing Spline. *Journal of the Royal Statistical Society, Series B* 45(1), 133–150.
+- Wahba, Grace (1983). Bayesian "Confidence Intervals" for the Cross-Validated Smoothing Spline. *Journal of the Royal Statistical Society, Series B* 45(1), 133–150.
 - Wahba, Grace (1990). *Spline Models for Observational Data*. Philadelphia: SIAM.
-- Wand, M. P. and Jones, M. C. (1995). *Kernel Smoothing*. London: Chapman and Hall.
-- Wand, M. P. and Ormerod, J. T. (2008). On Semiparametric Regression with O'Sullivan Penalized Splines. *Australian and New Zealand Journal of Statistics* 50(2), 179–198.
+- Wand, Matthew P. and Jones, M. Chris (1995). *Kernel Smoothing*. London: Chapman and Hall.
+- Wand, Matthew P. and Ormerod, John T. (2008). On Semiparametric Regression with O'Sullivan Penalized Splines. *Australian and New Zealand Journal of Statistics* 50(2), 179–198.
 - Watson, Geoffrey S. (1964). Smooth Regression Analysis. *Sankhyā: The Indian Journal of Statistics, Series A* 26(4), 359–372.
 - Whittaker, Edmund T. (1923). On a New Method of Graduation. *Proceedings of the Edinburgh Mathematical Society* 41, 63–75.
 - Wood, Simon N. (2017). *Generalized Additive Models: An Introduction with R*. 2nd edition. Boca Raton: Chapman and Hall/CRC.

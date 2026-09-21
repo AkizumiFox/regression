@@ -59,9 +59,9 @@ hypotheses that software tests. The reading of estimable interaction contrasts a
 - Hocking, Ronald R. (1985). *The Analysis of Linear Models*. Monterey, CA: Brooks/Cole.
 - Langsrud, Øyvind (2003). ANOVA for Unbalanced Data: Use Type II Instead of Type III Sums of Squares. *Statistics and Computing* 13(2), 163–167.
 - Milliken, George A. and Johnson, Dallas E. (2009). *Analysis of Messy Data, Volume 1: Designed Experiments*. 2nd edition. Boca Raton, FL: Chapman and Hall/CRC.
-- Nelder, John A. (1977). A Reformulation of Linear Models. *Journal of the Royal Statistical Society. Series A* 140(1), 48–77.
+- Nelder, John A. (1977). A Reformulation of Linear Models. *Journal of the Royal Statistical Society, Series A* 140(1), 48–77.
 - Nelder, John A. and Lane, Peter W. (1995). The Computer Analysis of Factorial Experiments: In Memoriam—Frank Yates. *The American Statistician* 49(4), 382–385.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
 - Searle, Shayle R. (1987). *Linear Models for Unbalanced Data*. New York: Wiley.
-- Speed, F. M., Hocking, Ronald R. and Hackney, O. P. (1978). Methods of Analysis of Linear Models with Unbalanced Data. *Journal of the American Statistical Association* 73(361), 105–112.
+- Speed, F. Michael, Hocking, Ronald R. and Hackney, O. P. (1978). Methods of Analysis of Linear Models with Unbalanced Data. *Journal of the American Statistical Association* 73(361), 105–112.
 - Yates, Frank (1934). The Analysis of Multiple Classifications with Unequal Numbers in the Different Classes. *Journal of the American Statistical Association* 29(185), 51–66.

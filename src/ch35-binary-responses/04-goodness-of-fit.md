@@ -476,3 +476,128 @@ yet nearly useless for classifying an individual.
 :::
 
 
+
+### C. Going deeper
+
+::: {#exr-bin-hosmer-ties}
+[C1]
+
+@exm-bin-hosmer shows the Hosmer–Lemeshow statistic moving with the number of groups. This exercise holds
+\( G \) fixed and moves only the tie-breaking. Fit the intercept-only logistic model to \( n=100 \)
+ungrouped observations of which exactly \( 50 \) are successes, and take \( G=10 \) groups of \( 10 \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \hat\pi_i=\tfrac12 \) for every \( i \), and hence that \( E_k=5 \), \( n_k=10 \) and
+   \( E_k(1-E_k/n_k)=\tfrac52 \) for every group, whatever the grouping, so that
+   \( \hat C=\tfrac25\sum_{k=1}^{10}(O_k-5)^2 \).
+
+2. Exhibit a grouping giving \( \hat C=0 \) and one giving \( \hat C=100 \), and give the nominal
+   \( p \)-values against \( \chi^2(8) \) in words.
+
+3. Explain why both are legitimate outputs of "sort by \( \hat\pi_i \) and cut into ten groups of equal
+   size", and what this says about \( \hat C \) as a function of the data and the model.
+
+4. The model in (a) is correct if the successes really are independent with probability \( \tfrac12 \). Does
+   that matter to the argument?
+:::
+
+:::
+
+::: {.solution}
+(a) With only an intercept, \( \hat\pi_i=\bar y=\tfrac12 \) for every \( i \)
+(@prp-bin-calibration gives the same conclusion, since \( \bone\in\C(\X) \) forces
+\( \sum_i(y_i-\hat\pi_i)=0 \)). Then \( E_k=\sum_{i\in k}\hat\pi_i=5 \) and
+\( E_k(1-E_k/n_k)=5(1-\tfrac12)=\tfrac52 \) for every group of ten, so each term of \( \hat C \) is
+\( (O_k-5)^2/\tfrac52 \).
+
+(b) A grouping in which every group contains five successes has \( O_k=5 \) for all \( k \) and
+\( \hat C=0 \), the smallest value a chi-squared statistic can take. A grouping in which five groups contain
+ten successes and five contain none has \( (O_k-5)^2=25 \) in every group, so each term is \( 10 \) and
+\( \hat C=100 \). Referred to \( \chi^2(8) \), the first is an impossibly good fit and the second an
+impossibly bad one; no data set has changed between them.
+
+(c) Every \( \hat\pi_i \) is the same, so sorting by \( \hat\pi_i \) leaves the order of the observations
+entirely to the tie-breaking rule, and any partition into ten blocks of ten is a possible result. The
+statistic is therefore not a function of the data and the fitted model: it also depends on the order in which
+the rows happened to be stored. Software makes that choice silently.
+
+(d) No. The model is correct, and the whole range from \( 0 \) to \( 100 \) is available; the argument uses
+only that the fitted probabilities are tied, not that the fit is wrong. With a continuous covariate exact
+ties are rare, but near-ties reproduce the same instability in milder form, and that — together with the
+\( G \)-dependence of @exm-bin-hosmer and the absence of any proof behind the \( \chi^2(G-2) \) reference —
+is why \( \hat C \) is a description and not a test.
+:::
+
+::: {#exr-bin-auc-calibrated}
+[C2]
+
+@prp-bin-auc says the AUC ignores calibration. The converse question is what it measures when calibration
+holds. Let \( X \) be the covariate vector, \( \pi(x)=\Pr(Y=1\mid X=x) \), \( \mu=\Pr(Y=1)\in(0,1) \), and
+let the score be the *calibrated* one \( \hat s=\pi(X) \). Write \( P_1 \) and \( P_2 \) for independent
+copies of \( \pi(X) \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that the covariate of a uniformly chosen case has law \( \pi(x)\,dF(x)/\mu \) and that of a
+   uniformly chosen control \( \{1-\pi(x)\}\,dF(x)/(1-\mu) \), independently, where \( F \) is the law of
+   \( X \). Deduce that
+   \[
+   \text{AUC}=\frac{\E\bigl[P_1(1-P_2)1\{P_1>P_2\}\bigr]
+   +\tfrac12\E\bigl[P_1(1-P_2)1\{P_1=P_2\}\bigr]}{\mu(1-\mu)} .
+   \]
+
+2. Writing \( A \), \( B \) and \( T \) for the three expectations
+   \( \E[P_1(1-P_2)1\{P_1>P_2\}] \), \( \E[P_1(1-P_2)1\{P_1<P_2\}] \) and
+   \( \E[P_1(1-P_2)1\{P_1=P_2\}] \), show that \( A+B+T=\mu(1-\mu) \) and
+   \( A-B=\tfrac12\E|P_1-P_2| \), and hence that
+   \[
+   \text{AUC}=\frac12+\frac{\E|P_1-P_2|}{4\mu(1-\mu)} .
+   \]
+
+3. Deduce that \( \text{AUC}=\tfrac12 \) exactly when \( \pi(X) \) is degenerate, and that
+   \( \text{AUC}=1 \) exactly when \( \pi(X)\in\{0,1\} \) with probability one.
+
+4. Check the formula on the population in which \( \pi(X) \) takes the values \( 0.4 \) and \( 0.6 \) with
+   probability \( \tfrac12 \) each, by computing the AUC both ways.
+:::
+
+For a calibrated model the AUC is therefore a measure of how far apart the achievable probabilities are, and
+nothing else. What does that say about comparing two models by their AUCs?
+:::
+
+::: {.solution}
+(a) \( \Pr(X\in dx\mid Y=1)=\Pr(Y=1\mid X\in dx)\,dF(x)/\Pr(Y=1)=\pi(x)dF(x)/\mu \), and likewise for a
+control; \( I \) and \( J \) are drawn independently, so the two covariates are independent. Substituting
+in @prp-bin-auc and writing the expectations against \( dF \) gives the display, the factor
+\( \pi(x_1)\{1-\pi(x_2)\}/\{\mu(1-\mu)\} \) being the density of the tilted pair with respect to
+\( dF\times dF \).
+
+(b) Independence gives \( A+B+T=\E[P_1(1-P_2)]=\E(P_1)\E(1-P_2)=\mu(1-\mu) \). Exchanging the labels of
+\( P_1 \) and \( P_2 \) turns \( B \) into \( \E[P_2(1-P_1)1\{P_1>P_2\}] \), so
+\[
+A-B=\E\bigl[\{P_1(1-P_2)-P_2(1-P_1)\}1\{P_1>P_2\}\bigr]
+=\E\bigl[(P_1-P_2)1\{P_1>P_2\}\bigr]=\tfrac12\E|P_1-P_2| ,
+\]
+the last step by symmetry. Hence \( A=\tfrac12\{\mu(1-\mu)-T+\tfrac12\E|P_1-P_2|\} \) and
+\( A+\tfrac12T=\tfrac12\mu(1-\mu)+\tfrac14\E|P_1-P_2| \). Divide by \( \mu(1-\mu) \).
+
+(c) \( \E|P_1-P_2|=0 \) iff \( P_1=P_2 \) almost surely, that is iff \( \pi(X) \) is almost surely constant,
+necessarily at \( \mu \). For the upper end, \( A,B,T\ge0 \) and \( A+B+T=\mu(1-\mu) \) give
+\( \E|P_1-P_2|=2(A-B)\le2\mu(1-\mu) \), with equality iff \( B=T=0 \) and \( A=\mu(1-\mu) \). If
+\( \Pr\{0<\pi(X)<1\}=q>0 \), then either the law of \( \pi(X) \) has an atom at some \( p\in(0,1) \), in
+which case \( T\ge p(1-p)\Pr\{\pi(X)=p\}^2>0 \), or it does not, in which case
+\( \Pr\{P_1<P_2,\ \text{both in }(0,1)\}=q^2/2>0 \) and \( B>0 \) because \( P_1(1-P_2)>0 \) there. Either
+way equality fails. Conversely if \( \pi(X)\in\{0,1\} \) almost surely then \( \E|P_1-P_2|=2\mu(1-\mu) \).
+
+(d) Here \( \mu=\tfrac12 \) and \( |P_1-P_2| \) is \( 0.2 \) with probability \( \tfrac12 \) and \( 0 \)
+otherwise, so \( \E|P_1-P_2|=0.1 \) and the formula gives \( \tfrac12+0.1/1=0.6 \). Directly: among cases
+\( \Pr(P=0.6)=0.6 \) and among controls \( \Pr(P=0.6)=0.4 \), so
+\( \Pr(\hat s_I>\hat s_J)=0.6\times0.6=0.36 \) and the ties contribute
+\( \tfrac12(0.6\times0.4+0.4\times0.6)=0.24 \), for \( 0.60 \).
+
+Two calibrated models on the same population are therefore ranked by the spread of their fitted
+probabilities, and an AUC that barely moves — \( 0.942 \) to \( 0.944 \) in @exm-bin-anes — says that the
+extra covariates barely spread them, on a scale compressed by the factor \( 4\mu(1-\mu)\le1 \). That is one
+fact about a model, not a verdict on it: a covariate that moves a few individuals from \( 0.2 \) to
+\( 0.8 \) can matter enormously to those individuals and hardly at all to a rank statistic averaged over all
+pairs.
+:::

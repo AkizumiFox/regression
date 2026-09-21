@@ -289,3 +289,115 @@ are \( 2 \), \( 2 \) and \( 2+1=3 \). In the second they are \( \tfrac32+\tfrac1
 \( \tfrac{16}9\cdot\tfrac32+\tfrac13=3 \). The covariance matrices agree, so no function of the \( (X,Y) \) data can
 distinguish \( \theta=1 \) from \( \theta=0 \).
 :::
+
+### C. Going deeper
+
+::: {#exr-cau-any-effect}
+[C1]
+
+Take \( c_Z=c_X=c_Y=0 \) and normal disturbances in @eq-cau-confounder-model, and let \( \bSigma \) be any
+\( 2\times2 \) positive definite matrix, with entries \( v=\bSigma_{11} \), \( c=\bSigma_{12} \) and
+\( w=\bSigma_{22} \). Show that for **every** real \( \theta \) there are values of
+\( (\alpha,\gamma,\sigma_Z^2,\sigma_X^2,\sigma_Y^2) \), with \( \sigma_Z^2>0 \), \( \sigma_X^2>0 \) and
+\( \sigma_Y^2\ge0 \), for which \( (X,Y)\sim\Normal_2(\bzero,\bSigma) \). Hence the observational distribution
+constrains the causal effect not at all: @exr-cau-observational-equivalence exhibits two values of \( \theta \)
+compatible with one distribution, and in fact no value is ever excluded.
+:::
+
+::: {.solution}
+Put \( \sigma_Z^2=1 \) and \( \alpha=\sqrt t \) for a number \( t\in(0,v) \) to be chosen, and
+\( \sigma_X^2=v-t>0 \), so that \( \Var(X)=\alpha^2\sigma_Z^2+\sigma_X^2=v \) whatever \( t \) is. Take
+\( \gamma=(c-\theta v)/\sqrt t \), so that, by the covariance formulas in the solution to
+@exr-cau-observational-equivalence,
+\( \Cov(X,Y)=\theta v+\gamma\alpha\sigma_Z^2=\theta v+(c-\theta v)=c \). The same formulas leave
+\[
+\sigma_Y^2=w-\theta^2v-\gamma^2-2\theta(c-\theta v)
+=w+\theta^2v-2\theta c-\frac{(c-\theta v)^2}{t}=:\varphi(t).
+\]
+As \( t\uparrow v \), and using \( (c-\theta v)^2/v=c^2/v-2\theta c+\theta^2v \),
+\[
+\varphi(t)\ \longrightarrow\ w+\theta^2v-2\theta c-\frac{c^2}{v}+2\theta c-\theta^2v=w-\frac{c^2}{v}>0 ,
+\]
+the last inequality because \( \bSigma \) is positive definite. So \( \varphi(t)>0 \) for some \( t<v \); fix
+such a \( t \) and set \( \sigma_Y^2=\varphi(t) \). All three variances are admissible, and \( (X,Y) \) is a
+linear function of a normal vector, hence normal (@thm-mvn-linear) with mean zero and the prescribed
+covariance matrix. Every \( \theta \) is therefore compatible with every observational distribution: not only
+can the sign of the effect not be recovered, neither can its size.
+:::
+
+::: {#exr-cau-direction-identified}
+[C2]
+
+The impossibility in @exr-cau-any-effect is a fact about normal disturbances, not about observational data.
+Let \( U_X \) and \( U_Y \) be independent, each taking the values \( \pm1 \) with probability \( \tfrac12 \), and
+let the mechanism be \( X=U_X \), \( Y=X+U_Y \). Show that no linear structural causal
+model (@def-cau-scm) in which \( Y \) has no parents and \( X=c+\delta Y+U \), with \( U \) independent of \( Y \),
+reproduces the joint distribution of \( (X,Y) \), whatever the law of \( U \) and whatever \( c \) and
+\( \delta \) are. So here the direction of the arrow *is* visible in the data.
+:::
+
+::: {.solution}
+Under the stated mechanism \( (X,Y) \) takes the four values \( (1,2) \), \( (1,0) \), \( (-1,0) \), \( (-1,-2) \),
+each with probability \( \tfrac14 \); in particular \( Y\in\{-2,0,2\} \) with probabilities
+\( \tfrac14,\tfrac12,\tfrac14 \). Suppose \( X=c+\delta Y+U \) with \( U \) independent of \( Y \). Then the
+conditional law of \( X-c-\delta Y \) given \( Y=y \) is the law of \( U \) for every \( y \) with
+\( \Pr(Y=y)>0 \). But given \( Y=2 \) the only possible value of \( X \) is \( 1 \), so that conditional law is
+degenerate at \( 1-c-2\delta \); while given \( Y=0 \), \( X \) equals \( 1 \) or \( -1 \) with probability
+\( \tfrac12 \) each, so the conditional law puts mass \( \tfrac12 \) on each of \( 1-c \) and \( -1-c \) and is
+not degenerate. A degenerate law and a two-point law cannot both be the law of \( U \), a contradiction.
+
+The contrast with @exr-cau-any-effect is the whole point. Two independent non-normal disturbances leave a
+trace in the joint law that tells a cause from an effect; two independent normal ones do not, because a
+normal vector is determined by its first two moments and those are symmetric in the two directions. Methods
+that exploit non-normality to orient arrows rest on this observation.
+:::
+
+::: {#exr-cau-invariance}
+[C3]
+
+In @eq-cau-confounder-model, suppose an outside agent sets \( X \) to a random value \( \tilde X \) with mean
+\( m \) and variance \( \nu>0 \), independent of \( (U_Z,U_X,U_Y) \); this is
+\( \operatorname{do}(X=\tilde X) \), and the observational regime is *not* of this form.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that in the new regime the line \( \ell(x)=a+bx \) has mean squared prediction error
+   \[
+   \E\bigl\{Y-\ell(\tilde X)\bigr\}^2
+   =\bigl\{k+(\theta-b)m\bigr\}^2+(\theta-b)^2\nu+\gamma^2\sigma_Z^2+\sigma_Y^2 ,
+   \qquad k=c_Y+\gamma c_Z-a .
+   \]
+
+2. Deduce that the minimum is attained exactly at \( b=\theta \) and \( a=c_Y+\gamma c_Z \), whatever the
+   agent's device is, and that the minimum value \( \gamma^2\sigma_Z^2+\sigma_Y^2 \) does not depend on the
+   device either.
+
+3. Deduce that the observational line of @eq-cau-confounded-slope has excess error at least
+   \( (\beta^*-\theta)^2\nu \), which grows without bound as the agent spreads \( X \) more widely, and that a
+   line that is optimal under two devices with different means is the causal line.
+:::
+
+The causal line is thus the only line that predicts well under every intervention; the regression line is
+optimal for one regime, the one the intervention destroys.
+:::
+
+::: {.solution}
+(a) Under \( \operatorname{do}(X=\tilde X) \) the assignments for \( Z \) and \( Y \) are unchanged, so
+\( Z=c_Z+U_Z \) and \( Y=c_Y+\theta\tilde X+\gamma Z+U_Y \). Hence
+\[
+Y-\ell(\tilde X)=k+(\theta-b)\tilde X+\gamma U_Z+U_Y ,
+\]
+with \( k=c_Y+\gamma c_Z-a \). The last two terms have mean zero and are independent of \( \tilde X \), so the
+mean squared error is \( \E\{k+(\theta-b)\tilde X\}^2+\gamma^2\sigma_Z^2+\sigma_Y^2 \), and
+\( \E\{k+(\theta-b)\tilde X\}^2=\{k+(\theta-b)m\}^2+(\theta-b)^2\nu \).
+
+(b) Both squared terms are nonnegative and \( \nu>0 \), so the second forces \( b=\theta \) and the first then
+forces \( k=0 \), that is \( a=c_Y+\gamma c_Z \). Neither the minimizer nor the minimum involves \( m \) or
+\( \nu \).
+
+(c) With \( b=\beta^* \) the second term alone is \( (\beta^*-\theta)^2\nu \), and by
+@eq-cau-confounded-slope this is nonzero whenever \( \gamma\alpha\ne0 \); it grows linearly in \( \nu \). If a
+line is optimal for devices with means \( m_1\ne m_2 \) and positive variances, (b) applied to each gives
+\( b=\theta \) and \( a=c_Y+\gamma c_Z \) — the same line. The observational regime escapes (b) only because
+there \( X \) is *not* independent of \( U_Z \): the association it borrows from \( Z \) is real, and worth
+using, exactly as long as nobody intervenes.
+:::

@@ -203,3 +203,93 @@ Show that \( \E\bigl[(\Y-\mathbf{a})(\Y-\mathbf{a})\T\bigr]-\Cov(\Y) \) is nonne
 \( \mathbf{a} \), with equality iff \( \mathbf{a}=\bmu \). Deduce that \( \mathbf{a}=\bmu \) minimizes
 \( \E\bigl[(\Y-\mathbf{a})\T\mathbf{N}(\Y-\mathbf{a})\bigr] \) for every positive definite \( \mathbf{N} \).
 :::
+
+### C. Going deeper
+
+::: {#exr-rv-moment-support}
+[C1]
+
+Let \( \bmu\in\Real^p \) and let \( \bSigma \) be nonnegative definite with spectral decomposition
+\( \bSigma=\sum_{i=1}^p\lambda_i\boldsymbol{\gamma}_i\boldsymbol{\gamma}_i\T \) (@thm-mat-spectral).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Let \( \Y \) take the \( 2p \) values \( \bmu\pm\sqrt{p\lambda_i}\,\boldsymbol{\gamma}_i \), each with probability
+           \( 1/(2p) \). Show that \( \E(\Y)=\bmu \) and \( \Cov(\Y)=\bSigma \). So a mean vector and a covariance
+           matrix say nothing at all about the support: some vector with these moments lives on
+           \( 2p \) points, while, for positive definite \( \bSigma \), another has a density that is
+           positive everywhere (@thm-rv-cov-nnd(b)).
+
+2. Show that if a random vector takes only \( k \) values then \( \rank\Cov(\Y)\le k-1 \). Hence at
+           least \( p+1 \) atoms are needed when \( \bSigma \) is positive definite.
+
+3. Show that \( p+1 \) atoms always suffice. *Hint:* let \( \A \) be the last \( p \) rows of the
+           \( (p+1)\times(p+1) \) Helmert matrix of @exm-mat-helmert, so that \( \A\A\T=\I_p \) and
+           \( \A\bone=\bzero \), and put the mass \( 1/(p+1) \) on each column of \( \sqrt{p+1}\,\A \).
+:::
+
+:::
+
+::: {.solution}
+(a) The \( 2p \) values come in pairs symmetric about \( \bmu \), so
+\( \E(\Y)=\bmu \). Each pair contributes
+\( 2\cdot\frac{1}{2p}\,p\lambda_i\boldsymbol{\gamma}_i\boldsymbol{\gamma}_i\T=\lambda_i\boldsymbol{\gamma}_i\boldsymbol{\gamma}_i\T \) to
+\( \E[(\Y-\bmu)(\Y-\bmu)\T] \), and the sum over \( i \) is \( \bSigma \). (Atoms with \( \lambda_i=0 \) coincide with
+\( \bmu \) and may be merged.)
+
+(b) If \( \Y \) takes the values \( \y_1,\dots,\y_k \), then \( \Y-\bmu \) lies with probability one in the
+span of \( \y_1-\bmu,\dots,\y_k-\bmu \), which has dimension at most \( k-1 \) because these \( k \) vectors
+sum to \( \bzero \) after weighting by their probabilities. By @thm-rv-cov-nnd(d),
+\( \C(\bSigma) \) is contained in that span, so \( \rank(\bSigma)\le k-1 \). A positive definite \( \bSigma \)
+has rank \( p \), forcing \( k\ge p+1 \).
+
+(c) Let \( \bv_i=\sqrt{p+1}\,\A\mathbf{e}_i \) for \( i=1,\dots,p+1 \) and let \( \Y=\bmu+\bSigma^{1/2}\bv_I \),
+where \( I \) is uniform on \( \{1,\dots,p+1\} \). Then
+\( \sum_i\bv_i=\sqrt{p+1}\,\A\bone=\bzero \), so \( \E(\Y)=\bmu \), and
+\[
+\frac{1}{p+1}\sum_{i=1}^{p+1}\bv_i\bv_i\T=\frac{1}{p+1}(p+1)\,\A\Bigl(\sum_i\mathbf{e}_i\mathbf{e}_i\T\Bigr)\A\T=\A\A\T=\I_p ,
+\]
+so \( \Cov(\Y)=\bSigma^{1/2}\I_p\bSigma^{1/2}=\bSigma \) by @thm-rv-linear(b). The \( p+1 \) atoms are the
+vertices of a regular simplex centred at \( \bmu \).
+:::
+
+::: {#exr-rv-isotropic}
+[C2]
+
+Call \( \Y \) *isotropic in law* if \( \mathbf{a}\T\Y \) has the same distribution for every unit vector
+\( \mathbf{a} \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that an isotropic \( \Y \) with finite second moments has \( \bmu=\bzero \) and
+           \( \bSigma=c\,\I_p \) with \( c=\Var(\mathbf{a}\T\Y)\ge0 \). *Hint:* a symmetric matrix whose quadratic
+           form vanishes identically is \( \bzero \).
+
+2. Show that the converse fails: for \( \Y \) uniform on the four points \( (\pm\sqrt2,0)\T \),
+           \( (0,\pm\sqrt2)\T \) we have \( \Cov(\Y)=\I_2 \), yet \( \mathbf{e}_1\T\Y \) and
+           \( (\mathbf{e}_1+\mathbf{e}_2)\T\Y/\sqrt2 \) have different distributions.
+
+3. Check that the vector of @exm-rv-circle *is* isotropic, and deduce that isotropy in law
+           does not identify a distribution either.
+:::
+
+:::
+
+::: {.solution}
+(a) For a unit \( \mathbf{a} \), \( \E(\mathbf{a}\T\Y)=\mathbf{a}\T\bmu \) is the same number for
+\( \mathbf{a} \) and \( -\mathbf{a} \), so \( \mathbf{a}\T\bmu=-\mathbf{a}\T\bmu=0 \) for every \( \mathbf{a} \), giving \( \bmu=\bzero \).
+Likewise \( \mathbf{a}\T\bSigma\mathbf{a}=c \) for every unit \( \mathbf{a} \), and by homogeneity
+\( \mathbf{a}\T\bSigma\mathbf{a}=c\norm{\mathbf{a}}^2 \) for every \( \mathbf{a} \). The symmetric matrix \( \bSigma-c\I \) then has
+\( \mathbf{a}\T(\bSigma-c\I)\mathbf{a}=0 \) for all \( \mathbf{a} \); polarization,
+\( 2\mathbf{a}\T(\bSigma-c\I)\bb=(\mathbf{a}+\bb)\T(\bSigma-c\I)(\mathbf{a}+\bb)-\mathbf{a}\T(\bSigma-c\I)\mathbf{a}-\bb\T(\bSigma-c\I)\bb \),
+makes every entry zero.
+
+(b) The four points are symmetric about the origin, so \( \bmu=\bzero \), and
+\( \E(\Y\Y\T)=\tfrac12\cdot2\,\mathbf{e}_1\mathbf{e}_1\T+\tfrac12\cdot2\,\mathbf{e}_2\mathbf{e}_2\T=\I_2 \). But
+\( Y_1 \) takes the values \( \pm\sqrt2 \) with probability \( \tfrac14 \) each and \( 0 \) with probability
+\( \tfrac12 \), whereas \( (Y_1+Y_2)/\sqrt2 \) takes the values \( \pm1 \) with probability \( \tfrac12 \) each.
+Equal covariance matrices, different projections.
+
+(c) There \( \mathbf{a}\T\Y=\cos(\Theta-\psi) \) for the angle \( \psi \) of \( \mathbf{a} \), and \( \Theta-\psi \) is
+again uniform on a full period, so the law of \( \mathbf{a}\T\Y \) does not depend on \( \mathbf{a} \); its
+variance is \( \tfrac12 \), matching \( \Cov(\Y)=\tfrac12\I_2 \). A spherical normal vector with
+covariance \( \tfrac12\I_2 \) is isotropic too, and the two laws are different.
+:::

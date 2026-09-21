@@ -398,3 +398,137 @@ variance factor \( n/\{S_{jj}(1-R_j^2)\} \) of @eq-proj-vif-preview for a column
 the other columns). The node-wise lasso residual plays the role of the FWL residual, and \( 1/\hat\tau_j^2 \) the role of
 the variance inflation.
 :::
+
+### C. Going deeper
+
+::: {#exr-hd-mu-omega}
+[C1]
+
+The two quantities in @thm-hd-debiased pull against each other: \( \mu_j \) controls the remainder and
+\( \omega_j \) the standard error, and a \( \hat{\boldsymbol{\uptheta}}_j \) that makes one small makes the
+other large. This exercise computes the trade-off exactly.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Suppose \( p<n \) and \( \hat{\bSigma} \) is invertible. Show that the only \( \boldsymbol{\uptheta} \)
+   with \( \mu_j=0 \), that is with \( \hat{\bSigma}\boldsymbol{\uptheta}=\mathbf{e}_j \), gives
+   \( \omega_j^2=(\hat{\bSigma}^{-1})_{jj} \), the least squares variance factor of @exr-hd-nodewise-bound.
+
+2. Let \( p=2 \), \( \hat{\bSigma}=\begin{pmatrix}1&\rho\\\rho&1\end{pmatrix} \) with \( 0<\rho<1 \), and
+   \( j=1 \). Substituting \( (a,b)\T=\hat{\bSigma}\boldsymbol{\uptheta} \), show that
+   \( \boldsymbol{\uptheta}\T\hat{\bSigma}\boldsymbol{\uptheta}=(a^2-2\rho ab+b^2)/(1-\rho^2) \) while the
+   constraint \( \norm{\hat{\bSigma}\boldsymbol{\uptheta}-\mathbf{e}_1}_\infty\le\mu \) reads
+   \( |a-1|\le\mu \) and \( |b|\le\mu \).
+
+3. Show that for \( 0<\mu\le\rho/(1+\rho) \) the minimum is at \( (a,b)=(1-\mu,\mu) \), with value
+   \[
+   \omega_1^2(\mu)=\frac{1-2(1+\rho)\mu(1-\mu)}{1-\rho^2},
+   \]
+   so that \( \omega_1^2(0)=(\hat{\bSigma}^{-1})_{11} \) and
+   \( \frac{d}{d\mu}\omega_1^2(0)=-2/(1-\rho) \).
+
+4. Read the result against @thm-hd-debiased(b) and (c), and against the tuning reported in
+   @exm-hd-debiased-coverage.
+:::
+
+:::
+
+::: {.solution}
+(a) \( \hat{\bSigma}\boldsymbol{\uptheta}=\mathbf{e}_j \) has the unique solution
+\( \boldsymbol{\uptheta}=\hat{\bSigma}^{-1}\mathbf{e}_j \), and
+\( \boldsymbol{\uptheta}\T\hat{\bSigma}\boldsymbol{\uptheta}
+=\mathbf{e}_j\T\hat{\bSigma}^{-1}\mathbf{e}_j=(\hat{\bSigma}^{-1})_{jj} \). By @exr-hd-debias-low-dim the
+debiased estimate is then least squares, with exactly that variance factor.
+
+(b) \( \boldsymbol{\uptheta}=\hat{\bSigma}^{-1}(a,b)\T \), so
+\( \boldsymbol{\uptheta}\T\hat{\bSigma}\boldsymbol{\uptheta}=(a,b)\hat{\bSigma}^{-1}(a,b)\T \), and
+\( \hat{\bSigma}^{-1}=(1-\rho^2)^{-1}\begin{pmatrix}1&-\rho\\-\rho&1\end{pmatrix} \) gives the stated form.
+The constraint is a constraint on \( (a,b) \) directly.
+
+(c) Write \( f(a,b)=(a^2-2\rho ab+b^2)/(1-\rho^2) \) on the box \( [1-\mu,1+\mu]\times[-\mu,\mu] \). Then
+\( \partial f/\partial a=2(a-\rho b)/(1-\rho^2) \), and on the box
+\( a-\rho b\ge(1-\mu)-\rho\mu>0 \) because \( \mu\le\rho/(1+\rho)<1/(1+\rho) \); so \( f \) increases in
+\( a \) and \( a=1-\mu \). Next \( \partial f/\partial b=2(b-\rho a)/(1-\rho^2) \) vanishes at
+\( b=\rho(1-\mu) \), which exceeds \( \mu \) exactly when \( \mu<\rho/(1+\rho) \); so \( f \) decreases in
+\( b \) throughout \( [-\mu,\mu] \) and \( b=\mu \). Substituting,
+\( (1-\mu)^2-2\rho(1-\mu)\mu+\mu^2=1-2(1+\rho)\mu+2(1+\rho)\mu^2 \), which is the stated numerator. Setting
+\( \mu=0 \) gives \( 1/(1-\rho^2) \), and differentiating at \( \mu=0 \) gives
+\( -2(1+\rho)/(1-\rho^2)=-2/(1-\rho) \).
+
+(d) A relaxation of the constraint from \( \mu=0 \) to a small \( \mu \) lowers the variance factor at the
+linear rate \( 2/(1-\rho) \), fast when the columns are correlated, while by (b) of the theorem the
+remainder bound \( \sqrt n\,\mu_j\norm{\hat{\bbeta}_\lambda-\bbeta}_1 \) grows linearly in \( \mu \) at the
+same time. The theorem's condition \( \mu_j\le C\sqrt{\log p/n} \) is a choice of a point on this curve: it
+is what makes the remainder vanish beside \( 1/\sqrt n \), at the price of the variance the exact inverse
+would have delivered. Part (c) of the theorem gives the floor \( \omega_j^2\ge(1-\mu_j)^2 \), so the variance
+cannot be driven below about one however \( \mu \) is chosen. The simulation of @exm-hd-debiased-coverage
+sits at the other end: its node-wise penalty is a tenth of \( \sqrt{2\log p/n} \), which keeps \( \mu_j \)
+near \( 0.09 \) and the remainder small, and pays for it with a \( \hat\tau_j^2 \) far below its population
+value and hence intervals wider than the oracle's.
+:::
+
+::: {#exr-hd-iterate}
+[C2]
+
+Why one correction and not two? Write \( T(\bb)=\bb+\hat{\boldsymbol{\Theta}}\X\T(\Y-\X\bb)/n \), so that
+\( \hat{\mathbf{b}}=T(\hat{\bbeta}_\lambda) \), and put \( \mathbf{K}=\hat{\boldsymbol{\Theta}}\hat{\bSigma}-\I \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( T(\bb)-\bbeta=-\mathbf{K}(\bb-\bbeta)+\mathbf{w}/\sqrt n \) with \( \mathbf{w} \) as in
+   @thm-hd-debiased(a), and deduce that the \( k \)-fold iterate satisfies
+   \[
+   \sqrt n\bigl(T^{k}(\hat{\bbeta}_\lambda)-\bbeta\bigr)
+   =(-\mathbf{K})^{k}\sqrt n\,\boldsymbol{\Delta}+\sum_{i=0}^{k-1}(-\mathbf{K})^{i}\mathbf{w},
+   \qquad \boldsymbol{\Delta}=\hat{\bbeta}_\lambda-\bbeta .
+   \]
+
+2. With \( \mu=\max_k\mu_k \), show that
+   \( \norm{\mathbf{K}\boldsymbol{\Delta}}_1\le p\,\mu\norm{\boldsymbol{\Delta}}_1 \), and hence that the bound
+   of @thm-hd-debiased(b) on the \( j \)th remainder is multiplied by \( p\mu \) for each extra iteration.
+
+3. Show that under the conditions of @thm-hd-debiased(d) with \( p>n \) one has
+   \( p\mu\ge\sqrt{n\log p}\,C^{-1}\to\infty \) up to the constant, so that the guarantee is lost after one
+   extra step, however small \( \mu \) is.
+
+4. Show that when \( p<n \) and \( \hat{\boldsymbol{\Theta}}=\hat{\bSigma}^{-1} \), \( \mathbf{K}=\bzero \) and
+   every iterate equals the least squares estimate, so nothing of this happens in low dimension.
+:::
+
+:::
+
+::: {.solution}
+(a) Substituting \( \Y=\X\bbeta+\be \), \( \Y-\X\bb=\X(\bbeta-\bb)+\be \), so
+\[
+T(\bb)-\bbeta=(\bb-\bbeta)-\hat{\boldsymbol{\Theta}}\hat{\bSigma}(\bb-\bbeta)
++\hat{\boldsymbol{\Theta}}\X\T\be/n=-\mathbf{K}(\bb-\bbeta)+\mathbf{w}/\sqrt n ,
+\]
+with \( \mathbf{w}=\hat{\boldsymbol{\Theta}}\X\T\be/\sqrt n \). The map is affine with linear part
+\( -\mathbf{K} \); iterating it \( k \) times from \( \hat{\bbeta}_\lambda \) and multiplying by \( \sqrt n \)
+gives the display. At \( k=1 \) it is @thm-hd-debiased(a).
+
+(b) The \( k \)th row of \( \mathbf{K} \) is \( (\hat{\bSigma}\hat{\boldsymbol{\uptheta}}_k-\mathbf{e}_k)\T \), so
+\( |(\mathbf{K}\boldsymbol{\Delta})_k|\le\mu_k\norm{\boldsymbol{\Delta}}_1\le\mu\norm{\boldsymbol{\Delta}}_1 \) by
+Hölder, and summing over the \( p \) coordinates,
+\( \norm{\mathbf{K}\boldsymbol{\Delta}}_1\le p\mu\norm{\boldsymbol{\Delta}}_1 \). Applying the \( j \)th-row
+bound once more, \( |\{(\mathbf{K})^{2}\boldsymbol{\Delta}\}_j|\le\mu_j\norm{\mathbf{K}\boldsymbol{\Delta}}_1
+\le p\mu\cdot\mu_j\norm{\boldsymbol{\Delta}}_1 \), and by induction each further step costs a factor
+\( p\mu \).
+
+(c) The one-step remainder is controlled by taking \( \mu \) of the order \( \sqrt{\log p/n} \), which is
+what the condition \( \mu_j\le C\sqrt{\log p/n} \) asks for and what @lem-hd-nodewise delivers. At that
+order, and with \( p>n \),
+\[
+p\mu\asymp p\sqrt{\frac{\log p}n}\ \ge\ n\sqrt{\frac{\log p}n}=\sqrt{n\log p}\ \to\ \infty .
+\]
+The \( \ell_1 \) norm of the error is spread over \( p \) coordinates, and each application of
+\( \mathbf{K} \) trades a factor \( \mu \) against a factor \( p \); with \( p \) larger than
+\( n \), \( p \) wins.
+
+(d) Then \( \hat{\boldsymbol{\Theta}}\hat{\bSigma}=\I \), so \( \mathbf{K}=\bzero \) and
+\( T(\bb)=\bbeta+\mathbf{w}/\sqrt n=\hbeta \) for every \( \bb \), by @exr-hd-debias-low-dim. The iteration
+converges in one step because the correction is exact.
+
+The moral is that @eq-hd-debiased is not the first step of a convergent scheme. It is the one step whose
+error the design can be made to control, and the noise term of (a) also changes as soon as \( k>1 \), since
+\( \sum_i(-\mathbf{K})^{i}\mathbf{w} \) no longer has the covariance \( \sigma^2\omega_j^2 \) that the interval
+uses.
+:::

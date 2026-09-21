@@ -149,3 +149,97 @@ Suppose \( \A \) is symmetric. For \( \bu=\A\x\in\C(\A) \) and
 \( \x,\mathbf{y} \), \( (\I-\A)\mathbf{y}\in\Null(\A) \), so \( \x\T\A\T(\I-\A)\mathbf{y}=0 \). Hence \( \A\T(\I-\A)=\bzero \), that is,
 \( \A\T=\A\T\A \). The right side is symmetric, so \( \A\T \) is symmetric, and so is \( \A \).
 :::
+
+### C. Going deeper
+
+::: {#exr-mat-projection-order}
+[C1]
+
+Let \( \A \) and \( \B \) be symmetric idempotent of the same order. Show that the following are
+equivalent: (i) \( \A-\B \) is nonnegative definite; (ii) \( \A-\B \) is idempotent; (iii)
+\( \A\B=\B \); (iv) \( \B\A=\B \); (v) \( \C(\B)\subseteq\C(\A) \). Deduce that a difference of two
+sums of squares is again a sum of squares exactly when one model is nested in the other, the
+situation of [Chapter 11](../ch11-general-linear-hypothesis/index.html).
+:::
+
+::: {.solution}
+First note that \( \A\x=\x \) for every \( \x\in\C(\A) \): if \( \x=\A\mathbf{y} \), then
+\( \A\x=\A^2\mathbf{y}=\A\mathbf{y}=\x \).
+
+(v)\( \Rightarrow \)(iii): each column of \( \B \) lies in \( \C(\B)\subseteq\C(\A) \) and is therefore
+fixed by \( \A \), so \( \A\B=\B \). (iii)\( \Rightarrow \)(v): \( \C(\B)=\C(\A\B)\subseteq\C(\A) \).
+(iii)\( \Leftrightarrow \)(iv): transpose, using the symmetry of \( \A \) and \( \B \).
+(iii)\( \Rightarrow \)(ii): with \( \A\B=\B\A=\B \),
+\( (\A-\B)^2=\A-\A\B-\B\A+\B=\A-\B \). (ii)\( \Rightarrow \)(i): \( \A-\B \) is symmetric and
+idempotent, hence nonnegative definite by @thm-mat-idempotent(c).
+
+(i)\( \Rightarrow \)(iii): let \( \x\in\C(\B) \), so \( \B\x=\x \) and \( \x\T\B\x=\norm{\x}^2 \). Then
+\( \x\T\A\x\ge\x\T\B\x=\norm{\x}^2 \), while \( \x\T\A\x\le\norm{\x}^2 \) by @thm-mat-idempotent(c).
+So \( \x\T(\I-\A)\x=0 \), and since \( \I-\A \) is nonnegative definite,
+@prp-mat-pd-properties(b) gives \( (\I-\A)\x=\bzero \), that is, \( \A\x=\x \). Applying this to
+the columns of \( \B \) gives \( \A\B=\B \).
+
+For the last statement, if \( \A \) and \( \B \) are the projections attached to two models, then
+\( \y\T\A\y-\y\T\B\y \) is again a quadratic form in a symmetric idempotent matrix — a sum of
+squares with its own degrees of freedom \( \rank(\A)-\rank(\B) \) — exactly when
+\( \C(\B)\subseteq\C(\A) \).
+:::
+
+::: {#exr-mat-commuting-projections}
+[C2]
+
+Let \( \A \) and \( \B \) be symmetric idempotent with \( \A\B=\B\A \). Show that \( \A\B \) is
+symmetric idempotent with \( \C(\A\B)=\C(\A)\cap\C(\B) \), and that \( \A+\B-\A\B \) is symmetric
+idempotent with column space \( \C(\A)+\C(\B) \); deduce
+\( \rank(\A+\B-\A\B)=\rank(\A)+\rank(\B)-\rank(\A\B) \). Give two symmetric idempotent matrices of
+order \( 2 \) that do not commute, and show that for them \( \A\B \) is not a projection onto the
+intersection.
+:::
+
+::: {.solution}
+Symmetry: \( (\A\B)\T=\B\T\A\T=\B\A=\A\B \). Idempotence:
+\( (\A\B)^2=\A(\B\A)\B=\A^2\B^2=\A\B \). If \( \x\in\C(\A\B) \) then \( \x=\A(\B\mathbf{y})\in\C(\A) \) and,
+using \( \A\B=\B\A \), also \( \x=\B(\A\mathbf{y})\in\C(\B) \). Conversely, if \( \x \) lies in both column
+spaces, then \( \A\x=\x \) and \( \B\x=\x \), so \( \A\B\x=\x \) and \( \x\in\C(\A\B) \).
+
+Put \( \mathbf{N}=\A+\B-\A\B \). It is symmetric, and expanding with \( \A\B=\B\A \) and
+\( \A^2=\A \), \( \B^2=\B \) gives
+\( \mathbf{N}^2=\A+\A\B-\A\B+\A\B+\B-\A\B-\A\B-\A\B+\A\B=\A+\B-\A\B \). Its column space lies in
+\( \C(\A)+\C(\B) \); conversely \( \mathbf{N}\x=\x \) for \( \x\in\C(\A) \) (then
+\( \mathbf{N}\x=\x+\B\x-\B\x \)) and for \( \x\in\C(\B) \), so \( \C(\A)+\C(\B)\subseteq\C(\mathbf{N}) \). The
+rank statement is @prp-mat-idempotent-basic(b) applied to the three idempotent matrices,
+since the trace is linear.
+
+For a counterexample take \( \A=\mathbf{e}_1\mathbf{e}_1\T \) and \( \B=\frac12\mathbf{J}_2 \), the projections onto two
+different lines. Then \( \A\B=\frac12\begin{psmallmatrix}1&1\\0&0\end{psmallmatrix} \) and
+\( \B\A=\frac12\begin{psmallmatrix}1&0\\1&0\end{psmallmatrix} \) differ, \( \A\B \) is neither
+symmetric nor idempotent, and \( \C(\A)\cap\C(\B)=\{\bzero\} \) although \( \A\B\ne\bzero \).
+:::
+
+::: {#exr-mat-idempotent-similar}
+[C3]
+
+Let \( \A \) be idempotent of order \( n \) and rank \( r \), not necessarily symmetric. Show that
+\( \mathbf{P}^{-1}\A\mathbf{P}=\begin{psmallmatrix}\I_r&\bzero\\\bzero&\bzero\end{psmallmatrix} \) for some
+nonsingular \( \mathbf{P} \), and conversely. Read off from this a second proof that \( \tr(\A)=r \), and
+find the characteristic polynomial of \( \A \) and the dimensions of its eigenspaces.
+:::
+
+::: {.solution}
+By @prp-mat-idempotent-basic(c), \( \Real^n=\C(\A)\dirsum\Null(\A) \), with the two
+dimensions \( r \) and \( n-r \). Take a basis \( \mathbf{p}_1,\dots,\mathbf{p}_r \) of \( \C(\A) \) and a basis
+\( \mathbf{p}_{r+1},\dots,\mathbf{p}_n \) of \( \Null(\A) \); together they are a basis of \( \Real^n \), so
+\( \mathbf{P}=[\mathbf{p}_1,\dots,\mathbf{p}_n] \) is nonsingular. Every \( \x\in\C(\A) \) satisfies \( \A\x=\x \), as
+in @exr-mat-projection-order, so \( \A\mathbf{p}_i=\mathbf{p}_i \) for \( i\le r \) and \( \A\mathbf{p}_j=\bzero \)
+for \( j>r \). Column by column this says
+\( \A\mathbf{P}=\mathbf{P}\begin{psmallmatrix}\I_r&\bzero\\\bzero&\bzero\end{psmallmatrix} \). Conversely, a
+matrix similar to that block matrix is idempotent by @prp-mat-idempotent-basic(e), and has
+the same rank.
+
+Since the trace is unchanged by similarity (@eq-mat-trace-tricks), \( \tr(\A)=r \), which proves
+@prp-mat-idempotent-basic(b) again without a rank factorization. Similar matrices have the
+same characteristic polynomial (@prp-mat-eigen-basic(c)), so
+\( \det(\lambda\I-\A)=\lambda^{n-r}(\lambda-1)^r \). The eigenspaces are \( \C(\A) \) for the
+eigenvalue \( 1 \) and \( \Null(\A) \) for the eigenvalue \( 0 \), of dimensions \( r \) and \( n-r \): an
+idempotent matrix is diagonalizable even when it is not symmetric.
+:::

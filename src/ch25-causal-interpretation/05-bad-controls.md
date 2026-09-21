@@ -255,3 +255,124 @@ and \( \Var U_X=\sigma^2 \). Show that the slope of \( L(Y\mid X) \) is \( \tau+
 \( \sigma_{YX\cdot I}=\tau(g^2+\sigma^2)+gh \). Divide. The confounded covariance \( gh \) is the same in both, but adjustment divides it by
 a smaller variance.
 :::
+
+### C. Going deeper
+
+::: {#exr-cau-butterfly}
+[C1]
+
+*(Butterfly bias.)* Let \( H_1,H_2,U_C,U_X,U_Y \) be independent with mean zero and variance \( 1 \), and let
+\[
+C=H_1+H_2+U_C,\qquad X=H_1+C+U_X,\qquad Y=\tau X+H_2+C+U_Y ,
+\]
+so that \( C \) is at once a collider on \( H_1\to C\leftarrow H_2 \) and a common cause of \( X \) and
+\( Y \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. List the back-door paths from \( X \) to \( Y \) and say which are open when \( C \) is not conditioned on,
+   and which when it is. Conclude that neither \( \emptyset \) nor \( \{C\} \) satisfies the back-door
+   criterion (@def-cau-backdoor-criterion).
+
+2. Show that the slope of \( L(Y\mid X) \) is \( \tau+\tfrac57 \) and that the coefficient of \( X \) in
+   \( L(Y\mid X,C) \) is \( \tau-\tfrac15 \). Adjusting for \( C \) reduces the bias and reverses its sign, so
+   the two estimates bracket \( \tau \).
+
+3. Now change one arrow, replacing \( C=H_1+H_2+U_C \) by \( C=H_1-H_2+U_C \) and keeping everything else.
+   Show that the two biases become \( \tfrac37 \) and \( \tfrac15 \): both positive, so the two estimates no
+   longer bracket the truth.
+:::
+
+There is therefore no "adjust and compare" rule that turns two biased estimates into bounds.
+:::
+
+::: {.solution}
+(a) Write the paths that leave \( X \) by an arrow into \( X \). They are \( X\leftarrow C\to Y \),
+\( X\leftarrow H_1\to C\to Y \), \( X\leftarrow C\leftarrow H_2\to Y \) and
+\( X\leftarrow H_1\to C\leftarrow H_2\to Y \). On the first three, \( C \) is a non-collider, so they are open
+when \( C \) is free and blocked when it is conditioned on. On the fourth, \( C \) is a collider, so that path
+is blocked when \( C \) is free and opened when it is conditioned on. Condition (i) is not at issue, since
+\( C \) is no descendant of \( X \); it is (ii) that fails for both candidate sets, because every choice
+leaves one of the four paths open.
+
+(b) Substituting, \( X=2H_1+H_2+U_C+U_X \) and \( Y=\tau X+R \) with \( R=H_1+2H_2+U_C+U_Y \). All five
+disturbances are uncorrelated with variance one, so
+\( \Var(X)=4+1+1+1=7 \), \( \Cov(X,R)=2+2+1=5 \), \( \Var(C)=3 \), \( \Cov(X,C)=2+1+1=4 \) and
+\( \Cov(R,C)=1+2+1=4 \). The slope of \( L(Y\mid X) \) is \( \tau+\Cov(X,R)/\Var(X)=\tau+\tfrac57 \)
+(@thm-proj-blp). For the adjusted coefficient, \( U_Y \) is uncorrelated with \( (X,C) \), so the coefficient
+of \( X \) in \( L(Y\mid X,C) \) is \( \tau+k_1 \), where \( (k_1,k_2) \) solves the population normal
+equations
+\[
+\begin{pmatrix}7&4\\4&3\end{pmatrix}\begin{pmatrix}k_1\\k_2\end{pmatrix}
+=\begin{pmatrix}5\\4\end{pmatrix}.
+\]
+The determinant is \( 5 \) and \( k_1=(5\cdot3-4\cdot4)/5=-\tfrac15 \).
+
+(c) Now \( X=2H_1-H_2+U_C+U_X \) with \( \Var(X)=7 \) again, and \( R=H_2+C+U_Y=H_1+U_C+U_Y \), so
+\( \Cov(X,R)=2+1=3 \) and the unadjusted bias is \( \tfrac37 \). Also \( \Var(C)=3 \),
+\( \Cov(X,C)=2+1+1=4 \) and \( \Cov(R,C)=1+1=2 \), so the same matrix now faces the right-hand side
+\( (3,2)\T \) and \( k_1=(3\cdot3-4\cdot2)/5=\tfrac15 \).
+
+The sign of the M-bias that conditioning opens is the sign of a product of four path coefficients
+(@eq-cau-bias-m), while the sign of the confounding that conditioning closes is set by the arrows out of
+\( C \); changing one arrow changes the first and not the second. Bracketing in (b) is an accident of the
+numbers, and nothing in the graph guarantees it.
+:::
+
+::: {#exr-cau-cancelling-control}
+[C2]
+
+*(A bad control that does no harm.)* Let \( H \) be unrecorded, \( U_X,U_C,U_Y \) independent of it and of
+each other, \( \Var(H)=\Var(U_X)=1 \), \( \Var(U_C)=\sigma_C^2>0 \), and
+\[
+X=H+U_X,\qquad Y=\tau X+H+U_Y,\qquad C=pH+qX+U_C .
+\]
+The control \( C \) is measured after the treatment: it is a descendant of \( X \) and a collider on
+\( X\to C\leftarrow H\to Y \), so the advice of this section forbids it twice over.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that the slope of \( L(Y\mid X) \) is \( \tau+\tfrac12 \).
+
+2. Show that the coefficient of \( X \) in \( L(Y\mid X,C) \) is
+   \[
+   \tau+\frac{\sigma_C^2-pq}{p^2+2\sigma_C^2}.
+   \]
+
+3. Deduce that the adjusted coefficient is exactly \( \tau \) when \( \sigma_C^2=pq \), for instance at
+   \( p=q=\sigma_C^2=1 \), and check the two extreme cases \( q=0 \) and \( p=0 \) against
+   @exr-cau-descendant-only and against the idea of a proxy for \( H \).
+:::
+
+Why does this not overturn the advice?
+:::
+
+::: {.solution}
+(a) \( Y=\tau X+R \) with \( R=H+U_Y \), and \( \Var(X)=2 \), \( \Cov(X,R)=1 \), so the slope is
+\( \tau+\tfrac12 \).
+
+(b) Since \( U_Y \) is uncorrelated with \( (X,C) \), the coefficient of \( X \) in \( L(Y\mid X,C) \) is
+\( \tau+k_1 \), with \( (k_1,k_2) \) the coefficients of \( L(H\mid X,C) \). Write
+\( C=(p+q)H+qU_X+U_C \). Then \( \Var(X)=2 \), \( \Cov(X,C)=p+2q \),
+\( \Var(C)=(p+q)^2+q^2+\sigma_C^2 \), \( \Cov(H,X)=1 \) and \( \Cov(H,C)=p+q \). The determinant of the
+covariance matrix of \( (X,C) \) is
+\[
+D=2\bigl\{(p+q)^2+q^2+\sigma_C^2\bigr\}-(p+2q)^2=p^2+2\sigma_C^2>0 ,
+\]
+and solving the two equations for \( k_1 \) gives
+\( k_1=\bigl\{(p+q)^2+q^2+\sigma_C^2-(p+2q)(p+q)\bigr\}/D=(\sigma_C^2-pq)/D \), since the brace equals
+\( (p+q)\{(p+q)-(p+2q)\}+q^2+\sigma_C^2=\sigma_C^2-pq \).
+
+(c) At \( p=q=\sigma_C^2=1 \) the numerator vanishes and the adjusted coefficient is exactly \( \tau \), while
+the unadjusted one is \( \tau+\tfrac12 \). At \( q=0 \), \( C=pH+U_C \) is a pre-treatment proxy for the
+confounder and the bias is \( \sigma_C^2/(p^2+2\sigma_C^2)<\tfrac12 \), tending to \( 0 \) as
+\( \sigma_C^2\to0 \): a perfect proxy is as good as \( H \) itself. At \( p=0 \), \( C=qX+U_C \) is a pure
+descendant of \( X \) and the bias is \( \sigma_C^2/(2\sigma_C^2)=\tfrac12 \), unchanged, which is
+@exr-cau-descendant-only again.
+
+The advice survives because the cancellation is not a property of the graph. Conditioning on \( C \) opens
+the path \( X\to C\leftarrow H\to Y \), whose contribution is \( -pq/D \), and shrinks the confounding along
+\( X\leftarrow H\to Y \) to \( \sigma_C^2/D \); the two are equal only on the surface \( \sigma_C^2=pq \) in
+the parameter space, and \( p \), \( q \) and \( \sigma_C^2 \) all involve the unrecorded \( H \), so no data
+tell the analyst where on that surface the truth lies. A rule that forbids the control is right in the sense
+that matters: it is right for every graph, while the exception holds for a null set of the parameters and
+cannot be recognized.
+:::

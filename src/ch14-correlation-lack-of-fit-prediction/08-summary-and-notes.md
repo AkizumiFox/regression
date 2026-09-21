@@ -95,9 +95,9 @@ this book's.
 
 - Agresti, Alan (2015). *Foundations of Linear and Generalized Linear Models*. Hoboken, NJ: Wiley.
 - Anderson, Theodore W. (2003). *An Introduction to Multivariate Statistical Analysis*. 3rd edition. Hoboken, NJ: Wiley.
-- Azzalini, Adelchi and Bowman, Adrian W. (1993). On the Use of Nonparametric Regression for Checking Linear Relationships. *Journal of the Royal Statistical Society. Series B* 55(2), 549–557.
+- Azzalini, Adelchi and Bowman, Adrian W. (1993). On the Use of Nonparametric Regression for Checking Linear Relationships. *Journal of the Royal Statistical Society, Series B* 55(2), 549–557.
 - Breiman, Leo and Freedman, David (1983). How Many Variables Should Be Entered in a Regression Equation? *Journal of the American Statistical Association* 78(381), 131–136.
-- Brownlee, K. A. (1965). *Statistical Theory and Methodology in Science and Engineering*. 2nd edition. New York: Wiley.
+- Brownlee, Kenneth A. (1965). *Statistical Theory and Methodology in Science and Engineering*. 2nd edition. New York: Wiley.
 - Christensen, Ronald (1989). Lack-of-Fit Tests Based on Near or Exact Replicates. *The Annals of Statistics* 17(2), 673–683.
 - Christensen, Ronald (1991). Small-Sample Characterizations of Near Replicate Lack-of-Fit Tests. *Journal of the American Statistical Association* 86(415), 752–756.
 - Christensen, Ronald (2020). *Plane Answers to Complex Questions: The Theory of Linear Models*. 5th edition. Cham: Springer.
@@ -109,12 +109,12 @@ this book's.
 - Fisher, Ronald A. (1928). The General Sampling Distribution of the Multiple Correlation Coefficient. *Proceedings of the Royal Society of London. Series A* 121(788), 654–673.
 - Goldberger, Arthur S. (1962). Best Linear Unbiased Prediction in the Generalized Linear Regression Model. *Journal of the American Statistical Association* 57(298), 369–375.
 - Hart, Jeffrey D. (1997). *Nonparametric Smoothing and Lack-of-Fit Tests*. New York: Springer.
-- Hotelling, Harold (1953). New Light on the Correlation Coefficient and its Transforms. *Journal of the Royal Statistical Society. Series B* 15(2), 193–232.
+- Hotelling, Harold (1953). New Light on the Correlation Coefficient and its Transforms. *Journal of the Royal Statistical Society, Series B* 15(2), 193–232.
 - Isserlis, Leon (1918). On a Formula for the Product-Moment Coefficient of Any Order of a Normal Frequency Distribution in Any Number of Variables. *Biometrika* 12(1/2), 134–139.
 - Manning, Willard G., Newhouse, Joseph P., Duan, Naihua, Keeler, Emmett B., Leibowitz, Arleen and Marquis, M. Susan (1987). Health Insurance and the Demand for Medical Care: Evidence from a Randomized Experiment. *American Economic Review* 77(3), 251–277.
 - Milliken, George A. and Graybill, Franklin A. (1970). Extensions of the General Linear Hypothesis Model. *Journal of the American Statistical Association* 65(330), 797–807.
 - Olkin, Ingram and Pratt, John W. (1958). Unbiased Estimation of Certain Correlation Coefficients. *The Annals of Mathematical Statistics* 29(1), 201–211.
-- Ramsey, James B. (1969). Tests for Specification Errors in Classical Linear Least-Squares Regression Analysis. *Journal of the Royal Statistical Society. Series B* 31(2), 350–371.
+- Ramsey, James B. (1969). Tests for Specification Errors in Classical Linear Least-Squares Regression Analysis. *Journal of the Royal Statistical Society, Series B* 31(2), 350–371.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
 - Shillington, E. Richard (1979). Testing Lack of Fit in Regression without Replication. *The Canadian Journal of Statistics* 7(2), 137–146.
 - Tukey, John W. (1949). One Degree of Freedom for Non-Additivity. *Biometrics* 5(3), 232–242.

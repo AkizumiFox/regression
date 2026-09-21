@@ -133,7 +133,7 @@ constants \( \delta,K,\tau_{\min}>0 \), \( \Var\xi_i\ge\tau_{\min}^2 \) and \( \
 :::
 
 ::: {.proof}
-Case (a) is the lemma on weighted sums of errors in
+Case (a) is the lemma on weighted sums of errors (@lem-dep-weighted-clt) in
 [Section 19.3](../ch19-theory-of-departures/03-non-normal-errors.html), applied with \( \xi_i \) in place of the
 errors and the unit weights \( \mathbf{c}/\norm{\mathbf{c}} \). For case (b), let \( v_n=\sum_ic_i^2\Var\xi_i \) and
 \( X_{ni}=c_i\xi_i/\sqrt{v_n} \), so that \( \sum_i\Var X_{ni}=1 \), and write

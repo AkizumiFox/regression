@@ -108,12 +108,12 @@ public-domain data sets distributed with statsmodels, already used in
 - Feder, Paul I. (1975). On Asymptotic Distribution Theory in Segmented Regression Problems: Identified Case. *The Annals of Statistics* 3(1), 49–83.
 - Forsythe, George E. (1957). Generation and Use of Orthogonal Polynomials for Data-Fitting with a Digital Computer. *Journal of the Society for Industrial and Applied Mathematics* 5(2), 74–88.
 - Harrell, Frank E. (2015). *Regression Modeling Strategies*. 2nd edition. Cham: Springer.
-- Hastie, Trevor J. and Tibshirani, Robert J. (1990). *Generalized Additive Models*. London: Chapman and Hall.
+- Hastie, Trevor and Tibshirani, Robert (1990). *Generalized Additive Models*. London: Chapman and Hall.
 - Higham, Nicholas J. (2002). *Accuracy and Stability of Numerical Algorithms*. 2nd edition. Philadelphia: SIAM.
 - Hudson, Derek J. (1966). Fitting Segmented Curves Whose Join Points Have to Be Estimated. *Journal of the American Statistical Association* 61(316), 1097–1129.
 - Poirier, Dale J. (1973). Piecewise Regression Using Cubic Splines. *Journal of the American Statistical Association* 68(343), 515–524.
 - Runge, Carl (1901). Über empirische Funktionen und die Interpolation zwischen äquidistanten Ordinaten. *Zeitschrift für Mathematik und Physik* 46, 224–243.
-- Ruppert, David, Wand, M. P. and Carroll, Raymond J. (2003). *Semiparametric Regression*. Cambridge: Cambridge University Press.
+- Ruppert, David, Wand, Matthew P. and Carroll, Raymond J. (2003). *Semiparametric Regression*. Cambridge: Cambridge University Press.
 - Schoenberg, Isaac J. (1946). Contributions to the Problem of Approximation of Equidistant Data by Analytic Functions. *Quarterly of Applied Mathematics* 4, 45–99 and 112–141.
 - Schoenberg, Isaac J. and Whitney, Anne (1953). On Pólya Frequency Functions III: The Positivity of Translation Determinants with an Application to the Interpolation Problem by Spline Curves. *Transactions of the American Mathematical Society* 74(2), 246–259.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.

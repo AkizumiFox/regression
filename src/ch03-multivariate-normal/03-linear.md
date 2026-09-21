@@ -289,3 +289,108 @@ For the pair \( (Z,W) \) of @exm-mvn-sign-flip, find every \( \mathbf{a}\ne\bzer
 has fourth moment \( \tfrac32(v_1^2+v_2^2) \). Conclude that \( (Z,W) \) is normal along exactly two
 lines through the origin, the coordinate axes.
 :::
+
+### C. Going deeper
+
+::: {#exr-mvn-four-directions}
+[C1]
+
+@exm-mvn-mixture is normal along the two coordinate directions only. Normality along more
+directions is still not enough. Let \( \varphi \) be the \( \Normal(0,1) \) density, fix
+\( 0<\varepsilon\le e^2/(8\pi) \), and put
+\[
+f(x,y)=\varphi(x)\varphi(y)+\varepsilon\,xy(x^2-y^2)\,e^{-(x^2+y^2)} .
+\]
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( f \) is a probability density on \( \Real^2 \). *Hint:* in polar coordinates
+           \( xy(x^2-y^2)=\tfrac14r^4\sin4\theta \), and \( r^4e^{-r^2/2} \) is largest at \( r=2 \).
+
+2. Show that both margins are \( \Normal(0,1) \) and that \( \Cov(X,Y)=0 \).
+
+3. Show that \( (X+Y)/\sqrt2 \) and \( (X-Y)/\sqrt2 \) are \( \Normal(0,1) \) as well. *Hint:* write the
+           perturbation in the coordinates \( u=(x+y)/\sqrt2 \), \( v=(x-y)/\sqrt2 \).
+
+4. Show that \( (X,Y) \) is nevertheless not jointly normal, by computing the sign of
+           \( \E(X^3Y-XY^3) \). Which four directions of @def-mvn have been checked, and which
+           direction would expose the failure?
+:::
+
+:::
+
+::: {.solution}
+(a) The perturbation is continuous and integrates to \( 0 \) by (b) below, so
+only \( f\ge0 \) needs checking. In polar coordinates
+\( \lvert xy(x^2-y^2)\rvert e^{-r^2}=\tfrac14r^4\lvert\sin4\theta\rvert e^{-r^2}\le\tfrac14r^4e^{-r^2} \),
+while \( \varphi(x)\varphi(y)=(2\pi)^{-1}e^{-r^2/2} \). So it suffices that
+\( \varepsilon\,\tfrac14r^4e^{-r^2/2}\le(2\pi)^{-1} \) for all \( r\ge0 \). The function \( r^4e^{-r^2/2} \)
+has derivative \( (4r^3-r^5)e^{-r^2/2} \), so its maximum is at \( r=2 \), with value \( 16e^{-2} \). The
+condition is \( 4\varepsilon e^{-2}\le(2\pi)^{-1} \), that is \( \varepsilon\le e^2/(8\pi) \).
+
+(b) For fixed \( x \),
+\( \int xy(x^2-y^2)e^{-(x^2+y^2)}dy=xe^{-x^2}\int y(x^2-y^2)e^{-y^2}dy=0 \), the integrand being
+odd in \( y \). So the density of \( X \) is \( \varphi \), and by symmetry so is that of \( Y \). Integrating
+once more shows that \( f \) integrates to \( 1 \). For the covariance,
+\( \E(XY)=\varepsilon\iint x^2y^2(x^2-y^2)e^{-(x^2+y^2)}dx\,dy \), which is zero because the
+integrand changes sign under the interchange \( (x,y)\mapsto(y,x) \).
+
+(c) With \( x=(u+v)/\sqrt2 \) and \( y=(u-v)/\sqrt2 \) one has \( xy=(u^2-v^2)/2 \),
+\( x^2-y^2=2uv \) and \( x^2+y^2=u^2+v^2 \), so \( xy(x^2-y^2)=uv(u^2-v^2) \). The map is orthogonal,
+so the joint density of \( (U,V)=\bigl((X+Y)/\sqrt2,(X-Y)/\sqrt2\bigr) \) is \( f(u,v) \): the *same*
+function. By (b) its margins are \( \Normal(0,1) \).
+
+(d) Under the normal part \( \E(X^3Y-XY^3)=0 \), and the perturbation contributes
+\( \varepsilon\iint\{xy(x^2-y^2)\}^2e^{-(x^2+y^2)}dx\,dy>0 \). If \( (X,Y) \) were jointly normal it
+would be \( \Normal_2(\bzero,\I) \) by (b), hence would have independent entries by
+@thm-mvn-independence, and then \( \E(X^3Y)=\E(X^3)\E(Y)=0=\E(XY^3) \). So it is not. We have
+checked the directions \( \mathbf{e}_1,\mathbf{e}_2 \) and \( (1,\pm1)\T/\sqrt2 \); a direction such as
+\( (\cos\pi/8,\sin\pi/8)\T \), where \( \sin4\theta \) does not vanish, gives a projection that is
+not normal.
+:::
+
+::: {#exr-mvn-residual-subvector}
+[C2]
+
+In @exm-mvn-ls-estimator let \( I\subseteq\{1,\dots,n\} \) be a set of cases, let \( \he_I \) be the
+corresponding subvector of residuals and let \( \X_{I^c} \) be the rows of \( \X \) outside \( I \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \Cov(\he_I)=\sigma^2(\I-\M)_{II} \) is singular if and only if some nonzero vector
+           of \( \C(\X) \) vanishes outside \( I \).
+
+2. Deduce that \( \he_I \) has a density on \( \Real^{\lvert I\rvert} \) if and only if
+           \( \rank(\X_{I^c})=\rank(\X) \): the residuals of a set of cases are nondegenerate exactly
+           when deleting those cases leaves a design of unchanged rank (@thm-mvn-density).
+
+3. Recover @exr-mvn-residual-leverage as the case \( \lvert I\rvert=1 \), and give a design with
+           \( n=4 \) in which two residuals are degenerate as a pair although each is nondegenerate
+           alone.
+:::
+
+:::
+
+::: {.solution}
+(a) For \( \mathbf{a}\in\Real^{\lvert I\rvert} \) let \( \tilde{\mathbf{a}} \) be \( \mathbf{a} \)
+extended by zeros. Then
+\( \mathbf{a}\T(\I-\M)_{II}\mathbf{a}=\tilde{\mathbf{a}}\T(\I-\M)\tilde{\mathbf{a}}=\norm{(\I-\M)\tilde{\mathbf{a}}}^2 \),
+because \( \I-\M \) is symmetric and idempotent. A nonnegative definite matrix is singular iff
+its quadratic form vanishes somewhere off the origin, so \( (\I-\M)_{II} \) is singular iff there
+is \( \mathbf{a}\ne\bzero \) with \( (\I-\M)\tilde{\mathbf{a}}=\bzero \), that is, with
+\( \tilde{\mathbf{a}}\in\C(\X) \) and \( \tilde{\mathbf{a}} \) zero outside \( I \).
+
+(b) Such a \( \tilde{\mathbf{a}}=\X\bb \) is nonzero with \( \X_{I^c}\bb=\bzero \), so
+\( \Null(\X_{I^c}) \) is strictly larger than \( \Null(\X) \); conversely any
+\( \bb\in\Null(\X_{I^c})\setminus\Null(\X) \) gives such a vector. Since
+\( \Null(\X)\subseteq\Null(\X_{I^c}) \) always, the two null spaces differ iff their dimensions
+do, which by @thm-mat-rank-nullity happens iff \( \rank(\X_{I^c})<\rank(\X) \). A normal vector
+has a density iff its covariance matrix is nonsingular (@thm-mvn-density), which gives the
+statement.
+
+(c) With \( I=\{i\} \) the condition reads \( 1-m_{ii}=0 \), that is, \( \mathbf{e}_i\in\C(\X) \): the
+design has a column combination concentrated on case \( i \). For a pair, take
+\( \X=[\bone,\x] \) with \( \x=(0,0,1,1)\T \) and \( I=\{1,2\} \). No nonzero vector of \( \C(\X) \) is
+supported on a single case, so each residual is nondegenerate; but
+\( \bone-\x=(1,1,0,0)\T\in\C(\X) \) vanishes outside \( I \), so \( (\he_1,\he_2) \) is degenerate.
+Indeed \( \he_1=-\he_2 \), the two cases sharing one group mean. Deleting both cases leaves the
+design \( [\bone,\x] \) with \( \x \) constant, of rank \( 1<2 \).
+:::

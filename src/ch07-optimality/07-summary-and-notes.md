@@ -96,24 +96,24 @@ applied account of the Gauss–Markov conditions and what follows from them, see
 - Blackwell, David (1947). Conditional Expectation and Unbiased Sequential Estimation. *The Annals of Mathematical Statistics* 18(1), 105–110.
 - Box, George E. P. (1953). Non-Normality and Tests on Variances. *Biometrika* 40(3/4), 318–335.
 - Box, George E. P. and Tiao, George C. (1973). *Bayesian Inference in Statistical Analysis*. Reading, MA: Addison-Wesley.
-- Brownlee, K. A. (1965). *Statistical Theory and Methodology in Science and Engineering*. 2nd edition. New York: Wiley.
+- Brownlee, Kenneth A. (1965). *Statistical Theory and Methodology in Science and Engineering*. 2nd edition. New York: Wiley.
 - Christensen, Ronald (2020). *Plane Answers to Complex Questions: The Theory of Linear Models*. 5th edition. Cham: Springer.
 - Cramér, Harald (1946). *Mathematical Methods of Statistics*. Princeton, NJ: Princeton University Press.
 - Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and Marx, Brian D. (2021). *Regression: Models, Methods and Applications*. 2nd edition. Berlin: Springer.
 - Gauss, Carl Friedrich (1823). *Theoria Combinationis Observationum Erroribus Minimis Obnoxiae*. Göttingen: Dieterich.
 - Hoerl, Arthur E. and Kennard, Robert W. (1970). Ridge Regression: Biased Estimation for Nonorthogonal Problems. *Technometrics* 12(1), 55–67.
 - Hotelling, Harold (1944). Some Improvements in Weighing and Other Experimental Techniques. *The Annals of Mathematical Statistics* 15(3), 297–306.
-- James, W. and Stein, Charles (1961). Estimation with Quadratic Loss. *Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability* 1, 361–379.
+- James, Willard and Stein, Charles (1961). Estimation with Quadratic Loss. *Proceedings of the Fourth Berkeley Symposium on Mathematical Statistics and Probability* 1, 361–379.
 - Kruskal, William (1968). When Are Gauss–Markov and Least Squares Estimators Identical? A Coordinate-Free Approach. *The Annals of Mathematical Statistics* 39(1), 70–75.
-- Lehmann, E. L. and Casella, George (1998). *Theory of Point Estimation*. 2nd edition. New York: Springer.
-- Lehmann, E. L. and Romano, Joseph P. (2005). *Testing Statistical Hypotheses*. 3rd edition. New York: Springer.
-- Lehmann, E. L. and Scheffé, Henry (1950). Completeness, Similar Regions, and Unbiased Estimation. Part I. *Sankhyā* 10(4), 305–340.
+- Lehmann, Erich L. and Casella, George (1998). *Theory of Point Estimation*. 2nd edition. New York: Springer.
+- Lehmann, Erich L. and Romano, Joseph P. (2005). *Testing Statistical Hypotheses*. 3rd edition. New York: Springer.
+- Lehmann, Erich L. and Scheffé, Henry (1950). Completeness, Similar Regions, and Unbiased Estimation. Part I. *Sankhyā* 10(4), 305–340.
 - Neyman, Jerzy (1934). On the Two Different Aspects of the Representative Method. *Journal of the Royal Statistical Society* 97(4), 558–625.
-- Neyman, J. and Scott, Elizabeth L. (1948). Consistent Estimates Based on Partially Consistent Observations. *Econometrica* 16(1), 1–32.
+- Neyman, Jerzy and Scott, Elizabeth L. (1948). Consistent Estimates Based on Partially Consistent Observations. *Econometrica* 16(1), 1–32.
 - O'Hagan, Anthony and Forster, Jonathan (2004). *Kendall's Advanced Theory of Statistics, Volume 2B: Bayesian Inference*. 2nd edition. London: Arnold.
-- Patterson, H. D. and Thompson, Robin (1971). Recovery of Inter-Block Information When Block Sizes Are Unequal. *Biometrika* 58(3), 545–554.
-- Plackett, R. L. (1949). A Historical Note on the Method of Least Squares. *Biometrika* 36(3/4), 458–460.
-- Plackett, R. L. (1972). Studies in the History of Probability and Statistics. XXIX: The Discovery of the Method of Least Squares. *Biometrika* 59(2), 239–251.
+- Patterson, H. Desmond and Thompson, Robin (1971). Recovery of Inter-Block Information When Block Sizes Are Unequal. *Biometrika* 58(3), 545–554.
+- Plackett, Robin L. (1949). A Historical Note on the Method of Least Squares. *Biometrika* 36(3/4), 458–460.
+- Plackett, Robin L. (1972). Studies in the History of Probability and Statistics. XXIX: The Discovery of the Method of Least Squares. *Biometrika* 59(2), 239–251.
 - Raiffa, Howard and Schlaifer, Robert (1961). *Applied Statistical Decision Theory*. Boston: Division of Research, Graduate School of Business Administration, Harvard University.
 - Rao, C. Radhakrishna (1945). Information and the Accuracy Attainable in the Estimation of Statistical Parameters. *Bulletin of the Calcutta Mathematical Society* 37, 81–91.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
@@ -121,7 +121,7 @@ applied account of the Gauss–Markov conditions and what follows from them, see
 - Sen, Ashish and Srivastava, Muni (1990). *Regression Analysis: Theory, Methods, and Applications*. New York: Springer.
 - Stein, Charles (1956). Inadmissibility of the Usual Estimator for the Mean of a Multivariate Normal Distribution. *Proceedings of the Third Berkeley Symposium on Mathematical Statistics and Probability* 1, 197–206.
 - Stigler, Stephen M. (1986). *The History of Statistics: The Measurement of Uncertainty before 1900*. Cambridge, MA: Harvard University Press.
-- Theil, H. and Schweitzer, A. (1961). The Best Quadratic Estimator of the Residual Variance in Regression Analysis. *Statistica Neerlandica* 15(1), 19–23.
+- Theil, Henri and Schweitzer, A. (1961). The Best Quadratic Estimator of the Residual Variance in Regression Analysis. *Statistica Neerlandica* 15(1), 19–23.
 - Wald, Abraham (1940). The Fitting of Straight Lines if Both Variables Are Subject to Error. *The Annals of Mathematical Statistics* 11(3), 284–300.
 - Zellner, Arnold (1971). *An Introduction to Bayesian Inference in Econometrics*. New York: Wiley.
 - Zellner, Arnold (1986). On Assessing Prior Distributions and Bayesian Regression Analysis with g-Prior Distributions. In P. K. Goel and A. Zellner (eds.), *Bayesian Inference and Decision Techniques: Essays in Honor of Bruno de Finetti*, 233–243. Amsterdam: North-Holland.

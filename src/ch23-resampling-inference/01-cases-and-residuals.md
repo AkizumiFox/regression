@@ -387,3 +387,118 @@ In a one-way layout with \( g \) groups of \( m \) observations each, find the p
 omits some group entirely, so that the cell-means model cannot be fitted. Evaluate it for \( g=5 \), \( m=4 \), and
 describe a resampling scheme that avoids the problem.
 :::
+
+### C. Going deeper
+
+::: {#exr-bs-case-degenerate-moments}
+[C1]
+
+@exr-bs-case-singular shows that a case-bootstrap resample can be one that no least squares
+fit exists for, when \( \X \) holds indicators. The difficulty is not confined to indicators. Take simple regression with an
+intercept and \( n \) distinct values \( x_1,\dots,x_n \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that a resample gives a design of rank \( 2 \) unless all \( n \) draws pick the same case,
+   an event of probability \( n^{1-n} \). Evaluate it for \( n=5 \).
+
+2. Deduce that \( \Cov_*(\hbeta^*) \) does not exist as written, and say what a program that
+   reports a case-bootstrap standard error must therefore be computing. Contrast
+   \( \mathbf{L}^* \) of @prp-bs-case-linear.
+
+3. Show that a resample which uses exactly two of the cases, \( i \) and \( j \), has slope exactly
+   \( (y_j-y_i)/(x_j-x_i) \), whatever the multiplicities. Show that the probability of such a
+   resample is \( \binom n2(2^n-2)/n^n \), and evaluate it for \( n=5 \).
+
+4. What does (c) say about the tails of the case-bootstrap distribution of the slope, and which
+   feature of the design controls them? Suggest two repairs.
+:::
+:::
+
+::: {.solution}
+(a) The resampled design has rank \( 2 \) as soon as two of the drawn cases have different
+\( x \) values, and the \( x_i \) are distinct, so rank \( 1 \) requires all \( n \) draws to fall on one
+case. There are \( n \) such ordered draws out of \( n^n \), so the probability is \( n^{1-n} \); for
+\( n=5 \) it is \( 5^{-4}=1/625=0.0016 \).
+
+(b) On that event \( \hbeta^* \) is not defined, so neither is its conditional expectation or
+covariance: the bootstrap distribution has an atom at “no estimate”. What is reported in
+practice is the empirical variance over the resamples that could be fitted, that is, the
+conditional covariance given non-degeneracy, which is a different functional and depends on how
+failures are handled. The linearization \( \mathbf{L}^*=(\X\T\X)^{-1}\X\T\mathbf{W}\he \) has no such
+trouble: it is a fixed linear function of the multinomial counts, and
+@prp-bs-case-linear computes its covariance exactly.
+
+(c) If the resample contains only cases \( i \) and \( j \), both present, the fitted line passes
+through \( (x_i,y_i) \) and \( (x_j,y_j) \) exactly, because a line through two points achieves zero
+residual sum of squares whatever the multiplicities \( a,b\ge1 \) of the two. Its slope is
+\( (y_j-y_i)/(x_j-x_i) \). For a given pair there are \( 2^n-2 \) ordered draws using both cases and
+nothing else, and there are \( \binom n2 \) pairs, so the probability is
+\( \binom n2(2^n-2)/n^n \); for \( n=5 \) it is \( 10\cdot30/3125=0.096 \).
+
+(d) Nearly one resample in ten, for \( n=5 \), returns the slope of a single pair of points, and a
+pair with \( x_j-x_i \) small can return an enormous one. So the case-bootstrap distribution has
+tails governed by the smallest gaps between design points, not by the noise; its variance is
+dominated by rare resamples, and quantile-based intervals are far more stable than the
+bootstrap standard error. Two repairs: use the linearized form of @prp-bs-case-linear, that is
+the sandwich, or keep the design fixed and resample residuals, in the wild form of
+[Section 23.2](02-wild-bootstrap.html) if heteroscedasticity is the worry.
+:::
+
+::: {#exr-bs-case-curved-mean}
+[C2]
+
+Heteroscedasticity is not the only way the residual bootstrap can aim at the wrong variance; a
+curved mean does it too, with homoscedastic errors. Let \( X \) be uniform on \( \{-1,0,1\} \), let
+\( \varepsilon \) be independent of \( X \) with mean \( 0 \) and variance \( \sigma^2 \), and let
+\( Y=X^2+\varepsilon \). A line is fitted, so \( \x=(1,X)\T \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that the population projection is \( \bbeta^*=(2/3,\,0)\T \), so \( U=X^2-\tfrac23+\varepsilon \),
+   and that \( \bSigma=\E(\x\x\T)=\diag(1,\tfrac23) \).
+
+2. Show that \( \boldsymbol{\Omega}=\E(U^2\x\x\T)=\diag\bigl(\tfrac29+\sigma^2,\ \tfrac2{27}+\tfrac23\sigma^2\bigr) \),
+   and deduce that the slope entries of \( \bSigma^{-1}\boldsymbol{\Omega}\bSigma^{-1} \) and of
+   \( \E(U^2)\bSigma^{-1} \) are \( \tfrac16+\tfrac32\sigma^2 \) and \( \tfrac13+\tfrac32\sigma^2 \).
+
+3. Using @thm-dep-random-x and @prp-bs-residual-moments(a), identify which of the two numbers
+   the residual bootstrap estimates and which the case bootstrap estimates, and give the ratio
+   of the two standard errors when \( \sigma^2=0 \).
+
+4. Here the residual bootstrap is too *wide*, the opposite of
+   @exr-bs-heteroscedastic-residual. Explain why, from where the misfit sits in the design.
+:::
+:::
+
+::: {.solution}
+Throughout, \( \E X=\E X^3=0 \) and \( \E X^2=\E X^4=2/3 \), so \( \Var(X^2)=2/3-4/9=2/9 \).
+
+(a) \( \Cov(X,Y)=\Cov(X,X^2)=\E X^3-\E X\E X^2=0 \), so the slope of the population projection is
+\( 0 \) and its intercept is \( \E Y=2/3 \). Then \( U=Y-2/3=X^2-2/3+\varepsilon \), and
+\( \bSigma=\E(\x\x\T) \) has entries \( 1 \), \( \E X=0 \) and \( \E X^2=2/3 \).
+
+(b) \( \E U^2=\Var(X^2)+\sigma^2=2/9+\sigma^2 \). Next
+\( \E(U^2X)=\E\{(X^2-2/3)^2X\}+2\E\{(X^2-2/3)X\}\E\varepsilon+\sigma^2\E X=0 \), the first term
+because \( (x^2-2/3)^2x \) is odd and \( X \) is symmetric. Finally
+\( \E(U^2X^2)=\E\{(X^2-2/3)^2X^2\}+\sigma^2\E X^2 \); the first expectation is
+\( \tfrac23\cdot(1-\tfrac23)^2=2/27 \), since \( X^2=1 \) with probability \( 2/3 \) and \( X^2=0 \)
+otherwise. With \( \bSigma^{-1}=\diag(1,3/2) \), the slope entry of \( \bSigma^{-1}\boldsymbol{\Omega}\bSigma^{-1} \)
+is \( (3/2)^2(2/27+2\sigma^2/3)=1/6+3\sigma^2/2 \), and that of \( \E(U^2)\bSigma^{-1} \) is
+\( (2/9+\sigma^2)(3/2)=1/3+3\sigma^2/2 \).
+
+(c) By @thm-dep-random-x(a) the true limit of \( n\Var(\hat{\beta}_1) \) is the sandwich entry
+\( 1/6+3\sigma^2/2 \). The residual bootstrap gives
+\( \Cov_*(\hbeta^*)=\hat{\sigma}_*^2(\X\T\X)^{-1} \) (@prp-bs-residual-moments(a)), and
+\( n\hat{\sigma}_*^2(\X\T\X)^{-1}\to\E(U^2)\bSigma^{-1} \) by
+@thm-dep-random-x(b): it estimates \( 1/3+3\sigma^2/2 \), the wrong number. The case bootstrap, to
+first order, is the sandwich HC0 (@prp-bs-case-linear), which estimates the right
+one (@thm-het-sandwich). With \( \sigma^2=0 \) the residual bootstrap standard error is
+\( \sqrt{(1/3)/(1/6)}=\sqrt2 \) times too large.
+
+(d) The residual bootstrap spreads the observed misfit evenly over the design, because it treats
+the residuals as exchangeable. Here the misfit is not even: the approximation error
+\( X^2-2/3 \) is \( -2/3 \) at \( X=0 \) and only \( 1/3 \) at \( X=\pm1 \), so the large errors sit at the
+centre of the design, where they hardly move a slope. Reallocating them to the ends, as
+resampling does, inflates the slope's variance. Had the misfit been largest at the ends, the
+same argument would make the residual bootstrap too narrow, as
+in @exr-bs-heteroscedastic-residual.
+:::

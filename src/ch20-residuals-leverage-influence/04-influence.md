@@ -274,3 +274,105 @@ leverage and a residual of two standard errors lowers the precision by that much
 \( 1+3p/n \): a well-fitting case of high leverage raises it by the same amount. Deviations beyond \( 3p/n \) in either
 direction are more extreme than both.
 :::
+
+### C. Going deeper
+
+::: {#exr-res-cook-bound}
+[C1]
+
+How influential can one case be, whatever its response? Fix a design of full rank with
+\( h_{ii}<1 \) for all \( i \), and let \( \y \) range over \( \Real^n \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \hat{\varepsilon}_i=\bigl\{(\I-\M)\vect{e}_i\bigr\}\T\he \), and deduce from the Cauchy–Schwarz
+   inequality (@prp-mat-cauchy-schwarz) that \( r_i^2\le n-p \) for *every* data vector, with
+   equality iff \( \he \) is a multiple of \( (\I-\M)\vect{e}_i \). (@prp-res-internal(b) gives the same
+   bound from the beta law; this argument needs no model at all.)
+
+2. Deduce \( D_i\le\dfrac{n-p}{p}\cdot\dfrac{h_{ii}}{1-h_{ii}} \), and show that the bound is
+   attained: take \( \y=\vect{e}_i \).
+
+3. Conclude that in a design with equal leverages \( h_{ii}=p/n \) no case can have \( D_i>1 \),
+   whatever the responses. Using the confidence-ellipsoid reading of \( D_i \), say what this
+   means for how far one case can move \( \hbeta \).
+
+4. Contrast a design with a leverage close to one, and explain how (b) makes the
+   \( 2p/n \) cut-off for leverage a statement about the *worst case* rather than the observed one.
+:::
+:::
+
+::: {.solution}
+(a) Since \( \I-\M \) is symmetric and idempotent and \( \he=(\I-\M)\y \),
+\( \hat{\varepsilon}_i=\vect{e}_i\T(\I-\M)\y=\{(\I-\M)\vect{e}_i\}\T\{(\I-\M)\y\} \). By Cauchy–Schwarz,
+\( \hat{\varepsilon}_i^2\le\norm{(\I-\M)\vect{e}_i}^2\norm{\he}^2=(1-h_{ii})\,\text{SSE} \), with equality iff
+the two vectors are proportional. Divide by \( s^2(1-h_{ii})=\text{SSE}(1-h_{ii})/(n-p) \) to get
+\( r_i^2\le n-p \).
+
+(b) Substitute in @thm-res-influence(a), \( D_i=r_i^2h_{ii}/\{p(1-h_{ii})\} \). For \( \y=\vect{e}_i \)
+the residual is \( \he=(\I-\M)\vect{e}_i \), which is proportional to itself, so equality holds in (a)
+and \( D_i \) attains the bound.
+
+(c) With \( h_{ii}=p/n \) the bound is \( \dfrac{n-p}{p}\cdot\dfrac{p/n}{1-p/n}=1 \). By the
+ellipsoid reading, deleting any one case moves \( \hbeta \) at most to the boundary of the
+confidence ellipsoid of level \( \Pr\{F(p,n-p)\le1\} \), which is near \( 0.5 \) for moderate
+\( n-p \): in a design that spreads leverage evenly, no single case, however wild its response,
+can move the estimate beyond a middling confidence region.
+
+(d) The bound grows without limit as \( h_{ii}\to1 \), and the same case would then also have a
+tiny residual, so the *observed* \( D_i \) need not be large. Leverage is the design's exposure to
+a bad response: a case with \( h_{ii} \) near one can do unbounded damage if its \( y_i \) is wrong,
+and nothing in the data reveals whether it is. That is why leverage is screened on its own,
+before any residual is looked at.
+:::
+
+::: {#exr-res-cook-dffits-order}
+[C2]
+
+Cook's distance and DFFITS differ only in using \( s \) or \( s_{(i)} \), but they can rank cases
+differently. Take \( n-p=6 \) and two cases with
+\[
+h_{11}=\tfrac{10}{19},\quad r_1^2=1,
+\qquad
+h_{22}=\tfrac1{10},\quad r_2^2=5 .
+\]
+
+::: {.enumerate options="label=(\alph*)"}
+1. Using @thm-res-external-t(c), show that \( t_1^2=1 \) and \( t_2^2=25 \).
+
+2. Show that \( pD_1=10/9 \) and \( pD_2=5/9 \), while \( \text{DFFITS}_1^2=10/9 \) and
+   \( \text{DFFITS}_2^2=25/9 \). So \( D \) ranks case 1 first and DFFITS ranks case 2 first.
+
+3. Check that such a data set is possible: find \( p \) and \( n \) for which the constraints
+   \( \sum_ih_{ii}=p \) and \( \sum_i(1-h_{ii})r_i^2=n-p \) (@exr-res-weighted-sum) can be met by
+   the remaining cases.
+
+4. Explain the disagreement in one sentence, and say which measure you would use to decide
+   whether case 2 is an outlier and which to decide whether it matters.
+:::
+:::
+
+::: {.solution}
+(a) \( t_i^2=r_i^2(n-p-1)/(n-p-r_i^2)=5r_i^2/(6-r_i^2) \), so \( t_1^2=5/5=1 \) and
+\( t_2^2=25/1=25 \). The second case has a residual near the algebraic maximum
+\( r^2\le n-p=6 \) of @exr-res-cook-bound, so deleting it shrinks \( s^2 \) sharply and \( t_2^2 \)
+is much larger than \( r_2^2 \).
+
+(b) With \( g_i=h_{ii}/(1-h_{ii}) \) we have \( g_1=(10/19)/(9/19)=10/9 \) and \( g_2=1/9 \). Then
+\( pD_i=r_i^2g_i \) by @thm-res-influence(a), giving \( 10/9 \) and \( 5/9 \); and
+\( \text{DFFITS}_i^2=t_i^2g_i \) by @thm-res-influence(b), giving \( 10/9 \) and \( 25/9 \). So
+\( D_1=2D_2 \) while \( \text{DFFITS}_2^2=2.5\,\text{DFFITS}_1^2 \).
+
+(c) Take \( p=3 \) and \( n=9 \). The two cases use \( 10/19+1/10=119/190 \) of the leverage budget
+\( \sum_ih_{ii}=3 \), leaving \( 451/190 \) for the other seven, each of which can then have
+leverage well below one. They use \( 1\cdot\tfrac9{19}+5\cdot\tfrac9{10}=189/38 \) of the budget
+\( \sum_i(1-h_{ii})r_i^2=n-p=6 \), leaving \( 39/38 \) for the other seven. Both constraints can
+be met.
+
+(d) \( D_i \) measures the move against \( s \), which the case's own residual inflates, while
+DFFITS measures it against \( s_{(i)} \), which it does not; so a case with a large residual
+looks worse to DFFITS, and a case with high leverage and a modest residual looks worse to
+\( D_i \). To ask
+whether case 2 is an outlier, use \( t_i \), which has an exact null
+law (@thm-res-external-t(b)); to ask whether it matters, use \( D_i \), whose ellipsoid reading is a
+statement about the estimate rather than about the error.
+:::

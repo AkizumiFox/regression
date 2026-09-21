@@ -69,6 +69,6 @@ among collinear regressors of [Chapter 29](../ch29-model-selection/index.html).
 - O'Brien, Robert M. (2007). A Caution Regarding Rules of Thumb for Variance Inflation Factors. *Quality & Quantity* 41(5), 673–690.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.
 - Sen, Ashish and Srivastava, Muni (1990). *Regression Analysis: Theory, Methods, and Applications*. New York: Springer.
-- Silvey, S. D. (1969). Multicollinearity and Imprecise Estimation. *Journal of the Royal Statistical Society, Series B* 31(3), 539–552.
-- Stewart, G. W. (1987). Collinearity and Least Squares Regression. *Statistical Science* 2(1), 68–84.
+- Silvey, Samuel D. (1969). Multicollinearity and Imprecise Estimation. *Journal of the Royal Statistical Society, Series B* 31(3), 539–552.
+- Stewart, Gilbert W. (1987). Collinearity and Least Squares Regression. *Statistical Science* 2(1), 68–84.
 - Theil, Henri and Goldberger, Arthur S. (1961). On Pure and Mixed Statistical Estimation in Economics. *International Economic Review* 2(1), 65–78.

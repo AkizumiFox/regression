@@ -112,7 +112,7 @@ is:
 \]
 with P-spline terms of \( 8 \) basis functions for \( f \) and \( f_0 \) and
 smoothing parameters chosen by the restricted-likelihood updates of
-[Section 44.5](05-structured-additive.html). The fit uses
+[Section 44.5](05-structured-additive.html) (@prp-add-reml-update). The fit uses
 \( 6.83 \) effective degrees of freedom in all, of which
 \( 1.82 \) go to the smooth main effect of urbanization and
 \( 2.01 \) to the coefficient function.

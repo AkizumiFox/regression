@@ -244,3 +244,105 @@ it as the solution set of two linear equations.
 \( \A\perpc \), spanned by \( (2,-1,0)\T \) and \( (1,0,1)\T \). The corresponding constraints
 \( \bv\T\Y=\bv\T\bmu \) are \( 2Y_1-Y_2=1 \) and \( Y_1+Y_3=3 \), and both hold identically.
 :::
+
+### C. Going deeper
+
+::: {#exr-mvn-factor-uniqueness}
+[C1]
+
+The text says that every factorization \( \bSigma=\A\A\T \) gives the same distribution, and proves
+it later from the moment generating function. Here is the algebraic reason.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Let \( \A \) and \( \B \) be \( n\times m \) with \( \A\A\T=\B\B\T \). Show that \( \B=\A\Q \) for some
+           \( m\times m \) orthogonal \( \Q \). *Hint:* \( \norm{\A\T\mathbf{x}}=\norm{\B\T\mathbf{x}} \) for every
+           \( \mathbf{x} \), so \( \A\T\mathbf{x}\mapsto\B\T\mathbf{x} \) is a well-defined linear isometry of
+           \( \C(\A\T) \) onto \( \C(\B\T) \); extend it to \( \Real^m \).
+
+2. Deduce that \( \bmu+\A\Z \) and \( \bmu+\B\Z \) have the same distribution, with no appeal
+           to @thm-mvn-mgf. *Hint:* the density of \( \Z \) depends on \( \bz \) only through
+           \( \norm{\bz} \). Conclude for the Cholesky factor and the symmetric square root of a
+           positive definite \( \bSigma \).
+
+3. Show that \( \rank(\A)=\rank(\bSigma) \) for every such factor, so that no representation
+           \( \bmu+\A\Z \) uses fewer than \( \rank(\bSigma) \) standard normal variables, and that
+           \( \rank(\bSigma) \) of them suffice.
+:::
+
+:::
+
+::: {.solution}
+(a) For every \( \mathbf{x} \),
+\( \norm{\A\T\mathbf{x}}^2=\mathbf{x}\T\A\A\T\mathbf{x}=\mathbf{x}\T\B\B\T\mathbf{x}=\norm{\B\T\mathbf{x}}^2 \). If
+\( \A\T\mathbf{x}=\A\T\mathbf{x}' \) then \( \norm{\B\T(\mathbf{x}-\mathbf{x}')}=\norm{\A\T(\mathbf{x}-\mathbf{x}')}=0 \), so the
+assignment \( \Q_1:\A\T\mathbf{x}\mapsto\B\T\mathbf{x} \) is a well-defined linear map from \( \C(\A\T) \) onto
+\( \C(\B\T) \), and it preserves norms, hence inner products by polarization. The two column
+spaces have the same dimension \( r=\rank(\A)=\rank(\A\A\T)=\rank(\B\B\T)=\rank(\B) \) by
+@prp-mat-rank-product, so their orthogonal complements in \( \Real^m \) have dimension
+\( m-r \); extend \( \Q_1 \) by mapping an orthonormal basis of \( \C(\A\T)\perpc \) onto one of
+\( \C(\B\T)\perpc \). The extension is an orthogonal matrix with \( \Q_1\A\T=\B\T \), so
+\( \B=\A\Q_1\T \) and \( \Q=\Q_1\T \) works.
+
+(b) By (a), \( \B\Z=\A(\Q\Z) \). The density of \( \Z \) is
+\( (2\pi)^{-m/2}\exp(-\norm{\bz}^2/2) \), and the substitution \( \bz=\Q\T\mathbf{w} \) has Jacobian
+\( \lvert\det\Q\T\rvert=1 \) and leaves \( \norm{\bz} \) unchanged, so \( \Q\Z \) has that same density.
+Hence \( \B\Z \) and \( \A\Z \) have the same distribution, and so do \( \bmu+\A\Z \) and
+\( \bmu+\B\Z \). With \( \bSigma=\bL\bL\T=\bSigma^{1/2}\bSigma^{1/2} \) both factors are square, so the
+Cholesky and square-root constructions differ by an orthogonal factor and produce the same
+law.
+
+(c) \( \rank(\A)=\rank(\A\A\T)=\rank(\bSigma) \) by @prp-mat-rank-product, and an \( n\times m \)
+matrix has rank at most \( m \), so \( m\ge\rank(\bSigma) \). The factor
+\( \A=\boldsymbol{\Gamma}_r\bLambda_r^{1/2} \) built from the \( r=\rank(\bSigma) \) positive eigenvalues
+attains it.
+:::
+
+::: {#exr-mvn-normal-limits}
+[C2]
+
+Suppose \( \Y_k\sim\Normal_n(\bmu_k,\bSigma_k) \) converges in distribution to a random vector \( \Y \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Treat first \( n=1 \): if \( \Normal(m_k,v_k) \) converges in distribution, show that \( m_k\to m \)
+           and \( v_k\to v \) for finite limits with \( v\ge0 \), and that the limit law is
+           \( \Normal(m,v) \), degenerate when \( v=0 \). *Hint:* the characteristic functions are
+           \( \exp(itm_k-t^2v_k/2) \); a limit that is continuous at \( 0 \) keeps \( v_k \) from escaping
+           to \( \infty \), and \( e^{itm_k} \) can converge for every \( t \) only if \( m_k \) does.
+
+2. Deduce for general \( n \), using @eq-mvn-linear-combination and @def-mvn, that \( \bmu_k\to\bmu \),
+           \( \bSigma_k\to\bSigma \) entrywise and \( \Y\sim\Normal_n(\bmu,\bSigma) \). So the normal family,
+           singular members included, is closed under limits in distribution.
+
+3. Show conversely that every singular \( \Normal_n(\bmu,\bSigma) \) is a limit of nonsingular
+           ones. The degenerate distributions this section insists on admitting are exactly the
+           ones that would otherwise be missing.
+:::
+
+:::
+
+::: {.solution}
+(a) Let \( \phi \) be the characteristic function of the limit, so that
+\( \exp(itm_k-t^2v_k/2)\to\phi(t) \) for every \( t \), and \( \phi \) is continuous at \( 0 \) with
+\( \phi(0)=1 \). Taking absolute values, \( e^{-t^2v_k/2}\to\lvert\phi(t)\rvert \). Choose \( t_0>0 \) with
+\( \lvert\phi(t_0)\rvert>0 \); then \( v_k\to v=-2\log\lvert\phi(t_0)\rvert/t_0^2 \), finite and
+nonnegative. Hence \( e^{itm_k}\to\psi(t)=\phi(t)e^{t^2v/2} \) for every \( t \), with
+\( \lvert\psi\rvert\equiv1 \). If \( \lvert m_k\rvert\to\infty \) along a subsequence, then
+\( \int_0^T e^{itm_k}dt=(e^{iTm_k}-1)/(im_k)\to0 \) for every \( T \), while dominated convergence
+makes the limit \( \int_0^T\psi \); so \( \psi=0 \) almost everywhere, contradicting
+\( \lvert\psi\rvert=1 \). So \( (m_k) \) is bounded, and if one subsequence converged to \( m \) and
+another to \( m' \), then \( e^{itm}=e^{itm'} \) for all \( t \), forcing \( m=m' \). Thus \( m_k\to m \) and
+\( \phi(t)=\exp(itm-t^2v/2) \), the characteristic function of \( \Normal(m,v) \).
+
+(b) For each \( \mathbf{a} \), the continuous mapping theorem gives
+\( \mathbf{a}\T\Y_k\to\mathbf{a}\T\Y \) in distribution, and
+\( \mathbf{a}\T\Y_k\sim\Normal(\mathbf{a}\T\bmu_k,\mathbf{a}\T\bSigma_k\mathbf{a}) \) by @eq-mvn-linear-combination. By
+(a), \( \mathbf{a}\T\bmu_k \) and \( \mathbf{a}\T\bSigma_k\mathbf{a} \) converge and \( \mathbf{a}\T\Y \) is normal. Taking
+\( \mathbf{a}=\mathbf{e}_i \) gives \( \bmu_k\to\bmu \) entrywise and \( \sigma_{k,ii}\to\sigma_{ii} \); taking
+\( \mathbf{a}=\mathbf{e}_i+\mathbf{e}_j \) and subtracting gives \( \sigma_{k,ij}\to\sigma_{ij} \). The limit \( \bSigma \)
+is nonnegative definite as a limit of nonnegative definite matrices, and every \( \mathbf{a}\T\Y \) is
+normal with mean \( \mathbf{a}\T\bmu \) and variance \( \mathbf{a}\T\bSigma\mathbf{a} \), which is @def-mvn.
+
+(c) \( \bSigma+\varepsilon\I \) is positive definite for \( \varepsilon>0 \), and the characteristic
+functions \( \exp(i\mathbf{t}\T\bmu-\tfrac12\mathbf{t}\T\bSigma\mathbf{t}-\tfrac12\varepsilon\norm{\mathbf{t}}^2) \)
+converge pointwise as \( \varepsilon\downarrow0 \) to that of \( \Normal_n(\bmu,\bSigma) \).
+:::

@@ -348,3 +348,127 @@ quadratic, which is linear in \( x \) only if \( g_{11}=g_{01}=0 \). With a rand
 attenuation is different at different \( x \), so no single marginal coefficient describes
 it.
 :::
+
+### C. Going deeper
+
+::: {#exr-gmm-two-point}
+[C1]
+
+@eq-gmm-logit-factor is an approximation built for a normal random effect. This exercise computes the
+attenuation exactly for a two-point one and shows how different the answer can be. Take a binary covariate
+and the model \( \operatorname{logit}\Pr(Y=1\mid x,U)=\beta x+U \), where \( U=\pm c \) with probability
+\( \tfrac12 \) each, \( c>0 \) and \( \beta>0 \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( m(0)=\tfrac12 \) exactly, so that \( \alpha^{M}=0 \) and \( \beta^{M} \) is the marginal log
+   odds at \( x=1 \).
+
+2. Show that
+   \[
+   \beta^{M}=\log\Bigl\{1+\frac{e^{2\beta}-1}{1+e^{\beta}\cosh c}\Bigr\}
+   =\beta+\log\frac{\cosh c+e^{\beta}}{1+e^{\beta}\cosh c} .
+   \]
+
+3. Check that \( \beta^{M}=\beta \) at \( c=0 \), that \( \beta^{M} \) decreases in \( c \), and that
+   \( 0<\beta^{M}<\beta \) for \( c>0 \), as @prp-gmm-marginal(d) requires.
+
+4. Show that \( \beta^{M}\to0 \) as \( c\to\infty \), and that
+   \( \beta^{M}\sim4\sinh(\beta)\,e^{-c} \). Since \( \Var(U)=c^{2} \), compare with the prediction of
+   @eq-gmm-logit-factor at \( \tau=c \). What does the comparison say about that formula?
+:::
+
+:::
+
+::: {.solution}
+(a) \( m(0)=\tfrac12\{h(c)+h(-c)\}=\tfrac12 \), because \( h(-\eta)=1-h(\eta) \) for the logistic \( h \).
+So \( g\,m(0)=0 \), and by the remark after @eq-gmm-marginal-parameter a binary covariate matches the two
+marginal means exactly, giving \( \alpha^{M}=0 \) and \( \beta^{M}=g\,m(1) \).
+
+(b) Write \( b=e^{\beta} \) and \( t=e^{c} \). Then
+\( h(\beta+c)=bt/(1+bt) \) and \( h(\beta-c)=b/(t+b) \), so
+\[
+h(\beta+c)+h(\beta-c)=\frac{b\{t(t+b)+(1+bt)\}}{(1+bt)(t+b)}=\frac{b(t^{2}+1+2bt)}{t(1+b^{2})+b(1+t^{2})} .
+\]
+Hence \( 2m(1) \) is that expression, and
+\( 2\{1-m(1)\}=\{2t(1+b^{2})+2b(1+t^{2})-b(t^{2}+1+2bt)\}/\{t(1+b^{2})+b(1+t^{2})\} \), whose numerator
+simplifies to \( 2t+b+bt^{2} \). The marginal odds are therefore
+\[
+\frac{m(1)}{1-m(1)}=\frac{b(t^{2}+1+2bt)}{b(1+t^{2})+2t}
+=\frac{b(\cosh c+b)}{1+b\cosh c},
+\]
+after dividing numerator and denominator by \( 2t \) and using \( (t^{2}+1)/(2t)=\cosh c \). Taking
+logarithms gives the second form; and
+\( b(\cosh c+b)/(1+b\cosh c)=1+(b^{2}-1)/(1+b\cosh c) \) gives the first.
+
+(c) At \( c=0 \), \( \cosh c=1 \) and the first form is \( \log\{1+(b^{2}-1)/(1+b)\}=\log b=\beta \). The
+first form is visibly decreasing in \( \cosh c \), hence in \( c \), because \( b^{2}>1 \); and it stays
+positive for the same reason. This is @prp-gmm-marginal(d) in closed form.
+
+(d) As \( c\to\infty \), \( (b^{2}-1)/(1+b\cosh c)\to0 \), so \( \beta^{M}\to0 \); and
+\( \log(1+u)\sim u \) with \( \cosh c\sim e^{c}/2 \) gives
+\( \beta^{M}\sim(b^{2}-1)/(b\,e^{c}/2)=2(b-b^{-1})e^{-c}=4\sinh(\beta)e^{-c} \). The approximation
+@eq-gmm-logit-factor, applied at \( \tau=c \), gives
+\( \beta/\sqrt{1+c^{2}\cdot0.5881^{2}} \), which falls only like \( 1/c \). At \( c=6 \), say, the exact
+attenuation is of order \( e^{-6} \) while the formula still reports a third of \( \beta \). The formula is
+not a general fact about attenuation: it is a calculation for a normal \( U \), where the tails of the
+random effect keep some clusters at intermediate probabilities, and it fails for a \( U \) that pushes every
+cluster to the flat ends of the logistic curve. Attenuation depends on the whole distribution of \( U \),
+not on \( \tau \) alone.
+:::
+
+::: {#exr-gmm-slope-reversal}
+[C2]
+
+With a random *slope* the marginal coefficient need not even share the sign of the conditional one. Extend
+@exr-gmm-probit-general to the logit: let \( x \) be binary and
+\[
+\operatorname{logit}\Pr(Y=1\mid x,U_1)=\alpha+\beta x+U_1x,\qquad
+U_1=\pm d\ \text{with probability }\tfrac12 ,
+\]
+and take \( \alpha=\log3 \), \( \beta=\log2 \), \( d=\log6 \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that the two clusters have conditional log odds ratios \( \beta+d=\log12 \) and
+   \( \beta-d=\log\tfrac13 \), whose mean is \( \beta=\log2>0 \).
+
+2. Show that \( m(0)=\tfrac{111}{148} \) and \( m(1)=\tfrac{109}{148} \), so that the marginal odds ratio is
+   \( \tfrac{109}{117}<1 \) and \( \beta^{M}<0 \).
+
+3. Show that the marginal risk difference is \( -\tfrac1{74} \) and equals the average of the two
+   cluster-specific risk differences \( \tfrac{33}{148} \) and \( -\tfrac{37}{148} \), while the marginal
+   log odds ratio is *not* the average of the two conditional ones.
+
+4. Explain why @prp-gmm-marginal(d) does not apply, and why "attenuation" is the wrong word for what has
+   happened.
+:::
+
+:::
+
+::: {.solution}
+(a) Within a cluster, \( U_1 \) is fixed, so the log odds at \( x=1 \) minus the log odds at \( x=0 \) is
+\( \beta+U_1 \), namely \( \log2+\log6=\log12 \) or \( \log2-\log6=\log\tfrac13 \). The mean over clusters
+is \( \beta \) because \( \E U_1=0 \).
+
+(b) At \( x=0 \) the random slope drops out, so \( m(0)=h(\alpha)=3/4=111/148 \). At \( x=1 \) the linear
+predictors are \( \alpha+\beta+d=\log36 \) and \( \alpha+\beta-d=\log1=0 \), so
+\( m(1)=\tfrac12(\tfrac{36}{37}+\tfrac12)=\tfrac12\cdot\tfrac{109}{74}=\tfrac{109}{148} \). The marginal
+odds are \( (109/148)/(39/148)=109/39 \) at \( x=1 \) and \( 3 \) at \( x=0 \), so the marginal odds ratio is
+\( 109/117 \), less than one.
+
+(c) \( m(1)-m(0)=-2/148=-1/74 \). The cluster-specific risk differences are
+\( \tfrac{36}{37}-\tfrac34=\tfrac{144-111}{148}=\tfrac{33}{148} \) and
+\( \tfrac12-\tfrac34=-\tfrac{37}{148} \), whose average is \( (33-37)/296=-1/74 \). Equality holds because
+\( m(1)=\E h(\alpha+\beta+U_1) \) is itself an average, so risk differences pass through it; log odds ratios
+do not, and \( \log(109/117)\ne\tfrac12\{\log12+\log\tfrac13\}=\log2 \).
+
+(d) Part (d) of the proposition concerns \( h(\theta+U) \), a random *level* added to a common linear
+predictor, and its proof differentiates \( \theta\mapsto g\,\E h(\theta+U) \). Here the random term
+multiplies \( x \), so the two conditional curves have different slopes and the argument does not start. The
+conclusion fails too: \( \beta^{M} \) and \( \beta^{C} \) have opposite signs. Calling the difference
+attenuation would suggest that the marginal coefficient is a shrunken version of the conditional one, and
+here it is not a version of it at all — \( \beta^{C} \) is an average on the log odds scale, dominated by
+the cluster in which the treatment helps a great deal, while \( m(1) \) is an average of probabilities, in
+which the cluster where the treatment *hurts* costs more than the other gains. Two averages on two scales,
+of a quantity that varies across clusters, and they need not agree even in sign; the warning after
+@eq-gmm-marginal-parameter applies with full force.
+:::

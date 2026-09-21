@@ -407,3 +407,103 @@ Show that \( f_{r,\gamma}(x)/g_r(x) \) is strictly increasing in \( x>0 \) for e
 that among tests based on one observation \( U\sim\chi^2(r,\gamma) \) of \( \gamma=0 \) against a fixed
 \( \gamma>0 \), rejecting for large \( U \) is most powerful.
 :::
+
+### C. Going deeper
+
+::: {#exr-qf-weighted-sum}
+[C1]
+
+Let \( W_1,W_2 \) be independent \( \Normal(0,1) \) and \( U=W_1^2+\sigma^2W_2^2 \) with \( \sigma^2>0 \). A
+weighted sum of squares like this is what a general quadratic form in a normal vector turns
+out to be ([Section 4.2](02-moments.html)), so it is worth knowing that it is almost never
+noncentral chi-squared.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that matching the mean and variance of \( U \) to those of \( \chi^2(r,\gamma) \) forces
+           \( \gamma=\sigma^4-\sigma^2 \) and \( r=1+2\sigma^2-\sigma^4 \). Deduce that no \( \chi^2(r,\gamma) \)
+           has the first two moments of \( U \) when \( \sigma^2<1 \).
+
+2. Show more: if \( cU\sim\chi^2(r,\gamma) \) for some \( c>0 \), \( r\ge1 \) and \( \gamma\ge0 \), then
+           \( c=\sigma^2=1 \). *Hint:* by @exr-qf-cumulants the \( k \)th cumulant of \( \chi^2(r,\gamma) \) is
+           \( 2^{k-1}(k-1)!\,(r+k\gamma) \), and that of \( cU \) is \( 2^{k-1}(k-1)!\,(c^k+(c\sigma^2)^k) \).
+           Use \( k=1,2,3 \).
+
+3. Check that \( \sigma^2=1 \) does give a member of the family, and say which one.
+:::
+
+:::
+
+::: {.solution}
+(a) By @thm-qf-ncchisq(b), matching gives \( r+\gamma=\E U=1+\sigma^2 \) and
+\( 2r+4\gamma=\Var U=2(1+\sigma^4) \), since \( \Var(W_1^2)=2 \) and \( \Var(\sigma^2W_2^2)=2\sigma^4 \). The
+second equation is \( r+2\gamma=1+\sigma^4 \); subtracting the first gives
+\( \gamma=\sigma^4-\sigma^2=\sigma^2(\sigma^2-1) \) and then \( r=1+2\sigma^2-\sigma^4 \). A noncentrality must
+be nonnegative, so \( \sigma^2<1 \) is impossible.
+
+(b) Write \( e=c \) and \( d=c\sigma^2 \), both positive. The cumulants of \( cU \) are
+\( 2^{k-1}(k-1)!(e^k+d^k) \), because cumulants of a sum of independent variables add and those
+of \( aW^2 \) are \( a^k \) times those of \( \chi^2(1) \). Equating with \( 2^{k-1}(k-1)!(r+k\gamma) \) for
+\( k=1,2,3 \) gives
+\[
+e+d=r+\gamma,\qquad e^2+d^2=r+2\gamma,\qquad e^3+d^3=r+3\gamma .
+\]
+Each consecutive difference equals \( \gamma \), so \( e^2-e+d^2-d=e^3-e^2+d^3-d^2 \), that is
+\( e(e-1)^2+d(d-1)^2=0 \). Both terms are nonnegative, so \( e=d=1 \), which is \( c=1 \) and
+\( \sigma^2=1 \).
+
+(c) With \( \sigma^2=1 \), \( U=W_1^2+W_2^2\sim\chi^2(2) \), and the three equations are indeed
+satisfied by \( c=1 \), \( r=2 \), \( \gamma=0 \). The conclusion is that the noncentral chi-squared
+family is not closed under weighting: only equal weights give a member of it, which is why
+[Section 4.3](03-chisq.html) will ask for an idempotent matrix.
+:::
+
+::: {#exr-qf-local-power}
+[C2]
+
+@prp-qf-ncchisq-monotone says the power of a chi-squared test increases with \( \gamma \). How
+fast?
+
+::: {.enumerate options="label=(\alph*)"}
+1. For \( z>0 \), show that
+           \( \Pr\{\chi^2(1,\gamma)>z^2\}=\Phi(-z+\sqrt\gamma)+\Phi(-z-\sqrt\gamma) \), where \( \Phi \) is
+           the standard normal distribution function. This is the power of the two-sided test
+           based on a single \( \Normal(\sqrt{\gamma},1) \) observation.
+
+2. Show that the right side equals \( \alpha+z\varphi(z)\,\gamma+o(\gamma) \) as \( \gamma\downarrow0 \),
+           where \( \alpha=2\Phi(-z) \) and \( \varphi \) is the standard normal density. The power rises
+           *linearly* in \( \gamma \), with no first-order term in \( \sqrt\gamma \).
+
+3. For general \( r \), show from the Poisson mixture in the proof of @prp-qf-ncchisq-monotone
+           that
+           \[
+\frac{d}{d\gamma}\Pr\{\chi^2(r,\gamma)>x\}\Big|_{\gamma=0}
+          =\tfrac12\bigl[\Pr\{\chi^2(r+2)>x\}-\Pr\{\chi^2(r)>x\}\bigr].
+\]
+           Check that this agrees with (b) when \( r=1 \) and \( x=z^2 \), given that
+           \( \Pr\{\chi^2(3)>x\}=\Pr\{\chi^2(1)>x\}+2\sqrt x\,\varphi(\sqrt x) \).
+:::
+
+:::
+
+::: {.solution}
+(a) By @def-qf-noncentral-chisq, \( X^2\sim\chi^2(1,\gamma) \) when
+\( X\sim\Normal(\sqrt\gamma,1) \). Then \( \Pr(X^2>z^2)=\Pr(X>z)+\Pr(X<-z) \), and
+\( \Pr(X>z)=1-\Phi(z-\sqrt\gamma)=\Phi(-z+\sqrt\gamma) \), \( \Pr(X<-z)=\Phi(-z-\sqrt\gamma) \).
+
+(b) Put \( \delta=\sqrt\gamma \) and \( \beta(\delta)=\Phi(-z+\delta)+\Phi(-z-\delta) \). Then
+\( \beta(0)=2\Phi(-z)=\alpha \), \( \beta'(\delta)=\varphi(-z+\delta)-\varphi(-z-\delta) \), which
+vanishes at \( \delta=0 \), and \( \beta''(\delta)=\varphi'(-z+\delta)+\varphi'(-z-\delta) \). Since
+\( \varphi'(u)=-u\varphi(u) \), \( \beta''(0)=2z\varphi(z) \). Taylor's theorem gives
+\( \beta(\delta)=\alpha+z\varphi(z)\delta^2+o(\delta^2) \), which is the claim because
+\( \delta^2=\gamma \). The even symmetry in \( \delta \) is what kills the \( \sqrt\gamma \) term: a
+two-sided test cannot tell the sign of the shift.
+
+(c) In the notation of that proof, with its \( \phi \) written \( \Psi \) here to keep \( \varphi \)
+for the normal density, the tail probability is \( \Psi(\lambda)=\sum_kp_k(\lambda)h(k) \) with
+\( \lambda=\gamma/2 \) and \( h(k)=\Pr\{\chi^2(r+2k)>x\} \), and
+\( \Psi'(\lambda)=\sum_kp_k(\lambda)\{h(k+1)-h(k)\} \). At \( \lambda=0 \) only \( p_0=1 \) survives, so
+\( \Psi'(0)=h(1)-h(0) \), and \( d\gamma=2\,d\lambda \) gives the stated derivative. For \( r=1 \) and
+\( x=z^2 \) the bracket is \( 2\sqrt x\varphi(\sqrt x)=2z\varphi(z) \), and half of it is
+\( z\varphi(z) \), matching (b). The same calculation for a general \( r \) shows how much a design
+must raise \( \gamma \) to buy a given amount of power near the null.
+:::

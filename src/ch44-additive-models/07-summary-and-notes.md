@@ -138,7 +138,7 @@ need empirical-process tools this book does not assume.
 - Hastie, Trevor and Tibshirani, Robert (1990). *Generalized Additive Models*. London: Chapman and Hall.
 - Hastie, Trevor and Tibshirani, Robert (1993). Varying-Coefficient Models. *Journal of the Royal Statistical Society, Series B* 55(4), 757–796.
 - Hobert, James P. and Casella, George (1996). The Effect of Improper Priors on Gibbs Sampling in Hierarchical Linear Mixed Models. *Journal of the American Statistical Association* 91(436), 1461–1473.
-- Kammann, E. E. and Wand, M. P. (2003). Geoadditive Models. *Journal of the Royal Statistical Society, Series C* 52(1), 1–18.
+- Kammann, E. E. and Wand, Matthew P. (2003). Geoadditive Models. *Journal of the Royal Statistical Society, Series C* 52(1), 1–18.
 - Lang, Stefan and Brezger, Andreas (2004). Bayesian P-Splines. *Journal of Computational and Graphical Statistics* 13(1), 183–212.
 - Marra, Giampiero and Wood, Simon N. (2011). Practical Variable Selection for Generalized Additive Models. *Computational Statistics and Data Analysis* 55(7), 2372–2387.
 - Marra, Giampiero and Wood, Simon N. (2012). Coverage Properties of Confidence Intervals for Generalized Additive Model Components. *Scandinavian Journal of Statistics* 39(1), 53–74.
@@ -148,7 +148,7 @@ need empirical-process tools this book does not assume.
 - Ramsay, Timothy O., Burnett, Richard T. and Krewski, Daniel (2003). The Effect of Concurvity in Generalized Additive Models Linking Mortality to Ambient Particulate Matter. *Epidemiology* 14(1), 18–23.
 - Reich, Brian J., Hodges, James S. and Zadnik, Vesna (2006). Effects of Residual Smoothing on the Posterior of the Fixed Effects in Disease-Mapping Models. *Biometrics* 62(4), 1197–1206.
 - Rue, Håvard and Held, Leonhard (2005). *Gaussian Markov Random Fields: Theory and Applications*. Boca Raton: Chapman and Hall/CRC.
-- Ruppert, David, Wand, M. P. and Carroll, R. J. (2003). *Semiparametric Regression*. Cambridge: Cambridge University Press.
+- Ruppert, David, Wand, Matthew P. and Carroll, Raymond J. (2003). *Semiparametric Regression*. Cambridge: Cambridge University Press.
 - Schall, Robert (1991). Estimation in Generalized Linear Models with Random Effects. *Biometrika* 78(4), 719–727.
 - Stone, Charles J. (1980). Optimal Rates of Convergence for Nonparametric Estimators. *The Annals of Statistics* 8(6), 1348–1360.
 - Stone, Charles J. (1985). Additive Regression and Other Nonparametric Models. *The Annals of Statistics* 13(2), 689–705.

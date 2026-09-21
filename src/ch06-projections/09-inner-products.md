@@ -326,3 +326,104 @@ diagonal entries of \( \bP_{\X,\V^{-1}} \) equal those of the orthogonal project
 \( \C(\mathbf{W}^{1/2}\X) \), where \( \mathbf{W}=\diag(w_i) \), and that they sum to \( \rank(\X) \). Interpret
 them as leverages.
 :::
+
+### C. Going deeper
+
+::: {#exr-proj-oblique-metric}
+[C1]
+
+Obliqueness is a relation between a projection and an inner product, not a property of the
+projection alone. Let \( \bP\ne\bzero,\I \) be idempotent, with \( \C(\bP)=\mathcal S \) of dimension
+\( r \) and \( \Null(\bP)=\mathcal T \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Let \( \B=[\bU,\W] \) be nonsingular with the \( r \) columns of \( \bU \) spanning \( \mathcal S \)
+   and the \( n-r \) columns of \( \W \) spanning \( \mathcal T \) (@prp-proj-oblique says such a \( \B \)
+   exists). Show that \( \A=\B^{-\top}\B^{-1} \) is symmetric positive definite and that
+   \( \mathcal T=\mathcal S^{\perp_{\A}} \), the set of vectors \( \A \)-orthogonal to \( \mathcal S \).
+
+2. Deduce \( \bP=\bP_{\bU,\A} \): every idempotent matrix is an *orthogonal* projection in a
+   suitable inner product, and is the nearest-point map for that geometry.
+
+3. Show that \( \A \) is far from unique: \( \B^{-\top}\bD\B^{-1} \) works for every positive
+   definite block-diagonal \( \bD=\diag(\bD_1,\bD_2) \) with blocks of sizes \( r \) and \( n-r \).
+
+4. What does this say about the GLS projection \( \bP_{\X,\V^{-1}} \) of @exm-proj-ar1, and about
+   the statement that its asymmetry \( \max_{s,t}\lvert p_{st}-p_{ts}\rvert \) measures how
+   oblique it is?
+:::
+:::
+
+::: {.solution}
+(a) \( \A \) is symmetric, and \( \bu\T\A\bu=\norm{\B^{-1}\bu}^2>0 \) for \( \bu\ne\bzero \) since
+\( \B^{-1} \) is nonsingular. By construction \( \B^{-1}\bU=\begin{psmallmatrix}\I_r\\\bzero\end{psmallmatrix} \)
+and \( \B^{-1}\W=\begin{psmallmatrix}\bzero\\\I_{n-r}\end{psmallmatrix} \), so
+\( \bU\T\A\W=(\B^{-1}\bU)\T(\B^{-1}\W)=\bzero \). Hence \( \mathcal T\subseteq\mathcal S^{\perp_{\A}} \),
+and the two have the same dimension \( n-r \), because \( \A \)-orthogonal complements obey
+@thm-proj-direct-sum in the \( \A \)-inner product. So they are equal.
+
+(b) Both \( \bP \) and \( \bP_{\bU,\A} \) are idempotent with range \( \mathcal S \); by (a) their null
+spaces are both \( \mathcal T \). An idempotent matrix is determined by its range and null
+space (@prp-proj-oblique), so they agree. Being an \( \A \)-orthogonal projection, \( \bP \) returns the
+\( \norm{\cdot}_{\A} \)-nearest point of \( \mathcal S \).
+
+(c) The same computation gives \( \bU\T\B^{-\top}\bD\B^{-1}\W=\begin{psmallmatrix}\I_r&\bzero\end{psmallmatrix}
+\bD\begin{psmallmatrix}\bzero\\\I_{n-r}\end{psmallmatrix}=\bzero \) whenever \( \bD \) is block
+diagonal, and such an \( \A \) is positive definite. Since \( \bD_1 \) and \( \bD_2 \) are arbitrary
+positive definite blocks, the set of admissible inner products has the dimension of two
+symmetric matrices of sizes \( r \) and \( n-r \).
+
+(d) The GLS projection is oblique only relative to the Euclidean inner product, which is not the
+one the problem supplies; in the \( \V^{-1} \) geometry, the one the error covariance dictates, it
+is the orthogonal projection and the nearest-point map. So the asymmetry computed in
+@exm-proj-ar1 measures the distance between two *geometries*, not a defect of the projection.
+The Euclidean geometry is privileged only when \( \Cov(\be)=\sigma^2\I \).
+:::
+
+::: {#exr-proj-kruskal-eigen}
+[C2]
+
+Sharpen @thm-proj-kruskal. Let \( \V \) be positive definite.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \C(\V\X)\subseteq\C(\X) \) iff \( \C(\X) \) has an orthonormal basis of eigenvectors
+   of \( \V \). *Hint:* the condition says \( \V\,\C(\X)\subseteq\C(\X) \); show it then also holds
+   for \( \C(\X)\perpc \), and apply @thm-mat-spectral to the restriction of \( \V \) to \( \C(\X) \).
+
+2. Deduce that ordinary least squares is generalized least squares for the model space iff the
+   same is true for the residual space, and that both hold iff \( \M\V=\V\M \); in that case
+   \( \Cov(\he)=\sigma^2(\I-\M)\V \).
+
+3. Suppose the eigenvalues of \( \V \) are distinct. Show that only finitely many subspaces
+   satisfy the condition, and count them. Why does this make @exr-proj-equicorrelation
+   exceptional rather than typical?
+:::
+:::
+
+::: {.solution}
+(a) Suppose \( \V\,\mathcal S\subseteq\mathcal S \) with \( \mathcal S=\C(\X) \). For \( \bv\in\mathcal S\perpc \)
+and \( \bu\in\mathcal S \), \( \bu\T\V\bv=(\V\bu)\T\bv=0 \) because \( \V\bu\in\mathcal S \); so
+\( \V\,\mathcal S\perpc\subseteq\mathcal S\perpc \) as well. The restriction of \( \V \) to \( \mathcal S \) is a
+symmetric linear map of \( \mathcal S \) into itself, so by the spectral theorem \( \mathcal S \) has an
+orthonormal basis of eigenvectors of that restriction, and these are eigenvectors of \( \V \).
+Conversely, if \( \mathcal S \) is spanned by eigenvectors of \( \V \), then \( \V \) maps each basis
+vector into \( \mathcal S \), so \( \V\,\mathcal S\subseteq\mathcal S \), which is \( \C(\V\X)\subseteq\C(\X) \).
+
+(b) The proof of (a) shows that \( \V\,\mathcal S\subseteq\mathcal S \) and
+\( \V\,\mathcal S\perpc\subseteq\mathcal S\perpc \) stand or fall together, so by
+@thm-proj-kruskal the condition holds for \( \C(\X) \) iff it holds for \( \C(\X)\perpc \). Both
+hold iff \( \M\V=\V\M \): if \( \V \) leaves both spaces invariant, then for
+\( \y=\M\y+(\I-\M)\y \) we get \( \M\V\y=\V\M\y \) term by term; conversely commuting matrices
+satisfy \( \V\M\y=\M\V\y\in\C(\X) \) for every \( \y \). Then
+\( \Cov(\he)=\sigma^2(\I-\M)\V(\I-\M)=\sigma^2(\I-\M)^2\V=\sigma^2(\I-\M)\V \).
+
+(c) With distinct eigenvalues the eigenspaces are \( n \) lines. A subspace invariant under
+\( \V \) is invariant under every polynomial in \( \V \), and the orthogonal projection onto an
+eigenspace is such a polynomial (interpolate the value \( 1 \) at that eigenvalue and \( 0 \) at the
+others), so every eigenvector component of a vector of \( \mathcal S \) lies in \( \mathcal S \). So there are \( 2^n \)
+such subspaces, one for each subset of the eigenvectors, while the subspaces of a given
+dimension form a continuum. Kruskal's condition is therefore a knife-edge coincidence between
+the design and the error covariance. Equicorrelation is one of the coincidences that matter in
+practice, because the eigenvectors of \( (1-\rho)\I+\rho\bone\bone\T \) can be taken to be \( \bone \)
+and any orthonormal basis of \( \bone\perpc \), and every model with an intercept contains \( \bone \).
+:::

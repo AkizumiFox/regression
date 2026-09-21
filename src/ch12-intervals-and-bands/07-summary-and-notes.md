@@ -66,19 +66,19 @@ assay is simulated.
 
 - Box, George E. P. and Tiao, George C. (1973). *Bayesian Inference in Statistical Analysis*. Reading, MA: Addison-Wesley.
 - Brown, Philip J. (1993). *Measurement, Regression, and Calibration*. Oxford: Clarendon Press.
-- Brownlee, K. A. (1965). *Statistical Theory and Methodology in Science and Engineering*. 2nd edition. New York: Wiley.
+- Brownlee, Kenneth A. (1965). *Statistical Theory and Methodology in Science and Engineering*. 2nd edition. New York: Wiley.
 - Christensen, Ronald (2020). *Plane Answers to Complex Questions: The Theory of Linear Models*. 5th edition. Cham: Springer.
-- Fieller, E. C. (1954). Some Problems in Interval Estimation. *Journal of the Royal Statistical Society, Series B* 16(2), 175–185.
+- Fieller, Edgar C. (1954). Some Problems in Interval Estimation. *Journal of the Royal Statistical Society, Series B* 16(2), 175–185.
 - Gafarian, A. V. (1964). Confidence Bands in Straight Line Regression. *Journal of the American Statistical Association* 59(305), 182–213.
 - Gelman, Andrew, Carlin, John B., Stern, Hal S., Dunson, David B., Vehtari, Aki and Rubin, Donald B. (2013). *Bayesian Data Analysis*. 3rd edition. Boca Raton, FL: CRC Press.
 - Gleser, Leon Jay and Hwang, Jiunn Tzon (1987). The Nonexistence of 100(1−α)% Confidence Sets of Finite Expected Diameter in Errors-in-Variables and Related Models. *The Annals of Statistics* 15(4), 1351–1362.
 - Hahn, Gerald J. and Meeker, William Q. (1991). *Statistical Intervals: A Guide for Practitioners*. New York: Wiley.
 - Hoadley, Bruce (1970). A Bayesian Look at Inverse Linear Regression. *Journal of the American Statistical Association* 65(329), 356–369.
 - Krutchkoff, Richard G. (1967). Classical and Inverse Regression Methods of Calibration. *Technometrics* 9(3), 425–439.
-- Lehmann, E. L. and Romano, Joseph P. (2005). *Testing Statistical Hypotheses*. 3rd edition. New York: Springer.
+- Lehmann, Erich L. and Romano, Joseph P. (2005). *Testing Statistical Hypotheses*. 3rd edition. New York: Springer.
 - Liu, Wei (2010). *Simultaneous Inference in Regression*. Boca Raton, FL: Chapman & Hall/CRC.
 - Miller, Rupert G. (1981). *Simultaneous Statistical Inference*. 2nd edition. New York: Springer.
-- Neyman, Jerzy (1937). Outline of a Theory of Statistical Estimation Based on the Classical Theory of Probability. *Philosophical Transactions of the Royal Society of London, Series A* 236(767), 333–380.
+- Neyman, Jerzy (1937). Outline of a Theory of Statistical Estimation Based on the Classical Theory of Probability. *Philosophical Transactions of the Royal Society of London. Series A* 236(767), 333–380.
 - Olshen, Richard A. (1973). The Conditional Level of the F-Test. *Journal of the American Statistical Association* 68(343), 692–698.
 - Osborne, Christine (1991). Statistical Calibration: A Review. *International Statistical Review* 59(3), 309–336.
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
@@ -86,6 +86,6 @@ assay is simulated.
 - Schuirmann, Donald J. (1987). A Comparison of the Two One-Sided Tests Procedure and the Power Approach for Assessing the Equivalence of Average Bioavailability. *Journal of Pharmacokinetics and Biopharmaceutics* 15(6), 657–680.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.
 - Sen, Ashish and Srivastava, Muni (1990). *Regression Analysis: Theory, Methods, and Applications*. New York: Springer.
-- Tate, R. F. and Klett, G. W. (1959). Optimal Confidence Intervals for the Variance of a Normal Distribution. *Journal of the American Statistical Association* 54(287), 674–682.
+- Tate, Robert F. and Klett, G. W. (1959). Optimal Confidence Intervals for the Variance of a Normal Distribution. *Journal of the American Statistical Association* 54(287), 674–682.
 - Working, Holbrook and Hotelling, Harold (1929). Applications of the Theory of Error to the Interpretation of Trends. *Journal of the American Statistical Association* 24(165A), 73–85.
-- Wynn, H. P. and Bloomfield, P. (1971). Simultaneous Confidence Bands in Regression Analysis. *Journal of the Royal Statistical Society, Series B* 33(2), 202–217.
+- Wynn, Henry P. and Bloomfield, Peter (1971). Simultaneous Confidence Bands in Regression Analysis. *Journal of the Royal Statistical Society, Series B* 33(2), 202–217.

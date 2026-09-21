@@ -345,3 +345,113 @@ Show that \( F_\alpha(r,s)\to\chi^2_\alpha(r)/r \) as \( s\to\infty \), where \(
 point of \( \chi^2(r) \), and that the power \( \Pr\{F(r,s,\gamma)>F_\alpha(r,s)\} \) tends to
 \( \Pr\{\chi^2(r,\gamma)>\chi^2_\alpha(r)\} \), the power of the test that knows \( \sigma^2 \).
 :::
+
+### C. Going deeper
+
+::: {#exr-qf-shared-denominator}
+[C1]
+
+Keep the notation of @thm-qf-nested-f and assume the null hypothesis \( \bP_0\bmu=\bmu \). Put
+\( a=r-r_0 \), \( b=n-r \), \( U=\Y\T(\bP-\bP_0)\Y \), \( V=\Y\T(\I-\bP)\Y \), and consider
+\[
+R=\frac{\Y\T(\bP-\bP_0)\Y}{\Y\T(\I-\bP_0)\Y}=\frac{U}{U+V},
+\]
+the share of the reduced model's residual sum of squares that the full model removes.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that the numerator and the denominator of \( R \) are *not* independent, and that their
+           correlation is \( \sqrt{a/(a+b)}=\sqrt{(r-r_0)/(n-r_0)} \).
+
+2. Show nevertheless that \( R\sim\mathrm{Beta}(a/2,b/2) \) exactly, that \( R \) is independent of
+           \( \Y\T(\I-\bP_0)\Y \), and that \( F=(b/a)R/(1-R) \), so the two tests are the same test.
+
+3. Which hypothesis of @thm-qf-indep-quadratic fails for the pair
+           \( \{\Y\T(\bP-\bP_0)\Y,\ \Y\T(\I-\bP_0)\Y\} \), and why does its failure not damage the
+           exact null distribution?
+:::
+
+:::
+
+::: {.solution}
+(a) The matrices \( \bP-\bP_0 \) and \( \I-\bP \) are symmetric idempotent with
+zero product (proof of @thm-qf-nested-f), so \( U \) and \( V \) are independent with
+\( U/\sigma^2\sim\chi^2(a) \) and \( V/\sigma^2\sim\chi^2(b) \) by @thm-qf-orthogonal-projections; the
+noncentralities vanish because \( \bP\bmu=\bmu \) and \( \bP_0\bmu=\bmu \). The denominator is
+\( U+V \), so \( \Cov(U,U+V)=\Var(U) \) and
+\[
+\operatorname{corr}(U,U+V)=\frac{\Var(U)}{\sqrt{\Var(U)\Var(U+V)}}
+=\sqrt{\frac{2a\sigma^4}{2(a+b)\sigma^4}}=\sqrt{\frac{a}{a+b}} ,
+\]
+which is positive: a large \( U \) inflates the denominator too.
+
+(b) This is @exr-qf-beta applied to the independent pair \( (U/\sigma^2,V/\sigma^2) \): the ratio
+\( U/(U+V) \) is \( \mathrm{Beta}(a/2,b/2) \) and is independent of \( U+V \), and
+\( U/V=R/(1-R) \) gives \( F=(U/a)/(V/b)=(b/a)R/(1-R) \), a strictly increasing function of \( R \).
+So rejecting for large \( R \) and rejecting for large \( F \) are the same rule at the same level,
+and \( \sigma^2 \) has cancelled in both.
+
+(c) Independence would require \( (\bP-\bP_0)(\I-\bP_0)=\mathbf{0} \), whereas
+\( (\bP-\bP_0)(\I-\bP_0)=\bP-\bP_0 \ne\mathbf{0} \). What the theorems supply is a decomposition of
+the *denominator* into two independent pieces, one of which is the numerator. Dependence
+between numerator and denominator is not a problem in itself; what an exact distribution
+needs is that the pair be a function of independent chi-squared variables, which it is.
+:::
+
+::: {#exr-qf-gls-independence}
+[C2]
+
+Let \( \Y\sim\Normal_n(\X\bbeta,\sigma^2\V) \) with \( \V \) positive definite and \( \X \) of full column
+rank \( p<n \). Write \( \mathbf{K}=(\X\T\V^{-1}\X)^{-1} \),
+\[
+\tilde{\bbeta}=\mathbf{K}\X\T\V^{-1}\Y,\qquad
+\A=\V^{-1}-\V^{-1}\X\mathbf{K}\X\T\V^{-1},\qquad Q=\Y\T\A\Y .
+\]
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( Q=(\Y-\X\tilde{\bbeta})\T\V^{-1}(\Y-\X\tilde{\bbeta}) \), that
+           \( \tilde{\bbeta}\sim\Normal_p(\bbeta,\sigma^2\mathbf{K}) \) and \( Q/\sigma^2\sim\chi^2(n-p) \), and
+           that \( \tilde{\bbeta} \) and \( Q \) are independent. Deduce an exact \( t \) distribution for
+           \( \blambda\T\tilde{\bbeta} \) studentized by \( Q/(n-p) \).
+
+2. Now take the ordinary least squares \( \hbeta=(\X\T\X)^{-1}\X\T\Y \) and
+           \( \text{RSS}=\Y\T(\I-\M)\Y \) with \( \M=\X(\X\T\X)^{-1}\X\T \). Show that they are
+           independent for every \( \bbeta \) if and only if \( \C(\V\X)\subseteq\C(\X) \).
+
+3. Check that the condition holds for equicorrelated errors, \( \V=(1-\rho)\I+\rho\bone\bone\T \),
+           in any model whose columns include \( \bone \), and fails for \( \X=\bone \), \( n=3 \) and
+           \( \V=\diag(1,1,4) \).
+:::
+
+:::
+
+::: {.solution}
+(a) Since \( \Y-\X\tilde{\bbeta}=(\I-\X\mathbf{K}\X\T\V^{-1})\Y \), expanding
+\( (\I-\X\mathbf{K}\X\T\V^{-1})\T\V^{-1}(\I-\X\mathbf{K}\X\T\V^{-1}) \) gives
+\( \V^{-1}-2\V^{-1}\X\mathbf{K}\X\T\V^{-1}+\V^{-1}\X\mathbf{K}(\X\T\V^{-1}\X)\mathbf{K}\X\T\V^{-1}=\A \). By
+@thm-mvn-linear, \( \tilde{\bbeta} \) is normal with mean \( \mathbf{K}\X\T\V^{-1}\X\bbeta=\bbeta \) and
+covariance \( \sigma^2\mathbf{K}\X\T\V^{-1}\V\V^{-1}\X\mathbf{K}=\sigma^2\mathbf{K} \). Next, with \( \bSigma=\sigma^2\V \), the
+matrix \( (\A/\sigma^2)\bSigma=\A\V \) is idempotent, because
+\( \A\V\A=\A \) by the same expansion, and \( \tr(\A\V)=n-\tr(\mathbf{K}\X\T\V^{-1}\X)=n-p \); also
+\( \A\X\bbeta=\bzero \) because \( \A\X=\V^{-1}\X-\V^{-1}\X=\mathbf{0} \). So
+\( Q/\sigma^2\sim\chi^2(n-p) \) by @thm-qf-chisq(b). For independence take
+\( \B=\mathbf{K}\X\T\V^{-1} \) in @thm-qf-indep-linear: \( \B\bSigma\A=\sigma^2\mathbf{K}\X\T\A=\mathbf{0} \), again
+because \( \A\X=\mathbf{0} \). Hence
+\( \blambda\T(\tilde{\bbeta}-\bbeta)/\sqrt{\blambda\T\mathbf{K}\blambda\,Q/(n-p)}\sim t(n-p) \), exactly as
+in @exr-qf-regression-t.
+
+(b) With \( \B=(\X\T\X)^{-1}\X\T \) and \( \A=\I-\M \), @thm-qf-indep-linear says that
+independence for every mean vector \( \X\bbeta \) holds iff
+\( \B\bSigma\A=\sigma^2(\X\T\X)^{-1}\X\T\V(\I-\M)=\mathbf{0} \), that is, iff \( \X\T\V(\I-\M)=\mathbf{0} \).
+Transposing, this says \( (\I-\M)\V\X=\mathbf{0} \), that is, \( \V\X=\M\V\X \), which is
+\( \C(\V\X)\subseteq\C(\X) \). (Necessity is for all \( \bbeta \); for one particular \( \bbeta \) the
+covariance may vanish by accident.)
+
+(c) For the equicorrelated \( \V \) and a model with \( \bone\in\C(\X) \),
+\( \V\X=(1-\rho)\X+\rho\bone(\bone\T\X) \), and each column of \( \bone\bone\T\X \) is a multiple of
+\( \bone \), so \( \C(\V\X)\subseteq\C(\X) \): ordinary least squares keeps its exact \( t \) and \( F \)
+theory. For \( \X=\bone \) and \( \V=\diag(1,1,4) \), \( \V\bone=(1,1,4)\T \) is not a multiple of
+\( \bone \), so \( \bar{Y} \) and the residual sum of squares are dependent, and the usual \( t \)
+statistic has no \( t \) distribution. The condition \( \C(\V\X)\subseteq\C(\X) \) is the same one
+under which ordinary and generalized least squares coincide
+([Chapter 31](../ch31-general-gauss-markov/index.html)).
+:::

@@ -328,7 +328,7 @@ best linear predictor of \( Y_1 \) from the rest is \( -\boldsymbol{\Omega}_{12}
 [B3]
 
 Let \( \mathbf{D} \) be an \( n\times k \) data matrix whose columns are centred, and let \( \bS=\mathbf{D}\T\mathbf{D} \).
-Show, using @thm-proj-fwl and the partitioned inverse, that
+Show, using @thm-proj-fwl and the partitioned inverse (@thm-mat-partitioned-inverse), that
 \( -w_{12}/\sqrt{w_{11}w_{22}} \), computed from \( \bS^{-1}=(w_{ij}) \), equals the correlation of the
 residuals of columns \( 1 \) and \( 2 \) after regression on the remaining columns.
 :::
@@ -339,4 +339,100 @@ residuals of columns \( 1 \) and \( 2 \) after regression on the remaining colum
 Using the Longley data of @exm-mvn-longley, compute the partial correlation of employment and
 unemployment given both year and GNP, in at least two of the four ways. Draw the corresponding
 residual scatterplot. Does adjusting for GNP as well as year change the conclusion?
+:::
+
+### C. Going deeper
+
+::: {#exr-mvn-partial-unconstrained}
+[C1]
+
+A marginal correlation and the corresponding partial correlation are unrelated: no
+inequality links them.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Let \( \R \) be the \( 3\times3 \) correlation matrix with \( \rho_{12}=a \) and
+           \( \rho_{13}=\rho_{23}=t \). Show that \( \R \) is positive definite iff \( t^2<(1+a)/2 \), and
+           that then \( \rho_{12\cdot3}=(a-t^2)/(1-t^2) \), which decreases from \( a \) to \( -1 \) as \( t^2 \)
+           runs over \( [0,(1+a)/2) \).
+
+2. Do the same for \( \rho_{13}=t \), \( \rho_{23}=-t \), obtaining values increasing from \( a \)
+           to \( 1 \).
+
+3. Conclude that for every \( a,b\in(-1,1) \) there is a positive definite correlation matrix
+           with \( \rho_{12}=a \) and \( \rho_{12\cdot3}=b \), and give \( t^2 \) explicitly in each case.
+           Interpret the three regimes \( b<a \), \( b=a \), \( b>a \) in terms of the third variable.
+:::
+
+:::
+
+::: {.solution}
+(a) The determinant of \( \R \) is
+\( 1+2\rho_{12}\rho_{13}\rho_{23}-\rho_{12}^2-\rho_{13}^2-\rho_{23}^2=1+2at^2-a^2-2t^2=(1-a)\{(1+a)-2t^2\} \).
+The leading minors are \( 1 \) and \( 1-a^2>0 \), so \( \R \) is positive definite iff this is positive,
+that is iff \( t^2<(1+a)/2 \); note \( t^2<1 \) then. By @eq-mvn-partial-recursion,
+\( \rho_{12\cdot3}=(a-t^2)/(1-t^2) \). Its derivative in \( s=t^2 \) is \( (a-1)/(1-s)^2<0 \), so it
+decreases from \( a \) at \( s=0 \) to \( \{a-(1+a)/2\}/\{1-(1+a)/2\}=-1 \) at the endpoint.
+
+(b) Now \( 2\rho_{12}\rho_{13}\rho_{23}=-2at^2 \), so the determinant is
+\( (1+a)\{(1-a)-2t^2\} \), positive iff \( t^2<(1-a)/2 \), and
+\( \rho_{12\cdot3}=(a+t^2)/(1-t^2) \), which increases from \( a \) to
+\( \{a+(1-a)/2\}/\{1-(1-a)/2\}=1 \).
+
+(c) Given \( b\le a \), solve \( (a-s)/(1-s)=b \) for \( s=t^2=(a-b)/(1-b)\ge0 \); it satisfies
+\( s<(1+a)/2 \), since that inequality rearranges to \( (1+b)(a-1)<0 \). Given \( b\ge a \), solve
+\( (a+s)/(1-s)=b \) for \( s=(b-a)/(1+b)\ge0 \), and \( s<(1-a)/2 \) rearranges to \( (1+a)(b-1)<0 \).
+Either way a positive definite \( \R \) with the required pair exists. If \( b<a \) the third
+variable is a common driver whose removal weakens or reverses the association, as the year
+does in @exm-mvn-longley; if \( b>a \) it is a competing explanation or a common effect whose
+removal strengthens it, as in @exr-mvn-collider; in the two constructions above \( b=a \)
+happens only at \( t=0 \), when the third variable is uncorrelated with both.
+:::
+
+::: {#exr-mvn-local-markov}
+[C2]
+
+Let \( \Y\sim\Normal_p(\bmu,\bSigma) \) with \( \bSigma \) positive definite and
+\( \boldsymbol{\Omega}=\bSigma^{-1} \). Fix \( i \), let \( N=\{j\ne i:\omega_{ij}\ne0\} \) be the
+*neighbours* of \( i \) in the graph of @prp-mvn-precision, and let \( \bar{N} \) be the remaining
+indices.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( Y_i \) is conditionally independent of \( \Y_{\bar{N}} \) given \( \Y_N \). *Hint:*
+           @thm-mvn-conditional(c) identifies the precision matrix of the conditional
+           distribution of \( (Y_i,\Y_{\bar{N}}) \) given \( \Y_N \) as a block of \( \boldsymbol{\Omega} \).
+
+2. Show conversely that if, for some set \( N \) not containing \( i \), the variable \( Y_i \) is
+           conditionally independent of all the remaining entries given \( \Y_N \), then
+           \( \omega_{ij}=0 \) for every \( j\notin N\cup\{i\} \). So the neighbourhood of (a) is the
+           smallest such conditioning set.
+
+3. In a first-order autoregression, \( \boldsymbol{\Omega} \) is tridiagonal. What does (a) say
+           about \( Y_i \) and the past and future of the series?
+:::
+
+:::
+
+::: {.solution}
+(a) Permute the entries so that \( (Y_i,\Y_{\bar{N}}) \) comes first and \( \Y_N \) second. By
+@thm-mvn-conditional(b) the conditional distribution of \( (Y_i,\Y_{\bar{N}}) \) given
+\( \Y_N=\y_N \) is normal with covariance \( \bSigma_{11\cdot2} \), and by
+@thm-mvn-conditional(c) its inverse \( \bSigma_{11\cdot2}^{-1} \) is the leading block of
+\( \boldsymbol{\Omega} \), that is, the submatrix of \( \boldsymbol{\Omega} \) with rows and columns in
+\( \{i\}\cup\bar{N} \). By the definition of \( N \), the entries \( \omega_{ij} \) with
+\( j\in\bar{N} \) all vanish, so that submatrix is block diagonal with blocks \( \{i\} \) and
+\( \bar{N} \). Its inverse \( \bSigma_{11\cdot2} \) is then block diagonal too, so the conditional
+covariance of \( Y_i \) with \( \Y_{\bar{N}} \) is zero, and @thm-mvn-independence applied to the
+conditional normal distribution gives conditional independence.
+
+(b) Run the argument backwards. Conditional independence makes the conditional covariance of
+\( Y_i \) and \( \Y_{\bar{N}} \) given \( \Y_N \) zero, so \( \bSigma_{11\cdot2} \) is block diagonal,
+so its inverse, the \( \{i\}\cup\bar{N} \) block of \( \boldsymbol{\Omega} \), is block diagonal as
+well, which says \( \omega_{ij}=0 \) for \( j\in\bar{N} \). Hence every \( j \) with \( \omega_{ij}\ne0 \) lies in \( N \), so \( N \)
+contains the neighbourhood of (a).
+
+(c) With a tridiagonal precision matrix the neighbours of \( i \) are \( i-1 \) and \( i+1 \), so
+\( Y_i \) is conditionally independent of everything else given its two immediate neighbours.
+Equivalently, given \( Y_{i-1} \) and \( Y_{i+1} \), the rest of the past and the rest of the future
+carry no further linear or distributional information: the Markov property of the series is
+the zero pattern of \( \boldsymbol{\Omega} \).
 :::

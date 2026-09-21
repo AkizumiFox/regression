@@ -366,3 +366,116 @@ score @eq-cnt-nb1-score contains \( y_i \) only inside \( \psi(y_i+\alpha\mu_i) 
 grows like \( \log y_i \), so the NB1 fit is far less sensitive to it and the
 quasi-Poisson coefficient should move more when it is removed.
 :::
+
+### C. Going deeper
+
+::: {#exr-ql-lognormal-shape}
+[C1]
+
+@prp-ql-overdispersion(a) says that unmodelled heterogeneity overdisperses. It says nothing about the
+*shape* of the excess, and the shape decides the repair. Suppose that, given an unrecorded
+\( Z_i\sim\Normal(0,1) \) independent of the covariate, \( Y_i \) is Poisson with mean
+\( \Lambda_i=\exp(\beta_0+\beta_1x_i+\gamma Z_i) \), \( \gamma\ne0 \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Using @thm-mvn-mgf, show that \( \mu_i=\E(Y_i)=\exp(\beta_0+\gamma^2/2+\beta_1x_i) \): the marginal mean
+   is still log-linear, with the same slope and a raised intercept. So the mean model is *not* at fault, and
+   this is not case (d) of the proposition.
+
+2. Show that \( \Var(Y_i)=\mu_i+(e^{\gamma^2}-1)\mu_i^2 \), so that
+   \[
+   \frac{\Var(Y_i)}{\E(Y_i)}=1+(e^{\gamma^2}-1)\mu_i ,
+   \]
+   which increases with the mean instead of being constant.
+
+3. Which of the four devices in the table of this section is the right one, and what does the plot of
+   squared Pearson residuals against \( \hat\mu_i \) look like under the true model and under the
+   quasi-Poisson specification \( V(\mu)=\phi\mu \)?
+
+4. Show that \( \hat\beta_1 \) from the quasi-Poisson fit is still consistent, and explain why no single
+   \( \hat\phi \) makes the reported standard errors right across a design whose fitted means vary widely.
+:::
+
+:::
+
+::: {.solution}
+(a) By @thm-mvn-mgf,
+\( \E(Y_i)=\E\Lambda_i=e^{\beta_0+\beta_1x_i}\E e^{\gamma Z_i}=e^{\beta_0+\beta_1x_i}e^{\gamma^2/2} \).
+The slope of \( \log\mu_i \) in \( x_i \) is \( \beta_1 \), unchanged; only the intercept
+moves, by \( \gamma^2/2 \).
+
+(b) By the proposition with the Poisson kernel, \( \Var(Y_i)=\E\Lambda_i+\Var(\Lambda_i) \). Now
+\( \E\Lambda_i^2=e^{2(\beta_0+\beta_1x_i)}\E e^{2\gamma Z_i}=e^{2(\beta_0+\beta_1x_i)}e^{2\gamma^2} \), while
+\( \mu_i^2=e^{2(\beta_0+\beta_1x_i)}e^{\gamma^2} \), so
+\( \Var(\Lambda_i)=\mu_i^2(e^{\gamma^2}-1) \). Add \( \mu_i \) and divide.
+
+(c) The variance is \( \mu+\mu^2/\kappa \) with \( 1/\kappa=e^{\gamma^2}-1 \), which is exactly the NB2
+variance function: the negative binomial with a lognormal mixing law replaced by a gamma one has the same
+first two moments, and the third device in the table — a full distribution with that variance function — is
+the right choice, as is a quasi model with \( V(\mu)=\mu+\mu^2/\kappa \). Under the true model the squared
+Pearson residuals \( (y_i-\hat\mu_i)^2/\hat\mu_i \) have expectation \( 1+(e^{\gamma^2}-1)\hat\mu_i \), so a
+smooth through them rises linearly in \( \hat\mu_i \); under the quasi-Poisson specification it should be
+flat at \( \hat\phi \). This is the diagnostic of the "Seeing it" list, and it is also what makes the
+sandwich covariance @eq-ql-robust and the model-based \( \hat\phi_P(\X\T\hat{\W}\X)^{-1} \) disagree, since
+the shape and not merely the scale of \( V \) is wrong.
+
+(d) The quasi-score with a log link and \( V(\mu)=\mu \) is \( \sum_i\x_{(i)}(y_i-\mu_i) \), whose mean is
+zero at the true \( \bbeta \) because (a) says the mean model holds; consistency then follows from
+@thm-ql-score(b) and @thm-ql-asymptotics(a), which never use the variance. The Pearson dispersion converges
+to a weighted average of the ratios \( 1+(e^{\gamma^2}-1)\mu_i \), a number that is too small where the
+fitted means are large and too large where they are small; the intervals for observations at the ends of
+the design are wrong in opposite directions, and rescaling every variance by one constant cannot mend that.
+The idea box of this section cuts the other way here: the coefficients are safe and the standard errors are
+not, but the cure is a new variance function rather than a new number.
+:::
+
+::: {#exr-ql-no-scalar-dispersion}
+[C2]
+
+@prp-ql-overdispersion(b) attributes the inflation \( 1+\rho(m-1) \) to clustering. When the individual
+units, and not their averages, are the data, a scalar dispersion parameter cannot represent it at all. Let
+the data be \( Y_{ij} \), \( j=1,\dots,n_i \), \( i=1,\dots,m \), with means \( \mu_{ij} \), marginal
+variance \( \sigma^2 \) throughout, exchangeable within-cluster correlation
+\( \rho\in(0,1) \) (@eq-ql-exchangeable) and independence across clusters, and let
+\( S=\sum_{ij}a_{ij}Y_{ij} \) for constants \( a_{ij} \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that
+   \( \Var(S)=\sigma^2\sum_i\bigl\{(1-\rho)\sum_ja_{ij}^2+\rho\bigl(\sum_ja_{ij}\bigr)^2\bigr\} \).
+
+2. Deduce that a *cluster-level* contrast, \( a_{ij}=c_i \) for all \( j \), has
+   \( \Var(S)=\sigma^2\sum_ic_i^2n_i\{1+\rho(n_i-1)\} \): inflated by the design effect.
+
+3. Deduce that a *within-cluster* contrast, \( \sum_ja_{ij}=0 \) for every \( i \), has
+   \( \Var(S)=\sigma^2(1-\rho)\sum_{ij}a_{ij}^2 \): **deflated**, by the factor \( 1-\rho<1 \).
+
+4. Show that the Pearson dispersion \( \hat\phi_P \) converges to \( 1 \) here, so it registers no
+   overdispersion at all, and that no single \( \phi \) can correct both kinds of contrast even if one were
+   supplied by hand. Which device in the table is then the right one?
+:::
+
+:::
+
+::: {.solution}
+(a) Clusters are independent, so \( \Var(S)=\sum_i\mathbf{a}_i\T\Cov(\Y_i)\mathbf{a}_i \) with
+\( \Cov(\Y_i)=\sigma^2\{(1-\rho)\I+\rho\bone\bone\T\} \), and
+\( \mathbf{a}\T\{(1-\rho)\I+\rho\bone\bone\T\}\mathbf{a}=(1-\rho)\norm{\mathbf{a}}^2+\rho(\bone\T\mathbf{a})^2 \).
+
+(b) With \( a_{ij}=c_i \), \( \sum_ja_{ij}^2=c_i^2n_i \) and \( (\sum_ja_{ij})^2=c_i^2n_i^2 \), so the
+bracket is \( c_i^2\{(1-\rho)n_i+\rho n_i^2\}=c_i^2n_i\{1+\rho(n_i-1)\} \).
+
+(c) The second term vanishes for every \( i \), leaving \( \sigma^2(1-\rho)\sum_{ij}a_{ij}^2 \), which is
+smaller than the independence value \( \sigma^2\sum_{ij}a_{ij}^2 \).
+
+(d) The Pearson statistic uses only the marginal variances, which are correct by assumption:
+\( \hat\phi_P=\sum_{ij}(y_{ij}-\hat\mu_{ij})^2/\{\sigma^2(N-p)\}\to1 \) by the law of large numbers over
+clusters, whatever \( \rho \) is. Correlation is invisible to it, because it is a statement about pairs and
+the Pearson statistic looks at one observation at a time. Even a \( \phi \) chosen with knowledge of
+\( \rho \) fails: the cluster-level contrast needs the factor \( 1+\rho(n_i-1)>1 \) and the within-cluster
+contrast the factor \( 1-\rho<1 \), and a single multiplier cannot be on both sides of one. (With unequal
+\( n_i \) even the cluster-level factors differ among themselves.) So the right device is the second or the
+fourth: a sandwich covariance with the *cluster* as the unit, which estimates \( \Var(S) \) directly from
+the between-cluster variation, or an explicit model for the within-cluster covariance. The choice, and the
+different estimands the two carry, is the business of
+[Chapter 40](../ch40-glmm-gee/index.html).
+:::

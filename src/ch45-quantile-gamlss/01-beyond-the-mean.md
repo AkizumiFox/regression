@@ -251,3 +251,128 @@ law were normal with the within-third standard deviation. Comment on the directi
 both errors.
 :::
 
+
+### C. Going deeper
+
+::: {#exr-qnt-frozen-moments}
+[C1]
+
+@prp-qnt-beyond-mean(c) says that a location-scale model freezes the shape. The converse fails, and badly:
+freezing the conditional mean and variance leaves the shape free. Let \( Y \) given \( x \) take the value
+\( e^{x} \) with probability \( 1/(1+e^{2x}) \) and the value \( -e^{-x} \) with probability
+\( e^{2x}/(1+e^{2x}) \).
+
+::: {.enumerate options="label=(\alph*)"}
+1. Show that \( \E(Y\mid x)=0 \) and \( \Var(Y\mid x)=1 \) for every \( x \). A regression of \( Y \) on
+   \( x \) with a constant variance is exactly right.
+
+2. Show that \( \E(Y^{3}\mid x)=2\sinh x \), so the conditional skewness runs over the whole real line as
+   \( x \) does.
+
+3. Show that
+   \[
+   Q_Y(\tau\mid x)=\begin{cases}e^{x}, & \tau\le 1/(1+e^{2x}),\\[2pt] -e^{-x}, &\text{otherwise,}\end{cases}
+   \]
+   and that for each fixed \( \tau \) the curve \( x\mapsto Q_Y(\tau\mid x) \) drops from \( e^{x_\tau} \)
+   to \( -e^{-x_\tau} \) at \( x_\tau=\tfrac12\log\{\tau/(1-\tau)\} \). At \( \tau=0.1 \) the jump is from
+   \( \tfrac13 \) to \( -3 \).
+
+4. Show that the interval \( [-2,2] \), two conditional standard deviations either side of the conditional
+   mean, has conditional coverage \( 1 \) when \( |x|\le\log2 \) and \( e^{2|x|}/(1+e^{2|x|}) \) otherwise,
+   so that its coverage ranges over \( [\tfrac45,1] \) as \( x \) varies.
+
+5. Say which part of @prp-qnt-beyond-mean this complements and why it contradicts none of them.
+:::
+
+:::
+
+::: {.solution}
+(a) Write \( p=1/(1+e^{2x}) \), so \( 1-p=e^{2x}/(1+e^{2x}) \). Then
+\( \E(Y\mid x)=e^{x}p-e^{-x}(1-p)=\{e^{x}-e^{-x}e^{2x}\}/(1+e^{2x})=0 \), and
+\( \E(Y^{2}\mid x)=e^{2x}p+e^{-2x}(1-p)=\{e^{2x}+1\}/(1+e^{2x})=1 \).
+
+(b) \( \E(Y^{3}\mid x)=e^{3x}p-e^{-3x}(1-p)=\{e^{3x}-e^{-x}\}/(1+e^{2x})
+=e^{-x}(e^{4x}-1)/(1+e^{2x})=e^{-x}(e^{2x}-1)=e^{x}-e^{-x}=2\sinh x \), and since the variance is one this
+third moment *is* the skewness. It is \( 0 \) at \( x=0 \) and unbounded in both directions.
+
+(c) The two atoms satisfy \( -e^{-x}<0<e^{x} \) and the distribution function jumps to \( 1-p \) at
+\( -e^{-x} \) and to \( 1 \) at \( e^{x} \). By the definition of \( Q_Y \) as an infimum,
+\( Q_Y(\tau\mid x)=-e^{-x} \) when \( \tau\le1-p \) and \( e^{x} \) otherwise, which is the display with
+\( p=1/(1+e^{2x}) \). Solving \( \tau=1-p=e^{2x}/(1+e^{2x}) \) gives
+\( e^{2x}=\tau/(1-\tau) \), that is \( x=x_\tau \); for \( x<x_\tau \) the quantile is the positive atom and
+for \( x\ge x_\tau \) the negative one. At \( \tau=0.1 \), \( x_\tau=\tfrac12\log\tfrac19=-\log3 \), and the
+curve falls from \( e^{-\log3}=\tfrac13 \) to \( -e^{\log3}=-3 \).
+
+(d) Both atoms lie in \( [-2,2] \) exactly when \( e^{x}\le2 \) and \( e^{-x}\le2 \), that is when
+\( |x|\le\log2 \), and then the coverage is \( 1 \). For \( x>\log2 \) only the atom \( e^{x} \) is outside,
+so the coverage is \( 1-p=e^{2x}/(1+e^{2x}) \); for \( x<-\log2 \) only \( -e^{-x} \) is outside and the
+coverage is \( p=e^{2|x|}/(1+e^{2|x|}) \). The smallest value is at \( |x|=\log2 \), namely
+\( 4/(1+4)=\tfrac45 \), and the coverage returns to \( 1 \) as \( |x|\to\infty \).
+
+(e) It complements part (c), which shows that a location-scale family has a shape free of \( \x \); the
+present family shows that the implication does not reverse, so that a correct mean model and a correct
+variance model together still say nothing about skewness, about quantiles, or about the coverage of an
+interval built from them. Nothing is contradicted, because this conditional law is not of the form
+\( \x\T\bbeta+\exp(\x\T\boldsymbol{\upalpha})\varepsilon \) for any \( \varepsilon \) free of \( \x \) —
+that is the content of @exr-qnt-no-transformation. The band of @exm-qnt-engel-bands behaved in the same
+way, covering \( 1.000 \) of the poorest third and \( 0.911 \) of the richest while reporting one number
+for all.
+:::
+
+::: {#exr-qnt-no-transformation}
+[C2]
+
+The fourth route mentioned at the end of the section is to transform the response until a location-scale
+model fits. Here it provably cannot work.
+
+::: {.enumerate options="label=(\alph*)"}
+1. Suppose \( T \) is strictly increasing and left-continuous and \( T(Y)=a(x)+b(x)\varepsilon \) with
+   \( b(x)>0 \) and the law of \( \varepsilon \) free of \( x \). Use @lem-qnt-monotone to show that
+   \( Q_Y(\tau\mid x)=T^{-1}\{a(x)+b(x)q_\varepsilon(\tau)\} \), and deduce that for any three levels
+   \( \tau_1<\tau_2<\tau_3 \) the ratio
+   \[
+   \frac{T\{Q_Y(\tau_3\mid x)\}-T\{Q_Y(\tau_2\mid x)\}}{T\{Q_Y(\tau_2\mid x)\}-T\{Q_Y(\tau_1\mid x)\}}
+   \]
+   is the same for every \( x \). This is the constraint a transformation imposes, and it is checkable.
+
+2. Show that if \( Z \) takes two values \( \alpha<\gamma \) with \( \Pr(Z=\gamma)=q\in(0,1) \), then
+   \( \{Z-\E(Z)\}/\sqrt{\Var(Z)} \) takes the values \( -\sqrt{q/(1-q)} \) and \( \sqrt{(1-q)/q} \) with
+   probabilities \( 1-q \) and \( q \): the standardized law is determined by \( q \) alone.
+
+3. Deduce that for the family of @exr-qnt-frozen-moments no strictly increasing \( T \) makes \( T(Y) \) a
+   location-scale family in \( x \), and hence that no Box–Cox transformation (@def-tr-box-cox) can
+   homogenize it.
+
+4. What is left, and where does the chapter go next?
+:::
+
+:::
+
+::: {.solution}
+(a) Applying @lem-qnt-monotone conditionally on \( x \) to the map
+\( e\mapsto a(x)+b(x)e \) gives \( Q_{T(Y)}(\tau\mid x)=a(x)+b(x)q_\varepsilon(\tau) \), and applying it to
+\( T \) itself gives \( Q_{T(Y)}(\tau\mid x)=T\{Q_Y(\tau\mid x)\} \). Hence
+\( T\{Q_Y(\tau\mid x)\}=a(x)+b(x)q_\varepsilon(\tau) \); the differences across levels cancel \( a(x) \) and
+the ratio cancels \( b(x) \), leaving
+\( \{q_\varepsilon(\tau_3)-q_\varepsilon(\tau_2)\}/\{q_\varepsilon(\tau_2)-q_\varepsilon(\tau_1)\} \), free
+of \( x \).
+
+(b) \( \E Z=\alpha+q(\gamma-\alpha) \) and \( \Var Z=q(1-q)(\gamma-\alpha)^{2} \), so
+\( \{\gamma-\E Z\}/\sqrt{\Var Z}=(1-q)(\gamma-\alpha)/\{(\gamma-\alpha)\sqrt{q(1-q)}\}=\sqrt{(1-q)/q} \) and
+likewise for \( \alpha \). Neither the location nor the scale of \( Z \) survives, only \( q \).
+
+(c) A strictly increasing \( T \) maps the two atoms of \( Y \) to two atoms in the same order and leaves
+their probabilities alone, so \( T(Y) \) given \( x \) is two-point with
+\( \Pr\{T(Y)=T(e^{x})\}=1/(1+e^{2x})=:q(x) \). If \( T(Y)=a(x)+b(x)\varepsilon \) with \( b(x)>0 \), then
+\( \varepsilon=\{T(Y)-a(x)\}/b(x) \) has a law free of \( x \), so in particular its standardized version
+does; by (b) that forces \( q(x) \) to be constant. But \( q(x)=1/(1+e^{2x}) \) is strictly decreasing.
+Hence no such \( T \) exists, and the Box–Cox family, being a family of strictly increasing maps on a
+half-line, contains none either.
+
+(d) What is left is to stop insisting that one curve with one noise distribution describes the conditional
+law. Either estimate each conditional quantile on its own terms, as
+[Section 45.2](02-quantile-regression.html) does with the check loss, or give every parameter of a
+distribution its own predictor, as @def-qnt-gamlss does. The family here is an extreme case built to make
+the point; the Engel data of @exm-qnt-engel-bands make a milder version of it, with a spread that triples
+and a skewness that changes sign across the design.
+:::

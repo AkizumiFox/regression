@@ -72,7 +72,7 @@ dependent data at length.
 - Draper, Norman R. and Stoneman, David M. (1966). Testing for the Inclusion of Variables in Linear Regression by a Randomisation Technique. *Technometrics* 8(4), 695–699.
 - Efron, Bradley (1979). Bootstrap Methods: Another Look at the Jackknife. *The Annals of Statistics* 7(1), 1–26.
 - Efron, Bradley (1987). Better Bootstrap Confidence Intervals. *Journal of the American Statistical Association* 82(397), 171–185.
-- Efron, Bradley and Tibshirani, Robert J. (1993). *An Introduction to the Bootstrap*. New York: Chapman and Hall.
+- Efron, Bradley and Tibshirani, Robert (1993). *An Introduction to the Bootstrap*. New York: Chapman and Hall.
 - El Karoui, Noureddine and Purdom, Elizabeth (2018). Can We Trust the Bootstrap in High-Dimensions? The Case of Linear Models. *Journal of Machine Learning Research* 19, 1–66.
 - Fisher, Ronald A. (1935). *The Design of Experiments*. Edinburgh: Oliver and Boyd.
 - Freedman, David A. (1981). Bootstrapping Regression Models. *The Annals of Statistics* 9(6), 1218–1228.

@@ -53,6 +53,7 @@ anticonservative
 antiderivative
 aov
 aperiodicity
+Arak
 Aranda
 arcsine
 Arianna
@@ -75,6 +76,7 @@ Atiqullah
 Atiqullah’s
 AUAI
 AUC
+AUCs
 Ausgleichung
 Autocorrelated
 autocorrelation
@@ -86,6 +88,7 @@ Azzalini
 backfitting
 Balabdaoui
 Balakrishnan
+Balas
 Barndorff
 Barone
 Basmann
@@ -119,6 +122,7 @@ Besag
 Besser
 Beunckens
 BH
+Bhaskar
 BH’s
 BIBD
 Bickel
@@ -220,6 +224,7 @@ CIC
 Ciprian
 classi
 Clenshaw
+Cleve
 Clobert
 cls
 cmp
@@ -324,6 +329,7 @@ DFBETAS
 DFFITS
 Diaconis
 diagonality
+diagonalizable
 Diagonalization
 diagonalize
 dichotomization
@@ -391,6 +397,7 @@ eiv
 elasticities
 Elicitability
 elicitable
+Elizbar
 Elwert
 Emilija
 empirische
@@ -424,6 +431,7 @@ Esa
 estep
 Estimability
 estimand
+estimands
 Eubank
 Euphytica
 exchangeability
@@ -697,6 +705,8 @@ IRLS
 irreducibility
 irrepresentable
 Irène
+isometry
+isotropy
 Isserlis
 Isserlis’s
 Istituto
@@ -977,6 +987,7 @@ multilinear
 multimodal
 Multinomial
 multiplicatively
+multiplicativity
 multiway
 Muni
 mvn
@@ -987,6 +998,7 @@ Nadaraya
 Nadja
 Naihua
 namings
+Narayanaswamy
 Nariaki
 Natarajan
 ncchisq
@@ -1033,6 +1045,7 @@ nonlinearity
 nonlinearly
 Nonnegative
 nonnegativity
+nonnormal
 nonnormality
 Nonorthogonal
 Nonparametric
@@ -1230,6 +1243,7 @@ Reiersøl
 Reinsch
 Reiss
 Rejective
+relabelled
 Relabelling
 REML
 Rencher
@@ -1290,6 +1304,7 @@ Ruppert
 Ryuei
 Sadanori
 Saharon
+Samarendra
 Samii
 Samprit
 Sankhyā
@@ -1454,6 +1469,7 @@ Svante
 SVD
 SVD’s
 Swindel
+symmetrization
 symmetrize
 Szegő
 Søren
@@ -1569,6 +1585,7 @@ Verbyla
 Verma
 Verteilungsgesetz
 Vesna
+Vidyadhar
 vif
 Vizcarrondo
 Volinsky

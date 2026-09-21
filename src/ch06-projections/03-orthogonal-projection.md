@@ -390,7 +390,7 @@ so the formula reproduces \( \G_0+\boldsymbol{\Delta}=\G \).
 ::: {#exr-proj-penrose}
 [B3]
 
-Using the singular value decomposition, show that \( (\X\T\X)^+\X\T=\X^+ \) and
+Using the singular value decomposition (@thm-mat-svd), show that \( (\X\T\X)^+\X\T=\X^+ \) and
 \( \X\X^+=\M \). Show also that \( \X^+=(\X\T\X)^{-1}\X\T \) when \( \X \) has full column rank.
 :::
 

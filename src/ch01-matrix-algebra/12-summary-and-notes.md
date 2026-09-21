@@ -122,7 +122,7 @@ definitions used in [Section 1.11](11-calculus.html) and handle symmetric matrix
 - Rencher, Alvin C. and Schaalje, G. Bruce (2008). *Linear Models in Statistics*. 2nd edition. Hoboken, NJ: Wiley.
 - Searle, Shayle R. (1982). *Matrix Algebra Useful for Statistics*. New York: Wiley.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.
-- Sherman, Jack and Morrison, Winifred J. (1950). Adjustment of an Inverse Matrix Corresponding to a Change in One Element of a Given Matrix. *Annals of Mathematical Statistics* 21(1), 124–127.
-- Stewart, G. W. (1993). On the Early History of the Singular Value Decomposition. *SIAM Review* 35(4), 551–566.
+- Sherman, Jack and Morrison, Winifred J. (1950). Adjustment of an Inverse Matrix Corresponding to a Change in One Element of a Given Matrix. *The Annals of Mathematical Statistics* 21(1), 124–127.
+- Stewart, Gilbert W. (1993). On the Early History of the Singular Value Decomposition. *SIAM Review* 35(4), 551–566.
 - Woodbury, Max A. (1950). *Inverting Modified Matrices*. Princeton, NJ: .
 - Zhang, Fuzhen (2005). *The Schur Complement and Its Applications*. New York: Springer.

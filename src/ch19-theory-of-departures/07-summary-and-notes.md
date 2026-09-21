@@ -68,12 +68,12 @@ regressors measured with error. Longley's (1967) data are the standard example o
 - Bloomfield, Peter and Watson, Geoffrey S. (1975). The Inefficiency of Least Squares. *Biometrika* 62(1), 121–128.
 - Box, George E. P. (1953). Non-Normality and Tests on Variances. *Biometrika* 40(3/4), 318–335.
 - Box, George E. P. and Watson, Geoffrey S. (1962). Robustness to Non-Normality of Regression Tests. *Biometrika* 49(1/2), 93–106.
-- Brownlee, K. A. (1965). *Statistical Theory and Methodology in Science and Engineering*. 2nd edition. New York: Wiley.
-- Donoho, David L. and Huber, Peter J. (1983). The Notion of Breakdown Point. In P. J. Bickel, K. A. Doksum and J. L. Hodges (eds), *A Festschrift for Erich L. Lehmann*, 157–184. Belmont, CA: Wadsworth.
+- Brownlee, Kenneth A. (1965). *Statistical Theory and Methodology in Science and Engineering*. 2nd edition. New York: Wiley.
+- Donoho, David L. and Huber, Peter J. (1983). The Notion of Breakdown Point. In P. J. Bickel, K. A. Doksum and J. L. Hodges (eds.), *A Festschrift for Erich L. Lehmann*, 157–184. Belmont, CA: Wadsworth.
 - Grenander, Ulf (1954). On the Estimation of Regression Coefficients in the Case of an Autocorrelated Disturbance. *The Annals of Mathematical Statistics* 25(2), 252–272.
 - Hampel, Frank R. (1974). The Influence Curve and Its Role in Robust Estimation. *Journal of the American Statistical Association* 69(346), 383–393.
 - Huber, Peter J. (1973). Robust Regression: Asymptotics, Conjectures and Monte Carlo. *The Annals of Statistics* 1(5), 799–821.
-- Knott, M. (1975). On the Minimum Efficiency of Least Squares. *Biometrika* 62(1), 129–132.
+- Knott, Martin (1975). On the Minimum Efficiency of Least Squares. *Biometrika* 62(1), 129–132.
 - Kruskal, William (1968). When Are Gauss–Markov and Least Squares Estimators Identical? A Coordinate-Free Approach. *The Annals of Mathematical Statistics* 39(1), 70–75.
 - Longley, James W. (1967). An Appraisal of Least Squares Programs for the Electronic Computer from the Point of View of the User. *Journal of the American Statistical Association* 62(319), 819–841.
 - Rousseeuw, Peter J. (1984). Least Median of Squares Regression. *Journal of the American Statistical Association* 79(388), 871–880.

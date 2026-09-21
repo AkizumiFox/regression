@@ -130,7 +130,7 @@ variable of
 - Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and Marx, Brian D. (2021). *Regression: Models, Methods and Applications*. 2nd edition. Berlin: Springer.
 - Fienberg, Stephen E. (1980). *The Analysis of Cross-Classified Categorical Data*. 2nd edition. Cambridge, MA: MIT Press.
 - Läärä, Esa and Matthews, John N. S. (1985). The Equivalence of Two Models for Ordinal Data. *Biometrika* 72(1), 206–207.
-- Lehmann, E. L. and Casella, George (1998). *Theory of Point Estimation*. 2nd edition. New York: Springer.
+- Lehmann, Erich L. and Casella, George (1998). *Theory of Point Estimation*. 2nd edition. New York: Springer.
 - Luce, R. Duncan (1959). *Individual Choice Behavior: A Theoretical Analysis*. New York: Wiley.
 - McCullagh, Peter (1980). Regression Models for Ordinal Data. *Journal of the Royal Statistical Society, Series B* 42(2), 109–142.
 - McCullagh, Peter and Nelder, John A. (1989). *Generalized Linear Models*. 2nd edition. London: Chapman and Hall.
@@ -139,5 +139,5 @@ variable of
 - Pratt, John W. (1981). Concavity of the Log Likelihood. *Journal of the American Statistical Association* 76(373), 103–106.
 - Tutz, Gerhard (1991). Sequential Models in Categorical Regression. *Computational Statistics and Data Analysis* 11(3), 275–295.
 - Tutz, Gerhard (2012). *Regression for Categorical Data*. Cambridge: Cambridge University Press.
-- Walker, Strother H. and Duncan, David B. (1967). Estimation of the Probability of an Event as a Function of Several Independent Variables. *Biometrika* 54(1–2), 167–179.
+- Walker, Strother H. and Duncan, David B. (1967). Estimation of the Probability of an Event as a Function of Several Independent Variables. *Biometrika* 54(1/2), 167–179.
 - van der Vaart, Aad W. (1998). *Asymptotic Statistics*. Cambridge: Cambridge University Press.

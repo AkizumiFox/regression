@@ -370,3 +370,110 @@ For the second derivation, apply @thm-mat-woodbury with \( \B=\lambda\I_p \),
 =\lambda^{-1}\X\T\mathbf{W}^{-1}\bigl[\mathbf{W}-\X\X\T/\lambda\bigr]=\lambda^{-1}\X\T\mathbf{W}^{-1}
 =\X\T(\X\X\T+\lambda\I_n)^{-1} \).
 :::
+
+### C. Going deeper
+
+::: {#exr-mat-vif}
+[C1]
+
+Let \( \A \) be positive definite of order \( n \). Write \( \A_{-j} \) for \( \A \) with its \( j \)th row
+and column deleted and \( \mathbf{a}_j \) for its \( j \)th column with the \( j \)th entry removed. Show
+that
+\[
+\bigl[\A^{-1}\bigr]_{jj}=\frac{1}{a_{jj}-\mathbf{a}_j\T\A_{-j}^{-1}\mathbf{a}_j}\ \ge\ \frac1{a_{jj}},
+\]
+with equality iff \( \mathbf{a}_j=\bzero \). Now let \( \A=\X\T\X \), where the columns of \( \X \) have been
+centred and scaled to unit length, and put \( R_j^2=\mathbf{a}_j\T\A_{-j}^{-1}\mathbf{a}_j \), the squared
+multiple correlation of the \( j \)th regressor with the others. Show \( 0\le R_j^2<1 \) and
+\( [\A^{-1}]_{jj}=1/(1-R_j^2) \). This is the *variance inflation factor* of
+[Section 26.2](../ch26-collinearity/02-vif.html): the price in variance paid for
+regressors that the others can nearly reproduce.
+:::
+
+::: {.solution}
+Let \( \mathbf{P} \) be the permutation matrix that moves index \( j \) to the last position. Then
+\( \mathbf{P}\T\A\mathbf{P}=\begin{psmallmatrix}\A_{-j}&\mathbf{a}_j\\\mathbf{a}_j\T&a_{jj}\end{psmallmatrix} \) is positive
+definite, and its inverse is \( \mathbf{P}\T\A^{-1}\mathbf{P} \), whose last diagonal entry is
+\( [\A^{-1}]_{jj} \). By @thm-mat-partitioned-inverse the trailing block of that inverse is the
+reciprocal of the Schur complement \( a_{jj}-\mathbf{a}_j\T\A_{-j}^{-1}\mathbf{a}_j \), which is positive by
+@prp-mat-pd-properties(e). Since \( \A_{-j}^{-1} \) is positive definite, the subtracted term is
+nonnegative, and zero only if \( \mathbf{a}_j=\bzero \); this gives the inequality.
+
+With unit-length columns, \( a_{jj}=\x_j\T\x_j=1 \), so the Schur complement is \( 1-R_j^2 \), which
+is positive, while \( R_j^2\ge0 \) again because \( \A_{-j}^{-1} \) is positive definite. Hence
+\( [\A^{-1}]_{jj}=1/(1-R_j^2) \).
+:::
+
+::: {#exr-mat-exchangeable-blocks}
+[C2]
+
+Let \( \A \) and \( \B \) be \( k\times k \) and let
+\( \mathbf{M}=\begin{psmallmatrix}\A&\B\\\B&\A\end{psmallmatrix} \). Show that
+\( \mathbf{P}=2^{-1/2}\begin{psmallmatrix}\I&\I\\\I&-\I\end{psmallmatrix} \) is symmetric and
+orthogonal and that \( \mathbf{P}\mathbf{M}\mathbf{P}=\diag(\A+\B,\A-\B) \). Deduce that
+\( \det\mathbf{M}=\det(\A+\B)\det(\A-\B) \), that \( \mathbf{M} \) is nonsingular iff both \( \A+\B \) and
+\( \A-\B \) are, and that then
+\[
+\mathbf{M}^{-1}=\tfrac12\begin{pmatrix}\mathbf{S}+\mathbf{D}&\mathbf{S}-\mathbf{D}\\\mathbf{S}-\mathbf{D}&\mathbf{S}+\mathbf{D}\end{pmatrix},
+\qquad \mathbf{S}=(\A+\B)^{-1},\quad \mathbf{D}=(\A-\B)^{-1}.
+\]
+If \( \mathbf{M} \) is the covariance matrix of two exchangeable blocks of measurements, what does the
+change of coordinates \( \mathbf{P} \) do to them?
+:::
+
+::: {.solution}
+\( \mathbf{P}\T=\mathbf{P} \) and
+\( \mathbf{P}\T\mathbf{P}=\frac12\begin{psmallmatrix}2\I&\bzero\\\bzero&2\I\end{psmallmatrix}=\I \).
+Multiplying out,
+\[
+\mathbf{P}\mathbf{M}=\tfrac1{\sqrt2}\begin{pmatrix}\A+\B&\A+\B\\\A-\B&\B-\A\end{pmatrix},\qquad
+(\mathbf{P}\mathbf{M})\mathbf{P}=\begin{pmatrix}\A+\B&\bzero\\\bzero&\A-\B\end{pmatrix},
+\]
+with no symmetry of \( \A \) or \( \B \) needed. Taking determinants and using
+@prp-mat-det(d), (f) and @thm-mat-block-determinant(a) gives
+\( \det\mathbf{M}=\det(\A+\B)\det(\A-\B) \), since \( (\det\mathbf{P})^2=1 \). As
+\( \mathbf{M}=\mathbf{P}\diag(\A+\B,\A-\B)\mathbf{P} \), the matrix \( \mathbf{M} \) is nonsingular iff the two blocks
+are, and then \( \mathbf{M}^{-1}=\mathbf{P}\diag(\mathbf{S},\mathbf{D})\mathbf{P} \), which multiplies out to the displayed
+matrix.
+
+For a covariance matrix, \( \mathbf{P} \) replaces the two blocks \( \y_1,\y_2 \) by the scaled sum and
+difference \( (\y_1+\y_2)/\sqrt2 \) and \( (\y_1-\y_2)/\sqrt2 \). These are uncorrelated, with
+covariance matrices \( \A+\B \) and \( \A-\B \): exchangeable blocks separate into a between-pair
+part and a within-pair part, which is the algebra behind paired comparisons and split-plot
+analyses.
+:::
+
+::: {#exr-mat-schur-nnd}
+[C3]
+
+Let \( \A \) be symmetric, partitioned as in @eq-mat-partition, with \( \A_{11} \) positive
+definite. Using @eq-mat-block-ldu, show that \( \A \) is nonnegative definite iff the Schur
+complement \( \A_{22\cdot1} \) is, and positive definite iff \( \A_{22\cdot1} \) is. Applying this to
+\( [\mathbf{C},\B]\T[\mathbf{C},\B] \), deduce the matrix inequality
+\[
+\B\T\mathbf{C}(\mathbf{C}\T\mathbf{C})^{-1}\mathbf{C}\T\B\preceq\B\T\B
+\]
+for any \( \mathbf{C} \) of full column rank and any \( \B \) with the same number of rows, and hence that
+the leverage \( h_i=\x_i\T(\X\T\X)^{-1}\x_i \) of @exm-mat-deletion satisfies \( 0\le h_i\le1 \).
+(Nonnegative definiteness is defined in [Section 1.7](07-eigen.html).)
+:::
+
+::: {.solution}
+For symmetric \( \A \) we have \( \A_{21}=\A_{12}\T \), so the two outer factors of
+@eq-mat-block-ldu are transposes of each other:
+\( \A=\bT\T\diag(\A_{11},\A_{22\cdot1})\bT \) with
+\( \bT=\begin{psmallmatrix}\I&\A_{11}^{-1}\A_{12}\\\bzero&\I\end{psmallmatrix} \) nonsingular. Hence
+\( \x\T\A\x=(\bT\x)\T\diag(\A_{11},\A_{22\cdot1})(\bT\x) \), and as \( \x \) runs over \( \Real^n \) so
+does \( \bT\x \). Writing \( \bT\x=(\bu\T,\bv\T)\T \), the right-hand side is
+\( \bu\T\A_{11}\bu+\bv\T\A_{22\cdot1}\bv \). Since \( \A_{11}\succ\bzero \), this is nonnegative for
+all \( \bu,\bv \) iff \( \A_{22\cdot1}\succeq\bzero \), and positive for all \( (\bu,\bv)\ne\bzero \) iff
+\( \A_{22\cdot1}\succ\bzero \).
+
+Now take \( \A=[\mathbf{C},\B]\T[\mathbf{C},\B] \), which is nonnegative definite, with
+\( \A_{11}=\mathbf{C}\T\mathbf{C} \) positive definite by @prp-mat-rank-product(c). Its Schur complement is
+\( \B\T\B-\B\T\mathbf{C}(\mathbf{C}\T\mathbf{C})^{-1}\mathbf{C}\T\B \), which is therefore nonnegative definite. With
+\( \mathbf{C}=\X \) and \( \B=\mathbf{e}_i \) the inequality reads
+\( \mathbf{e}_i\T\X(\X\T\X)^{-1}\X\T\mathbf{e}_i\le\mathbf{e}_i\T\mathbf{e}_i=1 \), that is, \( h_i\le1 \); and \( h_i\ge0 \)
+because \( (\X\T\X)^{-1} \) is positive definite. A leverage is a number between zero and one, and
+@exm-mat-deletion shows that the deletion formulas break down exactly at \( h_i=1 \).
+:::

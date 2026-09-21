@@ -140,3 +140,201 @@ third for both. The same argument with the fourth condition in place of the thir
 \]
 so \( \G=\mathbf{H} \). Existence follows from the
 singular value decomposition, which gives \( \A^+ \) explicitly (@thm-mat-svd).
+
+## Exercises
+
+### A. Check your understanding
+
+::: {#exr-mat-ginverse-compute}
+[A1]
+
+Let
+\( \A=\begin{psmallmatrix}1&2&3\\2&4&6\end{psmallmatrix} \).
+(a) Check that \( \rank(\A)=1 \) and use the recipe of @thm-mat-ginverse-exists with
+\( I=\{1\} \) and \( J=\{1\} \) to write down a generalized inverse \( \G \); verify \( \A\G\A=\A \).
+(b) Show that \( \A\G \) is not symmetric, so \( \G\ne\A^+ \), although \( \G\A\G=\G \).
+(c) Verify that
+\( \A^+=\frac{1}{70}\begin{psmallmatrix}1&2\\2&4\\3&6\end{psmallmatrix} \)
+satisfies the four conditions of @def-mat-moore-penrose.
+:::
+
+::: {.solution}
+(a) The second row is twice the first, so the rank is one, and the nonsingular \( 1\times1 \)
+submatrix at \( I=J=\{1\} \) is \( (1) \). The recipe puts \( 1 \) in the entry of the \( 3\times2 \)
+matrix \( \G \) indexed by row \( 1 \) and column \( 1 \), and zeros elsewhere. Then
+\( \A\G=\begin{psmallmatrix}1&0\\2&0\end{psmallmatrix} \) and \( \A\G\A=\A \).
+(b) The matrix \( \A\G \) is visibly not symmetric. And \( \G(\A\G)=\G \), because \( \G \) has only
+its \( (1,1) \) entry nonzero, so \( \G(\A\G) \) has the first row \( (1,0) \) of \( \A\G \) as its own
+first row and zeros elsewhere.
+(c) Write \( \A=\bu\bv\T \) with \( \bu=(1,2)\T \) and \( \bv=(1,2,3)\T \), so
+\( \bu\T\bu=5 \), \( \bv\T\bv=14 \) and \( \A^+=\bv\bu\T/70 \). Then \( \A\A^+=\bu\bu\T/5 \) and
+\( \A^+\A=\bv\bv\T/14 \), both symmetric; \( \A\A^+\A=\bu(\bu\T\bu)(\bv\T\bv)\bv\T/70=\bu\bv\T=\A \);
+and \( \A^+\A\A^+=\bv(\bv\T\bv)(\bu\T\bu)\bu\T/70^2=\A^+ \).
+:::
+
+::: {#exr-mat-canonical-ginverses}
+[A2]
+
+Let \( \A=\begin{psmallmatrix}\I_r&\bzero\\\bzero&\bzero\end{psmallmatrix} \) be \( m\times n \).
+Show that the generalized inverses of \( \A \) are exactly the \( n\times m \) matrices
+\( \G=\begin{psmallmatrix}\I_r&\bU\\\V&\W\end{psmallmatrix} \) with \( \bU,\V,\W \) arbitrary; that
+\( \G \) is reflexive iff \( \W=\V\bU \); and that \( \A^+=\A\T \). How many generalized inverses
+does this \( \A \) have when \( r<\min(m,n) \), and how many when \( r=m=n \)?
+:::
+
+::: {.solution}
+Partition \( \G \) conformably. Block multiplication gives
+\( \A\G\A=\begin{psmallmatrix}\G_{11}&\bzero\\\bzero&\bzero\end{psmallmatrix} \), which equals
+\( \A \) iff \( \G_{11}=\I_r \); the other blocks are unconstrained. With \( \G_{11}=\I_r \),
+\( \G\A=\begin{psmallmatrix}\I_r&\bzero\\\V&\bzero\end{psmallmatrix} \) and
+\( \G\A\G=\begin{psmallmatrix}\I_r&\bU\\\V&\V\bU\end{psmallmatrix} \), so \( \G\A\G=\G \) iff
+\( \W=\V\bU \). For the Moore–Penrose inverse, \( \A\G \) and \( \G\A \) are symmetric only if
+\( \bU=\bzero \) and \( \V=\bzero \), and then reflexivity forces \( \W=\bzero \). The remaining matrix
+is \( \A\T \). When \( r<\min(m,n) \) at least one of \( \bU,\V,\W \) is a nonempty block, so there
+are infinitely many generalized inverses; when \( r=m=n \) the three blocks are empty and
+\( \G=\I_n=\A^{-1} \) is the only one, as it must be.
+:::
+
+::: {#exr-mat-jn-plus}
+[A3]
+
+Show that a symmetric idempotent matrix is its own Moore–Penrose inverse, and deduce
+\( (\I_n-n^{-1}\mathbf{J}_n)^+=\I_n-n^{-1}\mathbf{J}_n \) for the centring matrix of @exm-mat-centring.
+Show also that \( \mathbf{J}_n^+=n^{-2}\mathbf{J}_n \).
+:::
+
+### B. Practice
+
+::: {#exr-mat-left-inverses}
+[B1]
+
+Let \( \X \) be \( n\times p \) with full column rank and write
+\( \M=\X(\X\T\X)^{-1}\X\T \). Show that the left inverses of \( \X \), that is, the \( p\times n \)
+matrices \( \bL \) with \( \bL\X=\I_p \), are exactly
+\[
+\bL=(\X\T\X)^{-1}\X\T+\mathbf{K}(\I_n-\M),\qquad \mathbf{K}\ \text{arbitrary},
+\]
+that every left inverse is a generalized inverse of \( \X \), and that \( (\X\T\X)^{-1}\X\T \) is the
+only left inverse whose rows lie in \( \C(\X) \).
+:::
+
+::: {.solution}
+Since \( \M\X=\X \), every matrix of the stated form satisfies
+\( \bL\X=\I_p+\mathbf{K}(\X-\X)=\I_p \). Conversely, if \( \bL\X=\I_p \), then
+\( \bL=\bL\M+\bL(\I-\M)=(\bL\X)(\X\T\X)^{-1}\X\T+\bL(\I-\M) \), which is of the stated form with
+\( \mathbf{K}=\bL \). A left inverse satisfies \( \X\bL\X=\X \), so it is a generalized inverse. The rows
+of \( (\X\T\X)^{-1}\X\T \) are the vectors \( \X(\X\T\X)^{-1}\mathbf{e}_j \), which lie in \( \C(\X) \); the rows
+of \( \mathbf{K}(\I-\M) \) are of the form \( (\I-\M)\mathbf{c} \), and \( \X\T(\I-\M)=\bzero \) shows that such a
+vector lies in \( \C(\X) \) only if it is zero, since \( \X\bb=(\I-\M)\mathbf{c} \) gives
+\( \X\T\X\bb=\bzero \) and hence \( \X\bb=\bzero \) by @exr-mat-cancellation.
+:::
+
+::: {#exr-mat-xtx-ginverse}
+[B2]
+
+Let \( \X \) be \( n\times p \) of any rank and let \( \G \) be any generalized inverse of \( \X\T\X \).
+Show that (a) \( \X\G\X\T\X=\X \), so \( \G\X\T \) is a generalized inverse of \( \X \);
+(b) \( \X\T\X\G\X\T=\X\T \); and (c) \( \M=\X\G\X\T \) is symmetric and idempotent and is the same
+matrix for every choice of \( \G \). *Hints:* for (a) use @exr-mat-cancellation; for (b) apply (a)
+to \( \G\T \), which is also a generalized inverse of \( \X\T\X \) by @prp-mat-ginverse-props(b).
+The matrix \( \M \) is the orthogonal projection onto \( \C(\X) \) of
+[Chapter 6](../ch06-projections/index.html), and this exercise is what makes it well defined when
+\( \X \) has less than full rank.
+:::
+
+::: {.solution}
+(a) Because \( \G \) is a generalized inverse of \( \X\T\X \), we have
+\( \X\T\X(\G\X\T\X)=\X\T\X\I_p \). Cancelling one factor \( \X\T \) on the left, which
+@exr-mat-cancellation permits, gives \( \X\G\X\T\X=\X \). Hence
+\( \X(\G\X\T)\X=\X \).
+(b) Since \( \X\T\X \) is symmetric, \( \G\T \) is a generalized inverse of it, so (a) gives
+\( \X\G\T\X\T\X=\X \); transposing yields \( \X\T\X\G\X\T=\X\T \).
+(c) Write \( \M=\X\G\X\T \), so \( \M\T=\X\G\T\X\T \). Using (b),
+\( \M\T\M=\X\G\T(\X\T\X\G\X\T)=\X\G\T\X\T=\M\T \). The left-hand side is symmetric, so \( \M\T \) is
+symmetric, that is, \( \M\T=\M \); and then \( \M^2=\M\T\M=\M \). If \( \G_1,\G_2 \) are two
+generalized inverses of \( \X\T\X \), then by (a) for \( \G_1 \) and (b) for \( \G_2 \),
+\[
+\X\G_2\X\T=(\X\G_1\X\T\X)\G_2\X\T=\X\G_1(\X\T\X\G_2\X\T)=\X\G_1\X\T .
+\]
+:::
+
+::: {#exr-mat-all-ginverses}
+[B3]
+
+The text says that @prp-mat-ginverse-props(e) produces *every* generalized inverse from a
+single one. Prove it: if \( \G_0 \) and \( \G \) are generalized inverses of \( \A \), find \( \bU \) and
+\( \V \) with \( \G=\G_0+(\I-\G_0\A)\bU+\V(\I-\A\G_0) \).
+:::
+
+::: {.solution}
+Put \( \mathbf{Z}=\G-\G_0 \), so that \( \A\mathbf{Z}\A=\A-\A=\bzero \). Take \( \bU=\mathbf{Z} \) and
+\( \V=\G_0\A\mathbf{Z} \). Then
+\[
+(\I-\G_0\A)\mathbf{Z}+\G_0\A\mathbf{Z}(\I-\A\G_0)
+=\mathbf{Z}-\G_0\A\mathbf{Z}+\G_0\A\mathbf{Z}-\G_0(\A\mathbf{Z}\A)\G_0=\mathbf{Z},
+\]
+so \( \G_0+(\I-\G_0\A)\bU+\V(\I-\A\G_0)=\G_0+\mathbf{Z}=\G \).
+:::
+
+### C. Going deeper
+
+::: {#exr-mat-least-squares-ginverse}
+[C1]
+
+Call \( \G \) a **least-squares generalized inverse** of \( \A \) if it satisfies the first and third
+conditions of @def-mat-moore-penrose, namely \( \A\G\A=\A \) and \( (\A\G)\T=\A\G \). Show that
+(a) \( \G_0=(\A\T\A)\ginv\A\T \) is one, for every choice of generalized inverse of \( \A\T\A \);
+(b) if \( \G \) is a least-squares generalized inverse, then \( \x=\G\bb \) minimizes
+\( \norm{\A\x-\bb} \), for every \( \bb \); and (c) conversely, if \( \G\bb \) minimizes
+\( \norm{\A\x-\bb} \) for every \( \bb \), then \( \G \) is a least-squares generalized inverse. So these
+are exactly the matrices that solve least squares problems, whatever the rank of \( \A \).
+:::
+
+::: {.solution}
+(a) is @exr-mat-xtx-ginverse with \( \X=\A \): part (a) there gives \( \A\G_0\A=\A \) and part (c)
+gives the symmetry of \( \A\G_0 \).
+
+(b) First, \( \A\T(\A\G-\I)=(\A\G)\T\A\T-\A\T=(\A\G\A)\T-\A\T=\bzero \), using the symmetry of
+\( \A\G \) and then \( \A\G\A=\A \). Hence for every \( \x \) and \( \bb \) the cross term in
+\[
+\norm{\A\x-\bb}^2=\norm{\A(\x-\G\bb)}^2+2(\x-\G\bb)\T\A\T(\A\G-\I)\bb+\norm{\A\G\bb-\bb}^2
+\]
+vanishes, and \( \norm{\A\x-\bb}^2=\norm{\A(\x-\G\bb)}^2+\norm{\A\G\bb-\bb}^2\ge\norm{\A\G\bb-\bb}^2 \),
+with equality at \( \x=\G\bb \).
+
+(c) Let \( \G_0 \) be the matrix of (a). By (b) the minimum of \( \norm{\A\x-\bb} \) equals
+\( \norm{\A\G_0\bb-\bb} \), so the hypothesis says \( \norm{\A\G\bb-\bb}=\norm{\A\G_0\bb-\bb} \) for
+every \( \bb \). Applying the displayed decomposition with \( \G_0 \) in place of \( \G \) and
+\( \x=\G\bb \),
+\[
+\norm{\A\G\bb-\bb}^2=\norm{\A(\G-\G_0)\bb}^2+\norm{\A\G_0\bb-\bb}^2 ,
+\]
+so \( \A(\G-\G_0)\bb=\bzero \) for every \( \bb \), that is, \( \A\G=\A\G_0 \). Then
+\( \A\G\A=\A\G_0\A=\A \) and \( (\A\G)\T=(\A\G_0)\T=\A\G_0=\A\G \).
+:::
+
+::: {#exr-mat-reverse-order}
+[C2]
+
+Let \( \A \) be \( m\times k \) with full column rank and \( \B \) be \( k\times n \) with full row rank.
+Check the four conditions of @def-mat-moore-penrose to show that
+\( \A^+=(\A\T\A)^{-1}\A\T \) and \( \B^+=\B\T(\B\B\T)^{-1} \), and then that the *reverse-order law*
+\( (\A\B)^+=\B^+\A^+ \) holds. (Without the rank conditions it can fail:
+@exr-mat-mp-properties asks for an example.)
+:::
+
+::: {.solution}
+Both \( \A\T\A \) and \( \B\B\T \) are nonsingular by @prp-mat-rank-product(c). Writing
+\( \G=(\A\T\A)^{-1}\A\T \), we have \( \G\A=\I_k \), so \( \A\G\A=\A \) and \( \G\A\G=\G \), while
+\( \A\G=\A(\A\T\A)^{-1}\A\T \) is symmetric and \( \G\A=\I_k \) is symmetric. Hence \( \G=\A^+ \). Transposing the four
+conditions for \( \A^+ \) gives the four conditions for \( (\A^+)\T \) as a Moore–Penrose inverse of
+\( \A\T \), so \( (\A\T)^+=(\A^+)\T \); applying the first formula to \( \B\T \), which has full
+column rank, gives \( \B^+=\bigl((\B\T)^+\bigr)\T=\B\T(\B\B\T)^{-1} \).
+
+Now put \( \mathbf{P}=\B^+\A^+=\B\T(\B\B\T)^{-1}(\A\T\A)^{-1}\A\T \). Then
+\( \A\B\mathbf{P}=\A(\A\T\A)^{-1}\A\T \) and \( \mathbf{P}\A\B=\B\T(\B\B\T)^{-1}\B \), both symmetric, because
+\( \B\B\T(\B\B\T)^{-1}=\I \) and \( (\A\T\A)^{-1}\A\T\A=\I \) collapse the middle factors. The same
+collapsing gives \( \A\B\mathbf{P}\A\B=\A(\A\T\A)^{-1}\A\T\A\B=\A\B \) and
+\( \mathbf{P}\A\B\mathbf{P}=\B\T(\B\B\T)^{-1}\B\B\T(\B\B\T)^{-1}(\A\T\A)^{-1}\A\T=\mathbf{P} \). All four
+conditions hold, so \( \mathbf{P}=(\A\B)^+ \).
+:::

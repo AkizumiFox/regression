@@ -98,7 +98,7 @@ multiplicity adjustments.
 - Keuls, M. (1952). The Use of the “Studentized Range” in Connection with an Analysis of Variance. *Euphytica* 1, 112–122.
 - Kramer, Clyde Young (1956). Extension of Multiple Range Tests to Group Means with Unequal Numbers of Replications. *Biometrics* 12(3), 307–310.
 - Marcus, Ruth, Peritz, Eric and Gabriel, K. Ruben (1976). On Closed Testing Procedures with Special Reference to Ordered Analysis of Variance. *Biometrika* 63(3), 655–660.
-- Miller, Rupert G., Jr. (1981). *Simultaneous Statistical Inference*. 2nd edition. New York: Springer.
+- Miller, Rupert G. (1981). *Simultaneous Statistical Inference*. 2nd edition. New York: Springer.
 - Newman, D. (1939). The Distribution of Range in Samples from a Normal Population, Expressed in Terms of an Independent Estimate of Standard Deviation. *Biometrika* 31(1/2), 20–30.
 - Scheffé, Henry (1953). A Method for Judging All Contrasts in the Analysis of Variance. *Biometrika* 40(1/2), 87–104.
 - Scheffé, Henry (1959). *The Analysis of Variance*. New York: Wiley.

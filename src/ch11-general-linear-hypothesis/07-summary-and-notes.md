@@ -98,9 +98,9 @@ Monotonicity properties of the \( \chi^2 \), \( F \) and \( t \) distributions i
 - Fang, Kai-Tai, Kotz, Samuel and Ng, Kai Wang (1990). *Symmetric Multivariate and Related Distributions*. London: Chapman and Hall.
 - Fisher, Ronald A. (1922). The Goodness of Fit of Regression Formulae, and the Distribution of Regression Coefficients. *Journal of the Royal Statistical Society* 85(4), 597–612.
 - Fisher, Ronald A. (1925). *Statistical Methods for Research Workers*. Edinburgh: Oliver and Boyd.
-- Ghosh, B. K. (1973). Some Monotonicity Theorems for \( \chi^2 \), F and t Distributions with Applications. *Journal of the Royal Statistical Society. Series B* 35(3), 480–492.
+- Ghosh, Bhaskar K. (1973). Some Monotonicity Theorems for \( \chi^2 \), F and t Distributions with Applications. *Journal of the Royal Statistical Society, Series B* 35(3), 480–492.
 - Hoenig, John M. and Heisey, Dennis M. (2001). The Abuse of Power: The Pervasive Fallacy of Power Calculations for Data Analysis. *The American Statistician* 55(1), 19–24.
-- Lehmann, E. L. and Romano, Joseph P. (2005). *Testing Statistical Hypotheses*. 3rd edition. New York: Springer.
+- Lehmann, Erich L. and Romano, Joseph P. (2005). *Testing Statistical Hypotheses*. 3rd edition. New York: Springer.
 - Longley, James W. (1967). An Appraisal of Least Squares Programs for the Electronic Computer from the Point of View of the User. *Journal of the American Statistical Association* 62(319), 819–841.
 - Neyman, Jerzy and Pearson, Egon S. (1933). On the Problem of the Most Efficient Tests of Statistical Hypotheses. *Philosophical Transactions of the Royal Society of London. Series A* 231, 289–337.
 - Rao, C. Radhakrishna (1948). Large Sample Tests of Statistical Hypotheses Concerning Several Parameters with Applications to Problems of Estimation. *Mathematical Proceedings of the Cambridge Philosophical Society* 44(1), 50–57.

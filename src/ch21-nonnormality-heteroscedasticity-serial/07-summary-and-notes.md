@@ -105,18 +105,18 @@ of regression with autocorrelated errors in full.
 - Hendry, David F. and Mizon, Grayham E. (1978). Serial Correlation as a Convenient Simplification, Not a Nuisance: A Comment on a Study of the Demand for Money by the Bank of England. *The Economic Journal* 88(351), 549–563.
 - Huber, Peter J. (1967). The Behavior of Maximum Likelihood Estimates under Nonstandard Conditions. In *Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability*, Vol. 1, 221–233. Berkeley: University of California Press.
 - Imbens, Guido W. and Kolesár, Michal (2016). Robust Standard Errors in Small Samples: Some Practical Advice. *The Review of Economics and Statistics* 98(4), 701–712.
-- Imhof, J. P. (1961). Computing the Distribution of Quadratic Forms in Normal Variables. *Biometrika* 48(3/4), 419–426.
+- Imhof, Jean-Pierre (1961). Computing the Distribution of Quadratic Forms in Normal Variables. *Biometrika* 48(3/4), 419–426.
 - Jarque, Carlos M. and Bera, Anil K. (1980). Efficient Tests for Normality, Homoscedasticity and Serial Independence of Regression Residuals. *Economics Letters* 6(3), 255–259.
 - Kakwani, Nanak C. (1967). The Unbiasedness of Zellner's Seemingly Unrelated Regression Equations Estimators. *Journal of the American Statistical Association* 62(317), 141–142.
 - Koenker, Roger (1981). A Note on Studentizing a Test for Heteroscedasticity. *Journal of Econometrics* 17(1), 107–112.
-- Levene, Howard (1960). Robust Tests for Equality of Variances. In *Contributions to Probability and Statistics: Essays in Honor of Harold Hotelling*, ed. I. Olkin et al., 278–292. Stanford: Stanford University Press.
+- Levene, Howard (1960). Robust Tests for Equality of Variances. In I. Olkin et al. (eds.), *Contributions to Probability and Statistics: Essays in Honor of Harold Hotelling*, 278–292. Stanford, CA: Stanford University Press.
 - Lilliefors, Hubert W. (1967). On the Kolmogorov–Smirnov Test for Normality with Mean and Variance Unknown. *Journal of the American Statistical Association* 62(318), 399–402.
 - Ljung, Greta M. and Box, George E. P. (1978). On a Measure of Lack of Fit in Time Series Models. *Biometrika* 65(2), 297–303.
 - Long, J. Scott and Ervin, Laurie H. (2000). Using Heteroscedasticity Consistent Standard Errors in the Linear Regression Model. *The American Statistician* 54(3), 217–224.
 - MacKinnon, James G. and White, Halbert (1985). Some Heteroskedasticity-Consistent Covariance Matrix Estimators with Improved Finite Sample Properties. *Journal of Econometrics* 29(3), 305–325.
 - Newey, Whitney K. and West, Kenneth D. (1987). A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix. *Econometrica* 55(3), 703–708.
 - Prais, Sigbert J. and Winsten, Christopher B. (1954). Trend Estimators and Serial Correlation. Cowles Commission Discussion Paper No. 383, Chicago.
-- Rao, C. Radhakrishna (1948). Large Sample Tests of Statistical Hypotheses Concerning Several Parameters with Applications to Problems of Estimation. *Proceedings of the Cambridge Philosophical Society* 44(1), 50–57.
+- Rao, C. Radhakrishna (1948). Large Sample Tests of Statistical Hypotheses Concerning Several Parameters with Applications to Problems of Estimation. *Mathematical Proceedings of the Cambridge Philosophical Society* 44(1), 50–57.
 - Seber, George A. F. and Lee, Alan J. (2003). *Linear Regression Analysis*. 2nd edition. Hoboken, NJ: Wiley.
 - Sen, Ashish and Srivastava, Muni (1990). *Regression Analysis: Theory, Methods, and Applications*. New York: Springer.
 - Shapiro, Samuel S. and Francia, R. S. (1972). An Approximate Analysis of Variance Test for Normality. *Journal of the American Statistical Association* 67(337), 215–216.

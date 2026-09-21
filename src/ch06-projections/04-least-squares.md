@@ -54,7 +54,7 @@ In particular, the least squares estimate is unique iff \( \rank(\X)=p \), and t
 ::: {.proof}
 A vector \( \bb \) solves @eq-proj-normal-equations iff \( \y-\X\bb\perp\C(\X) \).
 Since \( \X\bb\in\C(\X) \) automatically, this holds iff \( \y=\X\bb+(\y-\X\bb) \) is the
-orthogonal decomposition of \( \y \), that is, iff \( \X\bb=\M\y \). By
+orthogonal decomposition of \( \y \) (@thm-proj-direct-sum), that is, iff \( \X\bb=\M\y \). By
 @thm-proj-ls-projection this is the same as \( \bb \) being a least squares
 estimate. For the particular solution, \( \X(\X\T\X)\ginv\X\T\y=\M\y \) by @thm-proj-M-formula.
 Finally, \( \X\bb=\M\y=\X\hbeta \) iff

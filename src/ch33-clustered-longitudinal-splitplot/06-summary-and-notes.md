@@ -137,8 +137,8 @@ angles. The split-plot and repeated-measures examples are simulated.
 - Liang, Kung-Yee and Zeger, Scott L. (1986). Longitudinal Data Analysis Using Generalized Linear Models. *Biometrika* 73(1), 13–22.
 - Mauchly, John W. (1940). Significance Test for Sphericity of a Normal \( n \)-Variate Distribution. *The Annals of Mathematical Statistics* 11(2), 204–209.
 - Moulton, Brent R. (1990). An Illustration of a Pitfall in Estimating the Effects of Aggregate Variables on Micro Units. *The Review of Economics and Statistics* 72(2), 334–338.
-- Potthoff, Richard F. and Roy, S. N. (1964). A Generalized Multivariate Analysis of Variance Model Useful Especially for Growth Curve Problems. *Biometrika* 51(3–4), 313–326.
-- Rao, C. Radhakrishna (1965). The Theory of Least Squares When the Parameters Are Stochastic and Its Application to the Analysis of Growth Curves. *Biometrika* 52(3–4), 447–458.
+- Potthoff, Richard F. and Roy, Samarendra N. (1964). A Generalized Multivariate Analysis of Variance Model Useful Especially for Growth Curve Problems. *Biometrika* 51(3/4), 313–326.
+- Rao, C. Radhakrishna (1965). The Theory of Least Squares When the Parameters Are Stochastic and Its Application to the Analysis of Growth Curves. *Biometrika* 52(3/4), 447–458.
 - Rubin, Donald B. (1976). Inference and Missing Data. *Biometrika* 63(3), 581–592.
 - Satterthwaite, Franklin E. (1946). An Approximate Distribution of Estimates of Variance Components. *Biometrics Bulletin* 2(6), 110–114.
 - Yates, Frank (1935). Complex Experiments. *Supplement to the Journal of the Royal Statistical Society* 2(2), 181–247.
