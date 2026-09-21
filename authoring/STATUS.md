@@ -83,8 +83,8 @@ or `@label` citations; `./build.py check` fails on any that were missed, and
 ## Known imperfections
 
 A read-only audit of the finished book (six dimensions: notation, duplication,
-cross-references, narrative, conventions, rigour) found 71 items; the 17 major ones and
-about 20 minor ones are fixed. These are the ones left, recorded rather than hidden:
+cross-references, narrative, conventions, rigour) found 71 items. All 17 major ones are fixed, and the minor ones either fixed or recorded
+below. These are what is left, written down rather than hidden:
 
 - **Exercise solutions.** Every section page now has all three groups (112 exercises were
   written for the 38 pages that were short, 105 of them with worked solutions). Across the
@@ -93,6 +93,16 @@ about 20 minor ones are fixed. These are the ones left, recorded rather than hid
 - **References.** Normalized: 117 entries in 36 chapters were corrected, journal names
   brought to one form, and works cited in several chapters made identical. 28 first names
   could not be confirmed and keep their initials rather than be guessed at.
+- **Advisory warnings.** `./build.py check` prints 26 "names a result without a reference"
+  warnings. The heuristic in `build/manifest.py` now drops the three unactionable classes
+  (a title that reads as a common noun, a result proved later, a result on the same page),
+  which took it from 186 to 26; what is left is a phrase used as a name where a citation
+  would be an improvement rather than a necessity.
+- **The dependency graph draws every edge.** `./build.py` warns that "chapters cite each
+  other in a circle", so `graph.html` shows the full citation graph instead of its
+  transitive reduction. The cycles are real and harmless: forward pointers in prose are
+  allowed, so chapter 1 cites a chapter 26 label and chapter 26 cites chapter 1. Only a
+  proof may not point forward, and none does.
 - **Source hygiene, left deliberately.** 26 section files write `\mathbf{Z}`, `\mathbf{A}`
   and the like where a macro exists. Normalizing them is *not* wanted: the output is
   identical, and the macros carry book-wide meanings (`\Z` is the random-effect design
