@@ -14,24 +14,24 @@ Put the two together and the model class that carries the name appears.
 Let \( y_1,\dots,y_n \) be independent from an exponential dispersion family in the sense
 of @def-glm-model, with dispersion \( \phi \), variance function \( V \), link \( g \) and
 mean \( \mu_i=g^{-1}(\eta_i) \), and let \( \boldsymbol{\upeta}=\Z\bgamma \) be the
-structured additive predictor @eq-add-star with block penalty \( \mathbf{K} \)
+structured additive predictor @eq-add-star with block penalty \( \bP \)
 as in @eq-add-blockpenalty. Define the **penalized deviance**
 \[
-Q(\bgamma)=D(\bgamma)+\bgamma\T\mathbf{K}\bgamma ,
+Q(\bgamma)=D(\bgamma)+\bgamma\T\bP\bgamma ,
 \]{#eq-add-penlik}
 
 with \( D \) the deviance of @def-glm-deviance, and let \( \hat{\bgamma} \) minimize it.
 
 ::: {.enumerate options="label=(\alph*)"}
 1. Minimizing @eq-add-penlik is the same as maximizing the **penalized log-likelihood**
-   \( \ell(\bgamma)-(2\phi)^{-1}\bgamma\T\mathbf{K}\bgamma \). Neither the minimizer nor
+   \( \ell(\bgamma)-(2\phi)^{-1}\bgamma\T\bP\bgamma \). Neither the minimizer nor
    the iteration below depends on \( \phi \).
 
 2. *(Penalized IRLS.)* With \( \W \) the working weights and \( \bz \) the working
    response of @eq-glm-working-response, both evaluated at \( \bgamma^{(t)} \), the Fisher
    scoring step for @eq-add-penlik is
    \[
-   \bgamma^{(t+1)}=\bigl(\Z\T\W\Z+\mathbf{K}\bigr)^{-1}\Z\T\W\bz ,
+   \bgamma^{(t+1)}=\bigl(\Z\T\W\Z+\bP\bigr)^{-1}\Z\T\W\bz ,
    \]{#eq-add-pirls}
 
    that is, the penalized weighted least squares fit of the working response on the same
@@ -39,7 +39,7 @@ with \( D \) the deviance of @def-glm-deviance, and let \( \hat{\bgamma} \) mini
    \( \X\T\W\bD^{-1}(\y-\bmu)=\bzero \), where \( \bD=\diag\{h'(\eta_i)\} \); for the
    canonical link with prior weights \( w_i\equiv1 \) this is \( \X\T(\y-\bmu)=\bzero \).
 
-3. *(Degrees of freedom.)* At convergence, with \( \A=\Z\T\W\Z+\mathbf{K} \), the
+3. *(Degrees of freedom.)* At convergence, with \( \A=\Z\T\W\Z+\bP \), the
    effective degrees of freedom are \( \mathrm{df}=\tr(\A^{-1}\Z\T\W\Z) \) and split over
    terms exactly as in @prp-add-df(b). The approximate covariance of \( \hat{\bgamma} \)
    is \( \phi\A^{-1}\Z\T\W\Z\A^{-1} \) in its frequentist form and \( \phi\A^{-1} \) in the
@@ -71,12 +71,12 @@ unpenalized model (@thm-glm-score), so \( \partial D/\partial\bgamma=-2\phi\bU \
 \[
 \begin{aligned}
 \bgamma^{(t+1)}
-&=\bgamma^{(t)}-\bigl(2\Z\T\W\Z+2\mathbf{K}\bigr)^{-1}
-\bigl(-2\phi\bU+2\mathbf{K}\bgamma^{(t)}\bigr)\\
-&=\A^{-1}\bigl\{\A\bgamma^{(t)}+\phi\bU-\mathbf{K}\bgamma^{(t)}\bigr\},
+&=\bgamma^{(t)}-\bigl(2\Z\T\W\Z+2\bP\bigr)^{-1}
+\bigl(-2\phi\bU+2\bP\bgamma^{(t)}\bigr)\\
+&=\A^{-1}\bigl\{\A\bgamma^{(t)}+\phi\bU-\bP\bgamma^{(t)}\bigr\},
 \end{aligned}
 \]
-and \( \A\bgamma^{(t)}-\mathbf{K}\bgamma^{(t)}=\Z\T\W\Z\bgamma^{(t)}=\Z\T\W\boldsymbol{\upeta}^{(t)} \),
+and \( \A\bgamma^{(t)}-\bP\bgamma^{(t)}=\Z\T\W\Z\bgamma^{(t)}=\Z\T\W\boldsymbol{\upeta}^{(t)} \),
 while \( \phi\bU=\Z\T\W\bD^{-1}(\y-\bmu) \) by @thm-glm-score. Adding,
 \[
 \bgamma^{(t+1)}=\A^{-1}\Z\T\W\bigl\{\boldsymbol{\upeta}^{(t)}+\bD^{-1}(\y-\bmu)\bigr\}
@@ -84,7 +84,7 @@ while \( \phi\bU=\Z\T\W\bD^{-1}(\y-\bmu) \) by @thm-glm-score. Adding,
 \]
 which is @eq-add-pirls; \( \phi \) has cancelled, proving the last claim of (a). At a fixed
 point the gradient of @eq-add-penlik vanishes, that is
-\( \Z\T\W\bD^{-1}(\y-\bmu)=\mathbf{K}\bgamma \); the rows of \( \mathbf{K} \) belonging to
+\( \Z\T\W\bD^{-1}(\y-\bmu)=\bP\bgamma \); the rows of \( \bP \) belonging to
 \( \X \) are zero, so those components read \( \X\T\W\bD^{-1}(\y-\bmu)=\bzero \). For the
 canonical link \( \W\bD^{-1}=\diag\{w_ih'(\eta_i)/V(\mu_i)\} \) reduces to
 \( \diag(w_i) \), since \( h'(\eta)=V(\mu) \) there (@thm-glm-score(d)), and with
@@ -468,22 +468,22 @@ convergence proof to go through?
 :::
 
 ::: {.solution}
-@eq-add-pirls is \( \A\bgamma=\Z\T\W\bz \) with \( \A=\Z\T\W\Z+\mathbf{K} \): the
+@eq-add-pirls is \( \A\bgamma=\Z\T\W\bz \) with \( \A=\Z\T\W\Z+\bP \): the
 structure of @eq-add-normal with the inner product
 \( \inner{\bu}{\bv}_{\W}=\bu\T\W\bv \) in place of the Euclidean one, so backfitting on
 it is block Gauss–Seidel, which is local scoring. The proof of @thm-add-backfitting needs
 \( \A \) symmetric nonnegative definite with positive definite diagonal blocks, hence
 \( \W \) nonnegative definite — working weights are, being
 \( h'(\eta_i)^2/V(\mu_i)\ge0 \) — and positive on enough observations to keep each
-\( \Z_j\T\W\Z_j+\lambda_j\mathbf{K}_j \) nonsingular.
+\( \Z_j\T\W\Z_j+\lambda_j\bP_j \) nonsingular.
 :::
 
 ::: {#exr-add-select}
 [B2]
 
-*Shrinking a whole term away.* Let \( \mathbf{K}_j \) have null space of dimension
+*Shrinking a whole term away.* Let \( \bP_j \) have null space of dimension
 \( m_j \) with orthonormal basis \( \mathbf{P}_j^{0} \), and replace the penalty by
-\( \mathbf{K}_j+\epsilon\mathbf{P}_j^{0}\mathbf{P}_j^{0\top} \) for a small \( \epsilon>0 \).
+\( \bP_j+\epsilon\mathbf{P}_j^{0}\mathbf{P}_j^{0\top} \) for a small \( \epsilon>0 \).
 Show that the new penalty is positive definite, that
 \( \lambda_j\to\infty \) now shrinks the whole term to zero, and that
 \( \mathrm{df}_j\to0 \).
@@ -491,8 +491,8 @@ Show that the new penalty is positive definite, that
 
 ::: {.solution}
 Split \( \bgamma=\bgamma^{+}+\bgamma^{0} \) over the range and null space of
-\( \mathbf{K}_j \); the new quadratic form is
-\( \bgamma^{+\top}\mathbf{K}_j\bgamma^{+}+\epsilon\norm{\bgamma^{0}}^2 \), zero only if
+\( \bP_j \); the new quadratic form is
+\( \bgamma^{+\top}\bP_j\bgamma^{+}+\epsilon\norm{\bgamma^{0}}^2 \), zero only if
 both pieces vanish, so it is positive definite with null space \( \{\bzero\} \). By
 @prp-add-df(b) the term's degrees of freedom then fall to \( 0 \) as
 \( \lambda_j\to\infty \), with \( \hat{\bgamma}_j\to\bzero \): the restricted likelihood

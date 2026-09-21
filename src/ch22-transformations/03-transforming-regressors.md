@@ -295,8 +295,8 @@ Powers suit positive regressors with monotone, smoothly bending effects. Otherwi
 columns rather than change one: a polynomial or a spline. These buy flexibility with interpretability, since
 no single coefficient measures the effect of \( x \) (@def-lm-coefficient-interpretation, third qualification),
 and high-degree polynomials behave badly at the edges of the data. Royston and Altman's (1994) *fractional
-polynomials* use one or two terms from a small set of powers including the logarithm. Chapter 42 treats
-polynomial and spline regression.
+polynomials* use one or two terms from a small set of powers including the logarithm. [Chapter 42](../ch42-polynomials-piecewise/index.html) treats polynomial and spline regression, and
+[Chapter 43](../ch43-smoothing/index.html) the smoothers that replace the choice of knots by a penalty.
 
 ## Exercises
 

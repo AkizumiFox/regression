@@ -281,10 +281,10 @@ statistics, one for each year one could split at.
 
 ::: {.idea}
 Degrees of freedom are the currency, and a spline spends them differently. Each
-of a polynomial's \( d+1 \) parameters affects the curve everywhere; of a
-spline's \( d+1+K \), the \( K \) extra act only to the right of their knots,
-adjusting the \( d \)th derivative. Raising \( K \) at fixed low \( d \) is a local
-purchase; raising \( d \) is not.
+of a polynomial's \( d+1 \) parameters affects the curve everywhere; a spline has
+\( d+1+K \), and the \( K \) extra act only to the right of their knots, adjusting
+the \( d \)th derivative. Raising \( K \) at fixed low \( d \) is a local purchase;
+raising \( d \) is not.
 :::
 
 ::: {.remark}

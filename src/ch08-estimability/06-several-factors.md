@@ -334,7 +334,7 @@ is a continuous line with a bend at \( c \): slope \( \beta_1 \) to the left of 
 indicator \( \mathbf{1}\{x>c\} \) itself allows a jump at \( c \) as well. With the bend point known, these are ordinary linear models, and
 all of this chapter applies. For example, \( \beta_2 \) is identifiable iff the data contain values of \( x \) on both sides of
 \( c \) (strictly below and strictly above) and at least three distinct values of \( x \) in all (@exr-est-broken). When \( c \) is unknown the model is nonlinear in
-\( c \). Such piecewise linear terms are the simplest splines, the subject of Part IX.
+\( c \). Such piecewise linear terms are the simplest splines ([Chapter 42](../ch42-polynomials-piecewise/index.html), @def-ply-piecewise), the subject of Part IX.
 
 ## Exercises
 

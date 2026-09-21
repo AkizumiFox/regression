@@ -57,7 +57,7 @@ tail index \( 1.5 \), which has a finite mean and an infinite variance, and the 
 \( t \) interval covers \( 0.665 \) of the time at \( n=25 \) and \( 0.758 \) at
 \( n=1600 \); the bootstrap percentile interval covers \( 0.673 \) and \( 0.780 \). Neither improves between
 \( n=400 \) and \( n=1600 \). The same holds for regression coefficients, which is one reason to prefer estimators less
-sensitive to extreme errors, such as the least absolute deviations fit of Chapter 45, to resampling least squares.
+sensitive to extreme errors, such as the least absolute deviations fit of [Chapter 45](../ch45-quantile-gamlss/index.html) (@def-qnt-quantile), to resampling least squares.
 
 ## One dominant case
 

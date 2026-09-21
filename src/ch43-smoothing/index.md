@@ -27,7 +27,7 @@ parameter into a variance ratio the data can estimate.
 
 **What you need.** [Chapter 6](../ch06-projections/index.html) (least squares as
 projection, @prp-proj-trace-rank, and the leverage @prp-proj-leverage that
-returns in Section 43.5),
+returns in [Section 43.5](05-choosing-lambda.html)),
 [Section 21.3](../ch21-nonnormality-heteroscedasticity-serial/03-weighted-least-squares.html)
 (weighted least squares, @thm-het-wls),
 [Chapter 27](../ch27-shrinkage/index.html) (ridge regression @thm-shr-ridge) and
@@ -41,15 +41,15 @@ model @def-mix-model, Henderson's equations @thm-mix-henderson, the BLUP @thm-mi
 and REML (@def-mix-reml, @thm-mix-reml). [Section 1.8](../ch01-matrix-algebra/08-svd.html)
 supplies the condition number @def-mat-condition-number, and
 [Chapter 42](../ch42-polynomials-piecewise/index.html) the spline space
-itself (@def-ply-piecewise, @thm-ply-spline-space, @prp-ply-knots). Section 43.6
+itself (@def-ply-piecewise, @thm-ply-spline-space, @prp-ply-knots). [Section 43.6](06-mixed-model-and-bayes.html)
 draws on
 [Section 39.4](../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html)
 for the Bayesian vocabulary (@def-prc-posterior, @prp-prc-priors).
 
 **Notation for this chapter.** There is one covariate \( x \) taking values
 \( x_1,\dots,x_n \) in an interval \( [a,b] \), one response, and an unknown
-function \( f \) with \( \mathbf{f}=\{f(x_1),\dots,f(x_n)\}\T \). Section 43.1 writes
-\( K \) for a kernel function and \( h \) for a bandwidth; from Section 43.2 on,
+function \( f \) with \( \mathbf{f}=\{f(x_1),\dots,f(x_n)\}\T \). [Section 43.1](01-kernels.html) writes
+\( K \) for a kernel function and \( h \) for a bandwidth; from [Section 43.2](02-b-splines.html) on,
 \( K \) is instead the *number of interior knots*, written
 \( t_1<\dots<t_K \), with \( \kappa_j \) reserved for the extended knot sequence
 of the B-spline recurrence; the kernel does not reappear except by name.

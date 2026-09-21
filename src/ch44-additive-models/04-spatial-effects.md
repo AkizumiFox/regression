@@ -32,14 +32,14 @@ Two cases are distinguished by the kind of location.
 2. *(Point-referenced data.)* \( s_i\in\Real^2 \) is a coordinate pair. The design is
    \( (\Z_{\mathrm{geo}})_{il}=r(\norm{s_i-\kappa_l}) \) for a set of **knots**
    \( \kappa_1,\dots,\kappa_L \) and a radial function \( r \), and the penalty is
-   \( \mathbf{K}_{\mathrm{geo}}=\{r(\norm{\kappa_l-\kappa_m})\}_{lm} \).
+   \( \bP_{\mathrm{geo}}=\{r(\norm{\kappa_l-\kappa_m})\}_{lm} \).
 :::
 
 :::
 
 In (a) the map is a graph and smoothness means that neighbouring regions do not differ by
 much; in (b) the map is a plane and smoothness means what it means for a surface. Both are
-pairs \( (\Z_{\mathrm{geo}},\mathbf{K}_{\mathrm{geo}}) \), so
+pairs \( (\Z_{\mathrm{geo}},\bP_{\mathrm{geo}}) \), so
 [Sections 44.1](01-additive-models.html) and [44.2](02-backfitting.html) apply without a
 word of change.
 
@@ -48,7 +48,7 @@ word of change.
 For areal data, write \( n_s \) for the number of neighbours of region \( s \) and define
 the **neighbourhood penalty**
 \[
-\bgamma\T\mathbf{K}\bgamma=\sum_{s\sim t}(\gamma_s-\gamma_t)^2,
+\bgamma\T\bP\bgamma=\sum_{s\sim t}(\gamma_s-\gamma_t)^2,
 \qquad
 K_{st}=\begin{cases}
 n_s, & t=s,\\
@@ -66,14 +66,14 @@ exactly on a chain \( 1\sim2\sim\dots\sim D \).
 
 Let four districts lie in a row, \( 1\sim2\sim3\sim4 \):
 \[
-\mathbf{K}=\begin{pmatrix}
+\bP=\begin{pmatrix}
  1 & -1 & 0 & 0\\
 -1 &  2 & -1 & 0\\
  0 & -1 &  2 & -1\\
  0 & 0 & -1 & 1
 \end{pmatrix},
 \]
-with \( \bgamma\T\mathbf{K}\bgamma=(\gamma_1-\gamma_2)^2+(\gamma_2-\gamma_3)^2+(\gamma_3-\gamma_4)^2 \),
+with \( \bgamma\T\bP\bgamma=(\gamma_1-\gamma_2)^2+(\gamma_2-\gamma_3)^2+(\gamma_3-\gamma_4)^2 \),
 rank \( 3 \) and null space \( \spn\{\bone\} \). If district \( 4 \) is instead an island
 with no neighbours, its row and column vanish, the rank drops to \( 2 \) and the null space
 is spanned by \( (1,1,1,0)\T \) and \( (0,0,0,1)\T \): the island is not penalized at all
@@ -84,19 +84,19 @@ and is estimated from its own data alone.
 [The neighbourhood penalty]
 
 Let the regions \( 1,\dots,D \) carry a symmetric neighbourhood relation with no region its
-own neighbour, and let \( \mathbf{K} \) be as in @eq-add-mrf.
+own neighbour, and let \( \bP \) be as in @eq-add-mrf.
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \mathbf{K} \) is symmetric and nonnegative definite, and
-   \( \bgamma\T\mathbf{K}\bgamma=\sum_{s\sim t}(\gamma_s-\gamma_t)^2 \).
+1. \( \bP \) is symmetric and nonnegative definite, and
+   \( \bgamma\T\bP\bgamma=\sum_{s\sim t}(\gamma_s-\gamma_t)^2 \).
 
-2. \( \Null(\mathbf{K}) \) is spanned by the indicator vectors of the connected components
-   of the neighbourhood graph. In particular \( \rank(\mathbf{K})=D-c \) where \( c \) is
-   the number of components, and \( \Null(\mathbf{K})=\spn\{\bone\} \) iff the graph is
+2. \( \Null(\bP) \) is spanned by the indicator vectors of the connected components
+   of the neighbourhood graph. In particular \( \rank(\bP)=D-c \) where \( c \) is
+   the number of components, and \( \Null(\bP)=\spn\{\bone\} \) iff the graph is
    connected.
 
-3. Treating \( \exp\{-\bgamma\T\mathbf{K}\bgamma/(2\tau^2)\} \) as a density in
-   \( \bgamma \) on \( \Null(\mathbf{K})\perpc \), the conditional distribution of
+3. Treating \( \exp\{-\bgamma\T\bP\bgamma/(2\tau^2)\} \) as a density in
+   \( \bgamma \) on \( \Null(\bP)\perpc \), the conditional distribution of
    \( \gamma_s \) given the others, *for a region with \( n_s\ge1 \)*, is normal with mean
    \( n_s^{-1}\sum_{t\sim s}\gamma_t \), the average of its neighbours, and variance
    \( \tau^2/n_s \). The prior is therefore a **Gaussian Markov random field**: each region
@@ -118,18 +118,18 @@ sum over ordered pairs, so
 The first inner sum gives \( \sum_sn_s\gamma_s^2 \), and so does the third, because
 \( \sum_s\sum_{t\sim s}\gamma_t^2=\sum_tn_t\gamma_t^2 \) by symmetry of the relation.
 Hence the right-hand side is
-\( \sum_sn_s\gamma_s^2-\sum_s\sum_{t\sim s}\gamma_s\gamma_t=\bgamma\T\mathbf{K}\bgamma \).
+\( \sum_sn_s\gamma_s^2-\sum_s\sum_{t\sim s}\gamma_s\gamma_t=\bgamma\T\bP\bgamma \).
 Nonnegativity follows because the left-hand side is a sum of squares.
 
-(b) By (a), \( \bgamma\T\mathbf{K}\bgamma=0 \) iff \( \gamma_s=\gamma_t \) across every
-edge, iff \( \gamma \) is constant on each connected component. Since \( \mathbf{K} \) is
-nonnegative definite, that is equivalent to \( \mathbf{K}\bgamma=\bzero \)
-(@thm-mat-pd-characterizations), so the null space is the span of the component indicators,
+(b) By (a), \( \bgamma\T\bP\bgamma=0 \) iff \( \gamma_s=\gamma_t \) across every
+edge, iff \( \gamma \) is constant on each connected component. Since \( \bP \) is
+nonnegative definite, that is equivalent to \( \bP\bgamma=\bzero \) by
+@thm-mat-pd-characterizations, so the null space is the span of the component indicators,
 which are independent because the components are disjoint.
 
-(c) If \( n_s=0 \) then row \( s \) of \( \mathbf{K} \) is zero and \( \gamma_s \) does not
+(c) If \( n_s=0 \) then row \( s \) of \( \bP \) is zero and \( \gamma_s \) does not
 appear in the quadratic form, which is the last sentence. For \( n_s\ge1 \), collect the
-terms of \( \bgamma\T\mathbf{K}\bgamma \) that involve \( \gamma_s \):
+terms of \( \bgamma\T\bP\bgamma \) that involve \( \gamma_s \):
 \[
 n_s\gamma_s^2-2\gamma_s\sum_{t\sim s}\gamma_t+\text{const}
 =n_s\Bigl(\gamma_s-\frac1{n_s}\sum_{t\sim s}\gamma_t\Bigr)^2+\text{const}' .
@@ -139,7 +139,7 @@ and variance \( \tau^2/n_s \).
 :::
 
 Part (c) is the reason for the name. The penalty does not shrink a region towards zero —
-that would be the ridge penalty \( \mathbf{K}=\I \) — but towards its neighbourhood, so a
+that would be the ridge penalty \( \bP=\I \) — but towards its neighbourhood, so a
 district with few observations borrows strength from those around it while the overall level
 of the map stays free. That level is the one dimension the centring constraint of
 @prp-add-identifiability(c) removes on a connected map; it belongs to the intercept.
@@ -151,7 +151,7 @@ Three variants fit the same framework. Weighting each pair by \( w_{st} \) (bord
 inverse centroid distance) replaces \( n_s \) by \( \sum_{t\sim s}w_{st} \) and \( -1 \)
 by \( -w_{st} \). Adding \( \epsilon\I \) makes the penalty positive definite and the
 prior proper, at the price of shrinking the map towards zero as well as towards itself. And
-a *second*, unstructured term with \( \mathbf{K}=\I \) on the same regions gives the
+a *second*, unstructured term with \( \bP=\I \) on the same regions gives the
 convolution model of Besag, York and Mollié (1991), separating smooth spatial variation from
 region-specific noise.
 :::
@@ -181,7 +181,7 @@ field at \( L \) knots, assumed positive definite, and let
 
 2. Consequently the log-density of \( \bgamma \) contributes
    \( \bgamma\T\mathbf{R}\bgamma/(2\tau^2) \), so the penalized criterion
-   @eq-add-criterion with \( \mathbf{K}_{\mathrm{geo}}=\mathbf{R} \) and
+   @eq-add-criterion with \( \bP_{\mathrm{geo}}=\mathbf{R} \) and
    \( \lambda_{\mathrm{geo}}=\sigma^2/\tau^2 \) has as its minimizer the posterior mode of
    \( \bgamma \) — the kriging predictor restricted to the span of the \( L \) knots.
 
@@ -312,7 +312,7 @@ both, and say which unmeasured causes the spatial term stands in for.
 [A1]
 
 A map has two islands, each a connected group of districts, with no neighbour pairs between
-them. What is \( \rank(\mathbf{K}) \), what does the penalty leave unidentified, and what
+them. What is \( \rank(\bP) \), what does the penalty leave unidentified, and what
 does the centring constraint of @prp-add-identifiability(c) fix?
 :::
 

@@ -63,8 +63,8 @@ term is allowed to take, and assume \( \bone\in\mathcal{V}_j \) for each \( j \)
 1. If \( (\bbeta,f_1,\dots,f_q) \) and \( (\tilde{\bbeta},\tilde{f}_1,\dots,\tilde{f}_q) \)
    give the same additive predictor and both satisfy @eq-add-centring, then every
    difference \( \mathbf{f}_j-\tilde{\mathbf{f}}_j \) is orthogonal to \( \bone \), and so
-   is \( \X(\bbeta-\tilde{\bbeta})=-\sum_j(\mathbf{f}_j-\tilde{\mathbf{f}}_j) \). If in
-   addition the centred spaces
+   is \( \X(\bbeta-\tilde{\bbeta})=-\sum_j(\mathbf{f}_j-\tilde{\mathbf{f}}_j) \).
+   If in addition the centred spaces
    \( \C(\X)\cap\bone\perpc,\ \mathcal{V}_1\cap\bone\perpc,\dots,\mathcal{V}_q\cap\bone\perpc \)
    admit no nontrivial relation — no *exact concurvity*, the condition studied in
    [Section 44.2](02-backfitting.html) — then \( \X\bbeta=\X\tilde{\bbeta} \) and
@@ -78,7 +78,7 @@ term is allowed to take, and assume \( \bone\in\mathcal{V}_j \) for each \( j \)
    \( \bone\T\Z_j\bgamma_j=0 \) is imposed exactly by writing \( \bgamma_j=\bU_j\boldsymbol{\upalpha}_j \),
    where the columns of \( \bU_j \) are an orthonormal basis of
    \( \{\bgamma:\bone\T\Z_j\bgamma=0\} \): minimizing any criterion over \( \boldsymbol{\upalpha}_j \)
-   with design \( \Z_j\bU_j \) and penalty \( \bU_j\T\mathbf{K}_j\bU_j \) is the same as
+   with design \( \Z_j\bU_j \) and penalty \( \bU_j\T\bP_j\bU_j \) is the same as
    minimizing it over \( \bgamma_j \) subject to the constraint.
 :::
 
@@ -99,7 +99,7 @@ For (c), \( \{\bgamma:\bone\T\Z_j\bgamma=0\} \) is the null space of the row vec
 and \( \bU_j \) is a bijection from \( \Real^{d_j-1} \) onto it. At
 \( \bgamma_j=\bU_j\boldsymbol{\upalpha}_j \) the design term is
 \( (\Z_j\bU_j)\boldsymbol{\upalpha}_j \) and the penalty
-\( \boldsymbol{\upalpha}_j\T(\bU_j\T\mathbf{K}_j\bU_j)\boldsymbol{\upalpha}_j \), so the
+\( \boldsymbol{\upalpha}_j\T(\bU_j\T\bP_j\bU_j)\boldsymbol{\upalpha}_j \), so the
 two minimizations agree at corresponding points and the correspondence is onto the feasible
 set.
 :::
@@ -125,7 +125,7 @@ after which the constraint of @prp-add-identifiability(c) has been absorbed, so 
 @def-smo-bspline and the difference penalty of @def-smo-pspline this is a P-spline block,
 the default term throughout the chapter; but nothing below uses that particular basis. All
 that is used is that the roughness of the \( j \)th component is a quadratic form
-\( \bgamma_j\T\mathbf{K}_j\bgamma_j \) with \( \mathbf{K}_j \) symmetric nonnegative
+\( \bgamma_j\T\bP_j\bgamma_j \) with \( \bP_j \) symmetric nonnegative
 definite.
 
 The estimate is then the minimizer of a penalized least squares criterion in the sense of
@@ -133,26 +133,26 @@ The estimate is then the minimizer of a penalized least squares criterion in the
 \[
 Q(\bbeta,\bgamma_1,\dots,\bgamma_q)
 =\Bigl\lVert\y-\X\bbeta-\sum_{j=1}^{q}\Z_j\bgamma_j\Bigr\rVert^{2}
-+\sum_{j=1}^{q}\lambda_j\,\bgamma_j\T\mathbf{K}_j\bgamma_j .
++\sum_{j=1}^{q}\lambda_j\,\bgamma_j\T\bP_j\bgamma_j .
 \]{#eq-add-criterion}
 
 Collect the pieces: let \( \Z=[\X,\Z_1,\dots,\Z_q] \) with \( d=p+\sum_jd_j \) columns,
 let \( \bgamma=(\bbeta\T,\bgamma_1\T,\dots,\bgamma_q\T)\T \), and let
 \[
-\mathbf{K}=\begin{pmatrix}
+\bP=\begin{pmatrix}
 \bzero & & & \\
- & \lambda_1\mathbf{K}_1 & & \\
+ & \lambda_1\bP_1 & & \\
  & & \ddots & \\
- & & & \lambda_q\mathbf{K}_q
+ & & & \lambda_q\bP_q
 \end{pmatrix}
 \]{#eq-add-blockpenalty}
 
 be the block-diagonal penalty, with a zero block for the unpenalized columns. Then
-@eq-add-criterion is \( \norm{\y-\Z\bgamma}^2+\bgamma\T\mathbf{K}\bgamma \), a ridge-type
+@eq-add-criterion is \( \norm{\y-\Z\bgamma}^2+\bgamma\T\bP\bgamma \), a ridge-type
 criterion with a structured penalty, and differentiating gives the **penalized normal
 equations**
 \[
-\A\bgamma=\Z\T\y,\qquad \A=\Z\T\Z+\mathbf{K} .
+\A\bgamma=\Z\T\y,\qquad \A=\Z\T\Z+\bP .
 \]{#eq-add-normal}
 
 ::: {#exm-add-constraint}
@@ -176,7 +176,7 @@ exactly as for ridge regression.
 ::: {#prp-add-df}
 [Smoother matrix and degrees of freedom]
 
-Suppose \( \A=\Z\T\Z+\mathbf{K} \) is nonsingular, and let
+Suppose \( \A=\Z\T\Z+\bP \) is nonsingular, and let
 \( \mathbf{C}=\A^{-1}\Z\T \), so that \( \hat{\bgamma}=\mathbf{C}\y \). Write
 \( \mathbf{C}_j=\Z_j\mathbf{C}_{[j]} \), where \( \mathbf{C}_{[j]} \) holds the rows of
 \( \mathbf{C} \) belonging to the \( j \)th block.
@@ -190,12 +190,12 @@ Suppose \( \A=\Z\T\Z+\mathbf{K} \) is nonsingular, and let
 2. The **effective degrees of freedom** of the fit and of its terms are
    \[
    \mathrm{df}=\tr\bS=\tr(\A^{-1}\Z\T\Z),\qquad
-   \mathrm{df}_j=\tr\mathbf{C}_j=d_j-\lambda_j\tr\bigl\{(\A^{-1})_{jj}\mathbf{K}_j\bigr\},
+   \mathrm{df}_j=\tr\mathbf{C}_j=d_j-\lambda_j\tr\bigl\{(\A^{-1})_{jj}\bP_j\bigr\},
    \]{#eq-add-edf}
 
    and they add: \( \mathrm{df}=p+\sum_{j}\mathrm{df}_j \). Each
    \( \mathrm{df}_j \) decreases from \( d_j \) at \( \lambda_j=0 \) towards
-   \( \dim\Null(\mathbf{K}_j) \) as \( \lambda_j\to\infty \).
+   \( \dim\Null(\bP_j) \) as \( \lambda_j\to\infty \).
 
 3. If \( \Cov(\Y)=\sigma^2\I \), then
    \( \Cov(\hat{\bgamma})=\sigma^2\A^{-1}\Z\T\Z\A^{-1} \) and
@@ -210,7 +210,7 @@ Suppose \( \A=\Z\T\Z+\mathbf{K} \) is nonsingular, and let
 definite. For the upper bound, fix \( \bv \) and put \( \bu=\A^{-1}\Z\T\bv \), so
 that \( \A\bu=\Z\T\bv \). Then
 \[
-\bv\T\bS\bv=\bu\T\A\bu=\norm{\Z\bu}^2+\bu\T\mathbf{K}\bu\ \ge\ \norm{\Z\bu}^2 ,
+\bv\T\bS\bv=\bu\T\A\bu=\norm{\Z\bu}^2+\bu\T\bP\bu\ \ge\ \norm{\Z\bu}^2 ,
 \]
 while also \( \bv\T\bS\bv=\bv\T(\Z\bu)\le\norm{\bv}\norm{\Z\bu}
 \le\norm{\bv}\sqrt{\bv\T\bS\bv} \) by Cauchy--Schwarz. Dividing by
@@ -218,12 +218,12 @@ while also \( \bv\T\bS\bv=\bv\T(\Z\bu)\le\norm{\bv}\norm{\Z\bu}
 \( \bv\T\bS\bv\le\norm{\bv}^2 \), so the eigenvalues lie in \( [0,1] \).
 Splitting \( \Z\hat{\bgamma} \) by blocks gives the last identity.
 (b) \( \tr\bS=\tr(\Z\A^{-1}\Z\T)=\tr(\A^{-1}\Z\T\Z) \) by the cyclic property, and
-\( \A^{-1}\Z\T\Z=\A^{-1}(\A-\mathbf{K})=\I-\A^{-1}\mathbf{K} \). The \( j \)th diagonal
-block of \( \A^{-1}\mathbf{K} \) is \( \lambda_j(\A^{-1})_{jj}\mathbf{K}_j \), and the block
+\( \A^{-1}\Z\T\Z=\A^{-1}(\A-\bP)=\I-\A^{-1}\bP \). The \( j \)th diagonal
+block of \( \A^{-1}\bP \) is \( \lambda_j(\A^{-1})_{jj}\bP_j \), and the block
 belonging to the unpenalized columns is zero; taking traces block by block gives both
 formulas in @eq-add-edf and their sum. Monotonicity in \( \lambda_j \) is @exr-add-df-monotone,
-and as \( \lambda_j\to\infty \) the term is forced into \( \Null(\mathbf{K}_j) \), which
-costs \( \dim\Null(\mathbf{K}_j) \) dimensions.
+and as \( \lambda_j\to\infty \) the term is forced into \( \Null(\bP_j) \), which
+costs \( \dim\Null(\bP_j) \) dimensions.
 (c) Both are immediate from
 \( \Cov(\mathbf{M}\Y)=\mathbf{M}\Cov(\Y)\mathbf{M}\T \) (@thm-rv-linear).
 :::
@@ -261,20 +261,20 @@ points uniformly spread over the unit cube in \( q \) dimensions, for
 [B1]
 
 Let \( \Z_j \) be a B-spline block with the partition-of-unity property, so
-\( \Z_j\bone=\bone \), and let \( \mathbf{K}_j \) be a difference penalty, so
-\( \mathbf{K}_j\bone=\bzero \). Show that centring the *columns*, that is replacing
-\( \Z_j \) by \( (\I-n^{-1}\bone\bone\T)\Z_j \), makes \( \Z_j\T\Z_j+\lambda_j\mathbf{K}_j \)
+\( \Z_j\bone=\bone \), and let \( \bP_j \) be a difference penalty, so
+\( \bP_j\bone=\bzero \). Show that centring the *columns*, that is replacing
+\( \Z_j \) by \( (\I-n^{-1}\bone\bone\T)\Z_j \), makes \( \Z_j\T\Z_j+\lambda_j\bP_j \)
 singular, while the reparameterization of @prp-add-identifiability(c) does not.
 :::
 
 ::: {.solution}
 Write \( \tilde{\Z}_j=(\I-n^{-1}\bone\bone\T)\Z_j \). Then
 \( \tilde{\Z}_j\bone=\bzero \), so
-\( \bone\T(\tilde{\Z}_j\T\tilde{\Z}_j+\lambda_j\mathbf{K}_j)\bone=0 \) and the matrix
+\( \bone\T(\tilde{\Z}_j\T\tilde{\Z}_j+\lambda_j\bP_j)\bone=0 \) and the matrix
 is singular. Under (c) the matrix is
-\( \bU_j\T(\Z_j\T\Z_j+\lambda_j\mathbf{K}_j)\bU_j \); if it killed some
+\( \bU_j\T(\Z_j\T\Z_j+\lambda_j\bP_j)\bU_j \); if it killed some
 \( \boldsymbol{\upalpha}\ne\bzero \), then \( \bgamma=\bU_j\boldsymbol{\upalpha} \)
-would satisfy \( \Z_j\bgamma=\bzero \) and \( \mathbf{K}_j\bgamma=\bzero \). The second
+would satisfy \( \Z_j\bgamma=\bzero \) and \( \bP_j\bgamma=\bzero \). The second
 puts \( \bgamma \) in the span of the constant, or of the constant and linear sequences for
 a second-difference penalty, and then \( \Z_j\bgamma=\bzero \) forces
 \( \bgamma=\bzero \), since the B-spline basis reproduces those functions exactly.
@@ -286,18 +286,18 @@ a second-difference penalty, and then \( \Z_j\bgamma=\bzero \) forces
 Show that \( \mathrm{df}_j \) in @eq-add-edf is nonincreasing in \( \lambda_j \). *Hint:*
 work with one term and no parametric part first, where
 \( \mathrm{df}(\lambda)=\sum_k\theta_k/(\theta_k+\lambda) \) for the eigenvalues
-\( \theta_k \) of \( \Z_j\T\Z_j \) in the metric of \( \mathbf{K}_j \).
+\( \theta_k \) of \( \Z_j\T\Z_j \) in the metric of \( \bP_j \).
 :::
 
 ::: {.solution}
-Simultaneously diagonalize \( \Z_j\T\Z_j \) and \( \mathbf{K}_j \): some nonsingular
+Simultaneously diagonalize \( \Z_j\T\Z_j \) and \( \bP_j \): some nonsingular
 \( \bT \) gives \( \bT\T\Z_j\T\Z_j\bT=\I \) and
-\( \bT\T\mathbf{K}_j\bT=\diag(\nu_k) \), \( \nu_k\ge0 \)
-(@cor-mat-generalized-rayleigh(b)). Then
+\( \bT\T\bP_j\bT=\diag(\nu_k) \), \( \nu_k\ge0 \), by
+@cor-mat-generalized-rayleigh(b). Then
 \( \mathrm{df}(\lambda)=\sum_k1/(1+\lambda\nu_k) \), decreasing in \( \lambda \) except
-where \( \nu_k=0 \), which contributes \( \dim\Null(\mathbf{K}_j) \) whatever
+where \( \nu_k=0 \), which contributes \( \dim\Null(\bP_j) \) whatever
 \( \lambda \) is. With several terms, argue the same way on the \( j \)th block of
-\( \A^{-1}\mathbf{K} \), treating the others as part of \( \Z\T\Z \).
+\( \A^{-1}\bP \), treating the others as part of \( \Z\T\Z \).
 :::
 
 ::: {#exr-add-partial-linear}
@@ -306,7 +306,7 @@ where \( \nu_k=0 \), which contributes \( \dim\Null(\mathbf{K}_j) \) whatever
 In @def-add-model take \( q=1 \) and let \( \X \) be a general parametric design. Show
 that the penalized estimate of \( \bbeta \) is
 \( \hbeta=\{\X\T(\I-\bS_1)\X\}^{-1}\X\T(\I-\bS_1)\y \) where
-\( \bS_1=\Z_1(\Z_1\T\Z_1+\lambda_1\mathbf{K}_1)^{-1}\Z_1\T \) — the Frisch–Waugh–Lovell
+\( \bS_1=\Z_1(\Z_1\T\Z_1+\lambda_1\bP_1)^{-1}\Z_1\T \) — the Frisch–Waugh–Lovell
 form of @thm-proj-fwl with the smoother in place of a projection. What changes in the
 proof?
 :::

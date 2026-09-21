@@ -87,8 +87,10 @@ developed in [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.h
 **Beyond the linear model.** Generalized linear models were introduced by Nelder and
 Wedderburn (1972) and quantile regression by Koenker and Bassett (1978). Additive models were
 developed and popularized by Hastie and Tibshirani (1986; 1990), and generalized additive models
-for location, scale and shape were proposed by Rigby and Stasinopoulos (2005). Each is the
-subject of a later part of the book.
+for location, scale and shape were proposed by Rigby and Stasinopoulos (2005). Each has a
+part of this book to itself: [Part VIII](../ch34-exponential-families-glm/index.html),
+[Part IX](../ch42-polynomials-piecewise/index.html) and
+[Part X](../ch45-quantile-gamlss/index.html).
 
 **Data.** The Niño 1+2 sea surface temperatures are from the US National Oceanic and
 Atmospheric Administration. The carbon dioxide record is that of Keeling and Whorf (2004). The

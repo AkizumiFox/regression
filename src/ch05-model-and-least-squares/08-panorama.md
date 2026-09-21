@@ -34,8 +34,8 @@ the models below.
 | Many regressors | collinearity, shrinkage, \( p>n \), selection, boosting | Chapters [26](../ch26-collinearity/index.html)–[30](../ch30-regularization-boosting/index.html) |
 | General covariance and random effects | \( \Cov(\be)=\sigma^2\V \); \( \Y=\X\bbeta+\Z\bu+\be \) | Chapters [31](../ch31-general-gauss-markov/index.html)–[33](../ch33-clustered-longitudinal-splitplot/index.html) |
 | Generalized linear models | non-normal distribution and a link | Chapters [34](../ch34-exponential-families-glm/index.html)–41 |
-| Nonparametric and additive models | smooth functions in the predictor | Chapters 42–44 |
-| Distributional regression | regressors act on more than the mean | Chapter 45 |
+| Nonparametric and additive models | smooth functions in the predictor | Chapters [42](../ch42-polynomials-piecewise/index.html)–[44](../ch44-additive-models/index.html) |
+| Distributional regression | regressors act on more than the mean | [Chapter 45](../ch45-quantile-gamlss/index.html) |
 
 **The normal linear model and its designs.** With normal errors, the least squares
 estimator has an exact normal distribution and the residual sum of squares an exact
@@ -77,8 +77,8 @@ Chapters [34](../ch34-exponential-families-glm/index.html)–41 develop the theo
 
 **Nonparametric and additive models.** Polynomials, as in @exm-lm-co2, force a global
 shape on a curve. Splines and smoothers let the data choose the shape locally
-(Chapters 42–43), and additive models replace each term \( \beta_jx_j \) by an unknown smooth
-function \( f_j(x_j) \) (Chapter 44). Much of this is still penalized least squares on a model
+(Chapters [42](../ch42-polynomials-piecewise/index.html)–[43](../ch43-smoothing/index.html)), and additive models replace each term \( \beta_jx_j \) by an unknown smooth
+function \( f_j(x_j) \) ([Chapter 44](../ch44-additive-models/index.html), @def-add-model). Much of this is still penalized least squares on a model
 matrix of basis functions.
 
 **Beyond the mean.** Quantile regression models a chosen quantile of \( Y \), such as the
@@ -86,7 +86,7 @@ median or the tenth percentile, as a linear function of the regressors, and so d
 the whole conditional distribution shifts. Distributional regression lets the regressors act
 on the location, the scale and the shape of the response distribution through separate
 predictors, turning process (b) of [Figure 5.1.1](01-what-a-model-claims.html#fig-lm-conditional)
-into a model rather than a violation (Chapter 45).
+into a model rather than a violation ([Chapter 45](../ch45-quantile-gamlss/index.html)).
 
 **The Bayesian thread.** A prior distribution on \( (\bbeta,\sigma^2) \) turns the likelihood into a
 posterior. For the normal linear model with a conjugate prior the posterior is available in
@@ -217,6 +217,6 @@ when the errors are normal and \( n\to\infty \) with \( p \) fixed, the slope of
 regression estimates \( \gamma_1 \) consistently, while its intercept estimates
 \( \gamma_0+\E(\log\chi^2_1) \). (Argue first with the errors \( \varepsilon_i \) in place of the
 residuals, then explain why the difference does not matter in the limit.) Compute this bias,
-\( -\gamma_{\mathrm E}-\log2\approx-1.27 \), where \( \gamma_{\mathrm E} \) is Euler's constant. (Chapter 45 treats models of this
-kind by likelihood.)
+\( -\gamma_{\mathrm E}-\log2\approx-1.27 \), where \( \gamma_{\mathrm E} \) is Euler's constant. ([Chapter 45](../ch45-quantile-gamlss/index.html) treats models of this
+kind by likelihood, @def-qnt-gamlss.)
 :::

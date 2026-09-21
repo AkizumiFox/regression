@@ -39,7 +39,7 @@ Every classical result of Parts II and III is about that one cell of a large tab
 
 Three remarks. The dispersion is common to all observations: the regressors move the mean,
 the variance follows through \( V \), and nothing else may vary (modelling \( \phi \) too is
-the subject of Chapter 45). The weights \( w_i \) are known, not estimated, and usually record
+the subject of [Chapter 45](../ch45-quantile-gamlss/index.html), @def-qnt-gamlss). The weights \( w_i \) are known, not estimated, and usually record
 group sizes. And \( g \) transforms the mean, not the data:
 [Chapter 22](../ch22-transformations/index.html) transformed \( Y \) itself, whereas here the
 response is left alone and the link acts inside the expectation.

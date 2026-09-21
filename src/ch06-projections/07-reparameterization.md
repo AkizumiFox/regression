@@ -45,7 +45,7 @@ unchanged:
           vectors that are constant within levels.
 
 - **Replacing polynomial terms by orthogonal polynomials**
-          (Chapter 42), which span the same space with much
+          ([Chapter 42](../ch42-polynomials-piecewise/index.html), @thm-ply-recurrence), which span the same space with much
           better numerical behaviour ([Section 6.10](10-computation.html)).
 
 Operations that *do* change the fit are exactly those that change

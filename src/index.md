@@ -27,7 +27,7 @@ new tools the relaxation requires.
 | VII | drops \( \Cov(\be)=\sigma^2\I \) | Generalized least squares, general Gauss–Markov, mixed models |
 | VIII | drops normality of \( \Y \) | Exponential families and generalized linear models |
 | IX | drops the linear predictor | Polynomials, splines, smoothing, additive models |
-| X | drops modeling only the mean | Quantile regression and distributional models |
+| X | drops modelling only the mean | Quantile regression and distributional models |
 
 ## Choices this book makes
 
@@ -47,8 +47,10 @@ singular value decomposition come immediately after least squares
 stability are closely linked.
 
 **The Bayesian treatment is a thread, not a quarantined chapter.**
-Boxed “Bayesian thread” sections close Parts II, III, VII and VIII. Each
-develops the Bayesian counterpart of the result just proved.
+Boxed “Bayesian thread” sections close Parts II, III, VII and VIII, each
+developing the Bayesian counterpart of the result just proved, and the thread
+runs on into Part IX, where a roughness penalty turns out to be a normal prior
+([Section 43.6](ch43-smoothing/06-mixed-model-and-bayes.html)).
 
 **Departures have a theory.**  [Part V](ch19-theory-of-departures/index.html) opens by deriving what omitted
 variables, wrong covariance, non-normality, outliers and collinearity actually
@@ -58,8 +60,9 @@ do to the estimator. Diagnostics and remedies come after that.
 bootstrap and permutation inference ([Chapter 23](ch23-resampling-inference/index.html)),
 errors in variables ([Chapter 24](ch24-errors-in-variables/index.html)), the causal
 interpretation of coefficients ([Chapter 25](ch25-causal-interpretation/index.html)),
-high-dimensional regression ([Chapter 28](ch28-high-dimensional/index.html)) and missing data
-([Chapter 41](ch41-missing-data/index.html)).
+high-dimensional regression ([Chapter 28](ch28-high-dimensional/index.html)), missing data
+([Chapter 41](ch41-missing-data/index.html)) and structured additive and distributional
+regression ([Chapter 44](ch44-additive-models/index.html), [Chapter 45](ch45-quantile-gamlss/index.html)).
 
 ## Code
 
@@ -89,10 +92,10 @@ proofs, examples and exercises are original to this book.
 
 Parts I–VI (Chapters 1–30) are the classical linear model, complete in itself:
 estimation, exact inference, designed experiments, diagnostics, and the move from
-unbiased estimation to regularization. Parts [VII](ch31-general-gauss-markov/index.html)–X (Chapters [31](ch31-general-gauss-markov/index.html)–45) climb the rest
+unbiased estimation to regularization. Parts [VII](ch31-general-gauss-markov/index.html)–[X](ch45-quantile-gamlss/index.html) (Chapters [31](ch31-general-gauss-markov/index.html)–[45](ch45-quantile-gamlss/index.html)) climb the rest
 of the ladder: correlated errors, non-normal responses, nonlinear predictors, and
-models for entire conditional distributions. Chapters are published here as they
-are written; the ones not yet on the site are named in plain text.
+models for entire conditional distributions. All forty-five chapters are here;
+each one links to the results it uses, so any of them can be entered directly.
 
 ### Reading paths
 
@@ -101,7 +104,11 @@ are written; the ones not yet on the site are named in plain text.
 - **The theory spine.** Part I, then Chapters [6](ch06-projections/index.html), [7](ch07-optimality/index.html), [8](ch08-estimability/index.html), [9](ch09-sums-of-squares/index.html), [11](ch11-general-linear-hypothesis/index.html) and [31](ch31-general-gauss-markov/index.html).
   This is the shortest route to a full structural understanding of the linear model.
 - **For implementers.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html), [10](ch10-computation/index.html) and [20](ch20-residuals-leverage-influence/index.html), [Part VI](ch26-collinearity/index.html) and [Chapter 34](ch34-exponential-families-glm/index.html).
-- **A course on generalized models.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html) and [11](ch11-general-linear-hypothesis/index.html), then Parts [VII](ch31-general-gauss-markov/index.html)–X.
+- **A course on generalized models.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html) and [11](ch11-general-linear-hypothesis/index.html), then Parts [VII](ch31-general-gauss-markov/index.html)–[X](ch45-quantile-gamlss/index.html).
+- **Smoothing and flexible regression.** Chapters [6](ch06-projections/index.html), [27](ch27-shrinkage/index.html), [29](ch29-model-selection/index.html) and [30](ch30-regularization-boosting/index.html), then [Part IX](ch42-polynomials-piecewise/index.html);
+  add [Chapter 32](ch32-linear-mixed-models/index.html) for the mixed-model reading of a penalty and
+  [Chapter 34](ch34-exponential-families-glm/index.html) for generalized additive models.
+- **Beyond the conditional mean.** Chapters [12](ch12-intervals-and-bands/index.html), [21](ch21-nonnormality-heteroscedasticity-serial/index.html) and [22](ch22-transformations/index.html), then [Chapter 45](ch45-quantile-gamlss/index.html).
 
 ### Prerequisites
 
@@ -145,6 +152,10 @@ under the exercise; try the exercise before opening it.
 | \( \theta \), \( b(\theta) \), \( \phi \), \( V(\mu) \) | natural parameter, cumulant function, dispersion and variance function of an exponential dispersion family ([Part VIII](ch34-exponential-families-glm/index.html)) |
 | \( \eta \), \( g \), \( \W \), \( D \) | linear predictor \( \x_{(i)}\T\bbeta \), link function, working weights and deviance of a generalized linear model ([Part VIII](ch34-exponential-families-glm/index.html)) |
 | \( \R_i \), \( \R \) | working correlation matrix of a cluster ([Chapter 40](ch40-glmm-gee/index.html)) and missingness indicator array ([Chapter 41](ch41-missing-data/index.html)): two local uses of \( \R \), each announced where it starts |
+| \( \B \), \( \bgamma \) | matrix of basis functions, \( B_{ij}=B_j(x_i) \), and its coefficient vector ([Part IX](ch42-polynomials-piecewise/index.html)) |
+| \( \kappa_j \), \( K \) | knots and their number: interior knots in [Chapter 42](ch42-polynomials-piecewise/index.html), the extended sequence of a B-spline basis in [Chapter 43](ch43-smoothing/index.html) |
+| \( \bP \), \( \lambda \), \( \bS_\lambda \) | penalty matrix, smoothing parameter and smoother matrix of a penalized fit (Chapters [43](ch43-smoothing/index.html)–[45](ch45-quantile-gamlss/index.html)); \( \tr(\bS_\lambda) \) is its effective degrees of freedom |
+| \( \rho_{\tau} \), \( \tau \) | the check loss \( \rho_{\tau}(u)=u\{\tau-1\{u<0\}\} \) and the quantile level ([Chapter 45](ch45-quantile-gamlss/index.html)) |
 
 Vectors are columns. Matrices and vectors are set in bold upright type and
 scalars in italic. A bare “projection” always means an orthogonal

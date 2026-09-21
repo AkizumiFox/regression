@@ -47,18 +47,35 @@ The plan is `blueprint/book.yaml` (45 chapters in 10 parts); each chapter's brie
 | 39 | ch39-glms-in-practice-bayes | GLMs in practice; the Bayesian thread | deployed |
 | 40 | ch40-glmm-gee | GLMMs and generalized estimating equations | deployed |
 | 41 | ch41-missing-data | Missing data | deployed |
-| 42–45 | | see `blueprint/book.yaml` | not started |
+| 42 | ch42-polynomials-piecewise | Polynomials, piecewise fits and the road to splines | deployed |
+| 43 | ch43-smoothing | Smoothing: kernels, splines and penalties | deployed |
+| 44 | ch44-additive-models | Additive, geoadditive and structured additive models | deployed |
+| 45 | ch45-quantile-gamlss | Quantile regression and GAMLSS | deployed |
 
-Deployed 2026-09-21 to https://regression.akizumifox.com (site repo AkizumiFox/regression, GitHub
-Pages from `main`, DNS through Cloudflare). Republish with `./build.py deploy --push`.
-Chapters 1–41 (Parts I–VIII) are deployed; the combined PDF is 1,820 pages. The next part is IX
-(Chapters 42–44: polynomials and piecewise fits, smoothing, additive models), then X (Chapter 45).
+All forty-five chapters were deployed on 2026-09-21 to https://regression.akizumifox.com
+(site repo AkizumiFox/regression, GitHub Pages from `main`, DNS through Cloudflare). The site
+carries 350 chapter pages and the combined PDF is 2,002 pages, with 3,195 labels and
+8,744 references.
+Republish with `./build.py deploy --push`.
 
-## Open forward promises
+## The book is complete
 
-Chapters 1–33 point forward to unwritten chapters in prose ("Chapter 42 treats splines").
-Those references are plain text until the target chapter is published; when a chapter is
-added, search `src/` for "Chapter N" and link it. The forward references to Chapters 31–33
-were linked when Part VII was written, those to Chapters 34–37 when the first half of
-Part VIII was written, and those to Chapters 38–41 when the part was completed. Chapters
-42–45 are still referred to in plain text.
+All forty-five chapters of `blueprint/book.yaml` are written. There are no unwritten
+chapters left to point at, and no chapter promises one. The forward references that were
+carried as plain text while Parts VII–X were being written have all been turned into links
+or `@label` citations; `./build.py check` fails on any that were missed, and
+`grep -rnE 'Chapter 4[2-5]|Chapters 4[2-5]' src` should show only links.
+
+## Keeping it true
+
+- Every computed number comes from `code/chNN/`. After changing a script, run
+  `MPLBACKEND=Agg .venv/bin/python tools/check_numbers.py`; use `--accept` only when a value
+  is meant to change.
+- `./build.py check` must pass with no failures and no spelling warnings: new words go into
+  `spelling.txt` (sorted case-insensitively, base forms only — possessives are stripped by
+  the checker).
+- New notation is recorded in `authoring/NOTATION.md` before it is used. Part IX fixes the
+  basis matrix, knots, the penalty matrix, the smoothing parameter and the smoother matrix;
+  Part X the check loss and the quantile level.
+- `blueprint/coverage/chNN.md` records, source topic by source topic, where the book covers
+  it; `blueprint/make_blueprints.py` regenerates the briefs from `book.yaml`.

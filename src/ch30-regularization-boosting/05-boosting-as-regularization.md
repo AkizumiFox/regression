@@ -215,7 +215,7 @@ For a differentiable loss \( \sum_iL(y_i,f_i) \), boosting fits the negative gra
 place of the residual (Friedman, 2001): absolute error gives residual signs, the Huber loss clipped residuals, and the
 exponential loss \( e^{-yf} \), \( y=\pm1 \), recovers AdaBoost (Friedman, Hastie and Tibshirani, 2000). Small regression trees as
 base learners give gradient tree boosting; penalized splines in one regressor at a time give componentwise boosting of an
-additive model (Bühlmann and Yu, 2003; Bühlmann and Hothorn, 2007), a topic for Chapters 43 and 44.
+additive model (Bühlmann and Yu, 2003; Bühlmann and Hothorn, 2007), a topic for Chapters [43](../ch43-smoothing/index.html) and [44](../ch44-additive-models/index.html) (@def-smo-pspline, @def-add-model).
 
 Zhang and Yu (2005) prove consistency of early-stopped boosting for general convex losses over rich base classes; Bühlmann
 (2006) proves it for componentwise \( L_2 \) boosting with \( p \) growing almost exponentially in \( n \) under sparsity. We state

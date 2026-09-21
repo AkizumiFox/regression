@@ -4,10 +4,9 @@ Four smoothers have appeared: the local constant and local linear estimators of
 [Section 43.1](01-kernels.html), the penalized spline of
 [Section 43.3](03-penalized-splines.html) and the smoothing spline of
 [Section 43.4](04-smoothing-splines.html). Each is linear in \( \y \), each has one
-dial, and none has said how to set it. The rules of this section are
-approximations to a risk that cannot be observed: they agree when the sample is
-large and the errors independent, and fail in recognisably different ways when it
-is not.
+dial, and none has said how to set it. The rules of this section approximate a
+risk that cannot be observed: they agree when the sample is large and the errors
+independent, and fail in recognisably different ways when it is not.
 
 ## Every smoother here is a linear operator
 
@@ -36,7 +35,7 @@ Then:
    \hat\sigma^2=\frac{\norm{\y-\hat{\mathbf f}}^2}{n-2\tr(\bS)+\tr(\bS\bS\T)}
    \]{#eq-smo-sigma-hat}
 
-   is unbiased for \( \sigma^2 \) whenever the bias term is negligible.
+   is unbiased for \( \sigma^2 \) when the bias term is negligible.
 
 3. *(Degrees of freedom.)* If \( \bS \) is symmetric with eigenvalues in
    \( [0,1] \) — as it is for a penalized or smoothing spline, by
@@ -215,7 +214,7 @@ Take \( n=120 \) equally spaced design points, the
 mean function of @exm-smo-bandwidth,
 \( \sigma=0.25 \), and a cubic P-spline with
 \( K=25 \) knots and a second-order penalty. On one data
-set, the leave-one-out shortcut @eq-smo-cv agrees with \( 120 \) actual refits to
+set the shortcut @eq-smo-cv agrees with \( 120 \) actual refits to
 \( 4.6\times 10^{-15} \), and the three criteria choose
 \( 9.83 \), \( 10.29 \) and
 \( 9.40 \) degrees of freedom.
@@ -370,10 +369,9 @@ print("degrees of freedom chosen:", {k_: round(v, 2) for k_, v in df_pick.items(
 Every interval, test and standard error in this chapter is computed *as if*
 \( \lambda \) were fixed in advance. It was not: it was chosen by minimizing a
 criterion computed from the same \( \y \). This is @prp-sel-selection-bias in a
-continuous guise, with the same consequences. The residual sum of squares at the
-selected \( \lambda \) is the smallest of many, so \( \hat\sigma^2 \) from
-@eq-smo-sigma-hat is biased downwards, and the nominal coverage of a pointwise
-band is not attained.
+continuous guise. The residual sum of squares at the selected \( \lambda \) is
+the smallest of many, so \( \hat\sigma^2 \) from @eq-smo-sigma-hat is biased
+downwards and a pointwise band does not attain its nominal coverage.
 
 The effect is modest when the criterion has a well-determined minimum, which is
 why the practice survives, and large when it does not. The defences are those of
@@ -452,14 +450,14 @@ obviously one for a smoother (where they are not)?
 ::: {.solution}
 Under the substitution, the residual vector becomes
 \( \boldsymbol{\Gamma}(\I-\bS_\lambda)\y \), whose squared length is unchanged, and
-\( \tr(\boldsymbol{\Gamma}\bS_\lambda\boldsymbol{\Gamma}\T)=\tr(\bS_\lambda) \); so @eq-smo-gcv is invariant.
-CV depends on the individual \( s_{ii} \), which are not. In ridge regression the
-canonical coordinates of @thm-shr-ridge are as natural as the original ones, and a
-criterion that does not depend on which is used is attractive; for a smoother the
-coordinates are cases in a fixed order along the \( x \)-axis, the \( s_{ii} \)
-carry real information (they are small in dense regions and large in sparse ones),
-and replacing them by their average throws it away. This is why CV and GCV differ
-most in designs with isolated points.
+\( \tr(\boldsymbol{\Gamma}\bS_\lambda\boldsymbol{\Gamma}\T)=\tr(\bS_\lambda) \); so @eq-smo-gcv is invariant,
+while CV depends on the individual \( s_{ii} \), which are not. In ridge
+regression the canonical coordinates of @thm-shr-ridge are as natural as the
+original ones, so invariance is attractive; for a smoother the coordinates are
+cases in a fixed order along the \( x \)-axis and the \( s_{ii} \) carry real
+information — small in dense regions, large in sparse ones — which replacing them
+by their average throws away. Hence CV and GCV differ most in designs with
+isolated points.
 :::
 
 ::: {#exr-smo-flat-criterion}

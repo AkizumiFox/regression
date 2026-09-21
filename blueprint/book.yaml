@@ -59,8 +59,8 @@ parts:
     drops: "drops the linear predictor"
     model: "Polynomials, splines, smoothing, additive structure."
   - num: X
-    title: "Modeling the Whole Distribution"
-    drops: "drops modeling only the mean"
+    title: "The Whole Distribution"
+    drops: "drops modelling only the mean"
     model: "Quantile regression and distributional (GAMLSS) models."
 
 chapters:

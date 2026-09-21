@@ -108,6 +108,8 @@ greville_u = np.array([kn_u[j + 1:j + D + 1].mean() for j in range(D + 1 + K)])
 assert np.allclose(np.diff(greville_u), delta)                      # equally spaced
 level = A + (np.arange(1, D + 2 + K) - (D + 1) / 2) * delta         # and at this level
 assert np.allclose(greville_u, level)
+Ug = bspline_basis(grid, kn_u, D)
+assert np.allclose(Ug.sum(axis=1), 1.0) and np.all(Ug >= 0)         # partition of unity on [a, b]
 assert np.allclose(bspline_basis(grid, kn_u, D) @ greville_u, grid, atol=1e-12)
 
 # --- conditioning as the number of knots grows --------------------------------

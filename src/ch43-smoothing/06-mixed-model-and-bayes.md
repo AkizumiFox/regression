@@ -13,11 +13,10 @@ second dividend: an interval whose width knows about the bias.
 ## Splitting the penalty
 
 The obstacle is that \( \bP \) is singular. A normal prior with precision matrix
-\( \bP/\tau^2 \) puts no constraint at all on the \( k \)-dimensional null space
-\( \Null(\bP) \) — the straight lines, for a second-order penalty — so it is not a
-proper distribution. The fix is to split \( \bgamma \) into the part the penalty
-does not see, which becomes a *fixed* effect, and the rest, which becomes a
-*random* effect with a proper distribution.
+\( \bP/\tau^2 \) constrains nothing on the \( k \)-dimensional null space
+\( \Null(\bP) \) — the straight lines, for a second-order penalty — so it is not
+proper. The fix is to split \( \bgamma \) into the part the penalty does not see,
+a *fixed* effect, and the rest, a *random* effect with a proper distribution.
 
 ::: {#thm-smo-mixed}
 [A penalized spline is a linear mixed model]
@@ -190,13 +189,13 @@ Part (c) is not proved here; see the notes.
 :::
 
 ::: {.warning}
-"Across-the-function" is a weaker guarantee than it sounds. It says that if you
-draw the band and count how often it contains the true curve across the design
-points, the fraction is about \( 1-\alpha \). It does not say that the band
-contains the curve *everywhere* with probability \( 1-\alpha \) — that is a
-simultaneous band, which is wider (Sun and Loader, 1994) — nor that the interval
-at any one chosen point has the nominal coverage. If a particular \( x \) is the
-question, @eq-smo-band is not the answer to it.
+"Across-the-function" is a weaker guarantee than it sounds. Count how often the
+band contains the true curve across the design points and the fraction is about
+\( 1-\alpha \). It does not say that the band contains the curve *everywhere*
+with probability \( 1-\alpha \) — that is a simultaneous band, which is wider
+(Sun and Loader, 1994) — nor that the interval at any one chosen point has
+nominal coverage. If a particular \( x \) is the question, @eq-smo-band is not
+the answer.
 :::
 
 ::: {#exm-smo-coverage}
@@ -349,15 +348,14 @@ print(f"REML: lambda = {lam_reml:.3g}, df = {df_reml:.2f}; GCV: df = {df_gcv:.2f
 ## REML against the criteria, and full Bayes
 
 REML and GCV estimate different things. GCV aims at prediction error; REML
-maximizes a likelihood under the assumption that \( f \) really is a draw from
-the prior — an assumption nobody believes, since nobody believes the deviations
-from a straight line are exchangeable normal increments. In practice the two
-rarely differ by much: in @exm-smo-coverage REML chose
-\( 8.12 \) effective degrees of freedom against
-GCV's \( 7.10 \). But REML is the more stable of
-the two, its criterion better determined near the optimum, and it almost never
-produces the interpolating fits that GCV occasionally does (Reiss and Ogden,
-2009). It has no answer when the model for the errors is wrong: with the AR(1)
+maximizes a likelihood under the assumption that \( f \) is a draw from the prior
+— which nobody believes, since nobody believes the deviations from a straight line
+are exchangeable normal increments. In practice the two rarely differ by much: in
+@exm-smo-coverage REML chose \( 8.12 \) effective
+degrees of freedom against GCV's \( 7.10 \). But
+REML is the more stable, its criterion better determined near the optimum, and it
+almost never produces the interpolating fits that GCV occasionally does (Reiss
+and Ogden, 2009). It has no answer when the error model is wrong: with the AR(1)
 errors of @exm-smo-correlated it overfits just as GCV does, unless the
 correlation is put into \( \Cov(\be) \), which the mixed-model form at least
 makes possible (@def-cls-covariance).
@@ -372,12 +370,11 @@ sampler of @def-prc-mcmc: each sweep draws \( \bgamma \) from @eq-smo-posterior,
 then \( \tau^2 \) from an inverse-gamma with shape \( a+r/2 \) and scale
 \( b+\bu\T\bu/2 \), then \( \sigma^2 \) likewise. The posterior for \( f \) then
 averages over the smoothing parameter instead of conditioning on an estimate of
-it, which is the cleanest answer to the selection problem of
+it, the cleanest answer to the selection problem of
 [Section 43.5](05-choosing-lambda.html). It is also where the prior shows its
 weakness: the posterior for \( \tau^2 \) is sensitive to the hyperparameters, as
-@prp-prc-priors warns, because a variance component with \( r \) terms is not well
-identified. [Chapter 44](../ch44-additive-models/index.html) uses this machinery
-for several smooth terms at once.
+@prp-prc-priors warns. [Chapter 44](../ch44-additive-models/index.html) uses this
+machinery for several smooth terms at once.
 :::
 
 ## What this book does not do with smoothing
@@ -396,8 +393,8 @@ needs the tube formula of Sun and Loader (1994) or a bootstrap over the whole
 fit.
 
 **Shape constraints.** Monotone, convex or unimodal fits add linear inequality
-constraints to @eq-smo-pspline, turning it into a quadratic program; Ramsay
-(1988) treats monotone regression splines.
+constraints to @eq-smo-pspline, a quadratic program; Ramsay (1988) treats the
+monotone case.
 
 What does continue is the penalty. Everything after
 [Section 43.2](02-b-splines.html) rests on one idea — a rich basis, a quadratic
@@ -424,15 +421,14 @@ and does @thm-mix-boundary apply?
 :::
 
 ::: {.solution}
-\( \sigma_u^2\to0 \) gives \( \lambda\to\infty \): the random part is annihilated
-and only the fixed part, the straight line, survives.
-\( \sigma_u^2\to\infty \) gives \( \lambda\to0 \), the unpenalized spline fit. A
-REML estimate of zero means the data give no evidence of departure from a
-straight line, and the reported fit *is* the least squares line. It is on the
-boundary, so the null distribution of a likelihood ratio test of
-\( \sigma_u^2=0 \) is not the usual \( \chi^2 \); @thm-mix-boundary gives the
-mixture, and the same caution applies to testing whether a smooth term is needed
-at all.
+\( \sigma_u^2\to0 \) gives \( \lambda\to\infty \), leaving only the fixed part,
+the straight line; \( \sigma_u^2\to\infty \) gives \( \lambda\to0 \), the
+unpenalized spline fit. A REML estimate of zero means the data give no evidence
+of departure from a straight line, and the reported fit *is* the least squares
+line. It is on the boundary, so a likelihood ratio test of \( \sigma_u^2=0 \) has
+not the usual \( \chi^2 \) null distribution but the mixture of
+@thm-mix-boundary — the same caution as for testing whether a smooth term is
+needed at all.
 :::
 
 ### B. Practice
@@ -440,18 +436,18 @@ at all.
 ::: {#exr-smo-reml-vs-gcv}
 [B1]
 
-Run the simulation of @exm-smo-criteria again with \( \lambda \) chosen by REML
-instead, and compare the median selected degrees of freedom, the average squared
-error, and the upper tail of the distribution of df, with the values for CV, GCV
-and AIC\( _c \). Which criterion is safest, and at what cost?
+Run the simulation of @exm-smo-criteria again with \( \lambda \) chosen by REML,
+and compare the median selected degrees of freedom, the average squared error and
+the upper tail of the df distribution with the values for CV, GCV and
+AIC\( _c \). Which criterion is safest, and at what cost?
 :::
 
 ::: {#exr-smo-coverage-sigma}
 [B2]
 
 @exm-smo-coverage uses \( \hat\sigma \) from @eq-smo-sigma-hat in @eq-smo-band.
-Repeat the coverage simulation with \( \sigma \) known and with \( \hat\sigma \)
-estimated, and with \( z_{1-\alpha/2} \) replaced by a \( t \) quantile on
+Repeat the coverage simulation with \( \sigma \) known, and with
+\( z_{1-\alpha/2} \) replaced by a \( t \) quantile on
 \( n-2\tr(\bS)+\tr(\bS\bS\T) \) degrees of freedom. How much of the departure from
 nominal coverage is due to estimating \( \sigma \), and how much to the bias?
 :::

@@ -48,15 +48,15 @@ basis.
 ::: {#prp-add-varying-fit}
 [A varying-coefficient term is an ordinary penalized term]
 
-Let \( B_1,\dots,B_d \) be a basis for the effect modifier and \( \mathbf{K}_0 \) the
+Let \( B_1,\dots,B_d \) be a basis for the effect modifier and \( \bP_0 \) the
 penalty that the corresponding smooth main effect would use. Put
 \( (\Z)_{il}=u_iB_l(z_i) \).
 
 ::: {.enumerate options="label=(\alph*)"}
 1. With \( f=\sum_l\gamma_lB_l \), the vector of the term's contributions is
    \( \{f(z_i)u_i\}_i=\Z\bgamma \), and the roughness of \( f \) is
-   \( \bgamma\T\mathbf{K}_0\bgamma \) as before. The term is therefore the pair
-   \( (\Z,\mathbf{K}_0) \), and everything in
+   \( \bgamma\T\bP_0\bgamma \) as before. The term is therefore the pair
+   \( (\Z,\bP_0) \), and everything in
    [Sections 44.1](01-additive-models.html) and [44.2](02-backfitting.html) applies
    unchanged.
 
@@ -182,8 +182,8 @@ When neither covariate deserves to be the linear one, a genuine bivariate term
 \( f(z_1,z_2) \) is needed. The standard construction is a **tensor-product** basis
 \( B_{lm}(z_1,z_2)=B_l^{(1)}(z_1)B_m^{(2)}(z_2) \) with the penalty
 \[
-\mathbf{K}=\lambda_1\bigl(\I\otimes\mathbf{K}^{(1)}\bigr)
-+\lambda_2\bigl(\mathbf{K}^{(2)}\otimes\I\bigr),
+\bP=\lambda_1\bigl(\I\otimes\bP^{(1)}\bigr)
++\lambda_2\bigl(\bP^{(2)}\otimes\I\bigr),
 \]{#eq-add-tensor}
 
 penalizing roughness along each coordinate separately, and so invariant to the units of the
@@ -254,7 +254,7 @@ terms compete, which is part of why the bands are wide.
 [C1]
 
 Build the smallest tensor-product term by hand: take \( d_1=d_2=3 \) basis functions in
-each coordinate and first-difference penalties \( \mathbf{K}^{(1)}=\mathbf{K}^{(2)} \).
+each coordinate and first-difference penalties \( \bP^{(1)}=\bP^{(2)} \).
 Write out the \( 9\times9 \) penalty of @eq-add-tensor for \( \lambda_1=\lambda_2=1 \) and
 find its null space. Why does that null space make the term identifiable only after the
 main effects have been constrained away?

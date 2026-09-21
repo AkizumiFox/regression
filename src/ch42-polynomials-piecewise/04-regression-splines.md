@@ -114,8 +114,8 @@ proviso; the local basis is built in
 Part (b) has a sharp form. In the local basis the design matrix has full rank
 *if and only if* each basis function's support contains a design point — the
 Schoenberg–Whitney condition (Schoenberg and Whitney, 1953), which is also the
-proviso in (d). The practical rule either way: no knot where there are no data,
-and no two knots with a nearly empty interval between them.
+proviso in (d). Either way the rule is: no knot where there are no data, and no
+two knots with a nearly empty interval between them.
 
 ## Six bases for one trend
 
@@ -242,7 +242,7 @@ from a skewed distribution on \( [0,1] \), and fit a cubic spline with
 \( 67, 71, 35, 21, 5, 1 \) points in the six intervals; quantile
 knots leave \( 34, 33, 33, 33, 33, 34 \). Both have full rank —
 the truncated powers are globally supported, so a nearly empty interval does not
-kill a column — but precision it does kill. The exact pointwise standard
+kill a column — but it does kill precision. The exact pointwise standard
 deviation of the fit, in units of \( \sigma \), reaches
 \( 7.452 \) with the equally spaced knots against
 \( 0.987 \) with the quantile knots; at the median of the
@@ -336,8 +336,8 @@ checking that the two sets of columns together have rank \( K+4 \).
 
 The truncated power condition number multiplies by about fifteen for every
 doubling of \( K \); the local basis does not move. By \( K=32 \) the normal
-equations in the truncated power basis have lost about thirteen
-digits (@eq-cmp-rule), the same fit in the local basis one. This design is
+equations (@thm-proj-normal-equations) in the truncated power basis have lost
+about thirteen digits (@eq-cmp-rule), the same fit in the local basis one. This design is
 nearly uniform, so every basis function's support is well occupied — the
 proviso of part (d).
 :::
@@ -361,8 +361,8 @@ mean squared errors of \( 2.71 \) ppm for the broken line,
 of the ranking inside the data.
 
 *A curve is a conditional mean, not a mechanism*: dropping linearity removes a
-functional-form assumption and nothing else, and @thm-cau-backdoor still
-licenses any causal reading. And *a flexible fit is no substitute for a good
+functional-form assumption and nothing else, and @thm-cau-backdoor is still
+what licenses a causal reading. And *a flexible fit is no substitute for a good
 parameterization*: where the relationship is known to be a power law, the
 transformations of [Chapter 22](../ch22-transformations/index.html) give a
 two-parameter model that a ten-parameter spline can only approximate and that

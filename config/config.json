@@ -133,7 +133,17 @@
         "src/ch38-quasi-likelihood",
         "src/ch39-glms-in-practice-bayes",
         "src/ch40-glmm-gee",
-        "src/ch41-missing-data"
+        "src/ch41-missing-data",
+        {
+            "dir": "src/ch42-polynomials-piecewise",
+            "part": "Part IX · Relaxing Linearity"
+        },
+        "src/ch43-smoothing",
+        "src/ch44-additive-models",
+        {
+            "dir": "src/ch45-quantile-gamlss",
+            "part": "Part X · The Whole Distribution"
+        }
     ],
     "macros": "latex/macros.tex",
     "templates": {

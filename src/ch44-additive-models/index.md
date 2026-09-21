@@ -37,12 +37,14 @@ criteria are used here as given.
 [Notation in this chapter]
 
 A **term** is a pair: a design block \( \Z_j \) of size \( n\times d_j \) and a
-nonnegative definite penalty \( \mathbf{K}_j \), with coefficients \( \bgamma_j \) and
-smoothing parameter \( \lambda_j \). So \( \Z \) keeps its meaning from
+nonnegative definite penalty \( \bP_j \), with coefficients \( \bgamma_j \) and
+smoothing parameter \( \lambda_j \) — the \( \bP \), \( \bgamma \) and
+\( \lambda \) of [Chapter 43](../ch43-smoothing/index.html), now carrying a term index.
+So \( \Z \) keeps its meaning from
 [Part VII](../ch31-general-gauss-markov/index.html), the design of the coefficients that are
 shrunk, and [Section 44.5](05-structured-additive.html) shows the two uses are the same.
 Unpenalized columns stay in \( \X \) with coefficients \( \bbeta \);
-\( \A=\Z\T\W\Z+\mathbf{K} \) is the penalized cross-product, \( \W \) the working
+\( \A=\Z\T\W\Z+\bP \) is the penalized cross-product, \( \W \) the working
 weights of [Chapter 34](../ch34-exponential-families-glm/index.html), \( \bS \) the
 smoother matrix and \( \mathbf{C}_j \) the operator producing the \( j \)th
 component.

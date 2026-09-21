@@ -13,11 +13,11 @@ basis.
 
 If the basis is rich, neighbouring B-splines overlap heavily and neighbouring
 coefficients describe nearly the same part of the curve. A wiggly fit is one
-whose coefficient sequence \( \gamma_1,\dots,\gamma_m \) jumps about; a smooth
-fit is one whose coefficients change slowly with \( j \). Penalizing the
-differences of the coefficients therefore penalizes roughness — and does so with
-no integrals to evaluate, because the penalty is a quadratic form in
-\( \bgamma \) whose matrix is known in advance.
+whose coefficient sequence \( \gamma_1,\dots,\gamma_m \) jumps about, a smooth
+fit one whose coefficients change slowly with \( j \), so penalizing the
+differences of the coefficients penalizes roughness — with no integrals to
+evaluate, since the penalty is a quadratic form whose matrix is known in
+advance.
 
 Write \( \Delta\gamma_j=\gamma_j-\gamma_{j-1} \) and
 \( \Delta^k=\Delta(\Delta^{k-1}) \), so that
@@ -50,9 +50,9 @@ P-spline. In the scaling of @def-reg-penalized the criterion carries a factor
 the convention except the numerical value of \( \lambda \).
 
 Three things have changed since [Section 43.2](02-b-splines.html). The number of
-knots is no longer a modelling decision but a computational one: take enough.
-The estimate is no longer a projection, so it has bias even when \( f \) is in
-the spline space. And the dial is continuous.
+knots is a computational decision, not a modelling one: take enough. The estimate
+is no longer a projection, so it has bias even when \( f \) lies in the spline
+space. And the dial is continuous.
 
 ## The fit, and what the penalty does to it
 
@@ -96,7 +96,7 @@ Let \( \B \) have full column rank and \( \lambda>0 \), and write
 
 2. \( \bS_\lambda \) is symmetric with eigenvalues \( (1+\lambda e_j)^{-1}\in(0,1] \)
    and the same eigenvectors for every \( \lambda \). Its **effective degrees of
-   freedom**
+   freedom** — the count of @thm-shr-ridge(b), now for a roughness penalty —
    \[
    \mathrm{df}(\lambda)=\tr(\bS_\lambda)=\sum_{j=1}^m\frac{1}{1+\lambda e_j}
    \]{#eq-smo-df}
@@ -227,24 +227,24 @@ containing the straight lines, and consists exactly of the polynomials of degree
 The annual flow of the Nile at Aswan was recorded for
 \( 100 \) years from \( 1871 \) to
 \( 1970 \). Rescale the year to \( [0,1] \) and fit cubic
-P-splines with a second-order penalty. Choosing \( \lambda \) to give
+P-splines with a second-order penalty. Reaching
 \( 3 \), \( 8 \) and \( 20 \) effective degrees of freedom needs
 \( \lambda=9.1\times 10^{2} \),
 \( 4.7\times 10^{0} \) and
-\( 1.5\times 10^{-2} \) — a range of five orders of
-magnitude for a threefold change in df, which is why \( \lambda \) is always
-searched on a logarithmic scale and always reported as df.
+\( 1.5\times 10^{-2} \): five orders of magnitude for
+a threefold change in df, which is why \( \lambda \) is searched on a logarithmic
+scale and reported as df.
 
 Now hold df at \( 8 \) and change the number of knots.
 With \( K=10,20,40 \) and \( 80 \) — the last giving
-\( 84 \) coefficients for \( 100 \) observations — the four fitted
+\( 84 \) coefficients for \( 100 \) observations — the four
 curves differ nowhere by more than
-\( 16.60 \), which is
-\( 1.82 \) per cent of the range of the response,
-and the \( K=40 \) and \( K=80 \) curves differ by at most
-\( 1.373 \). Without the penalty the same three knot
-counts give curves that differ by up to
-\( 258.2 \), fifteen times as much.
+\( 16.60 \), or
+\( 1.82 \) per cent of the response range, and the
+\( K=40 \) and \( K=80 \) curves by at most
+\( 1.373 \). Without the penalty the same knot counts
+give curves differing by up to \( 258.2 \), fifteen
+times as much.
 
 [Figure 43.3.1](03-penalized-splines.html#fig-smo-pspline) draws both
 comparisons. The fitted curve descends steeply around 1900, and it is worth

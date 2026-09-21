@@ -8,18 +8,18 @@ consecutive knots and have \( d-1 \) continuous derivatives at each
 knot (@def-ply-piecewise). Its dimension is \( d+1+K \), and the truncated power
 functions
 \( 1,x,\dots,x^d,(x-t_1)_+^d,\dots,(x-t_K)_+^d \) are a
-basis (@thm-ply-spline-space). (Chapter 42 writes \( \kappa_i \) for these knots;
+basis (@thm-ply-spline-space). ([Chapter 42](../ch42-polynomials-piecewise/index.html) writes \( \kappa_i \) for these knots;
 here \( \kappa \) is needed for the longer sequence built next.)
 
 That basis is a bad one to compute with, for the reason @prp-ply-knots gives:
 its members are global, nearly collinear, and of wildly different sizes once the
 knots are close together. This section builds the basis everything else in the
-chapter uses. Its members are polynomials of the same space, so nothing about the
-*fit* changes; only the numbers do, and they change dramatically.
+chapter uses. It spans the same space, so nothing about the *fit* changes; only
+the numbers do, and they change dramatically.
 
 ::: {.warning}
-From here to the end of the chapter, \( K \) is the number of interior knots, not
-a kernel. The kernel \( K(\cdot) \) of [Section 43.1](01-kernels.html) does not
+From here to the end of the chapter \( K \) is the number of interior knots, not
+a kernel; the kernel \( K(\cdot) \) of [Section 43.1](01-kernels.html) does not
 reappear.
 :::
 
@@ -30,8 +30,10 @@ knots outside \( [a,b] \) as well as inside it. Collect the interior knots and
 \( d+1 \) copies of each endpoint into a nondecreasing **extended knot sequence**
 \( \kappa_1\le\kappa_2\le\dots\le\kappa_{m+d+1} \) with \( m=K+d+1 \), namely
 \[
-\kappa_1=\dots=\kappa_{d+1}=a,\qquad \kappa_{d+1+i}=t_i\ \ (i=1,\dots,K),\qquad
-\kappa_{d+K+2}=\dots=\kappa_{m+d+1}=b .
+\begin{aligned}
+&\kappa_1=\dots=\kappa_{d+1}=a,\qquad \kappa_{d+1+i}=t_i\ \ (i=1,\dots,K),\\
+&\kappa_{d+K+2}=\dots=\kappa_{m+d+1}=b .
+\end{aligned}
 \]{#eq-smo-clamped}
 
 This is the **clamped** sequence; an alternative is discussed below. In either
@@ -214,8 +216,8 @@ statement holds for the truncated power basis, where changing the coefficient of
 ## The coefficients live at the Greville abscissae
 
 A spline written in the B-spline basis, \( f=\sum_j\gamma_jB_j^d \), has
-coefficients that are not values of \( f \), but they are close to being so, and
-they sit at identifiable places.
+coefficients that are not values of \( f \), but are close to being so, and sit
+at identifiable places.
 
 ::: {#prp-smo-greville}
 [Greville abscissae]
@@ -256,10 +258,11 @@ There are again \( K+2d+2 \) knots and \( m=K+d+1 \) B-splines, and restricted t
 The advantage is that the Greville abscissae are then equally spaced,
 \( \xi_j=a+\{j-(d+1)/2\}\delta \), consecutive ones \( \delta \) apart, which is
 what makes the difference penalty of [Section 43.3](03-penalized-splines.html)
-behave exactly as advertised. That this sequence too gives a basis of the spline
-space on \( [a,b] \), and that @eq-smo-greville continues to hold for it, are
-quoted from de Boor (2001, chs. IX–X) — the proofs of (c) and (f) above used the
-repeated endpoints — and confirmed numerically in @exm-smo-conditioning.
+behave exactly as advertised. That this sequence too has the partition of unity
+on \( [a,b] \), gives a basis of the spline space there, and satisfies
+@eq-smo-greville is quoted from de Boor (2001, chs. IX–X) — the proofs of (a),
+(c) and (f) above used the repeated endpoints — and confirmed numerically
+in @exm-smo-conditioning.
 :::
 
 ## Conditioning
@@ -418,15 +421,16 @@ basis?
 ::: {.solution}
 \( (\B\T\B)_{jk}=\sum_iB_j^d(x_i)B_k^d(x_i) \), and the supports
 \( [\kappa_j,\kappa_{j+d+1}) \) and \( [\kappa_k,\kappa_{k+d+1}) \) are disjoint
-when \( \lvert j-k\rvert>d \), so every term is zero. The Cholesky factor
-inherits the bandwidth: in @eq-cmp-cholesky, if \( r_{ki}=0 \) whenever
-\( i-k>d \) for all \( k<j \), then \( r_{ji} \) is a multiple of
-\( a_{ji}=0 \) for \( i-j>d \), so by induction the factorization of
-@thm-cmp-cholesky visits only \( O(md^2) \) entries rather than \( O(m^3) \), and
-forming the band of \( \B\T\B \) costs \( O(nd^2) \). The
-truncated power functions have nested, not local, supports: the last one is
-nonzero on \( (\kappa_K,b] \) and the first everywhere, so no entry of the
-cross-product matrix is structurally zero.
+when \( \lvert j-k\rvert>d \), so every term is zero. The Cholesky factor of a
+band matrix inherits its bandwidth. Induct on \( j \) in @eq-cmp-cholesky: if
+\( r_{ki}=0 \) whenever \( i-k>d \) for every \( k<j \), then for \( i-j>d \) each
+product \( r_{kj}r_{ki} \) in the sum vanishes — a nonzero \( r_{kj} \) needs
+\( j-k\le d \), whence \( i-k>d \) — and \( a_{ji}=0 \), so \( r_{ji}=0 \). The
+factorization of @thm-cmp-cholesky therefore visits \( O(md^2) \) entries instead
+of \( O(m^3) \), and forming the band of \( \B\T\B \) costs \( O(nd^2) \). The
+truncated power functions have nested, not local, supports — the last is nonzero
+on \( (t_K,b] \) and the first everywhere — so no entry of their cross-product
+matrix is structurally zero.
 :::
 
 ### C. Going deeper
@@ -453,10 +457,10 @@ Prove that \( \sum_j\psi_j(y)B_j^d(x)=(y-x)^d \) for all \( x\in[a,b) \) and all
 
 ::: {.solution}
 For \( d=0 \) the claim is \( \sum_jB_j^0(x)=1 \), the empty product being one.
-For \( d=1 \), \( \psi_j(y)=y-\kappa_{j+1} \). On \( [\kappa_i,\kappa_{i+1}) \) only
-\( B_{i-1}^1 \) and \( B_i^1 \) are nonzero, with values
+For \( d=1 \), \( \psi_j(y)=y-\kappa_{j+1} \), and on \( [\kappa_i,\kappa_{i+1}) \)
+only \( B_{i-1}^1 \) and \( B_i^1 \) are nonzero, with values
 \( (\kappa_{i+1}-x)/(\kappa_{i+1}-\kappa_i) \) and
-\( (x-\kappa_i)/(\kappa_{i+1}-\kappa_i) \). Their combination is
+\( (x-\kappa_i)/(\kappa_{i+1}-\kappa_i) \); their combination is
 \[
 \frac{(y-\kappa_i)(\kappa_{i+1}-x)+(y-\kappa_{i+1})(x-\kappa_i)}{\kappa_{i+1}-\kappa_i}
 =y-x ,

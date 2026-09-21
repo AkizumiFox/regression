@@ -2,7 +2,7 @@
 
 Four kinds of term have appeared: a smooth function of a covariate, a coefficient varying
 with a modifier, an effect attached to a region of a map, an effect attached to a cluster.
-Each was a pair \( (\Z_j,\mathbf{K}_j) \) — a design block and a nonnegative definite
+Each was a pair \( (\Z_j,\bP_j) \) — a design block and a nonnegative definite
 penalty — estimated by the same penalized criterion. This section says that out loud, shows
 that the framework contains the mixed models of
 [Chapter 32](../ch32-linear-mixed-models/index.html) exactly, and takes from them the thing
@@ -19,8 +19,8 @@ A **structured additive predictor** is
 \]{#eq-add-star}
 
 where \( \X \) collects the unpenalized columns and each term \( j \) is a pair
-\( (\Z_j,\mathbf{K}_j) \) with \( \Z_j \) an \( n\times d_j \) design block and
-\( \mathbf{K}_j \) a symmetric nonnegative definite \( d_j\times d_j \) penalty matrix,
+\( (\Z_j,\bP_j) \) with \( \Z_j \) an \( n\times d_j \) design block and
+\( \bP_j \) a symmetric nonnegative definite \( d_j\times d_j \) penalty matrix,
 identified by the constraint \( \bone\T\Z_j\bgamma_j=0 \) of
 @prp-add-identifiability(c). A **structured additive regression model** (STAR) fits
 @eq-add-star by minimizing the penalized criterion @eq-add-criterion, with one smoothing
@@ -39,7 +39,7 @@ one. In the last row \( m_1 \) and \( m_2 \) are the null-space dimensions of th
 marginal penalties, so \( 1 \) for first differences in both coordinates and \( 4 \) for
 second differences.]{#tab-add-terms}
 
-| term | design block \( \Z_j \) | penalty \( \mathbf{K}_j \) | \( \dim\Null(\mathbf{K}_j) \) |
+| term | design block \( \Z_j \) | penalty \( \bP_j \) | \( \dim\Null(\bP_j) \) |
 |---|---|---|---|
 | polynomial of degree \( d \) | powers of \( z \) | \( \bzero \) | \( d+1 \) |
 | P-spline, difference order \( r \) | B-splines at \( z \) | \( \mathbf{D}_r\T\mathbf{D}_r \) | \( r \) |
@@ -57,25 +57,25 @@ second differences.]{#tab-add-terms}
 In @def-add-star, assume every \( \Z_j \) has full column rank. The penalized criterion has
 a unique minimizer for every \( \lambda_j>0 \) if and only if the only vector
 \( \bgamma=(\bbeta\T,\bgamma_1\T,\dots)\T \) with
-\( \X\bbeta+\sum_j\Z_j\bgamma_j=\bzero \) and \( \mathbf{K}_j\bgamma_j=\bzero \) for every
+\( \X\bbeta+\sum_j\Z_j\bgamma_j=\bzero \) and \( \bP_j\bgamma_j=\bzero \) for every
 \( j \) is \( \bgamma=\bzero \). Equivalently: there is no exact concurvity among
-\( \C(\X) \) and the *unpenalized parts* \( \Z_j\Null(\mathbf{K}_j) \) of the terms.
+\( \C(\X) \) and the *unpenalized parts* \( \Z_j\Null(\bP_j) \) of the terms.
 :::
 
 ::: {.proof}
-The criterion is the convex quadratic \( \norm{\y-\Z\bgamma}^2+\bgamma\T\mathbf{K}\bgamma \)
-with \( \mathbf{K} \) the block penalty @eq-add-blockpenalty, and its stationarity condition
-is @eq-add-normal with \( \A=\Z\T\Z+\mathbf{K} \). If \( \A \) is positive definite the
+The criterion is the convex quadratic \( \norm{\y-\Z\bgamma}^2+\bgamma\T\bP\bgamma \)
+with \( \bP \) the block penalty @eq-add-blockpenalty, and its stationarity condition
+is @eq-add-normal with \( \A=\Z\T\Z+\bP \). If \( \A \) is positive definite the
 criterion is strictly convex and @thm-reg-existence gives a unique minimizer. Conversely, if
 \( \A \) is singular, pick \( \bgamma_0\ne\bzero \) with \( \A\bgamma_0=\bzero \); expanding
 the criterion at a minimizer \( \hat{\bgamma} \) gives
 \( Q(\hat{\bgamma}+t\bgamma_0)=Q(\hat{\bgamma})+t^2\bgamma_0\T\A\bgamma_0=Q(\hat{\bgamma}) \)
 for every \( t \), so the minimizer is not unique. Uniqueness for every \( \lambda_j>0 \) is
 therefore positive definiteness of \( \A \), that is
-\( \bgamma\T\A\bgamma=\norm{\Z\bgamma}^2+\sum_j\lambda_j\bgamma_j\T\mathbf{K}_j\bgamma_j=0 \)
+\( \bgamma\T\A\bgamma=\norm{\Z\bgamma}^2+\sum_j\lambda_j\bgamma_j\T\bP_j\bgamma_j=0 \)
 forces \( \bgamma=\bzero \). Both summands are nonnegative, so the condition is exactly the
-one stated, and \( \bgamma_j\T\mathbf{K}_j\bgamma_j=0 \) is equivalent to
-\( \mathbf{K}_j\bgamma_j=\bzero \) by @thm-mat-pd-characterizations.
+one stated, and \( \bgamma_j\T\bP_j\bgamma_j=0 \) is equivalent to
+\( \bP_j\bgamma_j=\bzero \) by @thm-mat-pd-characterizations.
 :::
 
 Two P-spline terms can therefore be identified even when their spaces nearly intersect,
@@ -89,10 +89,10 @@ they fail softly, through inflated variances.
 ::: {#prp-add-mixed}
 [A STAR model is a linear mixed model]
 
-Let \( \mathbf{K}_j \) have rank \( r_j \) and spectral decomposition
-\( \mathbf{K}_j=\mathbf{P}_j^{+}\bLambda_j\mathbf{P}_j^{+\top} \) with
+Let \( \bP_j \) have rank \( r_j \) and spectral decomposition
+\( \bP_j=\mathbf{P}_j^{+}\bLambda_j\mathbf{P}_j^{+\top} \) with
 \( \bLambda_j=\diag(\nu_{j1},\dots,\nu_{jr_j}) \) positive, and let
-\( \mathbf{P}_j^{0} \) be an orthonormal basis of \( \Null(\mathbf{K}_j) \). Put
+\( \mathbf{P}_j^{0} \) be an orthonormal basis of \( \Null(\bP_j) \). Put
 \[
 \X_j^{0}=\Z_j\mathbf{P}_j^{0},\qquad
 \Z_j^{+}=\Z_j\mathbf{P}_j^{+}\bLambda_j^{-1/2},\qquad
@@ -102,7 +102,7 @@ Let \( \mathbf{K}_j \) have rank \( r_j \) and spectral decomposition
 ::: {.enumerate options="label=(\alph*)"}
 1. \( \Z_j\bgamma_j=\X_j^{0}\mathbf{b}_j+\Z_j^{+}\bu_j \) with
    \( \mathbf{b}_j=\mathbf{P}_j^{0\top}\bgamma_j \), and
-   \( \bgamma_j\T\mathbf{K}_j\bgamma_j=\norm{\bu_j}^2 \).
+   \( \bgamma_j\T\bP_j\bgamma_j=\norm{\bu_j}^2 \).
 
 2. With \( \tau_j^2=\sigma^2/\lambda_j \), the penalized criterion @eq-add-criterion
    divided by \( \sigma^2 \) is the criterion @eq-mix-penalized of @thm-mix-henderson for
@@ -126,7 +126,7 @@ basis of \( \Real^{d_j} \), so
 and \( \mathbf{P}_j^{+}\mathbf{P}_j^{+\top}\bgamma_j
 =\mathbf{P}_j^{+}\bLambda_j^{-1/2}\bu_j \). Multiplying by \( \Z_j \) gives the first
 claim. For the second,
-\( \bgamma_j\T\mathbf{K}_j\bgamma_j
+\( \bgamma_j\T\bP_j\bgamma_j
 =\bgamma_j\T\mathbf{P}_j^{+}\bLambda_j\mathbf{P}_j^{+\top}\bgamma_j=\norm{\bu_j}^2 \).
 (b) Substituting (a) into @eq-add-criterion turns it into
 \[
@@ -145,7 +145,7 @@ transformed model.
 A penalty is a prior, and a smoothing parameter is a variance ratio. That one
 identification does three jobs: the null space of a penalty becomes *fixed* effects, which
 is why [Table 44.5.1](05-structured-additive.html#tab-add-terms) records
-\( \dim\Null(\mathbf{K}_j) \); it supplies a likelihood for
+\( \dim\Null(\bP_j) \); it supplies a likelihood for
 \( \boldsymbol{\uplambda} \), which cross-validation does not; and it puts every result of
 [Chapter 32](../ch32-linear-mixed-models/index.html) — BLUP, REML, Henderson's equations,
 the posterior of @prp-mix-bayes — at the service of smoothing.
@@ -173,8 +173,8 @@ In the mixed-model representation of @prp-add-mixed, the expectation-maximizatio
 for the variance components, with \( (\mathbf{b},\bu) \) as the missing data, updates
 \[
 \tau_j^{2,\text{new}}
-=\frac{1}{r_j}\Bigl[\hat{\bgamma}_j\T\mathbf{K}_j\hat{\bgamma}_j
-+\sigma^2\tr\bigl\{(\A^{-1})_{jj}\mathbf{K}_j\bigr\}\Bigr] ,
+=\frac{1}{r_j}\Bigl[\hat{\bgamma}_j\T\bP_j\hat{\bgamma}_j
++\sigma^2\tr\bigl\{(\A^{-1})_{jj}\bP_j\bigr\}\Bigr] ,
 \]{#eq-add-em-update}
 
 where \( \hat{\bgamma}_j \) and \( \A \) are computed at the current
@@ -182,14 +182,14 @@ where \( \hat{\bgamma}_j \) and \( \A \) are computed at the current
 of @eq-add-em-update together with the update
 \( \sigma^{2,\text{new}}=\norm{\y-\hat{\y}}^2/(n-\mathrm{df}) \) if and only if
 \[
-\hat{\tau}_j^{2}=\frac{\hat{\bgamma}_j\T\mathbf{K}_j\hat{\bgamma}_j}{\mathrm{df}_j-m_j},
+\hat{\tau}_j^{2}=\frac{\hat{\bgamma}_j\T\bP_j\hat{\bgamma}_j}{\mathrm{df}_j-m_j},
 \qquad
 \hat{\sigma}^2=\frac{\norm{\y-\hat{\y}}^2}{n-\mathrm{df}},
 \qquad
 \hat\lambda_j=\frac{\hat\sigma^2}{\hat\tau_j^2} ,
 \]{#eq-add-reml-update}
 
-with \( m_j=d_j-r_j=\dim\Null(\mathbf{K}_j) \) and \( \mathrm{df}_j \), \( \mathrm{df} \)
+with \( m_j=d_j-r_j=\dim\Null(\bP_j) \) and \( \mathrm{df}_j \), \( \mathrm{df} \)
 the effective degrees of freedom of @prp-add-df.
 :::
 
@@ -198,7 +198,7 @@ the effective degrees of freedom of @prp-add-df.
 linear mixed model: the complete-data estimate of \( \tau_j^2 \) is
 \( \norm{\bu_j}^2/r_j \), whose conditional expectation given \( \y \) is
 \( \norm{\hat{\bu}_j}^2/r_j+\tr\{\Cov(\bu_j\mid\y)\}/r_j \). By @prp-add-mixed(a),
-\( \norm{\hat{\bu}_j}^2=\hat{\bgamma}_j\T\mathbf{K}_j\hat{\bgamma}_j \), and by
+\( \norm{\hat{\bu}_j}^2=\hat{\bgamma}_j\T\bP_j\hat{\bgamma}_j \), and by
 @prp-mix-bayes(a) the conditional covariance of \( \bgamma_j \) is
 \( \sigma^2(\A^{-1})_{jj} \), so @eq-add-mixed-transform gives
 
@@ -206,25 +206,25 @@ linear mixed model: the complete-data estimate of \( \tau_j^2 \) is
 \tr\Cov(\bu_j\mid\y)
 =\sigma^2\tr\bigl\{\bLambda_j^{1/2}\mathbf{P}_j^{+\top}(\A^{-1})_{jj}
 \mathbf{P}_j^{+}\bLambda_j^{1/2}\bigr\}
-=\sigma^2\tr\bigl\{(\A^{-1})_{jj}\mathbf{K}_j\bigr\},
+=\sigma^2\tr\bigl\{(\A^{-1})_{jj}\bP_j\bigr\},
 \]
 
 the trace term as written. (The EM step itself is quoted from the mixed-model literature;
 what is proved here is its fixed point.)
 
 For the fixed point, @prp-add-df(b) gives
-\( \mathrm{df}_j=d_j-\lambda_j\tr\{(\A^{-1})_{jj}\mathbf{K}_j\} \), that is
+\( \mathrm{df}_j=d_j-\lambda_j\tr\{(\A^{-1})_{jj}\bP_j\} \), that is
 \[
-\tr\bigl\{(\A^{-1})_{jj}\mathbf{K}_j\bigr\}
+\tr\bigl\{(\A^{-1})_{jj}\bP_j\bigr\}
 =\frac{d_j-\mathrm{df}_j}{\lambda_j}
 =\frac{(d_j-\mathrm{df}_j)\,\tau_j^2}{\sigma^2}.
 \]
 Substituting into @eq-add-em-update and demanding
 \( \tau_j^{2,\text{new}}=\tau_j^2 \),
 \[
-r_j\tau_j^2=\hat{\bgamma}_j\T\mathbf{K}_j\hat{\bgamma}_j+(d_j-\mathrm{df}_j)\tau_j^2 ,
+r_j\tau_j^2=\hat{\bgamma}_j\T\bP_j\hat{\bgamma}_j+(d_j-\mathrm{df}_j)\tau_j^2 ,
 \]
-so \( \tau_j^2(r_j-d_j+\mathrm{df}_j)=\hat{\bgamma}_j\T\mathbf{K}_j\hat{\bgamma}_j \), and
+so \( \tau_j^2(r_j-d_j+\mathrm{df}_j)=\hat{\bgamma}_j\T\bP_j\hat{\bgamma}_j \), and
 \( r_j-d_j=-m_j \) gives the first equation of @eq-add-reml-update. The statement for
 \( \sigma^2 \) is its own update, and \( \lambda_j=\sigma^2/\tau_j^2 \) is
 @prp-add-mixed(c).
@@ -357,10 +357,10 @@ one by exactly the amount the estimated variance ratio dictates.
 @prp-add-mixed already contains it. Give each term the prior
 \[
 \pi(\bgamma_j\mid\tau_j^2)\ \propto\
-(\tau_j^2)^{-r_j/2}\exp\Bigl\{-\frac{1}{2\tau_j^2}\bgamma_j\T\mathbf{K}_j\bgamma_j\Bigr\},
+(\tau_j^2)^{-r_j/2}\exp\Bigl\{-\frac{1}{2\tau_j^2}\bgamma_j\T\bP_j\bgamma_j\Bigr\},
 \]{#eq-add-prior}
 
-normal on \( \Null(\mathbf{K}_j)\perpc \) and flat on the null space, give \( \bbeta \)
+normal on \( \Null(\bP_j)\perpc \) and flat on the null space, give \( \bbeta \)
 a flat prior, and the penalized estimate is the posterior mode (@def-prc-posterior); with
 \( \boldsymbol{\uplambda} \) fixed the posterior of \( \bgamma \) is normal with
 covariance \( \sigma^2\A^{-1} \) by @prp-mix-bayes(a). That covariance produces the bands
@@ -376,7 +376,7 @@ whose advantage is precisely that it propagates the uncertainty in
 ::: {.warning}
 [Improper priors on variance components]
 
-The prior @eq-add-prior is improper on \( \Null(\mathbf{K}_j) \), which is harmless: that
+The prior @eq-add-prior is improper on \( \Null(\bP_j) \), which is harmless: that
 part is a fixed effect with a flat prior. The prior on \( \tau_j^2 \) is not harmless. An
 inverse-gamma prior with both parameters tending to zero, or a flat prior on
 \( \tau_j^2 \), can produce an improper posterior, and the symptom in a sampler is not a
@@ -404,7 +404,7 @@ towards a constant.
 [B1]
 
 Take one term with \( \Z=\mathbf{D} \) the \( n\times K \) matrix of cluster indicators and
-\( \mathbf{K}=\I \). Show that the penalized estimate of the cluster effects is
+\( \bP=\I \). Show that the penalized estimate of the cluster effects is
 \( \hat\gamma_k=m_k\bar r_k/(m_k+\lambda) \), where \( m_k \) is the cluster size and
 \( \bar r_k \) the mean residual in cluster \( k \), and identify this with @thm-mix-blup
 for the one-way random effects model of @def-mix-oneway.
@@ -443,7 +443,7 @@ lands there should be reported.
 ::: {.solution}
 Let the first term be a P-spline in a covariate with no effect and the second anything. If
 the data show no roughness in that term,
-\( \hat{\bgamma}_1\T\mathbf{K}_1\hat{\bgamma}_1\to0 \) while \( \mathrm{df}_1\to m_1 \),
+\( \hat{\bgamma}_1\T\bP_1\hat{\bgamma}_1\to0 \) while \( \mathrm{df}_1\to m_1 \),
 so @eq-add-reml-update sends \( \tau_1^2\to0 \) and \( \lambda_1\to\infty \), and there
 the update reproduces itself because the numerator stays zero. This is the boundary of the
 parameter space, where @thm-mix-boundary says the usual asymptotics for a test of

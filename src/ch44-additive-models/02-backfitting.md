@@ -12,7 +12,7 @@ what the others have left behind, and go round again.
 Write \( \bS_j \) for the smoother of the \( j \)th term, the linear operator that fits
 that term alone to a response vector:
 \[
-\bS_j=\Z_j\bigl(\Z_j\T\Z_j+\lambda_j\mathbf{K}_j\bigr)^{-1}\Z_j\T .
+\bS_j=\Z_j\bigl(\Z_j\T\Z_j+\lambda_j\bP_j\bigr)^{-1}\Z_j\T .
 \]{#eq-add-blocksmoother}
 
 The **partial residual** for term \( j \) is what the response has left once every other
@@ -45,9 +45,9 @@ to what.
 [Backfitting]
 
 Consider the criterion @eq-add-criterion with blocks \( \Z_0=\X \),
-\( \mathbf{K}_0=\bzero \) and \( \Z_1,\dots,\Z_q \), and write
-\( \A_{jj}=\Z_j\T\Z_j+\lambda_j\mathbf{K}_j \), assumed nonsingular for every \( j \). Let
-\( \A=\Z\T\Z+\mathbf{K} \) as in @eq-add-normal, so that \( \A \) is nonnegative definite
+\( \bP_0=\bzero \) and \( \Z_1,\dots,\Z_q \), and write
+\( \A_{jj}=\Z_j\T\Z_j+\lambda_j\bP_j \), assumed nonsingular for every \( j \). Let
+\( \A=\Z\T\Z+\bP \) as in @eq-add-normal, so that \( \A \) is nonnegative definite
 with diagonal blocks \( \A_{jj} \).
 
 ::: {.enumerate options="label=(\alph*)"}
@@ -83,7 +83,7 @@ with diagonal blocks \( \A_{jj} \).
 ::: {.proof}
 (a) As a function of \( \bgamma_j \) alone, with \( \br_j=\y-\sum_{k\ne j}\Z_k\bgamma_k \),
 \[
-Q=\norm{\br_j-\Z_j\bgamma_j}^2+\lambda_j\bgamma_j\T\mathbf{K}_j\bgamma_j+\text{const},
+Q=\norm{\br_j-\Z_j\bgamma_j}^2+\lambda_j\bgamma_j\T\bP_j\bgamma_j+\text{const},
 \]
 strictly convex because \( \A_{jj} \) is nonsingular; its gradient vanishes at
 \( \A_{jj}\bgamma_j=\Z_j\T\br_j \), the stated update, and
@@ -132,7 +132,7 @@ Now \( \C(\A^{1/2}) \) is invariant under \( \mathbf{N} \), since
 \( \norm{\A^{1/2}\mathbf{e}^{(t)}}\le\rho^{t}\norm{\A^{1/2}\mathbf{e}^{(0)}} \).
 
 Finally, \( \norm{\A^{1/2}\mathbf{e}}^2=\mathbf{e}\T\A\mathbf{e}
-=\norm{\Z\mathbf{e}}^2+\mathbf{e}\T\mathbf{K}\mathbf{e} \), so both terms tend to zero,
+=\norm{\Z\mathbf{e}}^2+\mathbf{e}\T\bP\mathbf{e} \), so both terms tend to zero,
 which gives \( \Z\bgamma^{(t)}\to\Z\hat{\bgamma} \) and
 \( Q(\bgamma^{(t)})\to Q(\hat{\bgamma}) \). For the coefficients themselves,
 \[
@@ -165,7 +165,7 @@ unique iff the only way to write \( \bzero \) as \( \sum_j\bv_j \) with
 :::
 
 ::: {.proof}
-With \( \mathbf{K}=\bzero \) the criterion is \( \norm{\y-\Z\bgamma}^2 \) and
+With \( \bP=\bzero \) the criterion is \( \norm{\y-\Z\bgamma}^2 \) and
 \( \A=\Z\T\Z \), nonnegative definite with nonsingular diagonal blocks, which is what
 @thm-add-backfitting(c) needs; its conclusion is \( \Z\bgamma^{(t)}\to\Z\hat{\bgamma} \),
 and \( \Z\hat{\bgamma}=\M\y \) is the projection onto
@@ -377,7 +377,7 @@ With the notation of @def-add-concurvity-index and \( \lambda_j=0 \) for all \( 
    with \( \Var(\hat\beta_j)=\sigma^2/\{\norm{\x_j}^2(1-\kappa_j)\} \).
 
 3. *(What a penalty repairs.)* With \( \lambda_j>0 \) for every \( j \) and
-   \( \Null(\Z_j)\cap\Null(\mathbf{K}_j)=\{\bzero\} \), the matrix \( \A \) is nonsingular
+   \( \Null(\Z_j)\cap\Null(\bP_j)=\{\bzero\} \), the matrix \( \A \) is nonsingular
    and the fitted components are unique, whatever \( \kappa_j \) may be.
 :::
 
@@ -414,8 +414,8 @@ because the eigenvector relation gives
 \( \tilde{\A}_j=\norm{(\I-\M_{-j})\x_j}^2=\norm{\x_j}^2(1-\kappa_j) \),
 which is @exr-proj-vif.
 
-(c) Under the stated condition, \( \bgamma\T\A\bgamma=\norm{\Z\bgamma}^2+\bgamma\T\mathbf{K}\bgamma=0 \)
-forces \( \Z_j\bgamma_j=\bzero \) and \( \mathbf{K}_j\bgamma_j=\bzero \) for every
+(c) Under the stated condition, \( \bgamma\T\A\bgamma=\norm{\Z\bgamma}^2+\bgamma\T\bP\bgamma=0 \)
+forces \( \Z_j\bgamma_j=\bzero \) and \( \bP_j\bgamma_j=\bzero \) for every
 \( j \), hence \( \bgamma=\bzero \).
 :::
 
@@ -431,7 +431,7 @@ Part (c) says nothing about variances, and the usual informal claim — that the
 \( \kappa_j\to1 \) — is not a theorem: with \( \lambda_j>0 \) fixed, \( \A \) stays
 nonsingular and the variances of @prp-add-df(c) stay bounded. What the penalty does is take
 over the identification: the closer \( \kappa_j \) is to one, the less of
-\( \hat{\mathbf{f}}_j \) is settled by the data and the more by \( \mathbf{K}_j \).
+\( \hat{\mathbf{f}}_j \) is settled by the data and the more by \( \bP_j \).
 Exact variances cost one matrix inverse; compute them and \( \kappa_j \), and report
 both.
 :::

@@ -1,10 +1,10 @@
 # Smoothing splines
 
 A P-spline starts from a basis and adds a penalty to it. The smoothing spline
-does the opposite. It asks a question about functions, with no basis in sight —
-among *all* twice-differentiable functions, which one balances fit against
-roughness best? — and the answer turns out to be a spline. This is the most
-satisfying derivation of a smoother in the subject, and it is short.
+does the opposite: it asks a question about functions, with no basis in sight —
+among *all* twice-differentiable functions, which balances fit against roughness
+best? — and the answer turns out to be a spline, by the shortest and most
+satisfying derivation in the subject.
 
 ## The variational problem
 

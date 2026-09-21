@@ -170,7 +170,7 @@ Rearranging, \( (1-s_{ii})(y_i-\tilde{y}_i)=y_i-\hat{y}_i \), and (a) allows div
 :::
 
 The argument uses only that deleting a case gives the same answer as replacing its response by its own prediction.
-It covers the ridge estimators of [Chapter 27](../ch27-shrinkage/index.html) and the smoothing splines of Chapter 43,
+It covers the ridge estimators of [Chapter 27](../ch27-shrinkage/index.html) and the smoothers of [Chapter 43](../ch43-smoothing/index.html) (@thm-smo-lambda),
 but not the lasso or subset selection, where deleting a case can change which coefficients are nonzero.
 
 [Section 27.2](../ch27-shrinkage/02-ridge.html) already used the leave-one-out shortcut and GCV to choose the ridge

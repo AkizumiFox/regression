@@ -24,7 +24,7 @@ least squares chooses the line that minimizes the sum of squared residuals,
 \[
 S(b_0,b_1)=\sum_{i=1}^n(y_i-b_0-b_1x_i)^2 .
 \]
-Other criteria are possible, for example the sum of absolute residuals (Chapter 45). Squared
+Other criteria are possible, for example the sum of absolute residuals ([Chapter 45](../ch45-quantile-gamlss/index.html), @def-qnt-quantile). Squared
 error is chosen because it leads to linear equations, because it matches the
 conditional mean of @prp-lm-error-decomposition(c), and because its statistical
 properties under (L1)–(L3) can be worked out exactly, which is the business of this chapter.

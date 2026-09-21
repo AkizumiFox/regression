@@ -234,7 +234,7 @@ tabulated. For three points they are \( (-1,0,1) \) and \( (1,-2,1) \). For four
 \( (-3,-1,1,3) \), \( (1,-1,-1,1) \) and \( (-1,3,-3,1) \). They serve as contrasts for a quantitative
 factor with equally spaced levels, splitting the treatment sum of squares into linear, quadratic
 and higher components. Their numerical merits and the recurrence that generates them belong to
-Chapter 42.
+[Chapter 42](../ch42-polynomials-piecewise/index.html) (@thm-ply-recurrence).
 
 ::: {#exm-ss-nile-polynomials}
 [A trend in the Nile]

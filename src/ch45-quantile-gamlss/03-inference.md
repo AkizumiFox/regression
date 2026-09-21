@@ -127,8 +127,12 @@ because \( \sum_ic_i^2\to\boldsymbol{\updelta}\T\bD_0\boldsymbol{\updelta} \) an
 Hence \( R_n(\boldsymbol{\updelta})\to\frac12\boldsymbol{\updelta}\T\bD_1\boldsymbol{\updelta} \) in probability, and for each
 fixed \( \boldsymbol{\updelta} \),
 \[
-Z_n(\boldsymbol{\updelta})\;\xrightarrow{d}\;Z(\boldsymbol{\updelta})=-\boldsymbol{\updelta}\T\bw+\tfrac12\boldsymbol{\updelta}\T\bD_1\boldsymbol{\updelta},
-\qquad \bw\sim\Normal_p\{\bzero,\tau(1-\tau)\bD_0\},
+\begin{gathered}
+Z_n(\boldsymbol{\updelta})\;\xrightarrow{d}\;
+Z(\boldsymbol{\updelta})=-\boldsymbol{\updelta}\T\bw
++\tfrac12\boldsymbol{\updelta}\T\bD_1\boldsymbol{\updelta},\\
+\bw\sim\Normal_p\{\bzero,\tau(1-\tau)\bD_0\},
+\end{gathered}
 \]
 jointly over finitely many \( \boldsymbol{\updelta} \), since \( \bw_n \) is the only random part in
 the limit. The limit \( Z \) is a strictly convex quadratic with unique minimizer

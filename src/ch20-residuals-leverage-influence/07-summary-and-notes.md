@@ -65,7 +65,7 @@ version for the simplest configuration. Hadi and Simonoff (1993), Atkinson and R
 treated regression, under the leverage condition of @prp-res-max-leverage. The bisquare is from Beaton and Tukey (1974), IRLS
 for robust regression was studied by Holland and Welsch (1977), and the finite-sample breakdown point is from Donoho and Huber
 (1983). LMS and LTS are from Rousseeuw (1984), with Rousseeuw and Leroy (1987) the standard account and Rousseeuw and Van
-Driessen (2006) the concentration step. The MM-estimator is Yohai's (1987). Maronna, Martin and Yohai (2006) give the theory; median and quantile regression are the subject of Chapter 45.
+Driessen (2006) the concentration step. The MM-estimator is Yohai's (1987). Maronna, Martin and Yohai (2006) give the theory; median and quantile regression are the subject of [Chapter 45](../ch45-quantile-gamlss/index.html) (@def-qnt-quantile).
 
 **Data.** Engel's budgets were made widely available by Koenker and Bassett (1982) and are distributed with statsmodels; the
 state data are those of [Chapter 6](../ch06-projections/index.html).

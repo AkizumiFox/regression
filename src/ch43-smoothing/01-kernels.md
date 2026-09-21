@@ -14,12 +14,12 @@ it is an assumption of *local* regularity: \( f \) does not change much over a
 short interval, so observations with covariate values near \( x \) carry
 information about \( f(x) \).
 
-That single sentence is the whole idea of this section. Fix a target point
-\( x \), take the observations whose covariates lie within a window around it,
-fit something simple to them by least squares, and read off the fitted value at
-\( x \). Move \( x \) across the interval and the fitted values trace out a
-curve. Everything else is bookkeeping: which observations count as "near", how
-much they count, and what "something simple" means.
+That sentence is the whole idea of this section. Fix a target point \( x \), take
+the observations whose covariates lie in a window around it, fit something simple
+to them by least squares, and read off the fitted value at \( x \); move \( x \)
+across the interval and the fitted values trace a curve. Everything else is
+bookkeeping: which observations count as "near", how much they count, and what
+"something simple" means.
 
 ## Local averages
 
@@ -140,11 +140,10 @@ price of killing the \( h^2 \) bias term.
 
 ## Bias and variance
 
-Two assumptions make the asymptotics exact rather than heuristic. The first
-concerns the design. A random design would work too, at the cost of replacing
-every statement by one that holds in probability; the proof below is for a
-*regular* design, which is the case where the argument is a clean Riemann-sum
-estimate.
+Four assumptions make the asymptotics exact rather than heuristic. A random
+design would work too, at the cost of replacing every statement by one that holds
+in probability; the proof below is for a *regular* design, where the argument is a
+clean Riemann-sum estimate.
 
 **(A) Design.** \( x_i=G^{-1}\{(i-\tfrac12)/n\} \) for \( i=1,\dots,n \), where
 \( G \) is a distribution function on \( [a,b] \) whose density \( g \) is
@@ -157,10 +156,9 @@ continuously differentiable and bounded away from zero.
 
 **(D) Bandwidth.** \( h=h_n\to0 \) and \( nh\to\infty \).
 
-Assumption (A) is what an equally spaced design or a quantile-spaced design
-satisfies exactly. The next lemma is the only analysis in this chapter, and it
-says that a kernel-weighted sum over such a design is an integral plus a bounded
-error.
+Assumption (A) holds exactly for an equally spaced or quantile-spaced design. The
+next lemma, the only analysis in this chapter, says that a kernel-weighted sum
+over such a design is an integral plus a bounded error.
 
 ::: {#lem-smo-moment-sums}
 [Kernel sums are integrals]
@@ -345,7 +343,9 @@ parametric estimator has variance of order \( n^{-1} \) and no bias; here only
 the \( O(nh) \) points in the window contribute, so the variance is of order
 \( (nh)^{-1} \) against a bias of order \( h^2 \). Balancing the two forces
 \( h\asymp n^{-1/5} \) and leaves a mean squared error of order \( n^{-4/5} \),
-strictly slower than \( n^{-1} \).
+strictly slower than \( n^{-1} \). The optimal bandwidth shrinks slowly: ten
+times the data calls for a window only
+\( 1.585 \) times narrower.
 
 ::: {.warning}
 @eq-smo-hopt is not a recipe. It involves the unknown \( f''(x) \), the unknown
@@ -626,12 +626,11 @@ the matrix is worse than singular: it is ill conditioned with an entry of
 indefinite sign.
 
 (c) The constant now involves \( f^{(4)} \), far harder to estimate than
-\( f'' \); the gain over \( n^{-4/5} \) only appears at sample sizes where the two
+\( f'' \); the gain over \( n^{-4/5} \) shows only at sample sizes where the two
 rates differ appreciably; negative weights can make \( \hat f \) negative where
-the data are not, which is unacceptable for a variance, a rate or a probability;
-and by (b) the degree-\( q \) fit loses the boundary and design-bias advantages
-of @thm-smo-local-poly(b) and (c) that were the reason for using \( q=1 \) in the
-first place.
+the data are not, which is unacceptable for a variance or a probability; and by
+(b) the fit loses the boundary and design-bias advantages that were the reason
+for \( q=1 \).
 :::
 
 ::: {#exr-smo-random-design}
@@ -651,13 +650,12 @@ bias term of order \( h^2 \) is required (compare the size of the stochastic err
 ::: {.solution}
 \( \E\{S_{n,j}\}=n\E\{K_h(x_1-x)(x_1-x)^j\}
 =nh^j\int K(u)u^jg(x+hu)\,du=nh^j\{g(x)\mu_j+O(h)\} \) by continuity of \( g \),
-and \( \Var(S_{n,j})\le n\E\{K_h(x_1-x)^2(x_1-x)^{2j}\}=O(nh^{2j-1}) \). Hence
-the standard deviation of \( (nh^j)^{-1}S_{n,j} \) is \( O\{(nh)^{-1/2}\} \), which
-tends to zero under (D), and Slutsky's theorem transfers every limit in the
-proof. The difficulty is that after division by the leading term the stochastic
-error in the bias is of order \( h^2(nh)^{-1/2} \); at \( h\asymp n^{-1/5} \) this
-is \( n^{-4/5} \), the same order as the squared bias itself. A statement about the
-*conditional* bias given the design therefore needs the sharper expansions of
-Fan and Gijbels (1996, ch. 3), not the crude bound above.
+and \( \Var(S_{n,j})\le n\E\{K_h(x_1-x)^2(x_1-x)^{2j}\}=O(nh^{2j-1}) \). The
+standard deviation of \( (nh^j)^{-1}S_{n,j} \) is therefore \( O\{(nh)^{-1/2}\} \),
+which tends to zero under (D), and Slutsky's theorem transfers every limit in the
+proof. The difficulty is that the stochastic error in the bias is of order
+\( h^2(nh)^{-1/2} \), which at \( h\asymp n^{-1/5} \) is \( n^{-4/5} \), the same
+order as the squared bias. A statement about the *conditional* bias given the
+design therefore needs the sharper expansions of Fan and Gijbels (1996, ch. 3).
 :::
 

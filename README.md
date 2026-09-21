@@ -1,7 +1,9 @@
 # Regression: From Projection to Distribution
 
 One source, Pandoc Markdown in `src/`, built by `build.py` into both the website and the PDFs
-(the same engine as the linear-algebra book).
+(the same engine as the linear-algebra book). All 45 chapters, in 10 parts, are written: the
+classical linear model and its exact theory, then one relaxed assumption per part, ending with
+models for the whole conditional distribution.
 
 | Task | Command |
 |---|---|
@@ -26,7 +28,7 @@ to a list of all results and a dependency graph.
 
 ## Layout
 
-- `src/`: the written chapters (1–41), one Markdown file per section, with the figures
+- `src/`: the chapters (1–45, the whole book), one Markdown file per section, with the figures
   of each chapter beside its Markdown (`name.pdf` for print, `name.svg` for the web). `src/index.md`
   is the preface, how-to-use and notation page.
 - `config/config.json`: chapters, parts, environments, deploy target. `latex/macros.tex`: the
@@ -39,7 +41,7 @@ to a list of all results and a dependency graph.
   (the prerequisite graph of the six source books), `check_order.py`, `originality.py`,
   `coverage/chNN.md` (source topics mapped to where the book covers them), `make_blueprints.py`.
 - `authoring/`: `STYLE.md` (how to write a section), `NOTATION.md`, `STATUS.md`, and
-  `blueprints/chNN.md` (the brief for every chapter, written or not).
+  `blueprints/chNN.md` (the brief each chapter was written from).
 - `build/`, `filters/`, `templates/`, `latex/*.sty`, `tests/`, `widgets/`: the engine, copied from
   the linear-algebra book (see "Another book" in `BUILD.md`).
 - `regression/`: the six source books (PDFs, copyrighted, gitignored; used only for coverage

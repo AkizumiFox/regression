@@ -32,11 +32,11 @@ logarithm for a positive one, the logit for one in \( (0,1) \)), and each
 \( \eta_{ik} \) is a structured additive predictor (@def-add-star)
 \[
 \eta_{ik}=\beta_{0k}+\sum_{j=1}^{J_k}f_{jk}(v_{ij}),
-\qquad f_{jk}(\cdot)\text{ represented by }\Z_{jk}\bbeta_{jk},
+\qquad f_{jk}(\cdot)\text{ represented by }\Z_{jk}\bgamma_{jk},
 \]{#eq-qnt-gamlss-predictor}
 
-with each \( \bbeta_{jk} \) carrying a quadratic penalty
-\( \lambda_{jk}\bbeta_{jk}\T\mathbf{K}_{jk}\bbeta_{jk} \). The predictors for different
+with each \( \bgamma_{jk} \) carrying a quadratic penalty
+\( \lambda_{jk}\bgamma_{jk}\T\bP_{jk}\bgamma_{jk} \). The predictors for different
 parameters may use different covariates and different amounts of structure.
 :::
 
@@ -66,20 +66,20 @@ it is the fit of @exm-qnt-engel-gamlss.
 [Penalized likelihood and block-wise Fisher scoring]
 
 Write \( \ell_i(\boldsymbol{\uptheta}_i)=\log d(y_i;\theta_{i1},\dots,\theta_{iK}) \) and
-collect the coefficients of predictor \( k \) into \( \bbeta_{k} \) with design
-\( \Z_k \), penalty matrix \( \mathbf{K}_k \) and smoothing parameter \( \lambda_k \),
-so that \( \boldsymbol{\upeta}_k=\Z_k\bbeta_k \). The **penalized log-likelihood** is
+collect the coefficients of predictor \( k \) into \( \bgamma_{k} \) with design
+\( \Z_k \), penalty matrix \( \bP_k \) and smoothing parameter \( \lambda_k \),
+so that \( \boldsymbol{\upeta}_k=\Z_k\bgamma_k \). The **penalized log-likelihood** is
 \[
-\ell_p(\bbeta_1,\dots,\bbeta_K)
+\ell_p(\bgamma_1,\dots,\bgamma_K)
 =\sum_{i=1}^n\ell_i(\boldsymbol{\uptheta}_i)
- -\tfrac12\sum_{k=1}^K\lambda_k\,\bbeta_k\T\mathbf{K}_k\bbeta_k .
+ -\tfrac12\sum_{k=1}^K\lambda_k\,\bgamma_k\T\bP_k\bgamma_k .
 \]{#eq-qnt-penalized-loglik}
 
 ::: {.enumerate options="label=(\alph*)"}
 1. **Score.** With \( u_{ik}=\partial\ell_i/\partial\eta_{ik} \) and
    \( \bu_k=(u_{1k},\dots,u_{nk})\T \),
    \[
-   \frac{\partial\ell_p}{\partial\bbeta_k}=\Z_k\T\bu_k-\lambda_k\mathbf{K}_k\bbeta_k .
+   \frac{\partial\ell_p}{\partial\bgamma_k}=\Z_k\T\bu_k-\lambda_k\bP_k\bgamma_k .
    \]{#eq-qnt-gamlss-score}
 
 2. **Fisher scoring is penalized weighted least squares.** Let
@@ -87,8 +87,8 @@ so that \( \boldsymbol{\upeta}_k=\Z_k\bbeta_k \). The **penalized log-likelihood
    \( \W_k=\diag(w_{1k},\dots,w_{nk}) \). Updating block \( k \) with the others held
    fixed by one Fisher scoring step gives
    \[
-   \bbeta_k^{\text{new}}
-   =\bigl(\Z_k\T\W_k\Z_k+\lambda_k\mathbf{K}_k\bigr)^{-1}\Z_k\T\W_k\bz_k,
+   \bgamma_k^{\text{new}}
+   =\bigl(\Z_k\T\W_k\Z_k+\lambda_k\bP_k\bigr)^{-1}\Z_k\T\W_k\bz_k,
    \qquad \bz_k=\boldsymbol{\upeta}_k+\W_k^{-1}\bu_k,
    \]{#eq-qnt-gamlss-step}
 
@@ -116,26 +116,26 @@ so that \( \boldsymbol{\upeta}_k=\Z_k\bbeta_k \). The **penalized log-likelihood
 :::
 
 ::: {.proof}
-(a) By the chain rule \( \partial\ell_i/\partial\bbeta_k
-=(\partial\ell_i/\partial\eta_{ik})\,\partial\eta_{ik}/\partial\bbeta_k \), and
-\( \partial\eta_{ik}/\partial\bbeta_k \) is the \( i \)th row of \( \Z_k \).
+(a) By the chain rule \( \partial\ell_i/\partial\bgamma_k
+=(\partial\ell_i/\partial\eta_{ik})\,\partial\eta_{ik}/\partial\bgamma_k \), and
+\( \partial\eta_{ik}/\partial\bgamma_k \) is the \( i \)th row of \( \Z_k \).
 Summing \( u_{ik} \) times that row over \( i \) gives \( \Z_k\T\bu_k \), and
-differentiating the quadratic penalty gives \( -\lambda_k\mathbf{K}_k\bbeta_k \).
+differentiating the quadratic penalty gives \( -\lambda_k\bP_k\bgamma_k \).
 
 (b) Differentiating @eq-qnt-gamlss-score once more, the contribution of observation
 \( i \) to the second derivative within block \( k \) is
 \( \partial^2\ell_i/\partial\eta_{ik}^2 \) times the outer product of the
 \( i \)th row of \( \Z_k \) with itself; taking expectations and summing over the
-independent responses gives \( -\Z_k\T\W_k\Z_k-\lambda_k\mathbf{K}_k \). A Fisher
+independent responses gives \( -\Z_k\T\W_k\Z_k-\lambda_k\bP_k \). A Fisher
 scoring step therefore reads
 \[
-\bbeta_k^{\text{new}}
-=\bbeta_k+\bigl(\Z_k\T\W_k\Z_k+\lambda_k\mathbf{K}_k\bigr)^{-1}
-   \bigl(\Z_k\T\bu_k-\lambda_k\mathbf{K}_k\bbeta_k\bigr).
+\bgamma_k^{\text{new}}
+=\bgamma_k+\bigl(\Z_k\T\W_k\Z_k+\lambda_k\bP_k\bigr)^{-1}
+   \bigl(\Z_k\T\bu_k-\lambda_k\bP_k\bgamma_k\bigr).
 \]
-Adding and subtracting \( \Z_k\T\W_k\Z_k\bbeta_k \) inside the bracket turns the right
-side into \( (\Z_k\T\W_k\Z_k+\lambda_k\mathbf{K}_k)^{-1}\Z_k\T\W_k
-(\Z_k\bbeta_k+\W_k^{-1}\bu_k) \), which is @eq-qnt-gamlss-step.
+Adding and subtracting \( \Z_k\T\W_k\Z_k\bgamma_k \) inside the bracket turns the right
+side into \( (\Z_k\T\W_k\Z_k+\lambda_k\bP_k)^{-1}\Z_k\T\W_k
+(\Z_k\bgamma_k+\W_k^{-1}\bu_k) \), which is @eq-qnt-gamlss-step.
 
 (c) With \( \ell_i=-\log\sigma_i-(y_i-\mu_i)^2/(2\sigma_i^2)-\tfrac12\log(2\pi) \),
 \( \mu_i=\eta_{i1} \) and \( \sigma_i=e^{\eta_{i2}} \), direct differentiation gives
@@ -168,7 +168,7 @@ Orthogonality in part (c) is special to this parameterization of the normal fami
 for most families the cross-information is not zero, and cycling over blocks then
 converges more slowly or must give way to a joint Newton step. The effective degrees
 of freedom of a block is the trace
-\( \tr\{(\Z_k\T\W_k\Z_k+\lambda_k\mathbf{K}_k)^{-1}\Z_k\T\W_k\Z_k\} \)
+\( \tr\{(\Z_k\T\W_k\Z_k+\lambda_k\bP_k)^{-1}\Z_k\T\W_k\Z_k\} \)
 that @thm-shr-ridge attached to ridge regression and @def-reg-penalized to penalized
 least squares; the total of these traces goes into AIC (@prp-sel-aic-bic).
 

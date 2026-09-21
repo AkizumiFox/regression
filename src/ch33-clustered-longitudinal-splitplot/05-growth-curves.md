@@ -342,8 +342,8 @@ replace \( \bbeta \) by \( \boldsymbol{\Xi}\mathbf{a}_i \) as in the
 formulation @eq-cls-potthoff-roy. Serial correlation on top of the random coefficients: take
 \( \R \) autoregressive, as in
 [Section 33.4](04-covariance-models.html). Beyond all of these lies the question
-whether a polynomial in time is the right shape at all: Chapter 42 and
-Chapter 43.
+whether a polynomial in time is the right shape at all: [Chapter 42](../ch42-polynomials-piecewise/index.html)
+and [Chapter 43](../ch43-smoothing/index.html).
 :::
 
 ## Exercises

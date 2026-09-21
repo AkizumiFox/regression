@@ -116,8 +116,8 @@ single essay on what BLUP is and why several derivations converge on it, and the
 warning in [Section 32.3](03-blup.html) about ranking shrunk predictions is developed
 there. The equivalence with penalized least squares, and hence with ridge
 regression (@thm-shr-ridge), is the bridge to smoothing: Ruppert, Wand and Carroll (2003) build
-semiparametric regression on it, and Chapter 43 uses it to estimate a smoothing
-parameter by REML.
+semiparametric regression on it, and [Chapter 43](../ch43-smoothing/index.html) uses it to estimate a
+smoothing parameter by REML (@thm-smo-mixed).
 
 **REML.**  Restricted maximum likelihood was introduced by Patterson and Thompson
 (1971) for recovering inter-block information in incomplete block designs, the problem

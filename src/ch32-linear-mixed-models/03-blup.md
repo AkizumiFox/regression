@@ -348,9 +348,9 @@ charge \( \bu\T\G^{-1}\bu \) for using them. With \( \R=\sigma^2\I \) and
 only (@thm-shr-ridge). The difference from
 [Chapter 27](../ch27-shrinkage/index.html) is that the penalty is not chosen by
 cross-validation; it is estimated, because the model says what
-\( \sigma^2/\sigma_u^2 \) means. Chapter 43 exploits the same equivalence in the
-other direction, writing a smoothing spline as a mixed model so that its smoothing
-parameter can be estimated by REML.
+\( \sigma^2/\sigma_u^2 \) means. [Chapter 43](../ch43-smoothing/index.html) exploits the same equivalence
+in the other direction, writing a penalized spline as a mixed model so that its
+smoothing parameter can be estimated by REML (@thm-smo-mixed).
 :::
 
 ```{.python .run #cell-blup-setup}

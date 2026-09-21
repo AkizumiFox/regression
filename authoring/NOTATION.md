@@ -68,3 +68,30 @@ A chapter that needs a new symbol adds it here and there before using it.
   unrecorded parts, `\boldsymbol{\uptheta}` the parameter of the data model and
   `\boldsymbol{\uppsi}` that of the mechanism; `\bR_i` in section 40.4.6 is the same indicator
   in diagonal form.
+
+- **Bases, penalties and smoothers (Part IX).** A *basis matrix* is `\B`, with
+  \( B_{ij}=B_j(x_i) \) the \( j \)th basis function at the \( i \)th design point, and
+  `\bgamma` its coefficients; unpenalized columns stay in `\X` with coefficients `\bbeta`.
+  *Knots* are `\kappa`: chapter 42 writes \( \kappa_1<\dots<\kappa_K \) for the \( K \)
+  interior knots of a piecewise polynomial, chapter 43 keeps `\kappa` for the *extended*
+  sequence of a B-spline basis and writes \( t_1<\dots<t_K \) for the interior knots inside
+  it; chapter 44 writes \( \kappa_l \) for the knots of a kriging term. `\kappa(\cdot)` with
+  an argument is the condition number of @def-mat-condition-number, as in chapters 1 and 10.
+  The *penalty matrix* is `\bP`, nonnegative definite, with *smoothing parameter*
+  \( \lambda\ge0 \); the penalty is \( \lambda\bgamma\T\bP\bgamma \) and a difference matrix
+  is `\bD_k`, so that \( \bP=\bD_k\T\bD_k \) for a P-spline. A fit that is linear in the
+  response has *smoother matrix* `\bS_\lambda` (`\bS` when \( \lambda \) is fixed), and its
+  *effective degrees of freedom* is \( \tr(\bS_\lambda) \), the trace of chapters 27 and 30.
+  Chapter 43 writes \( K \) for a kernel function and \( h \) for a bandwidth in section 43.1
+  only; from section 43.2 on \( K \) is the number of interior knots. Chapters 44 and 45
+  index a term by \( j \): a design block `\Z_j` with penalty `\bP_j`, coefficients
+  `\bgamma_j` and smoothing parameter \( \lambda_j \), so `\Z` keeps the meaning it has in
+  Part VII, the design of the coefficients that are shrunk.
+
+- **Beyond the mean (Part X).** The *quantile level* is \( \tau\in(0,1) \), the *check loss*
+  is \( \rho_{\tau}(u)=u\{\tau-1\{u<0\}\} \) and \( Q_Y(\tau) \) is a quantile function;
+  \( s(\tau)=1/f\{Q(\tau)\} \) is the sparsity function. Asymmetric squared loss gives
+  *expectiles* at level \( \tau \). In a GAMLSS the \( k \)th parameter of the response
+  distribution is \( \theta_k \) with its own predictor \( \boldsymbol{\upeta}_k \) — a local
+  use of \( \theta \), not the natural parameter of @def-glm-model.
+  The indicator of an event is written \( 1\{\cdot\} \) throughout.

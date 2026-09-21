@@ -289,8 +289,8 @@ for m in (5, 11, 21, 31):
 
 ## Centring and scaling are a partial repair
 
-Part (a) is about the *basis*, and a basis can be changed without touching the
-model. The cheapest change is affine: fit in
+Part (a) of @prp-ply-instability is about the *basis*, and a basis can be
+changed without touching the model. The cheapest change is affine: fit in
 \( u=\{2x-\max x-\min x\}/(\max x-\min x) \), which runs over \( [-1,1] \), or at
 least in \( x-\bar x \). By @thm-proj-reparam the fit is identical and only the
 arithmetic differs. For the carbon dioxide design the condition number of the

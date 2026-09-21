@@ -15,8 +15,8 @@ and what changes when the basis is swapped.
 ::: {#def-ply-orthogonal}
 [Orthogonal polynomials for a design]
 
-Let \( x_1,\dots,x_n \) be design points with weights \( w_1,\dots,w_n>0 \), \( m \) of
-them distinct. For real functions \( f,g \) on the design write
+Let \( x_1,\dots,x_n \) be design points, \( m \) of them distinct, with weights
+\( w_1,\dots,w_n>0 \). For real functions \( f,g \) on the design write
 \[
 \inner{f}{g}=\sum_{i=1}^{n}w_if(x_i)g(x_i),
 \qquad \norm{f}^2=\inner{f}{f},
@@ -46,8 +46,7 @@ Both sides equal \( \sum_iw_ix_if(x_i)g(x_i) \).
 
 The second is that \( p_j \) is orthogonal to *every* polynomial of degree less
 than \( j \), not only to \( p_0,\dots,p_{j-1} \): those span \( \mathcal P_{j-1} \),
-their degrees being \( 0,1,\dots,j-1 \) and a triangular set of degrees being
-independent.
+because their degrees are \( 0,1,\dots,j-1 \).
 
 ## The three-term recurrence
 
@@ -124,8 +123,7 @@ definition. Since the degrees are \( 0,\dots,j \), the set
 The recurrence needs only the two previous polynomials, so the work is
 \( O(nd) \) rather than Gram–Schmidt's \( O(nd^2) \); it never forms \( x^j \) for
 \( j>1 \), so nothing overflows or cancels; and \( a_j,b_j \) describe the basis in
-\( 2d \) numbers, which is how a fitted polynomial should be stored and
-evaluated.
+\( 2d \) numbers, which is how a fitted polynomial should be stored.
 
 ::: {.remark}
 [Why only three terms]
@@ -314,11 +312,15 @@ in the orthonormal basis, and its extrapolation is still nonsense. Orthogonal
 polynomials answer the first complaint of
 [Section 42.1](01-polynomial-regression.html) and are silent on the second.
 
+::: {.remark}
+[Where these have appeared before]
+
 For a factor with quantitative levels, the same construction with weights
 \( w_k=n_k \) gives the polynomial contrasts of
 [Section 8.7](../ch08-estimability/07-contrasts.html) (@exm-est-party-trend): the
 orthogonal polynomial coding of a factor and the basis that software offers for
 a continuous regressor are one object.
+:::
 
 ## Exercises
 

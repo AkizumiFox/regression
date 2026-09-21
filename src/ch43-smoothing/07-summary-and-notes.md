@@ -70,17 +70,16 @@ kernel named after him to Epanechnikov (1969), though as @exr-smo-efficiency
 shows the gain is a few per cent. The modern theory of local *polynomial*
 fitting is Fan and Gijbels (1996), whose chapter 3 has the random-design version
 of @thm-smo-local-poly with the conditional expansions handled properly; Wand and
-Jones (1995) give the kernel-smoothing background. The design-bias and
-boundary-bias comparisons in @thm-smo-local-poly(b) and (c) are why local linear
-replaced Nadaraya–Watson, an argument made forcefully by Hastie and Loader
-(1993). The fixed-design proof given here, through the Riemann-sum
-bound @lem-smo-moment-sums, makes every error term explicit; the price is
-assumption (A), and @exr-smo-random-design says what changes without it. That the
-rate \( n^{-4/5} \) cannot be improved for twice-differentiable \( f \) is Stone
-(1980, 1982), whose curse of dimensionality is what makes
-[Chapter 44](../ch44-additive-models/index.html) necessary. Loess is Cleveland
-(1979), extended by Cleveland and Devlin (1988), and plug-in bandwidths are
-Ruppert, Sheather and Wand (1995).
+Jones (1995) give the background. The design-bias and boundary-bias comparisons
+in @thm-smo-local-poly(b) and (c) are why local linear replaced
+Nadaraya–Watson, an argument made forcefully by Hastie and Loader (1993). The
+fixed-design proof given here, through @lem-smo-moment-sums, makes every error
+term explicit; the price is assumption (A), and @exr-smo-random-design says what
+changes without it. That the rate \( n^{-4/5} \) cannot be improved for
+twice-differentiable \( f \) is Stone (1980, 1982), whose curse of dimensionality
+is what makes [Chapter 44](../ch44-additive-models/index.html) necessary. Loess
+is Cleveland (1979), extended by Cleveland and Devlin (1988), and plug-in
+bandwidths are Ruppert, Sheather and Wand (1995).
 
 **B-splines.**  Splines as a subject begin with Schoenberg (1946). The stable
 recurrence @eq-smo-deboor is due to de Boor (1972) and Cox (1972); de Boor
@@ -93,10 +92,10 @@ shortest route I know to the basis property for it.
 
 **Penalized splines.**  Penalizing differences of a fitted sequence is
 Whittaker's (1923) graduation, rediscovered many times; its marriage with the
-B-spline basis is Eilers and Marx (1996), which remains the clearest account and
-introduced both the name and the practice of taking many knots and letting the
-penalty do the work. O'Sullivan (1986) had earlier used the integral penalty on a
-B-spline basis, and Wand and Ormerod (2008) relate the two. Ruppert (2002) is the
+B-spline basis is Eilers and Marx (1996), which introduced both the name and the
+practice of taking many knots and letting the penalty do the work. O'Sullivan
+(1986) had earlier used the integral penalty on a B-spline basis, and Wand and
+Ormerod (2008) relate the two. Ruppert (2002) is the
 source of the rule of thumb for the knot count and Ruppert, Wand and Carroll
 (2003) the book-length treatment. The simultaneous
 diagonalization of @lem-smo-diagonalize goes back to Demmler and Reinsch (1975).
@@ -104,34 +103,31 @@ diagonalization of @lem-smo-diagonalize goes back to Demmler and Reinsch (1975).
 **Smoothing splines.**  Reinsch (1967) gave the algorithm; the variational
 characterization @thm-smo-smoothing-spline and the integration-by-parts argument
 behind it are due to Schoenberg and to Reinsch, and the treatment here follows
-Green and Silverman (1994, ch. 2), whose band matrices \( \Q \) and \( \R \) are
-those of @prp-smo-reinsch. Wahba (1990) is the definitive account from the
+Green and Silverman (1994, ch. 2), whose band matrices are those of
+@prp-smo-reinsch. Wahba (1990) is the definitive account from the
 reproducing-kernel side, with the representer theorem of Kimeldorf and Wahba
-(1971) at its centre; Eubank (1999) is a gentler alternative. Silverman (1984)
-computed the equivalent kernel quoted in
-[Section 43.4](04-smoothing-splines.html), and Silverman (1985) surveys the whole
-approach. The \( O(n) \) computation of the diagonal of \( \bS_\lambda \) is
-Hutchinson and de Hoog (1985).
+(1971) at its centre; Eubank (1999) is gentler. Silverman (1984) computed the
+equivalent kernel quoted in [Section 43.4](04-smoothing-splines.html), and
+Silverman (1985) surveys the approach; the \( O(n) \) computation of the diagonal
+of \( \bS_\lambda \) is Hutchinson and de Hoog (1985).
 
 **Choosing the smoothing parameter.**  Generalized cross-validation is Craven
 and Wahba (1979), and the leave-one-out shortcut for quadratic penalties
 is @thm-sel-loocv. The corrected AIC @eq-smo-aicc is Hurvich, Simonoff and Tsai
 (1998), who make the case that its pole is a feature. Opsomer, Wang and Yang
 (2001) review what correlated errors do, which is what @exm-smo-correlated
-illustrates; the general position is that no automatic rule can separate a smooth
-mean from smooth noise without an assumption. Reiss and Ogden (2009) compare REML
-and GCV. Nothing in this chapter addresses inference *after* the selection
-honestly except by saying so; @prp-sel-selection-bias is the relevant warning, and
-the remedies are those of
+illustrates: no automatic rule separates a smooth mean from smooth noise without
+an assumption. Reiss and Ogden (2009) compare REML and GCV. Nothing here
+addresses inference *after* the selection except by saying so;
+@prp-sel-selection-bias is the warning, and the remedies are those of
 [Chapter 23](../ch23-resampling-inference/index.html) and
 [Chapter 29](../ch29-model-selection/index.html).
 
 **Mixed models and Bayes.**  The equivalence between a smoothing penalty and a
 random effect is old — implicit in Whittaker's graduation and explicit in
-Wahba (1978), who used it to argue that a smoothing spline guards against model
-error — and was made into a working method by Ruppert, Wand and Carroll (2003),
-whose chapter 4 contains the transformation of @thm-smo-mixed(a) in essentially
-the form given here. Wahba (1983) introduced the Bayesian band and Nychka (1988)
+Wahba (1978) — and was made into a working method by Ruppert, Wand and Carroll
+(2003), whose chapter 4 contains the transformation of @thm-smo-mixed(a) in
+essentially the form given here. Wahba (1983) introduced the Bayesian band and Nychka (1988)
 analysed its coverage, coining the across-the-function reading that
 @prp-smo-bayes-bands(c) states; that part is quoted, not proved, and the
 simulation in @exm-smo-coverage is the evidence offered for it. Sun and Loader
@@ -139,11 +135,10 @@ simulation in @exm-smo-coverage is the evidence offered for it. Sun and Loader
 of [Section 43.6](06-mixed-model-and-bayes.html) are Denison, Mallick and Smith
 (1998), Donoho and Johnstone (1994) and Ramsay (1988).
 
-**Coverage.**  This chapter follows the ground covered by Fahrmeir, Kneib, Lang
-and Marx (2021, §8.1 and §8.3); their §8.2, on bivariate and spatial smoothing,
-belongs to [Chapter 44](../ch44-additive-models/index.html). Hastie and Tibshirani
-(1990) is the book that made smoothers part of the regression curriculum and is
-the direct ancestor of [Chapter 44](../ch44-additive-models/index.html).
+**Coverage.**  This chapter follows the ground of Fahrmeir, Kneib, Lang and Marx
+(2021, §8.1 and §8.3); their §8.2, on bivariate and spatial smoothing, belongs to
+[Chapter 44](../ch44-additive-models/index.html), as does Hastie and Tibshirani
+(1990), the book that made smoothers part of the regression curriculum.
 
 ## References
 
