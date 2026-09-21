@@ -212,11 +212,11 @@ gives the second form.
 
 The average hides variation: coverage is high where the prior is right and low where it is wrong. Consider the credible interval for the air-flow coefficient in @exm-ci-stackloss-predictive, and simulate its frequentist coverage when
 the true air-flow coefficient is varied, the other coefficients are held at their least squares values, and \( \sigma^2=s^2 \).
-[Figure 12.6.1](#fig-ci-coverage) shows the result. With the prior of Chapter 7, the coverage is \( 0.959 \) when the truth is the prior
+[Figure 12.6.1](#fig-ci-coverage) shows the result. With the prior of [Chapter 7](../ch07-optimality/index.html), the coverage is \( 0.959 \) when the truth is the prior
 mean \( 1 \), and \( 0.936 \) at \( 0.7 \) and at \( 1.5 \). It ranges from \( 0.877 \) to \( 0.965 \) over the plotted
 range. This prior is mild, and prior–data conflict inflates \( b_n \), which widens the interval. A prior with slope standard deviations five times smaller behaves very differently: its coverage is \( 1.000 \) at the prior
 mean but \( 0.007 \) at \( 0.7 \), close to the least squares estimate, and \( 0.000 \) at \( 1.5 \). Averaged over the prior of
-Chapter 7, the simulated coverage is \( 0.9512 \) (\( 40000 \) draws), as @prp-ci-average-coverage requires. The flat-prior interval is
+[Chapter 7](../ch07-optimality/index.html), the simulated coverage is \( 0.9512 \) (\( 40000 \) draws), as @prp-ci-average-coverage requires. The flat-prior interval is
 the \( t \) interval and covers exactly \( 95\% \) at every parameter value.
 
 ::: {when-format="html"}

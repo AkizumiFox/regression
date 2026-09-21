@@ -104,10 +104,10 @@ contract-strike series distributed with statsmodels, from Bureau of Labor Statis
 records. Kennan fitted duration models of a different kind; the Poisson mean model here
 illustrates the methods of this chapter and is not an account of strike durations.
 
-**What comes next.** Chapter 39 returns to models with likelihoods, taking up model
-building, diagnostics and the Bayesian treatment. Chapter 40 extends the estimating-equation
+**What comes next.** [Chapter 39](../ch39-glms-in-practice-bayes/index.html) returns to models with likelihoods, taking up model
+building, diagnostics and the Bayesian treatment. [Chapter 40](../ch40-glmm-gee/index.html) extends the estimating-equation
 idea to correlated responses, where the working variance becomes a working *correlation
-matrix*. Chapter 41 asks what happens when some responses are not observed at all.
+matrix*. [Chapter 41](../ch41-missing-data/index.html) asks what happens when some responses are not observed at all.
 
 ## References
 

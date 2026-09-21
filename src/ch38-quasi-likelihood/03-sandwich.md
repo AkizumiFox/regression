@@ -296,7 +296,7 @@ Assume @eq-ql-specification with the mean model correct.
    apply. The criterion \( \text{QAIC}=D(\y,\hat{\bmu})/\hat\phi+2p \), with
    \( \hat\phi \) fixed at its value in the largest model, is in common use, but it is a
    convention, not a theorem. Cross-validation (@def-sel-cv) needs no likelihood, and the
-   analogue for correlated responses, the QIC of Chapter 40, rests on the same
+   analogue for correlated responses, the QIC of [Chapter 40](../ch40-glmm-gee/index.html), rests on the same
    convention.
 :::
 
@@ -428,7 +428,7 @@ within-group dependence, the middle of @eq-ql-robust becomes
 the cluster-robust form @eq-cls-cluster-sandwich with the quasi-score's coefficients in
 place of the rows of \( \X \). Its consistency needs \( G\to\infty \), by Step 5 above
 with the cluster in place of the observation. The quasi-score is then no longer optimal,
-because the within-group correlations are ignored; Chapter 40 puts a generalized estimating
+because the within-group correlations are ignored; [Chapter 40](../ch40-glmm-gee/index.html) puts a generalized estimating
 equation in its place.
 
 **Resampling.** The bootstrap of [Chapter 23](../ch23-resampling-inference/index.html)

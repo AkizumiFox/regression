@@ -263,6 +263,6 @@ Symmetry would require \( h(-\eta)=1-h(\eta) \), which fails, for example at \( 
 \( h(0)=1-e^{-1}=0.632 \ne\tfrac12 \). As \( \eta\to-\infty \), \( \mu\approx e^{\eta}\to0 \)
 exponentially, while as \( \eta\to+\infty \), \( 1-\mu=\exp(-e^{\eta})\to0 \) doubly
 exponentially: the approach to \( 1 \) is far faster than the approach to \( 0 \).
-Chapter 35 derives the link from a proportional-hazards argument (@prp-bin-links).
+[Chapter 35](../ch35-binary-responses/index.html) derives the link from a proportional-hazards argument (@prp-bin-links).
 :::
 

@@ -210,7 +210,7 @@ Putting a dispersion parameter into a quasi model changes the standard errors an
 with the same variance function can move it by more than a standard
 error (@exm-ql-strikes-choice). The fourth device changes the estimand rather than the
 estimate: a coefficient conditional on a unit's own random effect answers a different
-question from one describing a population average, a distinction Chapter 40 takes up and
+question from one describing a population average, a distinction [Chapter 40](../ch40-glmm-gee/index.html) takes up and
 does not treat as small.
 
 ::: {#exm-ql-strikes-choice}

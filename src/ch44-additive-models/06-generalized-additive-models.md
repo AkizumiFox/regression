@@ -271,7 +271,7 @@ is more stable and is what modern software does; Wood (2011) gives it.
 One choice there matters more than it looks. For a Poisson or binomial response the nominal
 dispersion is \( \phi=1 \), and taking that at face value when the data are overdispersed
 makes \( \lambda_j=\hat\phi/\hat\tau_j^2 \) too small by the factor \( \hat\phi \), so
-every curve is undersmoothed. Chapter 38 built the repair: estimate \( \phi \) by the
+every curve is undersmoothed. [Chapter 38](../ch38-quasi-likelihood/index.html) built the repair: estimate \( \phi \) by the
 Pearson statistic over the residual degrees of freedom (@prp-ql-dispersion) and use *that*
 in the update, which is the quasi-likelihood position of @def-ql-quasi.
 

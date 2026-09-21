@@ -324,7 +324,7 @@ after substituting \( \pi=\mu/(\mu+k) \). With \( k=2 \) and \( \mu=3 \) this gi
 The caveat is essential: this is an exponential dispersion family **only for fixed \( k \)**.
 The shape enters the variance function, not the dispersion, so it cannot be divided out, and
 letting \( k \) vary leaves the form @eq-glm-edf. Estimating \( k \) is outside this chapter's
-machinery; Chapter 37 takes it up.
+machinery; [Chapter 37](../ch37-counts/index.html) takes it up.
 :::
 
 ## Sufficiency, and what the natural parameter buys

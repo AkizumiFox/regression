@@ -33,7 +33,7 @@
 @thm-dep-mse, @prp-dep-cumulants, the limiting coverages and the breakdown point. Measurement error is in
 [Chapter 24](../ch24-errors-in-variables/index.html) (rounding in [Section 19.5](05-random-regressors.html)), perturbation theory in [Chapter 10](../ch10-computation/index.html).
 
-**Underfitting and overfitting.** The omitted-variable formula is classical; it is @prp-lm-omitted in Chapter 5. The
+**Underfitting and overfitting.** The omitted-variable formula is classical; it is @prp-lm-omitted in [Chapter 5](../ch05-model-and-least-squares/index.html). The
 criterion \( \gamma\le1 \) for the restricted estimator to have the smaller mean squared error matrix is due to
 Toro-Vizcarrondo and Wallace (1968) (in their notation, with the factor \( 1/2 \) in the
 noncentrality, the condition reads \( \lambda\le1/2 \)), who also proposed testing it with the noncentral \( F \) distribution. Pretest estimators, which choose between the two models from the data, are taken up with model selection in [Section 29.2](../ch29-model-selection/02-cp-aic-bic.html) and [Section 29.5](../ch29-model-selection/05-selection-bias.html).

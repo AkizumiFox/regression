@@ -58,7 +58,7 @@ noncentrality as half of our \( \gamma \).
 
 **Contrasts and multiple comparisons.** Tables of orthogonal polynomials for equally spaced levels go back at least to Fisher and
 Yates (1938). The exact method for comparisons with a control is due to Dunnett (1955), and the conservativeness of the Tukey–Kramer
-intervals for unequal group sizes was proved by Hayter (1984); [Chapter 13](../ch13-multiplicity/index.html) (@exr-mc-control) characterizes the many-to-one multiplier and gives further references. @prp-aov-contrast-angle and @prp-aov-tree-contrasts are elementary consequences of the projection picture. Part (a) of @prp-aov-balance-power is @exr-glh-unbalanced-lf of Chapter 11; part (b), the optimality of balance, is a short calculation.
+intervals for unequal group sizes was proved by Hayter (1984); [Chapter 13](../ch13-multiplicity/index.html) (@exr-mc-control) characterizes the many-to-one multiplier and gives further references. @prp-aov-contrast-angle and @prp-aov-tree-contrasts are elementary consequences of the projection picture. Part (a) of @prp-aov-balance-power is @exr-glh-unbalanced-lf of [Chapter 11](../ch11-general-linear-hypothesis/index.html); part (b), the optimality of balance, is a short calculation.
 
 **Unequal variances.** Box (1954) computed the effect of unequal variances on the one-way \( F \) test, showing that it is small when the
 groups are of equal size and can be large otherwise, in the directions described by @thm-aov-heteroscedastic. The test of Welch (1951)

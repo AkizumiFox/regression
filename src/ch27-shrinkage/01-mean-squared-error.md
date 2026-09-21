@@ -120,7 +120,7 @@ The collinearity problem has a natural coordinate system. Let \( \X \) have full
 let \( \X=\bU\bD\V\T \) be its thin singular value decomposition (@thm-mat-svd), with
 \( \bU=[\bu_1,\dots,\bu_p] \) and \( \V=[\bv_1,\dots,\bv_p] \) having orthonormal columns and
 \( \bD=\diag(d_1,\dots,d_p) \), \( d_1\ge\dots\ge d_p>0 \). We write \( d_j \) instead of the
-\( \sigma_j \) of Chapter 1 because \( \sigma \) is the error standard deviation. Put
+\( \sigma_j \) of [Chapter 1](../ch01-matrix-algebra/index.html) because \( \sigma \) is the error standard deviation. Put
 \[
 \boldsymbol{\upalpha}=\V\T\bbeta,\qquad
 \hat{\boldsymbol{\upalpha}}=\V\T\hbeta=\bD^{-1}\bU\T\Y,\qquad

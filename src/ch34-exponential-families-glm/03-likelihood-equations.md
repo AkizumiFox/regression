@@ -196,7 +196,7 @@ print(f"age column: X^T y = {age @ y:.6f},  X^T mu = {age @ mu:.6f}")
 ::: {.remark}
 [Where the marginal property is used]
 
-Chapter 37 turns @cor-glm-marginals into a tool: for a log-linear model of a contingency
+[Chapter 37](../ch37-counts/index.html) turns @cor-glm-marginals into a tool: for a log-linear model of a contingency
 table the canonical link forces the fitted counts to match the observed margins of the terms
 in the model, which is what makes log-linear and multinomial fits
 agree (@thm-cnt-poisson-multinomial). In the binary case it means those totals carry no
@@ -350,5 +350,5 @@ An **offset** is a known column added to the linear predictor with coefficient f
 \( 1 \): \( \eta_i=o_i+\x_{(i)}\T\bbeta \). Show that @thm-glm-score holds verbatim with
 \( \eta_i \) redefined this way, that @cor-glm-marginals is unchanged, and that the offset does
 *not* appear among the columns whose totals are reproduced. Where would such a term come
-from in a Poisson model for rates? (Chapter 37 answers this with @prp-cnt-offsets.)
+from in a Poisson model for rates? ([Chapter 37](../ch37-counts/index.html) answers this with @prp-cnt-offsets.)
 :::

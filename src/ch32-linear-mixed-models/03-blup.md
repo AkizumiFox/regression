@@ -37,7 +37,7 @@ The problem has already been solved.
 predicted a new response \( y_0=\x_0\T\bbeta+e_0 \) whose error was correlated with
 the training errors, and \( \mathbf{c}\T\bu \) is exactly such an \( e_0 \). What
 follows is that theorem in mixed-model notation; its proof is the substitution, plus
-the uniqueness and the decomposition (c) that Chapter 14 did not need.
+the uniqueness and the decomposition (c) that [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) did not need.
 
 ::: {#thm-mix-blup}
 [Best linear unbiased prediction]

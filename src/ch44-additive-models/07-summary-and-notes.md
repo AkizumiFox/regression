@@ -42,8 +42,8 @@
    estimated by @eq-add-reml-update (@prp-add-reml-update).
 
 8. With a link and an exponential dispersion family the fit is penalized
-   IRLS (@thm-add-gam): Chapter 34's algorithm with the penalty added. Degrees of freedom,
-   dispersion and Chapter 39's diagnostics carry over, and the dispersion belongs in the
+   IRLS (@thm-add-gam): [Chapter 34](../ch34-exponential-families-glm/index.html)'s algorithm with the penalty added. Degrees of freedom,
+   dispersion and [Chapter 39](../ch39-glms-in-practice-bayes/index.html)'s diagnostics carry over, and the dispersion belongs in the
    smoothing-parameter update or every curve is undersmoothed.
 
 9. Inference for a smooth term is approximate, and doubly so because the smoothing

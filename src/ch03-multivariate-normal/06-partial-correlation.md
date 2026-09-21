@@ -36,9 +36,10 @@ In the setting of @def-mvn-partial-correlation:
 ::: {.enumerate options="label=(\alph*)"}
 1. \( \bSigma_{11\cdot2} \) is the covariance matrix of the prediction errors
            \( \W=\Y_1-\bmu_1-\bSigma_{12}\bSigma_{22}\ginv(\Y_2-\bmu_2) \), and \( \W \) is uncorrelated
-           with \( \Y_2 \). If \( \bSigma_{22} \) is positive definite, the entries of \( \W \) are the
-           errors of the best linear predictors \( L(Y_i\mid\Y_2) \), so \( \rho_{ij\cdot2} \) is the
-           correlation between \( Y_i-L(Y_i\mid\Y_2) \) and \( Y_j-L(Y_j\mid\Y_2) \).
+           with \( \Y_2 \). If \( \bSigma_{22} \) is positive definite, the \( i \)th entry of
+           \( \bmu_1+\bSigma_{12}\bSigma_{22}^{-1}(\Y_2-\bmu_2) \) is the best linear prediction of
+           \( Y_i \) from \( \Y_2 \) in the sense of @thm-rv-blp(c), so \( \rho_{ij\cdot2} \) is the
+           correlation of the two prediction errors \( W_i \) and \( W_j \).
 
 2. If \( \Y \) is jointly normal, \( \rho_{ij\cdot2} \) is the correlation of \( Y_i \) and \( Y_j \)
            in their conditional distribution given \( \Y_2=\y_2 \), the same for every \( \y_2 \).
@@ -52,8 +53,9 @@ In the setting of @def-mvn-partial-correlation:
 (a) This is @thm-rv-blp, restated:
 \( \Cov(\W,\Y_2)=\bzero \) and \( \Cov(\W)=\bSigma_{11\cdot2} \) are the moment calculations in the
 proof of @thm-mvn-conditional(a), which use no normality. When \( \bSigma_{22} \) is
-positive definite, the \( i \)th entry of \( \bmu_1+\bSigma_{12}\bSigma_{22}^{-1}(\Y_2-\bmu_2) \) is
-\( L(Y_i\mid\Y_2) \) by @thm-proj-blp.
+positive definite, @thm-rv-blp(c) applied with the scalar response \( Y_i \) says that no
+affine function of \( \Y_2 \) has smaller mean squared error than the \( i \)th entry of
+\( \bmu_1+\bSigma_{12}\bSigma_{22}^{-1}(\Y_2-\bmu_2) \).
 (b) By @thm-mvn-conditional, the conditional distribution of \( (Y_i,Y_j) \) given
 \( \Y_2=\y_2 \) is bivariate normal with covariance matrix the corresponding \( 2\times2 \) block of
 \( \bSigma_{11\cdot2} \). Its correlation is \( \rho_{ij\cdot2} \), and by
@@ -64,7 +66,9 @@ independent iff the off-diagonal entry is zero.
 Part (a) is the definition to remember: *a partial correlation is the correlation of
 two residuals*. Remove from each variable the part that is linearly predictable from the
 conditioning variables, and correlate what is left. This is the population version of the
-Frisch–Waugh–Lovell construction (@thm-proj-fwl).
+Frisch–Waugh–Lovell construction (@thm-proj-fwl);
+[Section 6.11](../ch06-projections/11-population.html) develops the same prediction as an
+orthogonal projection and writes it \( L(Y_i\mid\Y_2) \).
 
 ## Computing partial correlations
 

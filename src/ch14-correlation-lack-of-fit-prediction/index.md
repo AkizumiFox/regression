@@ -16,7 +16,7 @@ they are not.
 [Chapter 7](../ch07-optimality/index.html) (@thm-opt-sampling, @cor-opt-t, @cor-opt-quadratic),
 nested projections and the Frisch–Waugh–Lovell theorem from
 [Chapter 6](../ch06-projections/index.html) (@thm-proj-nested, @thm-proj-fwl), best linear prediction
-in the population (@thm-rv-blp, @thm-proj-blp, @prp-proj-consistency) and the multiple correlation (@prp-rv-multiple-correlation) from [Chapter 2](../ch02-random-vectors/index.html) and Chapter 6,
+in the population (@thm-rv-blp, @thm-proj-blp, @prp-proj-consistency) and the multiple correlation (@prp-rv-multiple-correlation) from [Chapter 2](../ch02-random-vectors/index.html) and [Chapter 6](../ch06-projections/index.html),
 normal conditional distributions and partial correlations from
 [Chapter 3](../ch03-multivariate-normal/index.html) (@thm-mvn-conditional, @def-mvn-partial-correlation), the noncentral distributions of
 [Chapter 4](../ch04-quadratic-forms/index.html) (@thm-qf-orthogonal-projections, @thm-qf-f-power),
