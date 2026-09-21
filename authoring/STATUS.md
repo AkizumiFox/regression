@@ -83,8 +83,8 @@ or `@label` citations; `./build.py check` fails on any that were missed, and
 ## Known imperfections
 
 A read-only audit of the finished book (six dimensions: notation, duplication,
-cross-references, narrative, conventions, rigour) found 71 items. All 17 major ones are fixed, and the minor ones either fixed or recorded
-below. These are what is left, written down rather than hidden:
+cross-references, narrative, conventions, rigour) found 71 items. All 17 major ones are fixed, and the minor ones are either fixed or
+recorded below. This is what is left, written down rather than hidden:
 
 - **Exercise solutions.** Every section page now has all three groups (112 exercises were
   written for the 38 pages that were short, 105 of them with worked solutions). Across the
