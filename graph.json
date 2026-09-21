@@ -5,7 +5,7 @@
    "name": "Chapter 1",
    "title": "Matrix Algebra for Linear Models",
    "url": "ch01-matrix-algebra/index.html",
-   "results": 84,
+   "results": 124,
    "chapterNumber": 1,
    "part": "Part I \u00b7 Apparatus"
   },
@@ -14,7 +14,7 @@
    "name": "Chapter 2",
    "title": "Random Vectors: Expectation and Covariance Operators",
    "url": "ch02-random-vectors/index.html",
-   "results": 60,
+   "results": 68,
    "chapterNumber": 2,
    "part": ""
   },
@@ -23,7 +23,7 @@
    "name": "Chapter 3",
    "title": "The Multivariate Normal Distribution",
    "url": "ch03-multivariate-normal/index.html",
-   "results": 63,
+   "results": 69,
    "chapterNumber": 3,
    "part": ""
   },
@@ -32,7 +32,7 @@
    "name": "Chapter 4",
    "title": "Quadratic Forms and Their Distributions",
    "url": "ch04-quadratic-forms/index.html",
-   "results": 56,
+   "results": 60,
    "chapterNumber": 4,
    "part": ""
   },
@@ -50,7 +50,7 @@
    "name": "Chapter 6",
    "title": "Projections: The Geometry of Least Squares",
    "url": "ch06-projections/index.html",
-   "results": 94,
+   "results": 115,
    "chapterNumber": 6,
    "part": ""
   },
@@ -176,7 +176,7 @@
    "name": "Chapter 20",
    "title": "Residuals, Leverage and Influence",
    "url": "ch20-residuals-leverage-influence/index.html",
-   "results": 64,
+   "results": 66,
    "chapterNumber": 20,
    "part": ""
   },
@@ -203,7 +203,7 @@
    "name": "Chapter 23",
    "title": "Bootstrap and Permutation Inference",
    "url": "ch23-resampling-inference/index.html",
-   "results": 52,
+   "results": 54,
    "chapterNumber": 23,
    "part": ""
   },
@@ -221,7 +221,7 @@
    "name": "Chapter 25",
    "title": "Causal Interpretation of Coefficients",
    "url": "ch25-causal-interpretation/index.html",
-   "results": 49,
+   "results": 56,
    "chapterNumber": 25,
    "part": ""
   },
@@ -230,7 +230,7 @@
    "name": "Chapter 26",
    "title": "Collinearity: Diagnosis and Consequences",
    "url": "ch26-collinearity/index.html",
-   "results": 44,
+   "results": 48,
    "chapterNumber": 26,
    "part": "Part VI \u00b7 Trading Bias for Variance"
   },
@@ -248,7 +248,7 @@
    "name": "Chapter 28",
    "title": "High-Dimensional Regression: p > n",
    "url": "ch28-high-dimensional/index.html",
-   "results": 47,
+   "results": 49,
    "chapterNumber": 28,
    "part": ""
   },
@@ -266,7 +266,7 @@
    "name": "Chapter 30",
    "title": "Regularization and Boosting",
    "url": "ch30-regularization-boosting/index.html",
-   "results": 47,
+   "results": 49,
    "chapterNumber": 30,
    "part": ""
   },
@@ -302,7 +302,7 @@
    "name": "Chapter 34",
    "title": "Exponential Families and the Generalized Linear Model",
    "url": "ch34-exponential-families-glm/index.html",
-   "results": 56,
+   "results": 58,
    "chapterNumber": 34,
    "part": "Part VIII \u00b7 Beyond the Normal Response"
   },
@@ -311,7 +311,7 @@
    "name": "Chapter 35",
    "title": "Binary Responses",
    "url": "ch35-binary-responses/index.html",
-   "results": 54,
+   "results": 56,
    "chapterNumber": 35,
    "part": ""
   },
@@ -338,7 +338,7 @@
    "name": "Chapter 38",
    "title": "Quasi-Likelihood and Overdispersion",
    "url": "ch38-quasi-likelihood/index.html",
-   "results": 34,
+   "results": 36,
    "chapterNumber": 38,
    "part": ""
   },
@@ -356,7 +356,7 @@
    "name": "Chapter 40",
    "title": "GLMMs and Generalized Estimating Equations",
    "url": "ch40-glmm-gee/index.html",
-   "results": 41,
+   "results": 47,
    "chapterNumber": 40,
    "part": ""
   },
@@ -401,7 +401,7 @@
    "name": "Chapter 45",
    "title": "Quantile Regression and GAMLSS",
    "url": "ch45-quantile-gamlss/index.html",
-   "results": 49,
+   "results": 51,
    "chapterNumber": 45,
    "part": "Part X \u00b7 The Whole Distribution"
   }
@@ -410,13 +410,13 @@
   {
    "source": "ch01-matrix-algebra",
    "target": "ch02-random-vectors",
-   "weight": 10,
+   "weight": 16,
    "implied": false
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch03-multivariate-normal",
-   "weight": 6,
+   "weight": 11,
    "implied": false
   },
   {
@@ -434,7 +434,7 @@
   {
    "source": "ch01-matrix-algebra",
    "target": "ch06-projections",
-   "weight": 3,
+   "weight": 8,
    "implied": false
   },
   {
@@ -506,7 +506,7 @@
   {
    "source": "ch01-matrix-algebra",
    "target": "ch20-residuals-leverage-influence",
-   "weight": 6,
+   "weight": 7,
    "implied": false
   },
   {
@@ -524,7 +524,7 @@
   {
    "source": "ch01-matrix-algebra",
    "target": "ch26-collinearity",
-   "weight": 23,
+   "weight": 24,
    "implied": false
   },
   {
@@ -542,7 +542,7 @@
   {
    "source": "ch01-matrix-algebra",
    "target": "ch30-regularization-boosting",
-   "weight": 7,
+   "weight": 9,
    "implied": false
   },
   {
@@ -584,7 +584,7 @@
   {
    "source": "ch01-matrix-algebra",
    "target": "ch44-additive-models",
-   "weight": 5,
+   "weight": 6,
    "implied": false
   },
   {
@@ -603,6 +603,12 @@
    "source": "ch02-random-vectors",
    "target": "ch05-model-and-least-squares",
    "weight": 18,
+   "implied": false
+  },
+  {
+   "source": "ch02-random-vectors",
+   "target": "ch06-projections",
+   "weight": 1,
    "implied": false
   },
   {
@@ -752,7 +758,7 @@
   {
    "source": "ch03-multivariate-normal",
    "target": "ch04-quadratic-forms",
-   "weight": 9,
+   "weight": 10,
    "implied": false
   },
   {
@@ -824,7 +830,7 @@
   {
    "source": "ch03-multivariate-normal",
    "target": "ch25-causal-interpretation",
-   "weight": 5,
+   "weight": 6,
    "implied": false
   },
   {
@@ -849,6 +855,12 @@
    "source": "ch03-multivariate-normal",
    "target": "ch32-linear-mixed-models",
    "weight": 4,
+   "implied": false
+  },
+  {
+   "source": "ch03-multivariate-normal",
+   "target": "ch38-quasi-likelihood",
+   "weight": 2,
    "implied": false
   },
   {
@@ -908,7 +920,7 @@
   {
    "source": "ch04-quadratic-forms",
    "target": "ch12-intervals-and-bands",
-   "weight": 12,
+   "weight": 13,
    "implied": false
   },
   {
@@ -992,7 +1004,7 @@
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch06-projections",
-   "weight": 1,
+   "weight": 4,
    "implied": false
   },
   {
@@ -1106,7 +1118,7 @@
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch34-exponential-families-glm",
-   "weight": 2,
+   "weight": 3,
    "implied": false
   },
   {
@@ -1250,7 +1262,7 @@
   {
    "source": "ch06-projections",
    "target": "ch25-causal-interpretation",
-   "weight": 17,
+   "weight": 20,
    "implied": false
   },
   {
@@ -1532,7 +1544,7 @@
   {
    "source": "ch07-optimality",
    "target": "ch40-glmm-gee",
-   "weight": 1,
+   "weight": 2,
    "implied": false
   },
   {
@@ -2534,7 +2546,7 @@
   {
    "source": "ch19-theory-of-departures",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
-   "weight": 9,
+   "weight": 10,
    "implied": false
   },
   {
@@ -2546,7 +2558,7 @@
   {
    "source": "ch19-theory-of-departures",
    "target": "ch23-resampling-inference",
-   "weight": 4,
+   "weight": 7,
    "implied": false
   },
   {
@@ -2738,7 +2750,7 @@
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch23-resampling-inference",
-   "weight": 3,
+   "weight": 4,
    "implied": false
   },
   {
@@ -2858,7 +2870,7 @@
   {
    "source": "ch22-transformations",
    "target": "ch45-quantile-gamlss",
-   "weight": 3,
+   "weight": 4,
    "implied": false
   },
   {
@@ -3662,7 +3674,7 @@
   {
    "source": "ch38-quasi-likelihood",
    "target": "ch40-glmm-gee",
-   "weight": 6,
+   "weight": 7,
    "implied": false
   },
   {
