@@ -38,7 +38,7 @@ distribution and ties it back to the check loss.
 
 For a distribution function \( F \) with finite mean and a real \( y \), define
 \[
-\operatorname{CRPS}(F,y)=\int_{-\infty}^{\infty}\bigl\{F(s)-1\{y\le s\}\bigr\}^2\,ds .
+\operatorname{CRPS}(F,y)=\int_{-\infty}^{\infty}\bigl\{F(s)-\mathbf{1}\{y\le s\}\bigr\}^2\,ds .
 \]{#eq-qnt-crps}
 
 ::: {.enumerate options="label=(\alph*)"}
@@ -70,12 +70,12 @@ For a distribution function \( F \) with finite mean and a real \( y \), define
 
 ::: {.proof}
 (a) The integrand of @eq-qnt-crps is bounded by one and vanishes outside the region
-where \( F(s) \) and \( 1\{y\le s\} \) disagree, which lies in the set where
+where \( F(s) \) and \( \mathbf{1}\{y\le s\} \) disagree, which lies in the set where
 \( \min\{F(s),1-F(s)\}>0 \) together with a bounded interval; a finite mean
 makes \( \int\min\{F,1-F\}\,ds<\infty \), so the score is finite. For fixed
-\( s \), \( 1\{Y\le s\} \) is Bernoulli with mean \( G(s) \), so
+\( s \), \( \mathbf{1}\{Y\le s\} \) is Bernoulli with mean \( G(s) \), so
 \[
-\E_{G}\bigl\{F(s)-1\{Y\le s\}\bigr\}^2
+\E_{G}\bigl\{F(s)-\mathbf{1}\{Y\le s\}\bigr\}^2
 =\bigl\{F(s)-G(s)\bigr\}^2+G(s)\bigl\{1-G(s)\bigr\} .
 \]
 Integrating over \( s \) (Tonelli, the integrand being nonnegative)
@@ -85,7 +85,7 @@ almost everywhere, and two right-continuous distribution functions agreeing almo
 everywhere are equal.
 
 (b) Write \( q_{\tau}=F^{-1}(\tau) \) and \( u=F(y) \), and split both sides at
-\( y \). For the left side, \( F(s)-1\{y\le s\} \) equals \( F(s) \) for
+\( y \). For the left side, \( F(s)-\mathbf{1}\{y\le s\} \) equals \( F(s) \) for
 \( s<y \) and \( F(s)-1 \) for \( s\ge y \), so
 \( \operatorname{CRPS}(F,y)=\int_{-\infty}^{y}F^2+\int_{y}^{\infty}(1-F)^2 \).
 Substituting \( s=q_{\tau} \) and integrating by parts,
@@ -322,12 +322,12 @@ independent \( X,X'\sim F \) with finite mean.
 :::
 
 ::: {.solution}
-The key is \( \lvert a-b\rvert=\int\{1\{a\le s\}-1\{b\le s\}\}^2ds \),
+The key is \( \lvert a-b\rvert=\int\{\mathbf{1}\{a\le s\}-\mathbf{1}\{b\le s\}\}^2ds \),
 since the integrand is one exactly on the interval between \( a \) and \( b \).
 Taking \( a=X \), \( b=y \) and expectations, and using
-\( \E\{A-c\}^2=\Var(A)+(\E A-c)^2 \) with \( A=1\{X\le s\} \),
+\( \E\{A-c\}^2=\Var(A)+(\E A-c)^2 \) with \( A=\mathbf{1}\{X\le s\} \),
 \[
-\E\lvert X-y\rvert=\int\Bigl[\bigl\{F(s)-1\{y\le s\}\bigr\}^2
+\E\lvert X-y\rvert=\int\Bigl[\bigl\{F(s)-\mathbf{1}\{y\le s\}\bigr\}^2
    +F(s)\{1-F(s)\}\Bigr]ds=\operatorname{CRPS}(F,y)+\int F(1-F)\,ds .
 \]
 Applying the same identity to the independent pair, \( \E\{A-A'\}^2=2\Var(A) \)

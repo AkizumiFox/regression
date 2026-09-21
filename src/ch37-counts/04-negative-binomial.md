@@ -148,9 +148,11 @@ In the NB2 model of @def-cnt-negbin with \( \kappa \) treated as a parameter:
    is \( \X\T\W\X \);
 
 3. \( \bbeta \) and \( \kappa \) are orthogonal:
-   \( \E\{\partial^{2}\ell/\partial\bbeta\,\partial\kappa\}=\bzero \). Hence the
-   asymptotic distribution of \( \hbeta \) is the same whether \( \kappa \) is known
-   or estimated, and the two can be updated alternately;
+   \( \E\{\partial^{2}\ell/\partial\bbeta\,\partial\kappa\}=\bzero \), so the
+   expected information is block diagonal and the two may be updated alternately. Under
+   the usual regularity conditions for maximum likelihood this also makes the asymptotic
+   distribution of \( \hbeta \) the same whether \( \kappa \) is known or estimated
+   (Cox and Reid 1987; not proved here);
 
 4. the score for \( \kappa \) is
    \( \sum_i\{\psi(y_i+\kappa)-\psi(\kappa)+\log\frac{\kappa}{\kappa+\mu_i}

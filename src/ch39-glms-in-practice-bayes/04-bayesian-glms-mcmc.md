@@ -347,7 +347,7 @@ print(f"log-log slope {slope:.3f}")
 Two refinements are quoted without proof. For a positive smooth \( f \), applying
 @thm-prc-laplace to \( \exp\{q_n+\log f\} \) in the numerator of
 \( \E\{f(\bbeta)\mid\y\}=\int fe^{q_n}/\int e^{q_n} \) raises the accuracy of the
-ratio to \( O(n^{-2}) \), the leading errors cancelling (Tierney and Kadane, 1986); and
+ratio to \( O(n^{-2}) \), the leading errors cancelling (Tierney and Kadane 1986); and
 the Bernstein–von Mises theorem says the posterior of
 \( \bH_n^{1/2}(\bbeta-\hbeta_n) \) converges in total variation to
 \( \Normal_p(\bzero,\I) \), so a credible set is asymptotically a confidence set
@@ -434,7 +434,7 @@ the two terms add to \( \int_A\pi(\bb')d\bb' \).
 
 Detailed balance is all that is checked here; convergence *to* \( \pi \) from an
 arbitrary start needs irreducibility and aperiodicity, and a central limit theorem for the
-ergodic averages more still (Tierney, 1994). The one design decision is the proposal. A
+ergodic averages more still (Tierney 1994). The one design decision is the proposal. A
 covariance \( \varsigma^2\bSigma_{\text{prop}} \) mixes well only when
 \( \bSigma_{\text{prop}} \) resembles the posterior covariance, and the Laplace matrix
 \( \bH_n^{-1} \) of @thm-prc-laplace is the obvious candidate, at the cost of one Newton
@@ -492,7 +492,7 @@ density up to its normalizing constant.
 
 The price is \( n \) extra draws per sweep; the gain is that every step is accepted and
 nothing needs tuning. The same device works for the logit link by a different route — the
-logistic distribution is a scale mixture of normals (Holmes and Held, 2006), the binomial
+logistic distribution is a scale mixture of normals (Holmes and Held 2006), the binomial
 likelihood a mixture over Pólya–gamma variables (Polson, Scott and Windle, 2013) — and,
 more intricately, for multinomial and ordinal models.
 

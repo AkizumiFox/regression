@@ -10,22 +10,22 @@ curse of dimensionality, so relax it in one direction at a time. The most useful
 ::: {#def-add-varying}
 [Varying-coefficient model]
 
-Let \( u_1,\dots,u_n \) be the values of an **interaction variable** and
+Let \( w_1,\dots,w_n \) be the values of an **interaction variable** and
 \( z_1,\dots,z_n \) those of an **effect modifier**. A **varying-coefficient term** is
 \[
-f(z_i)\,u_i,\qquad \sum_{i=1}^{n}f(z_i)=0 ,
+f(z_i)\,w_i,\qquad \sum_{i=1}^{n}f(z_i)=0 ,
 \]{#eq-add-varying}
 
 and the **varying-coefficient model** is a structured additive
 model (@def-add-model) in which one or more of the terms have this form. Combined with a
-parametric column \( \bu=(u_1,\dots,u_n)\T \) carrying a coefficient \( \beta_u \), the
-total effect of \( \bu \) on the response is
+parametric column \( \bw=(w_1,\dots,w_n)\T \) carrying a coefficient \( \beta_w \), the
+total effect of \( \bw \) on the response is
 \[
-\E(y_i)=\dots+\{\beta_u+f(z_i)\}\,u_i ,
+\E(y_i)=\dots+\{\beta_w+f(z_i)\}\,w_i ,
 \]{#eq-add-varying-slope}
 
-so that \( \beta_u+f(z) \) is the **coefficient function**: the slope in \( u \) at effect
-modifier value \( z \). With \( u_i\equiv1 \) the term is an ordinary smooth main effect,
+so that \( \beta_w+f(z) \) is the **coefficient function**: the slope in \( w \) at effect
+modifier value \( z \). With \( w_i\equiv1 \) the term is an ordinary smooth main effect,
 and with \( f \) constrained to be constant it is an ordinary linear effect.
 :::
 
@@ -33,9 +33,9 @@ Three readings of the same object:
 
 - **An interaction**, the smooth analogue of the product term \( \beta uz \) of
   [Section 5.7](../ch05-model-and-least-squares/07-interpreting-coefficients.html). Where a
-  product term says the slope in \( u \) is *linear* in \( z \), this one says only that
+  product term says the slope in \( w \) is *linear* in \( z \), this one says only that
   it is smooth.
-- **A factor-by-curve model**, when \( \bu \) indicates a group: each group gets its own
+- **A factor-by-curve model**, when \( \bw \) indicates a group: each group gets its own
   deviation curve in \( z \).
 - **A time-varying coefficient**, when \( z \) is calendar time: the relationship has
   drifted, and the model does not say how.
@@ -50,11 +50,11 @@ basis.
 
 Let \( B_1,\dots,B_d \) be a basis for the effect modifier and \( \bP_0 \) the
 penalty that the corresponding smooth main effect would use. Put
-\( (\Z)_{il}=u_iB_l(z_i) \).
+\( (\Z)_{il}=w_iB_l(z_i) \).
 
 ::: {.enumerate options="label=(\alph*)"}
 1. With \( f=\sum_l\gamma_lB_l \), the vector of the term's contributions is
-   \( \{f(z_i)u_i\}_i=\Z\bgamma \), and the roughness of \( f \) is
+   \( \{f(z_i)w_i\}_i=\Z\bgamma \), and the roughness of \( f \) is
    \( \bgamma\T\bP_0\bgamma \) as before. The term is therefore the pair
    \( (\Z,\bP_0) \), and everything in
    [Sections 44.1](01-additive-models.html) and [44.2](02-backfitting.html) applies
@@ -63,37 +63,37 @@ penalty that the corresponding smooth main effect would use. Put
 2. The constraint @eq-add-varying is \( \mathbf{c}\T\bgamma=0 \) with
    \( \mathbf{c}=\bigl(\sum_iB_1(z_i),\dots,\sum_iB_d(z_i)\bigr)\T \) — the *unweighted*
    column sums of the basis, not of \( \Z \) — and is absorbed by
-   @prp-add-identifiability(c). Under it, \( \beta_u \) in @eq-add-varying-slope is the
+   @prp-add-identifiability(c). Under it, \( \beta_w \) in @eq-add-varying-slope is the
    average of the coefficient function over the design points,
-   \( \beta_u=n^{-1}\sum_i\{\beta_u+f(z_i)\} \).
+   \( \beta_w=n^{-1}\sum_i\{\beta_w+f(z_i)\} \).
 
-3. If \( u_i\ne0 \) for at least \( d \) design points with distinct \( z_i \) and the
+3. If \( w_i\ne0 \) for at least \( d \) design points with distinct \( z_i \) and the
    basis is linearly independent there, \( \Z \) has full column rank. Observations with
-   \( u_i=0 \) contribute nothing to the term: the coefficient function is estimated only
+   \( w_i=0 \) contribute nothing to the term: the coefficient function is estimated only
    where the interaction variable is nonzero.
 :::
 
 :::
 
 ::: {.proof}
-(a) The \( i \)th entry of \( \Z\bgamma \) is \( \sum_l\gamma_lu_iB_l(z_i)=u_if(z_i) \).
+(a) The \( i \)th entry of \( \Z\bgamma \) is \( \sum_l\gamma_lw_iB_l(z_i)=w_if(z_i) \).
 The penalty is a statement about \( f \), so it is unchanged by multiplying the term by
-\( u_i \).
+\( w_i \).
 (b) \( \sum_if(z_i)=\sum_l\gamma_l\sum_iB_l(z_i)=\mathbf{c}\T\bgamma \), which is the
 stated constraint; @prp-add-identifiability(c) applies verbatim with \( \mathbf{c} \) in
 place of \( \Z\T\bone \). The averaging statement is then
-\( n^{-1}\sum_i\{\beta_u+f(z_i)\}=\beta_u+n^{-1}\mathbf{c}\T\bgamma=\beta_u \).
-(c) Suppose \( \Z\bgamma=\bzero \). Then \( u_if(z_i)=0 \) for all \( i \), so
-\( f(z_i)=0 \) at the \( d \) design points with \( u_i\ne0 \); linear independence of the
+\( n^{-1}\sum_i\{\beta_w+f(z_i)\}=\beta_w+n^{-1}\mathbf{c}\T\bgamma=\beta_w \).
+(c) Suppose \( \Z\bgamma=\bzero \). Then \( w_if(z_i)=0 \) for all \( i \), so
+\( f(z_i)=0 \) at the \( d \) design points with \( w_i\ne0 \); linear independence of the
 basis at those points forces \( \bgamma=\bzero \). The last sentence is the same
-computation read forwards: rows with \( u_i=0 \) are zero rows of \( \Z \).
+computation read forwards: rows with \( w_i=0 \) are zero rows of \( \Z \).
 :::
 
 ::: {.warning}
-Constraining the *weighted* sum \( \sum_iu_if(z_i)=0 \) instead — what centring the
-columns of \( \Z \) does — also identifies the model, but \( \beta_u \) is then not the
-average slope, and if \( \bu \) has been centred it means nothing at all, since
-\( \sum_iu_i=0 \) leaves the constraint silent about the level of \( f \). Use (b).
+Constraining the *weighted* sum \( \sum_iw_if(z_i)=0 \) instead — what centring the
+columns of \( \Z \) does — also identifies the model, but \( \beta_w \) is then not the
+average slope, and if \( \bw \) has been centred it means nothing at all, since
+\( \sum_iw_i=0 \) leaves the constraint silent about the level of \( f \). Use (b).
 :::
 
 ## An example, and how far it can be pushed
@@ -170,8 +170,8 @@ flexibility buys a richer description, not weaker causal assumptions.
 
 ## Where varying coefficients take you
 
-Two extensions use nothing beyond @prp-add-varying-fit. With \( z \) time and \( \bu \)
-a covariate observed repeatedly, \( f(t_i)u_i \) is a coefficient drifting over the study;
+Two extensions use nothing beyond @prp-add-varying-fit. With \( z \) time and \( \bw \)
+a covariate observed repeatedly, \( f(t_i)w_i \) is a coefficient drifting over the study;
 for series data the band must then come from
 [Part VII](../ch31-general-gauss-markov/index.html) rather than from the independence
 assumption of @def-add-model (@exr-add-time-varying). With \( z \) a location and a spatial
@@ -200,7 +200,7 @@ the surface belong to a book on smoothing, and Wood (2017) is where to find them
 ::: {#exr-add-varying-special}
 [A1]
 
-What does a varying-coefficient term become when (i) \( u_i\equiv1 \); (ii) \( f \) is
+What does a varying-coefficient term become when (i) \( w_i\equiv1 \); (ii) \( f \) is
 forced to be constant; (iii) \( f \) is forced to be linear in \( z \)? Which of the three
 has a familiar name from [Part II](../ch05-model-and-least-squares/index.html)?
 :::
@@ -234,13 +234,13 @@ serial structure as in
 [B2]
 
 Show that a model containing both a smooth main effect \( f_0(z) \) and a
-varying-coefficient term \( f(z)u \) has exact concurvity (@def-add-concurvity-index) as
-soon as \( u_i \) is itself a function of \( z_i \), say \( u_i=h(z_i) \) with \( h \) in
+varying-coefficient term \( f(z)w \) has exact concurvity (@def-add-concurvity-index) as
+soon as \( w_i \) is itself a function of \( z_i \), say \( w_i=h(z_i) \) with \( h \) in
 the span of the basis. What does this say about the model of @exm-add-statecrime?
 :::
 
 ::: {.solution}
-If \( u_i=h(z_i) \) with \( h \) in the span, the varying term contributes
+If \( w_i=h(z_i) \) with \( h \) in the span, the varying term contributes
 \( f(z_i)h(z_i) \), a function of \( z_i \) alone; whenever \( fh \) is again in the span,
 the main-effect term realizes it too, and subtracting gives a nontrivial relation. In
 @exm-add-statecrime the poverty rate is *not* a function of the urban percentage, so the

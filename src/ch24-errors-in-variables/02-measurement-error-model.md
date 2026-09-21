@@ -154,7 +154,7 @@ Then
 \[
 X=W+U,\qquad U \text{ independent of } W,
 \]
-which is **Berkson error** (Berkson, 1950). The difference from classical error is which variable the error is
+which is **Berkson error** (Berkson 1950). The difference from classical error is which variable the error is
 independent of. It cannot be settled from data on \( (W,Y) \), only from how the recorded value was produced. The
 scalar case with fixed settings appeared in [Section 19.5](../ch19-theory-of-departures/05-random-regressors.html);
 the proposition below allows several regressors and random recorded values.

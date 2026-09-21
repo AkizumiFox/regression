@@ -56,7 +56,7 @@ and the **generalized estimating equation** is
 
 In practice \( \boldsymbol{\upalpha} \) and \( \phi \) are replaced by moment estimates
 computed from the Pearson residuals
-\( r_{ij}=(y_{ij}-\hat\mu_{ij})/\sqrt{V(\hat\mu_{ij})} \) at the current \( \hat\bbeta \),
+\( r_{ij}=(y_{ij}-\hat\mu_{ij})/\sqrt{V(\hat\mu_{ij})} \) at the current \( \hat{\bbeta} \),
 and @eq-gmm-gee is re-solved, until nothing changes.
 :::
 
@@ -69,7 +69,7 @@ covariance \( \R \) of Part VII.
 With \( \R_i=\I \) and one observation per cluster, @eq-gmm-gee is exactly the likelihood
 equation @eq-glm-score, with \( \W\bD^{-1} \) written out. With \( \R_i=\I \) and several
 observations per cluster it is still that equation, applied as if the observations were
-independent: the same \( \hat\bbeta \), different standard errors. And with a general
+independent: the same \( \hat{\bbeta} \), different standard errors. And with a general
 \( \R_i \) but one cluster, it is the quasi-score of
 [Chapter 38](../ch38-quasi-likelihood/index.html) (@thm-ql-score) with a full
 covariance matrix — which for the identity link and \( V\equiv1 \) is the generalized least
@@ -168,8 +168,8 @@ theorem:
 \begin{aligned}
 \bzero&=\bU_m(\hbeta_m;\hat{\boldsymbol{\upalpha}})
 =\bU_m(\bbeta^{0};\hat{\boldsymbol{\upalpha}})
-+\bar{\mathbf{M}}_m\,(\hbeta_m-\bbeta^{0}),\\
-\bar{\mathbf{M}}_m&=\int_0^{1}\frac{\partial\bU_m}{\partial\bbeta\T}
++\bar{\mathbf{J}}_m\,(\hbeta_m-\bbeta^{0}),\\
+\bar{\mathbf{J}}_m&=\int_0^{1}\frac{\partial\bU_m}{\partial\bbeta\T}
 \bigl(\bbeta^{0}+t(\hbeta_m-\bbeta^{0})\bigr)\,dt .
 \end{aligned}
 \]
@@ -183,7 +183,7 @@ variance by (E1), (E2) and (E4), so \( m^{-1}\bT_m\to\mathbf{0} \) in probabilit
 law for independent summands; and \( m^{-1}\sum_i\bD_i\T\V_i^{-1}\bD_i\to\A \) by (E6).
 Hence \( m^{-1}\partial\bU_m/\partial\bbeta\T\to-\A \), uniformly for \( \bbeta \) in a
 neighbourhood of \( \bbeta^{0} \) under (E2); the convergence being uniform over that
-neighbourhood, \( m^{-1}\bar{\mathbf{M}}_m\to-\A \) as well, once \( \hbeta_m \) is in
+neighbourhood, \( m^{-1}\bar{\mathbf{J}}_m\to-\A \) as well, once \( \hbeta_m \) is in
 it.
 
 *The score.* \( m^{-1/2}\bU_m(\bbeta^{0};\boldsymbol{\upalpha}^{*}) \) is

@@ -318,7 +318,7 @@ a continuous nondecreasing function. If \( z\le\lambda \), then \( g'\ge0 \) on 
 :::
 
 Firm thresholding has all three properties; it tends to soft thresholding as \( \gamma\to\infty \) and to hard
-thresholding as \( \gamma\downarrow1 \). The SCAD rule under an orthonormal design is (Fan and Li, 2001)
+thresholding as \( \gamma\downarrow1 \). The SCAD rule under an orthonormal design is (Fan and Li 2001)
 \[
 \phi_{\mathrm{SCAD}}(z)=\begin{cases}\operatorname{sign}(z)(\lvert z\rvert-\lambda)_+,&\lvert z\rvert\le2\lambda,\\ \dfrac{(a-1)z-\operatorname{sign}(z)a\lambda}{a-2},&2\lambda<\lvert z\rvert\le a\lambda,\\ z,&\lvert z\rvert>a\lambda,\end{cases}
 \]
@@ -360,11 +360,11 @@ def hard_rule(z, lam):                        # penalty (lam^2 / 2) * 1{theta !=
 ```
 
 Without the eigenvalue condition there can be several local minima (@exr-reg-mcp-nonconvex). Replacing \( \rho \) by its
-tangent at a preliminary estimate gives a weighted lasso (Zou and Li, 2008), as does the adaptive lasso (Zou, 2006). Fan and Li (2001) proved an
+tangent at a preliminary estimate gives a weighted lasso (Zou and Li 2008), as does the adaptive lasso (Zou 2006). Fan and Li (2001) proved an
 *oracle property*, which we state without proof: with \( p \) fixed, \( \lambda_n/n\to0 \), \( \lambda_n/\sqrt n\to\infty \) (in the
 scaling of @eq-reg-pls; Fan and Li write the penalty as \( n\sum_jp_\lambda(\lvert b_j\rvert) \), where the conditions read
 \( \lambda_n\to0 \), \( \sqrt n\lambda_n\to\infty \)) and regularity conditions, some local SCAD minimizer finds the zero coefficients with probability tending to one and estimates the rest as well as
-least squares on the true support. The convergence is not uniform in \( \bbeta \) (Leeb and Pötscher, 2005), and it does not justify
+least squares on the true support. The convergence is not uniform in \( \bbeta \) (Leeb and Pötscher 2005), and it does not justify
 oracle standard errors ([Chapter 29](../ch29-model-selection/index.html)).
 
 ## Exercises

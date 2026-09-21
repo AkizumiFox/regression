@@ -79,3 +79,27 @@ or `@label` citations; `./build.py check` fails on any that were missed, and
   Part X the check loss and the quantile level.
 - `blueprint/coverage/chNN.md` records, source topic by source topic, where the book covers
   it; `blueprint/make_blueprints.py` regenerates the briefs from `book.yaml`.
+
+## Known imperfections
+
+A read-only audit of the finished book (six dimensions: notation, duplication,
+cross-references, narrative, conventions, rigour) found 71 items; the 17 major ones and
+about 20 minor ones are fixed. These are the ones left, recorded rather than hidden:
+
+- **Exercises.** Five section pages carry no `## Exercises` block, and 34 pages stop at
+  group B with no `### C. Going deeper`. About half the exercises have no worked solution.
+  Writing real ones is content work, not a cleanup pass.
+- **References.** Three cosmetic inconsistencies: 88 first authors are given by initials
+  where the house form is the full given name; journal names vary ("Journal of the Royal
+  Statistical Society, Series B" against two other renderings); and Atkinson (1985) appears
+  under three slightly different titles.
+- **Spelling.** "nonnormal" (91) and "non-normal" (49) both occur, the second in section
+  titles and a directory name, so unifying them would move more than prose.
+- **Source hygiene.** 26 section files write `\mathbf{Z}`, `\mathbf{A}` and the like where
+  a macro exists. The output is identical; only grep suffers.
+- **Advisory warnings.** `./build.py check` prints 186 "names a result without a reference"
+  warnings. They are heuristics about block titles, and the ones inspected were all false
+  positives (a chapter naming its own subject).
+- **Page budgets.** `blueprint/book.yaml` still carries the page budgets the chapters were
+  planned against; most chapters ran 10–40 per cent longer. The budgets are stale, not the
+  chapters.

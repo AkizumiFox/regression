@@ -193,7 +193,7 @@ Part (c) is not proved here; see the notes.
 band contains the true curve across the design points and the fraction is about
 \( 1-\alpha \). It does not say that the band contains the curve *everywhere*
 with probability \( 1-\alpha \) — that is a simultaneous band, which is wider
-(Sun and Loader, 1994) — nor that the interval at any one chosen point has
+(Sun and Loader 1994) — nor that the interval at any one chosen point has
 nominal coverage. If a particular \( x \) is the question, @eq-smo-band is not
 the answer.
 :::
@@ -384,7 +384,7 @@ Three threads end here rather than continue, and it is only fair to name them.
 **Adaptive smoothing.** A single \( \lambda \) is a compromise when \( f \) is
 rough in one place and flat in another; letting it vary with \( x \) — a second
 smooth for \( \log\lambda \), free-knot splines (Denison, Mallick and Smith,
-1998), wavelet thresholding (Donoho and Johnstone, 1994) — is a subject this book
+1998), wavelet thresholding (Donoho and Johnstone 1994) — is a subject this book
 does not enter.
 
 **Simultaneous bands.** @eq-smo-band is pointwise, or at best

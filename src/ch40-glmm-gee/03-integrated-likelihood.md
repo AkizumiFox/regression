@@ -3,7 +3,7 @@
 Everything the last section promised rests on the integral @eq-gmm-integrated, which has no
 closed form except in the normal linear case. Fitting a GLMM is therefore a numerical
 problem before it is a statistical one, and the choice of method is not innocent: three
-methods in common use can differ in the second significant figure of \( \hat\bbeta \) and
+methods in common use can differ in the second significant figure of \( \hat{\bbeta} \) and
 in the first of \( \hat\tau \).
 
 ## Why it is hard, and what makes it easier
@@ -233,7 +233,7 @@ given \( \bu \), and consider the **penalized quasi-likelihood**
    as fixed when \( \boldsymbol{\uptheta} \) is updated, so that \( c_i \) contributes no
    derivative terms.
 
-3. The resulting \( \hat\bbeta \) and \( \hat{\boldsymbol{\uptheta}} \) are biased towards
+3. The resulting \( \hat{\bbeta} \) and \( \hat{\boldsymbol{\uptheta}} \) are biased towards
    zero, and the bias does **not** vanish as \( m\to\infty \) with cluster sizes fixed: PQL
    is inconsistent. It is worst for binary responses with small \( n_i \) and large
    \( \tau \), and negligible for responses that carry much information per observation.
@@ -253,7 +253,7 @@ so the equations read
 \( \R=\phi\W^{-1} \).
 
 (b) is the observation that maximizing @eq-gmm-pql-objective over \( \bu \) locates
-\( \hat\bu \) at the mode of the integrand of @eq-gmm-integrated, which is the first
+\( \hat{\bu} \) at the mode of the integrand of @eq-gmm-integrated, which is the first
 ingredient of @eq-gmm-laplace; the remaining ingredient, \( \log\lvert c_i\rvert \), is what
 the \( \boldsymbol{\uptheta} \) update drops.
 

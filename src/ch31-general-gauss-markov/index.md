@@ -22,9 +22,10 @@ and does not reprove. From [Chapter 1](../ch01-matrix-algebra/index.html): gener
 inverses, square roots (@thm-mat-square-root) and the Woodbury identity (@thm-mat-woodbury).
 From [Chapter 2](../ch02-random-vectors/index.html): whitening (@prp-rv-whitening)
 and the support of a singular covariance (@thm-rv-cov-nnd).
-Quadratic forms ([Chapter 4](../ch04-quadratic-forms/index.html)), estimability
-([Chapter 8](../ch08-estimability/index.html)) and the \( F \) test
-([Chapter 11](../ch11-general-linear-hypothesis/index.html)) are used throughout.
+Estimability ([Chapter 8](../ch08-estimability/index.html)) and the \( F \) test
+([Chapter 11](../ch11-general-linear-hypothesis/index.html)) are used throughout, and
+the distribution theory of [Section 31.1](01-generalized-least-squares.html) rests on the
+quadratic forms of [Chapter 4](../ch04-quadratic-forms/index.html).
 [Section 19.2](../ch19-theory-of-departures/02-wrong-covariance.html) and
 [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) supply the
 diagnostic side: what a wrong covariance does (@thm-dep-covariance), how much

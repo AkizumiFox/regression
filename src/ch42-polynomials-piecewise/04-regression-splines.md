@@ -111,9 +111,9 @@ in @exm-ply-truncated-conditioning, whose nearly uniform design meets the
 proviso; the local basis is built in
 [Chapter 43](../ch43-smoothing/index.html).
 
-Part (b) has a sharp form. In the local basis the design matrix has full rank
+Part (b) has a sharp form. In the local basis the basis matrix has full rank
 *if and only if* each basis function's support contains a design point — the
-Schoenberg–Whitney condition (Schoenberg and Whitney, 1953), which is also the
+Schoenberg–Whitney condition (Schoenberg and Whitney 1953), which is also the
 proviso in (d). Either way the rule is: no knot where there are no data, and no
 two knots with a nearly empty interval between them.
 

@@ -478,7 +478,7 @@ to it with \( \tr(\bS_h) \) for \( \tr(\bS_\lambda) \).
 [Loess]
 
 The most widely used kernel smoother in practice is Cleveland's **loess**
-(Cleveland, 1979), which makes two changes. The bandwidth is a
+(Cleveland 1979), which makes two changes. The bandwidth is a
 *nearest-neighbour* one: \( h(x) \) is the distance from \( x \) to its
 \( \lceil\alpha n\rceil \)th nearest design point, so the window holds a fixed
 fraction of the data and widens where the design is sparse. And the fit is

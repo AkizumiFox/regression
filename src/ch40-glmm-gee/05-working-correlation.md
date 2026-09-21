@@ -114,15 +114,15 @@ In the setting of @thm-gmm-gee:
 3. **QIC.** Since there is no likelihood, AIC is unavailable. Pan's **quasi-likelihood
    information criterion** replaces the log-likelihood by the quasi-likelihood
    \( Q(\bmu;\y)=\sum_{ij}\int_{y_{ij}}^{\mu_{ij}}(y_{ij}-t)/\{\phi V(t)\}\,dt \) of @def-ql-quasi
-   computed under the *independence* working correlation at the fitted \( \hat\bmu \), with
+   computed under the *independence* working correlation at the fitted \( \hat{\bmu} \), with
    \( \phi \) the Pearson estimate of @prp-ql-dispersion held fixed across the models
    compared, and replaces the parameter count by a sandwich-based trace:
    \[
-   \text{QIC}=-2Q(\hat\bmu;\y)
+   \text{QIC}=-2Q(\hat{\bmu};\y)
    +2\operatorname{tr}\bigl(\hat{\boldsymbol{\Omega}}_{\text{I}}\hat{\V}_{\text{R}}\bigr),
    \]{#eq-gmm-qic}
 
-   where \( \hat{\boldsymbol{\Omega}}_{\text{I}}=\sum_i\hat\bD_i\T(\hat\A^{V}_i)^{-1}\hat\bD_i/\phi \)
+   where \( \hat{\boldsymbol{\Omega}}_{\text{I}}=\sum_i\hat\bD_i\T(\hat{\A}^{V}_i)^{-1}\hat\bD_i/\phi \)
    is the independence-model information and \( \hat{\V}_{\text{R}} \) is @eq-gmm-sandwich.
    If the working model is correct the trace is \( p \) and @eq-gmm-qic
    is the Akaike form @def-sel-aic-bic. It is a sound criterion for choosing the

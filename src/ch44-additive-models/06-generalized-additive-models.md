@@ -20,7 +20,11 @@ as in @eq-add-blockpenalty. Define the **penalized deviance**
 Q(\bgamma)=D(\bgamma)+\bgamma\T\bP\bgamma ,
 \]{#eq-add-penlik}
 
-with \( D \) the deviance of @def-glm-deviance, and let \( \hat{\bgamma} \) minimize it.
+with \( D \) the deviance of @def-glm-deviance. Assume that
+\( \Z\T\W\Z+\bP \) is positive definite at every iterate and at the limit — the
+penalty supplies what the basis lacks, as in @prp-add-identifiability — and let
+\( \hat{\bgamma} \) be a minimizer of @eq-add-penlik, which then exists and is locally
+unique.
 
 ::: {.enumerate options="label=(\alph*)"}
 1. Minimizing @eq-add-penlik is the same as maximizing the **penalized log-likelihood**

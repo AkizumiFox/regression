@@ -296,7 +296,7 @@ sets are of Fieller type (@prp-ci-fieller) and can be unbounded, as they must so
 
 ::: {.warning}
 Exogeneity cannot be checked in a just-identified model: all the equations \( \E(\bz e)=\bzero \) are used to
-estimate \( \bbeta \). With more instruments, tests of overidentifying restrictions (Sargan, 1958) check only that
+estimate \( \bbeta \). With more instruments, tests of overidentifying restrictions (Sargan 1958) check only that
 the instruments *agree*. An instrument is justified by knowledge of how the data arose; for replicates, by the
 independence of their errors. Instruments for causal effects are taken up in
 [Chapter 25](../ch25-causal-interpretation/index.html).

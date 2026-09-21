@@ -100,7 +100,7 @@ continuous, \( s''\equiv0 \): \( s \) is affine.
 (c) If \( \tilde Y=t(Y) \) has density \( f_{\tilde Y} \), then \( Y \) has density
 \( f_Y(y)=f_{\tilde Y}(t(y))\,t'(y) \), because \( t \) is a strictly increasing
 differentiable bijection onto its image. Summing logs over independent observations,
-\( \ell(\cdot;\y)=\tilde\ell(\cdot;\tilde\y)+\sum_i\log t'(y_i) \) for every parameter
+\( \ell(\cdot;\y)=\tilde\ell(\cdot;\tilde{\y})+\sum_i\log t'(y_i) \) for every parameter
 value, so the maximizers coincide and the maximized values differ by the stated constant.
 Substituting into \( \text{AIC}=-2\ell+2d \) gives @eq-prc-jacobian.
 :::

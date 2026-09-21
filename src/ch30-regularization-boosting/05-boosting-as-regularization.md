@@ -212,7 +212,7 @@ Near least squares, stagewise dithers, stepping back and forth by \( \varepsilon
 ## Beyond linear least squares
 
 For a differentiable loss \( \sum_iL(y_i,f_i) \), boosting fits the negative gradient \( -\partial L(y_i,f_i)/\partial f_i \) in
-place of the residual (Friedman, 2001): absolute error gives residual signs, the Huber loss clipped residuals, and the
+place of the residual (Friedman 2001): absolute error gives residual signs, the Huber loss clipped residuals, and the
 exponential loss \( e^{-yf} \), \( y=\pm1 \), recovers AdaBoost (Friedman, Hastie and Tibshirani, 2000). Small regression trees as
 base learners give gradient tree boosting; penalized splines in one regressor at a time give componentwise boosting of an
 additive model (Bühlmann and Yu, 2003; Bühlmann and Hothorn, 2007), a topic for Chapters [43](../ch43-smoothing/index.html) and [44](../ch44-additive-models/index.html) (@def-smo-pspline, @def-add-model).

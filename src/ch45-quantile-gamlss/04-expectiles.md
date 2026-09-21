@@ -16,7 +16,7 @@ squares.
 
 For \( \tau\in(0,1) \) define the **asymmetric squared loss**
 \[
-\rho^{E}_{\tau}(u)=\bigl\lvert\tau-1\{u<0\}\bigr\rvert\,u^{2}
+\rho^{E}_{\tau}(u)=\bigl\lvert\tau-\mathbf{1}\{u<0\}\bigr\rvert\,u^{2}
 =\begin{cases}\tau u^{2},&u\ge0,\\(1-\tau)u^{2},&u<0.\end{cases}
 \]{#eq-qnt-expectile-loss}
 
@@ -72,7 +72,7 @@ Let \( \E Y^{2}<\infty \) and let \( Y \) be non-degenerate.
 ::: {.proof}
 (a) Write \( S(\mu)=\tau\E(Y-\mu)_{+}^{2}+(1-\tau)\E(\mu-Y)_{+}^{2} \), finite
 because \( (y-\mu)^2\le2y^2+2\mu^2 \). The loss is continuously differentiable with
-\( \rho^{E\prime}_{\tau}(u)=2u\lvert\tau-1\{u<0\}\rvert \), continuous at the
+\( \rho^{E\prime}_{\tau}(u)=2u\lvert\tau-\mathbf{1}\{u<0\}\rvert \), continuous at the
 origin because both one-sided derivatives vanish, and nondecreasing, so
 \( \rho^{E}_{\tau} \) is convex. Dominated convergence permits differentiation under
 the expectation, giving
@@ -128,7 +128,7 @@ the reflection. For the failure under nonlinear maps it is enough to look at
 
 Part (c) says what level an expectile sits at. Compare the two characterizations:
 \[
-\tau=\frac{\E\,1\{Y\le q_{\tau}\}}{\E\,1}\quad\text{(quantile)},
+\tau=\frac{\E\,\mathbf{1}\{Y\le q_{\tau}\}}{\E\,1}\quad\text{(quantile)},
 \qquad
 \tau=\frac{\E(\mu_{\tau}-Y)_{+}}{\E\lvert Y-\mu_{\tau}\rvert}\quad\text{(expectile)} .
 \]
@@ -174,7 +174,7 @@ Let \( \rank(\X)=p \) and \( Q(\bb)=\sum_i\rho^{E}_{\tau}(y_i-\x_{(i)}\T\bb) \).
    \[
    \X\T\W(\bb)\,(\y-\X\bb)=\bzero,\qquad
    \W(\bb)=\diag\bigl\{w_i(\bb)\bigr\},\quad
-   w_i(\bb)=\bigl\lvert\tau-1\{y_i<\x_{(i)}\T\bb\}\bigr\rvert .
+   w_i(\bb)=\bigl\lvert\tau-\mathbf{1}\{y_i<\x_{(i)}\T\bb\}\bigr\rvert .
    \]{#eq-qnt-expectile-normal}
 
 2. The **iterated weighted least squares** step
@@ -187,7 +187,7 @@ Let \( \rank(\X)=p \) and \( Q(\bb)=\sum_i\rho^{E}_{\tau}(y_i-\x_{(i)}\T\bb) \).
 
 ::: {.proof}
 (a) The scalar loss is continuously differentiable with derivative
-\( 2u\lvert\tau-1\{u<0\}\rvert \), which is strictly increasing, so
+\( 2u\lvert\tau-\mathbf{1}\{u<0\}\rvert \), which is strictly increasing, so
 \( \rho^{E}_{\tau} \) is strictly convex; composing with the affine map
 \( \bb\mapsto y_i-\x_{(i)}\T\bb \) and summing gives a convex \( Q \), strictly convex
 because \( \rank(\X)=p \) makes \( \bb\mapsto\X\bb \) injective. It is also

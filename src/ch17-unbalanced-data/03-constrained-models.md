@@ -2,7 +2,9 @@
 
 The cell-means model assumes nothing about the table of means. Smaller models, such as the additive model or a
 three-way model without the three-factor interaction, are the cell-means model with linear constraints
-\( \R\bmu=\bzero \). This section fits and tests them with the restricted least squares of
+\( \R\bmu=\bzero \), where \( \R \) is a matrix of constraints — a local use of the letter,
+not the residual projection of @thm-tw-additive. This section fits and tests them with the
+restricted least squares of
 [Section 11.3](../ch11-general-linear-hypothesis/03-testable-hypotheses.html), and shows that main-effect hypotheses
 can merge once the constraints hold.
 

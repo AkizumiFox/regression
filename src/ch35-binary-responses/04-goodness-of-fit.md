@@ -383,9 +383,9 @@ over, with the working weights as the metric.
 ::: {#def-bin-residuals}
 [Residuals for binomial data]
 
-With \( \hat w_i=m_i\hat\pi_i(1-\hat\pi_i) \), \( \hat\W=\diag(\hat w_i) \) and
+With \( \hat w_i=m_i\hat\pi_i(1-\hat\pi_i) \), \( \hat{\W}=\diag(\hat w_i) \) and
 \( \hat h_i \) the \( i \)th diagonal entry of
-\( \hat\W^{1/2}\X(\X\T\hat\W\X)^{-1}\X\T\hat\W^{1/2} \), the **Pearson** and
+\( \hat{\W}^{1/2}\X(\X\T\hat{\W}\X)^{-1}\X\T\hat{\W}^{1/2} \), the **Pearson** and
 **deviance** residuals are
 \[
 r_i=\frac{y_i-m_i\hat\pi_i}{\sqrt{\hat w_i}},\qquad

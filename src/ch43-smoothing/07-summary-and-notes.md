@@ -97,7 +97,9 @@ practice of taking many knots and letting the penalty do the work. O'Sullivan
 (1986) had earlier used the integral penalty on a B-spline basis, and Wand and
 Ormerod (2008) relate the two. Ruppert (2002) is the
 source of the rule of thumb for the knot count and Ruppert, Wand and Carroll
-(2003) the book-length treatment. The simultaneous
+(2003) the book-length treatment; Wood (2017) is the standard modern account of
+penalized regression splines and of the software that fits them, and
+[Chapter 44](../ch44-additive-models/index.html) draws on it. The simultaneous
 diagonalization of @lem-smo-diagonalize goes back to Demmler and Reinsch (1975).
 
 **Smoothing splines.**  Reinsch (1967) gave the algorithm; the variational

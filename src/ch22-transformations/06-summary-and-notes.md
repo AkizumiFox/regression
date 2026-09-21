@@ -44,7 +44,7 @@ including the *transform-both-sides* model, which transforms the response and a 
 function alike. Yeo and Johnson (2000) give a family defined on the whole line.
 
 **Diagnostics.** Constructed variables and their added-variable plots are developed by Atkinson (1985) and
-Cook and Weisberg (1982); Atkinson and Cook and Wang (1983) study the influence of single cases on
+Cook and Weisberg (1982); Cook and Wang (1983) study the influence of single cases on
 \( \hat{\lambda} \). Larsen and McCleary (1972) analysed partial residual plots, Mallows (1986) augmented them, and Cook (1993) explained when
 they work. Box and Tidwell (1962) proposed the regressor transformation, and Royston and Altman (1994)
 fractional polynomials.

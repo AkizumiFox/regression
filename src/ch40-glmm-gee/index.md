@@ -36,9 +36,9 @@ the sandwich covariance @thm-het-sandwich.
 [Chapter 29](../ch29-model-selection/index.html) (AIC and BIC, @def-sel-aic-bic)
 and [Chapter 25](../ch25-causal-interpretation/index.html) (what a
 coefficient means) are used in places. [Chapter 38](../ch38-quasi-likelihood/index.html)
-supplies the quasi-likelihood machinery this chapter generalizes, and
-[Chapter 41](../ch41-missing-data/index.html) the missingness conditions that
-[Section 40.4](04-gee.html) needs.
+supplies the quasi-likelihood machinery this chapter generalizes, while the
+missingness conditions that [Section 40.4](04-gee.html) needs are stated in
+[Chapter 41](../ch41-missing-data/index.html), which comes after this one.
 
 ## Roadmap
 

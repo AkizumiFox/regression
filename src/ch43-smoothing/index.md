@@ -54,8 +54,8 @@ function \( f \) with \( \mathbf{f}=\{f(x_1),\dots,f(x_n)\}\T \). [Section 43.1]
 \( t_1<\dots<t_K \), with \( \kappa_j \) reserved for the extended knot sequence
 of the B-spline recurrence; the kernel does not reappear except by name.
 \( \B \) is a matrix of basis functions, \( \bgamma \) its coefficients, \( \bP \)
-a penalty matrix, \( \bD \) a difference matrix and \( \bS_\lambda \) a smoother
-matrix. In [Section 43.4](04-smoothing-splines.html), \( \Q \) and \( \R \) are
+a penalty matrix — a local use, not the projection \( \bP \) of Chapters 4 to 33 —
+\( \bD \) a difference matrix and \( \bS_\lambda \) a smoother matrix. In [Section 43.4](04-smoothing-splines.html), \( \Q \) and \( \R \) are
 the two band matrices of the Reinsch form, a local use unrelated to the \( \R \)
 of Part VII.
 

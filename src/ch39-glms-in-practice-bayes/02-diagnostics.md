@@ -82,12 +82,12 @@ and \( h_{ii} \) its diagonal.
 ::: {.proof}
 (a) The expansion used in @thm-glm-asymptotics gives, to first order,
 \( \hbeta-\bbeta\approx(\X\T\W\X)^{-1}\X\T\W\bD^{-1}(\y-\bmu) \) and hence
-\( \hat\bmu-\bmu\approx\bD\X(\hbeta-\bbeta) \), where \( \bD=\diag(d\mu_i/d\eta_i) \). Put
+\( \hat{\bmu}-\bmu\approx\bD\X(\hbeta-\bbeta) \), where \( \bD=\diag(d\mu_i/d\eta_i) \). Put
 \( \bu=\W^{1/2}\bD^{-1}(\y-\bmu) \), whose entries are the Pearson residuals evaluated at
 the true parameter, with \( \Cov(\bu)=\I \) by the definition of \( \W \). Then
 \[
 \begin{aligned}
-\W^{1/2}\bD^{-1}(\y-\hat\bmu)
+\W^{1/2}\bD^{-1}(\y-\hat{\bmu})
 &\approx\bu-\W^{1/2}\X(\X\T\W\X)^{-1}\X\T\W^{1/2}\bu\\
 &=(\I-\bH)\bu ,
 \end{aligned}
@@ -107,7 +107,7 @@ the probability that some \( k \) leaves the band lies between \( 2/(B+1) \) and
 the generalized linear fit *is* a weighted least squares fit of \( \bz \) on \( \X \) with
 weights \( \hat{\W} \) (@thm-glm-irls), so the identity applies to that problem, which is
 what the substitution says. It is only one step of the algorithm, since refitting without
-case \( i \) changes \( \hat\bmu \) and therefore \( \hat{\W} \).
+case \( i \) changes \( \hat{\bmu} \) and therefore \( \hat{\W} \).
 
 (d) The enlarged model contains the fitted one at coefficient zero and adds one parameter,
 so @thm-glm-deviance gives the \( \chi^2(1) \) limit under the smaller model. Note that
@@ -401,8 +401,8 @@ by \( \sqrt{1-h_{ii}} \) is then exact rather than approximate.
 ::: {.solution}
 With the identity link and constant variance \( h'(\eta)=1 \), \( V(\mu)=1 \),
 \( w_i=1 \), so \( \W=\bD=\I \) and \( \bH=\X(\X\T\X)^{-1}\X\T=\M \). The expansion in
-the proof becomes an identity, \( \hat\bmu-\bmu=\M(\y-\bmu) \), whence
-\( \Cov(\y-\hat\bmu)=\sigma^2(\I-\M) \) and \( r_i^{P}=(y_i-\hat\mu_i)/\sigma \) has
+the proof becomes an identity, \( \hat{\bmu}-\bmu=\M(\y-\bmu) \), whence
+\( \Cov(\y-\hat{\bmu})=\sigma^2(\I-\M) \) and \( r_i^{P}=(y_i-\hat\mu_i)/\sigma \) has
 variance exactly \( 1-h_{ii} \).
 :::
 

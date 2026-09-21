@@ -20,8 +20,9 @@ statistics, and lead to splines.
 **What you need.** [Chapter 6](../ch06-projections/index.html) (projection,
 reparameterization, leverage), [Chapter 9](../ch09-sums-of-squares/index.html)
 (sequential sums of squares, @exm-ss-nile-polynomials),
-[Chapter 10](../ch10-computation/index.html) (conditioning,
-@def-mat-condition-number), [Chapter 11](../ch11-general-linear-hypothesis/index.html)
+[Section 1.8](../ch01-matrix-algebra/08-svd.html) (the condition
+number, @def-mat-condition-number) and
+[Chapter 10](../ch10-computation/index.html) (what conditioning does to a fit), [Chapter 11](../ch11-general-linear-hypothesis/index.html)
 (restricted least squares), [Chapter 12](../ch12-intervals-and-bands/index.html)
 (bands) and [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) (lack
 of fit). The later sections borrow the vocabulary of

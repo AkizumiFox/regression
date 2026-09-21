@@ -15,10 +15,10 @@ a linear part and a controllable remainder.
 ::: {#lem-qnt-knight}
 [Knight's identity]
 
-For all real \( u \) and \( v \), with \( \psi_{\tau}(u)=\tau-1\{u<0\} \),
+For all real \( u \) and \( v \), with \( \psi_{\tau}(u)=\tau-\mathbf{1}\{u<0\} \),
 \[
 \rho_{\tau}(u-v)-\rho_{\tau}(u)
-=-v\,\psi_{\tau}(u)+\int_{0}^{v}\bigl\{1\{u\le s\}-1\{u\le0\}\bigr\}\,ds .
+=-v\,\psi_{\tau}(u)+\int_{0}^{v}\bigl\{\mathbf{1}\{u\le s\}-\mathbf{1}\{u\le0\}\bigr\}\,ds .
 \]{#eq-qnt-knight}
 
 :::
@@ -33,7 +33,7 @@ runs backwards over \( s\in(v,0) \), where \( s<0<u \) makes the integrand zero,
 the left side is \( -\tau v \) again.
 
 Now suppose \( u\le 0 \), so \( \psi_{\tau}(u)=\tau-1 \) and
-\( 1\{u\le0\}=1 \). If \( v>0 \) then for \( s\in(0,v) \) we have \( u\le0<s \), the
+\( \mathbf{1}\{u\le0\}=1 \). If \( v>0 \) then for \( s\in(0,v) \) we have \( u\le0<s \), the
 integrand is zero, and both sides equal \( -v(\tau-1) \). If \( u\le v<0 \) the same
 computation holds with the integral over \( (v,0) \), where \( u\le v<s \) again makes
 the integrand vanish. If \( v<u\le0 \), the left side is
@@ -93,7 +93,7 @@ a convex function of \( \boldsymbol{\updelta} \) minimized at
 Z_n(\boldsymbol{\updelta})=-\boldsymbol{\updelta}\T\bw_n+R_n(\boldsymbol{\updelta}),
 \qquad \bw_n=\frac{1}{\sqrt{n}}\sum_i\x_{(i)}\psi_{\tau}(u_i),\\
 R_n(\boldsymbol{\updelta})=\sum_i\int_0^{c_i}
-   \bigl\{1\{u_i\le s\}-1\{u_i\le0\}\bigr\}\,ds .
+   \bigl\{\mathbf{1}\{u_i\le s\}-\mathbf{1}\{u_i\le0\}\bigr\}\,ds .
 \end{gathered}
 \]
 Because \( F_i \) is continuous at zero and \( F_i(0)=\tau \), the variables
@@ -116,7 +116,7 @@ By the equicontinuity in (C1), \( F_i(s)-F_i(0)=f_i(0)s+o(s) \) uniformly in
 \end{gathered}
 \]
 Each summand of \( R_n \) is bounded in absolute value by
-\( \lvert c_i\rvert\,1\{\lvert u_i\rvert\le\lvert c_i\rvert\} \), whose second
+\( \lvert c_i\rvert\,\mathbf{1}\{\lvert u_i\rvert\le\lvert c_i\rvert\} \), whose second
 moment is at most \( c_i^2\cdot 2\lvert c_i\rvert\sup f_i \) once
 \( \lvert c_i\rvert<\epsilon \). Summing the independent terms,
 \[

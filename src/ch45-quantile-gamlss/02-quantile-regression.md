@@ -13,7 +13,7 @@ regression method on that observation.
 
 For \( \tau\in(0,1) \) the **check function** is
 \[
-\rho_{\tau}(u)=u\bigl\{\tau-1\{u<0\}\bigr\}
+\rho_{\tau}(u)=u\bigl\{\tau-\mathbf{1}\{u<0\}\bigr\}
 =\begin{cases}\tau u,&u\ge0,\\(\tau-1)u,&u<0,\end{cases}
 \]{#eq-qnt-check}
 
@@ -141,7 +141,7 @@ fitted on the log scale reads back without a smearing correction.
 ::: {.remark}
 [The influence of one observation]
 
-Away from the kink \( \rho_{\tau}'(u)=\tau-1\{u<0\} \) takes only the values
+Away from the kink \( \rho_{\tau}'(u)=\tau-\mathbf{1}\{u<0\} \) takes only the values
 \( \tau \) and \( \tau-1 \), so an observation enters the estimating equation *only
 through the sign of its residual*: moving one response from \( +10 \) to
 \( +10^{6} \) changes nothing. This is the bounded-influence property that made the
@@ -190,7 +190,7 @@ set, and suppose \( \{\x_{(i)}:i\in H\} \) spans a space of dimension less than
 \[
 R_{\tau}(\bb+t\mathbf{d})
 =\sum_{i\notin H}\bigl(r_i-t\,\x_{(i)}\T\mathbf{d}\bigr)
-   \bigl\{\tau-1\{r_i<0\}\bigr\},\qquad r_i=y_i-\x_{(i)}\T\bb,
+   \bigl\{\tau-\mathbf{1}\{r_i<0\}\bigr\},\qquad r_i=y_i-\x_{(i)}\T\bb,
 \]
 which is affine in \( t \). An affine function minimized at \( t=0 \) is constant, so
 \( R_{\tau} \) stays minimal as \( t \) grows, until some residual outside \( H \)

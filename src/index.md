@@ -157,11 +157,11 @@ under the exercise; try the exercise before opening it.
 | \( \Z \), \( \bu \), \( \G \), \( \R \) | random-effect design matrix, random effects, \( \Cov(\bu) \) and \( \Cov(\be) \) ([Part VII](ch31-general-gauss-markov/index.html)) |
 | \( \theta \), \( b(\theta) \), \( \phi \), \( V(\mu) \) | natural parameter, cumulant function, dispersion and variance function of an exponential dispersion family ([Part VIII](ch34-exponential-families-glm/index.html)) |
 | \( \eta \), \( g \), \( \W \), \( D \) | linear predictor \( \x_{(i)}\T\bbeta \), link function, working weights and deviance of a generalized linear model ([Part VIII](ch34-exponential-families-glm/index.html)) |
-| \( \R_i \), \( \R \) | working correlation matrix of a cluster ([Chapter 40](ch40-glmm-gee/index.html)) and missingness indicator array ([Chapter 41](ch41-missing-data/index.html)): two local uses of \( \R \), each announced where it starts |
+| \( \R_i \), \( \R \) | working correlation matrix of a cluster ([Chapter 40](ch40-glmm-gee/index.html)) and missingness indicator array ([Chapter 41](ch41-missing-data/index.html)): local uses of \( \R \) — as are the residual projection of Chapter 16 and the constraint matrix of Chapter 17 — each announced where it starts |
 | \( \B \), \( \bgamma \) | matrix of basis functions, \( B_{ij}=B_j(x_i) \), and its coefficient vector ([Part IX](ch42-polynomials-piecewise/index.html)) |
-| \( \kappa_j \), \( K \) | knots and their number: interior knots in [Chapter 42](ch42-polynomials-piecewise/index.html), the extended sequence of a B-spline basis in [Chapter 43](ch43-smoothing/index.html) |
+| \( \kappa_j \), \( t_j \), \( K \) | knots and their number: \( \kappa_1<\dots<\kappa_K \) are the interior knots in [Chapter 42](ch42-polynomials-piecewise/index.html); [Chapter 43](ch43-smoothing/index.html) writes \( t_1<\dots<t_K \) for the interior knots and keeps \( \kappa \) for the extended B-spline sequence; [Chapter 44](ch44-additive-models/index.html) writes \( \kappa_l \) for the knots of a kriging term |
 | \( \bP \), \( \lambda \), \( \bS_\lambda \) | penalty matrix, smoothing parameter and smoother matrix of a penalized fit (Chapters [43](ch43-smoothing/index.html)–[45](ch45-quantile-gamlss/index.html)); \( \tr(\bS_\lambda) \) is its effective degrees of freedom |
-| \( \rho_{\tau} \), \( \tau \) | the check loss \( \rho_{\tau}(u)=u\{\tau-1\{u<0\}\} \) and the quantile level ([Chapter 45](ch45-quantile-gamlss/index.html)) |
+| \( \rho_{\tau} \), \( \tau \) | the check loss \( \rho_{\tau}(u)=u\{\tau-\mathbf{1}\{u<0\}\} \) and the quantile level ([Chapter 45](ch45-quantile-gamlss/index.html)) |
 
 Vectors are columns. Matrices and vectors are set in bold upright type and
 scalars in italic. A bare “projection” always means an orthogonal

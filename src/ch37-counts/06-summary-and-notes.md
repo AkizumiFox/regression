@@ -95,6 +95,7 @@ not independent.
 - Birch, M. W. (1963). Maximum Likelihood in Three-Way Contingency Tables. *Journal of the Royal Statistical Society, Series B* 25(1), 220–233.
 - Bishop, Yvonne M. M., Fienberg, Stephen E. and Holland, Paul W. (1975). *Discrete Multivariate Analysis: Theory and Practice*. Cambridge, MA: MIT Press.
 - Cameron, A. Colin and Trivedi, Pravin K. (2013). *Regression Analysis of Count Data*. 2nd edition. Cambridge: Cambridge University Press.
+- Cox, David R. and Reid, Nancy (1987). Parameter Orthogonality and Approximate Conditional Inference. *Journal of the Royal Statistical Society, Series B* 49(1), 1–39.
 - Darroch, J. N., Lauritzen, S. L. and Speed, T. P. (1980). Markov Fields and Log-Linear Interaction Models for Contingency Tables. *The Annals of Statistics* 8(3), 522–539.
 - Dean, C. and Lawless, J. F. (1989). Tests for Detecting Overdispersion in Poisson Regression Models. *Journal of the American Statistical Association* 84(406), 467–472.
 - Fahrmeir, Ludwig, Kneib, Thomas, Lang, Stefan and Marx, Brian D. (2021). *Regression: Models, Methods and Applications*. 2nd edition. Berlin: Springer.

@@ -9,7 +9,7 @@ A chapter that needs a new symbol adds it here and there before using it.
 | `\X`, `\x_j`, `\x_{(i)}` | model matrix n × p; its j-th column; its i-th row as a column |
 | `\bbeta`, `\hbeta`, `\be` | coefficients, a least squares estimate, the error vector ε |
 | `\hY`, `\he` | fitted values, residuals |
-| `\A, \B, \G, \M, \Q, \R, \V, \bP, \bD, \bL, \bS, \bT, \bU, \bH` | bold matrices (`\bH` is the hat matrix, written `\bH` in Ch. 5 before Ch. 6 renames it `\M`; locally, `\bH_{\G}=\G\X\T\X` in Ch. 8 and a Householder reflection in Ch. 10). From Ch. 6 to Ch. 30 `\G` is a **generalized inverse of** `\X\T\X`; from Ch. 31 on it is `\Cov(\bu)`, as the mixed-model bullet below records |
+| `\A, \B, \G, \M, \Q, \R, \V, \bP, \bD, \bL, \bS, \bT, \bU, \bH` | bold matrices (`\bH` is the hat matrix, written `\bH` in Ch. 5 before Ch. 6 renames it `\M`; among its local uses are `\bH_{\G}=\G\X\T\X` in Ch. 8, a Householder reflection in Ch. 10, an oblique projector in Ch. 17, the deletion block in Ch. 20 and the ridge operator `\bH_\lambda` in Ch. 27, each defined where it appears). From Ch. 6 to Ch. 30 `\G` is a **generalized inverse of** `\X\T\X`; from Ch. 31 on it is `\Cov(\bu)`, as the mixed-model bullet below records |
 | `\bu, \bv, \bw, \bz, \bb, \br, \bmu, \bgamma, \blambda, \bzero, \bone` | bold vectors |
 | `\bSigma`, `\bLambda`, `\mathbf{a}`, `\boldsymbol{\uptheta}` | Matrices and vectors are **bold upright**, Latin and Greek alike. Latin: `\mathbf{a}`. Lowercase Greek: `\boldsymbol{\uptheta}` (upright Greek from `upgreek`: `\upalpha`, `\upbeta`, `\upvarepsilon`, …); capital Greek is upright already: `\boldsymbol{\Sigma}`. Never `\bm`, and never `\boldsymbol{\theta}` (that is bold *italic*) |
 | `\I` | identity. `\M` the orthogonal projection onto C(X), `\Mo` onto a reduced model |
@@ -18,7 +18,7 @@ A chapter that needs a new symbol adds it here and there before using it.
 | `\C(\X)`, `\Null(\X)` | column space, null space |
 | `\perpc`, `\dirsum` | orthogonal complement, direct sum |
 | `\rank, \tr, \diag, \spn, \argmin, \vecop` | operators |
-| `\E, \Var, \Cov` | expectation, variance, covariance (matrix). `\Cov(\bu,\bv)` is the cross-covariance |
+| `\E, \Var, \Cov` | expectation, variance, covariance (matrix). `\Cov(\bU,\bV)` is the cross-covariance of two random vectors |
 | `\Normal_n(\bmu,\bSigma)`, `\iid` | normal distribution, "independent and identically distributed" |
 | `\chi^2(r,\gamma)`, `F(r,s,\gamma)`, `t(r,\delta)` | noncentral distributions |
 | `\norm{\cdot}`, `\inner{\cdot}{\cdot}` | Euclidean norm and inner product unless stated |
@@ -50,8 +50,8 @@ A chapter that needs a new symbol adds it here and there before using it.
   `\bD=\diag(d\mu_i/d\eta_i)` and `\bz` is the *working response*; `\X\T\W\X` is the
   expected information. `D` is the *deviance* and `D^{*}=D/\phi` the *scaled deviance*.
   Category probabilities are `\boldsymbol{\uppi}`; in chapter 36 `\boldsymbol{\uptheta}`
-  is the vector of *cutpoints* of a cumulative-link model (not the variance components of
-  Part VII) and `\boldsymbol{\uppsi}` collects all parameters of a fit. Chapter 37 writes
+  is the vector of *cutpoints* of a cumulative-link model — neither the natural parameter
+  `\theta` of this bullet nor the variance components of Part VII and `\boldsymbol{\uppsi}` collects all parameters of a fit. Chapter 37 writes
   `\kappa` for the negative binomial shape and `\alpha=1/\kappa` for its reciprocal, and
   chapter 34 writes `\kappa(\theta)` for the *normalizing constant* of an exponential
   dispersion family, flagged where it is introduced.
@@ -90,11 +90,12 @@ A chapter that needs a new symbol adds it here and there before using it.
   it; chapter 44 writes \( \kappa_l \) for the knots of a kriging term. `\kappa(\cdot)` with
   an argument is the condition number of @def-mat-condition-number in chapters 1, 10, 42 and 43
   (chapter 34's `\kappa(\theta)` is the one other function called kappa, and says so there).
-  The *penalty matrix* is `\bP`, nonnegative definite, with *smoothing parameter*
+  The *penalty matrix* is `\bP`, nonnegative definite — a local use of the letter, not the projection `\bP` of chapters 4–33 — with *smoothing parameter*
   \( \lambda\ge0 \); the penalty is \( \lambda\bgamma\T\bP\bgamma \) and a difference matrix
   is `\bD_k`, so that \( \bP=\bD_k\T\bD_k \) for a P-spline. A fit that is linear in the
   response has *smoother matrix* `\bS_\lambda` (`\bS` when \( \lambda \) is fixed), and its
-  *effective degrees of freedom* is \( \tr(\bS_\lambda) \), the trace of chapters 27 and 30.
+  *effective degrees of freedom* is \( \tr(\bS_\lambda) \) — the same count chapter 27 takes of
+  its ridge operator `\bH_\lambda` and chapter 30 of a general penalized fit.
   Chapter 43 writes \( K \) for a kernel function and \( h \) for a bandwidth in section 43.1
   only; from section 43.2 on \( K \) is the number of interior knots. Chapters 44 and 45
   index a term by \( j \): a design block `\Z_j` with penalty `\bP_j`, coefficients

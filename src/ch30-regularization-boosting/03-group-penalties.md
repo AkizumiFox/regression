@@ -78,7 +78,7 @@ Block soft thresholding keeps the direction of the least squares vector \( \math
 \( \lambda w_g \): the lasso rule applied to a length. The weights come from (c): for pure noise and orthonormal groups,
 \( \norm{\X_g\T\y}^2/\sigma^2\sim\chi^2(p_g) \) has mean \( p_g \), so without \( \sqrt{p_g} \) large groups would enter merely for being
 large (@exr-reg-group-weights). Block coordinate descent with update (e) has every limit point a minimizer because the penalty is
-separable across blocks (Tseng, 2001), so it converges when the minimizer is unique; without orthonormality the block problem has no closed form (@exr-reg-group-nonorthonormal).
+separable across blocks (Tseng 2001), so it converges when the minimizer is unique; without orthonormality the block problem has no closed form (@exr-reg-group-nonorthonormal).
 
 ## Factors as groups
 
@@ -208,7 +208,7 @@ Q(\bb)=\tfrac12\norm{\y-\X\bb}^2+\lambda_1\sum_{j=1}^p\lvert b_j\rvert+\lambda_2
 \]{#eq-reg-fused}
 
 It produces exact zeros and exact ties \( \hat\beta_j=\hat\beta_{j-1} \), so the coefficient sequence is piecewise constant.
-The penalty is convex but not separable, so coordinate descent can stall at a tie. For an ordered factor, fusion merges adjacent levels the data cannot distinguish (Gertheiss and Tutz, 2010).
+The penalty is convex but not separable, so coordinate descent can stall at a tie. For an ordered factor, fusion merges adjacent levels the data cannot distinguish (Gertheiss and Tutz 2010).
 @exr-reg-fused-two solves the smallest case.
 
 ## Exercises
