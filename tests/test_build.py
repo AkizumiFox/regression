@@ -161,10 +161,12 @@ class TestHtmlBuild(FixtureBookCase):
         self.assertIn("Quick check", page)
 
     def test_tooltip_shards(self):
-        shard = json.loads((self.html / "theorems" / "ch01-basics.json").read_text())
-        self.assertIn("thm-main", shard)
-        self.assertEqual(shard["thm-main"]["title"], "Main Theorem")
-        self.assertIn("exm-titled", json.loads((self.html / "theorems" / "ch02-more.json").read_text()))
+        # One file per result, so a hover fetches kilobytes rather than a whole chapter
+        entry = json.loads((self.html / "theorems" / "ch01-basics" / "thm-main.json").read_text())
+        self.assertEqual(entry["title"], "Main Theorem")
+        self.assertTrue((self.html / "theorems" / "ch02-more" / "exm-titled.json").exists())
+        # A result that no longer exists must not be left behind for the tooltips to find
+        self.assertFalse(list((self.html / "theorems").glob("*.json")))
 
     def test_macros_generated_from_book(self):
         macros = (self.html / "mathjax-macros.js").read_text()
@@ -240,8 +242,8 @@ class TestHtmlBuild(FixtureBookCase):
         self.assertNotIn('data-mjx-error', page)
         self.assertTrue((self.html / "mathjax.css").exists())
         self.assertTrue(any((self.html / "mathjax-fonts").glob("*.woff")))
-        shard = (self.html / "theorems" / "ch01-basics.json").read_text()
-        self.assertIn("mjx-container", shard)                         # tooltip previews too
+        entry = (self.html / "theorems" / "ch01-basics" / "thm-main.json").read_text()
+        self.assertIn("mjx-container", entry)                         # tooltip previews too
 
     def test_unchanged_rebuild_skips_pages(self):
         result = run_build(self.book_dir, "html")

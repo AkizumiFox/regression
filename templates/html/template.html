@@ -44,6 +44,8 @@
     <link rel="preload" href="$if(asset-prefix)$$asset-prefix$$endif$fonts/stix-two-text-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Styles -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <meta name="asset-version" content="$asset-version$">
     <link rel="stylesheet" href="$if(asset-prefix)$$asset-prefix$$endif$styles.css?v=$asset-version$">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
@@ -74,9 +76,10 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>
     $endif$
 
-    <!-- Tippy.js for tooltips -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <!-- Tippy.js for tooltips. All three scripts are deferred so neither blocks parsing;
+         deferred scripts run in document order, so main.js still sees tippy. -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/animations/shift-away.css">
 
     $if(highlighting-css)$
@@ -206,7 +209,8 @@ $highlighting-css$
             $if(report-url)$
             <p class="page-feedback">
                 Found a typo or a mistake?
-                <a href="$report-url$" target="_blank" rel="noopener">Report it</a>
+                <a href="$report-url$" target="_blank" rel="noopener">Report it</a>$if(source-url)$,
+                or <a href="$source-url$" target="_blank" rel="noopener">read this page&rsquo;s source</a>$endif$
             </p>
             $endif$
         </main>
@@ -231,7 +235,7 @@ $highlighting-css$
     </div>
 
     <!-- Tooltip Script -->
-    <script src="$if(asset-prefix)$$asset-prefix$$endif$main.js?v=$asset-version$"></script>
+    <script defer src="$if(asset-prefix)$$asset-prefix$$endif$main.js?v=$asset-version$"></script>
     $for(page-scripts)$
     <script type="module" src="$if(asset-prefix)$$asset-prefix$$endif$$page-scripts$?v=$asset-version$"></script>
     $endfor$

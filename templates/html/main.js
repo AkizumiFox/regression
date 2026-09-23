@@ -38,11 +38,21 @@
     }
 
     /**
-     * Fetch a site-wide data file. 'no-cache' revalidates with the server (a cheap 304
-     * when unchanged), so edits show up without cache-busting every page on each build.
+     * Fetch a site-wide data file.
+     *
+     * The URL carries the build's asset version, exactly as styles.css and main.js do, so the
+     * browser may cache it outright. This used to pass 'no-cache' to stay fresh, which cost a
+     * revalidation round trip on every fetch on every page; the version query gives the same
+     * freshness for nothing.
      */
+    function assetVersion() {
+        const meta = document.querySelector('meta[name="asset-version"]');
+        return meta ? meta.content : '';
+    }
+
     function fetchData(name) {
-        return fetch(getBasePath() + name, { cache: 'no-cache' });
+        const version = assetVersion();
+        return fetch(getBasePath() + name + (version ? `?v=${encodeURIComponent(version)}` : ''));
     }
 
     /**
@@ -75,6 +85,29 @@
     /**
      * Build the sidebar navigation HTML
      */
+    /**
+     * Adopt a sidebar that the build already rendered: attach the toggles and scroll the
+     * current section into view. Returns false if this page has no server-rendered tree,
+     * in which case the caller falls back to fetching navigation.json and building it.
+     */
+    function hydrateSidebarNav() {
+        const sidebarNav = document.querySelector('.sidebar-nav');
+        if (!sidebarNav || !sidebarNav.querySelector('.nav-chapter')) return false;
+        scrollActiveSectionIntoView(sidebarNav);
+        setupChapterToggle();
+        return true;
+    }
+
+    function scrollActiveSectionIntoView(sidebarNav) {
+        const active = sidebarNav.querySelector('.nav-section-item.active');
+        const sidebar = document.getElementById('quarto-sidebar');
+        if (!active || !sidebar) return;
+        const offset = active.getBoundingClientRect().top - sidebar.getBoundingClientRect().top;
+        if (offset > sidebar.clientHeight * 0.7) {
+            sidebar.scrollTop = offset - sidebar.clientHeight / 3;
+        }
+    }
+
     function buildSidebarNav() {
         if (!navigationData) return;
 
@@ -148,14 +181,7 @@
         sidebarNav.innerHTML = html;
 
         // Keep the current section in view in a long sidebar
-        const active = sidebarNav.querySelector('.nav-section-item.active');
-        const sidebar = document.getElementById('quarto-sidebar');
-        if (active && sidebar) {
-            const offset = active.getBoundingClientRect().top - sidebar.getBoundingClientRect().top;
-            if (offset > sidebar.clientHeight * 0.7) {
-                sidebar.scrollTop = offset - sidebar.clientHeight / 3;
-            }
-        }
+        scrollActiveSectionIntoView(sidebarNav);
 
         // Add click handlers for chapter expansion (ONLY on toggle arrow)
         setupChapterToggle();
@@ -297,20 +323,48 @@
     // Theorem Manifest & Tooltips
     // ==========================================================================
 
-    // Tooltip data is split into one shard per chapter (theorems/<chapter>.json), fetched
-    // the first time a reference into that chapter is hovered.
-    const theoremShards = new Map();  // shard name -> Promise of { labelId: info }
+    // Tooltip data is one small file per result (theorems/<chapter>/<label>.json), fetched the
+    // first time that result is hovered. It used to be one file per chapter, so a single hover
+    // pulled megabytes to read one entry. sessionStorage carries entries across page
+    // navigations, which the in-memory map alone could not do.
+    const theoremEntries = new Map();  // labelId -> Promise of info (or null)
 
-    function loadShard(shard) {
-        if (!theoremShards.has(shard)) {
-            theoremShards.set(shard, fetchData(`theorems/${shard}.json`)
-                .then(response => response.ok ? response.json() : {})
-                .catch(error => {
-                    console.warn(`Could not load theorem data for ${shard}:`, error);
-                    return {};
-                }));
+    function cached(labelId) {
+        try {
+            const stored = sessionStorage.getItem(`thm:${assetVersion()}:${labelId}`);
+            return stored ? JSON.parse(stored) : undefined;
+        } catch (error) {
+            return undefined;   // private windows, blocked storage, quota
         }
-        return theoremShards.get(shard);
+    }
+
+    function remember(labelId, info) {
+        try {
+            sessionStorage.setItem(`thm:${assetVersion()}:${labelId}`, JSON.stringify(info));
+        } catch (error) {
+            /* a full or unavailable store is not worth reporting: the fetch still worked */
+        }
+    }
+
+    function loadEntry(shard, labelId) {
+        if (!theoremEntries.has(labelId)) {
+            const stored = cached(labelId);
+            if (stored !== undefined) {
+                theoremEntries.set(labelId, Promise.resolve(stored));
+            } else {
+                theoremEntries.set(labelId, fetchData(`theorems/${shard}/${labelId}.json`)
+                    .then(response => response.ok ? response.json() : null)
+                    .then(info => {
+                        if (info) remember(labelId, info);
+                        return info;
+                    })
+                    .catch(error => {
+                        console.warn(`Could not load theorem data for ${labelId}:`, error);
+                        return null;
+                    }));
+            }
+        }
+        return theoremEntries.get(labelId);
     }
 
     /**
@@ -380,8 +434,8 @@
                 ...(touch ? { trigger: 'click', hideOnClick: true, placement: 'bottom', maxWidth: 'calc(100vw - 24px)' } : {}),
                 content: createLoadingContent(),
                 onShow(instance) {
-                    loadShard(shard).then(entries => {
-                        instance.setContent(generateTooltipContent(refId, entries[refId], goTo));
+                    loadEntry(shard, refId).then(info => {
+                        instance.setContent(generateTooltipContent(refId, info, goTo));
                         // Typeset math in the tooltip
                         const tooltipEl = instance.popper.querySelector('.tippy-content');
                         if (tooltipEl && window.MathJax && window.MathJax.typesetPromise) {
@@ -1151,9 +1205,10 @@
         // Toolbar first, so its buttons work while the navigation data loads
         setupLayoutControls();
 
-        // Load navigation and build sidebar
-        const navLoaded = await loadNavigation();
-        if (navLoaded) {
+        // The build renders the sidebar into the page, so there is normally nothing to fetch
+        // and nothing to rebuild: just wire it up. The fetch remains for any page built
+        // without it, so the sidebar still works rather than staying a single Preface link.
+        if (!hydrateSidebarNav() && await loadNavigation()) {
             buildSidebarNav();
             updateSidebarHeader();
         }

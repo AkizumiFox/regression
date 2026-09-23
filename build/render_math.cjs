@@ -155,12 +155,18 @@ MathJax.startup.promise.then(() => {
     };
 
     for (const file of job.shards) {
-        const entries = JSON.parse(fs.readFileSync(file, 'utf8'));
-        for (const [label, entry] of Object.entries(entries)) {
+        const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+        // One file per result (theorems/<chapter>/<label>.json) holds a single entry; the
+        // older one-file-per-chapter layout held a map of them. An entry is recognised by
+        // its own "html" field -- without this check the map branch would iterate an entry's
+        // *fields*, assign to a string primitive, and silently render nothing.
+        const single = typeof data.html === 'string';
+        const entries = single ? [[path.basename(file, '.json'), data]] : Object.entries(data);
+        for (const [label, entry] of entries) {
             entry.html = renderFragment(entry.html, label);
             entry.title_html = renderFragment(entry.title_html, label);
         }
-        fs.writeFileSync(file, JSON.stringify(entries, null, 2));
+        fs.writeFileSync(file, JSON.stringify(data));
         result.shards++;
     }
 

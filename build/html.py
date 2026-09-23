@@ -200,7 +200,9 @@ def build_html(book: Book, specific_file: Optional[Path] = None, dev_reload: boo
         targets = [book.html_dir / page.html_path for page, _ in built]
         if extras_ok:
             targets += [book.html_dir / name for name in ("results.html", "graph.html")]
-        shards = sorted((book.html_dir / "theorems").glob("*.json"))
+        # One file per result, under theorems/<chapter>/; the glob must recurse or the
+        # tooltips ship raw TeX and the reader waits on MathJax at the first hover.
+        shards = sorted((book.html_dir / "theorems").glob("*/*.json"))
         if not render_math(book, mathjax, targets, shards):
             failures += 1
             built = []

@@ -57,15 +57,20 @@ def page_metadata(book: Book, page: Page, output_format: str, extra: Optional[di
         metadata["breadcrumb-page-url"] = f"{prefix}{page.html_path}"
         metadata["pdf-url"] = f"{prefix}pdf/{Path(page.html_path).with_suffix('.pdf').as_posix()}"
         metadata["book-pdf-url"] = f"{prefix}book/book.pdf"
+        source = metadata["source-path"]
         if book.config.get("repo-url"):
-            metadata["repo-url"] = book.config["repo-url"]
+            repo = book.config["repo-url"].rstrip("/")
+            metadata["repo-url"] = repo
+            # The page a reader should look at to check or fix the text: its own markdown
+            metadata["source-url"] = f"{repo}/blob/{book.config.get('source-branch', 'main')}/{source}"
         if book.config.get("issues-url"):
-            # A new issue prefilled with the section and its address
+            # A new issue prefilled with the section, its address and the file to edit
             label = f"{page.number} {page.title}" if page.number else page.title
             address = metadata.get("page-url") or page.html_path
+            where = f"Page: {address}\nSource: {metadata.get('source-url') or source}"
             query = urlencode({
                 "title": f"Typo or mistake in {label}",
-                "body": f"Page: {address}\n\nWhat is wrong (quote the sentence or formula):\n\n\nWhat it should say:\n",
+                "body": f"{where}\n\nWhat is wrong (quote the sentence or formula):\n\n\nWhat it should say:\n",
             }, quote_via=quote)
             metadata["report-url"] = f"{book.config['issues-url']}?{query}"
         for direction in ("prev", "next"):
@@ -118,10 +123,14 @@ def build_pandoc_command(book: Book, page: Page, output_file: Path, output_forma
     ]
 
     if output_format == "html":
+        from .manifest import render_navigation  # local import: manifest imports this module
         cmd += [
             "--template", str(book.html_template),
             "--lua-filter", str(filters / "numbering.lua"),
             "--mathjax",
+            # A variable, not metadata: pandoc parses metadata as markdown and would mangle
+            # the markup (newlines come back as <br />). -V is inserted verbatim.
+            "-V", f"navigation={render_navigation(book, page)}",
         ]
     elif output_format == "pdf":
         # # -> chapter (0.4), ## -> section (0.4.1), ### -> subsection (0.4.1.1)

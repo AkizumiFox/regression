@@ -8,6 +8,7 @@ the data files the website loads: tooltip shards, navigation and the search inde
 import hashlib
 import json
 import re
+import shutil
 import subprocess
 from collections import Counter
 from html import escape as html_escape, unescape
@@ -197,11 +198,20 @@ def load_scan(book: Book) -> tuple[dict, dict]:
 # =============================================================================
 
 def generate_theorem_manifest(book: Book):
-    """Write tooltip data as one shard per chapter: theorems/<chapter-slug>.json."""
+    """
+    Write tooltip data as one small file per result: theorems/<chapter-slug>/<label>.json.
+
+    One file per chapter would be simpler, but a hover then costs the whole chapter. Per-result
+    files also churn less: editing one section no longer rewrites a multi-megabyte blob on
+    every deploy.
+    """
     _, labels = load_scan(book)
-    shards: dict[str, dict] = {}
+    wanted: dict[str, set[str]] = {}
+    out_dir = book.html_dir / "theorems"
     for label_id, info in labels.items():
-        shards.setdefault(info["shard"], {})[label_id] = {
+        shard = info["shard"]
+        wanted.setdefault(shard, set()).add(f"{label_id}.json")
+        entry = {
             "type": info.get("type", "unknown"),
             "type_name": info.get("type_name", ""),
             "number": info.get("number", ""),
@@ -210,19 +220,31 @@ def generate_theorem_manifest(book: Book):
             "html": info.get("html_content", ""),
             "file": info.get("file", ""),
         }
+        shard_dir = out_dir / shard
+        shard_dir.mkdir(parents=True, exist_ok=True)
+        _write_if_changed(shard_dir / f"{label_id}.json", _json(entry))
 
-    out_dir = book.html_dir / "theorems"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    for stale in out_dir.glob("*.json"):
-        if stale.stem not in shards:
+    # Drop files and directories left behind by renamed labels or removed chapters
+    if out_dir.exists():
+        for stale in out_dir.glob("*.json"):       # the old one-file-per-chapter layout
             stale.unlink()
-    for shard, entries in shards.items():
-        _write_if_changed(out_dir / f"{shard}.json", json.dumps(dict(sorted(entries.items())), indent=2))
-    print_success(f"Theorem manifest: {len(labels)} entries in {len(shards)} shards")
+        for shard_dir in out_dir.iterdir():
+            if not shard_dir.is_dir():
+                continue
+            if shard_dir.name not in wanted:
+                shutil.rmtree(shard_dir)
+                continue
+            for stale in shard_dir.glob("*.json"):
+                if stale.name not in wanted[shard_dir.name]:
+                    stale.unlink()
+    print_success(f"Theorem manifest: {len(labels)} entries in {len(wanted)} chapters")
 
 
-def generate_navigation_manifest(book: Book):
-    """Write navigation.json for the sidebar."""
+def navigation_data(book: Book) -> dict:
+    """The sidebar's chapter/section tree, shared by navigation.json and the server-side render."""
+    cached = getattr(book, "_navigation_data", None)
+    if cached is not None:
+        return cached
     pages = book.pages
     preface = next((p for p in pages if p.is_preface), None)
     navigation = {
@@ -249,8 +271,68 @@ def generate_navigation_manifest(book: Book):
                 for p in chapter_pages if p.section > 0
             ],
         })
-    _write_if_changed(book.html_dir / "navigation.json", json.dumps(navigation, indent=2, ensure_ascii=False))
+    book._navigation_data = navigation
+    return navigation
+
+
+def generate_navigation_manifest(book: Book):
+    """Write navigation.json. The sidebar itself is rendered into each page (render_navigation)."""
+    navigation = navigation_data(book)
+    _write_if_changed(book.html_dir / "navigation.json", _json(navigation))
     print_success(f"Navigation manifest: {sum(len(c['sections']) for c in navigation['chapters'])} sections")
+
+
+def render_navigation(book: Book, page: Page) -> str:
+    """
+    The sidebar, as HTML, for one page.
+
+    The template has always had a `$navigation$` slot and nothing ever filled it, so every page
+    shipped a one-link placeholder and waited on JS to fetch navigation.json and rebuild the
+    tree. Rendering it here removes a round trip from first paint. The markup must stay in step
+    with buildSidebarNav() in main.js, which still runs when this is absent.
+    """
+    nav = navigation_data(book)
+    prefix = page.asset_prefix
+    current = page.html_path
+    out = ['<ul class="nav-list">']
+
+    home = nav.get("home") or {"title": "Preface", "path": "index.html"}
+    out.append(f'<li class="nav-item nav-home"><a href="{prefix}{home["path"]}">{home["title"]}</a></li>')
+    for extra in nav.get("extras", []):
+        active = " active" if current == extra["path"] else ""
+        out.append(
+            f'<li class="nav-item nav-extra{active}"><a href="{prefix}{extra["path"]}">'
+            f'<i class="bi {extra["icon"]}" aria-hidden="true"></i> {extra["title"]}</a></li>')
+
+    for index, chapter in enumerate(nav["chapters"]):
+        paths = [s["path"] for s in chapter["sections"]]
+        is_active = current in paths or current == chapter.get("path")
+        expanded = is_active or not chapter["collapsed"]
+        first = chapter["sections"][0]["path"] if chapter["sections"] else None
+        url = chapter["path"] or first
+        if chapter["part"]:
+            out.append(f'<li class="nav-part">{chapter["part"]}</li>')
+        out.append(f'<li class="nav-chapter{" active" if is_active else ""}">')
+        out.append(f'<div class="nav-chapter-header" data-chapter="{index}">')
+        out.append(f'<a href="{prefix + url if url else "#"}" class="nav-chapter-title-link">'
+                   f'<span class="nav-chapter-title">{chapter["title"]}</span></a>')
+        out.append(f'<span class="nav-toggle{" expanded" if expanded else ""}">'
+                   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" '
+                   'stroke="currentColor" stroke-width="2">'
+                   '<polyline points="9 18 15 12 9 6"></polyline></svg></span>')
+        out.append("</div>")
+        out.append(f'<ul class="nav-sections{"" if expanded else " collapsed"}">')
+        for section in chapter["sections"]:
+            active = " active" if section["path"] == current else ""
+            out.append(
+                f'<li class="nav-section-item{active}">'
+                f'<a href="{prefix}{section["path"]}" title="{html_escape(section["title"], quote=True)}">'
+                f'<span class="nav-section-number">{section["number"]}</span>'
+                f'<span class="nav-section-title">{section["title"]}</span></a></li>')
+        out.append("</ul></li>")
+
+    out.append("</ul>")
+    return "".join(out)
 
 
 def _plain(html: str) -> str:
@@ -282,7 +364,7 @@ def generate_search_index(book: Book):
         index.append({"kind": "result", "title": title, "url": f"{info['file']}#{label_id}",
                       "page": f"{page.number} {page.title}".strip(),
                       "content": _plain(info.get("html_content", ""))})
-    _write_if_changed(book.html_dir / "search.json", json.dumps(index, indent=2, ensure_ascii=False))
+    _write_if_changed(book.html_dir / "search.json", _json(index))
     print_success(f"Search index generated with {len(index)} entries")
 
 
@@ -346,6 +428,11 @@ def generate_site_files(book: Book):
 </body>
 </html>
 """)
+
+
+def _json(data) -> str:
+    """Compact JSON for the data files the browser fetches: nobody reads them by eye."""
+    return json.dumps(data, separators=(",", ":"), ensure_ascii=False)
 
 
 def _write_if_changed(path, text: str):
