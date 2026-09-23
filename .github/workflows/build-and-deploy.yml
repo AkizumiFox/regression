@@ -76,7 +76,10 @@ jobs:
         with:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
           external_repository: AkizumiFox/regression
-          publish_branch: main
+          # gh-pages, not main: since the sources moved onto main of this same
+          # repository, publishing to main would overwrite the book with its own
+          # rendered output on the first run.
+          publish_branch: gh-pages
           publish_dir: ./_build/html
           cname: regression.akizumifox.com
           commit_message: Deploy
