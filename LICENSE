@@ -1,0 +1,77 @@
+This repository holds two different kinds of work, under two licences: the
+book, and the software that builds it.
+
+
+THE BOOK  —  Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+-------------------------------------------------------------------------------
+
+Copyright (c) 2026 Akizumi
+
+Everything that is the book: its prose, mathematics, figures, exercises and
+solutions, the worked examples that accompany it, and the editorial material
+written to produce it.
+
+    src/                 every chapter and section, and the preface
+    authoring/           the style, notation and drafting standards
+    widgets/             the interactive figures
+    spelling.txt         the book's vocabulary
+    blueprint/           the chapter plans and coverage map
+    code/                the runnable examples for each chapter
+
+is licensed under CC BY-NC-SA 4.0. You may share and adapt it, including
+translating it, provided you give credit, do not use it commercially, and
+license what you build on it the same way. The full text is in
+LICENSE-CC-BY-NC-SA-4.0.txt; a plain-language summary is at
+<https://creativecommons.org/licenses/by-nc-sa/4.0/>.
+
+The rendered editions built from these sources — the website and the PDFs —
+carry the same licence.
+
+
+THE ENGINE  —  MIT
+-------------------------------------------------------------------------------
+
+Copyright (c) 2026 Akizumi
+
+The software that turns those sources into a book, and which is not specific to
+this book's subject:
+
+    build.py, build/      the build system
+    filters/              the Pandoc Lua filters
+    templates/            the HTML and LaTeX templates
+    latex/                the LaTeX styles written for this book
+    tools/                the maintenance and measurement scripts
+    tests/                the test suite
+    config/               the book's configuration
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Where a file is not listed above, the principle decides it: if it is part of
+the book, it is under CC BY-NC-SA; if it is part of the machinery that would
+build any book, it is under MIT.
+
+
+NEITHER  —  latex/sleek/
+-------------------------------------------------------------------------------
+
+latex/sleek/ vendors two files from a third party's LaTeX style. Their terms
+could not be established: the upstream repository named in latex/sleek/README.md
+returns 404, and neither file carries a licence statement. Neither licence above
+covers that directory. Before redistributing, establish the terms with the
+author or replace the two files.
