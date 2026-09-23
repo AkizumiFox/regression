@@ -1,29 +1,69 @@
 % Preamble for Book PDF
-% Same as preamble.tex: full LaTeX setup with bookmode for correct heading styles
+% Same as preamble.tex: the sleek style as the base, the book layered on top.
+%
+% latex/sleek/  vendored sleek (page, headers, typography, the framed theorem
+%               style) -- see latex/sleek/README.md
+% latex/latex-template.sty   the book's macros, colours and helpers
+% latex/chapter-style.sty    chapters, \part banners, running heads
+% latex/theorem-envs.sty     the environments filters/theorems.lua emits, framed
+%                            the sleek way, in the colours from the book's config
+
+% ======================================================================================
+% ONE DECISION PER SHARED PACKAGE
+% ======================================================================================
+% A dozen packages are loaded by both sleek and the book. Most take no options and
+% so cannot clash; these are the ones that do. Naming the options here, before
+% anything pulls the packages in, means no load order can produce an option clash
+% and there is a single place that says which settings win.
+
+% xcolor: sleek loads it plain, latex-template wants dvipsnames. dvipsnames wins.
+\PassOptionsToPackage{dvipsnames}{xcolor}
+% hyperref: loaded exactly once, by templates/latex/template.tex, after
+% latex/macros.tex (it reclaims \H, restored at the bottom of this file). These
+% are sleek's link settings, handed to that one load; the template's own
+% colorlinks/linkcolor/urlcolor=blue agree with allcolors=blue, so nothing moves.
+\PassOptionsToPackage{pdfusetitle,linktoc=page,allcolors=blue}{hyperref}
+% mdframed: latex-template and sleek-theorems both ask for framemethod=TikZ, so
+% the second load is a no-op. Do NOT hand it the same option from here as well:
+% mdframed reads the frame method by \input-ing a file, and it would do it twice.
+% tcolorbox (most,breakable,skins,theorems) is loaded only by latex-template,
+% and caption's skip=1em only by sleek, which is loaded first -- latex-template's
+% later option-free load of caption is a subset and cannot clash.
+
+% ======================================================================================
+% THE SLEEK BASE
+% ======================================================================================
+% Page geometry, running-head frame, paragraph style, tables, figures and the
+% link colours. latex/sleek/sleek.sty is the one place the page is decided; it
+% keeps the book's uniform 2.5cm margin, so the measure -- and every line break
+% in the book -- is unchanged.
+\usepackage{latex/sleek/sleek}
+
 \usepackage{bbm}
-% Text block margins: 2.5cm sides, 2.5cm top/bottom (narrower than default book)
-\usepackage[margin=2.5cm]{geometry}
-\usepackage[skipgeometry,skiphyperref,skiptitlesec]{latex/latex-template}
+
+% ======================================================================================
+% THE BOOK ON TOP
+% ======================================================================================
+% Macros, colours and helpers. sleek owns the page (skipgeometry), the pandoc
+% template owns hyperref (skiphyperref), latex/chapter-style owns the headings
+% (skiptitlesec) and latex/theorem-envs owns the environments (skipenv).
+\usepackage[skipgeometry,skiphyperref,skiptitlesec,skipenv]{latex/latex-template}
 \let\maketitle\relax
 
 % List spacing (1.2x)
 \usepackage{enumitem}
 \setlist{itemsep=1.2em, parsep=0pt}
 
-% Chapter styling (bookmode: two-level no box, three-level black box, correct font sizes)
+% Chapter styling (bookmode: two-level no box, three-level black box, correct font
+% sizes) plus the \part banners and running heads, none of which sleek has.
 \usepackage[bookmode]{latex/chapter-style}
 
-% Unnumbered theorem variants for preface (when is-preface, filter uses definition* etc.)
-\newtheorem*{definitionT*}{Definition}
-\newtheorem*{theoremT*}{Theorem}
-\newtheorem*{corollaryT*}{Corollary}
-\newtheorem*{lemmaT*}{Lemma}
-\newtheorem*{propositionT*}{Proposition}
-\newenvironment{definition*}{\begin{dBox}\begin{definitionT*}}{\end{definitionT*}\end{dBox}}
-\newenvironment{theorem*}{\begin{tBox}\begin{theoremT*}}{\end{theoremT*}\end{tBox}}
-\newenvironment{corollary*}{\begin{cBox}\begin{corollaryT*}}{\end{corollaryT*}\end{cBox}}
-\newenvironment{lemma*}{\begin{lBox}\begin{lemmaT*}}{\end{lemmaT*}\end{lBox}}
-\newenvironment{proposition*}{\begin{pBox}\begin{propositionT*}}{\end{propositionT*}\end{pBox}}
+% The environments filters/theorems.lua emits, in sleek's framed style. Which
+% environments exist, their names, counters and colours come from the book's
+% config: the build writes them to _build/tmp/environments.tex, included right
+% after this file. That covers the numbered forms, the unnumbered ones and the
+% starred variants the preface uses (definition*, theorem*, ...).
+\usepackage{latex/theorem-envs}
 
 % Code listings (runnable cells) and function plots (components.lua)
 \usepackage{listings}

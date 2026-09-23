@@ -15,7 +15,8 @@ from typing import Optional
 from .book import Book, Page
 from .html import FingerprintStore, page_fingerprint
 from .manifest import scan_labels, load_scan
-from .pandoc import MARKDOWN_FORMAT, build_pandoc_command, page_metadata, run_pandoc
+from .pandoc import (MARKDOWN_FORMAT, build_pandoc_command, environments_tex, page_metadata,
+                     run_pandoc)
 from .utils import print_step, print_file_action, print_success, print_error
 
 
@@ -184,6 +185,9 @@ def build_book(book: Book) -> bool:
         "--lua-filter", str(filters / "enumerate.lua"),
         "--lua-filter", str(filters / "theorems.lua"),
         "--include-in-header", str(book.engine_file("latex/preamble-book.tex")),
+        # The config's environments, declared for the preamble that just
+        # defined how they are framed.
+        "--include-in-header", str(environments_tex(book)),
     ]
     if book.macros_file.exists():
         cmd += ["--include-in-header", str(book.macros_file)]

@@ -6,7 +6,9 @@ Builds Pandoc commands for a page and runs them.
 
 import hashlib
 import json
+import re
 import subprocess
+import threading
 from pathlib import Path
 from typing import Optional
 from urllib.parse import quote, urlencode
@@ -103,6 +105,92 @@ def write_metadata_file(book: Book, page: Page, output_format: str, metadata: di
 
 
 # =============================================================================
+# Environment declarations for LaTeX
+# =============================================================================
+# The environments come from the book's config (environment_settings) and the
+# Lua filter turns them into \begin{theorem} ... in the LaTeX it writes. The
+# same config has to reach the preamble, or the environments would have no
+# definition and no colour. latex/theorem-envs.sty holds the style -- sleek's
+# framed theorem look -- and this writes the one-line declaration per
+# environment that fills it in.
+
+# Display names for the small environments, the same overrides
+# filters/theorems.lua uses so the heads it writes and the heads the fallback
+# definitions write read alike.
+SMALL_ENV_NAMES = {"proofofclaim": "Proof of Claim", "check": "Quick check"}
+
+_ENVIRONMENTS_LOCK = threading.Lock()
+
+
+def _tex_name(text: str) -> str:
+    """A LaTeX-safe name: colours and counters may only be letters."""
+    return re.sub(r"[^a-z]", "", text.lower()) or "x"
+
+
+def _env_key(name: str) -> str:
+    """The environment name, as filters/theorems.lua derives it from the config."""
+    return re.sub(r"\s+", "-", name.lower())
+
+
+def environments_tex(book: Book) -> Path:
+    r"""Write the \book...env declarations for the config's environments.
+
+    Included right after latex/preamble.tex, where latex/theorem-envs.sty has
+    just defined the commands it calls.
+    """
+    settings = book.environment_settings
+    lines = [
+        r"% Generated from the book's config (environment_settings) by build/pandoc.py.",
+        r"% Do not edit: the style lives in latex/theorem-envs.sty, the data in the config.",
+    ]
+
+    big = settings.get("big_envs", []) or []
+    groups = []
+    for env in big:
+        group = str(env.get("counter_group") or "").strip()
+        if env.get("numbered", True) and group and group not in groups:
+            groups.append(group)
+    for group in groups:
+        lines.append(rf"\bookenvcounter{{{_tex_name(group)}}}")
+
+    def colour(name: str, value) -> str:
+        colour_name = "env" + _tex_name(name)
+        if value:
+            rgb = str(value).lstrip("#").upper()
+            lines.append(rf"\definecolor{{{colour_name}}}{{HTML}}{{{rgb}}}")
+        return colour_name
+
+    for env in big:
+        name = str(env.get("name", ""))
+        key, tint = _env_key(name), colour(name, env.get("color"))
+        group = str(env.get("counter_group") or "").strip()
+        if not env.get("numbered", True):
+            lines.append(rf"\bookbigenvplain{{{key}}}{{{name}}}{{{tint}}}")
+        elif group:
+            lines.append(rf"\bookbigenv{{{key}}}{{{name}}}{{{_tex_name(group)}}}{{{tint}}}")
+        else:
+            lines.append(rf"\bookbigenvown{{{key}}}{{{name}}}{{{tint}}}")
+
+    for env in settings.get("small_envs", []) or []:
+        if isinstance(env, str):
+            env = {"name": env}
+        name = str(env.get("name", ""))
+        key = _env_key(name)
+        tint = colour(name, env.get("color"))
+        head = SMALL_ENV_NAMES.get(key, name[:1].upper() + name[1:])
+        lines.append(rf"\booksmallenv{{{key}}}{{{head}}}{{{tint}}}")
+
+    path = book.build_dir / "tmp" / "environments.tex"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    text = "\n".join(lines) + "\n"
+    # Pages are built in parallel and every one of them asks for this file.
+    with _ENVIRONMENTS_LOCK:
+        if not path.exists() or path.read_text(encoding="utf-8") != text:
+            path.write_text(text, encoding="utf-8")
+    return path
+
+
+# =============================================================================
 # Pandoc Command Building
 # =============================================================================
 
@@ -139,6 +227,9 @@ def build_pandoc_command(book: Book, page: Page, output_file: Path, output_forma
             "--top-level-division", "chapter",
             "--resource-path", ":".join([str(page.source.parent), str(book.src_dir)]),
             "--include-in-header", str(book.engine_file("latex/preamble.tex")),
+            # The config's environments, declared for the preamble that just
+            # defined how they are framed.
+            "--include-in-header", str(environments_tex(book)),
         ]
         if book.macros_file.exists():
             cmd += ["--include-in-header", str(book.macros_file)]

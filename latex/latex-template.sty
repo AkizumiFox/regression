@@ -21,12 +21,17 @@
 \newif\if@skipgeometry\@skipgeometryfalse
 \newif\if@skiphyperref\@skiphyperreffalse
 \newif\if@skiptitlesec\@skiptitlesecfalse
+\newif\if@skipenv\@skipenvfalse
 
 \DeclareOption{quarto}{\@quartomodetrue\@skipgeometrytrue\@skiphyperreftrue\@skiptitlesectrue}
 \DeclareOption{quartoenv}{\@quartoenvtrue\@skipgeometrytrue\@skiphyperreftrue\@skiptitlesectrue}
 \DeclareOption{skipgeometry}{\@skipgeometrytrue}
 \DeclareOption{skiphyperref}{\@skiphyperreftrue}
 \DeclareOption{skiptitlesec}{\@skiptitlesectrue}
+% skipenv: define no theorem styles, boxes or theorem-like environments here.
+% latex/theorem-envs.sty defines them all, in sleek's framed style, from the
+% book's config. Everything else in this file (macros, colours, helpers) stays.
+\DeclareOption{skipenv}{\@skipenvtrue}
 \ProcessOptions\relax
 
 % ======================================================================================
@@ -239,6 +244,13 @@
 % THEOREM STYLES CONFIGURATION
 % ======================================================================================
 
+% QED symbol. Outside the \if@skipenv below on purpose: latex/theorem-envs.sty
+% ends a proof with \qed and sets no symbol of its own, so this has to be the
+% one place that does it whether the environments are defined here or there.
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\if@skipenv\else
+
 % Definition style (teal)
 \newtheoremstyle{definitionstyle}%
 {10pt}{0pt}{\normalfont\parindent=0pt}{}{}%
@@ -273,9 +285,6 @@
 {\\[0.8em]}{0.25em}%
 {\sffamily\Large\color{propositioncolor}\bfseries\thmname{#1}\nobreakspace\thmnumber{#2}%
 \thmnote{\nobreakspace\sffamily\bfseries\color{black}---\nobreakspace#3}}
-
-% QED symbol
-\renewcommand{\qedsymbol}{$\blacksquare$}
 
 % ======================================================================================
 % THEOREM COUNTERS AND ENVIRONMENTS
@@ -802,6 +811,8 @@
 }{%
     \endconclusionbox%
 }
+
+\fi % \if@skipenv -- end of the theorem styles, boxes and environments
 
 % ======================================================================================
 % FIGURE HELPER
@@ -1459,16 +1470,18 @@
 
 % The vector shorthands above redefine \v (the caron accent), so a UTF-8 caron letter
 % in the prose, as in "Šidák", would print "vS". Map the caron letters the book uses
-% directly to the OT1 caron glyph (slot 20) instead.
-\DeclareUnicodeCharacter{0160}{\accent20 S}
-\DeclareUnicodeCharacter{0161}{\accent20 s}
-\DeclareUnicodeCharacter{011B}{\accent20 e}
-\DeclareUnicodeCharacter{010C}{\accent20 C}
-\DeclareUnicodeCharacter{010D}{\accent20 c}
-\DeclareUnicodeCharacter{0158}{\accent20 R}
-\DeclareUnicodeCharacter{0159}{\accent20 r}
-\DeclareUnicodeCharacter{017D}{\accent20 Z}
-\DeclareUnicodeCharacter{017E}{\accent20 z}
+% directly to the caron accent of the font encoding instead. Slot 7 is T1's caron
+% (latex/sleek/sleek.sty loads T1); under the OT1 this book used before it was slot 20,
+% which in T1 is guillemotright -- "Šidák" would have come out as "»Sidák".
+\DeclareUnicodeCharacter{0160}{\accent7 S}
+\DeclareUnicodeCharacter{0161}{\accent7 s}
+\DeclareUnicodeCharacter{011B}{\accent7 e}
+\DeclareUnicodeCharacter{010C}{\accent7 C}
+\DeclareUnicodeCharacter{010D}{\accent7 c}
+\DeclareUnicodeCharacter{0158}{\accent7 R}
+\DeclareUnicodeCharacter{0159}{\accent7 r}
+\DeclareUnicodeCharacter{017D}{\accent7 Z}
+\DeclareUnicodeCharacter{017E}{\accent7 z}
 
 % A list that opens a theorem-like environment would otherwise share the line of the
 % environment's head (amsthm leaves the head pending until the first text), so the first
