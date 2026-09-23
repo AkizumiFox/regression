@@ -134,9 +134,9 @@ If @eq-ss-proportional holds, \( \mathbf{N}=\br\mathbf{c}\T/n \) and
 \( \mathbf{c}\T-(\bone\T\br)\mathbf{c}\T/n=\bzero\T \), since \( \bone\T\br=\mathbf{c}\T\bone=n \). So \( \boldsymbol{\upalpha}\T\mathbf{E}\boldsymbol{\upbeta} \)
 does not change when \( \boldsymbol{\upalpha} \) or \( \boldsymbol{\upbeta} \) is shifted by a multiple of \( \bone \). Given any
 \( \boldsymbol{\upalpha} \) and \( \boldsymbol{\upbeta} \), shift them to \( \boldsymbol{\upalpha}'=\boldsymbol{\upalpha}-(\boldsymbol{\upalpha}\T\br/n)\bone \) and
-\( \boldsymbol{\upbeta}'=\boldsymbol{\upbeta}-(\mathbf{c}\T\boldsymbol{\upbeta}/n)\bone \), which satisfy \( \boldsymbol{\upalpha}'\T\br=0 \) and
+\( \boldsymbol{\upbeta}'=\boldsymbol{\upbeta}-(\mathbf{c}\T\boldsymbol{\upbeta}/n)\bone \), which satisfy \( {\boldsymbol{\upalpha}'}\T\br=0 \) and
 \( \mathbf{c}\T\boldsymbol{\upbeta}'=0 \). Then
-\( \boldsymbol{\upalpha}\T\mathbf{E}\boldsymbol{\upbeta}=\boldsymbol{\upalpha}'\T\mathbf{E}\boldsymbol{\upbeta}'=\boldsymbol{\upalpha}'\T\mathbf{N}\boldsymbol{\upbeta}'-0=0 \) by assumption. As
+\( \boldsymbol{\upalpha}\T\mathbf{E}\boldsymbol{\upbeta}={\boldsymbol{\upalpha}'}\T\mathbf{E}\boldsymbol{\upbeta}'={\boldsymbol{\upalpha}'}\T\mathbf{N}\boldsymbol{\upbeta}'-0=0 \) by assumption. As
 \( \boldsymbol{\upalpha} \) and \( \boldsymbol{\upbeta} \) are arbitrary, \( \mathbf{E}=\bzero \).
 :::
 

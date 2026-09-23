@@ -17,7 +17,8 @@
 % Greek: \boldsymbol{\uptheta} (upright Greek from upgreek; Euler in the PDF, since Computer
 % Modern has no upright lowercase Greek; MathJax loads its own upgreek extension). Capital Greek
 % is upright already: \boldsymbol{\Sigma}. \bm is kept only so older text compiles; do not use it.
-\usepackage[Euler]{upgreek}
+% The engine's style loads upgreek (with Euler, which is upgreek's default) before this file;
+% asking for it again here only raised "Option clash for package upgreek" and changed nothing.
 \newcommand{\vect}[1]{\mathbf{#1}}
 \providecommand{\bm}[1]{\boldsymbol{#1}}
 \newcommand{\Y}{\vect{Y}}

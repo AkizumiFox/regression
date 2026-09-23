@@ -19,7 +19,7 @@ from pathlib import Path
 from .book import Book, Page
 from .manifest import load_scan, STATEMENT_TYPES
 from .pandoc import build_pandoc_command, page_metadata, run_pandoc
-from .utils import print_success, print_error, print_warning
+from .utils import print_success, print_error, print_warning, print_info
 
 RESULTS_PAGE = "results.html"
 GRAPH_PAGE = "graph.html"
@@ -131,6 +131,7 @@ def _graph_data(book: Book, labels: dict) -> dict:
     chapter_of = {p.html_path: p.chapter for p in book.pages if p.chapter}
     index_of = {c.slug: next((p.html_path for p in book.pages if p.chapter is c and p.section == 0), "")
                 for c in book.chapters}
+    order_of = {c.slug: position for position, c in enumerate(book.chapters)}
     counts: dict[tuple[str, str], int] = {}
     results: dict[str, int] = {c.slug: 0 for c in book.chapters}
     for label, info in labels.items():
@@ -146,6 +147,14 @@ def _graph_data(book: Book, labels: dict) -> dict:
             cited = chapter_of.get(target.get("file")) if target else None
             if cited is None or cited.slug == citing.slug or target.get("type") == "equation":
                 continue  # citations inside one chapter are not drawn
+            if order_of[cited.slug] > order_of[citing.slug]:
+                # A pointer forward -- "Chapter 26 returns to this" -- is a signpost, not a
+                # dependency: nothing in the earlier chapter rests on the later one. Counting
+                # it would put an arrow back into the reading order and make the graph cyclic,
+                # and a cycle has no unique transitive reduction, so the page fell back to
+                # drawing all 576 edges. This book allows forward pointers in prose (120
+                # chapter pairs use one); keeping only the backward citations leaves a DAG.
+                continue
             key = (cited.slug, citing.slug)
             counts[key] = counts.get(key, 0) + 1
     nodes = [{
@@ -161,6 +170,8 @@ def _graph_data(book: Book, labels: dict) -> dict:
     edges = [{"source": source, "target": target, "weight": weight,
               "implied": (source, target) in implied}
              for (source, target), weight in sorted(counts.items())]
+    print_info(f"Dependency graph: {len(edges) - len(implied)} of {len(edges)} chapter "
+               f"dependencies drawn, {len(implied)} implied by a longer chain")
     return {"nodes": nodes, "edges": edges}
 
 

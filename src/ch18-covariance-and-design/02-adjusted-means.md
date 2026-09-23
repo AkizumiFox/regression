@@ -129,14 +129,14 @@ multiplier is \( q_{0.05}(4,35)/\sqrt2=2.697 \), and Scheffé's is \( \sqrt{3F_{
 
 | formats | raw difference | adjusted difference | se | Tukey-type half-width | Scheffé half-width |
 |---|---|---|---|---|---|
-| 1 − 2 | \( -2.29 \) | \( -6.54 \) | \( 2.88 \) | \( 7.77 \) | \( 8.46 \) |
-| 1 − 3 | \( 3.77 \) | \( 1.86 \) | \( 2.85 \) | \( 7.67 \) | \( 8.36 \) |
-| 1 − 4 | \( -5.23 \) | \( -6.62 \) | \( 2.84 \) | \( 7.66 \) | \( 8.34 \) |
-| 2 − 3 | \( 6.06 \) | \( 8.40 \) | \( 2.85 \) | \( 7.69 \) | \( 8.37 \) |
-| 2 − 4 | \( -2.94 \) | \( -0.08 \) | \( 2.86 \) | \( 7.71 \) | \( 8.39 \) |
-| 3 − 4 | \( -9.00 \) | \( -8.48 \) | \( 2.84 \) | \( 7.65 \) | \( 8.33 \) |
+| \( 1-2 \) | \( -2.29 \) | \( -6.54 \) | \( 2.88 \) | \( 7.77 \) | \( 8.46 \) |
+| \( 1-3 \) | \( 3.77 \) | \( 1.86 \) | \( 2.85 \) | \( 7.67 \) | \( 8.36 \) |
+| \( 1-4 \) | \( -5.23 \) | \( -6.62 \) | \( 2.84 \) | \( 7.66 \) | \( 8.34 \) |
+| \( 2-3 \) | \( 6.06 \) | \( 8.40 \) | \( 2.85 \) | \( 7.69 \) | \( 8.37 \) |
+| \( 2-4 \) | \( -2.94 \) | \( -0.08 \) | \( 2.86 \) | \( 7.71 \) | \( 8.39 \) |
+| \( 3-4 \) | \( -9.00 \) | \( -8.48 \) | \( 2.84 \) | \( 7.65 \) | \( 8.33 \) |
 
-Both methods declare formats 2 and 4 better than format 3 and resolve nothing else, although the 2 − 3
+Both methods declare formats 2 and 4 better than format 3 and resolve nothing else, although the \( 2-3 \)
 comparison clears Scheffé's bound by only \( 0.03 \). Without the covariate the standard error of a difference
 would be \( 10.73\sqrt{2/10}=4.80 \). The raw difference between formats 3 and 4, \( -9.00 \), would then have had a
 Tukey half-width near \( 13 \), and nothing would have been resolved.

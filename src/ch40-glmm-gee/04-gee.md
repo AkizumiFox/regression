@@ -455,16 +455,16 @@ bet.
 
 The robustness of @eq-gmm-gee has a sharp limit. If some responses are not observed, write
 \( R_{ij}=1 \) when \( Y_{ij} \) is recorded, so that the estimating function is really
-\( \sum_i\bD_i\T\V_i^{-1}\bR_i(\Y_i-\bmu_i) \) with \( \bR_i=\diag(R_{ij}) \). Part (a)
-of @thm-gmm-gee needs \( \E\{\bR_i(\Y_i-\bmu_i)\}=\bzero \), a genuine restriction on the
+\( \sum_i\bD_i\T\V_i^{-1}\mathbf{R}_i(\Y_i-\bmu_i) \) with \( \mathbf{R}_i=\diag(R_{ij}) \). Part (a)
+of @thm-gmm-gee needs \( \E\{\mathbf{R}_i(\Y_i-\bmu_i)\}=\bzero \), a genuine restriction on the
 missingness.
 
-If the data are **missing completely at random**, \( \bR_i \) is independent of
+If the data are **missing completely at random**, \( \mathbf{R}_i \) is independent of
 \( \Y_i \), the expectation factorizes, and everything above holds unchanged; the same is
 true if missingness depends only on covariates that are in the model and fully observed,
 because the mean model is then still correct conditionally on being observed. But if
 missingness depends on *previously observed responses* — a patient who was doing badly last
-visit is more likely to drop out — then \( \bR_i \) and \( \Y_i-\bmu_i \) are dependent,
+visit is more likely to drop out — then \( \mathbf{R}_i \) and \( \Y_i-\bmu_i \) are dependent,
 the estimating function is biased and GEE is inconsistent. This is the **missing at random**
 case of @def-mis-mechanisms, and it is exactly the case in which a likelihood-based analysis
 remains valid.

@@ -31,10 +31,35 @@ def _pdflatex(book: Book, tex_file: Path, runs: int = 1) -> subprocess.Completed
     return result
 
 
-def _latex_errors(result: subprocess.CompletedProcess) -> str:
+def _latex_error_lines(result: subprocess.CompletedProcess) -> list:
+    """The `! ...` lines pdflatex printed. Non-empty means the PDF is damaged.
+
+    pdflatex runs in nonstopmode, so it recovers from an error and still writes
+    a PDF -- with the offending block dropped or mangled. A PDF existing is
+    therefore not evidence of success; the absence of these lines is. (The book
+    PDF carried 84 of these and the section PDFs 434, every build, while the
+    build reported success: accented names in the bibliographies lost a letter,
+    a table of design signs lost its minus signs, two undefined macros dropped
+    the matrix they named.)
+    """
     lines = result.stdout.splitlines()
-    errors = [line for line in lines if line.startswith("!")]
-    return "; ".join(errors[:3]) or "\n".join(lines[-20:])
+    errors = []
+    for i, line in enumerate(lines):
+        if not line.startswith("!"):
+            continue
+        # A real TeX error is followed by its context, "l.<number> ..." (or "<*>" for a fatal
+        # stop). A line that merely starts with "!" can also be a wrapped continuation of an
+        # Overfull \hbox box dump, which is a warning, not an error.
+        context = lines[i + 1:i + 14]
+        if any(c.startswith("l.") and c[2:3].isdigit() for c in context) or \
+                any(c.startswith("<*>") for c in context) or "Emergency stop" in line:
+            errors.append(line)
+    return errors
+
+
+def _latex_errors(result: subprocess.CompletedProcess) -> str:
+    errors = _latex_error_lines(result)
+    return "; ".join(errors[:3]) or "\n".join(result.stdout.splitlines()[-20:])
 
 
 # =============================================================================
@@ -77,6 +102,9 @@ def build_pdf(book: Book, specific_file: Optional[Path] = None) -> bool:
         if not out_pdf.exists():
             print_error(f"pdflatex failed for {page.source.name}: {_latex_errors(result)}")
             return False
+        if _latex_error_lines(result):
+            print_error(f"LaTeX errors in {page.source.name}: {_latex_errors(result)}")
+            return False
         output_file.parent.mkdir(parents=True, exist_ok=True)
         out_pdf.replace(output_file)
         return True
@@ -100,8 +128,12 @@ def build_pdf(book: Book, specific_file: Optional[Path] = None) -> bool:
                     failures += 1
         store.save()
     skipped = len(pages) - len(tasks)
-    print_success(f"PDF build complete: {len(tasks) - failures}/{len(tasks)} built"
-                  + (f", {skipped} unchanged" if skipped else ""))
+    summary = (f"{len(tasks) - failures}/{len(tasks)} built"
+               + (f", {skipped} unchanged" if skipped else ""))
+    if failures:
+        print_error(f"PDF build FAILED: {failures} section(s) did not build cleanly ({summary})")
+    else:
+        print_success(f"PDF build complete: {summary}")
 
     _sync_pdfs_to_html(book)
     return failures == 0
@@ -200,6 +232,9 @@ def build_book(book: Book) -> bool:
     out_pdf = tex_file.with_suffix(".pdf")
     if not out_pdf.exists():
         print_error(f"pdflatex did not produce the book PDF: {_latex_errors(result)}")
+        return False
+    if _latex_error_lines(result):
+        print_error(f"LaTeX errors in the book PDF: {_latex_errors(result)}")
         return False
     book.book_pdf.parent.mkdir(parents=True, exist_ok=True)
     out_pdf.replace(book.book_pdf)

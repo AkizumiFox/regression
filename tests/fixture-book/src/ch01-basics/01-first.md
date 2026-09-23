@@ -11,7 +11,7 @@ A thing is a map into \( \nR \) with \( \norm{x} = 1 \).
 ::: {#thm-main}
 [Main Theorem]
 
-Every thing has \( \rank = 1 \).
+Every thing has \( \codim = 1 \).
 :::
 
 ::: {.proof}

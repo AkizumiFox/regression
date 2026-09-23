@@ -71,7 +71,7 @@ assay is simulated.
 - Fieller, Edgar C. (1954). Some Problems in Interval Estimation. *Journal of the Royal Statistical Society, Series B* 16(2), 175–185.
 - Gafarian, A. V. (1964). Confidence Bands in Straight Line Regression. *Journal of the American Statistical Association* 59(305), 182–213.
 - Gelman, Andrew, Carlin, John B., Stern, Hal S., Dunson, David B., Vehtari, Aki and Rubin, Donald B. (2013). *Bayesian Data Analysis*. 3rd edition. Boca Raton, FL: CRC Press.
-- Gleser, Leon Jay and Hwang, Jiunn Tzon (1987). The Nonexistence of 100(1−α)% Confidence Sets of Finite Expected Diameter in Errors-in-Variables and Related Models. *The Annals of Statistics* 15(4), 1351–1362.
+- Gleser, Leon Jay and Hwang, Jiunn Tzon (1987). The Nonexistence of \( 100(1-\alpha) \)% Confidence Sets of Finite Expected Diameter in Errors-in-Variables and Related Models. *The Annals of Statistics* 15(4), 1351–1362.
 - Hahn, Gerald J. and Meeker, William Q. (1991). *Statistical Intervals: A Guide for Practitioners*. New York: Wiley.
 - Hoadley, Bruce (1970). A Bayesian Look at Inverse Linear Regression. *Journal of the American Statistical Association* 65(329), 356–369.
 - Krutchkoff, Richard G. (1967). Classical and Inverse Regression Methods of Calibration. *Technometrics* 9(3), 425–439.

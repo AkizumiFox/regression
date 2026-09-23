@@ -98,11 +98,13 @@ recorded below. This is what is left, written down rather than hidden:
   (a title that reads as a common noun, a result proved later, a result on the same page),
   which took it from 186 to 26; what is left is a phrase used as a name where a citation
   would be an improvement rather than a necessity.
-- **The dependency graph draws every edge.** `./build.py` warns that "chapters cite each
-  other in a circle", so `graph.html` shows the full citation graph instead of its
-  transitive reduction. The cycles are real and harmless: forward pointers in prose are
-  allowed, so chapter 1 cites a chapter 26 label and chapter 26 cites chapter 1. Only a
-  proof may not point forward, and none does.
+- **The dependency graph.** Fixed. It counts only backward citations now, so `graph.html`
+  shows the transitive reduction again (60 of 456 dependencies drawn, 396 implied by a
+  longer chain) and the "chapters cite each other in a circle" warning is gone. A forward
+  pointer in prose -- chapter 1 naming a chapter 26 label, of which 120 chapter pairs have
+  one -- is a signpost, not a dependency, and used to put an arrow back into the reading
+  order; a cycle has no unique transitive reduction, so the page fell back to all 576 edges.
+  Forward pointers in prose stay allowed. Only a proof may not point forward, and none does.
 - **Source hygiene, left deliberately.** 26 section files write `\mathbf{Z}`, `\mathbf{A}`
   and the like where a macro exists. Normalizing them is *not* wanted: the output is
   identical, and the macros carry book-wide meanings (`\Z` is the random-effect design

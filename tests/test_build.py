@@ -172,7 +172,7 @@ class TestHtmlBuild(FixtureBookCase):
         macros = (self.html / "mathjax-macros.js").read_text()
         self.assertIn('"nR": "\\\\mathbb{R}"', macros)
         self.assertIn('"norm": [', macros)
-        self.assertIn('"rank": "\\\\operatorname{rank}"', macros)
+        self.assertIn('"codim": "\\\\operatorname{codim}"', macros)
 
     def test_search_index(self):
         index = json.loads((self.html / "search.json").read_text())

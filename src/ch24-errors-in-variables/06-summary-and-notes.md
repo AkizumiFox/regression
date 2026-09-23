@@ -67,7 +67,7 @@ relative risks for exposure measurement error. SIMEX is due to Cook and Stefansk
 - Cook, J. R. and Stefanski, Leonard A. (1994). Simulation-Extrapolation Estimation in Parametric Measurement Error Models. *Journal of the American Statistical Association* 89(428), 1314–1328.
 - Deming, W. Edwards (1943). *Statistical Adjustment of Data*. New York: Wiley.
 - Fuller, Wayne A. (1987). *Measurement Error Models*. New York: Wiley.
-- Gleser, Leon Jay and Hwang, Jiunn Tzon (1987). The Nonexistence of 100(1−α)% Confidence Sets of Finite Expected Diameter in Errors-in-Variables and Related Models. *The Annals of Statistics* 15(4), 1351–1362.
+- Gleser, Leon Jay and Hwang, Jiunn Tzon (1987). The Nonexistence of \( 100(1-\alpha) \)% Confidence Sets of Finite Expected Diameter in Errors-in-Variables and Related Models. *The Annals of Statistics* 15(4), 1351–1362.
 - Golub, Gene H. and Van Loan, Charles F. (1980). An Analysis of the Total Least Squares Problem. *SIAM Journal on Numerical Analysis* 17(6), 883–893.
 - Neyman, Jerzy and Scott, Elizabeth L. (1948). Consistent Estimates Based on Partially Consistent Observations. *Econometrica* 16(1), 1–32.
 - Reiersøl, Olav (1950). Identifiability of a Linear Relation between Variables Which Are Subject to Error. *Econometrica* 18(4), 375–389.

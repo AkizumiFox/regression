@@ -172,10 +172,10 @@ A packaging line makes heat seals on plastic film. Four factors were each set at
 
 | run | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| \( A \) | − | + | − | + | − | + | − | + | − | + | − | + | − | + | − | + |
-| \( B \) | − | − | + | + | − | − | + | + | − | − | + | + | − | − | + | + |
-| \( C \) | − | − | − | − | + | + | + | + | − | − | − | − | + | + | + | + |
-| \( D \) | − | − | − | − | − | − | − | − | + | + | + | + | + | + | + | + |
+| \( A \) | \( - \) | \( + \) | \( - \) | \( + \) | \( - \) | \( + \) | \( - \) | \( + \) | \( - \) | \( + \) | \( - \) | \( + \) | \( - \) | \( + \) | \( - \) | \( + \) |
+| \( B \) | \( - \) | \( - \) | \( + \) | \( + \) | \( - \) | \( - \) | \( + \) | \( + \) | \( - \) | \( - \) | \( + \) | \( + \) | \( - \) | \( - \) | \( + \) | \( + \) |
+| \( C \) | \( - \) | \( - \) | \( - \) | \( - \) | \( + \) | \( + \) | \( + \) | \( + \) | \( - \) | \( - \) | \( - \) | \( - \) | \( + \) | \( + \) | \( + \) | \( + \) |
+| \( D \) | \( - \) | \( - \) | \( - \) | \( - \) | \( - \) | \( - \) | \( - \) | \( - \) | \( + \) | \( + \) | \( + \) | \( + \) | \( + \) | \( + \) | \( + \) | \( + \) |
 | \( y \) | 28.5 | 32.1 | 26.7 | 31.1 | 29.0 | 37.4 | 27.2 | 37.4 | 25.8 | 26.6 | 24.2 | 28.8 | 24.9 | 34.3 | 25.9 | 36.7 |
 
 The mean is \( 29.79 \). The largest estimated effects are \( A \) (\( 6.52 \)), \( C \) (\( 3.62 \)), \( AC \) (\( 3.17 \)) and \( D \) (\( -2.78 \)). They are followed by \( BD \) (\( 1.08 \)) and \( AB \) (\( 0.98 \)), and none of the other nine exceeds \( 0.53 \) in absolute value. There is no pure error. The experimenters had decided *before the trial* to treat the five interactions of three or four factors as negligible and to use their sums of squares as error. That gives \( s^2=0.514 \) on \( 5 \) degrees of freedom. Against the critical value \( F_{0.05}(1,5)=6.61 \), the tests reject for \( A \), \( C \) and \( AC \) (\( F=331.0 \), \( 102.2 \), \( 78.4 \), each \( p<0.001 \)), for \( D \) (\( F=59.9 \), \( p=0.001 \)), and, nominally, for \( BD \) (\( p=0.030 \)) and \( AB \) (\( p=0.042 \)). The last two are among ten tests, however. Holm's procedure at familywise level \( 0.05 \) (@thm-mc-holm) accepts \( A \), \( C \), \( AC \) and \( D \) and stops at \( BD \), whose \( p \)-value exceeds \( 0.05/6 \). The data were in fact generated with exactly those four effects.

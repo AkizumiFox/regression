@@ -121,8 +121,8 @@ The *interaction model* drops that assumption:
 \E(y)=\mu+\alpha_i+\beta_j+\gamma_{ij}\qquad\text{for an observation in cell }(i,j),
 \]{#eq-est-interaction}
 
-with an interaction parameter \( \gamma_{ij} \) for each of the \( ab \) cells. Write \( \bW \) for the \( n\times ab \) indicator
-matrix of the cells. The column of an empty cell is zero. The model matrix is \( \X=[\bone,\Z_A,\Z_B,\bW] \), with
+with an interaction parameter \( \gamma_{ij} \) for each of the \( ab \) cells. Write \( \mathbf{W} \) for the \( n\times ab \) indicator
+matrix of the cells. The column of an empty cell is zero. The model matrix is \( \X=[\bone,\Z_A,\Z_B,\mathbf{W}] \), with
 \( p=1+a+b+ab \) columns, and \( m \) denotes the number of occupied cells.
 
 ::: {#prp-est-interaction}
@@ -132,7 +132,7 @@ In the interaction model @eq-est-interaction with \( m \) occupied cells, write 
 mean of an occupied cell.
 
 ::: {.enumerate options="label=(\alph*)"}
-1. \( \C(\X)=\C(\bW) \) and \( \rank(\X)=m \): the model is the cell-means model in disguise.
+1. \( \C(\X)=\C(\mathbf{W}) \) and \( \rank(\X)=m \): the model is the cell-means model in disguise.
 
 2. The estimable functions are exactly the linear combinations \( \sum c_{ij}\mu_{ij} \) over occupied cells.
 
@@ -144,8 +144,8 @@ mean of an occupied cell.
 :::
 
 ::: {.proof}
-(a) Every column of \( \bone \), \( \Z_A \) and \( \Z_B \) is a sum of columns of \( \bW \). For example, the indicator of level
-\( i \) of \( A \) is the sum of the indicators of the cells in row \( i \). So \( \C(\X)=\C(\bW) \). The nonzero columns of \( \bW \) are
+(a) Every column of \( \bone \), \( \Z_A \) and \( \Z_B \) is a sum of columns of \( \mathbf{W} \). For example, the indicator of level
+\( i \) of \( A \) is the sum of the indicators of the cells in row \( i \). So \( \C(\X)=\C(\mathbf{W}) \). The nonzero columns of \( \mathbf{W} \) are
 the \( m \) indicators of occupied cells, which have disjoint supports.
 (b) By @thm-est-estimable-identifiable, the estimable functions are the combinations of the expected responses,
 and these are the \( \mu_{ij} \).

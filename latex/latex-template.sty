@@ -41,7 +41,10 @@
 % Core packages
 \RequirePackage{amsmath, amsfonts, amssymb, amsthm}
 \RequirePackage{bm}
-\RequirePackage{upgreek}  % For upright greek letters (\upalpha, etc.)
+\RequirePackage[Euler]{upgreek}  % For upright greek letters (\upalpha, etc.). Euler is
+% upgreek's own default; naming it states the intent, and loading the package here and
+% only here is what keeps a book's macro file from asking for it a second time (an
+% "Option clash for package upgreek" in every one of the 352 builds).
 \RequirePackage{anyfontsize} % Allow arbitrary font sizes
 
 % Define \@removefromreset for counter manipulation (removes counter from reset list)
@@ -991,30 +994,50 @@
 \gdef\vY{\mathbf{Y}}
 \gdef\vZ{\mathbf{Z}}
 
+% Several of the single-letter shorthands below take over a name that LaTeX already uses in
+% TEXT: \o is the o-slash of "Jorgensen", \r the ring accent of "Kvalseth", \H the double
+% acute of "Szego", \v the caron, \c the cedilla, \l the barred l, \i and \j the dotless
+% letters. Taken over outright, an accented letter in the prose expands to \mathbf outside
+% math: pdflatex stops with "! LaTeX Error: \mathbf allowed only in math mode" and the
+% letter is lost. The bibliographies alone raised 22 of these, printing "J" for "Jorgensen".
+%
+% \bt@textsafe\o\vo saves what \o means now and gives it both meanings: \vo in math, the
+% saved one in text. It is robust, so it survives a section title or a caption, and
+% idempotent, so a later hook that restates the shorthand (latex/chapter-style.sty,
+% latex/preamble.tex, both of which do) cannot save the wrapper as the wrapper's own
+% fallback and loop. Any accented name the book adds from now on just works.
+\def\bt@textsafe#1#2{%
+  \expandafter\ifx\csname bt@text\string#1\endcsname\relax
+    \expandafter\let\csname bt@text\string#1\endcsname#1%
+  \fi
+  \expandafter\bt@textsafe@\csname bt@text\string#1\endcsname#1#2}
+\def\bt@textsafe@#1#2#3{\DeclareRobustCommand*#2{\bt@pick#1#3}}
+\def\bt@pick#1#2{\ifmmode\let\bt@next#2\else\let\bt@next#1\fi\bt@next}
+
 % Map single letters to vectors for high-speed typing
 \AtBeginDocument{
   \gdef\a{\va}
-  \gdef\b{\vb}
-  \gdef\c{\vc}
-  \gdef\d{\vd}
+  \bt@textsafe\b\vb
+  \bt@textsafe\c\vc
+  \bt@textsafe\d\vd
   \gdef\e{\ve}
   \gdef\f{\vf}
   \gdef\g{\vg}
   \gdef\h{\vh}
-  \gdef\i{\vi}
-  \gdef\j{\vj}
-  \gdef\k{\vk}
-  \gdef\l{\vl}
+  \bt@textsafe\i\vi
+  \bt@textsafe\j\vj
+  \bt@textsafe\k\vk
+  \bt@textsafe\l\vl
   \gdef\m{\vm}
   \gdef\n{\vn}
-  \gdef\o{\vo}
+  \bt@textsafe\o\vo
   \gdef\p{\vp}
   \gdef\q{\vq}
-  \gdef\r{\vr}
+  \bt@textsafe\r\vr
   \gdef\s{\vs}
-  \gdef\t{\vt}
-  \gdef\u{\vu}
-  \gdef\v{\vv}
+  \bt@textsafe\t\vt
+  \bt@textsafe\u\vu
+  \bt@textsafe\v\vv
   \gdef\w{\vw}
   \gdef\x{\vx}
   \gdef\y{\vy}
@@ -1038,7 +1061,7 @@
 \gdef\mF{\mathbf{F}}
 \gdef\G{\mathbf{G}}
 \gdef\mG{\mathbf{G}}
-\gdef\H{\mathbf{H}}
+\bt@textsafe\H\mH  % \H is also a text command; see \bt@textsafe above
 \gdef\mH{\mathbf{H}}
 \gdef\I{\mathbf{I}}
 \gdef\mI{\mathbf{I}}
@@ -1046,21 +1069,21 @@
 \gdef\mJ{\mathbf{J}}
 \gdef\K{\mathbf{K}}
 \gdef\mK{\mathbf{K}}
-\gdef\L{\mathbf{L}}
+\bt@textsafe\L\mL  % \L is also a text command; see \bt@textsafe above
 \gdef\mL{\mathbf{L}}
 \gdef\M{\mathbf{M}}
 \gdef\mM{\mathbf{M}}
 \gdef\N{\mathbf{N}}
 \gdef\mN{\mathbf{N}}
-\gdef\O{\mathbf{O}}
+\bt@textsafe\O\mO  % \O is also a text command; see \bt@textsafe above
 \gdef\mO{\mathbf{O}}
-\gdef\P{\mathbf{P}}
+\bt@textsafe\P\mP  % \P is also a text command; see \bt@textsafe above
 \gdef\mP{\mathbf{P}}
 \gdef\Q{\mathbf{Q}}
 \gdef\mQ{\mathbf{Q}}
 \gdef\R{\mathbf{R}}
 \gdef\mR{\mathbf{R}}
-\gdef\S{\mathbf{S}}
+\bt@textsafe\S\mS  % \S is also a text command; see \bt@textsafe above
 \gdef\mS{\mathbf{S}}
 \gdef\T{\mathbf{T}}
 \gdef\mT{\mathbf{T}}
