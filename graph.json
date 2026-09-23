@@ -417,175 +417,175 @@
    "source": "ch01-matrix-algebra",
    "target": "ch03-multivariate-normal",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch04-quadratic-forms",
    "weight": 13,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch05-model-and-least-squares",
    "weight": 18,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch06-projections",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch07-optimality",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch08-estimability",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch09-sums-of-squares",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch10-computation",
    "weight": 29,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch11-general-linear-hypothesis",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch12-intervals-and-bands",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch13-multiplicity",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch16-multiway-layouts",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch17-unbalanced-data",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch19-theory-of-departures",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch20-residuals-leverage-influence",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch24-errors-in-variables",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch26-collinearity",
    "weight": 24,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch27-shrinkage",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch28-high-dimensional",
    "weight": 13,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch30-regularization-boosting",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch31-general-gauss-markov",
    "weight": 12,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch32-linear-mixed-models",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch34-exponential-families-glm",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch42-polynomials-piecewise",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch43-smoothing",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch01-matrix-algebra",
    "target": "ch44-additive-models",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
@@ -597,163 +597,151 @@
    "source": "ch02-random-vectors",
    "target": "ch04-quadratic-forms",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch05-model-and-least-squares",
    "weight": 18,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch06-projections",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch07-optimality",
    "weight": 16,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch08-estimability",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch09-sums-of-squares",
    "weight": 17,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch10-computation",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch12-intervals-and-bands",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch15-anova-subspaces",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch16-multiway-layouts",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch17-unbalanced-data",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch19-theory-of-departures",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch20-residuals-leverage-influence",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch24-errors-in-variables",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch25-causal-interpretation",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch27-shrinkage",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch28-high-dimensional",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch29-model-selection",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch31-general-gauss-markov",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch32-linear-mixed-models",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch41-missing-data",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch02-random-vectors",
    "target": "ch44-additive-models",
    "weight": 3,
-   "implied": false
-  },
-  {
-   "source": "ch03-multivariate-normal",
-   "target": "ch01-matrix-algebra",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch03-multivariate-normal",
-   "target": "ch02-random-vectors",
-   "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
@@ -765,127 +753,115 @@
    "source": "ch03-multivariate-normal",
    "target": "ch05-model-and-least-squares",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch07-optimality",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch09-sums-of-squares",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch10-computation",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch11-general-linear-hypothesis",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch12-intervals-and-bands",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch13-multiplicity",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 15,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch22-transformations",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch24-errors-in-variables",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch25-causal-interpretation",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch27-shrinkage",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch28-high-dimensional",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch29-model-selection",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch32-linear-mixed-models",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch38-quasi-likelihood",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch40-glmm-gee",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch03-multivariate-normal",
    "target": "ch41-missing-data",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch04-quadratic-forms",
-   "target": "ch02-random-vectors",
-   "weight": 4,
-   "implied": false
-  },
-  {
-   "source": "ch04-quadratic-forms",
-   "target": "ch03-multivariate-normal",
-   "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
@@ -897,109 +873,103 @@
    "source": "ch04-quadratic-forms",
    "target": "ch07-optimality",
    "weight": 17,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch08-estimability",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch09-sums-of-squares",
    "weight": 14,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch11-general-linear-hypothesis",
    "weight": 16,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch12-intervals-and-bands",
    "weight": 13,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch13-multiplicity",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 20,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch15-anova-subspaces",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch16-multiway-layouts",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch18-covariance-and-design",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch20-residuals-leverage-influence",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch27-shrinkage",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch29-model-selection",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch32-linear-mixed-models",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch04-quadratic-forms",
    "target": "ch34-exponential-families-glm",
    "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch05-model-and-least-squares",
-   "target": "ch03-multivariate-normal",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
@@ -1011,145 +981,133 @@
    "source": "ch05-model-and-least-squares",
    "target": "ch07-optimality",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch08-estimability",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch09-sums-of-squares",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch10-computation",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch12-intervals-and-bands",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch15-anova-subspaces",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch17-unbalanced-data",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch18-covariance-and-design",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch19-theory-of-departures",
    "weight": 20,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch20-residuals-leverage-influence",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch22-transformations",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch23-resampling-inference",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch24-errors-in-variables",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch25-causal-interpretation",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch26-collinearity",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch28-high-dimensional",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch34-exponential-families-glm",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch37-counts",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch38-quasi-likelihood",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch05-model-and-least-squares",
    "target": "ch42-polynomials-piecewise",
    "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch06-projections",
-   "target": "ch03-multivariate-normal",
-   "weight": 6,
-   "implied": false
-  },
-  {
-   "source": "ch06-projections",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
@@ -1161,223 +1119,205 @@
    "source": "ch06-projections",
    "target": "ch08-estimability",
    "weight": 41,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch09-sums-of-squares",
    "weight": 63,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch10-computation",
    "weight": 18,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch11-general-linear-hypothesis",
    "weight": 23,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch12-intervals-and-bands",
    "weight": 12,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch13-multiplicity",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 25,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch15-anova-subspaces",
    "weight": 14,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch16-multiway-layouts",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch17-unbalanced-data",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch18-covariance-and-design",
    "weight": 12,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch19-theory-of-departures",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch20-residuals-leverage-influence",
    "weight": 29,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch22-transformations",
    "weight": 12,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch23-resampling-inference",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch24-errors-in-variables",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch25-causal-interpretation",
    "weight": 20,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch26-collinearity",
    "weight": 14,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch28-high-dimensional",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch29-model-selection",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch30-regularization-boosting",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch31-general-gauss-markov",
    "weight": 18,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch32-linear-mixed-models",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch34-exponential-families-glm",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch37-counts",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch38-quasi-likelihood",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch41-missing-data",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch42-polynomials-piecewise",
    "weight": 12,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch43-smoothing",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch44-additive-models",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch06-projections",
    "target": "ch45-quantile-gamlss",
    "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch07-optimality",
-   "target": "ch02-random-vectors",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch07-optimality",
-   "target": "ch05-model-and-least-squares",
-   "weight": 9,
-   "implied": false
-  },
-  {
-   "source": "ch07-optimality",
-   "target": "ch06-projections",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
@@ -1389,193 +1329,169 @@
    "source": "ch07-optimality",
    "target": "ch09-sums-of-squares",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch10-computation",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch11-general-linear-hypothesis",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch12-intervals-and-bands",
    "weight": 37,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch13-multiplicity",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch15-anova-subspaces",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch16-multiway-layouts",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch17-unbalanced-data",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch19-theory-of-departures",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch22-transformations",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch23-resampling-inference",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch24-errors-in-variables",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch26-collinearity",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch27-shrinkage",
    "weight": 17,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch28-high-dimensional",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch29-model-selection",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch30-regularization-boosting",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch31-general-gauss-markov",
    "weight": 12,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch32-linear-mixed-models",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch34-exponential-families-glm",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch35-binary-responses",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch38-quasi-likelihood",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch40-glmm-gee",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch07-optimality",
    "target": "ch41-missing-data",
    "weight": 8,
-   "implied": false
-  },
-  {
-   "source": "ch08-estimability",
-   "target": "ch01-matrix-algebra",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch08-estimability",
-   "target": "ch05-model-and-least-squares",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch08-estimability",
-   "target": "ch06-projections",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch08-estimability",
-   "target": "ch07-optimality",
-   "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
@@ -1587,115 +1503,97 @@
    "source": "ch08-estimability",
    "target": "ch10-computation",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch11-general-linear-hypothesis",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch12-intervals-and-bands",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch13-multiplicity",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch15-anova-subspaces",
    "weight": 21,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch16-multiway-layouts",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch17-unbalanced-data",
    "weight": 21,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch18-covariance-and-design",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch20-residuals-leverage-influence",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch26-collinearity",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch28-high-dimensional",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch30-regularization-boosting",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch31-general-gauss-markov",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch32-linear-mixed-models",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch37-counts",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch08-estimability",
    "target": "ch42-polynomials-piecewise",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch09-sums-of-squares",
-   "target": "ch04-quadratic-forms",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch09-sums-of-squares",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch09-sums-of-squares",
-   "target": "ch06-projections",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
@@ -1713,97 +1611,79 @@
    "source": "ch09-sums-of-squares",
    "target": "ch12-intervals-and-bands",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch13-multiplicity",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 15,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch15-anova-subspaces",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch16-multiway-layouts",
    "weight": 17,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch17-unbalanced-data",
    "weight": 18,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch18-covariance-and-design",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch29-model-selection",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch31-general-gauss-markov",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch32-linear-mixed-models",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch34-exponential-families-glm",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch09-sums-of-squares",
    "target": "ch42-polynomials-piecewise",
    "weight": 8,
-   "implied": false
-  },
-  {
-   "source": "ch10-computation",
-   "target": "ch05-model-and-least-squares",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch10-computation",
-   "target": "ch06-projections",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch10-computation",
-   "target": "ch08-estimability",
-   "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch10-computation",
@@ -1815,97 +1695,61 @@
    "source": "ch10-computation",
    "target": "ch20-residuals-leverage-influence",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch10-computation",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch10-computation",
    "target": "ch22-transformations",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch10-computation",
    "target": "ch23-resampling-inference",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch10-computation",
    "target": "ch26-collinearity",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch10-computation",
    "target": "ch27-shrinkage",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch10-computation",
    "target": "ch28-high-dimensional",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch10-computation",
    "target": "ch29-model-selection",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch10-computation",
    "target": "ch42-polynomials-piecewise",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch10-computation",
    "target": "ch43-smoothing",
    "weight": 3,
-   "implied": false
-  },
-  {
-   "source": "ch11-general-linear-hypothesis",
-   "target": "ch01-matrix-algebra",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch11-general-linear-hypothesis",
-   "target": "ch03-multivariate-normal",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch11-general-linear-hypothesis",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch11-general-linear-hypothesis",
-   "target": "ch07-optimality",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch11-general-linear-hypothesis",
-   "target": "ch08-estimability",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch11-general-linear-hypothesis",
-   "target": "ch09-sums-of-squares",
-   "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
@@ -1917,133 +1761,115 @@
    "source": "ch11-general-linear-hypothesis",
    "target": "ch13-multiplicity",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch14-correlation-lack-of-fit-prediction",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch15-anova-subspaces",
    "weight": 16,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch16-multiway-layouts",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch17-unbalanced-data",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch18-covariance-and-design",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch19-theory-of-departures",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch20-residuals-leverage-influence",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch23-resampling-inference",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch24-errors-in-variables",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch26-collinearity",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch28-high-dimensional",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch29-model-selection",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch31-general-gauss-markov",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch34-exponential-families-glm",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch35-binary-responses",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch36-multinomial-ordinal",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch41-missing-data",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch11-general-linear-hypothesis",
    "target": "ch42-polynomials-piecewise",
    "weight": 7,
-   "implied": false
-  },
-  {
-   "source": "ch12-intervals-and-bands",
-   "target": "ch03-multivariate-normal",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch12-intervals-and-bands",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch12-intervals-and-bands",
-   "target": "ch07-optimality",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
@@ -2061,115 +1887,103 @@
    "source": "ch12-intervals-and-bands",
    "target": "ch15-anova-subspaces",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch18-covariance-and-design",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch19-theory-of-departures",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch20-residuals-leverage-influence",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch22-transformations",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch23-resampling-inference",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch24-errors-in-variables",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch26-collinearity",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch28-high-dimensional",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch31-general-gauss-markov",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch32-linear-mixed-models",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch34-exponential-families-glm",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch40-glmm-gee",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch41-missing-data",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch12-intervals-and-bands",
    "target": "ch42-polynomials-piecewise",
    "weight": 6,
-   "implied": false
-  },
-  {
-   "source": "ch13-multiplicity",
-   "target": "ch08-estimability",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch13-multiplicity",
-   "target": "ch12-intervals-and-bands",
-   "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch13-multiplicity",
@@ -2181,13 +1995,13 @@
    "source": "ch13-multiplicity",
    "target": "ch16-multiway-layouts",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch13-multiplicity",
    "target": "ch18-covariance-and-design",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch13-multiplicity",
@@ -2199,31 +2013,13 @@
    "source": "ch13-multiplicity",
    "target": "ch28-high-dimensional",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch13-multiplicity",
    "target": "ch29-model-selection",
    "weight": 5,
-   "implied": false
-  },
-  {
-   "source": "ch14-correlation-lack-of-fit-prediction",
-   "target": "ch03-multivariate-normal",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch14-correlation-lack-of-fit-prediction",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch14-correlation-lack-of-fit-prediction",
-   "target": "ch09-sums-of-squares",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
@@ -2235,13 +2031,13 @@
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch16-multiway-layouts",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch18-covariance-and-design",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
@@ -2253,97 +2049,85 @@
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch20-residuals-leverage-influence",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch22-transformations",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch23-resampling-inference",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch24-errors-in-variables",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch25-causal-interpretation",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch28-high-dimensional",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch29-model-selection",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch32-linear-mixed-models",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch42-polynomials-piecewise",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch43-smoothing",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch44-additive-models",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch14-correlation-lack-of-fit-prediction",
    "target": "ch45-quantile-gamlss",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch15-anova-subspaces",
-   "target": "ch08-estimability",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch15-anova-subspaces",
-   "target": "ch09-sums-of-squares",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch15-anova-subspaces",
@@ -2355,7 +2139,7 @@
    "source": "ch15-anova-subspaces",
    "target": "ch17-unbalanced-data",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch15-anova-subspaces",
@@ -2367,31 +2151,13 @@
    "source": "ch15-anova-subspaces",
    "target": "ch32-linear-mixed-models",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch15-anova-subspaces",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch16-multiway-layouts",
-   "target": "ch01-matrix-algebra",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch16-multiway-layouts",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch16-multiway-layouts",
-   "target": "ch15-anova-subspaces",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch16-multiway-layouts",
@@ -2403,7 +2169,7 @@
    "source": "ch16-multiway-layouts",
    "target": "ch18-covariance-and-design",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch16-multiway-layouts",
@@ -2415,54 +2181,30 @@
    "source": "ch16-multiway-layouts",
    "target": "ch32-linear-mixed-models",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch16-multiway-layouts",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch16-multiway-layouts",
    "target": "ch37-counts",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch16-multiway-layouts",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch17-unbalanced-data",
-   "target": "ch08-estimability",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch17-unbalanced-data",
-   "target": "ch09-sums-of-squares",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch17-unbalanced-data",
-   "target": "ch16-multiway-layouts",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch17-unbalanced-data",
    "target": "ch18-covariance-and-design",
    "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch18-covariance-and-design",
-   "target": "ch09-sums-of-squares",
-   "weight": 1,
    "implied": false
   },
   {
@@ -2475,67 +2217,19 @@
    "source": "ch18-covariance-and-design",
    "target": "ch25-causal-interpretation",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch18-covariance-and-design",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch18-covariance-and-design",
    "target": "ch41-missing-data",
    "weight": 14,
-   "implied": false
-  },
-  {
-   "source": "ch19-theory-of-departures",
-   "target": "ch02-random-vectors",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch19-theory-of-departures",
-   "target": "ch03-multivariate-normal",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch19-theory-of-departures",
-   "target": "ch04-quadratic-forms",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch19-theory-of-departures",
-   "target": "ch05-model-and-least-squares",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch19-theory-of-departures",
-   "target": "ch07-optimality",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch19-theory-of-departures",
-   "target": "ch11-general-linear-hypothesis",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch19-theory-of-departures",
-   "target": "ch12-intervals-and-bands",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch19-theory-of-departures",
-   "target": "ch15-anova-subspaces",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
@@ -2547,103 +2241,79 @@
    "source": "ch19-theory-of-departures",
    "target": "ch21-nonnormality-heteroscedasticity-serial",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch22-transformations",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch23-resampling-inference",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch24-errors-in-variables",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch25-causal-interpretation",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch26-collinearity",
    "weight": 15,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch27-shrinkage",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch28-high-dimensional",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch29-model-selection",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch31-general-gauss-markov",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch42-polynomials-piecewise",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch19-theory-of-departures",
    "target": "ch44-additive-models",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch20-residuals-leverage-influence",
-   "target": "ch01-matrix-algebra",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch20-residuals-leverage-influence",
-   "target": "ch06-projections",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch20-residuals-leverage-influence",
-   "target": "ch10-computation",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch20-residuals-leverage-influence",
-   "target": "ch19-theory-of-departures",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
@@ -2655,91 +2325,73 @@
    "source": "ch20-residuals-leverage-influence",
    "target": "ch22-transformations",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch23-resampling-inference",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch26-collinearity",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch27-shrinkage",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch29-model-selection",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch34-exponential-families-glm",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch35-binary-responses",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch36-multinomial-ordinal",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch37-counts",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch43-smoothing",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch20-residuals-leverage-influence",
    "target": "ch45-quantile-gamlss",
    "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch21-nonnormality-heteroscedasticity-serial",
-   "target": "ch05-model-and-least-squares",
-   "weight": 3,
-   "implied": false
-  },
-  {
-   "source": "ch21-nonnormality-heteroscedasticity-serial",
-   "target": "ch06-projections",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch21-nonnormality-heteroscedasticity-serial",
-   "target": "ch20-residuals-leverage-influence",
-   "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
@@ -2757,85 +2409,79 @@
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch24-errors-in-variables",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch25-causal-interpretation",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch31-general-gauss-markov",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch32-linear-mixed-models",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch34-exponential-families-glm",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch35-binary-responses",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch36-multinomial-ordinal",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch37-counts",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch38-quasi-likelihood",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch40-glmm-gee",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch43-smoothing",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch21-nonnormality-heteroscedasticity-serial",
    "target": "ch45-quantile-gamlss",
    "weight": 4,
-   "implied": false
-  },
-  {
-   "source": "ch22-transformations",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch22-transformations",
@@ -2847,19 +2493,19 @@
    "source": "ch22-transformations",
    "target": "ch35-binary-responses",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch22-transformations",
    "target": "ch37-counts",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch22-transformations",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch22-transformations",
@@ -2871,19 +2517,7 @@
    "source": "ch22-transformations",
    "target": "ch45-quantile-gamlss",
    "weight": 4,
-   "implied": false
-  },
-  {
-   "source": "ch23-resampling-inference",
-   "target": "ch15-anova-subspaces",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch23-resampling-inference",
-   "target": "ch21-nonnormality-heteroscedasticity-serial",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch23-resampling-inference",
@@ -2895,7 +2529,7 @@
    "source": "ch23-resampling-inference",
    "target": "ch25-causal-interpretation",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch23-resampling-inference",
@@ -2907,61 +2541,43 @@
    "source": "ch23-resampling-inference",
    "target": "ch32-linear-mixed-models",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch23-resampling-inference",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch23-resampling-inference",
    "target": "ch38-quasi-likelihood",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch23-resampling-inference",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch23-resampling-inference",
    "target": "ch40-glmm-gee",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch23-resampling-inference",
    "target": "ch41-missing-data",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch23-resampling-inference",
    "target": "ch45-quantile-gamlss",
    "weight": 3,
-   "implied": false
-  },
-  {
-   "source": "ch24-errors-in-variables",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch24-errors-in-variables",
-   "target": "ch14-correlation-lack-of-fit-prediction",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch24-errors-in-variables",
-   "target": "ch19-theory-of-departures",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch24-errors-in-variables",
@@ -2979,19 +2595,7 @@
    "source": "ch24-errors-in-variables",
    "target": "ch45-quantile-gamlss",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch25-causal-interpretation",
-   "target": "ch03-multivariate-normal",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch25-causal-interpretation",
-   "target": "ch18-covariance-and-design",
-   "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch25-causal-interpretation",
@@ -3003,7 +2607,7 @@
    "source": "ch25-causal-interpretation",
    "target": "ch40-glmm-gee",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch25-causal-interpretation",
@@ -3015,43 +2619,13 @@
    "source": "ch25-causal-interpretation",
    "target": "ch44-additive-models",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch25-causal-interpretation",
    "target": "ch45-quantile-gamlss",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch26-collinearity",
-   "target": "ch01-matrix-algebra",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch26-collinearity",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch26-collinearity",
-   "target": "ch06-projections",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch26-collinearity",
-   "target": "ch07-optimality",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch26-collinearity",
-   "target": "ch09-sums-of-squares",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch26-collinearity",
@@ -3063,37 +2637,19 @@
    "source": "ch26-collinearity",
    "target": "ch28-high-dimensional",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch26-collinearity",
    "target": "ch42-polynomials-piecewise",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch26-collinearity",
    "target": "ch44-additive-models",
    "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch27-shrinkage",
-   "target": "ch07-optimality",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch27-shrinkage",
-   "target": "ch10-computation",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch27-shrinkage",
-   "target": "ch26-collinearity",
-   "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch27-shrinkage",
@@ -3105,61 +2661,61 @@
    "source": "ch27-shrinkage",
    "target": "ch29-model-selection",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch27-shrinkage",
    "target": "ch30-regularization-boosting",
    "weight": 22,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch27-shrinkage",
    "target": "ch32-linear-mixed-models",
    "weight": 12,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch27-shrinkage",
    "target": "ch35-binary-responses",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch27-shrinkage",
    "target": "ch36-multinomial-ordinal",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch27-shrinkage",
    "target": "ch37-counts",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch27-shrinkage",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch27-shrinkage",
    "target": "ch43-smoothing",
    "weight": 8,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch27-shrinkage",
    "target": "ch44-additive-models",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch27-shrinkage",
    "target": "ch45-quantile-gamlss",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch28-high-dimensional",
@@ -3171,37 +2727,7 @@
    "source": "ch28-high-dimensional",
    "target": "ch30-regularization-boosting",
    "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch29-model-selection",
-   "target": "ch09-sums-of-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch29-model-selection",
-   "target": "ch10-computation",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch29-model-selection",
-   "target": "ch20-residuals-leverage-influence",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch29-model-selection",
-   "target": "ch27-shrinkage",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch29-model-selection",
-   "target": "ch28-high-dimensional",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch29-model-selection",
@@ -3219,7 +2745,7 @@
    "source": "ch29-model-selection",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch29-model-selection",
@@ -3231,37 +2757,37 @@
    "source": "ch29-model-selection",
    "target": "ch36-multinomial-ordinal",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch29-model-selection",
    "target": "ch37-counts",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch29-model-selection",
    "target": "ch38-quasi-likelihood",
    "weight": 4,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch29-model-selection",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 14,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch29-model-selection",
    "target": "ch40-glmm-gee",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch29-model-selection",
    "target": "ch41-missing-data",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch29-model-selection",
@@ -3273,19 +2799,19 @@
    "source": "ch29-model-selection",
    "target": "ch43-smoothing",
    "weight": 18,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch29-model-selection",
    "target": "ch44-additive-models",
    "weight": 10,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch29-model-selection",
    "target": "ch45-quantile-gamlss",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch30-regularization-boosting",
@@ -3297,49 +2823,31 @@
    "source": "ch30-regularization-boosting",
    "target": "ch36-multinomial-ordinal",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch30-regularization-boosting",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 9,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch30-regularization-boosting",
    "target": "ch43-smoothing",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch30-regularization-boosting",
    "target": "ch44-additive-models",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch30-regularization-boosting",
    "target": "ch45-quantile-gamlss",
    "weight": 3,
-   "implied": false
-  },
-  {
-   "source": "ch31-general-gauss-markov",
-   "target": "ch04-quadratic-forms",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch31-general-gauss-markov",
-   "target": "ch07-optimality",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch31-general-gauss-markov",
-   "target": "ch19-theory-of-departures",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch31-general-gauss-markov",
@@ -3351,55 +2859,7 @@
    "source": "ch31-general-gauss-markov",
    "target": "ch33-clustered-longitudinal-splitplot",
    "weight": 8,
-   "implied": false
-  },
-  {
-   "source": "ch32-linear-mixed-models",
-   "target": "ch04-quadratic-forms",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch32-linear-mixed-models",
-   "target": "ch07-optimality",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch32-linear-mixed-models",
-   "target": "ch09-sums-of-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch32-linear-mixed-models",
-   "target": "ch13-multiplicity",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch32-linear-mixed-models",
-   "target": "ch14-correlation-lack-of-fit-prediction",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch32-linear-mixed-models",
-   "target": "ch15-anova-subspaces",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch32-linear-mixed-models",
-   "target": "ch16-multiway-layouts",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch32-linear-mixed-models",
-   "target": "ch18-covariance-and-design",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch32-linear-mixed-models",
@@ -3417,49 +2877,37 @@
    "source": "ch32-linear-mixed-models",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch32-linear-mixed-models",
    "target": "ch40-glmm-gee",
    "weight": 15,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch32-linear-mixed-models",
    "target": "ch41-missing-data",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch32-linear-mixed-models",
    "target": "ch43-smoothing",
    "weight": 13,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch32-linear-mixed-models",
    "target": "ch44-additive-models",
    "weight": 18,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch32-linear-mixed-models",
    "target": "ch45-quantile-gamlss",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch33-clustered-longitudinal-splitplot",
-   "target": "ch02-random-vectors",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch33-clustered-longitudinal-splitplot",
-   "target": "ch06-projections",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch33-clustered-longitudinal-splitplot",
@@ -3477,19 +2925,7 @@
    "source": "ch33-clustered-longitudinal-splitplot",
    "target": "ch44-additive-models",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch34-exponential-families-glm",
-   "target": "ch10-computation",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch34-exponential-families-glm",
-   "target": "ch11-general-linear-hypothesis",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch34-exponential-families-glm",
@@ -3501,61 +2937,49 @@
    "source": "ch34-exponential-families-glm",
    "target": "ch36-multinomial-ordinal",
    "weight": 20,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch34-exponential-families-glm",
    "target": "ch37-counts",
    "weight": 26,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch34-exponential-families-glm",
    "target": "ch38-quasi-likelihood",
    "weight": 34,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch34-exponential-families-glm",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 40,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch34-exponential-families-glm",
    "target": "ch40-glmm-gee",
    "weight": 13,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch34-exponential-families-glm",
    "target": "ch41-missing-data",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch34-exponential-families-glm",
    "target": "ch44-additive-models",
    "weight": 11,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch34-exponential-families-glm",
    "target": "ch45-quantile-gamlss",
    "weight": 5,
-   "implied": false
-  },
-  {
-   "source": "ch35-binary-responses",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch35-binary-responses",
-   "target": "ch34-exponential-families-glm",
-   "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch35-binary-responses",
@@ -3567,37 +2991,37 @@
    "source": "ch35-binary-responses",
    "target": "ch37-counts",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch35-binary-responses",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 26,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch35-binary-responses",
    "target": "ch40-glmm-gee",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch35-binary-responses",
    "target": "ch41-missing-data",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch35-binary-responses",
    "target": "ch44-additive-models",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch35-binary-responses",
    "target": "ch45-quantile-gamlss",
    "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch36-multinomial-ordinal",
@@ -3609,19 +3033,7 @@
    "source": "ch36-multinomial-ordinal",
    "target": "ch40-glmm-gee",
    "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch37-counts",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch37-counts",
-   "target": "ch34-exponential-families-glm",
-   "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch37-counts",
@@ -3633,13 +3045,13 @@
    "source": "ch37-counts",
    "target": "ch39-glms-in-practice-bayes",
    "weight": 3,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch37-counts",
    "target": "ch40-glmm-gee",
    "weight": 6,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch37-counts",
@@ -3651,19 +3063,13 @@
    "source": "ch37-counts",
    "target": "ch44-additive-models",
    "weight": 2,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch37-counts",
    "target": "ch45-quantile-gamlss",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch38-quasi-likelihood",
-   "target": "ch34-exponential-families-glm",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch38-quasi-likelihood",
@@ -3675,25 +3081,19 @@
    "source": "ch38-quasi-likelihood",
    "target": "ch40-glmm-gee",
    "weight": 7,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch38-quasi-likelihood",
    "target": "ch44-additive-models",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch38-quasi-likelihood",
    "target": "ch45-quantile-gamlss",
    "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch39-glms-in-practice-bayes",
-   "target": "ch30-regularization-boosting",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch39-glms-in-practice-bayes",
@@ -3711,90 +3111,18 @@
    "source": "ch39-glms-in-practice-bayes",
    "target": "ch44-additive-models",
    "weight": 5,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch39-glms-in-practice-bayes",
    "target": "ch45-quantile-gamlss",
    "weight": 3,
-   "implied": false
-  },
-  {
-   "source": "ch40-glmm-gee",
-   "target": "ch32-linear-mixed-models",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch40-glmm-gee",
-   "target": "ch33-clustered-longitudinal-splitplot",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch40-glmm-gee",
-   "target": "ch39-glms-in-practice-bayes",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch41-missing-data",
-   "target": "ch18-covariance-and-design",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch41-missing-data",
-   "target": "ch40-glmm-gee",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch42-polynomials-piecewise",
-   "target": "ch06-projections",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch42-polynomials-piecewise",
-   "target": "ch08-estimability",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch42-polynomials-piecewise",
-   "target": "ch09-sums-of-squares",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch42-polynomials-piecewise",
    "target": "ch43-smoothing",
    "weight": 12,
-   "implied": false
-  },
-  {
-   "source": "ch43-smoothing",
-   "target": "ch29-model-selection",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch43-smoothing",
-   "target": "ch30-regularization-boosting",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch43-smoothing",
-   "target": "ch32-linear-mixed-models",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch43-smoothing",
-   "target": "ch42-polynomials-piecewise",
-   "weight": 4,
    "implied": false
   },
   {
@@ -3807,60 +3135,12 @@
    "source": "ch43-smoothing",
    "target": "ch45-quantile-gamlss",
    "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch44-additive-models",
-   "target": "ch05-model-and-least-squares",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch44-additive-models",
-   "target": "ch30-regularization-boosting",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch44-additive-models",
-   "target": "ch42-polynomials-piecewise",
-   "weight": 1,
-   "implied": false
+   "implied": true
   },
   {
    "source": "ch44-additive-models",
    "target": "ch45-quantile-gamlss",
    "weight": 6,
-   "implied": false
-  },
-  {
-   "source": "ch45-quantile-gamlss",
-   "target": "ch05-model-and-least-squares",
-   "weight": 2,
-   "implied": false
-  },
-  {
-   "source": "ch45-quantile-gamlss",
-   "target": "ch20-residuals-leverage-influence",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch45-quantile-gamlss",
-   "target": "ch23-resampling-inference",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch45-quantile-gamlss",
-   "target": "ch34-exponential-families-glm",
-   "weight": 1,
-   "implied": false
-  },
-  {
-   "source": "ch45-quantile-gamlss",
-   "target": "ch44-additive-models",
-   "weight": 1,
    "implied": false
   }
  ]
