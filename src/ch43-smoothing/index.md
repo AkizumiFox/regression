@@ -45,6 +45,8 @@ itself (@def-ply-piecewise, @thm-ply-spline-space, @prp-ply-knots). [Section 43.
 draws on
 [Section 39.4](../ch39-glms-in-practice-bayes/04-bayesian-glms-mcmc.html)
 for the Bayesian vocabulary (@def-prc-posterior, @prp-prc-priors).
+[Section 43.4](04-smoothing-splines.html) solves its penalized system with the Cholesky
+factorization of [Chapter 10](../ch10-computation/index.html) (@thm-cmp-cholesky, @eq-cmp-cholesky).
 
 **Notation for this chapter.** There is one covariate \( x \) taking values
 \( x_1,\dots,x_n \) in an interval \( [a,b] \), one response, and an unknown

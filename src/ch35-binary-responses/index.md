@@ -25,7 +25,11 @@ empirical logits (@exr-tr-empirical-logit);
 [Chapter 25](../ch25-causal-interpretation/index.html) for the causal reading of a
 coefficient; [Chapter 27](../ch27-shrinkage/index.html) and
 [Chapter 30](../ch30-regularization-boosting/index.html) for penalized estimation;
-[Chapter 29](../ch29-model-selection/index.html) for AIC and cross-validation.
+[Chapter 29](../ch29-model-selection/index.html) for AIC and cross-validation. Only
+[Chapter 34](../ch34-exponential-families-glm/index.html) is a prerequisite in the strict sense:
+every proof in this chapter that cites an earlier chapter cites that one. The rest are named
+because the chapter points at them — for a diagnostic, a penalty, a criterion or a reading of a
+coefficient — and a reader may follow the pointer when it arises.
 
 ## Roadmap
 

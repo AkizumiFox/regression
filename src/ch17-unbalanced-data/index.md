@@ -15,7 +15,12 @@ survive when some cells are empty.
 the first cell-mean results in [Chapter 9](../ch09-sums-of-squares/index.html) (@def-ss-sequential,
 @def-ss-partial, @thm-ss-two-way-hypotheses, @thm-ss-hypothesis). Testable hypotheses and restricted
 least squares from [Chapter 11](../ch11-general-linear-hypothesis/index.html) (@thm-glh-general-f, @prp-glh-restricted-ls). The one-way layout of [Chapter 15](../ch15-anova-subspaces/index.html)
-and the balanced two-way layout of [Chapter 16](../ch16-multiway-layouts/index.html).
+and the balanced two-way layout of [Chapter 16](../ch16-multiway-layouts/index.html). Four earlier
+facts are each used once: in [Section 17.1](01-cell-means.html), the Gauss–Markov theorem
+(@thm-opt-gauss-markov) and the mean of a quadratic form (@thm-rv-quadform-mean); in
+[Section 17.2](02-types-of-sums-of-squares.html), the algebra of Kronecker products
+(@prp-mat-kronecker); and in [Section 17.3](03-constrained-models.html), the moments of least
+squares (@thm-lm-moments).
 
 ## Roadmap
 

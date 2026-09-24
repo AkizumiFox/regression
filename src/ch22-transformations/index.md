@@ -18,6 +18,9 @@ prediction intervals (@thm-ci-prediction-interval), the delta method as used in
 [Section 14.4](../ch14-correlation-lack-of-fit-prediction/04-correlation-coefficient.html), and the
 diagnostics of [Chapter 20](../ch20-residuals-leverage-influence/index.html) and
 [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html).
+[Section 22.5](05-interpreting.html) also uses the moment generating function of the multivariate
+normal from [Chapter 3](../ch03-multivariate-normal/index.html) (@thm-mvn-mgf), which is what says
+what a fitted value on the log scale estimates.
 
 ## Roadmap
 

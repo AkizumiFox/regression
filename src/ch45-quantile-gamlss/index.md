@@ -34,7 +34,9 @@ squares @thm-glm-irls). The last two sections use the penalized splines of
 [Chapter 43](../ch43-smoothing/index.html) and the structured additive predictors of
 [Chapter 44](../ch44-additive-models/index.html); the M-estimation machinery of
 [Section 20.6](../ch20-residuals-leverage-influence/06-robust.html) (@prp-res-irls)
-is the ancestor of two algorithms below.
+is the ancestor of two algorithms below. This is a list of where things came from rather than of
+what must be read first: no proof in the chapter cites an earlier one, and the results named are
+pointed at in the text where they are recognized again.
 
 ## Roadmap
 

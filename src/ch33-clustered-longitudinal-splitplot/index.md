@@ -35,6 +35,16 @@ chapters before this one: generalized least squares and its
 inference (@def-ggm-gls, @thm-ggm-inference, @thm-ggm-ols-blue) and the mixed
 model with its predictors and likelihoods (@def-mix-model,
 @thm-mix-blup, @thm-mix-henderson, @def-mix-reml).
+The distribution theory is that of Part I, used directly and not only through those chapters: the
+noncentral \( F \), the mean and variance of a quadratic form and the independence of orthogonal
+projections from [Chapter 4](../ch04-quadratic-forms/index.html) (@def-qf-noncentral-f,
+@thm-qf-mean-var, @thm-qf-orthogonal-projections); whitening, the covariance of a linear function
+and the mean of a quadratic form from [Chapter 2](../ch02-random-vectors/index.html)
+(@prp-rv-whitening, @thm-rv-linear, @thm-rv-quadform-mean); the Woodbury identity and a matrix
+square root from [Chapter 1](../ch01-matrix-algebra/index.html) (@thm-mat-woodbury,
+@thm-mat-square-root); Aitken's corollary from [Chapter 7](../ch07-optimality/index.html)
+(@cor-opt-aitken); and, in [Section 33.3](03-repeated-measures.html), the centred Wishart lemma of
+[Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) (@lem-cor-centred-wishart).
 
 ## Roadmap
 

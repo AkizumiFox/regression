@@ -24,12 +24,16 @@ From [Chapter 2](../ch02-random-vectors/index.html): whitening (@prp-rv-whitenin
 and the support of a singular covariance (@thm-rv-cov-nnd).
 Estimability ([Chapter 8](../ch08-estimability/index.html)) and the \( F \) test
 ([Chapter 11](../ch11-general-linear-hypothesis/index.html)) are used throughout, and
-the distribution theory of [Section 31.1](01-generalized-least-squares.html) rests on the
-quadratic forms of [Chapter 4](../ch04-quadratic-forms/index.html).
+the distribution theory of [Section 31.1](01-generalized-least-squares.html) is the quadratic-form
+theory of [Chapter 4](../ch04-quadratic-forms/index.html), reached through @thm-opt-sampling applied
+to the whitened model rather than cited here directly.
 [Section 19.2](../ch19-theory-of-departures/02-wrong-covariance.html) and
 [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) supply the
 diagnostic side: what a wrong covariance does (@thm-dep-covariance), how much
 efficiency it costs (@thm-dep-efficiency), and the sandwich estimator (@thm-het-sandwich).
+[Section 31.1](01-generalized-least-squares.html) also builds its interval on the \( t \) interval
+for an estimable function from [Chapter 12](../ch12-intervals-and-bands/index.html)
+(@thm-ci-estimable-interval).
 
 ## Roadmap
 

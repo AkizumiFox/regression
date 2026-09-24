@@ -19,6 +19,10 @@ the moments of least squares estimates from [Chapter 5](../ch05-model-and-least-
 and the distribution theory of [Chapter 4](../ch04-quadratic-forms/index.html)
 (@thm-qf-orthogonal-projections, @thm-qf-cochran-algebra). Estimable functions and
 contrasts from [Chapter 8](../ch08-estimability/index.html) appear in [Sections 9.2](02-extra-sums.html) to [9.4](04-orthogonal-designs.html).
+Three facts from [Chapter 1](../ch01-matrix-algebra/index.html) are used once each: rank and
+nullity and the partitioned inverse in [Section 9.2](02-extra-sums.html) (@thm-mat-rank-nullity,
+@thm-mat-partitioned-inverse), and the Cauchy–Schwarz inequality in
+[Section 9.5](05-r-squared.html) (@prp-mat-cauchy-schwarz).
 
 ## Roadmap
 

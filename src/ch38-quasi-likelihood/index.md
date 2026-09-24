@@ -30,8 +30,8 @@ overdispersion (@thm-cnt-dispersion-score). The optimality proof of
 [Chapter 20](../ch20-residuals-leverage-influence/index.html),
 [Chapter 23](../ch23-resampling-inference/index.html),
 [Chapter 29](../ch29-model-selection/index.html) and
-[Chapter 33](../ch33-clustered-longitudinal-splitplot/index.html) are used in single
-sections.
+[Chapter 33](../ch33-clustered-longitudinal-splitplot/index.html) are pointed at in single
+sections, as context rather than as steps.
 
 ## Roadmap
 

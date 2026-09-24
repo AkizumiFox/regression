@@ -16,7 +16,10 @@ distributions in the normal model, @thm-opt-sampling and @cor-opt-t),
 [Chapter 19](../ch19-theory-of-departures/index.html) (asymptotic normality without normal errors),
 [Chapter 20](../ch20-residuals-leverage-influence/index.html) (studentized residuals) and
 [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) (sandwich covariance estimators and serial
-correlation).
+correlation). The moments of least squares and the consistency of \( s^2 \) from
+[Chapter 5](../ch05-model-and-least-squares/index.html) (@thm-lm-moments, @cor-lm-s2-consistent) are
+what [Sections 23.1](01-cases-and-residuals.html) and [23.5](05-freedman-lane.html) compare a
+resampling distribution against.
 
 ## Roadmap
 

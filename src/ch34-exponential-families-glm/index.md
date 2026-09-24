@@ -21,7 +21,9 @@ families @lem-opt-exponential-family), [Chapter 11](../ch11-general-linear-hypot
 [Section 21.3](../ch21-nonnormality-heteroscedasticity-serial/03-weighted-least-squares.html)
 (weighted least squares @thm-het-wls). [Chapter 20](../ch20-residuals-leverage-influence/index.html)
 (residuals and influence, and iteratively reweighted least squares @prp-res-irls) and
-[Chapter 29](../ch29-model-selection/index.html) (AIC) are used in the last section.
+[Chapter 29](../ch29-model-selection/index.html) (AIC) are used in the last section, which also
+needs the chi-squared distribution of a quadratic form from
+[Chapter 4](../ch04-quadratic-forms/index.html) (@thm-qf-chisq) for the deviance in the normal case.
 
 ## Roadmap
 

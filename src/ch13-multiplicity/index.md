@@ -23,7 +23,15 @@ hypothesis from [Chapter 9](../ch09-sums-of-squares/index.html) (@thm-ss-hypothe
 The \( F \) test of [Chapter 11](../ch11-general-linear-hypothesis/index.html) (@thm-glh-f-test, @thm-glh-general-f)
 and the confidence intervals and ellipsoids of
 [Chapter 12](../ch12-intervals-and-bands/index.html) (@thm-ci-estimable-interval, @thm-ci-ellipsoid)
-are the single-inference versions of what this chapter does for families.
+are the single-inference versions of what this chapter does for families. Two pieces of
+machinery come in directly: Scheffé's theorem in [Section 13.2](02-scheffe.html) is the
+Cauchy–Schwarz inequality together with the generalized Rayleigh quotient of
+[Chapter 1](../ch01-matrix-algebra/index.html) (@prp-mat-cauchy-schwarz,
+@cor-mat-generalized-rayleigh), and [Section 13.4](04-bonferroni-holm.html) uses the
+independence of uncorrelated normal blocks from
+[Chapter 3](../ch03-multivariate-normal/index.html) (@thm-mvn-independence). The independence of
+orthogonal projections (@thm-qf-orthogonal-projections) is named above for the joint distribution
+it justifies, but no proof in the chapter cites it.
 
 ## Roadmap
 

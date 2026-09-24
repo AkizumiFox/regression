@@ -22,7 +22,11 @@ approximately normal estimates of single coefficients.
 [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) (random regressors and the inverse Wishart
 mean, @lem-cor-inverse-wishart). From this part: the lasso, its optimality conditions and soft
 thresholding ([Chapter 27](../ch27-shrinkage/index.html), @def-shr-lasso and @thm-shr-lasso-orthonormal)
-and ridge regression (@thm-shr-ridge). Selection bias and
+and ridge regression (@thm-shr-ridge). The random-design sections work with the moments and the normal theory of
+[Chapter 2](../ch02-random-vectors/index.html) and
+[Chapter 3](../ch03-multivariate-normal/index.html) (@thm-rv-linear, @thm-mvn-linear,
+@thm-mvn-mgf), the last of these for the tail bounds of
+[Section 28.3](03-lasso-bounds.html). Selection bias and
 cross-validation ([Chapter 29](../ch29-model-selection/index.html)) are referred to but not needed.
 
 ## Roadmap

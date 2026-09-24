@@ -23,6 +23,18 @@ Aitken), [Chapter 10](../ch10-computation/index.html) (the deletion formulas, @p
 tests and intervals of [Chapter 11](../ch11-general-linear-hypothesis/index.html) and
 [Chapter 12](../ch12-intervals-and-bands/index.html). [Section 14.1](../ch14-correlation-lack-of-fit-prediction/01-random-regressors.html)
 treats random regressors under the normal model, and [Section 19.5](05-random-regressors.html) builds on it.
+Two earlier chapters carry more of the weight than the list above suggests.
+[Chapter 2](../ch02-random-vectors/index.html) supplies the moments recomputed under every
+departure — the covariance of a linear function, the mean and variance of a quadratic form, the
+expected residual sum of squares and the law of total covariance (@thm-rv-linear,
+@thm-rv-quadform-mean, @thm-rv-quadform-variance, @eq-rv-rss-mean, @prp-rv-total-covariance) — and
+[Chapter 1](../ch01-matrix-algebra/index.html) the spectral theorem and extremal Rayleigh quotient
+that [Sections 19.2](02-wrong-covariance.html) and [19.6](06-collinearity.html) measure efficiency
+with, together with the QR factorization and the Cauchy–Schwarz inequality (@thm-mat-spectral,
+@thm-mat-extremal-rayleigh, @thm-mat-qr, @prp-mat-cauchy-schwarz).
+[Section 19.2](02-wrong-covariance.html) points forward to feasible generalized least squares
+([Section 31.4](../ch31-general-gauss-markov/04-feasible-gls.html)); that is a promise, not a
+prerequisite.
 
 ## Roadmap
 

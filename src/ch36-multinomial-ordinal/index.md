@@ -22,7 +22,8 @@ test @thm-glh-lrt and the three flavours of test statistic @prp-glh-trinity,
 [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) for weighted least
 squares and the sandwich estimator (@thm-het-sandwich), and
 [Chapter 29](../ch29-model-selection/index.html) for the information criteria (@def-sel-aic-bic).
-Nothing here needs normality of anything.
+Those three are named for continuity with the normal-theory chapters and are pointed at in the
+text; the proofs here cite only Chapters 34 and 35. Nothing here needs normality of anything.
 
 ## Roadmap
 

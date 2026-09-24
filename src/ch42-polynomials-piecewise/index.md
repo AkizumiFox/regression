@@ -32,6 +32,11 @@ closing discussion uses the bias–variance trade-off of
 [Chapter 20](../ch20-residuals-leverage-influence/index.html), the transformations of
 [Chapter 22](../ch22-transformations/index.html) and the causal reading of
 [Chapter 25](../ch25-causal-interpretation/index.html).
+[Section 42.4](04-regression-splines.html) points forward to the penalized spline of
+[Section 43.3](../ch43-smoothing/03-penalized-splines.html); that is a promise, not a
+prerequisite, and nothing here is proved from it. Of the chapters listed in the closing discussion,
+[Chapter 20](../ch20-residuals-leverage-influence/index.html) is a pointer only: it is named for the
+diagnostics a fitted spline should be put through, and nothing in this chapter cites it.
 
 ## Roadmap
 

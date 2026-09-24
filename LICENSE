@@ -65,13 +65,3 @@ SOFTWARE.
 Where a file is not listed above, the principle decides it: if it is part of
 the book, it is under CC BY-NC-SA; if it is part of the machinery that would
 build any book, it is under MIT.
-
-
-NEITHER  —  latex/sleek/
--------------------------------------------------------------------------------
-
-latex/sleek/ vendors two files from a third party's LaTeX style. Their terms
-could not be established: the upstream repository named in latex/sleek/README.md
-returns 404, and neither file carries a licence statement. Neither licence above
-covers that directory. Before redistributing, establish the terms with the
-author or replace the two files.

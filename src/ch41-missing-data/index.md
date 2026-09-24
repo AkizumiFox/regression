@@ -33,7 +33,14 @@ honest routes to a standard error after EM;
 coefficient is meant to answer; and
 [Chapter 34](../ch34-exponential-families-glm/index.html) the generalized linear
 model (@def-glm-model, @thm-glm-score), since nothing here is special to a normal
-response.
+response. [Section 41.4](04-em.html) works out the EM algorithm for a normal response, and for that
+it needs the conditional distribution of one normal block given another
+(@thm-mvn-conditional, [Chapter 3](../ch03-multivariate-normal/index.html)). Only three earlier
+results are cited inside a proof here: that one, @thm-opt-mle in
+[Section 41.3](03-likelihood.html), and @thm-dsn-missing in [Section 41.4](04-em.html). The rest of
+the list is a place to go back to — the linear model and its likelihood, the tests and credible sets
+a completed data set would be analysed with, and the bootstrap and the causal question of
+Chapters 23 and 25.
 
 ## Roadmap
 

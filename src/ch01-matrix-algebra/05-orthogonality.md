@@ -83,7 +83,7 @@ Let \( \Q \) and \( \mathbf{P} \) be \( n\times n \) orthogonal matrices.
 
 2. \( \Q\T \) and \( \Q\mathbf{P} \) are orthogonal.
 
-3. Every entry satisfies \( \lvert q_{ij}\rvert\le1 \), and \( \det\Q=\pm1 \).
+3. Every entry satisfies \( \lvert q_{ij}\rvert\le1 \).
 
 4. If \( [\Q_1,\Q_2] \) is orthogonal with \( \Q_1 \) of size \( n\times r \), then
            \( \Q_1\Q_1\T+\Q_2\Q_2\T=\I_n \), and \( \C(\Q_2)=\C(\Q_1)\perpc \).
@@ -93,12 +93,16 @@ Let \( \Q \) and \( \mathbf{P} \) be \( n\times n \) orthogonal matrices.
 
 ::: {.proof}
 (a) \( (\Q\x)\T\Q\bv=\x\T\Q\T\Q\bv=\x\T\bv \). (b) \( (\Q\mathbf{P})\T\Q\mathbf{P}=\mathbf{P}\T\mathbf{P}=\I \).
-(c) Each column has unit length. The determinant claim uses multiplicativity, proved
-independently of this proposition in [Section 1.6](06-partitioned.html) (@prp-mat-det):
-\( 1=\det(\Q\T\Q)=(\det\Q)^2 \). (d) The first statement is
+(c) Each column has unit length, so no entry can exceed \( 1 \) in modulus.
+(d) The first statement is
 \( \Q\Q\T=\I \) written in blocks. For the second, \( \Q_1\T\Q_2=\bzero \) gives
 \( \C(\Q_2)\subseteq\C(\Q_1)\perpc \), and both have dimension \( n-r \).
 :::
+
+The determinant of an orthogonal matrix is \( \pm1 \), since
+\( 1=\det(\Q\T\Q)=(\det\Q)^2 \). That argument multiplies determinants, which are not
+defined until [Section 1.6](06-partitioned.html), so the claim is stated and proved
+there, as @prp-mat-det(f), rather than in part (c).
 
 Part (a) says an orthogonal matrix is a rigid motion that fixes the origin: a rotation, a
 reflection, or a composition of the two. Changing coordinates by an orthogonal

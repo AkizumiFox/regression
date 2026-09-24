@@ -40,6 +40,17 @@ parametric bootstrap, @prp-bs-parametric); from Part VI,
 [Chapter 29](../ch29-model-selection/index.html) (AIC and BIC, @def-sel-aic-bic).
 The generalized least squares theory of
 [Chapter 31](../ch31-general-gauss-markov/index.html) is used throughout.
+Underneath the whole chapter sits the partitioned-matrix algebra of
+[Chapter 1](../ch01-matrix-algebra/index.html) — the Woodbury identity, the block determinant, the
+partitioned inverse, the cyclic trace, a matrix square root and the calculus of quadratic forms
+with Lagrange multipliers (@thm-mat-woodbury, @eq-mat-woodbury, @thm-mat-block-determinant,
+@thm-mat-partitioned-inverse, @thm-mat-trace-cyclic, @thm-mat-square-root, @prp-mat-quadratic-min,
+@prp-mat-lagrange) — which is what turns Henderson's equations and the likelihood into something
+computable; and, in [Section 32.4](04-likelihood.html), the normal density and its behaviour under
+a linear map from [Chapter 3](../ch03-multivariate-normal/index.html) (@thm-mvn-density,
+@thm-mvn-linear). [Section 32.3](03-blup.html) points forward to the smoothing spline as a mixed
+model ([Section 43.6](../ch43-smoothing/06-mixed-model-and-bayes.html)); that is a promise, not a
+prerequisite.
 
 ## Roadmap
 

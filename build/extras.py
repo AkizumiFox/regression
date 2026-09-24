@@ -445,14 +445,19 @@ def _graph_data(book: Book, graph: BookGraph, labels: dict,
             continue  # citations inside one chapter are not drawn
         if order_of[cited.slug] > order_of[citing.slug]:
             # A citation pointing *forward* -- "Chapter 43 does this properly" -- is a
-            # signpost to the reader, not a dependency of the earlier chapter. Drawing it
-            # puts an arrow back into the reading order and makes the chapter graph cyclic,
-            # and a cycle has no unique transitive reduction, so the page falls back to
-            # drawing every one of its edges. This book has four such citations from inside
-            # a proof and eighty-four in all; `tools/check_forward_deps.py` is where they
-            # are accounted for. Keeping only the backward ones leaves a DAG, which is what
-            # the skeleton needs. The reading paths are built from `graph.reading`, not from
-            # this, so nothing a reader is handed is affected by the omission.
+            # signpost to the reader, not a dependency of the earlier chapter. Drawn, it
+            # becomes an arrow from the later chapter into the earlier one, which in this
+            # graph reads "the earlier chapter's results use the later one's": false, and
+            # the opposite of what the sentence says.
+            #
+            # It is no longer a question of cycles. All eighty of the book's forward
+            # pointers are soft now -- no proof, proof idea or claim points forward, and
+            # `./build.py check` fails if one ever does again, through
+            # `tools/check_forward_deps.py` -- so the hard edges the transitive reduction
+            # is computed from are the same 241 whether they are dropped or kept, and the
+            # skeleton does not move. What dropping them buys is thirty-seven backwards
+            # arrows kept off the picture. The reading paths are built from
+            # `graph.reading`, not from this, so nothing a reader is handed is affected.
             continue
         entry = counts.setdefault((cited.slug, citing.slug), [0, 0])
         entry[0 if citation.hard else 1] += 1
@@ -548,7 +553,7 @@ and as counts beside the graph; click to open it.
 </p>
 <p class="graph-intro">
 The graph is the overview. What a reader acts on is one section: choose it below and the
-chapters it needs light up, with the number of sections needed from each. For seven
+chapters it needs light up, with the number of sections needed from each. For eight
 readers' paths worked out section by section, see the <a href="paths.html">reading
 paths</a>; for the results themselves, the <a href="results.html">list of results</a>.
 </p>

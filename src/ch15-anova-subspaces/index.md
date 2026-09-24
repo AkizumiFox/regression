@@ -25,7 +25,11 @@ the \( t \) interval from
 simultaneous methods of [Chapter 13](../ch13-multiplicity/index.html) (@thm-mc-scheffe, @thm-mc-tukey, @thm-mc-bonferroni).
 The pure-error lack-of-fit test of
 [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html) (@thm-cor-lack-of-fit) reappears
-as trend analysis.
+as trend analysis. Underneath all of it sits the normal sampling theory the tables are read
+against: [Chapter 7](../ch07-optimality/index.html) (@thm-opt-sampling, @cor-opt-t) and
+[Chapter 4](../ch04-quadratic-forms/index.html) (@thm-qf-orthogonal-projections,
+@def-qf-noncentral-f); and [Section 15.5](05-balance.html) uses the mean of a quadratic form from
+[Chapter 2](../ch02-random-vectors/index.html) (@thm-rv-quadform-mean).
 
 ## Roadmap
 

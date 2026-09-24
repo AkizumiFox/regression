@@ -32,6 +32,13 @@ effective degrees of freedom, @thm-shr-ridge and @def-reg-penalized),
 (the Bayesian machinery, @def-prc-posterior, @prp-prc-priors) and, above all,
 [Chapter 43](../ch43-smoothing/index.html), whose P-spline blocks and smoothing-parameter
 criteria are used here as given.
+The algebra behind backfitting and the effective degrees of freedom is Part I's: the cyclic trace,
+the generalized Rayleigh quotient and the characterizations of a positive definite matrix
+(@thm-mat-trace-cyclic, @cor-mat-generalized-rayleigh, @thm-mat-pd-characterizations,
+[Chapter 1](../ch01-matrix-algebra/index.html)) and the covariance of a linear transformation
+(@thm-rv-linear, [Chapter 2](../ch02-random-vectors/index.html));
+[Section 44.4](04-spatial-effects.html) also uses best linear unbiased prediction
+(@thm-cor-blup, [Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html)).
 
 ::: {.remark}
 [Notation in this chapter]

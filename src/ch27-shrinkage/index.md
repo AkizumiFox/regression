@@ -20,7 +20,11 @@ variance inflation identity @eq-proj-vif-preview), [Chapter 7](../ch07-optimalit
 estimator, @thm-dep-mse), [Chapter 20](../ch20-residuals-leverage-influence/index.html) (the
 leave-one-out formulas, @thm-res-deletion) and
 [Chapter 26](../ch26-collinearity/index.html) (what collinearity does to variances, @thm-col-variance). The James–Stein section uses the noncentral chi-squared distribution of
-[Chapter 4](../ch04-quadratic-forms/index.html) (@thm-qf-ncchisq).
+[Chapter 4](../ch04-quadratic-forms/index.html) (@thm-qf-ncchisq) together with the normal
+conditional distribution of [Chapter 3](../ch03-multivariate-normal/index.html)
+(@thm-mvn-conditional), which is where the empirical-Bayes reading of the estimator comes from;
+[Section 27.1](01-mean-squared-error.html) uses the covariance of a linear transformation
+(@thm-rv-linear, [Chapter 2](../ch02-random-vectors/index.html)).
 
 ## Roadmap
 

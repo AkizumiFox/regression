@@ -21,6 +21,14 @@ properties, @prp-proj-leverage and @prp-proj-leverage-mahalanobis; the Frisch–
 [Chapter 13](../ch13-multiplicity/index.html) (the Bonferroni inequality). [Chapter 19](../ch19-theory-of-departures/index.html) describes in general
 terms what a contaminated case does to least squares (@thm-dep-outlier); this chapter is about finding
 such cases in a particular data set.
+From [Chapter 1](../ch01-matrix-algebra/index.html), the deletion identity that every
+leave-one-out formula is an instance of (@exm-mat-deletion), with the extremal Rayleigh quotient,
+a matrix square root and the Cauchy–Schwarz inequality (@thm-mat-extremal-rayleigh,
+@thm-mat-square-root, @prp-mat-cauchy-schwarz); from
+[Chapter 2](../ch02-random-vectors/index.html), the covariance of a linear transformation
+(@thm-rv-linear); and, in [Section 20.3](03-deletion.html), the single-dummy exercise of
+[Chapter 8](../ch08-estimability/index.html) (@exr-est-single-dummy), which is what makes deleting
+a case the same as adding one indicator.
 
 ## Roadmap
 

@@ -13,7 +13,13 @@ not normal, and biased estimators can win on mean squared error. A Bayesian anal
 conjugate prior is one principled biased estimator, and it recovers least squares as the prior
 becomes flat.
 
-**What you need.** Covariances of linear functions and the mean of a quadratic form
+**What you need.** [Chapter 1](../ch01-matrix-algebra/index.html): nonnegative definite
+matrices with their characterizations and square roots (@def-mat-nnd, @prp-mat-pd-properties,
+@thm-mat-pd-characterizations, @thm-mat-square-root), which is what a comparison of two
+covariance matrices is a statement about; and, in single proofs, generalized inverses
+(@prp-mat-ginverse-props), idempotent matrices (@prp-mat-idempotent-basic) and the Woodbury
+identity (@thm-mat-woodbury).
+Covariances of linear functions and the mean of a quadratic form
 ([Chapter 2](../ch02-random-vectors/index.html): @thm-rv-linear and @thm-rv-quadform-mean). The
 multivariate normal and its density ([Chapter 3](../ch03-multivariate-normal/index.html):
 @thm-mvn-linear and @thm-mvn-density). Chi-squared quadratic forms and their independence

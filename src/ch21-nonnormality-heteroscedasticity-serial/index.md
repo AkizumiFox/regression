@@ -25,7 +25,12 @@ coverage under nonnormal errors (@prp-ci-pi-limit). From
 [Chapter 19](../ch19-theory-of-departures/index.html) we use the covariance of least squares under a general
 error covariance (@thm-dep-covariance) and its large-sample behaviour under nonnormal
 errors (@thm-dep-nonnormal). From [Chapter 20](../ch20-residuals-leverage-influence/index.html) we use studentized
-residuals (@def-res-residuals, @thm-res-external-t). The limit theorems of probability that the chapter needs
+residuals (@def-res-residuals, @thm-res-external-t). [Section 21.3](03-weighted-least-squares.html) uses the moments of least squares and of \( s^2 \)
+from [Chapter 5](../ch05-model-and-least-squares/index.html) (@thm-lm-moments, @thm-lm-sigma2), and
+[Section 21.5](05-durbin-watson.html) the extremal Rayleigh quotient of
+[Chapter 1](../ch01-matrix-algebra/index.html) (@thm-mat-extremal-rayleigh) together with the
+behaviour of a normal vector under a linear map (@thm-mvn-linear,
+[Chapter 3](../ch03-multivariate-normal/index.html)). The limit theorems of probability that the chapter needs
 are gathered, or pointed to, in [Section 21.2](02-detecting-heteroscedasticity.html).
 
 ## Roadmap

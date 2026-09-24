@@ -29,7 +29,7 @@
 \DeclareOption{skiphyperref}{\@skiphyperreftrue}
 \DeclareOption{skiptitlesec}{\@skiptitlesectrue}
 % skipenv: define no theorem styles, boxes or theorem-like environments here.
-% latex/theorem-envs.sty defines them all, in sleek's framed style, from the
+% latex/theorem-envs.sty defines them all, in the book's framed style, from the
 % book's config. Everything else in this file (macros, colours, helpers) stays.
 \DeclareOption{skipenv}{\@skipenvtrue}
 \ProcessOptions\relax
@@ -1494,7 +1494,7 @@
 % The vector shorthands above redefine \v (the caron accent), so a UTF-8 caron letter
 % in the prose, as in "Šidák", would print "vS". Map the caron letters the book uses
 % directly to the caron accent of the font encoding instead. Slot 7 is T1's caron
-% (latex/sleek/sleek.sty loads T1); under the OT1 this book used before it was slot 20,
+% (latex/page-style.sty loads T1); under the OT1 this book used before it was slot 20,
 % which in T1 is guillemotright -- "Šidák" would have come out as "»Sidák".
 \DeclareUnicodeCharacter{0160}{\accent7 S}
 \DeclareUnicodeCharacter{0161}{\accent7 s}

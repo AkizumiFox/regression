@@ -22,7 +22,12 @@ normal conditional distributions and partial correlations from
 [Chapter 4](../ch04-quadratic-forms/index.html) (@thm-qf-orthogonal-projections, @thm-qf-f-power),
 and \( R^2 \) and partial \( R^2 \) from [Chapter 9](../ch09-sums-of-squares/index.html) (@thm-ss-r2-null, @thm-ss-partial-r2). The \( F \) test of a reduced model
 ([Chapter 11](../ch11-general-linear-hypothesis/index.html), @thm-glh-f-test) is the template for
-every lack-of-fit test.
+every lack-of-fit test. [Sections 14.1](01-random-regressors.html) and
+[14.2](02-best-linear-prediction.html) also use the moments of least squares in the simple model
+from [Chapter 5](../ch05-model-and-least-squares/index.html) (@cor-lm-simple-moments,
+@thm-lm-sigma2), and, from [Chapter 1](../ch01-matrix-algebra/index.html), the Helmert matrix, the
+partitioned inverse and a matrix square root (@exm-mat-helmert, @thm-mat-partitioned-inverse,
+@thm-mat-square-root).
 
 ## Roadmap
 

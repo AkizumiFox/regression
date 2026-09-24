@@ -20,7 +20,15 @@ identity @eq-proj-vif-preview; leverage, @prp-proj-leverage),
 @thm-cmp-perturbation and @prp-cmp-van-der-sluis) and
 [Chapter 12](../ch12-intervals-and-bands/index.html) (confidence ellipsoids and prediction at a
 new point). [Section 19.6](../ch19-theory-of-departures/06-collinearity.html) previewed the subject (@prp-dep-collinear-directions);
-this chapter builds on that preview rather than repeating it.
+this chapter builds on that preview rather than repeating it. Four results are used once each: the
+moments of least squares (@thm-lm-moments, [Chapter 5](../ch05-model-and-least-squares/index.html))
+and the criterion for an orthogonal design (@prp-opt-orthogonal-design,
+[Chapter 7](../ch07-optimality/index.html)) in [Sections 26.1](01-variance.html) and
+[26.2](02-vif.html); the \( t \) test of a coefficient (@thm-glh-t-test,
+[Chapter 11](../ch11-general-linear-hypothesis/index.html)) in
+[Section 26.2](02-vif.html); and the deletion formula (@thm-res-deletion,
+[Chapter 20](../ch20-residuals-leverage-influence/index.html)) in
+[Section 26.3](03-condition-indices.html).
 
 ## Roadmap
 

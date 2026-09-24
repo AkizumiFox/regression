@@ -103,16 +103,22 @@ each one links to the results it uses, so any of them can be entered directly.
 
 ### Reading paths
 
-- **A first course on linear models.** Chapters [5](ch05-model-and-least-squares/index.html)–[9](ch09-sums-of-squares/index.html), [11](ch11-general-linear-hypothesis/index.html)–[12](ch12-intervals-and-bands/index.html), [15](ch15-anova-subspaces/index.html), [19](ch19-theory-of-departures/index.html)–[20](ch20-residuals-leverage-influence/index.html) and [29](ch29-model-selection/index.html).
-  Consult Part I as needed.
-- **The theory spine.** Part I, then Chapters [6](ch06-projections/index.html), [7](ch07-optimality/index.html), [8](ch08-estimability/index.html), [9](ch09-sums-of-squares/index.html), [11](ch11-general-linear-hypothesis/index.html) and [31](ch31-general-gauss-markov/index.html).
-  This is the shortest route to a full structural understanding of the linear model.
-- **For implementers.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html), [10](ch10-computation/index.html) and [20](ch20-residuals-leverage-influence/index.html), [Part VI](ch26-collinearity/index.html) and [Chapter 34](ch34-exponential-families-glm/index.html).
-- **A course on generalized models.** Chapters [5](ch05-model-and-least-squares/index.html), [6](ch06-projections/index.html) and [11](ch11-general-linear-hypothesis/index.html), then Parts [VII](ch31-general-gauss-markov/index.html)–[X](ch45-quantile-gamlss/index.html).
-- **Smoothing and flexible regression.** Chapters [6](ch06-projections/index.html), [27](ch27-shrinkage/index.html), [29](ch29-model-selection/index.html) and [30](ch30-regularization-boosting/index.html), then [Part IX](ch42-polynomials-piecewise/index.html);
-  add [Chapter 32](ch32-linear-mixed-models/index.html) for the mixed-model reading of a penalty and
-  [Chapter 34](ch34-exponential-families-glm/index.html) for generalized additive models.
-- **Beyond the conditional mean.** Chapters [12](ch12-intervals-and-bands/index.html), [21](ch21-nonnormality-heteroscedasticity-serial/index.html) and [22](ch22-transformations/index.html), then [Chapter 45](ch45-quantile-gamlss/index.html).
+Six paths were listed here by chapter, and every one of them named too few. Measured
+against the proofs, the nearest was four sections short of what it needed and the
+furthest forty-three; a reader who took one met a gap, and then another. They were
+written by hand, and nothing checked them.
+
+They are computed now. The build reads the citations made inside each proof, follows
+them backwards section by section, and reports what a result rests on — not what its
+chapter introduction mentions, and not what a remark points at in passing. Eight paths
+built that way, one for each kind of reader, are on the [reading paths](paths.html)
+page: the theory of the linear model, econometrics, biostatistics, machine learning,
+experimental design, dependent errors, causal inference, and nonparametric regression.
+Each gives its sections in reading order, a second count for the reader who also works
+the exercises, and the results it was aimed at; and each is checked closed every time
+the book is built, so that nothing on a path cites anything off it in a proof. If you
+came for one theorem rather than one subject, the [dependency graph](graph.html) will
+compute the same closure for any single section you name.
 
 ### Prerequisites
 

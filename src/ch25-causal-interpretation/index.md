@@ -19,6 +19,9 @@ measures, @def-lm-coefficient-interpretation, and the omitted-variable formula, 
 @thm-dsn-ancova, @prp-dsn-precision and @lem-dsn-srs), and, from this part,
 [Chapter 19](../ch19-theory-of-departures/index.html) (omitted-variable bias of least squares, @thm-dep-omitted)
 and [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) (sandwich standard errors, @thm-het-sandwich).
+[Sections 25.3](03-confounding-dags.html) and [25.4](04-backdoor.html) argue about population
+quantities, so they use the covariance of a linear function and the best linear predictor of
+[Chapter 2](../ch02-random-vectors/index.html) directly (@thm-rv-linear, @thm-rv-blp).
 
 ## Roadmap
 

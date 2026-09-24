@@ -17,6 +17,15 @@ under departures, @prp-lm-misspecified). [Chapter 14](../ch14-correlation-lack-o
 [Chapter 19](../ch19-theory-of-departures/index.html) (omitted-variable bias, @thm-dep-omitted),
 [Chapter 21](../ch21-nonnormality-heteroscedasticity-serial/index.html) (sandwich covariance estimators, @thm-het-sandwich)
 and [Chapter 23](../ch23-resampling-inference/index.html) (the pairs bootstrap, @def-bs-bootstrap).
+The measurement-error model itself is a statement about moments, so
+[Chapter 2](../ch02-random-vectors/index.html) (@thm-rv-linear, @thm-rv-blp) and
+[Chapter 3](../ch03-multivariate-normal/index.html) (@thm-mvn-linear, @thm-mvn-conditional) are used
+throughout [Sections 24.2](02-measurement-error-model.html) to [24.5](05-calibration-simex.html),
+with the partitioned inverse and the extremal Rayleigh quotient of
+[Chapter 1](../ch01-matrix-algebra/index.html) (@thm-mat-partitioned-inverse,
+@thm-mat-extremal-rayleigh) and, in [Section 24.4](04-instrumental-variables.html), the warning
+about a ratio with no mean from [Chapter 12](../ch12-intervals-and-bands/index.html)
+(@prp-ci-ratio-no-mean).
 
 ## Roadmap
 

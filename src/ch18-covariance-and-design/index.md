@@ -21,7 +21,10 @@ remain, and the classical ways of filling in the gap are shortcuts to the same a
 prediction intervals and the Working–Hotelling band), and, from this part,
 [Chapter 15](../ch15-anova-subspaces/index.html) and [Chapter 16](../ch16-multiway-layouts/index.html)
 (the one-way and additive two-way layouts) and [Chapter 17](../ch17-unbalanced-data/index.html) (cell means and least
-squares means in unbalanced layouts).
+squares means in unbalanced layouts). [Section 18.1](01-ancova.html) also uses the distribution of
+the sample variance from [Chapter 4](../ch04-quadratic-forms/index.html) (@cor-qf-sample-variance).
+Of the chapters named, [Chapter 15](../ch15-anova-subspaces/index.html) is the one the designs here
+are read against rather than argued from: nothing in this chapter cites it.
 
 ## Roadmap
 

@@ -104,7 +104,22 @@ recorded below. This is what is left, written down rather than hidden:
   pointer in prose -- chapter 1 naming a chapter 26 label, of which 120 chapter pairs have
   one -- is a signpost, not a dependency, and used to put an arrow back into the reading
   order; a cycle has no unique transitive reduction, so the page fell back to all 576 edges.
-  Forward pointers in prose stay allowed. Only a proof may not point forward, and none does.
+  Forward pointers in prose stay allowed. Only a proof may not point forward, and none does
+  -- four did, and `./build.py check` now fails if one ever does again.
+- **The forward-citation gate.** `tools/check_forward_deps.py` is kind-aware and wired into
+  `./build.py check` beside `check_optional.py`. A proof, a proof idea or a claim may not
+  cite a result the book proves later; an example, an exercise, a solution, a remark, a
+  warning or a statement may, and 80 do. A citation whose kind was not recorded counts as
+  load-bearing, so the gate stops rather than guesses. The four that were repaired: a proof
+  of @prp-mat-orthogonal(c) that used the multiplicativity of the determinant from Section
+  1.6 (the claim now lives only where it is proved, as @prp-mat-det(f)), and three Key Idea
+  boxes -- in 19.2, 32.3 and 42.4 -- whose closing sentence named a later definition; each
+  now links the later section instead of citing its label. `--signposts` lists the 80.
+- **The preface's reading paths.** The six hand-written chapter lists are gone. Every one
+  named too few sections: the theory spine was 4 short of its own proofs, the generalized
+  models course 43. The preface points at the generated pages instead, and a new profile,
+  `linear-model-theory` (48 sections), carries the theory spine, which none of the seven
+  other profiles aimed at. Chapters 17, 22, 23, 26 and 36 to 40 are still on no profile's path.
 - **Source hygiene, left deliberately.** 26 section files write `\mathbf{Z}`, `\mathbf{A}`
   and the like where a macro exists. Normalizing them is *not* wanted: the output is
   identical, and the macros carry book-wide meanings (`\Z` is the random-effect design

@@ -316,7 +316,8 @@ Rules of thumb that survive scrutiny, for a fixed-knot regression spline:
 
 The middle two leave a discrete, data-dependent choice.
 [Chapter 43](../ch43-smoothing/index.html) removes it by taking \( K \) large and
-adding a penalty, making flexibility continuous (@def-smo-pspline).
+adding a penalty, making flexibility continuous
+([Section 43.3](../ch43-smoothing/03-penalized-splines.html)).
 :::
 
 ## Why this basis is not the one to compute with

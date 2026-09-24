@@ -39,6 +39,9 @@ coefficient means) are used in places. [Chapter 38](../ch38-quasi-likelihood/ind
 supplies the quasi-likelihood machinery this chapter generalizes, while the
 missingness conditions that [Section 40.4](04-gee.html) needs are stated in
 [Chapter 41](../ch41-missing-data/index.html), which comes after this one.
+[Section 40.1](01-marginal-versus-conditional.html) uses the moment generating function of the
+multivariate normal from [Chapter 3](../ch03-multivariate-normal/index.html) (@thm-mvn-mgf) to
+compute what a random intercept does to a marginal mean.
 
 ## Roadmap
 

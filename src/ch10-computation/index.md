@@ -18,7 +18,9 @@ chooses what to do with aliased columns.
 (@def-mat-condition-number). [Chapter 5](../ch05-model-and-least-squares/index.html): the linear
 model and the moments of \( \hbeta \) (@thm-lm-moments). [Chapter 6](../ch06-projections/index.html):
 least squares as projection, and the first look at computation in
-[Section 6.10](../ch06-projections/10-computation.html). A few remarks use the sampling theory of
+[Section 6.10](../ch06-projections/10-computation.html). [Section 10.4](04-svd.html) uses the covariance of a linear
+transformation from [Chapter 2](../ch02-random-vectors/index.html) (@thm-rv-linear), and that is
+the chapter's only call on random vectors. A few remarks use the sampling theory of
 [Chapter 7](../ch07-optimality/index.html) and the sums of squares of
 [Chapter 9](../ch09-sums-of-squares/index.html).
 

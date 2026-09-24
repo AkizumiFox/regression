@@ -350,7 +350,8 @@ only (@thm-shr-ridge). The difference from
 cross-validation; it is estimated, because the model says what
 \( \sigma^2/\sigma_u^2 \) means. [Chapter 43](../ch43-smoothing/index.html) exploits the same equivalence
 in the other direction, writing a penalized spline as a mixed model so that its
-smoothing parameter can be estimated by REML (@thm-smo-mixed).
+smoothing parameter can be estimated by REML
+([Section 43.6](../ch43-smoothing/06-mixed-model-and-bayes.html)).
 :::
 
 ```{.python .run #cell-blup-setup}

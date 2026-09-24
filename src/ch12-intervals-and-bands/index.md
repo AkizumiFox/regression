@@ -20,7 +20,15 @@ Projections, leverage and the Frisch–Waugh–Lovell theorem ([Chapter 6](../ch
 ([Chapter 8](../ch08-estimability/index.html): @def-est-estimable, @thm-est-characterization) and the sum of
 squares of a linear hypothesis ([Chapter 9](../ch09-sums-of-squares/index.html): @thm-ss-hypothesis).
 Chi-squared and \( F \) distributions of quadratic forms ([Chapter 4](../ch04-quadratic-forms/index.html):
-@thm-qf-chisq, @def-qf-noncentral-f, @def-qf-noncentral-t). The tests of
+@thm-qf-chisq, @def-qf-noncentral-f, @def-qf-noncentral-t). The linear model itself, with the
+moments of \( \hbeta \) and the consistency of \( s^2 \), comes from
+[Chapter 5](../ch05-model-and-least-squares/index.html) (@thm-lm-moments, @cor-lm-simple-moments,
+@eq-lm-var-mean-response, @cor-lm-s2-consistent), and the normal distribution theory the
+intervals are read off — the density, the behaviour under a linear map and the independence of
+uncorrelated blocks — from [Chapter 3](../ch03-multivariate-normal/index.html)
+(@thm-mvn-density, @thm-mvn-linear, @thm-mvn-independence); [Section 12.2](02-ellipsoids.html)
+also uses the generalized Rayleigh quotient of
+[Chapter 1](../ch01-matrix-algebra/index.html) (@cor-mat-generalized-rayleigh). The tests of
 [Chapter 11](../ch11-general-linear-hypothesis/index.html) are the duals of the intervals here, but the
 proofs below do not depend on them.
 

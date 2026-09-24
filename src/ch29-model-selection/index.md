@@ -20,6 +20,15 @@ Bonferroni, @thm-mc-scheffe and @thm-mc-bonferroni), [Chapter 14](../ch14-correl
 formulas and PRESS, @thm-res-deletion). From this part:
 [Chapter 26](../ch26-collinearity/index.html) (collinearity) and
 [Chapter 27](../ch27-shrinkage/index.html) (ridge regression, thresholding and Stein's lemma, @lem-shr-stein).
+Every criterion here is an expected sum of squares, so the distribution theory of
+[Chapter 4](../ch04-quadratic-forms/index.html) is used directly (@thm-qf-chisq,
+@prp-qf-ncchisq-monotone), with the mean of a quadratic form
+(@thm-rv-quadform-mean, [Chapter 2](../ch02-random-vectors/index.html)) in
+[Section 29.1](01-prediction-error.html) and the independence of uncorrelated normal blocks
+(@thm-mvn-independence, [Chapter 3](../ch03-multivariate-normal/index.html)) in
+[Section 29.5](05-selection-bias.html). [Chapter 26](../ch26-collinearity/index.html) is named for
+the reader who wants to know why a subset can predict better than the full model; no argument here
+uses it.
 
 ## Roadmap
 

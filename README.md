@@ -11,9 +11,9 @@ models for the whole conditional distribution.
 | Build the HTML site | `./build.py html` |
 | Build the book PDF | `./build.py book` (writes `_build/pdf/book.pdf`) |
 | Everything | `./build.py all` (see `BUILD.md`) |
-| Validate references and numbering | `./build.py check` (also fails on a proof that rests on an optional result) |
+| Validate references and numbering | `./build.py check` (also fails on a proof that rests on an optional result, or on one that cites a later section) |
 | What a reader needs in order to reach a section | `.venv/bin/python tools/reading_path.py --list-profiles`, then `--profile <slug>` |
-| No result cites one from a later section | `.venv/bin/python tools/check_forward_deps.py` (after `./build.py html`) |
+| No proof cites a result from a later section | `.venv/bin/python tools/check_forward_deps.py` (after `./build.py html`; `--signposts` lists the forward pointers in prose, which are allowed) |
 | Run the book's code, check its numbers and cells | `MPLBACKEND=Agg .venv/bin/python tools/check_numbers.py` |
 | Chapter order against the prerequisite DAG | `.venv/bin/python blueprint/check_order.py` |
 | Originality against the source books | `.venv/bin/python blueprint/originality.py 06` |

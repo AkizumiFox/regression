@@ -23,7 +23,12 @@ projections and the constraint space from [Chapter 6](../ch06-projections/index.
 [Chapter 8](../ch08-estimability/index.html) (@def-est-estimable, @thm-est-characterization).
 Extra sums of squares and the sum of squares of a linear hypothesis from
 [Chapter 9](../ch09-sums-of-squares/index.html) (@def-ss-extra, @thm-ss-hypothesis,
-@thm-ss-restricted, @prp-ss-effective-df).
+@thm-ss-restricted, @prp-ss-effective-df). Two further facts enter singly:
+[Section 11.2](02-comparing-projections.html) uses the behaviour of a normal vector under a
+linear map and the independence of uncorrelated normal blocks from
+[Chapter 3](../ch03-multivariate-normal/index.html) (@thm-mvn-linear, @thm-mvn-independence), and
+[Section 11.6](06-coefficients.html) uses the Cauchy–Schwarz inequality and a matrix square root
+from [Chapter 1](../ch01-matrix-algebra/index.html) (@prp-mat-cauchy-schwarz, @thm-mat-square-root).
 
 ## Roadmap
 

@@ -70,6 +70,22 @@
   },
   "reading-paths": [
     {
+      "slug": "linear-model-theory",
+      "name": "Theory of the linear model",
+      "description": "The structural account and nothing else: least squares as a projection, the Gauss–Markov and minimum-variance theorems, which functions are estimable, the general linear hypothesis, and what survives when the covariance matrix is neither scalar nor of full rank.",
+      "targets": [
+        "ch06-projections/04",
+        "ch07-optimality/02",
+        "ch07-optimality/04",
+        "ch08-estimability/03",
+        "ch09-sums-of-squares/02",
+        "ch11-general-linear-hypothesis/03",
+        "ch11-general-linear-hypothesis/04",
+        "ch31-general-gauss-markov/02",
+        "ch31-general-gauss-markov/03"
+      ]
+    },
+    {
       "slug": "econometrics",
       "name": "Econometrics",
       "description": "Partialling out a coefficient, inference that survives the wrong covariance matrix, endogenous regressors and instruments, and generalized least squares.",

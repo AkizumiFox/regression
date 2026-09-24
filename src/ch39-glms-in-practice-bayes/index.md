@@ -40,6 +40,12 @@ overdispersion (@prp-ql-overdispersion). From earlier parts:
 @thm-opt-bayes-conjugate and @cor-opt-flat-prior,
 [Section 12.6](../ch12-intervals-and-bands/06-bayes.html) for @def-ci-credible, and
 [Section 32.6](../ch32-linear-mixed-models/06-bayes.html) for @prp-mix-bayes.
+The diagnostics of [Section 39.2](02-diagnostics.html) are projection arguments, so they use
+[Chapter 6](../ch06-projections/index.html) directly — the trace of a projection as its rank, the
+Frisch–Waugh–Lovell theorem and projection in a general inner product (@prp-proj-trace-rank,
+@thm-proj-fwl, @thm-proj-A-projection) — together with the warning about regressors built from
+fitted values (@thm-cor-fitted-regressors,
+[Chapter 14](../ch14-correlation-lack-of-fit-prediction/index.html)).
 
 ## Roadmap
 
