@@ -168,7 +168,19 @@ and Prediction</span>
                 20</a> (the deletion formulas and PRESS, <a href="../ch20-residuals-leverage-influence/03-deletion.html#thm-res-deletion" class="xref" data-ref="thm-res-deletion" data-shard="ch20-residuals-leverage-influence">Theorem 20.3.1</a>).
                 From this part: <a href="../ch26-collinearity/index.html">Chapter 26</a>
                 (collinearity) and <a href="../ch27-shrinkage/index.html">Chapter 27</a>
-                (ridge regression, thresholding and Stein’s lemma, <a href="../ch27-shrinkage/05-james-stein.html#lem-shr-stein" class="xref" data-ref="lem-shr-stein" data-shard="ch27-shrinkage">Lemma 27.5.1</a>).</p>
+                (ridge regression, thresholding and Stein’s lemma, <a href="../ch27-shrinkage/05-james-stein.html#lem-shr-stein" class="xref" data-ref="lem-shr-stein" data-shard="ch27-shrinkage">Lemma 27.5.1</a>). Every
+                criterion here is an expected sum of squares, so the
+                distribution theory of <a href="../ch04-quadratic-forms/index.html">Chapter 4</a>
+                is used directly (<a href="../ch04-quadratic-forms/03-chisq.html#thm-qf-chisq" class="xref" data-ref="thm-qf-chisq" data-shard="ch04-quadratic-forms">Theorem 4.3.2</a>, <a href="../ch04-quadratic-forms/01-noncentral.html#prp-qf-ncchisq-monotone" class="xref" data-ref="prp-qf-ncchisq-monotone" data-shard="ch04-quadratic-forms">Proposition 4.1.3</a>),
+                with the mean of a quadratic form (<a href="../ch02-random-vectors/03-quadratic.html#thm-rv-quadform-mean" class="xref" data-ref="thm-rv-quadform-mean" data-shard="ch02-random-vectors">Theorem 2.3.1</a>, <a href="../ch02-random-vectors/index.html">Chapter 2</a>)
+                in <a href="01-prediction-error.html">Section 29.1</a>
+                and the independence of uncorrelated normal blocks (<a href="../ch03-multivariate-normal/04-independence.html#thm-mvn-independence" class="xref" data-ref="thm-mvn-independence" data-shard="ch03-multivariate-normal">Theorem 3.4.1</a>,
+                <a href="../ch03-multivariate-normal/index.html">Chapter
+                3</a>) in <a href="05-selection-bias.html">Section
+                29.5</a>. <a href="../ch26-collinearity/index.html">Chapter 26</a> is
+                named for the reader who wants to know why a subset can
+                predict better than the full model; no argument here
+                uses it.</p>
                 <h2 id="roadmap">Roadmap</h2>
                 <ul>
                 <li><a href="01-prediction-error.html">Prediction error

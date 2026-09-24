@@ -313,35 +313,29 @@ From Projection to Distribution</a>
                 here; each one links to the results it uses, so any of
                 them can be entered directly.</p>
                 <h3 id="reading-paths">Reading paths</h3>
-                <ul>
-                <li><strong>A first course on linear models.</strong>
-                Chapters <a href="ch05-model-and-least-squares/index.html">5</a>–<a href="ch09-sums-of-squares/index.html">9</a>, <a href="ch11-general-linear-hypothesis/index.html">11</a>–<a href="ch12-intervals-and-bands/index.html">12</a>, <a href="ch15-anova-subspaces/index.html">15</a>, <a href="ch19-theory-of-departures/index.html">19</a>–<a href="ch20-residuals-leverage-influence/index.html">20</a>
-                and <a href="ch29-model-selection/index.html">29</a>.
-                Consult Part I as needed.</li>
-                <li><strong>The theory spine.</strong> Part I, then
-                Chapters <a href="ch06-projections/index.html">6</a>, <a href="ch07-optimality/index.html">7</a>, <a href="ch08-estimability/index.html">8</a>, <a href="ch09-sums-of-squares/index.html">9</a>, <a href="ch11-general-linear-hypothesis/index.html">11</a>
-                and <a href="ch31-general-gauss-markov/index.html">31</a>. This
-                is the shortest route to a full structural understanding
-                of the linear model.</li>
-                <li><strong>For implementers.</strong> Chapters <a href="ch05-model-and-least-squares/index.html">5</a>, <a href="ch06-projections/index.html">6</a>, <a href="ch10-computation/index.html">10</a> and <a href="ch20-residuals-leverage-influence/index.html">20</a>,
-                <a href="ch26-collinearity/index.html">Part VI</a> and
-                <a href="ch34-exponential-families-glm/index.html">Chapter
-                34</a>.</li>
-                <li><strong>A course on generalized models.</strong>
-                Chapters <a href="ch05-model-and-least-squares/index.html">5</a>, <a href="ch06-projections/index.html">6</a> and <a href="ch11-general-linear-hypothesis/index.html">11</a>,
-                then Parts <a href="ch31-general-gauss-markov/index.html">VII</a>–<a href="ch45-quantile-gamlss/index.html">X</a>.</li>
-                <li><strong>Smoothing and flexible regression.</strong>
-                Chapters <a href="ch06-projections/index.html">6</a>, <a href="ch27-shrinkage/index.html">27</a>, <a href="ch29-model-selection/index.html">29</a> and <a href="ch30-regularization-boosting/index.html">30</a>,
-                then <a href="ch42-polynomials-piecewise/index.html">Part
-                IX</a>; add <a href="ch32-linear-mixed-models/index.html">Chapter
-                32</a> for the mixed-model reading of a penalty and <a href="ch34-exponential-families-glm/index.html">Chapter
-                34</a> for generalized additive models.</li>
-                <li><strong>Beyond the conditional mean.</strong>
-                Chapters <a href="ch12-intervals-and-bands/index.html">12</a>, <a href="ch21-nonnormality-heteroscedasticity-serial/index.html">21</a>
-                and <a href="ch22-transformations/index.html">22</a>,
-                then <a href="ch45-quantile-gamlss/index.html">Chapter
-                45</a>.</li>
-                </ul>
+                <p>Six paths were listed here by chapter, and every one
+                of them named too few. Measured against the proofs, the
+                nearest was four sections short of what it needed and
+                the furthest forty-three; a reader who took one met a
+                gap, and then another. They were written by hand, and
+                nothing checked them.</p>
+                <p>They are computed now. The build reads the citations
+                made inside each proof, follows them backwards section
+                by section, and reports what a result rests on — not
+                what its chapter introduction mentions, and not what a
+                remark points at in passing. Eight paths built that way,
+                one for each kind of reader, are on the <a href="paths.html">reading paths</a> page: the theory of
+                the linear model, econometrics, biostatistics, machine
+                learning, experimental design, dependent errors, causal
+                inference, and nonparametric regression. Each gives its
+                sections in reading order, a second count for the reader
+                who also works the exercises, and the results it was
+                aimed at; and each is checked closed every time the book
+                is built, so that nothing on a path cites anything off
+                it in a proof. If you came for one theorem rather than
+                one subject, the <a href="graph.html">dependency
+                graph</a> will compute the same closure for any single
+                section you name.</p>
                 <h3 id="prerequisites">Prerequisites</h3>
                 <p>Each chapter opens with a list of the earlier
                 chapters it uses, taken from the prerequisite graph the

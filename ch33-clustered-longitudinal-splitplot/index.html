@@ -25,7 +25,6 @@ From Projection to Distribution</title>
             if (stored.toc === 'collapsed') root.dataset.toc = 'collapsed';
         })();
     </script>
-        <meta name="description" content="What you need.">
             <link rel="canonical" href="https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/index.html">
     <meta property="og:url" content="https://regression.akizumifox.com/ch33-clustered-longitudinal-splitplot/index.html">
         <meta property="og:type" content="article">
@@ -33,7 +32,6 @@ From Projection to Distribution</title>
 to Distribution">
     <meta property="og:title" content="Clustered, Longitudinal and
 Split-Plot Data">
-        <meta property="og:description" content="What you need.">
         <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 
     <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
@@ -182,7 +180,24 @@ Longitudinal and Split-Plot Data</span>
                 (<a href="../ch32-linear-mixed-models/02-mixed-model.html#def-mix-model" class="xref" data-ref="def-mix-model" data-shard="ch32-linear-mixed-models">Definition 32.2.1</a>,
                 <a href="../ch32-linear-mixed-models/03-blup.html#thm-mix-blup" class="xref" data-ref="thm-mix-blup" data-shard="ch32-linear-mixed-models">Theorem 32.3.1</a>,
                 <a href="../ch32-linear-mixed-models/03-blup.html#thm-mix-henderson" class="xref" data-ref="thm-mix-henderson" data-shard="ch32-linear-mixed-models">Theorem 32.3.2</a>,
-                <a href="../ch32-linear-mixed-models/04-likelihood.html#def-mix-reml" class="xref" data-ref="def-mix-reml" data-shard="ch32-linear-mixed-models">Definition 32.4.1</a>).</p>
+                <a href="../ch32-linear-mixed-models/04-likelihood.html#def-mix-reml" class="xref" data-ref="def-mix-reml" data-shard="ch32-linear-mixed-models">Definition 32.4.1</a>).
+                The distribution theory is that of Part I, used directly
+                and not only through those chapters: the noncentral
+                <span class="math inline"><mjx-container class="MathJax" jax="CHTML" style="font-size: 113.1%; position: relative;" data-tex="F"><mjx-math class=" MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D439 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>F</mi></math></mjx-assistive-mml></mjx-container></span>, the mean and
+                variance of a quadratic form and the independence of
+                orthogonal projections from <a href="../ch04-quadratic-forms/index.html">Chapter 4</a>
+                (<a href="../ch04-quadratic-forms/01-noncentral.html#def-qf-noncentral-f" class="xref" data-ref="def-qf-noncentral-f" data-shard="ch04-quadratic-forms">Definition 4.1.2</a>,
+                <a href="../ch04-quadratic-forms/02-moments.html#thm-qf-mean-var" class="xref" data-ref="thm-qf-mean-var" data-shard="ch04-quadratic-forms">Theorem 4.2.3</a>, <a href="../ch04-quadratic-forms/04-independence.html#thm-qf-orthogonal-projections" class="xref" data-ref="thm-qf-orthogonal-projections" data-shard="ch04-quadratic-forms">Theorem 4.4.4</a>);
+                whitening, the covariance of a linear function and the
+                mean of a quadratic form from <a href="../ch02-random-vectors/index.html">Chapter 2</a>
+                (<a href="../ch02-random-vectors/02-linear.html#prp-rv-whitening" class="xref" data-ref="prp-rv-whitening" data-shard="ch02-random-vectors">Proposition 2.2.4</a>,
+                <a href="../ch02-random-vectors/02-linear.html#thm-rv-linear" class="xref" data-ref="thm-rv-linear" data-shard="ch02-random-vectors">Theorem 2.2.1</a>, <a href="../ch02-random-vectors/03-quadratic.html#thm-rv-quadform-mean" class="xref" data-ref="thm-rv-quadform-mean" data-shard="ch02-random-vectors">Theorem 2.3.1</a>); the
+                Woodbury identity and a matrix square root from <a href="../ch01-matrix-algebra/index.html">Chapter 1</a>
+                (<a href="../ch01-matrix-algebra/06-partitioned.html#thm-mat-woodbury" class="xref" data-ref="thm-mat-woodbury" data-shard="ch01-matrix-algebra">Theorem 1.6.5</a>, <a href="../ch01-matrix-algebra/07-eigen.html#thm-mat-square-root" class="xref" data-ref="thm-mat-square-root" data-shard="ch01-matrix-algebra">Theorem 1.7.6</a>);
+                Aitken’s corollary from <a href="../ch07-optimality/index.html">Chapter 7</a> (<a href="../ch07-optimality/02-gauss-markov.html#cor-opt-aitken" class="xref" data-ref="cor-opt-aitken" data-shard="ch07-optimality">Corollary 7.2.3</a>); and,
+                in <a href="03-repeated-measures.html">Section 33.3</a>,
+                the centred Wishart lemma of <a href="../ch14-correlation-lack-of-fit-prediction/index.html">Chapter
+                14</a> (<a href="../ch14-correlation-lack-of-fit-prediction/02-best-linear-prediction.html#lem-cor-centred-wishart" class="xref" data-ref="lem-cor-centred-wishart" data-shard="ch14-correlation-lack-of-fit-prediction">Lemma 14.2.3</a>).</p>
                 <h2 id="roadmap">Roadmap</h2>
                 <ul>
                 <li><a href="01-split-plot.html">Split-plot

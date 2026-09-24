@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Econometrics – Regression: From Projection to
+    <title>Theory of the linear model – Regression: From Projection to
 Distribution</title>
 
     <meta name="asset-prefix" content="./">
-    <meta name="page-path" content="path-econometrics.html">
+    <meta name="page-path" content="path-linear-model-theory.html">
 
     <meta name="color-scheme" content="light dark">
     <!-- Theme and pane state before first paint (saved choice, else the system setting) -->
@@ -29,7 +29,7 @@ Distribution</title>
             <meta property="og:type" content="article">
     <meta property="og:site_name" content="Regression: From Projection
 to Distribution">
-    <meta property="og:title" content="Econometrics">
+    <meta property="og:title" content="Theory of the linear model">
         <link rel="icon" href="./favicon.svg" type="image/svg+xml">
 
     <!-- Fonts: STIX Two Text (matches MathJax's math font), served with the site -->
@@ -123,13 +123,14 @@ From Projection to Distribution</a>
                                         <nav class="quarto-title-breadcrumbs" aria-label="Breadcrumb">
                         <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="./index.html">Regression: From Projection to Distribution</a></li>
-                        <li class="breadcrumb-item"><a href="./path-econometrics.html"><span class="chapter-title">Econometrics</span></a></li>
+                        <li class="breadcrumb-item"><a href="./path-linear-model-theory.html"><span class="chapter-title">Theory of the linear model</span></a></li>
                         </ol>
                     </nav>
                                         <div class="quarto-title">
                         <h1 class="title">
                             
-                            <span class="chapter-title">Econometrics</span>
+                            <span class="chapter-title">Theory of the
+linear model</span>
                         </h1>
                     </div>
                 </header>
@@ -137,44 +138,40 @@ From Projection to Distribution</a>
                 <div id="page-title">
 
                 </div>
-                <p class="paths-lede">Partialling out a coefficient, inference that survives the wrong covariance matrix, endogenous regressors and instruments, and generalized least squares.</p>
-                <p class="path-targets">It aims at <a href="ch06-projections/06-fwl.html">6.6 The Frisch–Waugh–Lovell theorem</a>, <a href="ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html">21.4 Heteroscedasticity-consistent covariance estimators</a>, <a href="ch24-errors-in-variables/04-instrumental-variables.html">24.4 Instrumental variables</a>, <a href="ch31-general-gauss-markov/01-generalized-least-squares.html">31.1 Generalized least squares</a>.</p>
-                <div class="path-counts"><p><strong class="path-figure">54</strong> sections to read, of 260. That is everything the proofs of those sections rest on, and nothing else.</p><p><strong class="path-figure">66</strong> if you also work the exercises, since a written solution is the proof of its exercise: <strong>12 more</strong> sections.</p></div>
+                <p class="paths-lede">The structural account and nothing else: least squares as a projection, the Gauss–Markov and minimum-variance theorems, which functions are estimable, the general linear hypothesis, and what survives when the covariance matrix is neither scalar nor of full rank.</p>
+                <p class="path-targets">It aims at <a href="ch06-projections/04-least-squares.html">6.4 Least squares via projection</a>, <a href="ch07-optimality/02-gauss-markov.html">7.2 The Gauss–Markov theorem</a>, <a href="ch07-optimality/04-minimum-variance.html">7.4 Sufficiency, completeness and minimum variance</a>, <a href="ch08-estimability/03-characterizations.html">8.3 Characterizations of estimability</a>, <a href="ch09-sums-of-squares/02-extra-sums.html">9.2 Extra sums of squares</a>, <a href="ch11-general-linear-hypothesis/03-testable-hypotheses.html">11.3 Testable hypotheses</a>, <a href="ch11-general-linear-hypothesis/04-likelihood-ratio.html">11.4 The likelihood ratio test and its relatives</a>, <a href="ch31-general-gauss-markov/02-ols-blue.html">31.2 When ordinary least squares is best</a>, <a href="ch31-general-gauss-markov/03-singular-covariance.html">31.3 Singular covariance matrices</a>.</p>
+                <div class="path-counts"><p><strong class="path-figure">48</strong> sections to read, of 260. That is everything the proofs of those sections rest on, and nothing else.</p><p><strong class="path-figure">52</strong> if you also work the exercises, since a written solution is the proof of its exercise: <strong>4 more</strong> sections.</p></div>
                 <h2 id="what-to-read">What to read</h2>
                 <p class="path-key">In reading order. <strong>Bold</strong> marks a section the path is aimed at; <span class="path-extra-mark">+</span> marks one that only the exercises need. The note beside a section says when the whole path hangs on a single proof citing it.</p>
                 <section class="path-chapter">
-                <h3 id="path-ch01-matrix-algebra">Matrix Algebra for Linear Models<span class="path-chapter-count">10 of 11</span></h3>
+                <h3 id="path-ch01-matrix-algebra">Matrix Algebra for Linear Models<span class="path-chapter-count">9 of 11</span></h3>
                 <ul class="path-list">
                 <li class="path-section"><a href="ch01-matrix-algebra/01-basics.html"><span class="path-number">1.1</span> Vectors, matrices and the operations we use</a></li>
                 <li class="path-section"><a href="ch01-matrix-algebra/02-rank.html"><span class="path-number">1.2</span> Rank, column space and null space</a></li>
                 <li class="path-section"><a href="ch01-matrix-algebra/03-inverses.html"><span class="path-number">1.3</span> Inverses and generalized inverses</a></li>
-                <li class="path-section"><a href="ch01-matrix-algebra/04-systems.html"><span class="path-number">1.4</span> Systems of equations and consistency</a><span class="path-weak" title="thm-rv-partitioned (proof) cites thm-mat-consistency">1 proof</span></li>
-                <li class="path-section"><a href="ch01-matrix-algebra/05-orthogonality.html"><span class="path-number">1.5</span> Orthogonality and orthogonal matrices</a><span class="path-weak" title="thm-mat-spectral (proof) cites prp-mat-orthogonal; prp-mat-quadratic-min (proof) cites prp-mat-complement">2 proofs</span></li>
+                <li class="path-section"><a href="ch01-matrix-algebra/04-systems.html"><span class="path-number">1.4</span> Systems of equations and consistency</a><span class="path-weak" title="thm-rv-partitioned (proof) cites thm-mat-consistency; thm-ggm-singular (proof) cites thm-mat-consistency">2 proofs</span></li>
+                <li class="path-section"><a href="ch01-matrix-algebra/05-orthogonality.html"><span class="path-number">1.5</span> Orthogonality and orthogonal matrices</a></li>
                 <li class="path-section"><a href="ch01-matrix-algebra/06-partitioned.html"><span class="path-number">1.6</span> Trace, determinants and partitioned matrices</a></li>
                 <li class="path-section"><a href="ch01-matrix-algebra/07-eigen.html"><span class="path-number">1.7</span> Eigenvalues, the spectral theorem and positive definiteness</a></li>
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch01-matrix-algebra/08-svd.html"><span class="path-number">1.8</span> The singular value decomposition and conditioning</a></li>
                 <li class="path-section"><a href="ch01-matrix-algebra/09-idempotent.html"><span class="path-number">1.9</span> Idempotent matrices</a><span class="path-weak" title="thm-qf-chisq-identity (proof) cites thm-mat-idempotent; cor-opt-quadratic (proof) cites prp-mat-idempotent-basic">2 proofs</span></li>
                 <li class="path-section"><a href="ch01-matrix-algebra/11-calculus.html"><span class="path-number">1.11</span> Vector and matrix calculus</a></li>
                 </ul></section>
                 <section class="path-chapter">
-                <h3 id="path-ch02-random-vectors">Random Vectors: Expectation and Covariance Operators<span class="path-chapter-count">7 of 7</span></h3>
+                <h3 id="path-ch02-random-vectors">Random Vectors: Expectation and Covariance Operators<span class="path-chapter-count">5 of 7</span></h3>
                 <ul class="path-list">
                 <li class="path-section"><a href="ch02-random-vectors/01-mean-cov.html"><span class="path-number">2.1</span> Mean vectors and covariance matrices</a></li>
                 <li class="path-section"><a href="ch02-random-vectors/02-linear.html"><span class="path-number">2.2</span> Linear and affine transformations</a></li>
                 <li class="path-section"><a href="ch02-random-vectors/03-quadratic.html"><span class="path-number">2.3</span> Expectation of quadratic forms</a></li>
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch02-random-vectors/04-correlation.html"><span class="path-number">2.4</span> Correlation matrices</a></li>
-                <li class="path-section"><a href="ch02-random-vectors/05-partitioned.html"><span class="path-number">2.5</span> Moments of partitioned random vectors</a></li>
+                <li class="path-section"><a href="ch02-random-vectors/05-partitioned.html"><span class="path-number">2.5</span> Moments of partitioned random vectors</a><span class="path-weak" title="cor-lm-random-regressors (proof) cites prp-rv-total-covariance; thm-opt-rao-blackwell (proof) cites prp-rv-total-covariance">2 proofs</span></li>
                 <li class="path-section"><a href="ch02-random-vectors/06-mgf.html"><span class="path-number">2.6</span> Moment generating functions and independence</a><span class="path-weak" title="lem-mvn-univariate (proof) cites thm-rv-mgf">1 proof</span></li>
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch02-random-vectors/07-sample.html"><span class="path-number">2.7</span> Sample moments and their computation</a></li>
                 </ul></section>
                 <section class="path-chapter">
-                <h3 id="path-ch03-multivariate-normal">The Multivariate Normal Distribution<span class="path-chapter-count">5 of 6</span></h3>
+                <h3 id="path-ch03-multivariate-normal">The Multivariate Normal Distribution<span class="path-chapter-count">4 of 6</span></h3>
                 <ul class="path-list">
                 <li class="path-section"><a href="ch03-multivariate-normal/01-definition.html"><span class="path-number">3.1</span> Definition through linear combinations</a></li>
                 <li class="path-section"><a href="ch03-multivariate-normal/02-mgf-density.html"><span class="path-number">3.2</span> Moment generating function and density</a></li>
                 <li class="path-section"><a href="ch03-multivariate-normal/03-linear.html"><span class="path-number">3.3</span> Linear transformations and marginals</a></li>
                 <li class="path-section"><a href="ch03-multivariate-normal/04-independence.html"><span class="path-number">3.4</span> Independence and zero covariance</a></li>
-                <li class="path-section"><a href="ch03-multivariate-normal/05-conditional.html"><span class="path-number">3.5</span> Conditional distributions</a><span class="path-weak" title="prp-eiv-weak (proof) cites thm-mvn-conditional">1 proof</span></li>
                 </ul></section>
                 <section class="path-chapter">
                 <h3 id="path-ch04-quadratic-forms">Quadratic Forms and Their Distributions<span class="path-chapter-count">4 of 5</span></h3>
@@ -189,97 +186,71 @@ From Projection to Distribution</a>
                 <ul class="path-list">
                 <li class="path-section"><a href="ch05-model-and-least-squares/04-least-squares.html"><span class="path-number">5.4</span> Least squares and the normal equations</a></li>
                 <li class="path-section"><a href="ch05-model-and-least-squares/05-properties.html"><span class="path-number">5.5</span> Properties of the estimator under second-moment assumptions</a></li>
-                <li class="path-section"><a href="ch05-model-and-least-squares/06-error-variance.html"><span class="path-number">5.6</span> Estimating the error variance</a></li>
+                <li class="path-section"><a href="ch05-model-and-least-squares/06-error-variance.html"><span class="path-number">5.6</span> Estimating the error variance</a><span class="path-weak" title="prp-opt-var-sse (proof) cites prp-lm-var-s2">1 proof</span></li>
                 </ul></section>
                 <section class="path-chapter">
-                <h3 id="path-ch06-projections">Projections: The Geometry of Least Squares<span class="path-chapter-count">7 of 11</span></h3>
+                <h3 id="path-ch06-projections">Projections: The Geometry of Least Squares<span class="path-chapter-count">8 of 11</span></h3>
                 <ul class="path-list">
                 <li class="path-section"><a href="ch06-projections/02-subspaces.html"><span class="path-number">6.2</span> The subspaces we need</a></li>
                 <li class="path-section"><a href="ch06-projections/03-orthogonal-projection.html"><span class="path-number">6.3</span> Orthogonal projection</a></li>
-                <li class="path-section"><a href="ch06-projections/04-least-squares.html"><span class="path-number">6.4</span> Least squares via projection</a></li>
+                <li class="path-section is-target"><a href="ch06-projections/04-least-squares.html"><span class="path-number">6.4</span> Least squares via projection</a></li>
                 <li class="path-section"><a href="ch06-projections/05-nested.html"><span class="path-number">6.5</span> Nested models and sequential projection</a></li>
-                <li class="path-section is-target"><a href="ch06-projections/06-fwl.html"><span class="path-number">6.6</span> The Frisch–Waugh–Lovell theorem</a></li>
+                <li class="path-section"><a href="ch06-projections/06-fwl.html"><span class="path-number">6.6</span> The Frisch–Waugh–Lovell theorem</a></li>
                 <li class="path-section"><a href="ch06-projections/08-leverage.html"><span class="path-number">6.8</span> Leverage as geometry</a><span class="path-weak" title="cor-opt-gm-consequences (proof) cites def-proj-leverage">1 proof</span></li>
-                <li class="path-section"><a href="ch06-projections/10-computation.html"><span class="path-number">6.10</span> Computation</a><span class="path-weak" title="prp-cmp-qr-quantities (proof) cites eq-proj-qr-ls">1 proof</span></li>
+                <li class="path-section"><a href="ch06-projections/09-inner-products.html"><span class="path-number">6.9</span> Other inner products</a><span class="path-weak" title="thm-ggm-ols-blue (proof) cites thm-proj-kruskal">1 proof</span></li>
+                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch06-projections/10-computation.html"><span class="path-number">6.10</span> Computation</a></li>
                 </ul></section>
                 <section class="path-chapter">
-                <h3 id="path-ch07-optimality">Optimality: Gauss–Markov, Maximum Likelihood and Minimum Variance<span class="path-chapter-count">4 of 6</span></h3>
+                <h3 id="path-ch07-optimality">Optimality: Gauss–Markov, Maximum Likelihood and Minimum Variance<span class="path-chapter-count">5 of 6</span></h3>
                 <ul class="path-list">
                 <li class="path-section"><a href="ch07-optimality/01-linear-unbiased.html"><span class="path-number">7.1</span> Linear unbiased estimation</a></li>
-                <li class="path-section"><a href="ch07-optimality/02-gauss-markov.html"><span class="path-number">7.2</span> The Gauss–Markov theorem</a></li>
-                <li class="path-section"><a href="ch07-optimality/03-maximum-likelihood.html"><span class="path-number">7.3</span> Maximum likelihood under normality</a><span class="path-weak" title="thm-ggm-inference (proof) cites eq-opt-normal-model">1 proof</span></li>
-                <li class="path-section"><a href="ch07-optimality/05-sampling-distributions.html"><span class="path-number">7.5</span> Sampling distributions of the estimates</a></li>
+                <li class="path-section is-target"><a href="ch07-optimality/02-gauss-markov.html"><span class="path-number">7.2</span> The Gauss–Markov theorem</a></li>
+                <li class="path-section"><a href="ch07-optimality/03-maximum-likelihood.html"><span class="path-number">7.3</span> Maximum likelihood under normality</a><span class="path-weak" title="thm-glh-lrt (proof) cites thm-opt-mle">1 proof</span></li>
+                <li class="path-section is-target"><a href="ch07-optimality/04-minimum-variance.html"><span class="path-number">7.4</span> Sufficiency, completeness and minimum variance</a></li>
+                <li class="path-section"><a href="ch07-optimality/05-sampling-distributions.html"><span class="path-number">7.5</span> Sampling distributions of the estimates</a><span class="path-weak" title="thm-ggm-singular (proof) cites thm-opt-sampling">1 proof</span></li>
                 </ul></section>
                 <section class="path-chapter">
                 <h3 id="path-ch08-estimability">Estimability, Identifiability and Indicator Variables<span class="path-chapter-count">4 of 7</span></h3>
                 <ul class="path-list">
                 <li class="path-section"><a href="ch08-estimability/01-identifiability.html"><span class="path-number">8.1</span> Identifiability</a><span class="path-weak" title="thm-est-estimable-identifiable (proof) cites prp-est-linear-identifiable">1 proof</span></li>
                 <li class="path-section"><a href="ch08-estimability/02-estimable-functions.html"><span class="path-number">8.2</span> Estimable functions</a><span class="path-weak" title="thm-est-characterization (proof) cites thm-est-estimable-identifiable">1 proof</span></li>
-                <li class="path-section"><a href="ch08-estimability/03-characterizations.html"><span class="path-number">8.3</span> Characterizations of estimability</a><span class="path-weak" title="prp-ci-nonestimable (proof) cites thm-est-characterization">1 proof</span></li>
+                <li class="path-section is-target"><a href="ch08-estimability/03-characterizations.html"><span class="path-number">8.3</span> Characterizations of estimability</a></li>
                 <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch08-estimability/04-side-conditions.html"><span class="path-number">8.4</span> Reparameterization and side conditions</a></li>
                 </ul></section>
                 <section class="path-chapter">
-                <h3 id="path-ch09-sums-of-squares">Sums of Squares and Orthogonal Decomposition<span class="path-chapter-count">2 of 6</span></h3>
+                <h3 id="path-ch09-sums-of-squares">Sums of Squares and Orthogonal Decomposition<span class="path-chapter-count">1 of 6</span></h3>
                 <ul class="path-list">
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch09-sums-of-squares/02-extra-sums.html"><span class="path-number">9.2</span> Extra sums of squares</a></li>
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch09-sums-of-squares/03-sequential-partial.html"><span class="path-number">9.3</span> Sequential and partial sums of squares</a></li>
-                </ul></section>
-                <section class="path-chapter">
-                <h3 id="path-ch10-computation">Computation: QR, SVD and Conditioning<span class="path-chapter-count">3 of 7</span></h3>
-                <ul class="path-list">
-                <li class="path-section"><a href="ch10-computation/02-cholesky.html"><span class="path-number">10.2</span> The Cholesky factorization</a><span class="path-weak" title="thm-cmp-givens (proof/theorem) cites prp-cmp-augmented; thm-cmp-householder (proof) cites thm-cmp-cholesky">2 proofs</span></li>
-                <li class="path-section"><a href="ch10-computation/03-householder-givens.html"><span class="path-number">10.3</span> Householder and Givens QR</a><span class="path-weak" title="prp-cmp-add-column (proof) cites prp-cmp-qr-quantities; thm-cmp-updating (proof) cites thm-cmp-givens">2 proofs</span></li>
-                <li class="path-section"><a href="ch10-computation/06-updating.html"><span class="path-number">10.6</span> Updating and downdating</a><span class="path-weak" title="prp-het-hc-facts (proof) cites prp-cmp-loo">1 proof</span></li>
+                <li class="path-section is-target"><a href="ch09-sums-of-squares/02-extra-sums.html"><span class="path-number">9.2</span> Extra sums of squares</a></li>
                 </ul></section>
                 <section class="path-chapter">
                 <h3 id="path-ch11-general-linear-hypothesis">Testing Models: The General Linear Hypothesis<span class="path-chapter-count">4 of 6</span></h3>
                 <ul class="path-list">
                 <li class="path-section"><a href="ch11-general-linear-hypothesis/01-reduced-models.html"><span class="path-number">11.1</span> Testing reduced models</a></li>
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch11-general-linear-hypothesis/02-comparing-projections.html"><span class="path-number">11.2</span> The F statistic as a comparison of projections</a></li>
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch11-general-linear-hypothesis/03-testable-hypotheses.html"><span class="path-number">11.3</span> Testable hypotheses</a></li>
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch11-general-linear-hypothesis/04-likelihood-ratio.html"><span class="path-number">11.4</span> The likelihood ratio test and its relatives</a></li>
+                <li class="path-section"><a href="ch11-general-linear-hypothesis/02-comparing-projections.html"><span class="path-number">11.2</span> The F statistic as a comparison of projections</a><span class="path-weak" title="thm-glh-ump-invariant (proof) cites prp-glh-canonical; thm-glh-ump-invariant (proof) cites prp-glh-invariance">2 proofs</span></li>
+                <li class="path-section is-target"><a href="ch11-general-linear-hypothesis/03-testable-hypotheses.html"><span class="path-number">11.3</span> Testable hypotheses</a></li>
+                <li class="path-section is-target"><a href="ch11-general-linear-hypothesis/04-likelihood-ratio.html"><span class="path-number">11.4</span> The likelihood ratio test and its relatives</a></li>
                 </ul></section>
                 <section class="path-chapter">
-                <h3 id="path-ch12-intervals-and-bands">Confidence Intervals, Regions and Prediction Bands<span class="path-chapter-count">4 of 6</span></h3>
+                <h3 id="path-ch12-intervals-and-bands">Confidence Intervals, Regions and Prediction Bands<span class="path-chapter-count">1 of 6</span></h3>
                 <ul class="path-list">
-                <li class="path-section"><a href="ch12-intervals-and-bands/01-estimable-intervals.html"><span class="path-number">12.1</span> Intervals for estimable functions</a></li>
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch12-intervals-and-bands/02-ellipsoids.html"><span class="path-number">12.2</span> Confidence ellipsoids</a></li>
-                <li class="path-section"><a href="ch12-intervals-and-bands/03-prediction.html"><span class="path-number">12.3</span> Prediction intervals</a><span class="path-weak" title="thm-ci-calibration (proof/theorem) cites thm-ci-prediction-interval">1 proof</span></li>
-                <li class="path-section"><a href="ch12-intervals-and-bands/05-calibration.html"><span class="path-number">12.5</span> Inverse prediction and calibration</a><span class="path-weak" title="prp-eiv-weak (proof) cites prp-ci-ratio-no-mean">1 proof</span></li>
+                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch12-intervals-and-bands/01-estimable-intervals.html"><span class="path-number">12.1</span> Intervals for estimable functions</a></li>
                 </ul></section>
                 <section class="path-chapter">
-                <h3 id="path-ch19-theory-of-departures">What Goes Wrong: A Theory of Departures<span class="path-chapter-count">2 of 6</span></h3>
+                <h3 id="path-ch19-theory-of-departures">What Goes Wrong: A Theory of Departures<span class="path-chapter-count">1 of 6</span></h3>
                 <ul class="path-list">
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch19-theory-of-departures/02-wrong-covariance.html"><span class="path-number">19.2</span> An incorrect covariance matrix</a></li>
-                <li class="path-section"><a href="ch19-theory-of-departures/03-non-normal-errors.html"><span class="path-number">19.3</span> Nonnormal errors</a><span class="path-weak" title="lem-het-clt (proof) cites lem-dep-weighted-clt">1 proof</span></li>
+                <li class="path-section"><a href="ch19-theory-of-departures/02-wrong-covariance.html"><span class="path-number">19.2</span> An incorrect covariance matrix</a><span class="path-weak" title="prp-ggm-ols-loss (idea/proof) cites thm-dep-efficiency">1 proof</span></li>
                 </ul></section>
                 <section class="path-chapter">
-                <h3 id="path-ch20-residuals-leverage-influence">Residuals, Leverage and Influence<span class="path-chapter-count">1 of 6</span></h3>
+                <h3 id="path-ch31-general-gauss-markov">The General Gauss–Markov Model<span class="path-chapter-count">3 of 4</span></h3>
                 <ul class="path-list">
-                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch20-residuals-leverage-influence/01-kinds-of-residuals.html"><span class="path-number">20.1</span> Kinds of residuals</a></li>
-                </ul></section>
-                <section class="path-chapter">
-                <h3 id="path-ch21-nonnormality-heteroscedasticity-serial">Non-Normality, Heteroscedasticity and Serial Correlation<span class="path-chapter-count">3 of 6</span></h3>
-                <ul class="path-list">
-                <li class="path-section"><a href="ch21-nonnormality-heteroscedasticity-serial/01-checking-normality.html"><span class="path-number">21.1</span> Checking normality</a><span class="path-weak" title="thm-het-breusch-pagan (proof) cites prp-het-normal-check">1 proof</span></li>
-                <li class="path-section"><a href="ch21-nonnormality-heteroscedasticity-serial/02-detecting-heteroscedasticity.html"><span class="path-number">21.2</span> Detecting heteroscedasticity</a><span class="path-weak" title="prp-het-hc-facts (proof) cites eq-het-residual-second-moment; thm-het-sandwich (proof) cites lem-het-clt">2 proofs</span></li>
-                <li class="path-section is-target"><a href="ch21-nonnormality-heteroscedasticity-serial/04-sandwich-estimators.html"><span class="path-number">21.4</span> Heteroscedasticity-consistent covariance estimators</a></li>
-                </ul></section>
-                <section class="path-chapter">
-                <h3 id="path-ch24-errors-in-variables">Errors in Variables<span class="path-chapter-count">2 of 5</span></h3>
-                <ul class="path-list">
-                <li class="path-section"><a href="ch24-errors-in-variables/03-moment-correction.html"><span class="path-number">24.3</span> Reliability and moment correction</a><span class="path-weak" title="thm-eiv-iv (proof) cites thm-eiv-correction">1 proof</span></li>
-                <li class="path-section is-target"><a href="ch24-errors-in-variables/04-instrumental-variables.html"><span class="path-number">24.4</span> Instrumental variables</a></li>
-                </ul></section>
-                <section class="path-chapter">
-                <h3 id="path-ch31-general-gauss-markov">The General Gauss–Markov Model<span class="path-chapter-count">1 of 4</span></h3>
-                <ul class="path-list">
-                <li class="path-section is-target"><a href="ch31-general-gauss-markov/01-generalized-least-squares.html"><span class="path-number">31.1</span> Generalized least squares</a></li>
+                <li class="path-section is-extra"><span class="path-extra-mark" title="needed only if you work the exercises">+</span><a href="ch31-general-gauss-markov/01-generalized-least-squares.html"><span class="path-number">31.1</span> Generalized least squares</a></li>
+                <li class="path-section is-target"><a href="ch31-general-gauss-markov/02-ols-blue.html"><span class="path-number">31.2</span> When ordinary least squares is best</a></li>
+                <li class="path-section is-target"><a href="ch31-general-gauss-markov/03-singular-covariance.html"><span class="path-number">31.3</span> Singular covariance matrices</a></li>
                 </ul></section>
                 <h2 id="what-to-skip">What you can skip</h2>
-                <p>206 of the book's 260 sections are not on this path, and skipping them costs you no proof you need.</p>
-                <p>Not needed at all: <a href="ch13-multiplicity/index.html">Multiplicity: Scheffé, Tukey, Bonferroni and the False Discovery Rate</a>, <a href="ch14-correlation-lack-of-fit-prediction/index.html">Correlation, Lack of Fit and Prediction Theory</a>, <a href="ch15-anova-subspaces/index.html">Analysis of Variance as Subspace Comparison</a>, <a href="ch16-multiway-layouts/index.html">Multi-Way Layouts and Interaction</a>, <a href="ch17-unbalanced-data/index.html">Unbalanced Data, Cell Means and Empty Cells</a>, <a href="ch18-covariance-and-design/index.html">Analysis of Covariance and Designed Experiments</a>, <a href="ch22-transformations/index.html">Transformations</a>, <a href="ch23-resampling-inference/index.html">Bootstrap and Permutation Inference</a>, <a href="ch25-causal-interpretation/index.html">Causal Interpretation of Coefficients</a>, <a href="ch26-collinearity/index.html">Collinearity: Diagnosis and Consequences</a>, <a href="ch27-shrinkage/index.html">Shrinkage: Ridge, Principal Components and the Lasso</a>, <a href="ch28-high-dimensional/index.html">High-Dimensional Regression: p &gt; n</a>, <a href="ch29-model-selection/index.html">Model Selection and Prediction</a>, <a href="ch30-regularization-boosting/index.html">Regularization and Boosting</a>, <a href="ch32-linear-mixed-models/index.html">Random Effects and Linear Mixed Models</a>, <a href="ch33-clustered-longitudinal-splitplot/index.html">Clustered, Longitudinal and Split-Plot Data</a>, <a href="ch34-exponential-families-glm/index.html">Exponential Families and the Generalized Linear Model</a>, <a href="ch35-binary-responses/index.html">Binary Responses</a>, <a href="ch36-multinomial-ordinal/index.html">Multinomial and Ordinal Responses</a>, <a href="ch37-counts/index.html">Counts</a>, <a href="ch38-quasi-likelihood/index.html">Quasi-Likelihood and Overdispersion</a>, <a href="ch39-glms-in-practice-bayes/index.html">GLMs in Practice; the Bayesian Thread</a>, <a href="ch40-glmm-gee/index.html">GLMMs and Generalized Estimating Equations</a>, <a href="ch41-missing-data/index.html">Missing Data</a>, <a href="ch42-polynomials-piecewise/index.html">Polynomials, Piecewise Fits and the Road to Splines</a>, <a href="ch43-smoothing/index.html">Smoothing: Kernels, Splines and Penalties</a>, <a href="ch44-additive-models/index.html">Additive, Geoadditive and Structured Additive Models</a>, <a href="ch45-quantile-gamlss/index.html">Quantile Regression and GAMLSS</a>.</p>
-                <p class="path-context">Cited in passing by sections on the path &#8212; in a statement, a remark or an example, never in a proof &#8212; so they are context and not prerequisites: <a href="ch01-matrix-algebra/10-kronecker.html">1.10 Kronecker products and the vec operator</a>, <a href="ch05-model-and-least-squares/02-simple-regression.html">5.2 Simple linear regression as a warm-up</a>, <a href="ch05-model-and-least-squares/03-multiple-regression-model.html">5.3 The multiple linear regression model</a>, <a href="ch06-projections/01-nearest-point.html">6.1 Least squares as a nearest-point problem</a>, <a href="ch06-projections/09-inner-products.html">6.9 Other inner products</a>, <a href="ch06-projections/11-population.html">6.11 Projection in the population: best linear prediction</a>, <a href="ch07-optimality/04-minimum-variance.html">7.4 Sufficiency, completeness and minimum variance</a>, <a href="ch11-general-linear-hypothesis/06-coefficients.html">11.6 Testing single coefficients and groups of coefficients</a>, <a href="ch19-theory-of-departures/01-underfitting-overfitting.html">19.1 Omitting and adding regressors</a>, <a href="ch20-residuals-leverage-influence/03-deletion.html">20.3 Deletion diagnostics</a>, and 5 more.</p>
+                <p>212 of the book's 260 sections are not on this path, and skipping them costs you no proof you need.</p>
+                <p>Not needed at all: <a href="ch10-computation/index.html">Computation: QR, SVD and Conditioning</a>, <a href="ch13-multiplicity/index.html">Multiplicity: Scheffé, Tukey, Bonferroni and the False Discovery Rate</a>, <a href="ch14-correlation-lack-of-fit-prediction/index.html">Correlation, Lack of Fit and Prediction Theory</a>, <a href="ch15-anova-subspaces/index.html">Analysis of Variance as Subspace Comparison</a>, <a href="ch16-multiway-layouts/index.html">Multi-Way Layouts and Interaction</a>, <a href="ch17-unbalanced-data/index.html">Unbalanced Data, Cell Means and Empty Cells</a>, <a href="ch18-covariance-and-design/index.html">Analysis of Covariance and Designed Experiments</a>, <a href="ch20-residuals-leverage-influence/index.html">Residuals, Leverage and Influence</a>, <a href="ch21-nonnormality-heteroscedasticity-serial/index.html">Non-Normality, Heteroscedasticity and Serial Correlation</a>, <a href="ch22-transformations/index.html">Transformations</a>, <a href="ch23-resampling-inference/index.html">Bootstrap and Permutation Inference</a>, <a href="ch24-errors-in-variables/index.html">Errors in Variables</a>, <a href="ch25-causal-interpretation/index.html">Causal Interpretation of Coefficients</a>, <a href="ch26-collinearity/index.html">Collinearity: Diagnosis and Consequences</a>, <a href="ch27-shrinkage/index.html">Shrinkage: Ridge, Principal Components and the Lasso</a>, <a href="ch28-high-dimensional/index.html">High-Dimensional Regression: p &gt; n</a>, <a href="ch29-model-selection/index.html">Model Selection and Prediction</a>, <a href="ch30-regularization-boosting/index.html">Regularization and Boosting</a>, <a href="ch32-linear-mixed-models/index.html">Random Effects and Linear Mixed Models</a>, <a href="ch33-clustered-longitudinal-splitplot/index.html">Clustered, Longitudinal and Split-Plot Data</a>, <a href="ch34-exponential-families-glm/index.html">Exponential Families and the Generalized Linear Model</a>, <a href="ch35-binary-responses/index.html">Binary Responses</a>, <a href="ch36-multinomial-ordinal/index.html">Multinomial and Ordinal Responses</a>, <a href="ch37-counts/index.html">Counts</a>, <a href="ch38-quasi-likelihood/index.html">Quasi-Likelihood and Overdispersion</a>, <a href="ch39-glms-in-practice-bayes/index.html">GLMs in Practice; the Bayesian Thread</a>, <a href="ch40-glmm-gee/index.html">GLMMs and Generalized Estimating Equations</a>, <a href="ch41-missing-data/index.html">Missing Data</a>, <a href="ch42-polynomials-piecewise/index.html">Polynomials, Piecewise Fits and the Road to Splines</a>, <a href="ch43-smoothing/index.html">Smoothing: Kernels, Splines and Penalties</a>, <a href="ch44-additive-models/index.html">Additive, Geoadditive and Structured Additive Models</a>, <a href="ch45-quantile-gamlss/index.html">Quantile Regression and GAMLSS</a>.</p>
+                <p class="path-context">Cited in passing by sections on the path &#8212; in a statement, a remark or an example, never in a proof &#8212; so they are context and not prerequisites: <a href="ch01-matrix-algebra/08-svd.html">1.8 The singular value decomposition and conditioning</a>, <a href="ch01-matrix-algebra/10-kronecker.html">1.10 Kronecker products and the vec operator</a>, <a href="ch05-model-and-least-squares/02-simple-regression.html">5.2 Simple linear regression as a warm-up</a>, <a href="ch05-model-and-least-squares/03-multiple-regression-model.html">5.3 The multiple linear regression model</a>, <a href="ch06-projections/01-nearest-point.html">6.1 Least squares as a nearest-point problem</a>, <a href="ch09-sums-of-squares/01-total-decomposition.html">9.1 Decomposing the total sum of squares</a>, <a href="ch09-sums-of-squares/05-r-squared.html">9.5 The coefficient of determination and its limits</a>, <a href="ch10-computation/02-cholesky.html">10.2 The Cholesky factorization</a>, <a href="ch10-computation/03-householder-givens.html">10.3 Householder and Givens QR</a>, <a href="ch11-general-linear-hypothesis/06-coefficients.html">11.6 Testing single coefficients and groups of coefficients</a>, and 5 more.</p>
                 <p class="paths-foot">Computed from the book's proofs when the book was built, and checked: every result a proof on this path uses is proved by another section on this path. The other paths are listed on the <a href="paths.html">reading paths</a> page.</p>
             </article>
 
@@ -292,8 +263,8 @@ From Projection to Distribution</a>
             </nav>
                         <p class="page-feedback">
                 Found a typo or a mistake?
-                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Econometrics&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fpath-econometrics.html%0ASource%3A%20https%3A%2F%2Fgithub.com%2FAkizumiFox%2Fregression%2Fblob%2Fmain%2F_build%2Ftmp%2Fgenerated%2Fpath-econometrics.md%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>,
-                or <a href="https://github.com/AkizumiFox/regression/blob/main/_build/tmp/generated/path-econometrics.md" target="_blank" rel="noopener">read this page&rsquo;s source</a>
+                <a href="https://github.com/AkizumiFox/regression/issues/new?title=Typo%20or%20mistake%20in%20Theory%20of%20the%20linear%20model&amp;body=Page%3A%20https%3A%2F%2Fregression.akizumifox.com%2Fpath-linear-model-theory.html%0ASource%3A%20https%3A%2F%2Fgithub.com%2FAkizumiFox%2Fregression%2Fblob%2Fmain%2F_build%2Ftmp%2Fgenerated%2Fpath-linear-model-theory.md%0A%0AWhat%20is%20wrong%20%28quote%20the%20sentence%20or%20formula%29%3A%0A%0A%0AWhat%20it%20should%20say%3A%0A" target="_blank" rel="noopener">Report it</a>,
+                or <a href="https://github.com/AkizumiFox/regression/blob/main/_build/tmp/generated/path-linear-model-theory.md" target="_blank" rel="noopener">read this page&rsquo;s source</a>
             </p>
                         <p class="page-license">
                 The text of this book is licensed under
@@ -311,7 +282,7 @@ BY-NC-SA 4.0</a>.
             <div class="other-formats">
                 <h3>Download</h3>
                 <ul>
-                    <li><a href="./pdf/path-econometrics.pdf" target="_blank">This section (PDF)</a></li>
+                    <li><a href="./pdf/path-linear-model-theory.pdf" target="_blank">This section (PDF)</a></li>
                     <li><a href="./book/book.pdf" target="_blank">Full book (PDF)</a></li>
                 </ul>
             </div>
