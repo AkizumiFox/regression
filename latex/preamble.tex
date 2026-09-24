@@ -114,3 +114,13 @@
 \makeatletter
 \AtBeginDocument{\bt@textsafe\H\mH}
 \makeatother
+
+% Let TeX stretch a line rather than run it into the margin. Measured on this book over
+% three full builds of the 2033-page PDF: 1em removes 54% of the body's overfull boxes
+% (274 -> 127) and the pages carrying one (215 -> 89), and changes no label number and no
+% page count. 3em reaches 72 but costs 64 underfull lines against 1em's 3 -- 49 of them in
+% the body, one infinitely bad -- and re-breaks fifteen headings, which reads worse than
+% the overrun it fixes. The three headings 1em does loosen (badness 1178-1728) are the
+% price: 10.1's "Why not invert the cross-product matrix", Chapter 21's title and 23.1's.
+% The Contents' own overfull boxes are a separate cause; see latex/chapter-style.sty.
+\emergencystretch=1em

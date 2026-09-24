@@ -11,7 +11,9 @@ models for the whole conditional distribution.
 | Build the HTML site | `./build.py html` |
 | Build the book PDF | `./build.py book` (writes `_build/pdf/book.pdf`) |
 | Everything | `./build.py all` (see `BUILD.md`) |
-| Validate references and numbering | `./build.py check` |
+| Validate references and numbering | `./build.py check` (also fails on a proof that rests on an optional result) |
+| What a reader needs in order to reach a section | `.venv/bin/python tools/reading_path.py --list-profiles`, then `--profile <slug>` |
+| No result cites one from a later section | `.venv/bin/python tools/check_forward_deps.py` (after `./build.py html`) |
 | Run the book's code, check its numbers and cells | `MPLBACKEND=Agg .venv/bin/python tools/check_numbers.py` |
 | Chapter order against the prerequisite DAG | `.venv/bin/python blueprint/check_order.py` |
 | Originality against the source books | `.venv/bin/python blueprint/originality.py 06` |
@@ -24,7 +26,22 @@ First time: `python3 -m venv .venv && .venv/bin/pip install -r code/requirements
 A toolbar at the top of each page folds the contents (left) and "On this page" (right) and
 switches light/dark. Press `/` to search, ← and → to turn pages. Solutions start folded. Code
 blocks are live Python cells: **Run** executes them in the browser (Pyodide). The sidebar links
-to a list of all results and a dependency graph.
+to a list of all results, a dependency graph, and the reading paths.
+
+## Reading paths
+
+Every citation in the book is attributed to the block that made it, so the build can tell a
+proof's dependency from a passing mention and answer, for any section, *what must I read first?*
+`config/config.json` declares seven reader profiles under `reading-paths` — econometrics,
+biostatistics and clinical trials, machine learning, experimental design, time-ordered and
+dependent errors, causal inference, nonparametric and distributional regression — each as a
+handful of target sections. Editing that array is the whole interface.
+
+The build writes `paths.html` and one page per profile: the sections needed, in reading order,
+what can be skipped, and where the path hangs on a single proof. Each comes in two lengths — the
+proofs alone, and the proofs plus the written solutions, since a solution is the proof of its
+exercise. **Every path is verified closed before it is written**, so an unclosed path fails the
+build rather than sending a reader into a gap.
 
 ## Layout
 
@@ -37,6 +54,10 @@ to a list of all results and a dependency graph.
   claims; `regbook` writes figures into `src/` and the quoted values to `code/_generated/`.
   `tools/numbers.json` records the values the text quotes; `tools/check_numbers.py` fails if a
   script fails, a quoted value changes, or a runnable cell no longer matches its script.
+- `tools/`: `check_numbers.py` (the book's own scripts and the numbers the text quotes),
+  `reading_path.py` (the section-level dependency graph and the reader profiles),
+  `check_optional.py` and `check_forward_deps.py` (the two citation gates), `_measure.html`
+  (the display- and inline-width harness).
 - `blueprint/`: the plan. `book.yaml` (all 45 chapters: sources, outlines, budgets), `dag.json`
   (the prerequisite graph of the six source books), `check_order.py`, `originality.py`,
   `coverage/chNN.md` (source topics mapped to where the book covers them), `make_blueprints.py`.

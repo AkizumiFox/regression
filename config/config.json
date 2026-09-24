@@ -68,6 +68,92 @@
       "check"
     ]
   },
+  "reading-paths": [
+    {
+      "slug": "econometrics",
+      "name": "Econometrics",
+      "description": "Partialling out a coefficient, inference that survives the wrong covariance matrix, endogenous regressors and instruments, and generalized least squares.",
+      "targets": [
+        "ch06-projections/06",
+        "ch21-nonnormality-heteroscedasticity-serial/04",
+        "ch24-errors-in-variables/04",
+        "ch31-general-gauss-markov/01"
+      ]
+    },
+    {
+      "slug": "biostatistics",
+      "name": "Biostatistics and clinical trials",
+      "description": "Logistic regression and retrospective sampling, covariate-adjusted treatment means, false discovery rate control, repeated measures, and multiple imputation.",
+      "targets": [
+        "ch13-multiplicity/05",
+        "ch18-covariance-and-design/02",
+        "ch33-clustered-longitudinal-splitplot/03",
+        "ch35-binary-responses/01",
+        "ch35-binary-responses/05",
+        "ch41-missing-data/05"
+      ]
+    },
+    {
+      "slug": "machine-learning",
+      "name": "Machine learning",
+      "description": "Ridge and the lasso with their optimality conditions, the lasso's prediction and estimation bounds when p exceeds n, cross-validation, and boosting read as regularization.",
+      "targets": [
+        "ch27-shrinkage/02",
+        "ch27-shrinkage/04",
+        "ch28-high-dimensional/03",
+        "ch29-model-selection/03",
+        "ch30-regularization-boosting/05"
+      ]
+    },
+    {
+      "slug": "experimental-design",
+      "name": "Experimental design",
+      "description": "Orthogonal contrasts and the balanced two-way layout, randomized blocks, Latin squares and balanced incomplete blocks, split plots and their two error strata, and Tukey's simultaneous intervals.",
+      "targets": [
+        "ch13-multiplicity/03",
+        "ch15-anova-subspaces/04",
+        "ch16-multiway-layouts/03",
+        "ch18-covariance-and-design/04",
+        "ch18-covariance-and-design/05",
+        "ch33-clustered-longitudinal-splitplot/01"
+      ]
+    },
+    {
+      "slug": "dependent-errors",
+      "name": "Time-ordered and dependent errors",
+      "description": "Detecting serial correlation, regression with autoregressive errors, generalized least squares for a known covariance shape, and the covariance models fitted to a subject's repeated observations.",
+      "targets": [
+        "ch21-nonnormality-heteroscedasticity-serial/05",
+        "ch21-nonnormality-heteroscedasticity-serial/06",
+        "ch31-general-gauss-markov/01",
+        "ch33-clustered-longitudinal-splitplot/04"
+      ]
+    },
+    {
+      "slug": "causal-inference",
+      "name": "Causal inference",
+      "description": "Potential outcomes behind a coefficient, back-door adjustment, what a bad control does to the estimate, regression adjustment in a randomized experiment, and instruments when the regressor is measured with error.",
+      "targets": [
+        "ch24-errors-in-variables/04",
+        "ch25-causal-interpretation/02",
+        "ch25-causal-interpretation/04",
+        "ch25-causal-interpretation/05",
+        "ch25-causal-interpretation/06"
+      ]
+    },
+    {
+      "slug": "nonparametric",
+      "name": "Nonparametric and distributional regression",
+      "description": "Regression splines, penalized and smoothing splines, generalized additive models, and quantile regression: the last part of the book, where the design matrix stops being given.",
+      "targets": [
+        "ch42-polynomials-piecewise/04",
+        "ch43-smoothing/03",
+        "ch43-smoothing/04",
+        "ch44-additive-models/06",
+        "ch45-quantile-gamlss/02"
+      ]
+    }
+  ],
   "chapters": [
     {
       "dir": "src/ch01-matrix-algebra",
